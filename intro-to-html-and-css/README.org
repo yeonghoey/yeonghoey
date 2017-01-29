@@ -1,0 +1,68 @@
+#+TITLE: Udacity: Intro to HTML and CSS
+
+* Table of Contents :TOC_2_gh:
+ - [[#html-css-and-boxes][HTML, CSS, and Boxes]]
+   - [[#interview-with-jacques][Interview with Jacques]]
+   - [[#quiz-styling-up][Quiz: Styling Up]]
+   - [[#quiz-using-semantic-tags][Quiz: Using Semantic Tags]]
+   - [[#quiz-the-box-revisited][Quiz: The Box Revisited]]
+   - [[#positioning-boxes][Positioning Boxes]]
+   - [[#code-test-refine][Code, Test, Refine]]
+   - [[#quiz-verifying-html-and-css][Quiz: Verifying HTML and CSS]]
+ - [[#css-frameworks-responsive-layouts][CSS Frameworks, Responsive Layouts]]
+
+* HTML, CSS, and Boxes
+** Interview with Jacques
+[[file:img/screenshot_2017-01-27_07-50-12.png]]
+
+(Udacity the lead front-end developer)
+
+#+BEGIN_QUOTE
+So I start out sort of understanding and cutting up the boxes that I'm going to use.
+And that starts with the big box that is your whole page.
+And from there I sort of split it up piece by piece and we work from big to small.
+#+END_QUOTE
+
+** Quiz: Styling Up
+- https://css-tricks.com/how-css-selectors-work/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference 
+
+[[file:img/screenshot_2017-01-27_08-05-31.png]] 
+
+** Quiz: Using Semantic Tags
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#The_HTML5_Outline_Algorithm
+
+** Quiz: The Box Revisited
+- http://assignments.udacity-extras.appspot.com/courses/html-css/samples/box-model.html
+
+[[file:img/screenshot_2017-01-27_08-13-19.png]]
+
+#+BEGIN_SRC css
+  ,* {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+  } 
+#+END_SRC
+
+[[file:img/screenshot_2017-01-27_08-23-13.png]]
+
+** Positioning Boxes
+- https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+#+BEGIN_SRC css
+  .app {
+      display: -webkit-flex;
+      display: flex;
+  }
+#+END_SRC
+
+** Code, Test, Refine
+[[file:img/screenshot_2017-01-27_09-00-00.png]]
+
+** Quiz: Verifying HTML and CSS
+- http://validator.w3.org/#validate_by_input
+- http://jigsaw.w3.org/css-validator/#validate_by_input
+* CSS Frameworks, Responsive Layouts

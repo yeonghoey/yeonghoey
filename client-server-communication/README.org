@@ -1,0 +1,16 @@
+#+TITLE: Udacity: Client-Server Communication
+* Table of Contents                                                :TOC_2_gh:
+ - [[#udacity][Udacity]]
+ - [[#https-requestresponse-cycle][HTTP's Request/Response Cycle]]
+
+* Udacity
+- https://www.udacity.com/course/client-server-communication--ud897
+
+#+BEGIN_QUOTE
+You'll learn about HTTP's request and response cycle,
+dig into HTTP headers and verbs, distinguish HTTP/1 from HTTP/2 capabilities,
+all while experiencing the importance of security by digging into the details of HTTPS.
+#+END_QUOTE
+
+* TODO HTTP's Request/Response Cycle
+https://classroom.udacity.com/courses/ud897/lessons/8162118632/concepts/81949026540923#
