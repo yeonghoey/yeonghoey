@@ -1,5 +1,8 @@
 # Learnings
-Personal study notes and working code for courses and books
+Notes and exercises on courses and books
 
 ## Udacity
 - Design of Computer Programs
+- Intro to HTML and CSS
+- Writing READMEs
+- Client-Server Communication
