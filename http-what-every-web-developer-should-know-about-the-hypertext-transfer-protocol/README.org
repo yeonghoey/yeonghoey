@@ -1,4 +1,4 @@
-#+TITLE: HTTP by K. Scott Allen
+#+TITLE: HTTP: What Every Web Developer Should Know About the Hypertext Transfer Protocol
 
 * Table of Contents :TOC_2_gh:
  - [[#url][URL]]
