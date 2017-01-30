@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_2_gh:
  - [[#url][URL]]
+ - [[#resources-and-media-types][Resources and Media Types]]
 
 * URL
 #+BEGIN_EXAMPLE
@@ -20,4 +21,29 @@ particular section of a resource
 #+BEGIN_QUOTE
 The path of a URL is case sensitive (...)
 However, many web sites will try to make URLs behave as if they are case insensitive.
+#+END_QUOTE
+
+* Resources and Media Types
+#+BEGIN_QUOTE
+[[https://www.ietf.org/rfc/rfc3986.txt][RFC 3986]] defines the safe characters for URLs (...) alphanumeric in US-ASCII and some special characters like ':', '/'
+(..) unsafe characters must be percent encoded. (%20 for a space character)
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+To specify content types, HTTP relies on the Multipurpose Internet Mail Extensions([[https://en.wikipedia.org/wiki/MIME][MIME]]) standards.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+With "text/html", The 'text' part is the primary media type, the 'html' is the media subtype.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+For most browsers the file extension is the last place it will go to determine the actual content type.
+(...) If the host does not provide a MIME type, IE will then scan the first 200 bytes of the response
+trying to guess the content type.  if IE doesn't find a type and can't guess the type,
+it will fall back on the file extension used in the request for the resource.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+When a client makes an HTTP request to a URL, the client can specify the media types it will accept.
 #+END_QUOTE
