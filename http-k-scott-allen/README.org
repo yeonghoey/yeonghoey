@@ -58,9 +58,11 @@ the better your application architecture and design will adhere to the strengths
 #+END_QUOTE
 
 ** POST/Redirect/GET
+#+BEGIN_QUOTE
 Many web applications always try to leave the client view the result of a GET request.
 After a user clicks a button to POST information to a server, the server will process the information
 and respond with an HTTP redirect,
+#+END_QUOTE
 
 The practice of redirecting after a POST is common web design pattern known as the
 POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pattern.
@@ -76,4 +78,29 @@ A full HTTP request message consists of the following parts:
   [headers]
 
   [body]
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+GET http://yeonghoey.com HTTP/1.1
+Host: yeonghoey.com
+Accetp-Language: ko-KR
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+Everything but the host header is optional,
+but when a header does appear it must obey the standards.
+For Date, (..) has to follow [[https://www.ietf.org/rfc/rfc0822.txt][RFC 822]] format. (like ~Mon, 30 Jan 2017 09:34:31 -0000~)
+#+END_QUOTE
+
+#+BEGIN_EXAMPLE
+  GET / HTTP/1.1
+  Host: google.com
+  Connection: keep-alive
+  Upgrade-Insecure-Requests: 1
+  User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36
+  X-Client-Data: (...)
+  Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  Accept-Encoding: gzip, deflate, sdch
+  Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
+  Cookie: (...)
 #+END_EXAMPLE
