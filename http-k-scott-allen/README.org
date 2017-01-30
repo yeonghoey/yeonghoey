@@ -65,4 +65,4 @@ POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pat
 [[file:img/screenshot_2017-01-30_18-12-14.png]]
 
 #+CAPTION: Double POST problem above being solved by PRG
-[[file:img/screenshot_2017-01-30_18-12-29.png]]
+[[file:img/screenshot_2017-01-30_18-16-17.png]]
