@@ -3,6 +3,7 @@
 * Table of Contents :TOC_2_gh:
  - [[#url][URL]]
  - [[#resources-and-media-types][Resources and Media Types]]
+ - [[#messages][Messages]]
 
 * URL
 #+BEGIN_EXAMPLE
@@ -47,3 +48,21 @@ it will fall back on the file extension used in the request for the resource.
 #+BEGIN_QUOTE
 When a client makes an HTTP request to a URL, the client can specify the media types it will accept.
 #+END_QUOTE
+
+* Messages
+#+BEGIN_QUOTE
+(...) many web applications always try to leave the client view the result of a GET request.
+After a user clicks a button to POST information to a server, the server will process the information
+and respond with an HTTP redirect,
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+The practice of redirecting after a POST is common web design pattern known as the
+POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pattern.
+#+END_QUOTE
+
+#+CAPTION: Double POST problem
+[[file:img/screenshot_2017-01-30_18-12-14.png]]
+
+#+CAPTION: Double POST problem above being solved by PRG
+[[file:img/screenshot_2017-01-30_18-12-29.png]]
