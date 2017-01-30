@@ -1,4 +1,4 @@
-#+TITLE: Brief Reviews
+#+TITLE: Blog Posts
 
 * Table of Contents                                                :TOC_1_gh:
  - [[#is-jquery-still-relevant][Is jQuery Still Relevant?]]
