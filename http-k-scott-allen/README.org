@@ -66,3 +66,16 @@ POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pat
 
 #+CAPTION: Double POST problem above being solved by PRG
 [[file:img/screenshot_2017-01-30_18-16-17.png]]
+
+#+BEGIN_QUOTE
+(...) the more you can think of a virtual resource as a real resource,
+the better your application architecture and design will adhere to the strengths of HTTP.
+#+END_QUOTE
+
+A full HTTP request message consists of the following parts:
+#+BEGIN_EXAMPLE
+  [method] [URL] [version]
+  [headers]
+
+  [body]
+#+END_EXAMPLE
