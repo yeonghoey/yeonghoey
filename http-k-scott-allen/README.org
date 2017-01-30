@@ -1,0 +1,23 @@
+#+TITLE: HTTP by K. Scott Allen
+
+* Table of Contents :TOC_2_gh:
+ - [[#url][URL]]
+
+* URL
+#+BEGIN_EXAMPLE
+  <scheme>://<host>:<port>/<path>?<query>#<fragment>
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+In fact, these days many web sites try to avoid having any sort of real file name in their URL.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+The fragment is not processed by the server.  The fragment is only used on the client and it identifies a
+particular section of a resource
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+The path of a URL is case sensitive (...)
+However, many web sites will try to make URLs behave as if they are case insensitive.
+#+END_QUOTE
