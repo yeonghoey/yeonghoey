@@ -4,6 +4,8 @@
  - [[#url][URL]]
  - [[#resources-and-media-types][Resources and Media Types]]
  - [[#messages][Messages]]
+   - [[#postredirectget][POST/Redirect/GET]]
+   - [[#http-request][HTTP Request]]
 
 * URL
 #+BEGIN_EXAMPLE
@@ -51,6 +53,12 @@ When a client makes an HTTP request to a URL, the client can specify the media t
 
 * Messages
 #+BEGIN_QUOTE
+(...) the more you can think of a virtual resource as a real resource,
+the better your application architecture and design will adhere to the strengths of HTTP.
+#+END_QUOTE
+
+** POST/Redirect/GET
+#+BEGIN_QUOTE
 (...) many web applications always try to leave the client view the result of a GET request.
 After a user clicks a button to POST information to a server, the server will process the information
 and respond with an HTTP redirect,
@@ -61,16 +69,11 @@ The practice of redirecting after a POST is common web design pattern known as t
 POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pattern.
 #+END_QUOTE
 
-#+CAPTION: Double POST problem
 [[file:img/screenshot_2017-01-30_18-12-14.png]]
-
-#+CAPTION: Double POST problem above being solved by PRG
+-----
 [[file:img/screenshot_2017-01-30_18-16-17.png]]
 
-#+BEGIN_QUOTE
-(...) the more you can think of a virtual resource as a real resource,
-the better your application architecture and design will adhere to the strengths of HTTP.
-#+END_QUOTE
+** HTTP Request
 
 A full HTTP request message consists of the following parts:
 #+BEGIN_EXAMPLE
