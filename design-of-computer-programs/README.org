@@ -1,8 +1,15 @@
 #+TITLE: Design of Computer Programs
 
-* Table of Contents                                                :TOC_2_gh:
- - [[#udacity][Udacity]]
-
-* Udacity
+* About this Course
 This is my study note of the free course named [[https://www.udacity.com/course/design-of-computer-programs--cs212][Design of Computer Programs]] from Udacity.
 
+This course teaches how to approach programming problems and how to fight against complexity of programs,
+which are the most important skills for all programmer.
+
+The professor, [[http://norvig.com/][Peter Norvig]], teaches these skills through pose-try-feedback loop.
+
+The lessons consists of small programming problems.
+He make us solve them first, and shows his own solution as feedback.
+Most of time, I was surprised at his elegant solutions.
+
+This is my one of the most favorite computer courses of all time.
