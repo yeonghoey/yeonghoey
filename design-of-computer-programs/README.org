@@ -23,3 +23,6 @@ This is one of my favorite computer courses of all time.
 - [[lesson5.org][Lesson 5]]: Porcine Probability
 - [[lesson6.org][Lesson 6]]: Word Games
 - [[lesson7.org][Lesson 7]]: Practice Exam
+
+* Note
+This study note is *NOT* exhaustive.  I wrote things only relevant to me.
