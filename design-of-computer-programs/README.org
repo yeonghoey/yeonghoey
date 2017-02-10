@@ -16,10 +16,10 @@ Most of the time, I was surprised by his elegant solutions.
 This is one of my favorite computer courses of all time.
 
 * Lessons
-- [[lesson1.org][Lesson 1]]
-- [[lesson2.org][Lesson 2]]
-- [[lesson3.org][Lesson 3]]
-- [[lesson4.org][Lesson 4]]
-- [[lesson5.org][Lesson 5]]
-- [[lesson6.org][Lesson 6]]
-- [[lesson7.org][Lesson 7]]
+- [[lesson1.org][Lesson 1]]: Poker
+- [[lesson2.org][Lesson 2]]: Zebra Puzzle, Cryptarithmetic
+- [[lesson3.org][Lesson 3]]: Regex, Parser
+- [[lesson4.org][Lesson 4]]: Water Pouring, Bridge, Missionaries and Cannibals
+- [[lesson5.org][Lesson 5]]: Porcine Probability
+- [[lesson6.org][Lesson 6]]: Word Games
+- [[lesson7.org][Lesson 7]]: Practice Exam
