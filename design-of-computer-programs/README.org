@@ -3,13 +3,17 @@
 * About this Course
 This is my study note of the free course named [[https://www.udacity.com/course/design-of-computer-programs--cs212][Design of Computer Programs]] from Udacity.
 
-This course teaches how to approach programming problems and how to fight against complexity of programs,
-which are the most important skills for all programmer.
+This course teaches how to approach programming problems and
+how to fight against the complexity of programs,
+which are the most important skills for a programmer to possess.
 
-The professor, [[http://norvig.com/][Peter Norvig]], teaches these skills through pose-try-feedback loop.
+The professor, [[http://norvig.com/][Peter Norvig]], teaches these skills through a pose-try-feedback loop.
 
 The lessons consists of small programming problems.
-He make us solve them first, and shows his own solution as feedback.
-Most of time, I was surprised at his elegant solutions.
+He makes us solve them first, and then shows his own solution as feedback.
+Most of the time, I was surprised by his elegant solutions.
 
-This is my one of the most favorite computer courses of all time.
+This is one of my favorite computer courses of all time.
+
+* Lessons
+- [[lesson1.org]] 
