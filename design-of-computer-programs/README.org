@@ -1,0 +1,8 @@
+#+TITLE: Design of Computer Programs
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#udacity][Udacity]]
+
+* Udacity
+This is my study note of the free course named [[https://www.udacity.com/course/design-of-computer-programs--cs212][Design of Computer Programs]] from Udacity.
+
