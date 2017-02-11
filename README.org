@@ -1,0 +1,7 @@
+* Learnings
+
+** Udacity
+- [[design-of-computer-programs][Design of Computer Programs]]
+- Intro to HTML and CSS
+- Writing READMEs
+- Client-Server Communication
