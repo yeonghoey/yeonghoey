@@ -9,6 +9,5 @@
 | [[intro-to-html-and-css][Intro to HTML and CSS]]       | Tutorial for HTML and CSS            | 2017-01 ~ now |
 
 ** Others
-| [[blog-posts][Blog Posts]] | Brief reivews on blog posts          | 2016-12 ~ now |
-| [[youtube][YouTube]]    | Brief reviews on videos from YouTube | 2016-12 ~ now |
-
+| [[youtube][YouTube]]    | Brief reviews on YouTube    | 2016-12 ~ now |
+| [[blog-posts][Blog Posts]] | Brief reivews on blog posts | 2016-12 ~ now |
