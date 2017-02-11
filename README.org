@@ -3,4 +3,6 @@
 | Title                       | About                                | Source  | Timeline      |
 |-----------------------------+--------------------------------------+---------+---------------|
 | [[design-of-computer-programs][Design of Computer Programs]] | Problem Solving, Managing Complexity | Udacity | 2016-12 ~ now |
-|                             |                                      |         |               |
+| [[youtube][YouTube]]                     | Brief reviews on videos from YouTube | YouTube | 2016-12 ~ now |
+| [[writing-readmes][Writing READMEs]]             | Short tips for writing READMEs       | Udacity | 2017-01       |
+
