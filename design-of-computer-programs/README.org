@@ -1,6 +1,6 @@
-#+TITLE: Design of Computer Programs
+* Design of Computer Programs
 
-* About this Course
+** About this Course
 This is my study note of the free course named [[https://www.udacity.com/course/design-of-computer-programs--cs212][Design of Computer Programs]] from Udacity.
 
 This course teaches how to approach programming problems and
@@ -15,7 +15,7 @@ Most of the time, I was surprised by his elegant solutions.
 
 This is one of my favorite computer courses of all time.
 
-* Lessons
+** Lessons
 - [[lesson1.org][Lesson 1]]: Poker
 - [[lesson2.org][Lesson 2]]: Zebra Puzzle, Cryptarithmetic
 - [[lesson3.org][Lesson 3]]: Regex, Parser
@@ -24,5 +24,5 @@ This is one of my favorite computer courses of all time.
 - [[lesson6.org][Lesson 6]]: Word Games
 - [[lesson7.org][Lesson 7]]: Practice Exam
 
-* Note
+** Note
 This study note is *NOT* exhaustive.  I wrote things only relevant to me.
