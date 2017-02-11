@@ -1,11 +1,15 @@
 * Learnings
 
-| [[the-design-of-everyday-things][The Design of Everyday Things]] | Principles of Human Psychology and UX |
-| [[http-k-scott-allen][HTTP by K.Scott Allen]]         | Tutorial on how HTTP works            |
-| [[design-of-computer-programs][Design of Computer Programs]]   | Problem Solving, Managing Complexity  |
-| [[writing-readmes][Writing READMEs]]               | Tips for writing READMEs              |
-| [[intro-to-html-and-css][Intro to HTML and CSS]]         | Tutorial for HTML and CSS             |
-| [[youtube][YouTube]]                       | Brief reviews on YouTube              |
-| [[blog-posts][Blog Posts]]                    | Brief reivews on blog posts           |
-| [[writings][Writings]]                      | Writings by myself                    |
+** Books
+- [[the-design-of-everyday-things][The Design of Everyday Things]]
+- [[http-k-scott-allen][HTTP by K.Scott Allen]]
 
+** Udacity
+- [[design-of-computer-programs][Design of Computer Programs]]
+- [[writing-readmes][Writing READMEs]]
+- [[intro-to-html-and-css][Intro to HTML and CSS]]
+
+** Others
+- [[youtube][YouTube]]
+- [[blog-posts][Blog Posts]]
+- [[writings][Writings]]
