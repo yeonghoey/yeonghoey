@@ -2,6 +2,7 @@
 
 ** Summary
 
+#+ATTR_LATEX: :center nil
 | Learning Material           | Source  | Timeline | Likes   |
 |-----------------------------+---------+----------+---------|
 | [[design-of-computer-programs][Design of Computer Programs]] | Udacity | 3 months | ~*****~ |
