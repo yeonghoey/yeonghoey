@@ -1,5 +1,6 @@
 * Learnings
 
-** Summary
-
-| [[design-of-computer-programs][Design of Computer Programs]] | Udacity | 3 months | *MUST* |
+| Title                       | About                                | Source  | Timeline      |
+|-----------------------------+--------------------------------------+---------+---------------|
+| [[design-of-computer-programs][Design of Computer Programs]] | Problem Solving, Managing Complexity | Udacity | 2016-12 ~ now |
+|                             |                                      |         |               |
