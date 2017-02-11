@@ -1,0 +1,96 @@
+#+TITLE: Streamlining your search with Chrome Omnibox
+
+* Omnibox?
+*Omnibox* is a nickname for Chrome's address bar.
+As you know, you can search on Google there
+when you put text other than URLs.
+
+Incidentally, *did you know that you can search on whatever search engine
+you like there?* Let me explain how.
+
+* Search Engines configuration
+
+Open *Search Engines* menu:
+
+[[file:img/screenshot_2016-12-27_00-21-54.png]]
+
+A window like the following will show up:
+
+
+[[file:img/screenshot_2016-12-27_00-22-14.png]]
+
+* How it works
+
+There are 3 columns in the *Other search engines*.
+You may have some search engine definitions in there,
+because Chrome automatically identifies and registers search engines there.
+You can simply ignore them.
+Each column signifies *Name*, *Keyword* and *Search String* respectively.
+
+Let's take a look at how each element cooperates:
+
+[[file:img/screenshot_2016-12-27_00-23-08.png]]
+
+* Find the Search String
+
+To find *Search Strings* for your favorite search engines,
+you need to do simple experiments.
+
+1. Enter search words into the search engine.
+2. Recognize the words you just entered from the result URL.
+3. Replace them with ~%s~
+
+Here is an example: (featuring [[http://symbolhound.com][SymbolHound]])
+
+#+BEGIN_QUOTE
+http://symbolhound.com/ (default)
+
+http://symbolhound.com/?q=yeongho (searched 'yeongho')
+
+http://symbolhound.com/?q=%s (*Search String*)
+#+END_QUOTE
+
+* My Search Engines configuration
+
+I listed my *Search Engines* configuration for those who feel frustrated with
+*Search Strings*:
+
+#+BEGIN_EXAMPLE
+  bookmarks     b   chrome://bookmarks/#q=%s
+  history       h   chrome://history/?#q=%s
+  github        gh  https://github.com/search?q=%s
+  google        g   http://www.google.com/search?q=%s
+  google image  i   http://www.google.com/search?tbm=isch&q=%s
+  naver         n   https://search.naver.com/search.naver?query=%s
+  naver endic   e   http://endic.naver.com/search.nhn?query=%s
+  naver krdic   k   http://krdic.naver.com/search.nhn?query=%s
+  symbolhound   s   http://symbolhound.com/?q=%s
+  thesaurus     t   http://www.thesaurus.com/browse/%s
+  youtube       y   https://www.youtube.com/results?search_query=%s
+#+END_EXAMPLE
+
+* Bookmark Search Chrome Extension
+
+[[https://chrome.google.com/webstore/detail/bookmark-search/hhmokalkpaiacdofbcddkogifepbaijk][Bookmark Search]] is an extension that uses *Omnibox*.
+Like other custom search engines, you can trigger it with the *Keyword*, ~bm~.
+
+The best thing about it is *auto-completion*.
+You can open your bookmarks in a single step
+without knowing the exact bookmark that you desire for.
+
+[[file:img/screenshot_2016-12-27_00-25-16.png]]
+
+I put ~pyth~ in there, and
+it shows the list of my bookmarks related to *Python*.
+I can open reference documents in just a single step with this extension.
+
+* Summary
+
+It may seem that this work is just to save a single step.
+
+However, how many times do you search in a day?
+One step save for every single search would be a huge save.
+In addition to that, ease of search makes you look things up more,
+which could leads you to working more effectively.
+
+Happy search!
