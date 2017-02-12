@@ -1,0 +1,743 @@
+#+TITLE: Lesson 7
+
+* Table of Contents :TOC_2_gh:
+ - [[#lesson-7][Lesson 7]]
+   - [[#intro][Intro]]
+   - [[#josh-bloch][Josh Bloch]]
+ - [[#practice-exam][Practice Exam]]
+   - [[#quiz-bowling][Quiz: Bowling]]
+   - [[#quiz-logic-puzzle][Quiz: Logic Puzzle]]
+   - [[#quiz-polynomials][Quiz: Polynomials]]
+   - [[#quiz-parking-lot-search][Quiz: Parking Lot Search]]
+   - [[#quiz-darts-probability][Quiz: Darts Probability]]
+   - [[#quiz-portmanteau][Quiz: Portmanteau]]
+
+* Lesson 7
+** Intro
+[[file:img/screenshot_2017-01-04_22-09-26.png]]
+
+[[file:img/screenshot_2017-01-04_22-09-42.png]]
+
+[[file:img/screenshot_2017-01-04_22-09-59.png]]
+
+[[file:img/screenshot_2017-01-04_22-10-51.png]]
+
+[[file:img/screenshot_2017-01-04_22-11-17.png]]
+
+[[file:img/screenshot_2017-01-04_22-11-29.png]]
+
+[[file:img/screenshot_2017-01-04_22-42-44.png]]
+
+[[file:img/screenshot_2017-01-04_22-14-43.png]]
+
+[[file:img/screenshot_2017-01-04_22-15-05.png]]
+
+[[file:img/screenshot_2017-01-04_22-15-18.png]]
+
+** Josh Bloch
+[[file:img/screenshot_2017-01-04_22-26-53.png]]
+
+[[file:img/screenshot_2017-01-04_22-27-11.png]]
+
+[[file:img/screenshot_2017-01-04_22-25-18.png]]
+
+[[file:img/screenshot_2017-01-04_22-25-34.png]]
+
+[[file:img/screenshot_2017-01-04_22-25-44.png]]
+
+[[file:img/screenshot_2017-01-04_22-29-25.png]]
+
+[[file:img/screenshot_2017-01-04_22-31-08.png]]
+
+[[file:img/screenshot_2017-01-04_22-31-26.png]]
+
+* Practice Exam
+** Quiz: Bowling
+*** My Solution
+#+BEGIN_SRC python
+  def bowling(balls):
+      b, score = 0, 0
+      for frame in xrange(10):
+          b, s = score_frame(balls, b)
+          score += s
+      return score
+
+
+  def score_frame(balls, b):
+      if balls[b] == 10:
+          return b+1, sum(balls[b:b+3])
+      elif balls[b]+balls[b+1] == 10:
+          return b+2, sum(balls[b:b+3])
+      else:
+          return b+2, sum(balls[b:b+2])
+#+END_SRC
+
+*** His Solution
+#+BEGIN_SRC python
+  def bowling(balls):
+      total = 0
+      for frame in range(10):
+          score, balls = score_frame(balls)
+          total += score
+      return total
+
+  def score_frame(balls):
+      "Return two values: (score_for_this_frame, remaining_balls)."
+      n_used, n_scoring = ((1, 3) if balls[0] == 10 # strike
+                      else (2, 3) if balls[0] + balls[1] == 10 # spare
+                      else (2, 2)) # open frame
+      return (sum(balls[:n_scoring]), balls[n_used:])
+#+END_SRC
+
+*** Feedback
+Almost same, but his solution is more readable.
+Using index like ~b~ makes code hard to read.
+
+** Quiz: Logic Puzzle
+*** His Solution
+#+BEGIN_SRC python
+  import itertools
+
+  def logic_puzzle():
+      "Return a list of the names of the people, in the order they arrive."
+      days = (mon, tue, wed, thu, fri) = (1, 2, 3, 4, 5)
+      possible_days = list(itertools.permutations(days))
+      return next(answer(Wilkes=Wilkes, Hamming=Hamming, Minsky=Minsky,
+                         Knuth=Knuth, Simon=Simon)
+                  for (Wilkes, Hamming, Minsky, Knuth, Simon) in possible_days
+                  if Knuth == Simon + 1 # 6
+                  for (programmer,writer,manager,designer,_) in possible_days
+                  if Knuth == manager + 1 # 10
+                  and thu != designer # 7
+                  and programmer != Wilkes and writer != Minsky # 2, 4
+                  for (laptop, droid, tablet, iphone, _) in possible_days
+                  if set([laptop, Wilkes]) == set([mon, writer]) # 11
+                  and set([programmer, droid]) == set([Wilkes, Hamming]) # 3
+                  and (iphone == tue or tablet == tue) # 12
+                  and designer != droid # 9
+                  and Knuth != manager and tablet != manager # 5
+                  and wed == laptop # 1
+                  and fri != tablet # 8
+                  )
+
+  def answer(**names):
+      "Given a dict of {name:day}, return a list of names sorted by day."
+      return sorted(names, key=lambda name: names[name])
+
+  assert logic_puzzle() == ['Wilkes', 'Simon', 'Knuth', 'Hamming', 'Minsky']
+#+END_SRC
+
+*** Feedback
+I couldn't find out the elegant solution which describes the specification naturally like his solution.
+The key point was assigning days not only names but also jobs and items.
+
+I couldn't think of that way because of my preconception.
+I thought that assigning days should only happen once because it's permutations.
+
+To avoid making mistakes like this again, I should just write things down, and keep asking myself something like:
+- *What is this?*
+- *How can I represent this concept?*
+
+His way of building answer is great.  I couldn't think of it as sorting.  I wrote things like this:
+#+BEGIN_SRC python
+  ret = [''] * 5
+  ret[H] = 'Hamming'
+  ret[K] = 'Knuth'
+  ret[M] = 'Minsky'
+  ret[S] = 'Simon'
+  ret[W] = 'Wilkes'
+  return ret
+#+END_SRC
+Which is really ugly.
+
+** Quiz: Polynomials
+*** Comparison
+There are quite lots of code, so I compared by subroutines.
+**** Formula
+***** My Solution
+#+BEGIN_SRC python
+  def formula(coefs):
+      terms = [term(d, c) for d, c in reversed(list(enumerate(coefs)))]
+      return ' + '.join(t for t in terms if t is not None)
+
+
+  def term(degree, coef):
+      if coef == 0:
+          return None
+      elif degree == 0:
+          return '%d' % coef
+      elif degree == 1 and coef == 1:
+          return 'x'
+      elif degree == 1 and coef > 1:
+          return '%d * x' % coef
+      elif degree > 1 and coef == 1:
+          return 'x**%d' % degree
+      else:
+          return '%d * x**%d' % (coef, degree)
+#+END_SRC
+
+***** His Solution
+#+BEGIN_SRC python
+  def polynomial_formula(coefs):
+      terms = [term(c, n) 
+               for (n, c) in reversed(list(enumerate(coefs))) if c != 0]
+      return ' + '.join(terms)
+
+  def term(c, n):
+      if n == 0:
+          return str(c)
+      xn = 'x' if (n == 1) else ('x**' + str(n))
+      return xn if (c == 1) else '-' + xn if (c == -1) else str(c) + ' * ' + xn
+#+END_SRC
+
+***** Feedback
+There is no term when ~coef~ is ~0~.
+I put testing this case into ~term~ function, because I thought that
+confining all the tests for special cases into a single function would be more readable.
+
+As a result, I had to filter out the ~no term~ case.
+
+In his solution, he pick out of it, which simplifies the ~polynomial_formula~ logic
+
+I can't tell that which one is better than the other.
+
+His implementation of ~term~ is more concise, but mine is more readable I think.
+
+**** canonical
+#+BEGIN_SRC python
+  def canonical(coefs):
+      "Canonicalize coefs by dropping trailing zeros and converting to a tuple."
+      if not coefs: coefs = [0]
+      elif isinstance(coefs, (int, float)): coefs = [coefs]
+      else: coefs = list(coefs)
+      while coefs[-1] == 0 and len(coefs) > 1:
+          del coefs[-1]
+      return tuple(coefs)
+#+END_SRC
+
+I didn't write routines like above, which ensures the proper input.
+I rarely use names like ~canonical~, which feels appropriate. 
+
+**** add
+***** My Solution
+#+BEGIN_SRC python
+  def add(p1, p2):
+      "Return a new polynomial which is the sum of polynomials p1 and p2."
+      coefs = tuple(a + b for a, b in izip_longest(p1.coefs, p2.coefs, fillvalue=0))
+      return poly(coefs)
+#+END_SRC
+
+***** His Solution
+#+BEGIN_SRC python
+  def add(p1, p2):
+      "Return a new polynomial which is the sum of polynomials p1 and p2."
+      N = max(len(p1.coefs), len(p2.coefs))
+      coefs = [0] * N
+      for (n, c) in enumerate(p1.coefs): coefs[n] = c
+      for (n, c) in enumerate(p2.coefs): coefs[n] += c
+      return poly(coefs)
+#+END_SRC
+
+***** Feedback
+I introduced a new dependency of ~itertools~, but he implemented it with simple primitives.
+
+**** mul & power
+***** My Solution
+#+BEGIN_SRC python
+  def mul(p1, p2):
+      "Return a new polynomial which is the product of polynomials p1 and p2."
+      z = poly((0,))
+      for i, c in enumerate(p1.coefs):
+          coefs2 = (0,) * i + tuple(c* coef for coef in p2.coefs)
+          z = add(z, poly(coefs2))
+      return z
+
+
+  def power(p, n):
+      "Return a new polynomial which is p to the nth power (n a non-negative integer)."
+      z = poly((1,))
+      for i in range(n):
+          z = mul(z, p)
+      return z
+#+END_SRC
+
+***** His Solution
+#+BEGIN_SRC python
+  def mul(p1, p2):
+      "Return a new polynomial which is the product of polynomials p1 and p2."
+      # Given terms a*x**n and b*x**m, accumulate a*b in results[n+m]
+      results = defaultdict(int)
+      for (n, a) in enumerate(p1.coefs):
+          for (m, b) in enumerate(p2.coefs):
+              results[n + m] += a * b
+      return poly([results[i] for i in range(max(results)+1)])
+
+  def power(p, n):
+      "Return a poly which is p to the nth power (n a non-negative integer)."
+      if n == 0:
+          return poly((1,))
+      elif n == 1:
+          return p
+      elif n % 2 == 0:
+          return square(power(p, n//2))
+      else:
+          return mul(p, power(p, n-1))
+
+  def square(p): return mul(p, p)
+#+END_SRC
+
+***** Feedback
+His implementation of ~mul~ is more intuitive, but a little bit harder than mine,
+because the logic of multiplying values in ~defaultdict~ and re-assembling it as a list
+is quite complicated.
+
+My solution is simpler, but hard to understand what's going on.
+I should always keep in mind to write code intuitively.
+
+** Quiz: Parking Lot Search
+*** My Solution
+#+BEGIN_SRC python
+  def successors(state):
+      occupied = set(pos for obj, locs in state if obj != '@' for pos in locs)
+      succs = {}
+      for obj, locs in state:
+          if is_car(obj):
+              obstacles = occupied - set(locs)
+              for move, nlocs in next_locs(locs, obstacles):
+                  next_state = update_state(state, obj, nlocs)
+                  succs[next_state] = (obj, move)
+      return succs
+
+  def is_goal(state):
+      objects = dict(state)
+      goal = objects['@'][0]
+      return goal in objects['*']
+
+
+  def is_car(obj):
+      return obj not in '@|'
+
+
+  def next_locs(locs, obstacles):
+      move = locs[1] - locs[0]
+
+      i, nlocs = 0, sorted(locs)
+      while True:
+          npos = nlocs[-1] + move
+          if npos not in obstacles:
+              nlocs = nlocs[1:] + [npos]
+              i = i + 1
+              yield (move*i, tuple(nlocs))
+          else:
+              break
+
+      i, nlocs = 0, sorted(locs)
+      while True:
+          npos = nlocs[0] - move
+          if npos not in obstacles:
+              nlocs = [npos] + nlocs[:-1]
+              i = i + 1
+              yield (-(move*i), tuple(nlocs))
+          else:
+              break
+
+
+  def update_state(state, obj, new_locs):
+      assert is_car(obj)
+      return tuple((o, l) if o != obj else (o, new_locs) for o, l in state)
+
+
+  def locs(start, n, incr=1):
+      return tuple(start + i*incr for i in xrange(n))
+
+
+  def grid(cars, N=N):
+      tl, tr = 0, N-1
+      bl, br = (N-1)*N, N*N-1
+      walls = [i for i in xrange(tl, tr+1)] + \
+              [i for i in xrange(tl, bl+1, N)] + \
+              [i for i in xrange(tr, br+1, N)] + \
+              [i for i in xrange(bl, br+1)]
+      goal = tr + ((N-1) // 2) * N
+      walls.remove(goal)
+      return cars + (('@', (goal,)),
+                     ('|', tuple(walls),))
+#+END_SRC
+
+*** His Solution
+#+BEGIN_SRC python
+  def is_goal(state):
+      "Goal is when the car (*) overlaps a goal square (@)."
+      d = dict(state)
+      return set(d['*']) & set(d['@'])
+
+
+  def psuccessors(state):
+      """State is a tuple of (('c': sqs),...); return a {state:action} dict
+      where action is of form ('c', dir), where dir is +/-1 or +/-N."""
+      results = {}
+      occupied = set(s for (c, sqs) in state for s in sqs if c != '@')
+      for (c, sqs) in state:
+          if c not in '|@': # Walls and goals can't move
+              diff = sqs[1]-sqs[0]
+              # Either move the max of sqs up, or the min of sqs down
+              for (d, start) in [(diff, max(sqs)), (-diff, min(sqs))]:
+                  for i in range(1, N-2):
+                      s = start + d*i
+                      if s in occupied:
+                          break # Stop when you hit something
+                      results[update(state,c,tuple(q+d*i for q in sqs))]=(c,d*i)
+      return results
+
+
+  def update(tuples, key, val):
+      "Return a new (key, val) tuple, dropping old value of key and adding new."
+      # Sort the keys to make sure the result is canonical.
+      d = dict(tuples)
+      d[key] = val
+      return tuple(sorted(d.items()))
+
+
+  def locs(start, n, incr=1):
+      "Return a tuple of n locations, starting at start and go up by incr."
+      return tuple(start+i*incr for i in range(n))
+
+
+  def grid(cars, N=N):
+      goals = ((N**2)//2 - 1,)
+      walls = (locs(0, N) + locs(N*(N-1), N) + locs(N, N-2, N)
+               + locs(2*N-1, N-2, N))
+      walls = tuple(w for w in walls if w not in goals)
+      return cars + (('|', walls), ('@', goals))
+#+END_SRC
+
+*** Feedback
+The key difference is the logic of moving cars.
+I wrote it in an imperative, stateful way(~while~, ~i += 1~) which is easy to make bugs.
+On the other hand, his solution is declarative and elegant.
+
+For the implementation of ~grid~, I failed to use ~loc~ which makes it verbose.
+
+** Quiz: Darts Probability
+*** double_out
+**** My Solution
+#+BEGIN_SRC python
+    SINGLES = set(range(1, 21) + [25])
+    DOUBLES = set([n*2 for n in SINGLES])
+    TRIPLES = set([n*3 for n in SINGLES if n != 25])
+    SCORES = sorted(SINGLES | DOUBLES | TRIPLES, reverse=True)
+
+    def double_out(total):
+        """Return a shortest possible list of targets that add to total,
+        where the length <= 3 and the final element is a double.
+        If there is no solution, return None."""
+
+        def throw(scores):
+            current = sum(scores)
+            if current > total:
+                return None
+            if current == total:
+                return scores if scores[-1] in DOUBLES else None
+            if len(scores) < 3:
+                for d in SCORES:
+                    ret = throw(scores + [d])
+                    if ret is not None:
+                        return ret
+        scores = throw([])
+        return [dart(s) for s in scores] if scores is not None else None
+
+
+    def dart(score, is_last):
+        if score in DOUBLES and is_last:
+            return 'D' + notation(score // 2)
+        elif score in SINGLES:
+            return 'S' + notation(score)
+        elif score in TRIPLES:
+            return 'T' + notation(score // 3)
+        if score in DOUBLES:
+            return 'D' + notation(score // 2)
+        else:
+            raise ValueError('Invalid score')
+
+    def notation(number):
+        return str(number) if number != 25 else 'B'
+
+#+END_SRC
+**** His Solution
+#+BEGIN_SRC python
+  from collections import defaultdict
+
+  singles = range(1, 21) + [25]
+  points = set(m*s for s in singles for m in (1,2,3) if m*s != 75)
+  doubles = set(2*s for s in singles)
+  ordered_points = [0] + sorted(points, reverse=True)
+
+  def double_out(total):
+      """Return a shortest possible list of targets that add to total,
+      where the length <= 3 and the final element is a double.
+      If there is no solution, return None."""
+      if total > 60 + 60 + 50:
+          return None
+      for dart1 in ordered_points:
+          for dart2 in ordered_points:
+              dart3 = total - dart1 - dart2
+              if dart3 in doubles:
+                  solution = [name(dart1), name(dart2), name(dart3, 'D')]
+                  return [t for t in solution if t != 'OFF']
+      return None
+
+  def name(d, double=False):
+      """Given an int, d, return the name of a target that scores d.
+      If double is true, the name must start with 'D', otherwise,
+      prefer the order 'S', then 'T', then 'D'."""
+      return ('OFF' if d == 0 else
+              'DB' if d == 50 else
+              'SB' if d == 25 else
+              'D'+str(d//2) if (d in doubles and double) else
+              'S'+str(d) if d in singles else
+              'T'+str(d//3) if (d % 3 == 0) else
+              'D'+str(d//2))
+#+END_SRC
+
+**** Feedback
+The biggest mistake I've done is writing the logic with recursion.
+There are only three cases which I could write them in a flat way like his solution.
+I picked the first solution which came up in my mind.
+
+His ~name~ implementation is also simpler and better.
+In a real game, /Singles/ would be easier to make happen, which is a prefer
+strategy for acquiring the same score.
+
+*** outcome
+**** My Solution
+#+BEGIN_SRC python
+  from collections import defaultdict
+
+
+  SECTIONS = '20 1 18 4 13 6 10 15 2 17 3 19 7 16 8 11 14 9 12 5'.split()
+  ADJACENTS = {}
+  for i in range(1, len(SECTIONS)-1):
+      left, x, right = SECTIONS[i-1:i+2]
+      ADJACENTS[x] = [left, right]
+  ADJACENTS['20'] = ['5', '1']
+  ADJACENTS['5'] = ['12', '20']
+  ADJACENTS['B'] = SECTIONS
+
+
+  def outcome(target, miss):
+      "Return a probability distribution of [(target, probability)] pairs."
+      probabilities = [(t2, p2) for t, p in  ring_miss(target, miss)
+                                for t2, p2 in section_miss(t, p, miss)]
+      table = defaultdict(float)
+      for t, p in probabilities:
+          table[t] += p
+      return dict(table)
+
+
+  def ring_miss(target, miss):
+      ring, section = target[0], target[1:]
+      bull_section_miss_targets = ['S'+a for a in ADJACENTS['B']]
+      miss_events = ([('D'+section, 0.25*miss)] + \
+                     unidist(bull_section_miss_targets, 0.75*miss) if target == 'SB' else
+                     [('S'+section, miss)] + \
+                     unidist(bull_section_miss_targets, 2*miss)    if target == 'DB' else
+                     [('S'+section, 0.5*miss)]                     if ring == 'D' else
+                     [('S'+section, miss)]                         if ring == 'T' else
+                     [('D'+section, 0.1*miss), ('T'+section, 0.1*miss)])
+      pass_event = (target, 1-sum(p for _, p in miss_events))
+      return [pass_event] + miss_events
+
+
+  def section_miss(target, p, miss):
+      ring, section = target[0], target[1:]
+      adjacents = ADJACENTS[section]
+      pass_event = (target, p*(1-miss))
+      miss_ring = ring if section != 'B' else 'S'
+      miss_events = unidist([miss_ring+a for a in adjacents], p*miss)
+      return [pass_event] + miss_events
+
+
+  def unidist(cases, total_p):
+      p = total_p / len(cases)
+      return [(c, p) for c in cases]
+
+
+  def best_target(miss):
+      "Return the target that maximizes the expected score."
+      targets = ['SB', 'DB'] + [r+s for r in 'SDT' for s in SECTIONS]
+
+      def E(target):
+          table = outcome(target, miss)
+          return sum(score(t)*p for t, p in table.viewitems())
+
+      return max(targets, key=E)
+
+
+  def score(target):
+      ring, section = target[0], target[1:]
+      mul = dict(S=1., D=2., T=3.)[ring]
+      point = int(section) if section != 'B' else 25
+      return mul * point
+#+END_SRC
+
+**** His Solution
+#+BEGIN_SRC python
+  def best_target(miss):
+      "Return the target that maximizes the expected score."
+      return max(targets, key=lambda t: expected_value(t, miss))
+
+  def expected_value(target, miss):
+      "The expected score of aiming at target with a given miss ratio."
+      return sum(value(t)*p for (t, p) in outcome(target, miss).items())
+
+  def outcome(target, miss):
+      "Return a probability distribution of [(target, probability)] pairs."
+      results = defaultdict(float)
+      for (ring, ringP) in ring_outcome(target, miss):
+          for (sect, sectP) in section_outcome(target, miss):
+              if ring == 'S' and sect.endswith('B'):
+                  # If sect hits bull, but ring misses out to S ring,
+                  # then spread the results over all sections.
+                  for s in sections:
+                      results[Target(ring, s)] += (ringP * sectP) / 20.
+              else:
+                  results[Target(ring, sect)] += (ringP * sectP)
+      return dict(results)
+
+  def ring_outcome(target, miss):
+      "Return a probability distribution of [(ring, probability)] pairs."
+      hit = 1.0 - miss
+      r = target[0]
+      if target == 'DB': # misses tripled; can miss to SB or to S
+          miss = min(3*miss, 1.)
+          hit = 1. - miss
+          return [('DB', hit), ('SB', miss/3.), ('S', 2./3.*miss)]
+      elif target == 'SB': # Bull can miss in either S or DB direction
+          return [('SB', hit), ('DB', miss/4.), ('S', 3/4.*miss)]
+      elif r == 'S': # miss ratio cut to miss/5
+          return [(r, 1.0 - miss/5.), ('D', miss/10.), ('T', miss/10.)]
+      elif r == 'D': # Double can miss either on board or off
+          return [(r, hit), ('S', miss/2), ('OFF', miss/2)]
+      elif r == 'T': # Triple can miss in either direction, but both are S
+          return [(r, hit), ('S', miss)]
+
+  def section_outcome(target, miss):
+      "Return a probability distribution of [(section, probability)] pairs."
+      hit = 1.0 - miss
+      if target in ('SB', 'DB'):
+          misses = [(s, miss/20.) for s in sections]
+      else:
+          i = sections.index(target[1:])
+          misses = [(sections[i-1], miss/2), (sections[(i+1)%20], miss/2)]
+      return  [(target[1:], hit)] + misses
+
+  def Target(ring, section):
+      "Construct a target name from a ring and section."
+      if ring == 'OFF':
+          return 'OFF'
+      elif ring in ('SB', 'DB'):
+          return ring if (section == 'B') else ('S' + section)
+      else:
+          return ring + section
+
+  sections = "20 1 18 4 13 6 10 15 2 17 3 19 7 16 8 11 14 9 12 5".split()
+  targets = set(r+s for r in 'SDT' for s in sections) | set(['SB', 'DB'])
+#+END_SRC
+
+**** Feedback
+The most important point is the representation of the ring_outcome.
+The bull eye cases kept me from representing it as single ring characters.
+I thought that the values within a representation should be logically similar.
+In this case, I tried to separate ~target~ and just single ~ring~ from a single representation.
+(The result of ~ring_outcome~ can be both a whole ~target~ and just a ~ring~ character.)
+
+But in his way, not only this but also many other solution, has heterogeneous representations
+in a single representation if needed.  By this, even though it would become a little bit harder to write
+the logic correctly, the entire logic becomes simpler.
+
+I didn't need to build ~ADJACENTS~.  In his way, he simply indexed sections to pick.
+I didn't do that because I couldn't think of inlining modular(~% 20~).
+
+I tried to mimic his way of using /if expressions/, but he didn't use it this time(~ring_outcome~).
+Maybe the choice should be carefully made by measuring complexity.
+
+** Quiz: Portmanteau
+*** My Solution
+#+BEGIN_SRC python
+  def natalie(words):
+      "Find the best Portmanteau word formed from any two of the list of words."
+      candidates = possible_picks(words)
+      return ''.join(max(candidates, key=score)) if candidates else None
+
+
+  def possible_picks(words):
+      results = []
+      for a in words:
+          postfixes = [a[i:] for i in range(1, len(a))]
+          for b in words:
+              if a != b:
+                  for p in postfixes:
+                      if b.startswith(p) and len(b) > len(p):
+                          results.append((a[:-len(p)], p, b[len(p):]))
+      return results
+
+
+  def score(parts):
+      start, mid, end = parts
+      total = len(start+mid+end)
+      h, q = total // 2, total // 4
+      return total - abs(len(start) - q) \
+                   - abs(len(mid) - h) \
+                   - abs(len(end) - q)
+#+END_SRC
+*** His Solution
+#+BEGIN_SRC python
+  from collections import defaultdict
+
+  def natalie(words):
+      "Find the best Portmanteau word formed from any two of the list of words."
+      # First find all (start, mid, end) triples, then find the best scoring one
+      triples = alltriples(words)
+      if not triples: return None
+      return ''.join(max(triples, key=portman_score))
+
+  def alltriples(words):
+      """All (start, mid, end) pairs where start+mid and mid+end are in words
+      (and all three parts are non-empty)."""
+      # First compute all {mid: [end]} pairs, then for each (start, mid) pair,
+      # grab the [end...] entries, if any.  This approach make two O(N)
+      # passes over the words (and O(number of letters) for each word), but is
+      # much more efficient than the naive O(N^2) algorithm of looking at all
+      # word pairs.
+      ends = compute_ends(words)
+      return [(start, mid, end)
+              for w in words
+              for start, mid in splits(w)
+              for end in ends[mid]
+              if w != mid+end]
+
+  def splits(w):
+      "Return a list of splits of the word w into two non-empty pieces."
+      return [(w[:i], w[i:]) for i in range(1, len(w))]
+
+  def compute_ends(words):
+      "Return a dict of {mid: [end, ...]} entries."
+      ends = defaultdict(list)
+      for w in words:
+          for mid, end in splits(w):
+              ends[mid].append(end)
+      return ends
+
+  def portman_score(triple):
+      "Return the numeric score for a (start, mid, end) triple."
+      S, M, E = map(len, triple)
+      T = S+M+E
+      return T - abs(S-T/4.) - abs(M-T/2.) - abs(E-T/4.) 
+#+END_SRC
+
+*** Feedback
+It was hard to name sub-routines.
+I picked the name of ~parts~ while His choice was ~triples~, which sounds more natural.
+
+We both implemented the logic, but his algorithm is more readable and efficient.
+His code is well layered and it uses caches as for performance and readability.

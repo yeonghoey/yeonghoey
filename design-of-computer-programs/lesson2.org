@@ -1,0 +1,393 @@
+#+TITLE: Lesson 2
+
+* Table of Contents :TOC_2_gh:
+ - [[#lesson-2][Lesson 2]]
+   - [[#quiz-zebra-puzzle][Quiz: Zebra Puzzle]]
+    - [[#quiz-leaving-happy-valley][Quiz: Leaving Happy Valley]]
+   - [[#quiz-estimating-runtime][Quiz: Estimating Runtime]]
+   - [[#slow-solution][Slow Solution]]
+   - [[#winning-the-race][Winning The Race]]
+   - [[#quiz-timed-calls][Quiz: Timed Calls]]
+   - [[#cleaning-up-functions][Cleaning Up Functions]]
+   - [[#zebra-summary][Zebra Summary]]
+   - [[#quiz-cryptarithmetic][Quiz: Cryptarithmetic]]
+   - [[#brute-force-solution][Brute Force Solution]]
+   - [[#translation-tables][Translation Tables]]
+   - [[#quiz-solving-cryptarithmetic][Quiz: Solving Cryptarithmetic]]
+   - [[#quiz-filling-in-fill-in][Quiz: Filling in Fill In]]
+   - [[#testing][Testing]]
+   - [[#tracking-time][Tracking Time]]
+   - [[#lambda][Lambda]]
+   - [[#quiz-compile-word][Quiz: Compile Word]]
+   - [[#speeding-up][Speeding Up]]
+   - [[#recap][Recap]]
+ - [[#problem-set-2][Problem Set 2]]
+   - [[#quiz-no-leading-zeros][Quiz: No Leading Zeros]]
+   - [[#quiz-floor-puzzle][Quiz: Floor Puzzle]]
+   - [[#quiz-subpalindrome][Quiz: Subpalindrome]]
+ - [[#office-hours-2][Office Hours 2]]
+
+* Lesson 2
+** Quiz: Zebra Puzzle
+#+BEGIN_EXAMPLE
+  1 There are five houses.
+  2 The Englishman lives in the red house.
+  3 The Spaniard owns the dog.
+  4 Coffee is drunk in the green house.
+  5 The Ukrainian drinks tea.
+  6 The green house is immediately to the right of the ivory house.
+  7 The Old Gold smoker owns snails.
+  8 Kools are smoked in the yellow house.
+  9 Milk is drunk in the middle house.
+  10 The Norwegian lives in the first house.
+  11 The man who smokes Chesterfields lives in the house next to the man with the fox.
+  12 Kools are smoked in a house next to the house where the horse is kept.
+  13 The Lucky Strike smoker drinks orange juice.
+  14 The Japanese smokes Parliaments.
+  15 The Norwegian lives next to the blue house.
+  Who drinks water? Who owns the zebra?
+#+END_EXAMPLE
+
+[[file:img/screenshot_2017-01-18_11-54-14.png]]
+
+**  Quiz: Leaving Happy Valley
+[[file:img/screenshot_2017-01-18_11-59-09.png]]
+
+[[file:img/screenshot_2017-01-18_12-00-49.png]]
+
+He picked the last one because of its simplicity.
+He claimed that he picked it just for its simplicity and
+would change it when it proved not to work.
+
+The last one has inverted the dependency.  Originally, the description says:
+  : A 'house' has a 'property'
+
+But the last one says 
+  : a 'property' belongs to a 'house'
+
+Why does this make the problem easy?
+I think it's because the house is only for grouping.
+The problem is only interested in the relations between properties.
+I think I should try this way when I'm faced with situations like this
+
+** Quiz: Estimating Runtime
+[[file:img/screenshot_2017-01-18_12-06-00.png]]
+
+I couldn't consider the CPU clock rate.
+Even if I had considerted that, I wouldnt have associated it
+with the instrcutions.
+
+** Slow Solution
+
+[[file:img/screenshot_2017-01-18_12-42-32.png]]
+
+His code is read naturally.  He doesn't seem to care about the implementation constraints.
+I think it's a great way of writing readable code.
+
+** Winning The Race
+[[file:img/screenshot_2017-01-19_12-15-57.png]]
+
+** Quiz: Timed Calls
+[[file:img/screenshot_2017-01-19_12-19-31.png]]
+
+*** My Solution
+#+BEGIN_SRC python
+  def timedcalls(n, fn, *args):
+      if isinstance(n, int):
+          times = [timedcall(fn, *args)[0] for _ in range(n)]
+      elif isinstance(n, float):
+          times = []
+          while sum(times) < n:
+              times.append(timedcall(fn, *args)[0])
+      return min(times), average(times), max(times)
+#+END_SRC
+*** His Solution
+[[file:img/screenshot_2017-01-19_12-22-28.png]]
+
+*** Feedback
+They are exactly same.
+** Cleaning Up Functions
+[[file:img/screenshot_2017-01-19_12-24-21.png]]
+
+[[file:img/screenshot_2017-01-19_12-26-58.png]]
+
+** Zebra Summary
+[[file:img/screenshot_2017-01-20_12-32-43.png]]
+
+** Quiz: Cryptarithmetic
+[[file:img/screenshot_2017-01-20_12-33-26.png]]
+
+** Brute Force Solution
+[[file:img/screenshot_2017-01-20_12-36-02.png]]
+
+[[file:img/screenshot_2017-01-20_12-37-48.png]]
+
+** Translation Tables
+*** My Solution
+#+BEGIN_SRC python
+  import re
+
+  def valid(f):
+      try:
+          nums = re.split('[+-/*= ]+', f)
+          return all(n == '0' or not n.startswith('0') for n in nums) and eval(f) is True
+      except ZeroDivisionError:
+          return False
+#+END_SRC
+*** His Solution
+[[file:img/screenshot_2017-01-20_13-56-56.png]]
+
+*** Feedback
+- Using ~re.search~ is way better than using ~re.split()~.
+- ~ArithmeticError~ is more general and proper than ~ZeroDivisionError~
+
+** Quiz: Solving Cryptarithmetic
+[[file:img/screenshot_2017-01-21_15-00-27.png]]
+
+** Quiz: Filling in Fill In
+*** My Old Solution
+#+BEGIN_SRC python
+  def fill_in(formula):
+      "Generate all possible fillings-in of letters in formula with digits."
+      letters = filter(lambda c: c.isalpha(), formula)
+      for digits in itertools.permutations('1234567890', len(letters)):
+          table = string.maketrans(letters, ''.join(digits))
+          yield formula.translate(table)
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  letters = ''.join(set([ch for ch in formula if ch.isupper()]))
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-01-21_15-14-06.png]]
+
+*** Feedback
+I need to become more frinedly with ~re~ module.
+
+** Testing
+
+
+[[file:img/screenshot_2017-01-21_15-16-15.png]]
+
+*** Feedback
+- ~splitlines()~
+- ~time.clock()~
+
+** Tracking Time
+[[file:img/screenshot_2017-01-21_15-20-14.png]]
+
+[[file:img/screenshot_2017-01-21_15-19-59.png]]
+
+** Lambda
+[[file:img/screenshot_2017-01-21_20-04-38.png]]
+
+** Quiz: Compile Word
+
+[[file:img/screenshot_2017-01-21_20-06-50.png]]
+
+*** My Old Solution
+#+BEGIN_SRC python
+  def compile_word(word):
+      """Compile a word of uppercase letters as numeric digits.
+      E.g., compile_word('YOU') => '(1*U+10*O+100*Y)'
+      Non-uppercase words unchanged: compile_word('+') => '+'"""
+      if re.match(r'^[A-Z]+$', word) is None:
+          return word
+      expr = '+'.join('%s*%s' % (pow(10, i), ch) for i, ch in enumerate(reversed(word)))
+      return '(%s)' % expr
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  def compile_word(word):
+      if re.match(r'^[A-Z]+$', word):
+          es = [pow(10, i) for i in range(len(word))]
+          ds = reversed(word)
+          terms = ['%s*%s' % (e, d) for e, d in zip(es, ds)]
+          return '(%s)' % '+'.join(terms)
+      else:
+          return word
+#+END_SRC
+
+I wrote this code with splitting logic into smaller pieces in mind.
+
+*** His Solution
+[[file:img/screenshot_2017-01-21_20-22-59.png]]
+
+*** Feedback
+- Using ~10**i~ seems more fancy than ~pow~
+- Using ~l[::-1]~ seems more fancy than ~reversed(l)~
+
+*** Remaining parts
+[[file:img/screenshot_2017-01-21_20-26-40.png]]
+
+[[file:img/screenshot_2017-01-21_20-27-15.png]]
+
+** Speeding Up
+[[file:img/screenshot_2017-01-21_20-29-37.png]]
+
+[[file:img/screenshot_2017-01-21_20-29-52.png]]
+
+** Recap
+[[file:img/screenshot_2017-01-21_20-31-36.png]]
+
+* Problem Set 2
+** Quiz: No Leading Zeros
+*** My Solution
+#+BEGIN_SRC python
+  def compile_formula(formula, verbose=False):
+      letters = ''.join(set(re.findall('[A-Z]', formula)))
+      parms = ', '.join(letters)
+      terms = re.split('([A-Z]+)', formula)
+      tokens = map(compile_word, terms)
+      heads = set([t[0] for t in terms if len(t) > 1 and t.isupper()])
+      nonzero = ' and '.join('%s != 0' % h for h in heads)
+      body = '(' + ''.join(tokens) + ')'
+      pred = nonzero + ' and ' + body if nonzero else body
+      f = 'lambda %s: %s' % (parms, pred)
+      if verbose: print f
+      return eval(f), letters
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-01-21_22-06-11.png]]
+
+*** Feedback
+Here is the docstring of ~re.findall~
+#+BEGIN_EXAMPLE
+  re
+  findall(pattern, string, flags=0)
+
+  Return a list of all non-overlapping matches in the string.
+
+  If one or more groups are present in the pattern, return a
+  list of groups; this will be a list of tuples if the pattern
+  has more than one group.
+
+  Empty matches are included in the result.
+#+END_EXAMPLE
+
+If I had known this before, I would have used this.
+
+** Quiz: Floor Puzzle
+*** My Old Solution
+#+BEGIN_SRC python
+  import itertools
+
+  def floor_puzzle():
+      for Hopper, Kay, Liskov, Perlis, Ritchie in itertools.permutations([1, 2, 3, 4, 5]):
+          if (Hopper != 5 and
+              Kay != 1 and
+              Liskov != 1 and Liskov != 5 and
+              Perlis > Kay and
+              not adjacent(Ritchie, Liskov) and
+              not adjacent(Liskov, Kay)):
+              return [Hopper, Kay, Liskov, Perlis, Ritchie]
+
+  def adjacent(a, b):
+      return abs(a-b) ==1
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  import itertools
+
+  def floor_puzzle():
+      bottom, top = 1, 5
+      floors = [1, 2, 3, 4, 5]
+      return next([Hopper, Kay, Liskov, Perlis, Ritchie]
+          for Hopper, Kay, Liskov, Perlis, Ritchie in itertools.permutations(floors)
+          if Hopper is not top
+          if Kay is not bottom
+          if Liskov not in (top, bottom)
+          if Perlis > Kay
+          if not adjacent(Ritchie, Liskov)
+          if not adjacent(Liskov, Kay))
+
+  def adjacent(a, b):
+      return abs(a - b) == 1
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-01-21_22-17-51.png]]
+
+** Quiz: Subpalindrome
+[[file:img/screenshot_2017-01-21_22-22-21.png]]
+
+*** My Old Solution
+#+BEGIN_SRC python
+  import collections
+  import itertools
+
+  def longest_subpalindrome_slice(text):
+      "Return (i, j) such that text[i:j] is the longest palindrome in text."
+      text = text.upper()
+
+      ll, rr = 0, 0
+      for i in range(len(text)-1):
+          l, r = palindrome(text, i, i)
+          if (r-l) > (rr-ll):
+              ll, rr = l, r
+          l, r = palindrome(text, i, i+1)
+          if (r-l) > (rr-ll):
+              ll, rr = l, r
+
+      return ll, rr
+
+  def palindrome(text, s, e):
+      if s < 0 or e >= len(text) or text[s] != text[e]:
+          return s+1, e
+      else:
+          return palindrome(text, s-1, e+1)
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  def longest_subpalindrome_slice(text):
+      "Return (i, j) such that text[i:j] is the longest palindrome in text."
+      if not text:
+          return (0, 0)
+      return longest(subpalindromes(text.lower()))
+
+  def subpalindromes(text):
+      for i in range(len(text)):
+          yield subpalindrome(text, i, i)
+          yield subpalindrome(text, i, i+1)
+
+  def subpalindrome(text, l, r):
+      N = len(text)
+      if l >= 0 and r < N and text[l] == text[r]:
+          return subpalindrome(text, l-1, r+1)
+      else:
+          return (l+1, r)  # last valid one
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-01-21_23-09-26.png]]
+
+*** Feedback
+It was hard to write ~subpalindrome~ function to be read naturally.
+In his solution, he named it ~grow~ which is better than just ~subpalindrome~.
+And most importantly, he tests ~whether it can grow~ not
+~whether current state is valid and return previous valid one~ (mine).
+
+I failed to write it in this way because I had only cared about the testing whether its valid.
+Instead of that, I should have understood the condition and the output of the function.
+
+I wrote my solution with this concept in mind:
+#+BEGIN_SRC python
+  def grow(text, l, r):
+      if l > 0 and r < len(text) and text[l-1] == text[r]:
+          return subpalindrome(text, l-1, r+1)
+      else:
+          return (l, r)
+#+END_SRC
+
+* Office Hours 2
+- [[https://books.google.com/books?uid=8640673873589796416][Peter Norvig's Library]]
+- Practice of Programming
+- The Elements of Programming Style
+- SICP
+- Programming Pearls

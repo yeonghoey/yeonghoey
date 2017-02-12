@@ -1,0 +1,264 @@
+#+TITLE: Lesson 1
+
+* Table of Contents :TOC_2_gh:
+ - [[#lesson-1][Lesson 1]]
+   - [[#outlining-the-problem][Outlining The Problem]]
+   - [[#quiz-testing][Quiz: Testing]]
+   - [[#back-to-hand-rank][Back To Hand Rank]]
+   - [[#quiz-writing-hand-rank][Quiz: Writing Hand Rank]]
+   - [[#quiz-fixing-card-rank][Quiz: Fixing Card Rank]]
+   - [[#quiz-straight-and-flush][Quiz: Straight And Flush]]
+   - [[#quiz-kind-function][Quiz: Kind Function]]
+   - [[#quiz-two-pair-function][Quiz: Two Pair Function]]
+   - [[#quiz-ace-low-straight][Quiz: Ace Low Straight]]
+   - [[#quiz-allmax][Quiz: Allmax]]
+   - [[#quiz-deal][Quiz: Deal]]
+   - [[#dimensions-of-programming][Dimensions Of Programming]]
+   - [[#refactoring][Refactoring]]
+   - [[#summary][Summary]]
+ - [[#bonus-shuffling][Bonus: Shuffling]]
+   - [[#quiz-shuffle-runtime][Quiz: Shuffle Runtime]]
+   - [[#quiz-is-it-random][Quiz: Is It Random]]
+   - [[#testing-shuffles][Testing Shuffles]]
+ - [[#problem-set-1][Problem Set 1]]
+   - [[#quiz-jokers-wild][Quiz: Jokers Wild]]
+ - [[#office-hours-1][Office Hours 1]]
+
+* Lesson 1
+** Outlining The Problem
+[[file:img/screenshot_2017-01-09_12-52-17.png]]
+- https://en.wikipedia.org/wiki/List_of_poker_hand_categories
+
+** Quiz: Testing
+[[file:img/screenshot_2017-01-09_12-59-54.png]]
+- https://wiki.python.org/moin/UsingAssertionsEffectively
+
+** Back To Hand Rank
+[[file:img/screenshot_2017-01-10_12-49-42.png]]
+
+He just uses ~kind()~ for testing and getting value and calls multiple times.
+I'm not sure whether this is a great way, but at least it simplifies the logic.
+
+** Quiz: Writing Hand Rank
+[[file:img/screenshot_2017-01-11_12-37-06.png]]
+
+** Quiz: Fixing Card Rank
+[[file:img/screenshot_2017-01-11_12-52-04.png]]
+
+** Quiz: Straight And Flush
+[[file:img/screenshot_2017-01-11_13-06-51.png]]
+
+** Quiz: Kind Function
+[[file:img/screenshot_2017-01-12_12-29-48.png]]
+
+** Quiz: Two Pair Function
+*** My Old Solution
+#+BEGIN_SRC python
+  def two_pair(ranks):
+      h = kind(2, ranks)
+      if h is None:
+          return None
+      remains = [r for r in ranks if r != h]
+      l = kind(2, remains)
+      if l is None:
+          return None
+      return (h, l)
+#+END_SRC
+It's so complicated.
+
+*** My New Solution
+#+BEGIN_SRC python
+  def two_pair(ranks):
+      rs = [r for r in set(ranks) if ranks.count(r) == 2]
+      return tuple(sorted(rs, reverse=True)) if len(rs) == 2 else None
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-01-12_12-47-52.png]]
+I think my solution is cleaner.
+
+** Quiz: Ace Low Straight
+[[file:img/screenshot_2017-01-12_12-54-40.png]]
+
+** Quiz: Allmax
+*** My Old Solution
+#+BEGIN_SRC python
+  def allmax(iterable, key=None):
+      "Return a list of all items equal to the max of the iterable."
+      l = list(iterable)
+      m = max(l, key=key)
+      f = lambda e: key(e) if key is not None else e
+      return [e for e in l if f(e) == f(m)]
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  def allmax(iterable, key=None):
+      "Return a list of all items equal to the max of the iterable."
+      key = key or (lambda x: x)
+      l = list(iterable)
+      m = max(l, key=key)
+      return [e for e in l if key(e) == key(m)]
+#+END_SRC
+One thing I've changed is ~key~, which is written in a simpler way.
+
+*** His Solution
+[[file:img/screenshot_2017-01-12_13-02-58.png]]
+I tried to avoid using an imperative solution.
+As a result, I chose to iterate the same list twice.
+But in his solution, he just uses an imperative algorithm.
+
+** Quiz: Deal
+*** My Old Solution
+#+BEGIN_SRC python
+  def deal(numhands, n=5, deck=mydeck):
+      cards = []
+      while len(cards) < numhands*n:
+          cards.extend(deck)
+      random.shuffle(cards)
+
+      result = []
+      for h in range(numhands):
+          hand, cards = cards[:n], cards[n:]
+          result.append(hand)
+      return result
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  def deal(numhands, n=5, deck=mydeck):
+      d = deck[:]
+      random.shuffle(d)
+      return [d[i*n:(i+1)*n] for i in range(numhands)]
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-01-14_22-52-04.png]]
+*** Feedback
+My original solution (written about 3 months ago) is verbose.
+My new solution is written by now, after I've finished the whole course.
+I'm surprised that I've written an almost same solution as his, even though I couldn't recall it.
+** Dimensions Of Programming
+[[file:img/screenshot_2017-01-15_00-40-26.png]]
+- /Elegance is not optional/, Richard O'Keefe
+- /The best is the enemy of the good/, Voltaire
+- Elegance: Clarity, Simplicity, Generality
+** Refactoring
+[[file:img/screenshot_2017-01-15_00-43-47.png]]
+
+** Summary
+[[file:img/screenshot_2017-01-15_00-45-31.png]]
+
+[[file:img/screenshot_2017-01-15_00-46-14.png]]
+
+[[file:img/screenshot_2017-01-15_00-48-02.png]]
+* Bonus: Shuffling
+** Quiz: Shuffle Runtime
+[[file:img/screenshot_2017-01-15_00-55-56.png]]
+Consider a case of remaining only one element to be changed.
+On average, it will take N times to be changed.  So for all N elements, it will take O(N^2)
+
+** Quiz: Is It Random
+[[file:img/screenshot_2017-01-15_01-02-46.png]]
+
+- https://www.quora.com/What-is-an-easy-way-to-understand-Knuth-shuffles-algorithm
+
+[[file:img/screenshot_2017-01-15_01-07-25.png]] 
+
+[[file:img/screenshot_2017-01-15_01-08-08.png]]
+
+** Testing Shuffles
+[[file:img/screenshot_2017-01-15_01-31-10.png]]
+
+*** Self Proof for unifomity of shuffle2
+- Assume the value of ~i~ is always ~0~
+- Then, the value of  ~deck[0]~ can be one of all elements, by only changing ~swapped[0]~ to ~True~.
+- Let's think of ~deck2~, which is shuffled from ~deck~, which is only swapped ~0th~ element for ~nth~ element.
+- The value of ~deck2[1]~ also can be one of all elements, by only changing ~swapped[1]~ to ~True~.
+- This invariant is true for all ~i~ in ~range(n)~.
+- So, ~shuffle2~ works correctly.
+
+* Problem Set 1
+** Quiz: Jokers Wild
+*** My Old Solution
+#+BEGIN_SRC python
+  def best_wild_hand(hand):
+      hands = set(best_hand(h)
+                  for h in itertools.product(*map(replaced, hand)))
+      return max(hands, key=hand_rank)
+
+  def replaced(card):
+      black = [n+c for n in '23456789TJQKA' for c in 'CS']
+      red = [n+c for n in '23456789TJQKA' for c in 'DH']
+      if card == '?B':
+          return black
+      elif card == '?R':
+          return red
+      else:
+          return [card]
+#+END_SRC
+*** My New Solution
+#+BEGIN_SRC python
+  def best_wild_hand(hand):
+      "Try all values for jokers in all 5-card selections."
+      cases = [case for picks in itertools.combinations(hand, 5)
+                    for case in explode(picks) if len(set(case)) == 5]
+      return max(cases, key=hand_rank)
+
+  def explode(picks):
+      if not picks: return [[]]
+      card, remains = picks[0], picks[1:]
+      results = []
+      for head in cases(card):
+          for tail in explode(remains):
+              results.append([head] + tail)
+      return results
+
+  def cases(card):
+      ranks = '23456789TJQKA'
+      return ([r+s for r in ranks for s in 'CS'] if card == '?B' else
+              [r+s for r in ranks for s in 'DH'] if card == '?R' else
+              [card])
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-01-15_20-04-09.png]]
+
+*** Feedback
+I failed to come up with using ~itertools.product~.
+But, at least I wrote ~explode~ cleanly.
+The name of ~replacements~ is better than ~cases~.  I couldn't invent that name.
+
+His solution has a bug, which replaces jokers to duplicated within a hand.
+
+* Office Hours 1
+#+BEGIN_QUOTE
+Programming is always this combination of what you have to do yourself and
+what do you find that people have already done that you can incorporate into your solution
+
+Every advanced feature that's in a programming language is there because
+somebody suffered in the past...
+You've got to understand why this is in the language.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+One of the rules I use is we're all good and communicating in English,
+or in our native language whatever it is,
+so if the code can look like that then we know we're going to be successful in our communication.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+If we have a description of the domain that we understand,
+then it makes a lot of sense to start from the top.
+
+If you don't understand what's going on, then sometimes it makes more sense
+just to start down at the bottom and build your way up, to say
+what are the pieces of the domain and how do they fit together?
+
+You can go in both directions, top down and bottom up.
+
+The key here is never be afraid to engage in wishful thinking,
+to say if only I had a function that did the right thing, then I could proceed.
+You should always be willing to proceed that way.
+#+END_QUOTE
+

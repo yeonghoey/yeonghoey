@@ -1,0 +1,610 @@
+#+TITLE: Lesson 3
+
+* Table of Contents :TOC_2_gh:
+ - [[#lesson-3][Lesson 3]]
+   - [[#quiz-regular-expressions-review---quiz-1][Quiz: Regular Expressions Review - Quiz 1]]
+   - [[#regular-expressions-review---part-3][Regular Expressions Review - Part 3]]
+   - [[#language][Language]]
+   - [[#regular-expressions][Regular Expressions]]
+   - [[#specifications][Specifications]]
+   - [[#concept-inventory][Concept Inventory]]
+   - [[#quiz-matchset][Quiz: Matchset]]
+   - [[#quiz-filling-out-the-api][Quiz: Filling Out The Api]]
+   - [[#quiz-search-and-match][Quiz: Search and Match]]
+   - [[#compiling][Compiling]]
+   - [[#lower-level-compilers][Lower Level Compilers]]
+   - [[#quiz-alt][Quiz: Alt]]
+   - [[#quiz-simple-compilers][Quiz: Simple Compilers]]
+   - [[#recognizers-and-generators][Recognizers And Generators]]
+   - [[#quiz-oneof-and-alt][Quiz: Oneof And Alt]]
+   - [[#avoiding-repetition][Avoiding Repetition]]
+   - [[#quiz-genseq][Quiz: Genseq]]
+   - [[#testing-genseq][Testing Genseq]]
+   - [[#theory-and-practice][Theory And Practice]]
+   - [[#quiz-changing-seq][Quiz: Changing Seq]]
+   - [[#changing-functions][Changing Functions]]
+   - [[#quiz-n-ary-function][Quiz: N Ary Function]]
+   - [[#decorated-wrappers][Decorated Wrappers]]
+   - [[#quiz-decorated-decorators][Quiz: Decorated Decorators]]
+   - [[#quiz-cache-management][Quiz: Cache Management]]
+   - [[#quiz-save-time-now][Quiz: Save Time Now]]
+   - [[#quiz-trace-tool][Quiz: Trace Tool]]
+   - [[#descriptionary][Descriptionary]]
+   - [[#white-space][White Space]]
+   - [[#parsing][Parsing]]
+   - [[#parse-function][Parse Function]]
+   - [[#quiz-speedy-parsing][Quiz: Speedy Parsing]]
+   - [[#catching-typos][Catching Typos]]
+   - [[#summary][Summary]]
+ - [[#problem-set-3][Problem Set 3]]
+   - [[#quiz-json-parser][Quiz: Json Parser]]
+   - [[#quiz-inverse-function][Quiz: Inverse Function]]
+   - [[#quiz-find-html-tags][Quiz: Find Html Tags]]
+   - [[#challenge-problem][Challenge Problem]]
+ - [[#office-hours-3][Office Hours 3]]
+   - [[#question-four][Question Four]]
+
+* Lesson 3
+** Quiz: Regular Expressions Review - Quiz 1
+[[file:img/screenshot_2017-01-22_16-18-18.png]]
+** Regular Expressions Review - Part 3
+- http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html
+[[file:img/screenshot_2017-01-22_16-23-11.png]]
+
+[[file:img/screenshot_2017-01-22_16-26-12.png]]
+** Language
+[[file:img/screenshot_2017-01-22_16-28-46.png]]
+** Regular Expressions
+[[file:img/screenshot_2017-01-22_16-32-34.png]]
+** Specifications
+[[file:img/screenshot_2017-01-22_16-34-03.png]]
+** Concept Inventory
+[[file:img/screenshot_2017-01-22_16-37-16.png]]
+** Quiz: Matchset
+[[file:img/screenshot_2017-01-22_16-39-40.png]]
+*** My Solution
+#+BEGIN_SRC python 
+  elif 'dot' == op:
+      return set([text[1:]])
+  elif 'oneof' == op:
+      return set([text[1:]]) if text[0] in x else null
+#+END_SRC
+*** His Solution
+[[file:img/screenshot_2017-01-22_16-45-20.png]]
+
+[[file:img/screenshot_2017-01-22_16-47-13.png]]
+
+(if x is a tuple of characters. Otherwise:)
+[[file:img/screenshot_2017-01-22_16-47-55.png]]
+*** Feedback
+- I failed to consider boundary cases.
+- Good to know the fact that ~str.startswith~ accepts tuples.
+** Quiz: Filling Out The Api
+[[file:img/screenshot_2017-01-22_16-51-24.png]]
+
+Even though this breaks the standard convention style,
+it really is more readable.
+
+** Quiz: Search and Match
+[[file:img/screenshot_2017-01-22_16-53-38.png]]
+
+*** My Solution
+#+BEGIN_SRC python
+  return text if len(shortest) == 0 else text[:-len(shortest)]
+#+END_SRC
+*** His Solution
+#+BEGIN_SRC python
+  return text[:len(text)-len(shortest)]
+#+END_SRC
+*** Feedback
+My solution is obviously worse.
+I tried to solve this somewhat clever which made me fail to write it in an easy way.
+
+** Compiling
+[[file:img/screenshot_2017-01-22_17-04-47.png]]
+
+[[file:img/screenshot_2017-01-22_17-04-29.png]]
+
+This is the most interesting part of the entire lecture.
+By just making all thing into functions, an interpreter changes into an compiler.
+
+** Lower Level Compilers
+[[file:img/screenshot_2017-01-22_17-09-09.png]]
+
+Good to know about ~dis~ module
+
+** Quiz: Alt
+[[file:img/screenshot_2017-01-22_17-10-42.png]]
+
+#+BEGIN_SRC python
+  lambda text: x(text) | y(text)
+#+END_SRC
+
+** Quiz: Simple Compilers
+[[file:img/screenshot_2017-01-22_17-12-16.png]]
+
+Note that the use of names ~t~, ~t1~, ~t2~ which is generally discouraged, but is proper in this case.
+
+** Recognizers And Generators
+[[file:img/screenshot_2017-01-22_17-16-29.png]]
+
+** Quiz: Oneof And Alt
+[[file:img/screenshot_2017-01-22_17-17-26.png]]
+
+*** My Old Solution
+#+BEGIN_SRC python
+  def alt(x, y):      return lambda Ns: x(Ns) | y(Ns)
+  def oneof(chars):   return lambda Ns: set().union(*(l(Ns) for l in map(lit, chars)))
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  def oneof(chars):   return lambda Ns: set(chars) if 1 in Ns else null
+#+END_SRC
+
+*** His Solution
+Same as my new solution.
+
+*** Feedback
+~Ns~ breaks the standard naming convention.
+But it's actually more readable because ~Ns~ feels more like a multiple elements of ~N~.
+Should I use ~ns~ instead of it?  The jury is still out.
+
+** Avoiding Repetition
+[[file:img/screenshot_2017-01-24_22-08-50.png]]
+Keeps ~set_s~ to avoid repetition.  It's a kind of compiler optimization.
+
+** Quiz: Genseq
+[[file:img/screenshot_2017-01-24_22-16-41.png]]
+
+[[file:img/screenshot_2017-01-24_22-18-09.png]]
+** Testing Genseq
+[[file:img/screenshot_2017-01-24_22-22-31.png]]
+
+[[file:img/screenshot_2017-01-24_22-23-20.png]]
+** Theory And Practice
+[[file:img/screenshot_2017-01-24_22-47-14.png]]
+** Quiz: Changing Seq
+[[file:img/screenshot_2017-01-24_22-50-13.png]]* Problem Set 4
+** Changing Functions
+[[file:img/screenshot_2017-01-24_22-51-42.png]]
+** Quiz: N Ary Function
+*** My Old Solution
+#+BEGIN_SRC python
+  def n_ary(f):
+      """Given binary function f(x, y), return an n_ary function such
+      that f(x, y, z) = f(x, f(y,z)), etc. Also allow f(x) = x."""
+      def n_ary_f(x, *args):
+          if len(args) == 1:
+              return f(x, args[0])
+          else:
+              new_args = list(args[:-2]) + [f(args[-2], args[-1])]
+              return n_ary_f(x, *new_args)
+      return n_ary_f
+#+END_SRC
+*** My New Solution
+#+BEGIN_SRC python
+  def n_ary(f):
+      def n_ary_f(x, *args):
+          if len(args) == 1:
+              return f(x, args[0])
+          else:
+              return f(x, n_ary_f(args[0], *args[1:]))
+      return n_ary_f
+#+END_SRC
+*** His Solution
+[[file:img/screenshot_2017-01-24_22-58-56.png]]
+
+*** Feedback
+My Old Solution is overly complicated.  My New Solution is way better than that.
+But, the best one is his.  I didn't need to separate ~args~ explicitly on ~else~ case.
+
+** Decorated Wrappers
+[[file:img/screenshot_2017-01-28_21-32-45.png]]
+
+[[file:img/screenshot_2017-01-28_21-33-16.png]]
+
+** Quiz: Decorated Decorators
+[[file:img/screenshot_2017-01-28_21-34-06.png]]
+
+*** My Expansion
+#+BEGIN_SRC python
+  decorator = decorator(decorator)
+  decorator = lambda fn: update_wrapper(decorator(fn), fn)
+
+  # Use 'decorator' to define a decorator
+  dfunc = decorator(dfunc)
+  dfunc = update_wrapper(decorator(dfunc), dfunc)
+  dfunc = update_wrapper(lambda fn: update_wrapper(dfunc(fn), fn), dfunc)
+#+END_SRC
+
+*** Feedback
+The one-liner solution is clever.  But many programmers would feel frustrated.
+In general, the fact may cause a managing issue.  But I prefer this solution in this case
+because what the function does is clear and wouldn't change frequently.
+And it may be kept away from its user.  In this case, The clever one-liner code
+can be accepted.
+
+** Quiz: Cache Management
+[[file:img/screenshot_2017-01-28_21-52-25.png]]
+
+** Quiz: Save Time Now
+[[file:img/screenshot_2017-01-28_21-56-30.png]]
+
+** Quiz: Trace Tool
+[[file:img/screenshot_2017-01-28_21-59-11.png]]
+
+[[file:img/screenshot_2017-01-28_21-59-43.png]]
+
+*** My Solution
+#+BEGIN_SRC python
+  @decorator
+  def trace(f):
+      indent = '   '
+      def _f(*args):
+          signature = '%s(%s)' % (f.__name__, ', '.join(map(repr, args)))
+          print '%s--> %s' % (trace.level*indent, signature)
+          trace.level += 1
+          try:
+              result = f(*args)
+              print '%s<-- %s == %s' % ((trace.level-1)*indent, 
+                                        signature, result)
+          finally:
+              trace.level -= 1
+          return result
+      trace.level = 0
+      return _f
+#+END_SRC
+** Descriptionary
+[[file:img/screenshot_2017-01-28_22-09-50.png]]
+
+He emphasizes the *wishful thinking* which means,
+'I wish I had a function that accepts the input I just wrote.'
+
+[[file:img/screenshot_2017-01-28_22-15-37.png]]
+
+[[file:img/screenshot_2017-01-28_22-16-03.png]]
+
+Even though there is no quiz,
+I think it would be a good practice for me to solve this problem on my own.
+so I just did it and got feedback from his code.
+
+#+BEGIN_SRC python
+  def grammer(description):
+      g = {}
+      for line in split(description, '\n'):
+          atom, expansion = split(line, ' => ')
+          alternatives = split(expansion, ' \| ')
+          g[atom] = tuple(split(seq, ' ') for seq in alternatives)
+      return g
+#+END_SRC
+
+The naming of ~lhs~, ~rhs~ is better than mine.
+
+[[file:img/screenshot_2017-01-28_22-16-41.png]]
+
+#+BEGIN_SRC python
+  def split(s, pattern):
+      return [p.strip() for p in re.split(pattern, s.strip())]
+#+END_SRC
+
+~if t~ is a good way for ensuring boundary cases.
+
+** White Space
+[[file:img/screenshot_2017-01-28_22-18-05.png]]
+
+** Parsing
+[[file:img/screenshot_2017-02-05_12-06-02.png]]
+
+[[file:img/screenshot_2017-01-28_22-20-20.png]]
+
+[[file:img/screenshot_2017-01-28_22-21-40.png]]
+
+** Parse Function
+[[file:img/screenshot_2017-02-05_13-05-15.png]]
+
+[[file:img/screenshot_2017-02-05_13-05-32.png]]
+
+*** I wrote the function by myself
+I wrote the function by myself(~parser.py~).
+
+I wrote it almost same as his function, but it's not clear.
+In his solution, he defined  the notions of ~atom~ and ~sequence~.
+With them, his solution is readable and clear.
+
+On the other hand, mine is not quite clear because of the lack of clear notions.
+
+Even though my solution is a little murky,
+I could solve the problem thanks to his clear definitions of input and output.
+I'm surprised at how the clear input and output make the problem easy to solve.
+
+** Quiz: Speedy Parsing
+[[file:img/screenshot_2017-02-05_14-58-11.png]]
+
+A Simple design leads to the simple solution.
+
+** Catching Typos
+[[file:img/screenshot_2017-02-05_15-00-48.png]]
+
+** Summary
+[[file:img/screenshot_2017-02-05_15-02-54.png]]
+
+* Problem Set 3
+** Quiz: Json Parser
+*** My Old Solution
+#+BEGIN_SRC python
+  JSON = grammar(r"""
+  value => string | number | object | array | true | false | null
+  object => { members } | { }
+  members => pair , members | pair
+  pair => string : value
+  array => \[ elements \] | \[ \]
+  elements => value , elements | value
+  string => "([^"\\]|\\"|\\|\/|[\b\f\n\r\t]|\u[0-9A-Fa-f]{4})*"
+  number => int frac exp | int frac | int exp | int
+  int => -?[1-9][0-9]+ | -?[0-9]
+  frac => \.[0-9]+
+  exp => [eE][+-]?[0-9]+
+  """.strip(), 
+      whitespace='\s*'
+  )
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  JSON = grammar(r"""
+  value => array | object | string | number
+  array => \[ elements \] |  \[ \]
+  elements => value [,] elements | value
+  object => [{] members [}] | [{] [}]
+  members => pair [,] members | pair
+  pair => string [:] value
+  string => ["][^"]*["]
+  number => int frac exp | int
+  int => -?\d+
+  frac => [.]\d+
+  exp => [e][+]\d+
+  """, whitespace='\s*')
+#+END_SRC
+
+I wrote it only to pass the tests.  It's way simpler than the old one.
+
+*** His Solution
+[[file:img/screenshot_2017-02-05_15-27-35.png]]
+
+** Quiz: Inverse Function
+[[file:img/screenshot_2017-02-05_15-30-35.png]]
+
+*** My Old Solution
+#+BEGIN_SRC python
+  def inverse(f, delta = 1/128.):
+      """Given a function y = f(x) that is a monotonically increasing function on
+      non-negatve numbers, return the function x = f_1(y) that is an approximate
+      inverse, picking the closest value to the inverse, within delta."""
+      def f_1(y):
+          prev, x = 0., 1.
+          yp, yx = f(prev), f(x)
+          while abs(y - yx) >= delta:
+              if y > yx:
+                  prev, x = x, x*2
+              else:
+                  x = (x+prev) / 2
+              yp, yx = f(prev), f(x)
+          return x
+      return f_1
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  def inverse(f, delta = 1/128.):
+      """Given a function y = f(x) that is a monotonically increasing function on
+      non-negatve numbers, return the function x = f_1(y) that is an approximate
+      inverse, picking the closest value to the inverse, within delta."""
+      def f_1(y):
+          lo, hi = (0, 1)
+          while f(hi) <= y: lo, hi = (hi, hi*2)
+
+          while True:
+              mid = (hi + lo) / 2.
+              guess = f(mid)
+              if abs(y - guess) <= delta:
+                  return mid
+              else:
+                  if y < guess: hi = mid
+                  else: lo = mid
+      return f_1
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-02-05_17-47-57.png]]
+
+Almost same approach.  Here is code:
+[[file:img/screenshot_2017-02-05_17-48-31.png]]
+
+[[file:img/screenshot_2017-02-05_17-48-43.png]]
+
+*** Feedback
+His way of splitting tasks into small functions looks great.
+It clarifies the algorithm.
+
+** Quiz: Find Html Tags
+[[file:img/screenshot_2017-02-12_09-07-49.png]]
+
+*** My Old Solution
+#+BEGIN_SRC python
+  def findtags(text):
+      tagname = r'\w+'
+      property = r'\w+\s*=\s*"[^"]+"\s*'
+      properties = r'(?:{property})*'.format(property=property)
+      pattern = r'[<]\s*{tagname}\s*{properties}[>]'.format(tagname=tagname, 
+                                                            properties=properties)
+      return re.findall(pattern, text)
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  def findtags(text):
+      pattern = '\s*'.join([
+          r'<',
+          r'\w+',
+          r'(?:', r'\w+', '=', '"[^"]*"', r')*',
+          r'>',
+          ])
+      return re.findall(pattern, text, re.VERBOSE)
+#+END_SRC
+Firstly, I wrote the function like above.
+I used ~list~ and ~join~ to put ~\s*~ between elements.
+but I wasn't satisfied with this because it was hard to read.
+
+Here is my second try:
+#+BEGIN_SRC python
+  def findtags(text):
+      pattern = r'<__\w+__(?:\w+__=__"[^"]*"__)*__>'.replace('__', r'\s*')
+      return re.findall(pattern, text, re.VERBOSE)
+#+END_SRC
+I used ~__~.  Now it's more readable.
+
+I noticed that I could use this technique for other elements:
+#+BEGIN_SRC python
+  def findtags(text):
+      pattern = (r'<__ID__(?:ID__=__VALUE__)*__>'
+                 .replace('__', r'\s*')
+                 .replace('ID', r'\w+')
+                 .replace('VALUE', r'"[^"]*"'))
+      return re.findall(pattern, text, re.VERBOSE)
+#+END_SRC
+
+It can be read naturally now.
+
+*** His Solution
+[[file:img/screenshot_2017-02-12_10-06-22.png]]
+
+He solution is just more concise.
+
+** Challenge Problem
+[[file:img/screenshot_2017-02-12_10-10-17.png]]
+
+It' a little bit frustrating work.  I picked the parser functions from Json Parser problem.
+I will use the specification previously presented from this lesson:
+[[file:img/screenshot_2017-02-12_10-20-43.png]]
+
+#+BEGIN_SRC python
+  REGRAMMER = grammar(r"""
+  RE      => REPEAT RE | REPEAT
+  REPEAT  => STAR | PLUS | SINGLE
+  STAR    => SINGLE [*]
+  PLUS    => SINGLE [+]
+  SINGLE  => DOT | LIT | ONEOF | ALT
+  DOT     => [.]
+  LIT     => \w+
+  ONEOF   => [[] \w+ []]
+  ALT     => [(] ALTLIST [)]
+  ALTLIST => RE [|] ALTLIST | RE
+  """)
+
+
+  def parse_re(pattern):
+      tree, remains = parse('RE', pattern, REGRAMMER)
+      if remains == '':
+          return convert(tree)
+      else:
+          raise ValueError('Invalid Pattern: "%s", remains: %s'
+                           % (pattern, remains))
+
+
+  def convert(tree):
+      def walk(name, *args):
+          if name in ('RE', 'REPEAT', 'SINGLE'):
+              subtrees = [walk(*part) for part in args]
+              return (subtrees[0] if len(subtrees) == 1 else
+                      reduce(seq, subtrees))
+          if name == 'DOT':
+              return dot
+          if name == 'LIT':
+              return lit(args[0])
+          if name == 'ONEOF':
+              _, v, _ = args
+              return oneof(v)
+          if name == 'STAR':
+              return star(walk(*args[0]))
+          if name == 'PLUS':
+              return plus(walk(*args[0]))
+          if name == 'ALT':
+              _, alist, _ = args
+              return walk(*alist)
+          if name == 'ALTLIST':
+              if len(args) == 1:
+                  return walk(*args[0])
+              else:
+                  a, _, remains = args
+                  return alt(walk(*a), walk(*remains))
+      return walk(*tree)
+
+
+  def seq(a, b): return ('seq', a, b)
+  def lit(a):    return ('lit', a)
+  def oneof(s):  return ('oneof', s)
+  def star(a):   return ('star', a)
+  def plus(a):   return ('plus', a)
+  def alt(a, b): return ('alt', a, b)
+  dot = ('dot',)
+
+
+  def equals(actual, expected):
+      if actual != expected:
+          print '  actual: %s' % (actual,)
+          print 'expected: %s' % (expected,)
+          print '==> ' + ('pass' if actual == expected else 'fail') + '\n'
+
+
+  def test():
+      equals(parse_re('.'), ('dot',))
+      equals(parse_re('abc'), ('lit', 'abc'))
+      equals(parse_re('[abc]'), ('oneof', 'abc'))
+      equals(parse_re('a*'), ('star', ('lit', 'a')))
+      equals(parse_re('a+'), ('plus', ('lit', 'a')))
+      equals(parse_re('(a|b)'), ('alt', ('lit', 'a'), ('lit', 'b')))
+      equals(parse_re('(a|b|c)'), ('alt',
+                                   ('lit', 'a'),
+                                   ('alt', ('lit', 'b'), ('lit', 'c'))))
+
+      equals(parse_re('[ab]+'), ('plus', ('oneof', 'ab')))
+      equals(parse_re('[ab]+c'), ('seq', ('plus', ('oneof', 'ab')), ('lit', 'c')))
+      equals(parse_re('[ab]+c(d|e)'), ('seq',
+                                       ('plus', ('oneof', 'ab')),
+                                       ('seq', ('lit', 'c'),
+                                        ('alt', ('lit', 'd'), ('lit', 'e')))))
+#+END_SRC
+
+I really enjoyed this problem because I wrote the whole working regex parser by solving this.
+The runnable code is [[examples/reparser.py][examples/reparser.py]].
+
+*** Feedback
+Writing a whole working parser is intimidating.
+But he split up the problem into small problem, with simple intuitive representations.
+
+The input for regex interpreter is only ~tuples~ like ~('lit' 'abc')~.
+The output of ~parser~ is just a tree like ~['RE', ...]~.
+With these well-defined building blocks, the remaining part is only converting
+between these two representations.
+
+I could understand how important splitting up the problem and
+designing representations between them.
+
+* Office Hours 3
+** Question Four
+[[file:img/screenshot_2017-02-12_19-52-23.png]]
+
+[[file:img/screenshot_2017-02-12_19-52-40.png]]
+
+#+BEGIN_QUOTE
+I guess I try to think of things as how can I get as close to the problem as possible?
+(...)
+And so I start analyzing the problem and saying, what are the pieces of this problem,
+what are the objects I'm going to be manipulating, what are the ways I'm going to manipulate them,
+and try to do most of the analysis at that level. And then once that analysis is done, then I can say,
+well, what do I have in my programming language?
+(...)
+I like that approach because there is *a more direct connection between the problem and solution*,
+rather than *a multistep of going from the problem to the language implementation and then back to the solution*.
+#+END_QUOTE
