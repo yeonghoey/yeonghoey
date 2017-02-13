@@ -1,4 +1,4 @@
-* Learnings
+* Notes
 
 ** Books
 - [[the-design-of-everyday-things][The Design of Everyday Things]]
