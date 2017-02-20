@@ -6,6 +6,7 @@
    - [[#quiz-combinatorial-complexity][Quiz: Combinatorial Complexity]]
    - [[#quiz-exploring-the-space][Quiz: Exploring The Space]]
    - [[#pouring-solution][Pouring Solution]]
+   - [[#doctest][Doctest]]
  - [[#problem-set-4][Problem Set 4]]
    - [[#quiz-refactoring-bsuccessors][Quiz: Refactoring Bsuccessors]]
    - [[#quiz-more-pour-problem][Quiz: More Pour Problem]]
@@ -24,6 +25,14 @@ Can't tell the number of cases -> *SEARCH* problem
 [[file:img/screenshot_2017-02-12_23-37-56.png]]
 
 ** Pouring Solution
+[[file:img/screenshot_2017-02-21_08-51-44.png]]
+
+[[file:img/screenshot_2017-02-21_08-52-34.png]]
+
+TODO: I should definitely write these functions on my own.
+
+** Doctest
+[[file:img/screenshot_2017-02-21_08-54-48.png]]
 
 * Problem Set 4
 ** Quiz: Refactoring Bsuccessors
