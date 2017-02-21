@@ -31,8 +31,11 @@
 [[file:img/screenshot_2017-01-09_12-52-17.png]]
 
 ** Quiz: Testing
-[[file:img/screenshot_2017-01-09_12-59-54.png]]
 - https://wiki.python.org/moin/UsingAssertionsEffectively
+
+  
+  
+[[file:img/screenshot_2017-01-09_12-59-54.png]]
 
 ** Back To Hand Rank
 [[file:img/screenshot_2017-01-10_12-49-42.png]]
