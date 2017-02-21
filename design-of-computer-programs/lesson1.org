@@ -26,8 +26,9 @@
 
 * Lesson 1
 ** Outlining The Problem
-[[file:img/screenshot_2017-01-09_12-52-17.png]]
 - https://en.wikipedia.org/wiki/List_of_poker_hand_categories
+
+[[file:img/screenshot_2017-01-09_12-52-17.png]]
 
 ** Quiz: Testing
 [[file:img/screenshot_2017-01-09_12-59-54.png]]
@@ -163,7 +164,7 @@ On average, it will take N times to be changed.  So for all N elements, it will 
 
 - https://www.quora.com/What-is-an-easy-way-to-understand-Knuth-shuffles-algorithm
 
-[[file:img/screenshot_2017-01-15_01-07-25.png]] 
+[[file:img/screenshot_2017-01-15_01-07-25.png]]
 
 [[file:img/screenshot_2017-01-15_01-08-08.png]]
 
@@ -261,4 +262,3 @@ The key here is never be afraid to engage in wishful thinking,
 to say if only I had a function that did the right thing, then I could proceed.
 You should always be willing to proceed that way.
 #+END_QUOTE
-
