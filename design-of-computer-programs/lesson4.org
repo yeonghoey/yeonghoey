@@ -7,6 +7,8 @@
    - [[#quiz-exploring-the-space][Quiz: Exploring The Space]]
    - [[#pouring-solution][Pouring Solution]]
    - [[#doctest][Doctest]]
+   - [[#bridge-problem][Bridge Problem]]
+   - [[#quiz-bridge-successors][Quiz: Bridge Successors]]
  - [[#problem-set-4][Problem Set 4]]
    - [[#quiz-refactoring-bsuccessors][Quiz: Refactoring Bsuccessors]]
    - [[#quiz-more-pour-problem][Quiz: More Pour Problem]]
@@ -33,6 +35,92 @@ TODO: I should definitely write these functions on my own.
 
 ** Doctest
 [[file:img/screenshot_2017-02-21_08-54-48.png]]
+
+** Bridge Problem
+[[file:img/screenshot_2017-02-24_07-57-15.png]]
+
+** Quiz: Bridge Successors
+*** My Old Solution
+#+BEGIN_SRC python
+  def bsuccessors(state):
+      """Return a dict of {state:action} pairs. A state is a (here, there, t) tuple,
+      where here and there are frozensets of people (indicated by their times) and/or
+      the 'light', and t is a number indicating the elapsed time. Action is represented
+      as a tuple (person1, person2, arrow), where arrow is '->' for here to there and
+      '<-' for there to here."""
+      here, there, t = state
+
+      def picks(pos):
+          for t in combinations(pos, 2):
+              yield set(t)
+          for t in combinations(pos, 3):
+              yield set(t)
+
+
+      def movers(pick):
+          return pick - set(['light'])
+
+      def action(ms, dir):
+          return tuple(list(chain(ms, ms))[:2] + [dir])
+
+
+      succs = {}
+      for pick in picks(here):
+          if 'light' in pick:
+              ms = movers(pick)
+              state2 = (here - set(pick), there | set(pick), t + max(ms))
+              succs[state2] = action(ms, '->')
+      for pick in picks(there):
+          if 'light' in pick:
+              ms = movers(pick)
+              state2 = (here | set(pick), there - set(pick), t + max(ms))
+              succs[state2] = action(ms, '<-')
+
+      return succs
+#+END_SRC
+
+*** My New Solution
+#+BEGIN_SRC python
+  def bsuccessors(state):
+      here, there, t = state
+      if 'light' in here:
+          fi, ti, arrow = (0, 1, '->')
+      else:
+          fi, ti, arrow = (1, 0, '<-')
+      candidates = set((a, b)
+                        for a in state[fi]
+                        for b in state[fi]
+                        if a != 'light' and b != 'light')
+      succs = {}
+      for c in candidates:
+          fr_ = state[fi] - set(c) - set(['light'])
+          to_ = state[ti] | set(c) | set(['light'])
+          t_ = t + max(c)
+          action = c + (arrow,)
+          next_ = [None, None, t_]
+          next_[fi] = fr_
+          next_[ti] = to_
+          succs[tuple(next_)] = action
+      return succs
+#+END_SRC
+
+*** His Solution
+[[file:img/screenshot_2017-02-24_08-40-48.png]]
+
+*** Feedback
+I could mix ~for expressions~ and ~if expressions~ within a comprehension.
+#+BEGIN_SRC python
+  candidates = set((a, b)
+                  for a in state[fi] if a is not 'light'
+                  for b in state[fi] if b is not 'light')
+#+END_SRC
+
+#+BEGIN_QUOTE
+If you have uncertainties that are going to cross barriers between lots of different functions,
+then probably you want to nail them(the representations of the problem) down.
+If you think they're contained, then it's okay to have some uncertainty and be able to explore the exact options later.
+#+END_QUOTE
+
 
 * Problem Set 4
 ** Quiz: Refactoring Bsuccessors
