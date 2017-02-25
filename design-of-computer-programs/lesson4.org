@@ -19,6 +19,9 @@
    - [[#quiz-missionaries-and-cannibals][Quiz: Missionaries And Cannibals]]
    - [[#quiz-csuccessors][Quiz: Csuccessors]]
    - [[#mc-problem][Mc Problem]]
+   - [[#quiz-shortest-path-search][Quiz: Shortest Path Search]]
+   - [[#quiz-lowest-cost-search][Quiz: Lowest Cost Search]]
+   - [[#summary][Summary]]
  - [[#problem-set-4][Problem Set 4]]
    - [[#quiz-refactoring-bsuccessors][Quiz: Refactoring Bsuccessors]]
    - [[#quiz-more-pour-problem][Quiz: More Pour Problem]]
@@ -40,8 +43,6 @@ Can't tell the number of cases -> *SEARCH* problem
 [[file:img/screenshot_2017-02-21_08-51-44.png]]
 
 [[file:img/screenshot_2017-02-21_08-52-34.png]]
-
-TODO: I should definitely write these functions on my own.
 
 ** Doctest
 [[file:img/screenshot_2017-02-21_08-54-48.png]]
@@ -245,6 +246,16 @@ I should think of the problem in easy ways.
 I solved on my own: [[exercises/mc_problem.py][exercises/mc_problem.py]] 
 
 [[file:img/screenshot_2017-02-25_20-02-52.png]]
+
+** Quiz: Shortest Path Search
+[[file:img/screenshot_2017-02-25_20-19-00.png]]
+
+** Quiz: Lowest Cost Search
+*** His Solution
+[[file:img/screenshot_2017-02-25_20-32-14.png]]
+
+** Summary
+[[file:img/screenshot_2017-02-25_20-37-16.png]]
 
 * Problem Set 4
 ** Quiz: Refactoring Bsuccessors
