@@ -242,7 +242,7 @@ I should think of the problem in easy ways.
 - Defining vector operations like ~add~ and ~sub~ makes it possible.
 
 ** Mc Problem
-I solved on my own: [[exaples/mc_problem.py][mc_problem.py]] 
+I solved on my own: [[exercises/mc_problem.py][exercises/mc_problem.py]] 
 
 [[file:img/screenshot_2017-02-25_20-02-52.png]]
 

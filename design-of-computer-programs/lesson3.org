@@ -577,7 +577,7 @@ I will use the specification previously presented from this lesson:
 #+END_SRC
 
 I really enjoyed this problem because I wrote the whole working regex parser by solving this.
-The runnable code is [[examples/reparser.py][examples/reparser.py]].
+The runnable code is [[exercises/reparser.py][exercises/reparser.py]].
 
 *** Feedback
 Writing a whole working parser is intimidating.
