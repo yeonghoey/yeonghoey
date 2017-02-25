@@ -133,6 +133,7 @@ Concepts from Game Theory
 [[file:img/screenshot_2016-12-28_11-59-53.png]]
 
 [[file:img/screenshot_2016-12-28_12-02-29.png]]
+
 For most people, the utility functions of money is not linear but logarithmic.
 It's amazing how the code expresses this naturally.
 
@@ -165,10 +166,12 @@ I wonder how he implemented ~play_tournament~
 
 ** Being Careful
 [[file:img/screenshot_2016-12-28_12-30-58.png]]
+
 He mentioned about these function names are prone to error.
 It's hard to differentiate between ~utility function~ and ~strategy function~.
 
 [[file:img/screenshot_2016-12-28_12-32-45.png]]
+
 Here is the code uses ~strategy function~.  It will silently pass when ~A~ or ~B~ were a ~utility function~.
 
 ** Quiz: Legal Actions

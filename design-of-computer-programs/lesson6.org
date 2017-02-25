@@ -151,6 +151,7 @@ And I found out that even the exact copy of his solution causes an incorrect res
 
 ** Quiz: Show And Spell
 [[file:img/screenshot_2017-01-04_16-54-49.png]]
+
 Great way to define 2d array
 
 ** Quiz: Horizontal Plays

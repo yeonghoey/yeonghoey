@@ -135,8 +135,8 @@ I couldn't think of that way because of my preconception.
 I thought that assigning days should only happen once because it's permutations.
 
 To avoid making mistakes like this again, I should just write things down, and keep asking myself something like:
-- *What is this?*
-- *How can I represent this concept?*
+- *What is the base concept?* (which is ~days~ in this problem)
+- *How can I represent the problem on the ground of the base concept?*
 
 His way of building answer is great.  I couldn't think of it as sorting.  I wrote things like this:
 #+BEGIN_SRC python
@@ -416,7 +416,7 @@ The key difference is the logic of moving cars.
 I wrote it in an imperative, stateful way(~while~, ~i += 1~) which is easy to make bugs.
 On the other hand, his solution is declarative and elegant.
 
-For the implementation of ~grid~, I failed to use ~loc~ which makes it verbose.
+For the implementation of ~grid~, I failed to use ~loc~, and this causes to make it verbose.
 
 ** Quiz: Darts Probability
 *** double_out
