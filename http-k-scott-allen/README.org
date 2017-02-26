@@ -6,7 +6,8 @@
  - [[#resources-and-media-types][Resources and Media Types]]
  - [[#messages][Messages]]
    - [[#postredirectget][POST/Redirect/GET]]
-   - [[#http-request][HTTP Request]]
+   - [[#request][Request]]
+   - [[#response][Response]]
 
 * About the Book
 [[file:img/screenshot_2017-01-31_00-00-27.png]]
@@ -81,8 +82,7 @@ POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pat
 -----
 [[file:img/screenshot_2017-01-30_18-16-17.png]]
 
-** HTTP Request
-A full HTTP request message consists of the following parts:
+** Request
 #+BEGIN_EXAMPLE
   [method] [URL] [version]
   [headers]
@@ -114,3 +114,53 @@ For Date, (..) has to follow [[https://www.ietf.org/rfc/rfc0822.txt][RFC 822]] f
   Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
   Cookie: (...)
 #+END_EXAMPLE
+
+#+BEGIN_QUOTE
+The q value is always a number between 0 and 1.
+The q value represents the quality value or "relative degree of preference" for a particular value.
+The default is 1.0
+#+END_QUOTE
+
+** Response
+#+BEGIN_EXAMPLE
+  [version][status][reason]
+  [headers]
+
+  [body]
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  HTTP/1.1 200 OK
+  Server: GitHub.com
+  Date: Sun, 26 Feb 2017 23:01:05 GMT
+  Content-Type: text/html; charset=utf-8
+  Content-Length: 12
+  Last-Modified: Sun, 26 Feb 2017 15:24:34 GMT
+  Access-Control-Allow-Origin: *
+  Expires: Sun, 26 Feb 2017 23:11:05 GMT
+  Cache-Control: max-age=600
+  Accept-Ranges: bytes
+  X-GitHub-Request-Id: C0EF:231BE:19DC523:22EC802:58B35E31
+
+  Hello world
+#+END_EXAMPLE
+
+|   Range | Category      |
+|---------+---------------|
+| 100-199 | Informational |
+| 200-299 | Successful    |
+| 300-399 | Redirection   |
+| 400-499 | Client Error  |
+| 500-599 | Server Error  |
+
+| Code | Reason                | Description                       |
+|------+-----------------------+-----------------------------------|
+|  200 | OK                    |                                   |
+|  301 | Moved Permanently     |                                   |
+|  302 | Moved Temporarily     | Used in PRG pattern               |
+|  304 | Not Modified          | Resource requested hasn't changed |
+|  400 | Bad Request           |                                   |
+|  403 | Forbidden             |                                   |
+|  404 | Not Found             |                                   |
+|  500 | Internal Server Error |                                   |
+|  503 | Service Unavailable   |                                   |
