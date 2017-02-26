@@ -3,12 +3,13 @@
 * Table of Contents :TOC_2_gh:
  - [[#about-the-book][About the Book]]
  - [[#url][URL]]
- - [[#resources-and-media-types][Resources and Media Types]]
- - [[#messages][Messages]]
-   - [[#postredirectget][POST/Redirect/GET]]
-   - [[#request][Request]]
-   - [[#response][Response]]
-   - [[#web-applications-and-web-services-and-http-status-codes][Web Applications and Web Services and HTTP Status Codes]]
+ - [[#resource][Resource]]
+ - [[#request][Request]]
+ - [[#response][Response]]
+ - [[#caching][Caching]]
+ - [[#persistent-connections][Persistent Connections]]
+ - [[#when-to-use-http-status-codes][When to Use HTTP Status Codes]]
+ - [[#postredirectget][POST/Redirect/GET]]
 
 * About the Book
 [[file:img/screenshot_2017-01-31_00-00-27.png]]
@@ -38,7 +39,13 @@ The path of a URL is case sensitive (...)
 However, many web sites will try to make URLs behave as if they are case insensitive.
 #+END_QUOTE
 
-* Resources and Media Types
+#+BEGIN_QUOTE
+- A URL cannot restrict a client or a server to a specific type of technology.
+- A URL cannot specify the representation of a specific resource
+- A URL cannot say what a user wants to do with a resource
+#+END_QUOTE
+
+* Resource
 #+BEGIN_QUOTE
 [[https://www.ietf.org/rfc/rfc3986.txt][RFC 3986]] defines the safe characters for URLs (...) alphanumeric in US-ASCII and some special characters like ':', '/'
 (..) unsafe characters must be percent encoded. (%20 for a space character)
@@ -63,27 +70,12 @@ it will fall back on the file extension used in the request for the resource.
 When a client makes an HTTP request to a URL, the client can specify the media types it will accept.
 #+END_QUOTE
 
-* Messages
 #+BEGIN_QUOTE
 (...) the more you can think of a virtual resource as a real resource,
 the better your application architecture and design will adhere to the strengths of HTTP.
 #+END_QUOTE
 
-** POST/Redirect/GET
-#+BEGIN_QUOTE
-Many web applications always try to leave the client view the result of a GET request.
-After a user clicks a button to POST information to a server, the server will process the information
-and respond with an HTTP redirect,
-#+END_QUOTE
-
-The practice of redirecting after a POST is common web design pattern known as the
-POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pattern.
-
-[[file:img/screenshot_2017-01-30_18-12-14.png]]
------
-[[file:img/screenshot_2017-01-30_18-16-17.png]]
-
-** Request
+* Request
 #+BEGIN_EXAMPLE
   [method] [URL] [version]
   [headers]
@@ -122,7 +114,7 @@ The q value represents the quality value or "relative degree of preference" for 
 The default is 1.0
 #+END_QUOTE
 
-** Response
+* Response
 #+BEGIN_EXAMPLE
   [version][status][reason]
   [headers]
@@ -166,10 +158,42 @@ The default is 1.0
 |  500 | Internal Server Error |                                   |
 |  503 | Service Unavailable   |                                   |
 
-** Web Applications and Web Services and HTTP Status Codes
+* TODO Caching
+* Persistent Connections
+#+BEGIN_QUOTE
+A persistent connection stays open after the completion of one request-response transaction.
+#+END_QUOTE
+
+#+BEGIN_EXAMPLE
+  HTTP/1.1 200 OK
+  Content-Type: text/html; charset=utf-8
+  Connection: close
+  Content-Length: 17149
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+The ~Connection: close~ header is a signal to the browser that the connection will not be
+persistent and the browser should close the connection immediately.
+#+END_QUOTE
+* When to Use HTTP Status Codes
 In web applications which serve HTML pages,
 invalid requests must almost always be handled by 200 OK for the user experiences.
 
 In web services which serve data like JSON or XML, on the other hand,
 invalid requests must be handled by various HTTP Status Codes,
 because the web services work as APIs through HTTP.
+
+* POST/Redirect/GET
+#+BEGIN_QUOTE
+Many web applications always try to leave the client view the result of a GET request.
+After a user clicks a button to POST information to a server, the server will process the information
+and respond with an HTTP redirect,
+#+END_QUOTE
+
+The practice of redirecting after a POST is common web design pattern known as the
+POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pattern.
+
+[[file:img/screenshot_2017-01-30_18-12-14.png]]
+-----
+[[file:img/screenshot_2017-01-30_18-16-17.png]]
+
