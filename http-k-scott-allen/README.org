@@ -8,6 +8,7 @@
    - [[#postredirectget][POST/Redirect/GET]]
    - [[#request][Request]]
    - [[#response][Response]]
+   - [[#web-applications-and-web-services-and-http-status-codes][Web Applications and Web Services and HTTP Status Codes]]
 
 * About the Book
 [[file:img/screenshot_2017-01-31_00-00-27.png]]
@@ -164,3 +165,11 @@ The default is 1.0
 |  404 | Not Found             |                                   |
 |  500 | Internal Server Error |                                   |
 |  503 | Service Unavailable   |                                   |
+
+** Web Applications and Web Services and HTTP Status Codes
+In web applications which serve HTML pages,
+invalid requests must almost always be handled by 200 OK for the user experiences.
+
+In web services which serve data like JSON or XML, on the other hand,
+invalid requests must be handled by various HTTP Status Codes,
+because the web services work as APIs through HTTP.
