@@ -210,9 +210,8 @@ There are also ~Last-Modified~, ~ETag~ headers, which can be used as a validator
 #+END_EXAMPLE
 
 You can change the scope of a cookie by ~domain~ value.
-These cookies are called ~third party cookies~, and they were
+These cookies are called *third party cookies*, and they were
 mostly used by advertisers for tracking users.
-But now, most browsers disable this feature by default.
 #+BEGIN_EXAMPLE
   Set-Cookie: name=value; domain=.yeonghoey.com; path=/http
 #+END_EXAMPLE
