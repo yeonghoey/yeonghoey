@@ -7,6 +7,7 @@
  - [[#request][Request]]
  - [[#response][Response]]
  - [[#caching][Caching]]
+ - [[#cookies][Cookies]]
  - [[#persistent-connections][Persistent Connections]]
  - [[#when-to-use-http-status-codes][When to Use HTTP Status Codes]]
  - [[#postredirectget][POST/Redirect/GET]]
@@ -188,6 +189,36 @@ There are also ~Last-Modified~, ~ETag~ headers, which can be used as a validator
   Last-Modified: Fri, 01 Mar 2017 ...
   ETag: "abcdef-012-ghijklmnop3456"
 #+END_EXAMPLE
+
+* Cookies
+- Cookies are defined by ~RFC6265~.
+- ~4KB~ size limitation
+- ~HttpOnly~ flag for preventing XSS(Cross Site Scripting)
+
+#+BEGIN_EXAMPLE
+  HTTP/1.1 200 OK
+  Content-Type: text/html; charset=utf-8
+  Set-Cookie:name=Yeongho&email=yeonghoey@gmail.com; HttpOnly
+  ...
+#+END_EXAMPLE
+
+- *Persistent cookies* outlive a single browsing session.
+- They need an ~expires~ value.
+
+#+BEGIN_EXAMPLE
+  Set-Cookie: name=value; expires=Money, ...
+#+END_EXAMPLE
+
+You can change the scope of a cookie by ~domain~ value.
+These cookies are called ~third party cookies~, and they were
+mostly used by advertisers for tracking users.
+But now, most browsers disable this feature by default.
+#+BEGIN_EXAMPLE
+  Set-Cookie: name=value; domain=.yeonghoey.com; path=/http
+#+END_EXAMPLE
+
+Cookies *interfere with caching* because they can't be cached.
+
 
 * Persistent Connections
 #+BEGIN_QUOTE
