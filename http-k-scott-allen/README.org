@@ -163,9 +163,8 @@ The default is 1.0
 * Caching
 There are two types of caching, ~public~ and ~private~.
 
-*Public cache* is generally on a proxy server, and is shared among multiple users.
-On the other hand, *private cahce* is performed by the web browser, and saved on
-the user's local disk.
+*Public cache* is generally on a proxy server and is shared among multiple users,
+while *private cahce* is performed by the web browser and saved on the user's local disk.
 If you use *Goole Chrome*, type ~about:cache~ to see the current list of private cache.
 
 Responses of ~200~ from ~GET~ request is cacheable by default.
