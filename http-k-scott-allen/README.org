@@ -1,6 +1,6 @@
 #+TITLE: HTTP: What Every Web Developer Should Know About the Hypertext Transfer Protocol
 
-* Table of Contents :TOC_2_gh:
+* Table of Contents :TOC_1_gh:
  - [[#about-the-book][About the Book]]
  - [[#url][URL]]
  - [[#resource][Resource]]
@@ -8,6 +8,8 @@
  - [[#response][Response]]
  - [[#caching][Caching]]
  - [[#cookies][Cookies]]
+ - [[#authentication][Authentication]]
+ - [[#secure-http][Secure HTTP]]
  - [[#persistent-connections][Persistent Connections]]
  - [[#when-to-use-http-status-codes][When to Use HTTP Status Codes]]
  - [[#postredirectget][POST/Redirect/GET]]
@@ -218,6 +220,78 @@ mostly used by advertisers for tracking users.
 
 Cookies *interfere with caching* because they can't be cached.
 
+* Authentication
+#+BEGIN_QUOTE
+The client will request a secure resource, and the server will challenge the client to authenticate.
+The client then needs to send another request and include authentication credentials for the server to validate.
+#+END_QUOTE
+
+** Basic Authentication
+#+BEGIN_EXAMPLE
+  GET http://localhost/foo/ HTTP/1.1
+  Host: localhost
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  HTTP/1.1 401 Unauthorized
+  WWW-Authenticate: Basic realm="localhost"
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  GET http://localhost/foo/ HTTP/1.1
+  Host: localhost
+  Authorization: Basic
+  ab12aDedXjkl25JerdvcRotjkld8sdfjk&
+#+END_EXAMPLE
+
+The value of ~Authorization~ header is the *username* and *password*, encoded in ~base64~.
+Basic authentication is insecure by default, and not recommended without ~https~.
+
+** Digest Authentication
+#+BEGIN_EXAMPLE
+  HTTP/1.0 401 Unauthorized
+  WWW-Authenticate: Digest realm="localhost", qop="auth,auth-int"
+  nonce="ddkds1284fdvckllk12984qwiz"
+  opaque="5cc019124sdfjaweidjf12849"
+#+END_EXAMPLE
+
+~nonce~ is a value to be hashed with the *username* and *password*.
+~opaque~ is a kind of state specified by the server, which should be returned by the client unchanged.
+
+[[file:img/screenshot_2017-03-02_07-51-05.png]]
+
+** Form-based Authentication
+#+BEGIN_QUOTE
+By redirecting the user to a login page (...)
+form-based authentication will transmit a user's credentials in plain text, (...)
+*not secure unless you use secure HTTP*.
+#+END_QUOTE
+
+#+BEGIN_EXAMPLE
+  HTTP/1.1 302 Found
+  Location: /login.aspx?ReturnUrl=/admin.aspx
+#+END_EXAMPLE
+
+#+BEGIN_SRC html
+  <form method="post">
+    <input type="text" name="username" />
+    <input type="password" name="password" />
+    <input type="submit" value="Login" />
+  </form>
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  HTTP/1.1 302 Found
+  Location: /admin.apsx
+  Set-Cookie: ...
+#+END_EXAMPLE
+
+* Secure HTTP
+- HTTPS will *encrypt all request and response* traffic
+- The server certificate *authenticates the server to the client*
+- HTTPS *does not authenticate* the client
+
+[[file:img/screenshot_2017-03-02_08-02-16.png]]
 
 * Persistent Connections
 #+BEGIN_QUOTE
