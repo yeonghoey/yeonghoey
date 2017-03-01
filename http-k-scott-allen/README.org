@@ -147,6 +147,7 @@ The default is 1.0
 | 400-499 | Client Error  |
 | 500-599 | Server Error  |
 
+
 | Code | Reason                | Description                       |
 |------+-----------------------+-----------------------------------|
 |  200 | OK                    |                                   |
