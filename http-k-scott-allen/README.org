@@ -275,9 +275,7 @@ form-based authentication will transmit a user's credentials in plain text, (...
 [[file:img/screenshot_2017-03-02_08-02-16.png]]
 
 * Persistent Connections
-#+BEGIN_QUOTE
-A persistent connection stays open after the completion of one request-response transaction.
-#+END_QUOTE
+A persistent connection *stays open after the completion of one request-response transaction*.
 
 #+BEGIN_EXAMPLE
   HTTP/1.1 200 OK
@@ -286,16 +284,16 @@ A persistent connection stays open after the completion of one request-response 
   Content-Length: 17149
 #+END_EXAMPLE
 
-#+BEGIN_QUOTE
 The ~Connection: close~ header is a signal to the browser that the connection will not be
 persistent and the browser should close the connection immediately.
-#+END_QUOTE
+
 * When to Use HTTP Status Codes
 In web applications which serve HTML pages,
-most invalid requests *must be handled by providing some pages like 200 OK* for the user experiences.
+most invalid requests *must be handled by providing some pages along with status codes like 200 OK*
+for the user experiences.
 
 In web services which serve data like ~json~ or ~xml~, on the other hand,
-invalid requests *must be handled by HTTP Status Codes*,
+invalid requests *must be handled by various HTTP status codes*,
 because the web services work as APIs through the HTTP protocol.
 
 * POST/Redirect/GET
