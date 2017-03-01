@@ -158,7 +158,37 @@ The default is 1.0
 |  500 | Internal Server Error |                                   |
 |  503 | Service Unavailable   |                                   |
 
-* TODO Caching
+* Caching
+There are two types of caching, ~public~ and ~private~.
+
+*Public cache* is generally on a proxy server, and is shared among multiple users.
+On the other hand, *private cahce* is performed by the web browser, and saved on
+the user's local disk.
+If you use *Goole Chrome*, type ~about:cache~ to see the current list of private cache.
+
+Responses of ~200~ from ~GET~ request is cacheable by default.
+And there is ~Cache-control~ header for controlling caching policies:
+#+BEGIN_EXAMPLE
+  Cache-control: no-cache
+  Cache-control: public
+  Cache-control: private
+  Cache-Control: max-age=<seconds>
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  HTTP/1.1 200 OK
+  ...
+  Cache-Control: max-age=600,public
+#+END_EXAMPLE
+
+There are also ~Last-Modified~, ~ETag~ headers, which can be used as a validator:
+#+BEGIN_EXAMPLE
+  HTTP/1.1 200 OK
+  ...
+  Last-Modified: Fri, 01 Mar 2017 ...
+  ETag: "abcdef-012-ghijklmnop3456"
+#+END_EXAMPLE
+
 * Persistent Connections
 #+BEGIN_QUOTE
 A persistent connection stays open after the completion of one request-response transaction.
@@ -196,4 +226,3 @@ POST/Redirect/GET ([[https://en.wikipedia.org/wiki/Post/Redirect/Get][PRG]]) pat
 [[file:img/screenshot_2017-01-30_18-12-14.png]]
 -----
 [[file:img/screenshot_2017-01-30_18-16-17.png]]
-
