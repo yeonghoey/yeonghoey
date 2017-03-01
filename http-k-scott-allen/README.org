@@ -292,16 +292,16 @@ persistent and the browser should close the connection immediately.
 #+END_QUOTE
 * When to Use HTTP Status Codes
 In web applications which serve HTML pages,
-invalid requests must almost always be handled by 200 OK for the user experiences.
+most invalid requests *must be handled by providing some pages like 200 OK* for the user experiences.
 
-In web services which serve data like JSON or XML, on the other hand,
-invalid requests must be handled by various HTTP Status Codes,
-because the web services work as APIs through HTTP.
+In web services which serve data like ~json~ or ~xml~, on the other hand,
+invalid requests *must be handled by HTTP Status Codes*,
+because the web services work as APIs through the HTTP protocol.
 
 * POST/Redirect/GET
 #+BEGIN_QUOTE
-Many web applications always try to leave the client view the result of a GET request.
-After a user clicks a button to POST information to a server, the server will process the information
+Many web applications always try to leave the client view the result of a ~GET~ request.
+After a user clicks a button to ~POST~ information to a server, the server will process the information
 and respond with an HTTP redirect,
 #+END_QUOTE
 
