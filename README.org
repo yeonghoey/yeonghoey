@@ -2,6 +2,7 @@
 ** Books
 - [[the-design-of-everyday-things][The Design of Everyday Things]]
 - [[http-k-scott-allen][HTTP by K.Scott Allen]]
+- [[the-non-designers-design-book][The Non-Designer's Design Book]] 
 
 ** Udacity
 - [[design-of-computer-programs][Design of Computer Programs]]

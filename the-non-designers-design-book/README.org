@@ -1,0 +1,29 @@
+#+TITLE: The Non-Designer's Design Book
+
+* Table of Contents :TOC_2_gh:
+ - [[#the-four-basic-principles][The Four Basic Principles]]
+   - [[#proximity][Proximity]]
+   - [[#alignment][Alignment]]
+   - [[#repetition][Repetition]]
+   - [[#contrast][Contrast]]
+ - [[#design-with-color][Design with Color]]
+ - [[#design-with-type][Design with Type]]
+
+* The Four Basic Principles
+** Proximity
+[[file:img/screenshot_2017-03-15_08-55-08.png]]
+
+- Items relating to each other should be grouped together
+- The basic purpose of proximity is to organize
+- If there are more than three to five items on the page(of course it depends on the piece),
+  see which of the separate elements can be grouped together into close proximity
+  to become one visual unit
+- Avoid too many separate elements on a page
+- Don't stick things in the corners or in the middle just because the space is empty
+
+** Alignment
+** Repetition
+** Contrast
+
+* Design with Color
+* Design with Type
