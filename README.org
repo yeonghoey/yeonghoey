@@ -1,5 +1,4 @@
 * Notes
-
 ** Books
 - [[the-design-of-everyday-things][The Design of Everyday Things]]
 - [[http-k-scott-allen][HTTP by K.Scott Allen]]
