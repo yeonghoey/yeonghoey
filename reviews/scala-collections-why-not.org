@@ -1,0 +1,10 @@
+* Scala Collections: Why Not?
+- [2017-01-02 Mon]
+- https://youtu.be/uiJycy6dFSQ
+- Presented by a ~scala~ core contributor, Paul Phillips
+
+He quit ~scala~ because he figured out that he couldn't make ~scala~ a language he desired for.
+
+In the presentation, He shows some ugly part of ~scala~.
+
+[[file:img/screenshot_2017-01-02_09-25-16.png]]

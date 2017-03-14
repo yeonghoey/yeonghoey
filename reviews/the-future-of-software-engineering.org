@@ -1,0 +1,5 @@
+* GOTO 2016 • The Future of Software Engineering • Mary Poppendieck
+- [2017-01-22 Sun]
+- https://youtu.be/6K4ljFZWgW8
+
+[[file:img/screenshot_2017-01-22_09-53-26.png]]
