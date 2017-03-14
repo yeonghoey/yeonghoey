@@ -9,6 +9,5 @@
 - [[intro-to-html-and-css][Intro to HTML and CSS]]
 
 ** Others
-- [[youtube][YouTube]]
-- [[blog-posts][Blog Posts]]
+- [[reviews][Reviews]]
 - [[writings][Writings]]
