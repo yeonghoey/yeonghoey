@@ -1,4 +1,3 @@
-# Blog Posts
 * Is jQuery Still Relevant?
 - [2017-01-05 Thu]
 - http://developer.telerik.com/featured/is-jquery-still-relevant/
