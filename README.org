@@ -1,15 +1,15 @@
 * Notes
-
-** Books
-- [[the-design-of-everyday-things][The Design of Everyday Things]]
-- [[http-k-scott-allen][HTTP by K.Scott Allen]]
-
-** Udacity
+** General Programming
 - [[design-of-computer-programs][Design of Computer Programs]]
 - [[writing-readmes][Writing READMEs]]
+
+** Web
+- [[http-k-scott-allen][HTTP by K.Scott Allen]]
 - [[intro-to-html-and-css][Intro to HTML and CSS]]
 
+** Design
+- [[the-design-of-everyday-things][The Design of Everyday Things]]
+
 ** Others
-- [[youtube][YouTube]]
-- [[blog-posts][Blog Posts]]
+- [[summaries][Summaries]]
 - [[writings][Writings]]
