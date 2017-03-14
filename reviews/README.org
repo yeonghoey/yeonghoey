@@ -1,5 +1,7 @@
 * Reviews
-- [[blog-posts.org][Blog Posts]]
+** Blog Posts
+- [[is-jquery-still-relevant.org][Is jQuery Still Relevant?]] 
+- [[why-we-use-terraform.org][Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation]] 
 
 ** YouTube
 - [[seven-secrets-of-maintainable-codebases.org][GOTO 2016 • Seven Secrets of Maintainable Codebases • Adam Tornhill]]

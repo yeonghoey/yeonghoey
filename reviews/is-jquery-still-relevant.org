@@ -1,0 +1,9 @@
+* Is jQuery Still Relevant?
+- [2017-01-05 Thu]
+- http://developer.telerik.com/featured/is-jquery-still-relevant/
+
+- Good for prototyping, education
+- No so good for production in a performance perspective
+- imperative, even though most of ui things are declarative
+
+This current state is caused by the advance of standards and better frameworks such as angular and react.

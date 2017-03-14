@@ -1,19 +1,3 @@
-#+TITLE: Blog Posts
-
-* Table of Contents                                                :TOC_1_gh:
- - [[#is-jquery-still-relevant][Is jQuery Still Relevant?]]
- - [[#why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation][Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation]]
-
-* Is jQuery Still Relevant?
-- [2017-01-05 Thu]
-- http://developer.telerik.com/featured/is-jquery-still-relevant/
-
-- Good for prototyping, education
-- No so good for production in a performance perspective
-- imperative, even though most of ui things are declarative
-
-This current state is caused by the advance of standards and better frameworks such as angular and react.
-
 * Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation
 - [2016-12-29 Thu]
 - https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.7fsvtvl2v
