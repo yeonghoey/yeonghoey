@@ -21,6 +21,7 @@
 - *Avoid too many separate elements* on a page
 - *Don't stick things in the corners or in the middle* just because the space is empty
 
+-----
 
 * Alignment
 [[file:img/screenshot_2017-03-15_09-00-23.png]]
