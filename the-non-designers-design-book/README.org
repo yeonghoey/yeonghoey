@@ -16,7 +16,7 @@
 -----
 
 - Items relating to each other should be grouped together
-- The basic purpose of proximity is to organize
+- *To organize*
 - If there are more than three to five items on the page(of course it depends on the piece),
   see which of the separate elements can be grouped together into close proximity
   to become one visual unit
@@ -93,13 +93,23 @@ The whitespace now is floating free of the right edge.
 
 -----
 
-- The basic purpose of alignment is to *unify and organize* the page.
+- *To unify and organize the page.*
 - Avoid using *more than one text alignment on the page*
 
 ** Repetition
 [[file:img/screenshot_2017-03-16_08-24-22.png]]
 
 -----
+
+- *To unify and to add visual interest*
+- Avoid repeating the element *so much that it becomes annoying or overwhelming.*
+
+#+BEGIN_QUOTE
+At first, simple find existing repetitions and then strengthen them.
+As you get used to the idea and the look, start to create
+repetitions to enhance the design and the clarity of the information.
+#+END_QUOTE
+
 ** Contrast
 
 * Design with Color
