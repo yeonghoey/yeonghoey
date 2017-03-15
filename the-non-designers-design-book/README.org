@@ -62,6 +62,38 @@ Until you have more training, stick to this guideline: *Choose one.*
 That is, choose one text alignment on the page.
 #+END_QUOTE
 
+-----
+
+[[file:img/screenshot_2017-03-16_08-10-08.png]]
+
+#+BEGIN_QUOTE
+*Never center headlines over flush left body copy or text that has an indent*
+because if the text does not have clear left and right edges, you cannot tell
+that the headline is actually centered. It looks random.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+*First paragraphs are traditionally not indented.* The purpose of indenting a paragraph is
+to tell you there is a new paragraph, but you already know the first paragraph is a new paragraph.
+*The professional typographic indent is one em, which is about two spaces, not five*.
+#+END_QUOTE
+
+-----
+
+[[file:img/screenshot_2017-03-16_08-17-06.png]]
+
+#+BEGIN_QUOTE
+*Find a strong line and use it.* If you have a photo or a graphic with a strong flush side,
+align the side of the text along the straight edge of the photo, (...)
+however, there is "trapped" white space, and the white space is an awkward shape, (...)
+The whitespace now is floating free of the right edge.
+#+END_QUOTE
+
+-----
+
+- The basic purpose of alignment is to *unify and organize* the page.
+- Avoid using *more than one text alignment on the page*
+
 ** Repetition
 ** Contrast
 
