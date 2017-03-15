@@ -13,6 +13,8 @@
 ** Proximity
 [[file:img/screenshot_2017-03-15_08-55-08.png]]
 
+-----
+
 - Items relating to each other should be grouped together
 - The basic purpose of proximity is to organize
 - If there are more than three to five items on the page(of course it depends on the piece),
@@ -95,6 +97,9 @@ The whitespace now is floating free of the right edge.
 - Avoid using *more than one text alignment on the page*
 
 ** Repetition
+[[file:img/screenshot_2017-03-16_08-24-22.png]]
+
+-----
 ** Contrast
 
 * Design with Color
