@@ -9,6 +9,9 @@
  - [[#type][Type]]
 
 * Proximity
+
+-----
+
 [[file:img/screenshot_2017-03-15_08-55-08.png]]
 
 -----
@@ -24,6 +27,9 @@
 -----
 
 * Alignment
+
+-----
+
 [[file:img/screenshot_2017-03-15_09-00-23.png]]
 
 [[file:img/screenshot_2017-03-15_09-04-29.png]]
@@ -96,8 +102,12 @@ The whitespace now is floating free of the right edge.
 - *To unify and organize the page.*
 - Avoid using *more than one text alignment on the page*
 
+-----
 
 * Repetition
+
+-----
+
 [[file:img/screenshot_2017-03-16_08-24-22.png]]
 
 -----
@@ -111,7 +121,12 @@ As you get used to the idea and the look, start to create
 repetitions to enhance the design and the clarity of the information.
 #+END_QUOTE
 
+-----
+
 * Contrast
+
+-----
+
 [[file:img/screenshot_2017-03-16_08-36-15.png]]
 
 #+BEGIN_QUOTE
@@ -123,6 +138,8 @@ clarify the hierarchy, guide a reader around the page, and provide a focus.
 #+BEGIN_QUOTE
 If two elements are sort of different *but not really, then you don't have contrast, you have conflict*.
 #+END_QUOTE
+
+-----
 
 * Color
 * Type
