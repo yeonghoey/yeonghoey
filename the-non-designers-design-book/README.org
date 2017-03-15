@@ -1,11 +1,15 @@
 #+TITLE: The Non-Designer's Design Book
 
-* Table of Contents :TOC_1_gh:
- - [[#design-principles][Design Principles]]
+* Table of Contents :TOC_2_gh:
+ - [[#the-four-design-principles][The Four Design Principles]]
+   - [[#proximity][Proximity]]
+   - [[#alignment][Alignment]]
+   - [[#repetition][Repetition]]
+   - [[#contrast][Contrast]]
  - [[#color][Color]]
  - [[#type][Type]]
 
-* Design Principles
+* The Four Design Principles
 - Don't be afraid to *create your design with plenty of blank space*
 - Don't be afraid to *be asymmetrical, to uncenter your format*
 - Don't be afraid to *make words very large or very small*
