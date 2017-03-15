@@ -43,13 +43,13 @@ This give *left- and right-aligned text a cleaner and more dramatic look.*
 
 [[file:img/screenshot_2017-03-15_09-05-21.png]]
 
-The author's name is far from the title, but that invisible line connects the two text blocks.
+The author's name is far from the title, but *that invisible line connects the two text blocks*.
 
 -----
 
 [[file:img/screenshot_2017-03-16_08-05-43.png]]
 
-If you're going to center text, then at least make it obvious that it is centered!
+If you're going to center text, then *at least make it obvious that it is centered!*
 
 Until you have more training, stick to this guideline: *Choose one.*
 That is, choose one text alignment on the page.
@@ -73,7 +73,7 @@ to tell you there is a new paragraph, but you already know the first paragraph i
 *Find a strong line and use it.* If you have a photo or a graphic with a strong flush side,
 align the side of the text along the straight edge of the photo, (...)
 however, there is "trapped" white space, and the white space is an awkward shape, (...)
-The whitespace now is floating free of the right edge.
+*The whitespace now is floating free of the right edge.*
 
 -----
 
