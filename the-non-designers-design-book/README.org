@@ -1,16 +1,14 @@
 #+TITLE: The Non-Designer's Design Book
 
 * Table of Contents :TOC_2_gh:
- - [[#the-four-basic-principles][The Four Basic Principles]]
-   - [[#proximity][Proximity]]
-   - [[#alignment][Alignment]]
-   - [[#repetition][Repetition]]
-   - [[#contrast][Contrast]]
- - [[#design-with-color][Design with Color]]
- - [[#design-with-type][Design with Type]]
+ - [[#proximity][Proximity]]
+ - [[#alignment][Alignment]]
+ - [[#repetition][Repetition]]
+ - [[#contrast][Contrast]]
+ - [[#color][Color]]
+ - [[#type][Type]]
 
-* The Four Basic Principles
-** Proximity
+* Proximity
 [[file:img/screenshot_2017-03-15_08-55-08.png]]
 
 -----
@@ -23,7 +21,7 @@
 - *Avoid too many separate elements* on a page
 - *Don't stick things in the corners or in the middle* just because the space is empty
 
-** Alignment
+* Alignment
 [[file:img/screenshot_2017-03-15_09-00-23.png]]
 
 [[file:img/screenshot_2017-03-15_09-04-29.png]]
@@ -96,7 +94,7 @@ The whitespace now is floating free of the right edge.
 - *To unify and organize the page.*
 - Avoid using *more than one text alignment on the page*
 
-** Repetition
+* Repetition
 [[file:img/screenshot_2017-03-16_08-24-22.png]]
 
 -----
@@ -110,7 +108,18 @@ As you get used to the idea and the look, start to create
 repetitions to enhance the design and the clarity of the information.
 #+END_QUOTE
 
-** Contrast
+* Contrast
+[[file:img/screenshot_2017-03-16_08-36-15.png]]
 
-* Design with Color
-* Design with Type
+#+BEGIN_QUOTE
+Contrast various elements of the piece *to draw a reader's eye* into the page. (...)
+*Contrast not only serves to draw in the eye, but you can use it to organize information*,
+clarify the hierarchy, guide a reader around the page, and provide a focus.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+If two elements are sort of different *but not really, then you don't have contrast, you have conflict*.
+#+END_QUOTE
+
+* Color
+* Type
