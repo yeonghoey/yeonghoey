@@ -5,19 +5,21 @@
  - [[#alignment][Alignment]]
  - [[#repetition][Repetition]]
  - [[#contrast][Contrast]]
+ - [[#the-four-design-principles][The Four Design Principles]]
  - [[#color][Color]]
  - [[#type][Type]]
 
 * Proximity
 [[file:img/screenshot_2017-03-15_08-55-08.png]]
 
+If there are more than three to five items on the page(of course it depends on the piece),
+*see which of the separate elements can be grouped together* into close proximity
+to become one visual unit
+
 -----
 
-- Items relating to each other should be grouped together
 - *To organize*
-- If there are more than three to five items on the page(of course it depends on the piece),
-  see which of the separate elements can be grouped together into close proximity
-  to become one visual unit
+- Items relating to each other *should be grouped together*
 - *Avoid too many separate elements* on a page
 - *Don't stick things in the corners or in the middle* just because the space is empty
 
@@ -106,6 +108,23 @@ clarify the hierarchy, guide a reader around the page, and provide a focus.
 If two elements are sort of different *but not really, then you don't have contrast, you have conflict*.
 
 -----
+
+[[file:img/screenshot_2017-03-16_08-49-26.png]]
+
+*Find the most interesting or most important item on the page, and emphasize it!*
+
+-----
+
+- *To create an interest* on the page and *to aid in the organization* of the information
+- If the items are not exactly the same, *make them different!*
+
+-----
+
+* The Four Design Principles
+- Don't be afraid to *create your design with plenty of blank space*
+- Don't be afraid to *be asymmetrical, to uncenter your format*
+- Don't be afraid to *make words very large or very small*
+- Don't be afraid to *make your graphics very bold or very minimal*
 
 * Color
 * Type
