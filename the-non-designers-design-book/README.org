@@ -28,30 +28,39 @@
 
 [[file:img/screenshot_2017-03-15_09-04-53.png]]
 
-- When items are aligned on the page, the result is *a stronger cohesive unit*
-- Get in *the habit of drawing lines* between elements to determine where the connections are lacking
+#+BEGIN_QUOTE
+When items are aligned on the page, the result is *a stronger cohesive unit* (...)
+Get in *the habit of drawing lines* between elements to determine where the connections are lacking
+#+END_QUOTE
 
 #+BEGIN_QUOTE
-A centered alignment often appears a bit weak.
+*A centered alignment often appears a bit weak*.
 If text is aligned, instead, on the left or the right,
 the invisible line that connects the text is much stronger
-because it has a hard vertical edge to follow. This give left- and right-aligned text
-a cleaner and more dramatic look.
+because it has a hard vertical edge to follow.
+This give *left- and right-aligned text a cleaner and more dramatic look.*
 #+END_QUOTE
 
 -----
 
 [[file:img/screenshot_2017-03-15_09-05-21.png]]
 
-- The author's name is far from the title, but that invisible line connects the two text blocks.
+#+BEGIN_QUOTE
+The author's name is far from the title, but that invisible line connects the two text blocks.
+#+END_QUOTE
 
 -----
+
+[[file:img/screenshot_2017-03-16_08-05-43.png]]
+
+#+BEGIN_QUOTE
+If you're going to center text, then at least make it obvious that it is centered!
+#+END_QUOTE
 
 #+BEGIN_QUOTE
 Until you have more training, stick to this guideline: *Choose one.*
 That is, choose one text alignment on the page.
 #+END_QUOTE
-
 
 ** Repetition
 ** Contrast
