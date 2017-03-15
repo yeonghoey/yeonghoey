@@ -9,9 +9,6 @@
  - [[#type][Type]]
 
 * Proximity
-
------
-
 [[file:img/screenshot_2017-03-15_08-55-08.png]]
 
 -----
@@ -27,9 +24,6 @@
 -----
 
 * Alignment
-
------
-
 [[file:img/screenshot_2017-03-15_09-00-23.png]]
 
 [[file:img/screenshot_2017-03-15_09-04-29.png]]
@@ -105,9 +99,6 @@ The whitespace now is floating free of the right edge.
 -----
 
 * Repetition
-
------
-
 [[file:img/screenshot_2017-03-16_08-24-22.png]]
 
 -----
@@ -124,9 +115,6 @@ repetitions to enhance the design and the clarity of the information.
 -----
 
 * Contrast
-
------
-
 [[file:img/screenshot_2017-03-16_08-36-15.png]]
 
 #+BEGIN_QUOTE
