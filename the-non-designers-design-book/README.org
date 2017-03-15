@@ -45,6 +45,14 @@ a cleaner and more dramatic look.
 
 - The author's name is far from the title, but that invisible line connects the two text blocks.
 
+-----
+
+#+BEGIN_QUOTE
+Until you have more training, stick to this guideline: *Choose one.*
+That is, choose one text alignment on the page.
+#+END_QUOTE
+
+
 ** Repetition
 ** Contrast
 
