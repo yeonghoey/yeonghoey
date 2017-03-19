@@ -10,10 +10,10 @@
  - [[#type][Type]]
 
 * The Four Design Principles
-- Don't be afraid to *create your design with plenty of blank space*
-- Don't be afraid to *be asymmetrical, to uncenter your format*
-- Don't be afraid to *make words very large or very small*
-- Don't be afraid to *make your graphics very bold or very minimal*
++ Don't be afraid to *create your design with plenty of blank space*
++ Don't be afraid to *be asymmetrical, to uncenter your format*
++ Don't be afraid to *make words very large or very small*
++ Don't be afraid to *make your graphics very bold or very minimal*
 
 ** Proximity
 [[file:img/screenshot_2017-03-15_08-55-08.png]]
@@ -24,10 +24,10 @@ to become one visual unit
 
 -----
 
-- *To organize*
-- Items relating to each other *should be grouped together*
-- *Avoid too many separate elements* on a page
-- *Don't stick things in the corners or in the middle* just because the space is empty
++ *To organize*
++ Items relating to each other *should be grouped together*
++ *Avoid too many separate elements* on a page
++ *Don't stick things in the corners or in the middle* just because the space is empty
 
 -----
 
@@ -85,8 +85,8 @@ however, there is "trapped" white space, and the white space is an awkward shape
 
 -----
 
-- *To unify and organize the page.*
-- Avoid using *more than one text alignment on the page*
++ *To unify and organize the page.*
++ Avoid using *more than one text alignment on the page*
 
 -----
 
@@ -95,8 +95,8 @@ however, there is "trapped" white space, and the white space is an awkward shape
 
 -----
 
-- *To unify and to add visual interest*
-- Avoid repeating the element *so much that it becomes annoying or overwhelming.*
++ *To unify and to add visual interest*
++ Avoid repeating the element *so much that it becomes annoying or overwhelming.*
 
 At first, simple find existing repetitions and then strengthen them.
 As you get used to the idea and the look, start to create
@@ -121,8 +121,8 @@ If two elements are sort of different *but not really, then you don't have contr
 
 -----
 
-- *To create an interest* on the page and *to aid in the organization* of the information
-- If the items are not exactly the same, *make them different!*
++ *To create an interest* on the page and *to aid in the organization* of the information
++ If the items are not exactly the same, *make them different!*
 
 -----
 
@@ -176,3 +176,81 @@ If you have a strong alignment for the text on each panel of the brochure, howev
 let the graphics cross over the space between the columns of text(the gutter) and into the fold
 
 * Type
+One space after punctuation
+Yes, you might have the old-fashioned habit of typing two spaces after punctuation,
+but it is long past time to let that go. It doesn't matter today
+where the practice originated or for how long typesetters used larger spaces
+between sentences. Today the standard is one space.
+
+Another glaring mistake of amateur designers is the use of typewriter quotation marks instead of typographer
+quote marks.
+
+In the United States, commas and periods are always inside the quotation marks.
+Colons and semicolons go outside the quotation marks.
+
+A question mark or exclamation point goes inside the quotation marks
+if it belongs to the quotation:"Get out of my reality!"
+
+The question mark or exclamation point goes outside the quotation marks
+if it does not belong to the quoted phrase: Can you believe he replied, "I won't do it"?
+
+The most common mistakes with apostrophes are 
++ using a typewrite mark and
++ putting the apostrophe in the wrong place
+
+Apostrophes are shaped like 9s
+
+
+tiny litte dash that belongs in some words such as daughter-in-law or in phone numbers
+
+A hyphen is for hyphenating words or line breaks.
+
+En dash(short dash) 
+The en dash is approximately the width of a capital letter N in the font and size you are typing,
+thus it is longer than the hyphen.
+Use it between words that indicate a duration, such as hourly time or
+months or years. Use it where you would otherwise use the word "to".
+
+Also use the en dash when you have a compound adjective and one of the elements is made of
+two words or a hyphenated word:
+
+Em dash(long dash)
+The em dash is twice as long as the en dash, approximately the width of a capital letter M.
+This dash is often used to indicate an abrupt change of thought or in a sentence where a period is too strong
+and a comma too weak.
+The em dash does not have a space on either side.
+
+To type the dashes, see the charts on the following pages.
+
+Capitals
+When a block of text is in all caps, we have to read it letter by letter rather than
+by the shpaes of groups of letters
+
+"I really want the text for my logo set as one rectangular piece."
+
+
+Underlining
+Do not use the underline button. Ever.
+
+Underline was originally a visual clue on a typewriter to tell the typesetter who was creating the project that
+the underlined word was to be turned into italic for print.
+
+You might also be in the habit of underlining words that you want to emphasize. However, you have several
+other options for emphasis that are more professional: try bold type, larger type, a different font, color, or a combination.
+
+if you are aspiring to a professional level, you need to learn to manually adjust the spacing.
+
+When the last line of a paragraph has fewer than seven (more or less, depending on the length of the line) characters,
+that last line is a widow.
+
+When the last line of a paragraph, be it ever so long, ends at the top of the next column or page all by itself,
+abandoned by the rest of its text, that is an orphan.
+
+To avoid widows and orphans, you might need to rewrite copy, or at least add or delete a word or two.
+
+Punctuation following styled text: the punctuation immediately following the last character should be in the same style.
+
+If the text inside the parentheses is part of the entire sentence, the punctuation goes outside the closing parenthesis (as in this example right here).
+
+If the text inside the parentheses is a complete and separate sentence on its own, its punctuation goes inside.
+(This is an example of a sentence with its punctuation inside.)
