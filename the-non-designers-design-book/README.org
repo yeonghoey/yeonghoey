@@ -7,7 +7,9 @@
    - [[#repetition][Repetition]]
    - [[#contrast][Contrast]]
  - [[#color][Color]]
+ - [[#extra-tips][Extra Tips]]
  - [[#type][Type]]
+   - [[#type-1][Type]]
 
 * The Four Design Principles
 + Don't be afraid to *create your design with plenty of blank space*
@@ -142,6 +144,7 @@ what they don't absorb reflects back to our eyes as color.
 On a monitor, however, the colors of light are not reflected - 
 they go directly into our eyes.
 
+* Extra Tips
 One of the most important features of an identity package or branding follows
 the Principle of Repetition
 
@@ -254,3 +257,24 @@ If the text inside the parentheses is part of the entire sentence, the punctuati
 
 If the text inside the parentheses is a complete and separate sentence on its own, its punctuation goes inside.
 (This is an example of a sentence with its punctuation inside.)
+
+Thus you need to pick one: Either indent new paragraphs or use extra space between paragraphs, not both.
+Following the logic of the above, first paragraph following a heading or subhead does not need an indent.
+
+Setting text in a frame or box:
+Leave plenty of room on all sides. (...)
+Generally create the visual impression that there is the same amount of space on all sides.
+
+Use bullets or ornaments in a list, not hyphens
+
+** Type
+A concordant relationship occurs when you use only one type family without much variety in style, size, weight, and so on.
+A conflicting relationship occurs when you combine typefaces that are similar
+A contrasting relationship occurs when you combine separate typefaces and elements that are clearly distinct from each other.
+
+Most concordant designs tend to be rather calm and formal.
+
+When you put two faces together that look too much alike without really being so,
+most of the time it looks like a mistake.
+
+Concord is a solid and usefule concept; conflict should be avoided.
