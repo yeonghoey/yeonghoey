@@ -11,6 +11,7 @@
  - [[#type][Type]]
    - [[#type-1][Type]]
    - [[#categories-of-type][Categories of Type]]
+   - [[#type-contrasts][Type Contrasts]]
 
 * The Four Design Principles
 + Don't be afraid to *create your design with plenty of blank space*
@@ -312,3 +313,15 @@ But scripts can be particularly stunning when set very large— don’t be a wim
 Decorative fonts are great— they’re fun, distinctive, easy to use, oftentimes cheaper,
 and there is a font for any whim you wish to express.
 
+** Type Contrasts
+An important part of what compels you is the contrast of very small type on that large page.
+
+Use a contrast of size in unusual and provocative ways.
+If you use an item in an unusual size, see if you can repeat that concept elsewhere in the publication to create an attractive and useful repetition.
+When combining weights, remember the rule: Don’t be a wimp.
+
+but you will never be able to get that beautiful, strong contrast unless you have a typeface with big, solid strokes.
+
+So you are well on your way to a type solution if you choose two or more faces from two or more categories
+
+Do not put two typefaces from the same category on the same page.
