@@ -325,3 +325,25 @@ but you will never be able to get that beautiful, strong contrast unless you hav
 So you are well on your way to a type solution if you choose two or more faces from two or more categories
 
 Do not put two typefaces from the same category on the same page.
+
+You can see that the contrast of structure alone is not enough to contrast type effectively
+
+We recognize words not only by their letters, but by their forms, the shapes of the entire words.
+All words that are set in capital letters have a similar rectangular form, as shown below, and we are forced to read the words letter by letter.
+
+Type slanting upward to the right creates a positive energy.
+Type slanting downward creates a negative energy.
+
+But there is another form of “direction.”
+Every element of type has a direction, even though it may run straight across the page.
+
+You can involve other parts of your layout in the contrast of type direction,
+such as graphics or lines, to emphasize or contrast the direction.
+
+remember to keep in mind that warm colors (reds, oranges) come forward and command our attention.
+Our eyes are very attracted to warm colors, so it takes very little red to create a contrast.
+
+Cool colors (blues, greens), on the other hand, recede from our eyes.
+
+Or perhaps the focus conflicts— is the larger type a light weight and the smaller type a bold weight,
+making them fight with each other because each one is trying to be more important than the other?
