@@ -145,29 +145,28 @@ If two elements are sort of different *but not really, then you don't have contr
 
 [[file:img/screenshot_2017-04-02_14-25-35.png]]
 
-Complementary: often works best when one is the main color and the other is an accent.
+*Complementary*: often works best when one is the *main color and the other is an accent*.
 
 -----
 
 [[file:img/screenshot_2017-04-02_14-27-11.png]]
 
-The primary triad of R, G, B is an extremely popular combination for children's products.
+The *primary triad* of R, G, B is an extremely popular combination for *children's products*.
 
-All triads (except the primary triad) have underlying colors connecting them,
+All *triads* (except the primary triad) have underlying colors connecting them,
 which make them harmonize well.
 
 -----
 
+[[file:img/screenshot_2017-04-02_14-41-57.png]]
 
-[[file:img/screenshot_2017-04-02_14-34-35.png]]
-
-Split complement triads create a little more sophisticated edge to it.
+*Split complement triads* create a little more sophisticated edge to it.
 
 -----
 
 [[file:img/screenshot_2017-04-02_14-37-48.png]]
 
-Analogous colors create harmonious combination.
+Analogous colors create *harmonious combination*.
 
 -----
 
