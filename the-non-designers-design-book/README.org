@@ -210,17 +210,21 @@ that are going to be printed by a printing press onto something physical.
 -----
 
 * Extra Tips
-One of the most important features of an identity package or branding follows
-the Principle of Repetition
+
+[[file:img/screenshot_2017-04-02_15-12-31.png]]
 
 Because each booklet is completely redesigned, it was critical that there be something
 to tie them all together
 
-One element should be dominant, and it should be dominant in the same way
-on the letterhead, the envelope, and the business card.
+One of the most important features of an identity package or branding follows
+*the Principle of Repetition*
 
-The biggest problems with most flyers created by new designers are a lack of contrast and
-a presentation of information that has no hierarchy
+-----
+
+[[file:img/screenshot_2017-04-02_15-14-12.png]]
+
+One element should be dominant(the pencil-legged gentleman logo in this case),
+and it should be dominant in the same way on the letterhead, the envelope, and the business card.
 
 After the focal point, *use strong subheads* (strong visually and strong in what it says)
 *so readers can quickly scan the flyer* to determine the point of the message
@@ -228,15 +232,15 @@ After the focal point, *use strong subheads* (strong visually and strong in what
 The white space needs to be as organized as the visible elements.
 Let it be there, and let it flow.
 
-First paragraphs, even after subheads, should not be indented.
-When you do indent, use the standard typographic indent of one "em" space.
+*First paragraphs*, even after subheads, *should not be indented*.
+When you do indent, use the standard *typographic indent of one "em" space*.
 
 The Helvetica or Arial that came with your computer isn't bold enough to create a strong contrast.
 
-Invest in a sans serif family that includes a heavy black version as well as a light version
+*Invest in a sans serif family that includes a heavy black version as well as a light version*
 (such as Eurostile, Formatat, Syntax, Frutiger, or Myriad)
 
-try a classic oldstyle serif face(such as Garamond, Jenson, Caslon, Minion, or Palatino),
+*try a classic oldstyle serif face* (such as Garamond, Jenson, Caslon, Minion, or Palatino),
 or a lightweight slab serif(such as Clarendon, Bookman, Kepler, or New Century Schoolbook)
 
 It's important to be aware of the folds; you don't want important information disappearing into the creases.
