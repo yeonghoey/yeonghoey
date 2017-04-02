@@ -131,20 +131,36 @@ If two elements are sort of different *but not really, then you don't have contr
 -----
 
 * Color
-The most practical thing to remember is that cool colors recede into the background,
-and warm colors come forward.
+[[file:img/screenshot_2017-04-02_10-41-16.png]]
+
+*Cool colors recede into the background*, and *warm colors come forward*.
+
+-----
+
+[[file:img/screenshot_2017-04-02_10-35-32.png]]
 
 Does your project include a photograph or other image?
 Pick up a color in the photograph and choose a range of other colors based on that.
 
-CYMK is the color model you'll use for projects that are going to be printed by a printing
-press onto something physical.
+-----
 
+[[file:img/screenshot_2017-04-02_10-37-19.png]]
+
+#+BEGIN_QUOTE
 In the world, the spectrum of visible light hits objects.
 Objects absorb (or subtract) most of the spectrum -
 what they don't absorb reflects back to our eyes as color.
 On a monitor, however, the colors of light are not reflected - 
 they go directly into our eyes.
+Mixing colors in CMYK is like mixing paint on a palette.
+#+END_QUOTE
+
+*CYMK* is the color model you'll use for projects
+that are going to be printed by a printing press onto something physical.
+
+-----
+
+
 
 * Extra Tips
 One of the most important features of an identity package or branding follows
