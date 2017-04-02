@@ -11,7 +11,7 @@
  - [[#type-categories][Type Categories]]
  - [[#type-contrasts][Type Contrasts]]
  - [[#typography][Typography]]
- - [[#extra-tips-for-print-works][Extra Tips for Print Works]]
+ - [[#print-works][Print Works]]
 
 * The Four Design Principles
 + Don't be afraid to *create your design with plenty of blank space*
@@ -395,7 +395,7 @@ Setting text in a frame or box:
 *Leave plenty of room on all sides*.
 Generally create the visual impression that there is *the same amount of space on all sides*.
 
-* Extra Tips for Print Works
+* Print Works
 
 (This chapter are written roughly because I'm not directly releated to this sorts of works)
 
