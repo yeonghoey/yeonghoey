@@ -131,6 +131,13 @@ If two elements are sort of different *but not really, then you don't have contr
 -----
 
 * Color
+
+| Primary colors   | [[file:img/screenshot_2017-04-02_10-45-36.png]] |
+| Secondary colors | [[file:img/screenshot_2017-04-02_10-46-38.png]] |
+| Tertiary colors  | [[file:img/screenshot_2017-04-02_10-48-56.png]] |
+
+-----
+
 [[file:img/screenshot_2017-04-02_10-41-16.png]]
 
 *Cool colors recede into the background*, and *warm colors come forward*.
