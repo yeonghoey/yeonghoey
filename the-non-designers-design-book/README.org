@@ -1,5 +1,4 @@
 #+TITLE: The Non-Designer's Design Book
-#+OPTIONS: ':nil -:nil
 
 * Table of Contents :TOC_2_gh:
  - [[#the-four-design-principles][The Four Design Principles]]
@@ -211,90 +210,49 @@ that are going to be printed by a printing press onto something physical.
 -----
 
 * Type
-| One space after punctuation | The two spaces is old-style      | ~Put one space._After punctuation.~                  |
-| Use typographer quote marks | No typewriter quotation marks    | ~ 'No', "No" ~, ~‘Yes’, “Yes”~                       |
-| Apostrophes                 | 〃                               | ~It’s~, not ~It’s~; ~Rock’n’Rool~, not ~Rock‘n’Roll~ |
-| Hyphen                      | hyphenating words or line breaks | ~ex-wife~, ~red-haired cousin~                       |
-| En dash                     | Indicating a duration(a ~to~ b)  | ~October–December~, ~7–12 years~,                    |
+| One space after punctuation       | The two spaces is old-style                               | ~Put one space._After punctuation.~ |
+| Use typographer quote marks       | No typewriter quotation marks                             | ~'~, ~~", (6 and 9 shapes)          |
+| Apostrophes                       | 〃                                                        | 〃                                  |
+| Hyphen                            | hyphenating words or line breaks(or phone numbers)        | ~ex-wife~, ~red-haired cousin~      |
+| En dash                           | Indicating a duration(a ~to~ b)                           | ~October–December~, ~7–12 years~,   |
+| Em dash                           | Indicating an abrupt change of thought                    | ~Beware--the enigama is ..~         |
+| ALL CAPS                          | have to read it letter by letter                          | ~NOTE, TODO~                        |
+| No underlining                    | was originally for indicating italic on print             |                                     |
+| Punctuation following styled text | should be in the same style                               | *Yes.*, not *No*.                   |
+| Punctuation in or out parentheses | Outside if content is a part of sentence inside otherwise |                                     |
 
-In the United States, commas and periods are always inside the quotation marks.
-Colons and semicolons go outside the quotation marks.
+-----
 
-A question mark or exclamation point goes inside the quotation marks
-if it belongs to the quotation:"Get out of my reality!"
+[[file:img/screenshot_2017-04-02_15-57-08.png]]
 
-The question mark or exclamation point goes outside the quotation marks
-if it does not belong to the quoted phrase: Can you believe he replied, "I won't do it"?
+*Kerning*: if you are aspiring to a professional level, you need to learn to manually adjust the spacing.
 
-The most common mistakes with apostrophes are 
-+ using a typewrite mark and
-+ putting the apostrophe in the wrong place
+-----
 
-Apostrophes are shaped like 9s
-
-
-tiny litte dash that belongs in some words such as daughter-in-law or in phone numbers
-
-A hyphen is for hyphenating words or line breaks.
-
-En dash(short dash) 
-The en dash is approximately the width of a capital letter N in the font and size you are typing,
-thus it is longer than the hyphen.
-Use it between words that indicate a duration, such as hourly time or
-months or years. Use it where you would otherwise use the word "to".
-
-Also use the en dash when you have a compound adjective and one of the elements is made of
-two words or a hyphenated word:
-
-Em dash(long dash)
-The em dash is twice as long as the en dash, approximately the width of a capital letter M.
-This dash is often used to indicate an abrupt change of thought or in a sentence where a period is too strong
-and a comma too weak.
-The em dash does not have a space on either side.
-
-To type the dashes, see the charts on the following pages.
-
-Capitals
-When a block of text is in all caps, we have to read it letter by letter rather than
-by the shpaes of groups of letters
-
-"I really want the text for my logo set as one rectangular piece."
-
-
-Underlining
-Do not use the underline button. Ever.
-
-Underline was originally a visual clue on a typewriter to tell the typesetter who was creating the project that
-the underlined word was to be turned into italic for print.
-
-You might also be in the habit of underlining words that you want to emphasize. However, you have several
-other options for emphasis that are more professional: try bold type, larger type, a different font, color, or a combination.
-
-if you are aspiring to a professional level, you need to learn to manually adjust the spacing.
+[[file:img/screenshot_2017-04-02_16-03-31.png]]
 
 When the last line of a paragraph has fewer than seven (more or less, depending on the length of the line) characters,
-that last line is a widow.
+that last line is a *widow*.
 
 When the last line of a paragraph, be it ever so long, ends at the top of the next column or page all by itself,
-abandoned by the rest of its text, that is an orphan.
+abandoned by the rest of its text, that is an *orphan*.
 
-To avoid widows and orphans, you might need to rewrite copy, or at least add or delete a word or two.
+To avoid widows and orphans, you might need to *rewrite copy, or at least add or delete a word or two.*
 
-Punctuation following styled text: the punctuation immediately following the last character should be in the same style.
-
-If the text inside the parentheses is part of the entire sentence, the punctuation goes outside the closing parenthesis (as in this example right here).
-
-If the text inside the parentheses is a complete and separate sentence on its own, its punctuation goes inside.
-(This is an example of a sentence with its punctuation inside.)
+-----
 
 Thus you need to pick one: Either indent new paragraphs or use extra space between paragraphs, not both.
 Following the logic of the above, first paragraph following a heading or subhead does not need an indent.
 
-Setting text in a frame or box:
-Leave plenty of room on all sides. (...)
-Generally create the visual impression that there is the same amount of space on all sides.
+-----
 
-Use bullets or ornaments in a list, not hyphens
+[[file:img/screenshot_2017-04-02_16-05-21.png]]
+
+Setting text in a frame or box:
+*Leave plenty of room on all sides*.
+Generally create the visual impression that there is *the same amount of space on all sides*.
+
+-----
 
 ** Type
 A concordant relationship occurs when you use only one type family without much variety in style, size, weight, and so on.
