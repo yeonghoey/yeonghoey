@@ -1,5 +1,5 @@
 #+TITLE: The Non-Designer's Design Book
-#+OPTION: ':nil -:nil
+#+OPTIONS: ':nil -:nil
 
 * Table of Contents :TOC_2_gh:
  - [[#the-four-design-principles][The Four Design Principles]]
@@ -212,7 +212,7 @@ that are going to be printed by a printing press onto something physical.
 
 * Type
 | One space after punctuation | The two spaces is old-style      | ~Put one space._After punctuation.~                  |
-| Use typographer quote marks | No typewriter quotation marks    | ~'No', "No"~, ~‘Yes’, “Yes”~                         |
+| Use typographer quote marks | No typewriter quotation marks    | ~ 'No', "No" ~, ~‘Yes’, “Yes”~                       |
 | Apostrophes                 | 〃                               | ~It’s~, not ~It’s~; ~Rock’n’Rool~, not ~Rock‘n’Roll~ |
 | Hyphen                      | hyphenating words or line breaks | ~ex-wife~, ~red-haired cousin~                       |
 | En dash                     | Indicating a duration(a ~to~ b)  | ~October–December~, ~7–12 years~,                    |
