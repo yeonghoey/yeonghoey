@@ -1,11 +1,10 @@
 #+TITLE: The Non-Designer's Design Book
 
 * Table of Contents :TOC_2_gh:
- - [[#the-four-design-principles][The Four Design Principles]]
-   - [[#proximity][Proximity]]
-   - [[#alignment][Alignment]]
-   - [[#repetition][Repetition]]
-   - [[#contrast][Contrast]]
+ - [[#proximity][Proximity]]
+ - [[#alignment][Alignment]]
+ - [[#repetition][Repetition]]
+ - [[#contrast][Contrast]]
  - [[#color][Color]]
  - [[#type-basics][Type Basics]]
  - [[#type-categories][Type Categories]]
@@ -13,13 +12,7 @@
  - [[#typography][Typography]]
  - [[#print-works][Print Works]]
 
-* The Four Design Principles
-+ Don't be afraid to *create your design with plenty of blank space*
-+ Don't be afraid to *be asymmetrical, to uncenter your format*
-+ Don't be afraid to *make words very large or very small*
-+ Don't be afraid to *make your graphics very bold or very minimal*
-
-** Proximity
+* Proximity
 [[file:img/screenshot_2017-03-15_08-55-08.png]]
 
 If there are more than three to five items on the page(of course it depends on the piece),
@@ -32,10 +25,11 @@ to become one visual unit
 + Items relating to each other *should be grouped together*
 + *Avoid too many separate elements* on a page
 + *Don't stick things in the corners or in the middle* just because the space is empty
++ Don't be afraid to *create your design with plenty of blank space*
 
 -----
 
-** Alignment
+* Alignment
 [[file:img/screenshot_2017-03-15_09-00-23.png]]
 
 [[file:img/screenshot_2017-03-15_09-04-29.png]]
@@ -91,10 +85,11 @@ however, there is "trapped" white space, and the white space is an awkward shape
 
 + *To unify and organize the page.*
 + Avoid using *more than one text alignment on the page*
++ Don't be afraid to *be asymmetrical, to uncenter your format*
 
 -----
 
-** Repetition
+* Repetition
 [[file:img/screenshot_2017-03-16_08-24-22.png]]
 
 -----
@@ -108,7 +103,7 @@ repetitions to enhance the design and the clarity of the information.
 
 -----
 
-** Contrast
+* Contrast
 [[file:img/screenshot_2017-03-16_08-36-15.png]]
 
 Contrast various elements of the piece *to draw a reader's eye* into the page. (...)
@@ -127,6 +122,8 @@ If two elements are sort of different *but not really, then you don't have contr
 
 + *To create an interest* on the page and *to aid in the organization* of the information
 + If the items are not exactly the same, *make them different!*
++ Don't be afraid to *make words very large or very small*
++ Don't be afraid to *make your graphics very bold or very minimal*
 
 -----
 
