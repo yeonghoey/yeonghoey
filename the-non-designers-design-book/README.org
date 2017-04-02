@@ -1,5 +1,5 @@
 #+TITLE: The Non-Designer's Design Book
-#+OPTION: ’:nil -:nil
+#+OPTION: ':nil -:nil
 
 * Table of Contents :TOC_2_gh:
  - [[#the-four-design-principles][The Four Design Principles]]
