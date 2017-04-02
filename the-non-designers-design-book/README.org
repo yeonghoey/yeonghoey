@@ -223,9 +223,8 @@ that are going to be printed by a printing press onto something physical.
 
 -----
 
-[[file:img/screenshot_2017-04-02_15-57-08.png]]
-
-*Kerning*: if you are aspiring to a professional level, you need to learn to manually adjust the spacing.
+*Either indent new paragraphs or use extra space between paragraphs, not both*.
+Following the logic of the above, *first paragraph following a heading or subhead does not need an indent*.
 
 -----
 
@@ -241,8 +240,9 @@ To avoid widows and orphans, you might need to *rewrite copy, or at least add or
 
 -----
 
-Thus you need to pick one: Either indent new paragraphs or use extra space between paragraphs, not both.
-Following the logic of the above, first paragraph following a heading or subhead does not need an indent.
+[[file:img/screenshot_2017-04-02_15-57-08.png]]
+
+*Kerning*: if you are aspiring to a professional level, you need to learn to manually adjust the spacing.
 
 -----
 
