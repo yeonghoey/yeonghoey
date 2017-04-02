@@ -7,7 +7,7 @@
    - [[#repetition][Repetition]]
    - [[#contrast][Contrast]]
  - [[#color][Color]]
- - [[#type][Type]]
+ - [[#type-basics][Type Basics]]
  - [[#type-categories][Type Categories]]
  - [[#type-contrasts][Type Contrasts]]
  - [[#typography][Typography]]
@@ -210,7 +210,7 @@ that are going to be printed by a printing press onto something physical.
 -----
 
 
-* Type
+* Type Basics
 
 [[file:img/screenshot_2017-04-02_16-34-38.png]]
 
