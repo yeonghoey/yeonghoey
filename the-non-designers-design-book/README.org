@@ -170,6 +170,17 @@ Analogous colors create *harmonious combination*.
 
 -----
 
+[[file:img/screenshot_2017-04-02_14-43-40.png]]
+
+The pure color is the *hue*.
+Add black to a hue to create a *shade*.
+Add white to a hue to create a *tint*.
+
+Using various tints and shades of colors expands your options tremendously,
+but you can still feel safe that the colors work together.
+
+-----
+
 [[file:img/screenshot_2017-04-02_10-41-16.png]]
 
 *Cool colors recede into the background*, and *warm colors come forward*.
