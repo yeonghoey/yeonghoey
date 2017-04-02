@@ -210,16 +210,16 @@ that are going to be printed by a printing press onto something physical.
 -----
 
 * Type
-| One space after punctuation       | The two spaces is old-style                               | =Put one space._After punctuation.= |
-| Use typographer quote marks       | No typewriter quotation marks                             | ='=, ="=, (6 and 9 shapes)          |
-| Apostrophes                       | 〃                                                        | 〃                                  |
-| Hyphen                            | hyphenating words or line breaks(or phone numbers)        | =ex-wife=~, =red-haired cousin=     |
-| En dash                           | Indicating a duration(a ~to~ b)                           | =October–December=, =7–12 years=    |
-| Em dash                           | Indicating an abrupt change of thought                    | =Beware--the enigama is ..=         |
-| ALL CAPS                          | have to read it letter by letter                          | =NOTE, TODO=                        |
-| No underlining                    | was originally for indicating italic on print             |                                     |
-| Punctuation following styled text | should be in the same style                               | =*Yes.*=, not =*No*.=               |
-| Punctuation in or out parentheses | Outside if content is a part of sentence inside otherwise | =Blah(something).= =Blah(Blah.)=    |
+| One space after punctuation       | The two spaces is old-style                      | =Put one space._After punctuation.= |
+| Use typographer quote marks       | No typewriter quotation marks                    | ', ", (6 and 9 shapes)              |
+| Apostrophes                       | 〃                                               | 〃                                  |
+| Hyphen                            | hyphenating words or line breaks                 | =ex-wife=, =red-haired cousin=      |
+| En dash                           | Indicating a duration(a ~to~ b)                  | =October–December=, =7–12 years=    |
+| Em dash                           | Indicating an abrupt change of thought           | =Beware--the enigama is ..=         |
+| ALL CAPS                          | have to read it letter by letter                 | =NOTE, TODO=                        |
+| No underlining                    | was originally for indicating italic on print    |                                     |
+| Punctuation following styled text | should be in the same style                      | =*Yes.*= , not =*No*.=              |
+| Punctuation in or out parentheses | whether the content is a part of sentence or not | =Blah(something).= =Blah(Blah.)=    |
 
 -----
 
