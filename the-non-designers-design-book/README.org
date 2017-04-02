@@ -7,11 +7,11 @@
    - [[#repetition][Repetition]]
    - [[#contrast][Contrast]]
  - [[#color][Color]]
- - [[#extra-tips][Extra Tips]]
  - [[#type][Type]]
    - [[#type-1][Type]]
    - [[#categories-of-type][Categories of Type]]
    - [[#type-contrasts][Type Contrasts]]
+ - [[#extra-tips-for-print-works][Extra Tips for Print Works]]
 
 * The Four Design Principles
 + Don't be afraid to *create your design with plenty of blank space*
@@ -209,53 +209,12 @@ that are going to be printed by a printing press onto something physical.
 
 -----
 
-* Extra Tips
-
-[[file:img/screenshot_2017-04-02_15-12-31.png]]
-
-Because each booklet is completely redesigned, it was critical that there be something
-to tie them all together
-
-One of the most important features of an identity package or branding follows
-*the Principle of Repetition*
-
------
-
-[[file:img/screenshot_2017-04-02_15-14-12.png]]
-
-One element should be dominant(the pencil-legged gentleman logo in this case),
-and it should be dominant in the same way on the letterhead, the envelope, and the business card.
-
-After the focal point, *use strong subheads* (strong visually and strong in what it says)
-*so readers can quickly scan the flyer* to determine the point of the message
-
-The white space needs to be as organized as the visible elements.
-Let it be there, and let it flow.
-
-*First paragraphs*, even after subheads, *should not be indented*.
-When you do indent, use the standard *typographic indent of one "em" space*.
-
-The Helvetica or Arial that came with your computer isn't bold enough to create a strong contrast.
-
-*Invest in a sans serif family that includes a heavy black version as well as a light version*
-(such as Eurostile, Formatat, Syntax, Frutiger, or Myriad)
-
-*try a classic oldstyle serif face* (such as Garamond, Jenson, Caslon, Minion, or Palatino),
-or a lightweight slab serif(such as Clarendon, Bookman, Kepler, or New Century Schoolbook)
-
-It's important to be aware of the folds; you don't want important information disappearing into the creases.
-If you have a strong alignment for the text on each panel of the brochure, however, feel free to
-let the graphics cross over the space between the columns of text(the gutter) and into the fold
-
 * Type
-One space after punctuation
-Yes, you might have the old-fashioned habit of typing two spaces after punctuation,
-but it is long past time to let that go. It doesn't matter today
-where the practice originated or for how long typesetters used larger spaces
-between sentences. Today the standard is one space.
-
-Another glaring mistake of amateur designers is the use of typewriter quotation marks instead of typographer
-quote marks.
+| One space after punctuation | The two spaces is old-style      | ~Put one space._After punctuation.~                  |
+| Use typographer quote marks | No typewriter quotation marks    | ~'No', "No", ‘Yes’, “Yes”~                           |
+| Apostrophes                 | 〃                               | ~It’s~, not ~It’s~; ~Rock’n’Rool~, not ~Rock‘n’Roll~ |
+| Hyphen                      | hyphenating words or line breaks | ~odd-looking critters~, ~Merriam-Webster Dictionary~ |
+| En dash                     | Indicating a duration(a ~to~ b)  | ~October–December~, ~7–12 years~,                    |
 
 In the United States, commas and periods are always inside the quotation marks.
 Colons and semicolons go outside the quotation marks.
@@ -414,3 +373,43 @@ Cool colors (blues, greens), on the other hand, recede from our eyes.
 
 Or perhaps the focus conflicts— is the larger type a light weight and the smaller type a bold weight,
 making them fight with each other because each one is trying to be more important than the other?
+
+* Extra Tips for Print Works
+
+(This chapter are written roughly because I'm not directly releated to this sorts of works)
+
+[[file:img/screenshot_2017-04-02_15-12-31.png]]
+
+Because each booklet is completely redesigned, it was critical that there be something
+to tie them all together
+
+One of the most important features of an identity package or branding follows
+*the Principle of Repetition*
+
+-----
+
+[[file:img/screenshot_2017-04-02_15-14-12.png]]
+
+One element should be dominant(the pencil-legged gentleman logo in this case),
+and it should be dominant in the same way on the letterhead, the envelope, and the business card.
+
+After the focal point, *use strong subheads* (strong visually and strong in what it says)
+*so readers can quickly scan the flyer* to determine the point of the message
+
+The white space needs to be as organized as the visible elements.
+Let it be there, and let it flow.
+
+*First paragraphs*, even after subheads, *should not be indented*.
+When you do indent, use the standard *typographic indent of one "em" space*.
+
+The Helvetica or Arial that came with your computer isn't bold enough to create a strong contrast.
+
+*Invest in a sans serif family that includes a heavy black version as well as a light version*
+(such as Eurostile, Formatat, Syntax, Frutiger, or Myriad)
+
+*try a classic oldstyle serif face* (such as Garamond, Jenson, Caslon, Minion, or Palatino),
+or a lightweight slab serif(such as Clarendon, Bookman, Kepler, or New Century Schoolbook)
+
+It's important to be aware of the folds; you don't want important information disappearing into the creases.
+If you have a strong alignment for the text on each panel of the brochure, however, feel free to
+let the graphics cross over the space between the columns of text(the gutter) and into the fold
