@@ -132,6 +132,9 @@ If two elements are sort of different *but not really, then you don't have contr
 
 * Color
 
+
+[[file:img/screenshot_2017-04-02_14-00-46.png]]
+
 | Primary colors   | [[file:img/screenshot_2017-04-02_10-45-36.png]] |
 | Secondary colors | [[file:img/screenshot_2017-04-02_10-46-38.png]] |
 | Tertiary colors  | [[file:img/screenshot_2017-04-02_10-48-56.png]] |
