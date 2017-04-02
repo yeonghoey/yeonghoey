@@ -209,7 +209,6 @@ that are going to be printed by a printing press onto something physical.
 
 -----
 
-
 * Type Basics
 
 [[file:img/screenshot_2017-04-02_16-34-38.png]]
@@ -241,6 +240,7 @@ Strong contrast attracts our eyes.
 There are six clear and distinct ways to contrast type: size, weight, structure, form, direction, and color.
 Most often you will *strengthen the effect by combining and emphasizing the differences.*
 
+-----
 
 * Type Categories
 
@@ -286,6 +286,8 @@ But scripts *can be particularly stunning when set very large* — don’t be a 
 
 They’re *fun, distinctive, easy to use, oftentimes cheaper,*
 and there is a font for any whim you wish to express.
+
+-----
 
 * Type Contrasts
 
@@ -394,6 +396,8 @@ To avoid widows and orphans, you might need to *rewrite copy, or at least add or
 Setting text in a frame or box:
 *Leave plenty of room on all sides*.
 Generally create the visual impression that there is *the same amount of space on all sides*.
+
+-----
 
 * Print Works
 
