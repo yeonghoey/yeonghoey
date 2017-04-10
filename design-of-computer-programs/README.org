@@ -1,5 +1,4 @@
 * Design of Computer Programs
-
 ** About this Course
 This is my study note of the free course named [[https://www.udacity.com/course/design-of-computer-programs--cs212][Design of Computer Programs]] from Udacity.
 
