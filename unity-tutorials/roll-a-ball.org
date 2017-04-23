@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_1_gh:
  - [[#setting-up-the-game][Setting up the Game]]
+ - [[#moving-the-player][Moving the Player]]
 
 * Setting up the Game
 [[file:img/screenshot_2017-04-23_14-41-23.png]]
@@ -11,3 +12,14 @@
 [[file:img/screenshot_2017-04-23_14-45-10.png]]
 
 [[file:img/screenshot_2017-04-23_14-45-44.png]]
+* Moving the Player
+[[file:img/screenshot_2017-04-23_14-47-12.png]]
+
+[[file:img/screenshot_2017-04-23_14-48-05.png]]
+
+[[file:img/screenshot_2017-04-23_14-49-23.png]]
+
+
+[[file:img/screenshot_2017-04-23_15-04-00.png]]
+
+[[file:img/screenshot_2017-04-23_15-03-51.png]]
