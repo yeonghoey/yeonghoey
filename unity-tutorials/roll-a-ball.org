@@ -5,6 +5,7 @@
  - [[#moving-the-player][Moving the Player]]
  - [[#moving-the-camera][Moving the Camera]]
  - [[#setting-up-the-play-area][Setting up the Play Area]]
+ - [[#creating-collectable-objects][Creating Collectable Objects]]
 
 * Setting up the Game
 [[file:img/screenshot_2017-04-23_14-41-23.png]]
@@ -36,3 +37,22 @@
 [[file:img/screenshot_2017-04-23_15-18-04.png]]
 
 [[file:img/screenshot_2017-04-23_15-19-42.png]]
+
+* Creating Collectable Objects
+[[file:img/screenshot_2017-04-23_15-21-03.png]]
+
+[[file:img/screenshot_2017-04-23_15-24-42.png]]
+
+[[file:img/screenshot_2017-04-23_15-26-11.png]]
+
+[[file:img/screenshot_2017-04-23_15-27-13.png]]
+
+[[file:img/screenshot_2017-04-23_15-27-56.png]]
+
+[[file:img/screenshot_2017-04-23_15-28-05.png]]
+
+[[file:img/screenshot_2017-04-23_15-31-44.png]]
+
+Drag greenbox to keep parallel with XZ plane
+
+[[file:img/screenshot_2017-04-23_15-39-11.png]]
