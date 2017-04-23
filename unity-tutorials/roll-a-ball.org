@@ -8,6 +8,7 @@
  - [[#creating-collectable-objects][Creating Collectable Objects]]
  - [[#collecting-the-pick-up-objects][Collecting the Pick Up Objects]]
  - [[#displaying-the-score-and-text][Displaying the Score and Text]]
+ - [[#building-the-game][Building the Game]]
 
 * Setting up the Game
 [[file:img/screenshot_2017-04-23_14-41-23.png]]
@@ -110,3 +111,8 @@ All UI elements must be the child of a canvas object to behave correctly.
 [[file:img/screenshot_2017-04-23_16-17-34.png]]
 
 [[file:img/screenshot_2017-04-23_16-21-53.png]]
+
+* Building the Game
+[[file:img/screenshot_2017-04-23_16-24-38.png]]
+
+[[file:img/screenshot_2017-04-23_16-26-03.png]]
