@@ -6,6 +6,7 @@
  - [[#moving-the-camera][Moving the Camera]]
  - [[#setting-up-the-play-area][Setting up the Play Area]]
  - [[#creating-collectable-objects][Creating Collectable Objects]]
+ - [[#collecting-the-pick-up-objects][Collecting the Pick Up Objects]]
 
 * Setting up the Game
 [[file:img/screenshot_2017-04-23_14-41-23.png]]
@@ -56,3 +57,34 @@
 Drag greenbox to keep parallel with XZ plane
 
 [[file:img/screenshot_2017-04-23_15-39-11.png]]
+
+* Collecting the Pick Up Objects
+[[file:img/screenshot_2017-04-23_15-42-11.png]]
+
+[[file:img/screenshot_2017-04-23_15-49-01.png]]
+
+[[file:img/screenshot_2017-04-23_15-49-47.png]]
+
+[[file:img/screenshot_2017-04-23_15-50-19.png]]
+
+Tags are case sensitive.
+
+[[file:img/screenshot_2017-04-23_15-51-02.png]]
+
+
+[[file:img/screenshot_2017-04-23_15-54-04.png]]
+
+There are two types of collider, static and dynamic.
+
+[[file:img/screenshot_2017-04-23_15-56-18.png]]
+
+Without Rigidbody, Objects are considered as static.
+Static objects are cached. But our Pick ups are rotating,
+so every frame, the cache will be updated. It's inefficient.
+So we need to add Rigidbody to our Pick Ups to prevent from caching. 
+
+[[file:img/screenshot_2017-04-23_15-58-52.png]]
+
+If Is Kinematic checked, Will not react to physics.
+
+[[file:img/screenshot_2017-04-23_15-59-10.png]]
