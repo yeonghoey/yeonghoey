@@ -1,14 +1,2 @@
 * Notes
-** Books
-- [[the-design-of-everyday-things][The Design of Everyday Things]]
-- [[http-k-scott-allen][HTTP by K.Scott Allen]]
-- [[the-non-designers-design-book][The Non-Designer's Design Book]] 
-
-** Udacity
-- [[design-of-computer-programs][Design of Computer Programs]]
-- [[writing-readmes][Writing READMEs]]
-- [[intro-to-html-and-css][Intro to HTML and CSS]]
-
-** Others
-- [[reviews][Reviews]]
-- [[writings][Writings]]
+Study notes

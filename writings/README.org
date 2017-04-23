@@ -1,3 +1,0 @@
-* Writings
-- [[chrome-omnibox.org][Streamlining your search with Chrome Omnibox]]
-- [[witch-mercy.org][Winning Mercy's Halloween Witch skin]]

@@ -1,8 +1,0 @@
-* Reviews
-- [[seven-secrets-of-maintainable-codebases.org][GOTO 2016 • Seven Secrets of Maintainable Codebases • Adam Tornhill]]
-- [[the-error-of-our-ways.org][GOTO 2016 • The Error of Our Ways • Kevlin Henney]]
-- [[the-future-of-software-engineering.org][GOTO 2016 • The Future of Software Engineering • Mary Poppendieck]]
-- [[how-to-work-at-google-example-coding-enginnering-interview.org][How to: Work at Google — Example Coding/Engineering Interview]]
-- [[is-jquery-still-relevant.org][Is jQuery Still Relevant?]]
-- [[scala-collections-why-not.org][Scala Collections: Why Not?]]
-- [[why-we-use-terraform.org][Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation]]
