@@ -3,6 +3,7 @@
 * Table of Contents :TOC_1_gh:
  - [[#introduction-to-2d-ufo-project][Introduction to 2D UFO Project]]
  - [[#setting-up-the-play-field][Setting Up The Play Field]]
+ - [[#controlling-the-player][Controlling the Player]]
 
 * Introduction to 2D UFO Project
 [[file:img/screenshot_2017-04-25_00-55-14.png]]
@@ -36,3 +37,6 @@ Bottom layers at bottom are rendered last
 [[file:img/screenshot_2017-04-25_01-25-27.png]] 
 
 [[file:img/screenshot_2017-04-25_01-26-59.png]]
+
+* TODO Controlling the Player
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/controlling-player?playlist=25844
