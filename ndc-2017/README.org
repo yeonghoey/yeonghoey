@@ -6,7 +6,25 @@
  - [[#npc를-무한대로-만들-수-있을까-페리아연대기에서의-npc-자동화-연구-삽질기][NPC를 무한대로 만들 수 있을까? 페리아연대기에서의 NPC 자동화 연구 삽질기]]
 
 * 솔리테어: 덱다웃, 유니티 모바일 테스트 기법들
+- UnitySettings
+  런타임 정보, 로그를 볼 수 있도록. 동그라미 제스쳐로 트리거
+- UnityCLI
+  클라이언트가 서버를 호스팅하고, IP를 통해 컴퓨터에서 접속해서 CLI 동작
+- EditorWindow
+  Unity에서 제공하는 GUI 기능을 잘 활용
+- UnityLuaREPL
+  xLua라는 것을 이용해서 Unity 객체를 조작함
+
 * 애 셋 키우기보다 쉬운 에셋번들: 에셋번들 실용 가이드
+- Resources에 올라간 File은 직렬화되어 메모리에 적재됨.
+  프로덕션 레벨에선 지양
+- AssetBundle을 먼저 로드, 그 안의 Asset을 다시 로드
+- Asset 간의 의존성이 있으니, 이걸 잘 풀어야 함.
+- AssetBundle을 어떻게 묶느냐는 논리적, 종류별, 씬별로 나눌 수 있음
+- UnityWebRequest를 사용하자
+- WebGL은 CachedXMLHttpRequest 사용
+- 다양한 AssetBundle 도구들이 만들어지고 있다.
+
 * NPC를 무한대로 만들 수 있을까? 페리아연대기에서의 NPC 자동화 연구 삽질기
 - 설정
   기획의도에 따라 설정을 잘 분류
