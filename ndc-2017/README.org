@@ -1,13 +1,15 @@
 #+TITLE: Nexon Developer Conference 2017
 
 * Table of Contents :TOC_1_gh:
- - [[#솔리테어-덱다웃-유니티-모바일-테스트-기법들][솔리테어: 덱다웃, 유니티 모바일 테스트 기법들]]
+ - [[#솔리테어-덱다웃-유니티-모바일-테스트-기법들][<솔리테어: 덱다웃>, 유니티 모바일 테스트 기법들]]
  - [[#애-셋-키우기보다-쉬운-에셋번들-에셋번들-실용-가이드][애 셋 키우기보다 쉬운 에셋번들: 에셋번들 실용 가이드]]
- - [[#npc를-무한대로-만들-수-있을까-페리아연대기에서의-npc-자동화-연구-삽질기][NPC를 무한대로 만들 수 있을까? 페리아연대기에서의 NPC 자동화 연구 삽질기]]
+ - [[#npc를-무한대로-만들-수-있을까-페리아연대기에서의-npc-자동화-연구-삽질기][NPC를 무한대로 만들 수 있을까? <페리아연대기>에서의 NPC 자동화 연구 삽질기]]
  - [[#내가-만든-언어로-게임-만들기---도메인-특화-언어-도입-사례-소개][내가 만든 언어로 게임 만들기 - 도메인 특화 언어 도입 사례 소개]]
  - [[#내가-만든-언어의-개발환경을-visual-studio-code로-빠르고-쉽게-구축하기][내가 만든 언어의 개발환경을 Visual Studio Code로 빠르고 쉽게 구축하기]]
+ - [[#standing-out-in-the-stampede-인디-모바일-게임-로데오-스템피드-포스트모템][Standing out in the Stampede: 인디 모바일 게임 <로데오 스템피드> 포스트모템]]
+ - [[#오버워치-히어로-생성과정-및-테크니컬-아트][<오버워치> 히어로 생성과정 및 테크니컬 아트]]
 
-* 솔리테어: 덱다웃, 유니티 모바일 테스트 기법들
+* <솔리테어: 덱다웃>, 유니티 모바일 테스트 기법들
 - UnitySettings
   런타임 정보, 로그를 볼 수 있도록. 동그라미 제스쳐로 트리거
 - UnityCLI
@@ -27,7 +29,7 @@
 - WebGL은 CachedXMLHttpRequest 사용
 - 다양한 AssetBundle 도구들이 만들어지고 있다.
 
-* NPC를 무한대로 만들 수 있을까? 페리아연대기에서의 NPC 자동화 연구 삽질기
+* NPC를 무한대로 만들 수 있을까? <페리아연대기>에서의 NPC 자동화 연구 삽질기
 - 설정
   기획의도에 따라 설정을 잘 분류
 - 매력적인 외모
@@ -71,3 +73,32 @@
 - 자동 완성
   - 현재 커서를 기준으로 앞뒤로 부분 파싱
   - 파싱을 전부 다 하고 위치 정보를 붙여서 검색
+
+* Standing out in the Stampede: 인디 모바일 게임 <로데오 스템피드> 포스트모템
+- Small team, modest development time
+- Rewarded ADs and IAP
+- Define the primal goal of the game design
+- Be creative with your Metagame(Crossy Road for Rodeo Stempede)
+- Work out what to copy and what not to copy
+- Login Bonus
+- Revie AD shown after seconds death
+- Missions as a soft energy system
+  No hearts; Reduce rewards by no missions on the play
+- Doesn't really feel like flying
+- Find a middle ground
+- Controls have to fit the game
+- Identify the fantasy your game creates
+- Text is Bad! - Environmental storytelling
+- Disguise anything that feels too 'gamey'
+  - Login Bonus -> Opening the Zoo
+  - IAP -> VIP Tour in the Zoo
+
+* <오버워치> 히어로 생성과정 및 테크니컬 아트
+- 모델 (A모델, T모델) -> Rigging(뼈를 심는다) -> 애니메이팅
+- https://vimeo.com/204601876 (이미지 넣기)
+- 캐릭터 세팅(물리 기반 가방, 옷 움직임 등)
+- 히어로 개발: 컨셉아트, 디자인(기획), 스토리
+
+[[file:img/screenshot_2017-04-25_18-11-58.png]]
+
+[[file:img/screenshot_2017-04-25_18-12-16.png]]
