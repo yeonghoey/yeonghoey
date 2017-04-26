@@ -25,7 +25,7 @@
 
 [[file:img/screenshot_2017-04-25_01-17-29.png]]
 
-Bottom layers at bottom are rendered last
+The layer at bottom(Player, in this case) are rendered last
 
 [[file:img/screenshot_2017-04-25_01-19-45.png]]
 
