@@ -1,4 +1,4 @@
-#+TITLE: Nexon Developer Conference 2017
+#+TITLE: NDC 2017 - Day 1 (4/25)
 
 * Table of Contents :TOC_1_gh:
  - [[#솔리테어-덱다웃-유니티-모바일-테스트-기법들][<솔리테어: 덱다웃>, 유니티 모바일 테스트 기법들]]
