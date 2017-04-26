@@ -5,6 +5,7 @@
  - [[#게임잼-48시간의-한계돌파---게임-만드는-지금-이-순간을-즐기세요][게임잼: 48시간의 한계돌파! - 게임 만드는 지금 이 순간을 즐기세요]]
  - [[#소규모-개발자의-일본시장-진출---어비스리움과-빅헌터의-일본-서비스-사례][소규모 개발자의 일본시장 진출 - <어비스리움>과 <빅헌터>의 일본 서비스 사례]]
  - [[#즉시-바로-살펴보자-on-demand-service를-향한-넥슨의-차별화된-게임서비스-인프라][즉시, 바로, 살펴보자! on-demand service를 향한 넥슨의 차별화된 게임서비스 인프라]]
+ - [[#kubernetes로-개발서버-간단히-찍어내기---개발팀-누구나-필요할-때-서버를-띄울-수-있게][Kubernetes로 개발서버 간단히 찍어내기 - 개발팀 누구나 필요할 때 서버를 띄울 수 있게]]
 
 * <빅데이터> 데이터의 대모험 <데이터 파이프라인>
 - ?
@@ -24,3 +25,37 @@
 - 리버스 엔지니어링 자동화
 - 클라이언트에 리버스엔지니어링 코드를 주입, 이를 통해 라이브패치, 모니터링, AB 테스팅 등
 - Quantopian
+
+* Kubernetes로 개발서버 간단히 찍어내기 - 개발팀 누구나 필요할 때 서버를 띄울 수 있게
+- Container Orchestration
+  - Scheduling: 적절한 머신에 원하는 컨테이너 띄워줌
+  - Scaling: 여러 대 띄우기, 죽으면 살리기
+  - Load Balancing: 특정 서비스 요청을 여러 도커 컨테이너로 분산
+- AWS ECS?: 실패 경험이 좀 있었다
+- Docker Swarm: 심플하지만 기능 부족
+- Kubernetes
+  - 내부 서비스 discovery
+  - Namespace
+
+- Pod
+- ReplicaSet
+- Load Balancing
+  - selector로 묶어서 관리
+- Service
+
+[[file:img/screenshot_2017-04-26_14-38-49.png]]
+
+- AWS: kube-aws
+  - CoreOS
+  - Flannel
+
+- 클라이언트의 엔드포인트 만들기
+  - NodePort
+  - Ingress Controller
+
+- Stove
+  - PyKube
+
+- Preset API?
+  - 접속시 사용할 서버 주소
+  - 접속시 사용할 리소스 버전
