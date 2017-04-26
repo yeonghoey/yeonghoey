@@ -48,7 +48,30 @@ Keep the file name and class name consistent.
 
 [[file:img/screenshot_2017-04-27_08-37-31.png]]
 
-[[file:img/screenshot_2017-04-27_08-39-12.png]]
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+  public class PlayerController : MonoBehaviour {
+
+      public float speed;
+
+      private Rigidbody2D rb2d;
+
+      void Start()
+      {
+          rb2d = GetComponent<Rigidbody2D> ();
+      }
+
+      void FixedUpdate()
+      {
+          float moveHorizontal = Input.GetAxis ("Horizontal");
+          float moveVertical = Input.GetAxis ("Vertical");
+          Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
+          rb2d.AddForce (movement * speed);
+      }
+  }
+#+END_SRC
 
 * TODO Adding Collision
 - https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/adding-collision?playlist=25844
