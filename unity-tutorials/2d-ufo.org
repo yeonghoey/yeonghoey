@@ -4,6 +4,7 @@
  - [[#introduction-to-2d-ufo-project][Introduction to 2D UFO Project]]
  - [[#setting-up-the-play-field][Setting Up The Play Field]]
  - [[#controlling-the-player][Controlling the Player]]
+ - [[#adding-collision][Adding Collision]]
 
 * Introduction to 2D UFO Project
 [[file:img/screenshot_2017-04-25_00-55-14.png]]
@@ -38,5 +39,16 @@ The layer at bottom(Player, in this case) are rendered last
 
 [[file:img/screenshot_2017-04-25_01-26-59.png]]
 
-* TODO Controlling the Player
+* Controlling the Player
 - https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/controlling-player?playlist=25844
+
+[[file:img/screenshot_2017-04-27_08-31-38.png]]
+
+Keep the file name and class name consistent.
+
+[[file:img/screenshot_2017-04-27_08-37-31.png]]
+
+[[file:img/screenshot_2017-04-27_08-39-12.png]]
+
+* TODO Adding Collision
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/adding-collision?playlist=25844
