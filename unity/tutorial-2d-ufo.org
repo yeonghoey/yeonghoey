@@ -7,6 +7,8 @@
  - [[#adding-collision][Adding Collision]]
 
 * Introduction to 2D UFO Project
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/introduction-2d-ufo-project?playlist=25844
+
 [[file:img/screenshot_2017-04-25_00-55-14.png]]
 
 [[file:img/screenshot_2017-04-25_00-55-53.png]]
@@ -18,6 +20,8 @@
 [[file:img/screenshot_2017-04-25_00-57-45.png]]
 
 * Setting Up The Play Field
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/setting-play-field?playlist=25844
+
 [[file:img/screenshot_2017-04-25_01-11-53.png]]
 
 [[file:img/screenshot_2017-04-25_01-12-27.png]]
@@ -73,5 +77,23 @@ Keep the file name and class name consistent.
   }
 #+END_SRC
 
-* TODO Adding Collision
+* Adding Collision
 - https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/adding-collision?playlist=25844
+
+k
+[[file:img/screenshot_2017-04-28_08-31-02.png]]
+
+[[file:img/screenshot_2017-04-28_08-32-37.png]]
+
+[[file:img/screenshot_2017-04-28_08-33-13.png]]
+
+[[file:img/screenshot_2017-04-28_08-34-56.png]]
+
+[[file:img/screenshot_2017-04-28_08-36-50.png]]
+
+[[file:img/screenshot_2017-04-28_08-37-09.png]]
+
+[[file:img/screenshot_2017-04-28_08-38-22.png]]
+
+Box colliders we added overlap each other,
+but doesn't collide because they don't have any riigd body.
