@@ -1,0 +1,165 @@
+#+TITLE: Spacemacs
+
+* Table of Contents :TOC_2_gh:
+ - [[#emacs][Emacs]]
+   - [[#indirect-buffers][Indirect Buffers]]
+   - [[#regex][Regex]]
+ - [[#layers][Layers]]
+   - [[#auto-completion][auto-completion]]
+   - [[#restclient][restclient]]
+ - [[#customization][Customization]]
+   - [[#visual-pastes][Visual Pastes]]
+
+* Emacs
+** Indirect Buffers
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Indirect-Buffers.html
+#+BEGIN_QUOTE
+An indirect buffer shares the text of some other buffer,
+which is called the base buffer of the indirect buffer.
+In some ways it is a buffer analogue of a symbolic link between files.
+#+END_QUOTE
+
+** Regex
++ https://www.emacswiki.org/emacs/RegularExpression
+
+Emacs Regex engine specialties:
+#+BEGIN_EXAMPLE
+    \ca      ascii character
+    \Ca      non-ascii character (newline included)
+    \cl      latin character
+    \cg      greek character
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+    \s-   whitespace character        \s/   character quote character
+    \sw   word constituent            \s$   paired delimiter
+    \s_   symbol constituent          \s'   expression prefix
+    \s.   punctuation character       \s<   comment starter
+    \s(   open delimiter character    \s>   comment ender
+    \s)   close delimiter character   \s!   generic comment delimiter
+    \s"   string quote character      \s|   generic string delimiter
+    \s\   escape character
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+   [-+[:digit:]]                     digit or + or - sign
+   \(\+\|-\)?[0-9]+\(\.[0-9]+\)?     decimal number (-2 or 1.5 but not .2 or 1.)
+   \&lt;\(\w+\) +\1\&gt;             two consecutive, identical words
+   \&lt;[[:upper:]]\w*               word starting with an uppercase letter
+    +$                               trailing whitespaces (note the starting SPC)
+   \w\{20,\}                         word with 20 letters or more
+   \w+phony\&gt;                     word ending by phony
+   \(19\|20\)[0-9]\{2\}              year 1900-2099
+   ^.\{6,\}                          at least 6 symbols
+   ^[a-zA-Z0-9_]\{3,16\}$            decent string for a user name
+   <tag[^> C-q C-j ]*>\(.*?\)</tag>  html tag
+#+END_EXAMPLE
+
+
+* Layers
+** auto-completion
+*** YASnippet
+**** Configuration
+#+BEGIN_SRC emacs-lisp
+  '((auto-completion :variables
+                     auto-completion-private-snippets-directory "~/.dotfiles/spacemacs/snippets")
+#+END_SRC
+
+**** Organization
+- https://joaotavora.github.io/yasnippet/snippet-organization.html
+#+BEGIN_EXAMPLE
+  snippets
+  |-- c-mode
+  |   |-- .yas-parents    # contains "cc-mode text-mode"
+  |   `-- printf
+  |-- cc-mode
+  |   |-- for
+  |   `-- while
+  |-- java-mode
+  |   |-- .yas-parents    # contains "cc-mode text-mode"
+  |   `-- println
+  `-- text-mode
+      |-- email
+      `-- time
+#+END_EXAMPLE
+
+**** Writing
+- https://joaotavora.github.io/yasnippet/snippet-development.html
+
+#+BEGIN_EXAMPLE
+  # name: mysnippet
+  # key: my_
+  # --
+  ${1:$(make-string (string-width yas-text) ?\=)}
+  ${1:Title}
+  ${1:$(make-string (string-width yas-text) ?\=)}
+
+  - (${1:id})${2:foo}
+  {
+      return $2;
+  }
+
+  - (void)set${2:$(capitalize yas-text)}:($1)aValue
+  {
+      [$2 autorelease];
+      $2 = [aValue retain];
+  }
+  $0
+#+END_EXAMPLE
+- The lines above ~# --~ is meta
+- ~$1~ or ~${1}~ is a tapstop
+- ~${1:<something>}~ for specifying a default value
+- ~$0~ is the exit point
+- A tapstop can show up multiple times, which mirrors the first occurance
+- Mirrors can be transformed with ~${2:$(elisp-code)~, with ~yas-text~ place holder
+
+** restclient
+- https://github.com/pashky/restclient.el
+- https://github.com/zweifisch/ob-http
+- Lines starting with # are considered comments AND also act as separators.
+- ~SPC m s~ to send
+- ~SPC m y~ to copy as curl command
+
+#+BEGIN_EXAMPLE
+  GET https://api.github.com
+
+  #
+
+  POST https://api.github.com
+  {
+    "key": "value"
+  }
+#+END_EXAMPLE
+*** ob-http
+#+BEGIN_EXAMPLE
+  ,#+BEGIN_SRC http :pretty
+  GET https://api.github.com/repos/zweifisch/ob-http/languages
+  Accept: application/vnd.github.moondragon+json
+  ,#+END_SRC
+
+  ,#+RESULTS:
+  : {
+  :   "Emacs Lisp": 8170
+  : }
+#+END_EXAMPLE
+
+* Customization
+** Visual Pastes
+- http://emacs.stackexchange.com/questions/14940/emacs-doesnt-paste-in-evils-visual-mode-with-every-os-clipboard/15054#15054
+- https://github.com/syl20bnr/spacemacs/issues/5070#issuecomment-184464650
+
+Enable evil-visual pastes from system clipbaoard
+#+BEGIN_SRC emacs-lisp
+  (fset 'evil-visual-update-x-selection 'ignore)
+#+END_SRC
+
+Support multiple visual pastes.
+It's *NOT* recommended if you use cut and paste routine.
+#+BEGIN_SRC emacs-lisp
+  (defun evil-paste-after-from-0 ()
+    (interactive)
+    (let ((evil-this-register ?0))
+      (call-interactively 'evil-paste-after)))
+
+  (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
+#+END_SRC

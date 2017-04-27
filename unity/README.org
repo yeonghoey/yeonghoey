@@ -1,0 +1,19 @@
+#+TITLE: Unity
+
+* Table of Contents :TOC_1_gh:
+ - [[#start][Start]]
+ - [[#getcomponent][GetComponent]]
+ - [[#update-vs-fixedupdate-vs-lateupdate][Update vs FixedUpdate vs LateUpdate]]
+ - [[#ontriggerenter][OnTriggerEnter]]
+ - [[#destroy][Destroy]]
+ - [[#webgl-doent-work-in-chrome-locally][WebGL doen't work in chrome locally]]
+
+* Start
+* GetComponent
+* Update vs FixedUpdate vs LateUpdate
+* OnTriggerEnter
+* Destroy
+* WebGL doen't work in chrome locally
+- https://docs.unity3d.com/Manual/webgl-building.html
+- Use Unity’s ~Build & Run~ command; the file is then temporarily hosted in a local web server and opened from a local host URL.
+- Run Chrome with the ~--allow-file-access-from-files~ command line option which allows it to load content from local file URLs.

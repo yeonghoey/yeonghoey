@@ -1,0 +1,96 @@
+#+TITLE: boto3
+
+* Table of Contents :TOC_2_gh:
+ - [[#concepts][Concepts]]
+   - [[#client-vs-resource][Client vs Resource]]
+   - [[#paginators][Paginators]]
+ - [[#ec2][ec2]]
+ - [[#references][References]]
+
+* Concepts
+- https://boto3.readthedocs.io/en/latest/guide/index.html#general-feature-guides
+- https://boto3.readthedocs.io/en/latest/guide/collections.html
+
+| Feature     | Description                                           |
+|-------------+-------------------------------------------------------|
+| Resources   | a high level, object oriented interface               |
+| Collections | a tool to iterate and manipulate groups of resources  |
+| Clients     | low level service connections                         |
+| Paginators  | automatic paging of responses                         |
+| Waiters     | a way to block until a certain state has been reached |
+
+Boto 3 is built atop of a library called [[https://pypi.python.org/pypi/botocore][Botocore]], which is shared by the AWS CLI.
+
+It is recommended to *create a resource instance for each thread*
+in a multithreaded application rather than sharing a single instance among the threads
+
+** Client vs Resource
+#+BEGIN_SRC python
+  import boto3
+  # Create a low-level client with the service name
+  sqs = boto3.client('sqs')# Create the resource
+
+  # Access client through resource
+  sqs_resource = boto3.resource('sqs')
+  sqs = sqs_resource.meta.client
+#+END_SRC
+
+** Paginators
+#+BEGIN_SRC python
+  import boto3
+
+  client = boto3.client('s3', region_name='us-west-2')
+  paginator = client.get_paginator('list_objects')
+  operation_parameters = {'Bucket': 'my-bucket',
+                          'Prefix': 'foo/baz'}
+  page_iterator = paginator.paginate(**operation_parameters)
+  for page in page_iterator:
+      print(page['Contents'])
+#+END_SRC
+
+* ec2
+- https://boto3.readthedocs.io/en/latest/reference/services/ec2.html
+- [[https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Instance][EC2.Instance]] (for instance attributes)
+- [[https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource][EC2.ServiceResource]] (for entry access)
+- [[https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource.instances][EC2.ServiceResource.instances]] (for filtering instances)
+
+#+BEGIN_SRC python
+  # EC2 find instances
+  ec2 = boto3.resource('ec2')
+  base = ec2.instances.filter(InstanceIds=['id1', 'id2', 'id3'])
+
+  filters = [{
+      'name': 'tenancy',
+      'value': 'dedicated'
+  }]
+  filtered1 = base.filter(Filters=filters)
+
+  # Note, this does NOT modify the filters in ``filtered1``!
+  filters.append({'name': 'instance-type', 'value': 't1.micro'})
+  filtered2 = base.filter(Filters=filters)
+
+  print('All instances:')
+  for instance in base:
+      print(instance.id)
+
+  print('Dedicated instances:')
+  for instance in filtered1:
+      print(instance.id)
+
+  print('Dedicated micro instances:')
+  for instance in filtered2:
+      print(instance.id)
+#+END_SRC
+
+#+BEGIN_SRC python
+  import boto3
+
+  ec2 = boto3.resource('ec2')
+  instance = ec2.Instance('id')
+
+  print instance.private_ip_address  # For more attributes, SEE: EC2.Instance
+#+END_SRC
+
+* References
+- https://boto3.readthedocs.io/en/latest/index.html
+- https://boto3.readthedocs.io/en/latest/reference/services/index.html

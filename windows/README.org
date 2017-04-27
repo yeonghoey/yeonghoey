@@ -1,0 +1,30 @@
+#+TITLE: Windows
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#based-on-windows-10][Based on Windows 10]]
+ - [[#run-commands][Run commands]]
+ - [[#openvpn-gui][OpenVPN GUI]]
+ - [[#vcxsrv][VcXsrv]]
+
+* Based on Windows 10
+I'm currently using Windows 10.  Most notes are tested against it.
+
+* Run commands
+#+BEGIN_EXAMPLE
+  shell:startup  # Startup folder
+#+END_EXAMPLE
+
+* OpenVPN GUI
+- http://superuser.com/questions/547396/arguments-to-connect-using-open-vpn-windows-client
+
+#+BEGIN_EXAMPLE
+openvpn-gui.exe --connect "client.ovpn" --config_dir "C:\Users\Foo\Documents\protected_crypto_data"
+#+END_EXAMPLE
+
+* VcXsrv
+- https://sourceforge.net/projects/vcxsrv/
+
+Winodws X server for running ~Spacemacs~.
+
+I had been using ~Xming~, but it hung occasionally.
+I found ~VcXsrv~ which is compiled with VC++ 2012, faster and more reliable.

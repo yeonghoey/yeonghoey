@@ -1,0 +1,94 @@
+#+TITLE: DNS 
+
+* Table of Contents :TOC_2_gh:
+ - [[#outline][Outline]]
+ - [[#records][Records]]
+   - [[#soa][SOA]]
+   - [[#a-and-aaaa][A and AAAA]]
+   - [[#cname][CNAME]]
+   - [[#alias][ALIAS]]
+   - [[#mx][MX]]
+   - [[#ns][NS]]
+   - [[#ptr][PTR]]
+ - [[#references][References]]
+
+* Outline
+[[file:img/screenshot_2017-04-21_07-48-53.png]]
+
+[[file:img/screenshot_2017-04-21_07-52-32.png]]
+
+* Records
+** SOA
+#+BEGIN_EXAMPLE
+  domain.com.  IN SOA ns1.domain.com. admin.domain.com. (
+                                              12083   ; serial number
+                                              3h      ; refresh interval
+                                              30m     ; retry interval
+                                              3w      ; expiry period
+                                              1h      ; negative TTL
+  )
+#+END_EXAMPLE
+
+- ~SOA~ stands for *Start of Authority*
+- Name servers can either be master or slaves
+- ~admin.domain.com~ is an email address. The "@" is replaced with a dot in the email address
+- Other settings for managing master and slaves
+
+** A and AAAA
+#+BEGIN_EXAMPLE
+  ns1                 IN  A       111.222.111.222
+  ns1.domain.com.     IN  A       111.222.111.222  ;  They are equivalent
+
+  @       IN  A       222.222.222.222  ; To refer to the base domain
+  *       IN  A       222.222.222.222  ; To refer to anything not defined
+#+END_EXAMPLE
+
+- ~AAAA~ records for IPv6
+
+** CNAME
+#+BEGIN_EXAMPLE
+  www         IN  CNAME   server1
+#+END_EXAMPLE
+
+- Should only be used when there are no other records on that name. 
+- Comes with *some performance losses* because they require an additional query to the server
+- Recommended to provide an alias for a resource outside of the current zone.
+
+** ALIAS
+- Some DNS providers like AWS Route 53 provides customized ~ALIAS~ records
+- With ~ALIAS~ records the additional step for looking up the name is done by the server
+- Can coexist with other records on that name
+
+** MX
+#+BEGIN_EXAMPLE
+          IN  MX  10  mail1.domain.com.
+          IN  MX  50  mail2.domain.com.
+  mail1   IN  A       111.111.111.111
+  mail2   IN  A       222.222.222.222
+#+END_EXAMPLE
+
+- Used to define the mail exchanges that are used for the domain
+
+** NS
+#+BEGIN_EXAMPLE
+          IN  NS     ns1.domain.com.
+          IN  NS     ns2.domain.com.
+  ns1     IN  A      111.222.111.111
+  ns2     IN  A      123.211.111.233
+#+END_EXAMPLE
+
+- This record type defines the name servers that are used for this zone
+
+** PTR
+#+BEGIN_EXAMPLE
+  444.333.222.111.in-addr.arpa.   33692   IN  PTR host.example.com.
+#+END_EXAMPLE
+
+- Pointer to a canonical name
+- Used define a name associated with an IP address
+
+* References
+- http://www.learndns.com/pdf/dns101.pdf
+- https://www.digitalocean.com/community/tutorials/an-introduction-to-dns-terminology-components-and-concepts
+- http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html
+- https://serverfault.com/questions/419402/similarities-and-differences-between-cname-record-and-route-53-alias-record

@@ -1,0 +1,60 @@
+#+TITLE: Plastic SCM
+
+* Table of Contents :TOC_1_gh:
+ - [[#repository-and-workspace][Repository and Workspace]]
+ - [[#checkout-modify-checkin][Checkout-Modify-Checkin]]
+ - [[#change-checkin][Change-Checkin]]
+ - [[#writableconf-readonlyconf][writable.conf readonly.conf]]
+ - [[#ignoreconf][ignore.conf]]
+
+* Repository and Workspace
+[[file:img/screenshot_2017-04-05_15-08-24.png]]
+
+[[file:img/screenshot_2017-04-05_15-11-13.png]]
+
+* Checkout-Modify-Checkin
+The *checkout* in Plastic SCM means:
++ The file is made *writable* (even if it was not by default).
++ Plastic SCM knows that the file has been modified (which is good for quickly locating changes).
+ 
+** Exclusive Checkout
+[[file:img/screenshot_2017-04-05_15-50-28.png]]
+
+Set ~lock.conf~ on the server for specifying files to make exclusive
+#+BEGIN_EXAMPLE
+  rep:default lockserver:mainsvr:8084
+  ,*.doc
+  ,*.xls
+  ,*.jpg
+  document.vcs
+#+END_EXAMPLE
+
+* Change-Checkin 
+
+#+BEGIN_QUOTE
+Take into account that *by default Plastic will write all the files as read-only.* We do this to enforce the check-out / check-in cycle
+#+END_QUOTE
+
+Enusre following checkbox unchecked:
+[[file:img/screenshot_2017-04-05_16-18-46.png]]
+
+* writable.conf readonly.conf
+To override the user preference of ~Update and Checkin operations set files as read-only~,
+Use ~writable,conf~ and ~readonly.conf~
+
+#+BEGIN_EXAMPLE
+  ,*.pdb 
+  ,*.dll 
+  ,*/obj/* 
+  ,*/.metadata
+#+END_EXAMPLE
+
+* ignore.conf
+The counterpart of git's ~.gitignore~
+
+#+BEGIN_EXAMPLE
+  # ignore all bin and build directories
+  ,*/bin*
+  ,*/build*
+#+END_EXAMPLE
+

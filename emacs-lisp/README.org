@@ -1,0 +1,83 @@
+#+TITLE: Emacs Lisp
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#references][References]]
+   - [[#setq][setq]]
+ - [[#details][Details]]
+   - [[#char-syntax][Char Syntax]]
+   - [[#local-variableslet][Local Variables(let)]]
+   - [[#interactive][Interactive]]
+   - [[#snippets][Snippets]]
+
+* References
+** setq
+- http://stackoverflow.com/questions/18172728/the-difference-between-setq-and-setq-default-in-emacs-lisp
+- https://emacs.stackexchange.com/questions/24940/what-does-setq-local-do-and-when-should-i-use-it
+
+#+BEGIN_SRC emacs-lisp
+  (setq-local xxx ...)
+#+END_SRC
+
+is equivalent to:
+#+BEGIN_SRC emacs-lisp
+  (defvar xxx ...)             ;; declare xxx with global scope
+  (make-local-variable 'xxx)   ;; make xxx local in this buffer only
+#+END_SRC
+
+If a variable is buffer-local:
+- ~setq~ sets its local value in the current buffer
+- ~setq-default~ sets the global default value.
+
+* Details
+** Char Syntax
+- https://www.gnu.org/software/emacs/manual/html_node/elisp/Basic-Char-Syntax.html
+- Prefix ~?~ before a character.
+
+#+BEGIN_SRC emacs-lisp
+  ?Q ⇒ 81     ?q ⇒ 113
+  ?\a ⇒ 7                 ; control-g, C-g
+  ?\b ⇒ 8                 ; backspace, BS, C-h
+  ?\t ⇒ 9                 ; tab, TAB, C-i
+  ?\n ⇒ 10                ; newline, C-j
+  ?\v ⇒ 11                ; vertical tab, C-k
+  ?\f ⇒ 12                ; formfeed character, C-l
+  ?\r ⇒ 13                ; carriage return, RET, C-m
+  ?\e ⇒ 27                ; escape character, ESC, C-[
+  ?\s ⇒ 32                ; space character, SPC
+  ?\\ ⇒ 92                ; backslash character, \
+  ?\d ⇒ 127               ; delete character, DEL
+#+END_SRC
+** Local Variables(let)
+- https://www.gnu.org/software/emacs/manual/html_node/elisp/Local-Variables.html
+ 
+#+BEGIN_SRC emacs-lisp
+  (setq y 2)
+  ⇒ 2
+
+  (let ((y 1)
+        (z y)) ; 'z' is bound to the old value of 'y'
+    (list y z))
+  ⇒ (1 2)
+
+  (let* ((y 1)
+         (z y)) ; Use the just-established value of y.
+    (list y z))
+  ⇒ (1 1)
+#+END_SRC
+
+** Interactive
+- https://www.gnu.org/software/emacs/manual/html_node/elisp/Using-Interactive.html
+ 
+** Snippets
+*** my-trans-en-ko
+#+BEGIN_SRC emacs-lisp
+  (defun my-trans-en-ko (start end)
+    (interactive "r")
+    (let* ((text (buffer-substring-no-properties start end))
+           (command (format "trans -brief -to en+ko '%s'" text))
+           (output (shell-command-to-string command))
+           )
+      (kill-new output)
+      (message output))
+    )
+#+END_SRC

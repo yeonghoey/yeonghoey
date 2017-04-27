@@ -1,0 +1,14 @@
+#+TITLE: Docker
+
+* Table of Contents :TOC_1_gh:
+ - [[#installing-amazon-linux-instance][Installing Amazon Linux instance]]
+
+* Installing Amazon Linux instance
+- http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
+
+#+BEGIN_SRC shell
+  sudo yum update -y
+  sudo yum install -y docker
+  sudo service docker start
+  sudo usermod -a -G docker ec2-user
+#+END_SRC

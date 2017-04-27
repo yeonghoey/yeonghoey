@@ -1,0 +1,201 @@
+#+TITLE: Spark
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#writing-spark-applications][Writing Spark Applications]]
+   - [[#input-files-pattern][Input files pattern]]
+ - [[#spark-sql][Spark SQL]]
+   - [[#reference-links][Reference Links]]
+   - [[#examples][Examples]]
+   - [[#recipes][Recipes]]
+   - [[#example-codes][Example codes]]
+
+* Writing Spark Applications
+** Input files pattern
+http://stackoverflow.com/questions/31782763/how-to-use-regex-to-include-exclude-some-input-files-in-sc-textfile
+- ~*~ (match 0 or more character)
+- ~?~ (match single character)
+- ~[ab]~ (character class)
+- ~[^ab]~ (negated character class)
+- ~[a-b]~ (character range)
+- ~{a,b}~ (alternation)
+- ~\c~ (escape character)
+
+You can use commas as delimiters of multiple patterns:
+: sc.textFile("/user/Orders/2015072[7-9]*,/user/Orders/2015073[0-1]*")
+
+Which is same as:
+: sc.textFile("/user/Orders/201507{2[7-9],3[0-1]}*")
+
+* Spark SQL
+** Reference Links
+There seems to be a newly documented page:
+https://docs.databricks.com/spark/latest/spark-sql/index.html
+
+Spark SQL's query languages is based on ~HiveQL~.
+- https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Select
+- https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
+- http://spark.apache.org/docs/latest/sql-programming-guide.html#supported-hive-features
+
+** Examples
+#+BEGIN_SRC sql
+  -- basics
+  select col1 from t1 where col1 > 10
+  select * from t1 limit 5
+
+  -- plan
+  explain select * from t1
+
+  -- group by
+  select col1, count(*) from t1 group by col1
+  select col1, sum(col2) from t1 group by col1
+
+  -- 'group by' can be specified with position numbers(1-indexed from selected columns)
+  select col1, sum(col2) from t1 group by 1
+
+  -- distinct
+  select col1, col2 from t1
+  1 3
+  1 3
+  1 4
+  2 5
+
+  select distinct col1, col2 from t1
+  1 3
+  1 4
+  2 5
+
+  select distinct col1 from t1
+  1
+  2
+
+  -- distinct can be used within 'count'
+  select col1, count(distinct col2) from t1 group by col1
+
+  -- having
+  select col1 from t1 group by col1 having sum(col2) > 10
+  -- same as above
+  select col1 from (select col1, sum(col2) as col2sum from t1 group by col1) t2 where t2.col2sum > 10
+
+  -- order by
+  select col1 from t1 order by col1 desc
+
+  -- join
+  select a.* from a join b on (a.id = b.id and a.department = b.department)
+  select a.* from a left outer join b on (a.id <> b.id)
+  select a.val, b.val, c.val from a join b on (a.key = b.key1) join c on (c.key = b.key1)
+
+  -- joins occur before where clauses, this is a bad way:
+  select a.val, b.val from a left outer join b on (a.key=b.key)
+  where a.ds='2009-07-07' and b.ds='2009-07-07'
+
+  -- following is better:
+  select a.val, b.val from a left outer join b
+  on (a.key=b.key and b.ds='2009-07-07' and a.ds='2009-07-07')
+
+  -- union
+  select u.id, actions.date
+  from (
+    select av.uid as uid
+    from action_video av
+    where av.date = '2008-06-03'
+    union all
+    select ac.uid as uid
+    from action_comment ac
+    where ac.date = '2008-06-03'
+  ) actions join users u on (u.id = actions.uid)
+
+  -- if, case
+  select if(field in (0, 1), 'ab', 'c') from tbl
+
+  select
+    case field
+    when 0 then 'a'
+    when 1 then 'b'
+    else 'c'
+    end
+  from tbl
+
+  -- subqueries
+  select col
+  from (
+    select a+b as col
+    from t1
+  ) t2
+
+  select *
+  from a
+  where a.a in (select foo from b);
+
+  select a
+  from t1
+  where exists (select b from t2 where t1.x = t2.y)
+
+  -- common table expression
+  with q1 as (select key from src where key = '5')
+  select *
+  from q1;
+
+  with q1 as (select * from src where key= '5'),
+       q2 as (select * from src s2 where key = '4')
+  select * from q1 union all select * from q2;
+
+  -- create table as select example
+  create table s2 as
+  with q1 as ( select key from src where key = '4')
+  select * from q1;
+
+  -- create or replace temporary view is recommended instead of just 'create table'
+  create or replace temporary view foo as select * from t1 limit 1
+
+  -- view example
+  create view v1 as
+  with q1 as ( select key from src where key = '5')
+  select * from q1;
+
+  -- lateral view
+  select adid, count(1)
+  from pageads lateral view explode(adid_list) adtable as adid
+  group by adid
+
+  select k, v
+  from tbl lateral view explode(kvmap) kvs as k, v
+  group by k
+
+  select mycol1, mycol2 from basetable
+  lateral view explode(col1) mytable1 as mycol1
+  lateral view explode(col2) mytable2 as mycol2;
+
+  select * from src lateral view outer explode(array()) c as a limit 10;
+
+  -- time range (t is of timestamp type)
+  select t from table1
+  where t > to_utc_timestamp("2016-12-25", "UTC")
+  and t < to_utc_timestamp("2016-12-25 12:00", "UTC")
+
+  -- timestamp to string
+  select date_format(t, 'YYYY-MM-dd') from tbl
+
+  -- select field with special characters(use backtick)
+  select `@time` from t1
+
+  -- concat_ws to make an array as a string
+  -- map_values to make a map as an array
+  -- <array of structtype>.<field> goes into an <array of field>
+  select concat_ws(", ", map_values(items).price)
+  from Items
+#+END_SRC
+
+** Recipes
+*** Referencing query results as ~DataFrame~ in spark application
+#+BEGIN_SRC sql
+  %sql
+  create or replace temporary view foo as select * from t1 limit 1
+#+END_SRC
+#+BEGIN_SRC scala
+  val spark: SparkSession = ...
+  val df = spark.table("foo")
+  // work with df
+#+END_SRC
+
+** Example codes
+https://github.com/apache/spark/tree/master/examples/src/main/scala/org/apache/spark/examples/sql

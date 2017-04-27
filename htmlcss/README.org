@@ -1,0 +1,32 @@
+#+TITLE: HTML/CSS
+
+* Table of Contents :TOC_2_gh:
+ - [[#template][Template]]
+ - [[#the-best-place-to-put-script-tags-in-html][The best place to put <script> tags in HTML]]
+ - [[#style-guides][Style Guides]]
+
+* Template
+#+BEGIN_SRC html
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITLE</title>
+  </head>
+
+  <body>
+    <h1>HEADING</h1>
+    <p>CONTENT</p>
+  </body>
+
+  </html>
+#+END_SRC
+
+* TODO The best place to put <script> tags in HTML
+- http://stackoverflow.com/questions/436411/where-is-the-best-place-to-put-script-tags-in-html-markup
+ 
+* TODO Style Guides
+- http://www.w3schools.com/html/html5_syntax.asp
+- https://google.github.io/styleguide/htmlcssguide.xml

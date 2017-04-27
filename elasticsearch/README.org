@@ -1,0 +1,313 @@
+#+TITLE: Elasticsearch
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#understanding-cluster][Understanding Cluster]]
+   - [[#inside-a-shard][Inside a Shard]]
+   - [[#routing-a-document-to-a-shard][Routing a Document to a Shard]]
+   - [[#choosing-number-of-shards][Choosing Number of Shards]]
+   - [[#routing][Routing]]
+ - [[#types-and-mappings][Types and Mappings]]
+ - [[#index-aliases-and-zero-downtime][Index Aliases and Zero Downtime]]
+ - [[#inverted-index][Inverted Index]]
+   - [[#terms-are-normalized][Terms are normalized]]
+   - [[#analysis-and-analyzers][Analysis and Analyzers]]
+   - [[#how-innernested-objects-are-indexed][How Inner(Nested) Objects are Indexed]]
+ - [[#how-queries-work][How Queries Work]]
+ - [[#apis][APIs]]
+   - [[#basic-operations][Basic operations]]
+   - [[#bulk-api][Bulk API]]
+ - [[#settings-and-deployment][Settings and Deployment]]
+ - [[#query-string-syntax][Query string syntax]]
+
+* Understanding Cluster
+#+BEGIN_QUOTE
+One node in the cluster is elected to be the master node,
+which is in charge of managing cluster-wide changes like creating or deleting an index,
+or adding or removing a node from the cluster.
+The master node does not need to be involved in document-level changes or searches,
+which means that having just one master node will not become a bottleneck as traffic grows.
+Any node can become the master. Our example cluster has only one node, so it performs the master role.
+#+END_QUOTE
+
+** Inside a Shard
+[[file:img/screenshot_2017-01-12_14-44-43.png]]
+
+- A shard is a low-level worker unit that holds just a slice of all the data in the index. 
+- a single instance of Lucene, and is a complete search engine in its own right.
+- a Lucene index is what we call a shard in Elasticsearch, while an index in Elasticsearch is a collection of shards. 
+- The inverted index that is written to disk is immutable
+- [[https://www.elastic.co/guide/en/elasticsearch/guide/current/dynamic-indices.html][Dynamically Updatable Indices]]
+- When a document is “deleted,” it is actually just marked as deleted in the .del file.
+  A document that has been marked as deleted can still match a query,
+  but it is removed from the results list before the final query results are returned.
+- [[https://www.elastic.co/guide/en/elasticsearch/guide/current/translog.html][Making Changes Persistent]] 
+- The translog provides a persistent record of all operations that have not yet been flushed to disk
+- The action of performing a commit and truncating the translog is known in Elasticsearch as a flush.
+- Small segments are merged into bigger segments, which, in turn, are merged into even bigger segments.
+
+** Routing a Document to a Shard
+: shard = hash(routing) % number_of_primary_shards
+#+BEGIN_QUOTE
+This explains why the number of primary shards can be set only when an index is created and never changed
+#+END_QUOTE
+
+** Choosing Number of Shards
+*** A Shard is not free
+- A shard is a Lucene index under the covers, which uses file handles, memory, and CPU cycles.
+- Every search request needs to hit a copy of every shard in the index. That’s fine if every shard is sitting on a different node, but not if many shards have to compete for the same resources.
+- Term statistics, used to calculate relevance, are per shard. Having a small amount of data in many shards leads to poor relevance.
+
+#+BEGIN_QUOTE
+Searching 1 index of 50 shards is exactly equivalent to searching 50 indices with 1 shard each: both search requests hit 50 shards.
+#+END_QUOTE
+
+** Routing
+#+BEGIN_QUOTE
+The routing value defaults to the document’s ~_id~,
+but we can override that and provide our own custom routing value, such as ~forum_id~.
+#+END_QUOTE
+#+BEGIN_EXAMPLE
+  PUT /forums/post/1?routing=baking 
+  {
+    "forum_id": "baking", 
+    "title":    "Easy recipe for ginger nuts",
+    ...
+  }
+#+END_EXAMPLE
+
+* Types and Mappings
+#+BEGIN_QUOTE
+what happens if you have two different types,
+each with an identically named field but mapped differently
+(e.g. one is a string, the other is a number)?
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+The longer answer is that each Lucene index contains a single, flat schema for all fields.
+A particular field is either mapped as a string, or a number, but not both. 
+#+END_QUOTE
+
+- ~_all~ field: a special field that indexes the values from all other fields as one big string.
+  The query_string query clause (and searches performed as ~?q=john~) defaults to searching in the ~_all~ field if no other field is specified.
+- When Elasticsearch encounters a previously unknown field in a document,
+  it uses dynamic mapping to determine the datatype for the field and automatically adds the new field to the type mapping.
+
+* Index Aliases and Zero Downtime
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html
+  - Don't follw this way manually. There is a [[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-reindex.html][Reindex API]].
+
+
+* Inverted Index
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html
+
+#+BEGIN_EXAMPLE
+  Term  | Doc 1 | Doc 2 | Doc 3 | ...
+  ------------------------------------
+  brown |   X   |       |  X    | ...
+  fox   |   X   |   X   |  X    | ...
+  quick |   X   |   X   |       | ...
+  the   |   X   |       |  X    | ...
+#+END_EXAMPLE
+
+** Terms are normalized
+- ~Quick~ can be lowercased to become ~quick~.
+- ~foxes~ can be stemmed--reduced to its root formto become ~fox~.
+- Similarly, ~dogs~ could be stemmed to ~dog~.
+- ~jumped~ and ~leap a~ re synonyms and can be indexed as just the single term ~jump~.
+ 
+#+BEGIN_QUOTE
+This is very important.
+You can find only terms that exist in your index,
+so both the indexed text and the query string must be normalized into the same form.
+#+END_QUOTE
+
+This process of tokenization and normalization is called *analysis*.
+
+** Analysis and Analyzers
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/analysis-intro.html
+- Tokenizing a block of text into individual terms suitable for use in an inverted index
+- Normalizing these terms into a standard form to improve their *searchability* or *recall*
+
+*** Kinds of analyzers
+- Standard 
+    : set, the, shape, to, semi, transparent, by, calling, set_trans, 5~
+- Simple
+    : set, the, shape, to, semi, transparent, by, calling, set, trans
+- Whitespace
+    : Set, the, shape, to, semi-transparent, by, calling, set_trans(5)
+- Language analyzers
+    : set, shape, semi, transpar, call, set_tran, 5 (english)
+
+*** Mappings for Configuring Analyzers
+#+BEGIN_SRC json
+  {
+      "tag": {
+          "type":     "string",
+          "index":    "not_analyzed"
+      }
+  }
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+      "tweet": {
+          "type":     "string",
+          "analyzer": "english"
+      }
+  }
+#+END_SRC
+
+#+BEGIN_QUOTE
+Although you can add to an existing mapping,
+you can’t change existing field mappings.
+If a mapping already exists for a field,
+data from that field has probably been indexed.
+If you were to change the field mapping,
+the indexed data would be wrong and would not be properly searchable.
+#+END_QUOTE
+
+** How Inner(Nested) Objects are Indexed
+*** Inner objects
+#+BEGIN_SRC json
+  {
+      "tweet":            [elasticsearch, flexible, very],
+      "user.id":          [@johnsmith],
+      "user.gender":      [male],
+      "user.age":         [26],
+      "user.name.full":   [john, smith],
+      "user.name.first":  [john],
+      "user.name.last":   [smith]
+  }
+#+END_SRC
+
+*** Array of Inner objects
+#+BEGIN_SRC json
+  {
+      "followers.age":    [19, 26, 35],
+      "followers.name":   [alex, jones, lisa, smith, mary, white]
+  }
+#+END_SRC
+In this way, the relation between ~age~ and ~name~ is lost.
+To work around this, set the type of ~followers~ to [[https://www.elastic.co/guide/en/elasticsearch/guide/current/nested-objects.html][nested]].
+
+* How Queries Work
+[[file:img/screenshot_2017-01-12_18-32-46.png]]
+
+[[file:img/screenshot_2017-01-12_18-33-17.png]]
+
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_query_phase.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html
+
+* APIs
+** Basic operations
+#+BEGIN_SRC shell
+  # Monitoring
+  curl 'http://localhost:9200/_cluster/health'
+  curl 'http://localhost:9200/_cluster/health?level=indices'
+  curl 'http://localhost:9200/_cluster/stats'
+  curl 'http://localhost:9200/_nodes/stats'
+
+  # Returns stats in ascii tabular form
+  curl 'http://localhost:9200/_cat'
+
+  # Delete index named 'twitter'
+  curl -XDELETE 'http://localhost:9200/twitter'  
+#+END_SRC
+
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
+
+** Bulk API
+#+BEGIN_EXAMPLE
+  { action: { metadata }}\n
+  { request body        }\n
+  { action: { metadata }}\n
+  { request body        }\n
+  ...
+#+END_EXAMPLE
+- Every line must end with a newline character (\n), *including the last line*.
+- The lines *cannot contain unescaped newline characters*, as they would interfere with parsing.
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/bulk.html
+
+#+BEGIN_QUOTE
+Fortunately, it is easy to find this sweet spot:
+Try indexing typical documents in batches of increasing size.
+When performance starts to drop off, your batch size is too big.
+A good place to start is with batches of 1,000 to 5,000 documents or,
+if your documents are very large, with even smaller batches.
+
+It is often useful to keep an eye on the physical size of your bulk requests.
+One thousand 1KB documents is very different from one thousand 1MB documents.
+A good bulk size to start playing with is around 5-15MB in size
+#+END_QUOTE
+
+
+* Settings and Deployment
+- [[https://www.elastic.co/guide/en/elasticsearch/guide/current/_revisit_this_list_before_production.html][Revisit This List Before Production]]
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_java_virtual_machine.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/important-configuration-changes.html
+
+#+BEGIN_QUOTE
+Please Do Not Tweak JVM Settings
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+If you have two masters, data integrity becomes perilous,
+since you have two nodes that think they are in charge.
+#+END_QUOTE
+A quorum is ~(number of master-eligible nodes / 2) + 1~.
+
+- [[https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_give_less_than_half_your_memory_to_lucene][Give (less than) Half Your Memory to Lucene]]
+- [[https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#compressed_oops][Don't Cross 32GB]] 
+
+* Query string syntax
+#+BEGIN_EXAMPLE
+  apple                                  # search "apple" in the default field(which is '_all' by default)
+
+  fruit:apple                            # search "apple" in 'fruit' field
+  fruit:"pen pineapple"                  # exact phrase
+
+  fruit:(pineapple OR apple)
+  fruit:(pineapple apple)                # Same as above
+
+  A AND B OR (NOT C)
+  A && B || (! C)                        # Same as above
+
+  fruit.\*:apple                         # fields pattern
+  _exists_:fruit                         # where the field has any non-null value
+
+  fruit:ap?le                            # single character wildcard
+  fruit:apple*                           # zero or more
+  fruit:*apple                           # Don't do this: Leading wildcards are particularly heavy
+  name:/joh?n/                           # regex
+
+  quikc~ brwn~ foks~                     # fuzzy search (Damerau-Levenshtein distance)
+  quikc~1                                # specific edit distance (default is 2)
+  "fox quick"~5                          # can find "quick fox". 5 is the edit distance by word
+
+  count:[1 TO 5]                         # inclusive (1, 2, 3, 4, 5)
+  count:{1 TO 5}                         # exclusive (2, 3, 4)
+  count:[1 TO 5}                         # half-open (1, 2, 3, 4)
+
+  date:[2016-12-24 TO 2016-12-25]
+  date:[2016-12-07 TO *]                 # since 2016-12-07
+
+  age:>10
+  age:>=10
+  age:<10
+  age:<=10
+
+  quick^2 fox                            # boost (find 'fox'. but especially interested in "quick fox")
+
+  quick +fox -news                       # +term must be present; -term must not be present; others are optional
+  ((quick AND fox) OR fox) AND NOT news  # equivalent to above
+
+
+  # reserved characters (You should escape these characters with '\' if you want to search them literally)
+  + - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /  
+#+END_EXAMPLE
+
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax

@@ -1,0 +1,20 @@
+#+TITLE: AWS S3
+
+* Table of Contents :TOC_2_gh:
+ - [[#server-side-encryption][Server Side Encryption]]
+
+* Server Side Encryption
+- https://aws.amazon.com/ko/blogs/aws/s3-encryption-with-your-keys/
+- http://alan.blog-city.com/amazon_s3_encryption.htm
+
+#+BEGIN_QUOTE
+There is no extra charge for encryption, and there’s *no observable effect* on PUT or GET performance.
+#+END_QUOTE
+
+It seems pointless as follows:
+#+BEGIN_QUOTE
+Wait a minute? What are we protecting against? Someone gaining access to Amazon's data centers and stealing hard disks?
+Or worse, a disgruntled Amazon employee (do such people exist?) plugging in a USB stick and sucking out your precious data.
+#+END_QUOTE
+
+[[file:img/screenshot_2017-02-25_09-48-12.png]]

@@ -1,0 +1,35 @@
+#+TITLE: AWS EC2
+
+* Table of Contents :TOC_2_gh:
+ - [[#status-checks][Status Checks]]
+   - [[#system-status-checks][System Status Checks]]
+   - [[#instance-status-checks][Instance Status Checks]]
+
+* Status Checks
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html
+
+[[file:img/screenshot_2017-02-19_14-15-08.png]]
+
+** System Status Checks
+#+BEGIN_QUOTE
+require AWS involvement to repair. (...)
+*wait for AWS to fix the issue*, or you can resolve it yourself.
+(by *stopping and starting an instance*, or by *terminating and replacing an instance*).
+#+END_QUOTE
+
+- Loss of network connectivity
+- Loss of system power
+- Software issues on the physical host
+- Hardware issues on the physical host that impact network reachability
+
+** Instance Status Checks
+#+BEGIN_QUOTE
+require your involvement to repair. (...)
+(by *rebooting the instance* or by *making instance configuration changes*).
+#+END_QUOTE
+
+- Failed system status checks
+- Incorrect networking or startup configuration
+- Exhausted memory
+- Corrupted file system
+- Incompatible kernel

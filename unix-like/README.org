@@ -1,0 +1,1103 @@
+#+TITLE: Unix-like
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#primitives][Primitives]]
+   - [[#arithmetic-expansion][Arithmetic Expansion]]
+   - [[#brace-expansion][Brace Expansion]]
+   - [[#shell-parameter-expansion][Shell Parameter Expansion]]
+   - [[#array][array]]
+   - [[#case][case]]
+   - [[#for][for]]
+   - [[#function][function]]
+   - [[#if][if]]
+   - [[#set][set]]
+ - [[#commands][Commands]]
+   - [[#apt][apt]]
+   - [[#du][du]]
+   - [[#grep][grep]]
+   - [[#lsof][lsof]]
+   - [[#mount][mount]]
+   - [[#pgrep][pgrep]]
+   - [[#pkill][pkill]]
+   - [[#sort][sort]]
+   - [[#tar][tar]]
+   - [[#tee][tee]]
+   - [[#watch][watch]]
+   - [[#xargs][xargs]]
+ - [[#details][Details]]
+   - [[#getting-the-source-directory][Getting the source directory]]
+   - [[#glob-dotfiles][Glob dotfiles]]
+   - [[#here-document][Here document]]
+   - [[#history-expasion][History Expasion]]
+   - [[#inode-structure][Inode Structure]]
+   - [[#mounting-a-volume][Mounting a Volume]]
+   - [[#prompt-a-user-for-yesno][Prompt a user for yes/no]]
+   - [[#pseudo-terminals][Pseudo Terminals]]
+   - [[#redirection][Redirection]]
+   - [[#swap-spacesfiles][Swap spaces/files]]
+   - [[#the-art-of-command-line][The Art of Command Line]]
+   - [[#-vs-][$* vs $@]]
+
+* Primitives
+** Arithmetic Expansion
+- https://www.gnu.org/software/bash/manual/bashref.html#Arithmetic-Expansion
+- https://www.gnu.org/software/bash/manual/bashref.html#Shell-Arithmetic
+
+#+BEGIN_SRC shell
+  $(( expression ))
+#+END_SRC
+
+** Brace Expansion
+- https://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion
+- Performed before any other expansions
+- Any characters special to other expansions are preserved in the result
+
+#+BEGIN_SRC shell
+  $ echo a{d,c,b}e
+  ade ace abe
+
+  $ mkdir /usr/local/src/bash/{old,new,dist,bugs}
+  $ chown root /usr/{ucb/{ex,edit},lib/{ex?.?*,how_ex}}
+#+END_SRC
+
+** Shell Parameter Expansion
+- https://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion
+
+#+BEGIN_SRC shell
+  ${parameter:-word} # parameter if parameter else word
+  ${parameter:=word} # if not parameter: parameter = word; parameter
+  ${parameter:?word} # if not parameter: stderr.write(word); exit; else: parameter
+  ${parameter:+word} # if not parameter: '' else word
+#+END_SRC
+
+#+BEGIN_SRC shell
+  ${parameter:offset}        # parameter[offset:]
+  ${parameter:offset:length} # parameter[offset:offset+length]
+#+END_SRC
+
+** array
+- https://www.gnu.org/software/bash/manual/bashref.html#Arrays
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
+
+#+BEGIN_SRC shell
+  name[subscript]=value
+  declare -a nameo
+  declare -a name[subscript]
+  name=(value1 value2 … )
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ array=(one two three)
+
+  $ echo "${array[@]}"
+  one two three
+
+  $ echo "$array[@]"
+  one[@]
+
+  $ echo "${array[2]}"
+  three
+
+  $ array[3]=four
+
+  $ echo "${array[@]}"
+  one two three four
+#+END_SRC
+
+- ~${name[*]}~ vs ~${name[@]}~
+- [[#-vs-][$* vs $@]]
+
+** case
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html
+
+#+BEGIN_SRC shell
+  case "$1" in
+    start)
+      start
+      ;;
+    stop)
+      stop
+      ;;
+    ,*)
+      echo $"Usage: $0 {start|stop}"
+      exit 1
+      ;;
+  esac
+#+END_SRC
+
+** for
+- https://www.cyberciti.biz/faq/bash-for-loop/
+- https://google.github.io/styleguide/shell.xml?showone=Loops#Loops
+
+
+- Put ~; do~ and ~; then~ on the same line as the ~while~, ~for~ or ~if~.
+- Use a for loop if you are confident that the input will not contain spaces or special characters (usually, this means not user input).
+
+#+BEGIN_SRC shell
+  for i in 1 2 3 4 5; do
+    echo "$i"
+  done
+
+  for file in ~/repos/* ; do
+    echo "$file"
+  done
+
+  # continue and break
+  for i in 1 2 3; do
+    if [[ "$i" == 1 ]]; then
+      continue
+    fi
+    if [[ "$i" == 3 ]]; then
+      break
+    fi
+    echo "$i"
+  done
+
+  for (( i=1; i<=5; i++)); do
+    echo "$i"
+  done
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # requires bash v3.0+
+  for i in {1..5}; do
+    echo "$i"
+  done
+
+  # requires bash v4.0+
+  for i in {0..10..2}; do
+    echo "$i"
+  done
+#+END_SRC
+
+** function
+- http://tldp.org/LDP/abs/html/functions.html
+- http://tldp.org/LDP/abs/html/complexfunct.html
+- http://ryanstutorials.net/bash-scripting-tutorial/bash-functions.php
+- https://google.github.io/styleguide/shell.xml?showone=Function_Comments#Function_Comments
+- http://stackoverflow.com/questions/18042279/how-to-exit-a-function-in-bash
+
+
+#+BEGIN_SRC shell
+  print_something() {
+      echo Hello $1
+  }
+  print_something Mars
+  print_something Jupiter
+#+END_SRC
+
+- The keyword ~function~ is *optional*, but must be used consistently throughout a project.
+- If you're writing a package, separate package names with ~::~.
+
+#+BEGIN_SRC shell
+  # Single function
+  my_func() {
+      ...
+  }
+
+  # Part of a package
+  mypackage::my_func() {
+      ...
+  }
+#+END_SRC
+
+#+BEGIN_SRC shell
+  #######################################
+  # Cleanup files from the backup dir
+  # Globals:
+  #   BACKUP_DIR
+  #   ORACLE_SID
+  # Arguments:
+  #   None
+  # Returns:
+  #   None
+  #######################################
+  cleanup() {
+      ...
+  }
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # If N is omitted, the return status is that of the
+  # last command executed within the function or script.
+  return [n]
+#+END_SRC
+
+#+BEGIN_QUOTE
+Note that if you have ~set -e~ set at the top of your script and
+your ~return 1~ or any other number besides ~0~, your entire script will exit.
+~exit~ abandons the current shell.
+#+END_QUOTE
+
+- By *default a variable is global.*
+- When we create a local variable within a function, *it is only visible* within that function.
+#+BEGIN_SRC shell
+  var_change () {
+      local var1='local 1'
+      echo Inside function: var1 is $var1 : var2 is $var2
+      var1='changed again'
+      var2='2 changed again'
+  }
+  var1='global 1'
+  var2='global 2'
+  # only var2 changed
+#+END_SRC
+
+#+BEGIN_SRC shell
+  foo() {
+    return 0 # return returns a value from a function.
+  }
+  bar() {
+    exit 1 # exit abandons the current shell.
+  }
+
+  foo
+  echo 'hi'
+  bar
+  echo 'bye'
+#+END_SRC
+
+** if
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+
+#+BEGIN_SRC shell
+  if commands; then
+    commands
+  [elif commands; then
+    commands ...]
+  [else
+    commands]
+  fi
+#+END_SRC
+
+The ~TEST-COMMAND~ list is executed, and if its return status is ~zero~,
+the ~CONSEQUENT-COMMANDS~ list is executed.
+
+[[file:img/screenshot_2017-04-24_12-19-35.png]]
+
+[[file:img/screenshot_2017-04-24_12-10-01.png]]
+
+#+BEGIN_SRC shell
+  if [[ -z "$foo" ]] && [[ -z "$bar" ]];
+  if [[ -z "$foo" && -z "$bar" ]]; # equivalent to above
+#+END_SRC
+
+*** [[, [ and test
+- http://mywiki.wooledge.org/BashFAQ/031
+- ~[~ and ~test~ are available in POSIX shells
+- ~[[~ works only in Bash, Zsh and the Korn shell, and is more powerful
+- ~[[~ is preferred over ~[~, ~test~ (from [[https://google.github.io/styleguide/shell.xml][Google Shell Style Guide]])
+
+[[file:img/screenshot_2017-04-24_12-12-29.png]]
+
+- Special primitives that ~[[~ is defined to have, but ~[~ may be lacking
+[[file:img/screenshot_2017-04-24_12-12-57.png]]
+
+** set
+- https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+
+#+BEGIN_SRC shell
+  set -e # Exit immediately when a command fails
+  set -x # Print a trace of simple commands
+
+  set +x # Use + rather than -  to turn off.
+
+  set -- 'foo' 'bar' # set the positional parameters
+  echo "$1, $2"      # 'foo, bar'
+#+END_SRC
+
+* Commands
+** apt
+*** When 'apt-get update' fails
+
+- Check files in:
+  #+BEGIN_EXAMPLE
+    /etc/apt/sources.list
+    /etc/apt/sources.list.d/*.list
+  #+END_EXAMPLE
+
+***  Install java8
+- http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/
+
+#+BEGIN_SRC shell
+  sudo add-apt-repository ppa:webupd8team/java
+  sudo apt-get update
+  sudo apt-get install oracle-java8-installer
+
+  java -version
+  sudo apt-get install oracle-java8-set-default
+
+  sudo update-alternatives --config java
+#+END_SRC
+
+** du
+#+BEGIN_SRC shell
+  $ du
+  0       ./temp
+  24      .
+
+  $ du ./temp
+  0       ./temp
+
+  # -a stands for 'all files'
+  $ du -a  ./
+  8       ./404.html
+  8       ./CNAME
+  8       ./index.html
+  0       ./temp/a
+  0       ./temp/b
+  0       ./temp
+  24      .
+
+  # -h stands for 'human readable'
+  $ du -h
+  0B    ./temp
+  12K    .
+
+  # list file in order of size
+  $ du -a ./ | sort -n
+
+  # merge subdirectories
+  $ du -sh
+  12K    .
+
+  # display sizes of all entries in current directory
+  $ du -sh *
+  4.0K    404.html
+  4.0K    CNAME
+  4.0K    index.html
+  0B    temp
+#+END_SRC
+
+** grep
+#+BEGIN_SRC shell
+  $ echo hello world | grep hello
+  hello world
+
+  # --only-matching
+  $ echo hello world | grep -o hello
+  hello
+#+END_SRC
+
+** lsof
+#+BEGIN_SRC shell
+  # numeric ip(-n) and port(-P)
+  $ lsof -n -P | less
+#+END_SRC
+
+** mount
+- http://unix.stackexchange.com/questions/91960/can-anyone-explain-the-output-of-mount
+
+#+BEGIN_SRC shell
+  $ sudo mount
+  /dev/sda2 on / type ext4 (rw)
+  proc on /proc type proc (rw)
+  sysfs on /sys type sysfs (rw)
+  devpts on /dev/pts type devpts (rw,gid=5,mode=620)
+  tmpfs on /dev/shm type tmpfs (rw)
+  /dev/sda1 on /boot type ext4 (rw)
+  /dev/sda3 on /home type ext4 (rw)
+  none on /proc/sys/fs/binfmt_misc type binfmt_misc (rw)
+  sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
+  gvfs-fuse-daemon on /root/.gvfs type fuse.gvfs-fuse-daemon (rw,nosuid,nodev)
+
+  $ sudo mount -a  # using informations on /etc/fstab
+#+END_SRC
+
+: <spec> on <file> type <vfstype> (<mntopts>)
+
+| ~spec~    | the block device or remote filesystem to be mounted. |
+| ~file~    | he mount point for the filesystem.                   |
+| ~vfstype~ | the type of the filesystem.                          |
+| ~mntopts~ | the mount options associated with the filesystem.    |
+
+** pgrep
+- https://www.poftut.com/pgrep-pkill-command-tutorial-examples-linux/
+
+#+BEGIN_SRC shell
+  pgrep pytho
+  pgrep -u root ssh  # root user's ssh
+  pgrep -f script.py # match against full arugment lists
+  pgrep -l pytho     # Print pids along with their process names
+  pgrep -f -l .py    # Print pids along with their full argument lists
+  pgrep -x python    # requires exact match, substr is default
+#+END_SRC
+
+** pkill
+- Same as ~pgrep~, but kills matching processes
+
+#+BEGIN_SRC shell
+  pkill -9 pytho     # You can also specify singal
+#+END_SRC
+
+** sort
+- http://ss64.com/bash/sort.html
+- http://www.skorks.com/2010/05/sort-files-like-a-master-with-the-linux-sort-command-bash/
+
+#+BEGIN_SRC shell
+  sort -nr numbers.txt # descending numeric order
+  sort -k3 output.txt  # key3, omitting the first and second fields.
+  sort -f names.txt    # ignore case
+  sort -s names.txt    # stable sort
+  sort -u names.txt    # unique
+  sort -t: /etc/passwd # use ':' as the field delimiter
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Sort by column2 and then column4, numerically, delimited by '.'
+  # while -k2  only specifies starting point is column2
+  # -k2,2  specifies both starting, and ending point. which means exact column2.
+
+  $ cat ips.txt | sort -t. -k 2,2n -k 4,4n
+  127.0.0.3
+  127.0.0.6
+  127.0.0.12
+  192.168.0.1
+  192.168.0.5
+  192.168.0.25
+#+END_SRC
+
+** tar
+- http://www.tecmint.com/18-tar-command-examples-in-linux/
+- http://askubuntu.com/questions/122141/whats-the-difference-between-tar-gz-and-gz-or-tar-7z-and-7z
+
+| flag      | mnemonic         |
+|-----------+------------------|
+| ~-c~      | create           |
+| ~-x~      | extract          |
+| ~-t~      | list             |
+| ~-v~      | verbose          |
+| ~-C DIR~  | change directory |
+| ~-f FILE~ | target file      |
+
+-----
+#+BEGIN_SRC shell
+  $ cd /tmp
+  $ tree target
+#+END_SRC
+#+BEGIN_EXAMPLE
+  target
+  ├── a.txt
+  └── path
+      └── b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  $ tar -cvf target1.tar /tmp/target
+#+END_SRC
+#+BEGIN_EXAMPLE
+  tar: Removing leading '/' from member names
+  a tmp/target
+  a tmp/target/a.txt
+  a tmp/target/path
+  a tmp/target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  $ tar -xvf target1.tar
+  $ tree tmp
+#+END_SRC
+#+BEGIN_EXAMPLE
+  tmp
+  └── target
+      ├── a.txt
+      └── path
+          └── b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # Change directory
+  $ tar -C /tmp/target -cvf target2.tar .
+#+END_SRC
+#+BEGIN_EXAMPLE
+  a .
+  a ./a.txt
+  a ./path
+  a ./path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  $ mkdir out
+  $ tar -C out -xvf target2.tar
+  $ tree out
+#+END_SRC
+#+BEGIN_EXAMPLE
+  out
+  ├── a.txt
+  └── path
+      └── b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # Exclude
+  $ tar -cvf target3.tar --exclude a.txt target
+#+END_SRC
+#+BEGIN_EXAMPLE
+  a target
+  a target/path
+  a target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+#+BEGIN_SRC shell
+  # Compression
+  $ tar -cvzf target.tar.gz target
+#+END_SRC
+#+BEGIN_EXAMPLE
+  a target
+  a target/a.txt
+  a target/path
+  a target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # Don't need any option for extracting compressed tar
+  $ tar -xvf target.tar.gz
+#+END_SRC
+#+BEGIN_EXAMPLE
+  x target/
+  x target/a.txt
+  x target/path/
+  x target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # List
+  $ tar -tvf target.tar.gz
+#+END_SRC
+#+BEGIN_EXAMPLE
+  drwxr-xr-x  0 hoey   staff       0 Jan 30 10:26 target/
+  -rw-r--r--  0 hoey   staff       0 Jan 30 10:23 target/a.txt
+  drwxr-xr-x  0 hoey   staff       0 Jan 30 10:26 target/path/
+  -rw-r--r--  0 hoey   staff       0 Jan 30 10:23 target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # Untar a single file
+  $ tar -xvf target.tar.gz target/a.txt
+#+END_SRC
+#+BEGIN_EXAMPLE
+  x target/a.txt
+#+END_EXAMPLE
+
+** tee
+- https://shapeshed.com/unix-tee/
+
+#+BEGIN_SRC shell
+  $ echo 'foo' | tee foo.txt
+  foo
+  $ cat foo.txt
+  foo
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ cat foo.txt
+  foo
+  $ echo 'bar' | tee -a foo.txt  # append
+  bar
+  $ cat foo.txt
+  foo
+  bar
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Redirecting stdout is not affected by 'sudo'
+  $ echo 'foo' >> file
+  zsh: permission denied: file
+
+  # 'tee' can be used to work around this
+  $ echo "foo" | sudo tee -a file
+#+END_SRC
+
+** watch
+#+BEGIN_SRC shell
+  watch ls        # run 'ls' every 2 seconds (default)
+  watch -d ls     # highlight differences
+  watch -n 60 ls  # every 60 seconds
+#+END_SRC
+
+** xargs
+- http://www.thegeekstuff.com/2013/12/xargs-examples
+- http://www.unixmantra.com/2013/12/xargs-all-in-one-tutorial-guide.html
+- https://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/
+
+#+BEGIN_SRC shell
+  $ echo 1 2 3 4 | xargs echo
+
+  # equivalent to:
+  echo 1 2 3 4
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ echo 1 2 3 4 | xargs -n 1 echo
+
+  # equivalent to:
+  echo 1
+  echo 2
+  echo 3
+  echo 4
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ echo 1 2 3 4 | xargs -n 2 echo
+
+  # equivalent to:
+  echo 1 2
+  echo 3 4
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Specify replace-str
+  $ echo 1 2 3 4 | xargs -I {} echo '{} numbers'
+
+  # equivalent to
+  echo '1 2 3 4 numbers'
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ echo 1 2 3 4 | xargs -p echo   # Prompt
+  $ echo 1,2,3,4 | xargs -d, echo  # Set delimiter to ','
+
+  # Use null character as input terminator, useful when input contains white space.
+  # For example, 'find -print0' supports this
+  $ echo 1 2 3 4 | xargs -0 echo
+
+  # Delete files whose names contain 'conflicted'
+  $ find . -name '*conflicted*' -print0 | xargs -0 rm
+#+END_SRC
+
+* Details
+** Getting the source directory
+- http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
+
+#+BEGIN_SRC shell
+  DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd )"
+#+END_SRC
+
+Repalce ~BASH_SOURCE~ with ~$0~ for zsh, taking account of the [[http://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source][limitation]].
+
+** Glob dotfiles
+- http://stackoverflow.com/questions/20895502/bash-asterisk-omits-files-that-start-with
+- http://unix.stackexchange.com/questions/89749/cp-hidden-files-with-glob-patterns
+
+You can't just match dotfiles(whose names start with ~.~) with the wildcard(~*~).
+There are some workarounds:
+#+BEGIN_SRC shell
+  for item in .* *; do echo "$item"; done  # simplest
+
+  # for bash (shopt is bash specific)
+  shopt -s dotglob  # set dotglob
+  echo *
+  shopt -u dotglob  # unset dotglob
+
+  # for zsh (glob qualifier, GLOB_DOTS)
+  $ cp foo/*(D) .
+#+END_SRC
+
+** Here document
+- https://en.wikipedia.org/wiki/Here_document
+
+#+BEGIN_SRC shell
+  tr a-z A-Z << END_TEXT
+  one two three
+  four five six
+  END_TEXT
+#+END_SRC
+#+BEGIN_EXAMPLE
+  ONE TWO THREE
+  FOUR FIVE SIX
+#+END_EXAMPLE
+
+
+#+BEGIN_SRC shell
+  # Ignore leading tabs
+  tr a-z A-Z <<- END_TEXT
+           one two three
+           four five six
+           END_TEXT
+#+END_SRC
+#+BEGIN_EXAMPLE
+  (Same as above)
+#+END_EXAMPLE
+
+
+#+BEGIN_SRC shell
+  # Disable string interpolation
+  cat << 'EOF'
+  \$ Working dir "$PWD" `pwd`
+  EOF
+#+END_SRC
+#+BEGIN_EXAMPLE
+  \$ Working dir "$PWD" `pwd`
+#+END_EXAMPLE
+
+
+- For redirections and pipelining:
+- https://unix.stackexchange.com/questions/88490/how-do-you-use-output-redirection-in-combination-with-here-documents-and-cat
+
+#+BEGIN_SRC shell
+  cat <<EOF | sh
+  touch somefile
+  echo foo > somefile
+  EOF
+#+END_SRC
+
+#+BEGIN_SRC shell
+  (
+  cat <<EOF
+  touch somefile
+  echo foo > somefile
+  EOF
+  ) | sh
+#+END_SRC
+
+#+BEGIN_SRC shell
+  {
+  cat <<EOF
+  touch somefile
+  echo foo > somefile
+  EOF
+  } | sh
+#+END_SRC
+
+#+BEGIN_SRC shell
+  cat >out <<EOF
+  test
+  EOF
+#+END_SRC
+
+** History Expasion
+- http://www.thegeekstuff.com/2011/08/bash-history-expansion
+
+#+BEGIN_SRC shell
+  $ history
+  1 tar cvf etc.tar /etc/
+  2 cp /etc/passwd /backup
+  3 ps -ef | grep http
+  4 service sshd restart
+  5 /usr/local/apache2/bin/apachectl restart
+
+  $ !4  # 4
+  service sshd restart
+
+  $ !-2  # 2 commands back
+  service sshd restart
+
+  $ !!   # last (1 command back)
+  $ !-1
+
+  $ !ps  # command that starts with 'ps'
+  ps -ef | grep http
+
+  $ !?apache  # command that contains 'apache'
+  /usr/local/apache2/bin/apachectl restart
+
+
+  $ ls /etc/cron.daily/logrotate
+
+  $ ^ls^cat^  # replace 'ls' with 'cat'
+  cat /etc/cron.daily/logrotate
+
+  $ cp /etc/passwd /backup
+
+  $ ls -l !cp:^  # first argument
+  ls -l /etc/passwd
+
+  $ cp /etc/passwd /backup
+
+  $ ls -l !cp:$  # last argument
+  ls -l /backup
+
+  $ ls -l !!:$  # last argument of last command
+  $ ls -l !$    # equivalent to above
+
+  $ ls -l !!:2  # second
+  $ ls -l !!:*  # all
+
+  $ !!:s/ls -l/cat/  # substitution
+
+  $ cp /etc/password /backup/password.bak
+  $ !!:gs/password/passwd/  # global substitution
+  cp /etc/passwd /backup/passwd.bak
+
+  $ ls -l !!:$:p  # print without executing it
+#+END_SRC
+
+** Inode Structure
+- http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file
+
+[[file:img/screenshot_2017-03-02_22-48-52.png]]
+
+#+BEGIN_QUOTE
+inodes starts at number 2 (root)
+
+inode12(dir_1)’s count is 2, because it’s parent and self-reference(.) pointing it.
+root(2) is only exception(expected 3 but 4), *because it’s pointed by superblock*;
+
+The *superblock* is essentially file system metadata and defines the file system type, size, status, and
+information about other metadata structures (metadata of metadata).
+#+END_QUOTE
+
+#+BEGIN_SRC shell
+  $ ls -i
+  624402 Applications   638157 Dropbox        606644 Pictures     19695291 nltk_data
+  606600 Desktop        606588 Library      19316918 PredictionIO  2688212 repos
+  606584 Documents      606640 Movies         606646 Public       24277126 screenshots
+  606586 Downloads      606642 Music        24707402 bin          22461472 venvs
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ touch test
+  $ stat test
+  File: 'test'
+  Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+  Device: ca01h/51713d    Inode: 14999       Links: 1
+  Access: (0664/-rw-rw-r--)  Uid: (  500/ec2-user)   Gid: (  500/ec2-user)
+  Access: 2017-03-02 18:20:00.503961613 +0000
+  Modify: 2017-03-02 18:20:00.503961613 +0000
+  Change: 2017-03-02 18:20:00.503961613 +0000
+  Birth: -
+#+END_SRC
+
+** Mounting a Volume
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
+- https://en.wikipedia.org/wiki/Fstab
+
+#+BEGIN_SRC shell
+  # view your available disk devices and their mount points
+  [root]$ lsblk
+  NAME  MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+  xvdf  202:80   0  100G  0 disk
+  xvda1 202:1    0    8G  0 disk /
+
+  # check other details
+  [root]$ blkid
+  /dev/xvda1: LABEL="/" UUID="abcdefgh-1234-ijkl-4567-qwertyasdfgh" TYPE="ext4" PARTLABEL="Linux" PARTUUID="12321555-asda-asas-asdg-142khkhkhcsd"
+#+END_SRC
+
+#+BEGIN_SRC shell
+  [root]$ file -s /dev/xvda1
+  /dev/xvda1: Linux rev 1.0 ext4 filesystem data, UUID=1701d228-e1bd-4094-a14c-8c64d6819362, ...
+
+  [root]$ file -s /dev/xvdf
+  /dev/xvdf: data  # no file system
+#+END_SRC
+
+#+BEGIN_SRC shell
+  [root]$ mkfs -t ext4 /dev/xvdf
+  [root]$ mkdir /my/path
+  [root]$ mount /dev/xvdf /my/path
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Mount the volume permanently
+  [root]$ cp /etc/fstab /etc/fstab.orig  # backup
+
+  # /etc/fstab : columns are separated with ' ' or '\t'
+  # ------------------------------------------------------------------------------
+  # Use UUID because /dev/xvdf may change
+  # - check UUID from the output of file -s /dev/xvdf
+  # SEE: $ man fstab
+  # - 0 stands for (not dumping, default)
+  # - 2 stands for (other than root volume)
+  /dev/xvda1  (...)
+  UUID=de9a1ccd-a2dd-44f1-8be8-2d4275cb85a3  /my/path  ext4  defaults,nofail  0  2
+  # ------------------------------------------------------------------------------
+
+  # mount with /etc/fstab manually
+  [root]$ mount -a
+#+END_SRC
+
+*** lost+found
+- http://unix.stackexchange.com/questions/18154/what-is-the-purpose-of-the-lostfound-folder-in-linux-and-unix
+
+#+BEGIN_QUOTE
+The thing is, the file had a name and location once, but that information is no longer available.
+So ~fsck~ deposits the file in a specific directory, called ~lost+found~
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Files that appear in ~lost+found~ are typically files that were already unlinked (i.e. their name had been erased)
+but still opened by some process (so the data wasn't erased yet)when the system halted suddenly (kernel panic or power failure).
+If that's all that happened, these files were slated for deletion anyway, you don't need to care about them.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+On many filesystems, the ~lost+found~ directory is a bit special
+because it preallocates a bit of space for ~fsck~ to deposit files there. (...)
+If you accidentally delete ~lost+found~, *don't re-create it with* ~mkdir~, *use* ~mklost+found~ *if available*.
+#+END_QUOTE
+
+** Prompt a user for yes/no
+- http://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias/3231821#3231821
+- http://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
+
+#+BEGIN_SRC shell
+  read -p "Are you sure you want to continue? <y/N> " prompt
+  if [[ "$prompt" =~ [yY](es)* ]]
+  then
+  fi
+#+END_SRC
+
+** Pseudo Terminals
+- https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
+
+if you run a process on the terminal,
+you can interrupt it by pressing ~Ctrl+C~.
+
+if a process is not associated with any terminal,
+you *can't* interrupt it with ~Ctrl+C~,
+instead you would probably have to run ~kill~ or something like that
+
+~sshd~ process *passes your keystrokes to the remote process*
+by writing them to the master end of the *pseudo-terminal*.
+
+By default the remote ~sshd~ will allocate a ~pty~ only *when you don't specify* a command.
+
+If you try ~ssh remote.host screen~ then
+you'll see that specifying the command suppresses the ~pty~ allocation and you'll be in trouble again.
+To avoid this, specify the ~-t~ option, and then the remote ~sshd~ will always try to allocate a terminal.
+
+Use the flag of ~-T~ for explicitly disabling ~pty~.
+
+** Redirection
+- http://tldp.org/LDP/abs/html/io-redirection.html
+
+#+BEGIN_SRC shell
+  $ : > foo.txt  # truncate
+  $ > foo.txt    # same as above, but some shells don't support
+
+  $ echo 'hi' > foo.txt   # stdout
+  $ echo 'hi' >> foo.txt  # stdout, append
+
+  # fd 1 is stdout; same as above
+  $ echo 'hi' 1> foo.txt
+  $ echo 'hi' 1>> foo.txt
+
+  # fd 2 is stderr (following commands will cause errors)
+  $ tar 2> foo.txt
+  $ cp 2>> foo.txt
+
+  $ tar &> foo.txt  # both
+
+  # redirects stderr to stdout
+  # (M>&N redirects file descriptor M to file descriptor N, M is 1 if omitted)
+  $ tar > out.txt 2>&1
+
+  # multiple redirections
+  $ command < input-file > output-file
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # '[j]<>filename'
+  # Open file "filename" for reading and writing, and assign file descriptor "j" to it.
+  # 'n<&-' Close input file descriptor n.
+  # '0<&-', '<&-', Close stdin
+  $ echo 1234567890 > File    # Write string to "File".
+  $ exec 3<> File             # Open "File" and assign fd 3 to it.
+  $ read -n 4 <&3             # Read only 4 characters.
+  $ echo -n . >&3             # Write a decimal point there.
+  $ exec 3>&-                 # Close fd 3.
+  $ cat File                  # ==> 1234.67890
+  #  Random access, by golly.
+#+END_SRC
+
+** Swap spaces/files
+#+BEGIN_SRC shell
+  [root]$ mkswap /dev/hdb1
+  [root]$ swapon /dev/hdb1
+#+END_SRC
+
+#+BEGIN_SRC shell
+  [root]$ dd if=/dev/zero of=/swap_file bs=1024k count=num_mb
+  [root]$ mkswap /swap_file
+  [root]$ swapon /swap_file
+#+END_SRC
+
+#+BEGIN_SRC shell
+  [root]$ swapoff -a  # turns off all swap spaces
+  [root]$ rm -f /swap_file
+#+END_SRC
+
+** The Art of Command Line
+- https://github.com/jlevy/the-art-of-command-line
+
+*** set best practice
+#+BEGIN_SRC shell
+  set -euo pipefail
+  trap "echo 'error: Script failed: see failed command above'" ERR
+#+END_SRC
+- ~-e~ for errors
+- ~-u~ for preventing unset
+- ~-o pipefail~ for errors within pipes
+
+*** subshell
+#+BEGIN_SRC shell
+  # do something in current dir
+  (cd /some/other/dir && other-command)
+  # continue in original dir
+#+END_SRC
+
+*** command out like as a file
+#+BEGIN_SRC shell
+  diff /etc/hosts <(ssh somehost cat /etc/hosts)
+#+END_SRC
+
+*** prevents partially downloaded scripts from executing
+#+BEGIN_SRC shell
+  {
+      # Your code here
+  }
+#+END_SRC
+
+*** python simple web server for sharing files
+#+BEGIN_SRC shell
+  python -m SimpleHTTPServer 7777
+  python3 -m http.server 7777
+#+END_SRC
+
+*** One-liners
+#+BEGIN_SRC shell
+  cat a b | sort | uniq > c        # c is a union b
+  cat a b | sort | uniq -d > c     # c is a intersect b
+  cat a b b | sort | uniq -u > c   # c is set difference a - b
+
+  grep . *     # overview for contents of current directory
+  head -100 *  # same as above, with only first 100 lines
+
+  # sum of all numbers in the third column
+  awk '{ x += $3 } END { print x }' myfile
+#+END_SRC
+
+** $* vs $@
+- http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
+- https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
+- Use ~​"$@"​~ for most cases
+
+#+BEGIN_SRC shell
+  $ set -- "arg  1" "arg  2" "arg  3"
+
+  $ for word in $*; do echo "$word"; done
+  arg
+  1
+  arg
+  2
+  arg
+  3
+
+  $ for word in $@; do echo "$word"; done
+  arg
+  1
+  arg
+  2
+  arg
+  3
+
+  $ for word in "$*"; do echo "$word"; done
+  arg  1 arg  2 arg  3
+
+  $ for word in "$@"; do echo "$word"; done
+  arg  1
+  arg  2
+  arg  3
+#+END_SRC

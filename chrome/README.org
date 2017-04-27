@@ -1,0 +1,62 @@
+#+TITLE: Chrome
+* Table of Contents                                                :TOC_2_gh:
+ - [[#arguments][Arguments]]
+   - [[#allow-file-access-from-files][allow-file-access-from-files]]
+   - [[#incognito][incognito]]
+ - [[#internals][Internals]]
+   - [[#view-http-headers][View HTTP headers]]
+   - [[#server-dns-address-could-not-be-found][server DNS address could not be found]]
+ - [[#plugins][Plugins]]
+   - [[#vimium][Vimium]]
+
+* Arguments
+** allow-file-access-from-files
+- http://blog.derraab.com/2013/05/30/start-google-chrome-with-local-file-access-on-mac-os-x/
+
+#+BEGIN_SRC shell
+  open /Applications/Google\ Chrome.app --args --allow-file-access-from-files
+#+END_SRC
+
+** incognito
+- https://www.tekrevue.com/tip/incognito-mode-shortcut/
+
+#+BEGIN_EXAMPLE
+  "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -incognito
+#+END_EXAMPLE
+* Internals
+** View HTTP headers
+- http://stackoverflow.com/questions/4423061/view-http-headers-in-google-chrome
+
+[[file:img/screenshot_2017-02-04_12-28-25.png]]
+
+** server DNS address could not be found
+- https://productforums.google.com/forum/#!topic/chrome/0qkak_17qb0
+- Try within *Incognito Mode*
+- If it works, open ~chrome://net-internals/#dns~, then click the button ~Clear Host Cache~
+
+* Plugins
+** Vimium
+- Custom key mappings
+#+BEGIN_EXAMPLE
+  map M closeOtherTabs
+#+END_EXAMPLE
+
+- Custom search engines
+#+BEGIN_EXAMPLE
+  b: chrome://bookmarks/#q=%s Chrome Bookmarks
+  e: http://endic.naver.com/search.nhn?query=%s Naver endic
+  g: http://www.google.com/search?q=%s Google
+  gh: https://github.com/search?q=%s Github
+  h: chrome://history/?#q=%s Chrome History
+  i: http://www.google.com/search?tbm=isch&q=%s Google Image
+  k: http://krdic.naver.com/search.nhn?query=%s Naver krdic
+  n: https://search.naver.com/search.naver?query=%s Naver
+  w: http://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
+  y: http://www.youtube.com/results?search_query=%s Youtube
+  s: http://symbolhound.com/?q=%s SymbolHound
+  t: http://www.thesaurus.com/browse/%s Thesaurus
+#+END_EXAMPLE
+
+- Checkboxes:
+  - Use smooth scrolling
+  - Don't let pages steal the focus on the load

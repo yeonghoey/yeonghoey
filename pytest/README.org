@@ -1,0 +1,106 @@
+#+TITLE: pytest
+
+* Table of Contents :TOC_2_gh:
+ - [[#usage][Usage]]
+ - [[#test-layouts][Test Layouts]]
+ - [[#raises-and-fail][raises and fail]]
+
+* Usage
+- http://doc.pytest.org/en/latest/usage.html
+
+#+BEGIN_SRC shell
+  pytest --version   # shows where pytest was imported from
+  pytest --fixtures  # show available builtin function arguments
+  pytest -h | --help # show help on command line and config file options
+  pytest -x          # stop after first failure
+  pytest --maxfail=2 # stop after two failures
+  pytest test_mod.py # run tests in module
+  pytest somepath    # run all tests below somepath
+
+  # only run tests with names that match the # "string expression".
+  # e.g. "MyClass and not method" # will select
+  # TestMyClass.test_something but not TestMyClass.test_method_simple
+  pytest -k stringexpr
+
+  # only run tests that match the "node ID",
+  pytest test_mod.py::test_func
+  pytest test_mod.py::TestClass::test_method
+
+  pytest --pyargs pkg # run all tests found below directory of pkg
+#+END_SRC
+
+#+BEGIN_SRC shell
+  pytest --showlocals    # show local variables in tracebacks
+  pytest -l              # show local variables (shortcut)
+
+  pytest --tb=auto       # (default) 'long' tracebacks for the first and last
+                         # entry, but 'short' style for the other entries
+  pytest --tb=long       # exhaustive, informative traceback formatting
+  pytest --tb=short      # shorter traceback format
+  pytest --tb=line       # only one line per failure
+  pytest --tb=native     # Python standard library formatting
+  pytest --tb=no         # no traceback at all
+
+  pytest --pdb           # drop into the PDB prompt
+  pytest --durations=10  # To get a list of the slowest 10 test durations
+#+END_SRC
+
+* Test Layouts
+- http://doc.pytest.org/en/latest/goodpractices.html
+
+-----
+
+Useful if you have many functional tests or for other reasons want to keep tests separate from actual application code (often a good idea):
+#+BEGIN_EXAMPLE
+  setup.py   # your setuptools Python package metadata
+  mypkg/
+      __init__.py
+      appmodule.py
+  tests/
+      test_app.py
+      ...
+#+END_EXAMPLE
+
+-----
+
+Useful if you have direct relation between (unit-)test and application modules and want to distribute your tests along with your application:
+#+BEGIN_EXAMPLE
+  setup.py   # your setuptools Python package metadata
+  mypkg/
+      __init__.py
+      appmodule.py
+      ...
+      test/
+          test_app.py
+          ...
+#+END_EXAMPLE
+
+-----
+
+#+BEGIN_SRC shell
+  pytest tests/test_app.py       # for external test dirs
+  pytest mypkg/test/test_app.py  # for inlined test dirs
+  pytest mypkg                   # run tests in all below test directories
+  pytest                         # run all tests below current dir
+#+END_SRC
+
+* raises and fail
+- http://doc.pytest.org/en/latest/assert.html#assertions-about-expected-exceptions
+- http://stackoverflow.com/questions/20274987/how-to-use-pytest-to-check-that-error-is-not-raised
+
+#+BEGIN_SRC python
+  import pytest
+
+  def test_zero_division():
+      with pytest.raises(ZeroDivisionError):
+          1 / 0
+#+END_SRC
+
+#+BEGIN_SRC python
+  def test_foo3():
+      try:
+          foo(7)
+      except MyError:
+          pytest.fail("Unexpected MyError ..")
+#+END_SRC
+

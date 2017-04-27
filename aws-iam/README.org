@@ -1,0 +1,85 @@
+#+TITLE: AWS IAM
+
+* Table of Contents :TOC_2_gh:
+ - [[#policy][Policy]]
+   - [[#id][Id]]
+   - [[#statement][Statement]]
+ - [[#concepts][Concepts]]
+   - [[#roles][Roles]]
+   - [[#policies-evaluation-logic][Policies Evaluation Logic]]
+
+* Policy
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
+
+** Id
+- An optional identifier
+- Using a UUID for the value is recommended
+- Services like SQS or SNS might require this
+
+: "Id": "cd3ad3d9-2776-4ef1-a904-4c229d1642ee"
+
+** Statement
+- Required
+- Contains an array of individual statements
+
+#+BEGIN_SRC json
+  "Statement": [{...},{...},{...}]
+#+END_SRC
+
+*** Effect
+- Either ~Allow~ or ~Deny~
+
+*** Sid
+- An optional identifier
+- The ~Sid~ value must be unique within a policy
+
+#+BEGIN_SRC json
+  "Sid": "1"
+#+END_SRC
+
+*** Principal
+*** Action
+*** Resource
+*** Not-
+*NotPrincipal*, *NotAction*, *NotResource* are dvanced policy elements that explicitly matches everything except the specified list of the elements.
+
+*** Condition
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html
+
+[[file:img/screenshot_2017-04-22_23-50-50.png]]
+
+#+BEGIN_SRC json
+  "Condition" :  {
+        "DateGreaterThan" : {
+           "aws:CurrentTime" : "2013-08-16T12:00:00Z"
+         },
+        "DateLessThan": {
+           "aws:CurrentTime" : "2013-08-16T15:00:00Z"
+         },
+         "IpAddress" : {
+            "aws:SourceIp" : ["192.0.2.0/24", "203.0.113.0/24"]
+        }
+  }
+#+END_SRC
+The two values for ~aws:SourceIp~ are evaluated using *OR*.
+The three separate condition operators are evaluated using *AND*.
+
+* Concepts
+** Roles
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html
+- With some AWS SDKs, can use temporary credentials transparently.
+- Alternatively, can get the temporary credentials directly from the EC2 instance metadata
+
+[[file:img/screenshot_2017-04-22_22-38-40.png]]
+
+** Policies Evaluation Logic
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
+
+[[file:img/screenshot_2017-02-19_14-05-01.png]]
+
+The enforcement code evaluates all user-based and resource-based policies
+that are applicable to the request(based on the resource, principal, action, and conditions).
+*The order in which the enforcement code evaluates the policies is not important*.
+
+[[file:img/screenshot_2017-02-19_14-06-20.png]]

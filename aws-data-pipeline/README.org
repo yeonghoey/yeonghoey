@@ -1,0 +1,134 @@
+#+TITLE: AWS Data Pipeline
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#key-concepts][Key Concepts]]
+   - [[#objects][Objects]]
+   - [[#schedule][Schedule]]
+   - [[#resource][Resource]]
+   - [[#activity][Activity]]
+   - [[#the-default-object][The Default Object]]
+   - [[#custom-fields][Custom Fields]]
+   - [[#referencing-values][Referencing Values]]
+ - [[#references][References]]
+
+* Key Concepts
+** Objects
+Everything in AWS Data Pipeline(DP) is an object with some fields.  
+
+Each object has ~id~ and ~type~.  
+~id~ is the unique identifier within a DP.  
+~type~ is for specifying the feature of the object.
+
+** Schedule
+#+BEGIN_SRC json
+  {
+    "type": "Schedule",
+    "id": "Daily",
+    "startDateTime":"2016-10-07T01:00:00",
+    "period": "1 day"
+  }
+#+END_SRC
+
+Basic fields of a ~Schedule~ object are as above.  
+
+There is the *backfill* feature, which fills the task of the past.  
+
+If you deploy a pipeline which has the daily schedule's ~startDateTime~ specifies 10 days ago,  
+10 jobs will be triggered at the time you firstly deploy.
+
+Every other object should specify its ~schedule~ field like this:
+
+#+BEGIN_SRC json
+  {
+    "type": "EmrCluster",
+    "id": "ParquetryCluster",
+
+    "masterInstanceType": "m1.large",
+    "coreInstanceType": "m1.large",
+    "coreInstanceCount": "2",
+    "releaseLabel": "emr-5.0.0",
+    "applications": ["spark"],
+    "terminateAfter": "3 hours",
+
+    "scheduleType": "cron",
+    "schedule": {"ref": "Daily"},
+  }
+#+END_SRC
+
+Note 
+  : "schedule": {"ref": "<schedule-object-id>"}
+
+We can reference other objects by putting an object with ~ref~ field whose value is the target object's ~id~.
+
+There is ~scehduleType~ field.  It must be one of ~cron~ or ~ondemand~, ~timeseries~.  
+Mostly just put ~cron~, and it will work as expected.
+
+** Resource
+Objects which have its ~type~ value as ~EmrCluster~ or ~Ec2Resource~ are Resources.  
+They are nodes which activities run on.  
+They are created at every scheduled moment.  
+They are terminated when every scheduled activity ends.  
+
+
+** Activity
+Activities are the tasks which we want to be done.  
+Activities must specify both ~schedule~ and ~resource~:
+
+#+BEGIN_SRC json
+  {
+    "type": "EmrActivity",
+    "id": "MyJob",
+    "schedule": {"ref": "Daily"},
+    "runsOn": {"ref": "ParquetryCluster"},
+  }
+#+END_SRC
+
+** The Default Object
+#+BEGIN_SRC json
+  {
+    "id": "Default",
+    "failureAndRerunMode": "cascade",
+
+    "keyPair": "my-key-name",
+    "pipelineLogUri": "s3://datapipeline.k.nexon.com/Parquetry/",
+    "resourceRole": "DataPipelineDefaultResourceRole",
+    "role": "DataPipelineDefaultRole",
+
+    "scheduleType": "cron",
+    "schedule": {"ref": "Daily"}
+  }
+#+END_SRC
+
+~Default~ object is the object whose ~id~ is ~Default~.  
+
+It's a special object. It's the only object which doesn't have ~type~ field.  
+Other objects inherit ~Default~ object's fields.
+
+We can use ~Default~ object to specify common fields like ~schedule~, ~role~, etc.
+
+** Custom Fields
+#+BEGIN_SRC json
+  {
+    "id": "MyObject",
+    "type": "Schedule",
+    ...
+    "my_something": "hello, world",
+    "mySomething": "Good bye"
+  }
+#+END_SRC
+Within an object, fields prefixed with ~my~ are custom fields.
+
+** Referencing Values
+#+BEGIN_SRC json
+  {
+    "id": "A",
+    "type": "Ec2Resource",
+    "my_value": "#{id}"
+  }
+#+END_SRC
+With enclosing field names with ~#{}~, we can reference its values.  
+There are also some functions and operators to tweak the values.
+
+* References
+- http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-pipeline-objects.html
+- https://github.com/awslabs/data-pipeline-samples

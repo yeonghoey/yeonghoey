@@ -1,0 +1,51 @@
+#+TITLE: go
+
+* Table of Contents :TOC_1_gh:
+ - [[#error][error]]
+ - [[#log][log]]
+ - [[#range][range]]
+ - [[#documenting-packages][Documenting Packages]]
+
+* error
+#+BEGIN_SRC go
+  fmt.Errorf("parsing %s as HTML: %v", url, err)
+#+END_SRC
+
+gopl book says:
+#+BEGIN_QUOTE
+Because error messages are frequently chained together,
+message strings should not be capitalized and newlines should be avoided.
+#+END_QUOTE
+
+* log
+#+BEGIN_SRC go
+  log.Fatalf("Site is down: %v\n", err)
+#+END_SRC
+
+* range
++ https://gobyexample.com/range
+
+#+BEGIN_SRC go
+  slice, kvs := []int{...}, map[string]string{...}
+  for _, num := range nums {}  // if idx not needed
+  for i, num := range nums {}
+  for k, v := range kvs {}
+  for k := range kvs {}        // just keys
+  for i, c := range "go" {}    // 'c' is 'rune' of the string
+#+END_SRC
+
+* Documenting Packages
+- https://blog.golang.org/godoc-documenting-go-code
+
+#+BEGIN_SRC go
+  // Fprint formats using the default formats for its operands and writes to w.
+  // Spaces are added between operands when neither is a string.
+  // It returns the number of bytes written and any write error encountered.
+  func Fprint(w io.Writer, a ...interface{}) (n int, err error) {
+#+END_SRC
+
+gopl book says:
+#+BEGIN_QUOTE
+Go doc comments are always complete sentences, and the first sentence is
+usually a summary that starts with the name being declared.
+#+END_QUOTE

@@ -1,0 +1,12 @@
+#+TITLE: Visual Studio
+
+* Table of Contents :TOC_1_gh:
+ - [[#shortcuts][Shortcuts]]
+
+* Shortcuts
+| ~Ctrl + ,​~         | Navigate to          |
+| ~Ctrl + -~         | Navigate Backward    |
+| ~Ctrl + Shift + -~ | Navigate Forward     |
+| ~F12~              | Go to Definition     |
+| ~Ctrl + F12~       | Go to Implementation |
+| ~Shift + F12~      | Find All References  |

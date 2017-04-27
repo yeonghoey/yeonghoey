@@ -1,0 +1,248 @@
+#+TITLE: Git
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#references][References]]
+   - [[#add][add]]
+   - [[#branch][branch]]
+   - [[#diff][diff]]
+   - [[#flow][flow]]
+   - [[#list-tree][list-tree]]
+   - [[#log][log]]
+   - [[#pull][pull]]
+   - [[#rm][rm]]
+   - [[#tag][tag]]
+   - [[#worktree][worktree]]
+   - [[#gitignore][gitignore]]
+ - [[#how-to][How to]]
+   - [[#get-git-root-directory][Get git root directory]]
+   - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
+   - [[#resolve-conflicts][Resolve conflicts]]
+   - [[#purge-files-including-their-histories][Purge files including their histories]]
+   - [[#how-to-git-commit-nothing-without-an-error][How to git commit nothing without an error]]
+
+* References
+** add
+*** intent-to-add
+- https://robots.thoughtbot.com/intent-to-add
+- ~git add --intent-to-add~, the specified untracked files will be added to the index, *but without content.*
+
+#+BEGIN_SRC shell
+  $ echo hello > target-file
+  $ git add --patch
+  No chagnes.
+  $ git add --intent-to-add target-file
+  $ git add --patch
+  index e69de29..ce01362 100644
+  --- a/sub1/target-file
+  +++ b/sub1/target-file
+  @@ -0,0 +1 @@
+  +hello
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Mark all files including untracked to add
+  git add --intent-to-add --all
+#+END_SRC
+
+** branch
+- http://railsware.com/blog/2014/08/11/git-housekeeping-tutorial-clean-up-outdated-branches-in-local-and-remote-repositories/
+
+*** Cleanup branches
+#+BEGIN_SRC shell
+  $ git checkout master
+
+  # Show targets before deleting
+  $ git branch --merged
+  $ git branch -d old-merged-feature
+
+  $ git branch --no-merged
+  $ git branch -D old-abandoned-feature
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Delete all merged, except master
+  $ git branch --merged | grep -vE '(master|develop)' | xargs git branch -d
+#+END_SRC
+
+*** Cleanup remote branch references
+#+BEGIN_SRC shell
+  # Show targets
+  $ git branch --remotes
+  $ git remote prune origin
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # prune when fetching
+  $ git fetch --prune
+#+END_SRC
+
+** diff
+#+BEGIN_SRC shell
+  git diff --exit-code # Exits 0: no differences, 1: differences
+  git diff --quiet     # No outputs. Implies --exit-code
+#+END_SRC
+
+** flow
+- http://danielkummer.github.io/git-flow-cheatsheet/index.html
+
+*** git flow release finish
+Make sure the local ~develop~ and ~master~ branches are fresh.
+When trigger ~finish~, the merge flow is following:
+1. merges ~release/something~  into ~master~
+2. creates a tag on the ~master~ commit.
+3. merges ~master~ into ~develop~
+
+*** When it comes to code review
+- http://softwareengineering.stackexchange.com/questions/187723/code-review-with-git-flow-and-github
+
+~git flow feature finish~ just merges into develop without code review.
+To work around this, just don't use ~finish~ but make a pull request
+and delete the branch manually after it merged.
+
+** list-tree
+#+BEGIN_SRC shell
+  # lists all of the already committed files being tracked by your git repo.
+  $ git ls-tree --full-tree -r HEAD
+#+END_SRC
+
+** log
+*** Find deleted files
+- http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history
+#+BEGIN_SRC shell
+  git log --all --full-history -- **/thefile.*
+  git log --all --full-history -- <path-to-file>  # if you know the exact path
+
+  # Reveal the content
+  git show <SHA> -- <path-to-file>
+
+  # Note '^', checking out from the previous commit.
+  # There won't exist the file in <SHA> because it has been deleted.
+  git checkout <SHA>^ -- <path-to-file>
+#+END_SRC
+** pull
+- http://stackoverflow.com/questions/30208928/can-git-pull-automatically-stash-and-pop-pending-changes
+
+#+BEGIN_SRC shell
+  git pull --rebase --autostash # git pull accepts '--autostash' from 2.9
+#+END_SRC
+
+#+BEGIN_SRC shell
+  git fetch
+  git rebase --autostash
+#+END_SRC
+
+** rm
+- http://stackoverflow.com/questions/6964297/untrack-files-from-git
+
+#+BEGIN_SRC shell
+  # Untrack <file> recursively
+  $ git rm -r --cached <file>
+#+END_SRC
+
+** tag
+*** Prune local git tags that don't exist on remote
+- https://demisx.github.io/git/2014/11/02/git-prune-local-tags-dont-exist-remote.html
+
+#+BEGIN_SRC shell
+  $ git tag -l | xargs git tag -d # remove all local tags
+  $ git fetch -t                  # fetch remote tags
+#+END_SRC
+** worktree
+- https://stacktoheap.com/blog/2016/01/19/using-multiple-worktrees-with-git/
+
+#+BEGIN_SRC shell
+  # Basics
+  $ git fetch
+  $ git worktree add -b bugfix-1234 ../bugfix origin/master
+
+  # Temporary
+  $ git worktree add --detach ../project-build HEAD
+
+  # Cleanup
+  $ rm -rf ../bugfix && git worktree prune
+#+END_SRC
+
+- ~-b bugfix-1234~ option creates a new branch named ~bugfix-1234~
+- ~../bugfix~ is the new local copy
+- Based on ~origin/master~
+- ~--detach~ makes the working copy detached.
+
+** gitignore
+- https://www.atlassian.com/git/tutorials/gitignore#git-ignore-patterns
+
+* How to
+** Get git root directory
+- http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
+
+#+BEGIN_SRC shell
+  git rev-parse --show-toplevel
+#+END_SRC
+
+** Run commands while not in a git directory
+- http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory
+
+#+BEGIN_SRC shell
+  git -C ~/foo status  # equivalent to (cd ~/foo && git status)
+#+END_SRC
+
+** Resolve conflicts
+- https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
+- https://backlogtool.com/git-guide/en/stepup/stepup2_8.html
+
+#+BEGIN_EXAMPLE
+  If you have questions, please
+  <<<<<<< HEAD
+  open an issue
+  =======
+  ask your question in IRC.
+  >>>>>>> branch-a
+#+END_EXAMPLE
+
+Fix the conflict like this:
+#+BEGIN_EXAMPLE
+  If you have questions, please open an issue or ask in our IRC channel if it's more urgent
+#+END_EXAMPLE
+
+Stage it:
+#+BEGIN_SRC shell
+  $ git add guide.md
+#+END_SRC
+
+
+- Case1. commit when merging
+#+BEGIN_SRC shell
+  $ git commit -m "Resolved merge conflict"
+#+END_SRC
+
+
+- Case2. rebase --continue when rebasing
+#+BEGIN_SRC shell
+  $ git rebase --continue
+#+END_SRC
+
+** Purge files including their histories
+- https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+
+
+- BFG Repo-Cleaner
+- https://rtyley.github.io/bfg-repo-cleaner/
+
+#+BEGIN_SRC shell
+git clone --mirror git@github.com:yeonghoey/yeonghoey.git
+java -jar ~/.local/bin/bfg.jar --strip-blobs-bigger-than 1M yeonghoey.git
+cd yeonghoey.git
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+git push
+#+END_SRC
+** How to git commit nothing without an error
+- http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error
+
+#+BEGIN_SRC shell
+  if ! git diff --quiet --cached; then
+    git commit --verbose
+  fi
+
+  # or just
+  git diff --quiet --cached || git commit
+#+END_SRC
+

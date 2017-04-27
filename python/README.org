@@ -1,0 +1,619 @@
+#+TITLE: Python
+
+* Table of Contents                                                :TOC_2_gh:
+ - [[#references][References]]
+   - [[#dict][dict]]
+   - [[#exceptions][exceptions]]
+   - [[#list][list]]
+   - [[#multiprocessing][multiprocessing]]
+   - [[#re][re]]
+   - [[#set][set]]
+   - [[#str][str]]
+   - [[#subprocesses][subprocesses]]
+ - [[#details][Details]]
+   - [[#comparison][Comparison]]
+   - [[#eafp-lbyl][EAFP, LBYL]]
+   - [[#final-class][Final class]]
+   - [[#packaging][Packaging]]
+   - [[#source-code-encodings][Source Code Encodings]]
+
+* References
+** dict
+- https://docs.python.org/2/library/stdtypes.html#mapping-types-dict
+
+#+BEGIN_EXAMPLE
+  dict()
+  dict(mapping)
+  dict(iterable)
+  dict(**kwargs)
+
+  len(d)
+  d[key]
+  d[key] = value
+  del d[key]
+  key in d
+  key not in d
+  iter(d)
+
+  D.items()  D.iteritems()  D.viewitems()
+  D.keys()   D.iterkeys()   D.viewkeys()
+  D.values() D.itervalues() D.viewvalues()
+
+  D.clear()
+  D.copy()               a shallow copy of D
+  D.fromkeys(S[,v])      new dict with keys from S and values equal to v(None).
+  D.get(k[,d])           D[k] if k in D, else d(None)
+  D.has_key(k)           True if D has a key k, else False
+  D.pop(k[,d]) -> v      remove specified key and return the corresponding value.
+                         d(KeyError) if key is not found
+  D.popitem() -> (k, v)  remove and return a (key, value) KeyError if empty
+  D.setdefault(k[,d])    D.get(k,d), also set D[k]=d if k not in D
+  D.update([E, ]**F)
+      If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
+      If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
+      In either case, this is followed by: for k in F: D[k] = F[k]
+#+END_EXAMPLE
+
+** exceptions
+- https://docs.python.org/2/library/exceptions.html
+
+If ~str()~ or ~unicode()~ is called on an instance of this class(~BaseException~),
+*the representation of the argument(s) to the instance are returned*,
+or the empty string when there were no arguments.
+
+~BaseException.args~: The tuple of arguments given to the exception constructor.
+
+#+BEGIN_EXAMPLE
+  BaseException
+   +-- SystemExit
+   +-- KeyboardInterrupt
+   +-- GeneratorExit
+   +-- Exception
+        +-- StopIteration
+        +-- StandardError
+        |    +-- BufferError
+        |    +-- ArithmeticError
+        |    |    +-- FloatingPointError
+        |    |    +-- OverflowError
+        |    |    +-- ZeroDivisionError
+        |    +-- AssertionError
+        |    +-- AttributeError
+        |    +-- EnvironmentError
+        |    |    +-- IOError
+        |    |    +-- OSError
+        |    |         +-- WindowsError (Windows)
+        |    |         +-- VMSError (VMS)
+        |    +-- EOFError
+        |    +-- ImportError
+        |    +-- LookupError
+        |    |    +-- IndexError
+        |    |    +-- KeyError
+        |    +-- MemoryError
+        |    +-- NameError
+        |    |    +-- UnboundLocalError
+        |    +-- ReferenceError
+        |    +-- RuntimeError
+        |    |    +-- NotImplementedError
+        |    +-- SyntaxError
+        |    |    +-- IndentationError
+        |    |         +-- TabError
+        |    +-- SystemError
+        |    +-- TypeError
+        |    +-- ValueError
+        |         +-- UnicodeError
+        |              +-- UnicodeDecodeError
+        |              +-- UnicodeEncodeError
+        |              +-- UnicodeTranslateError
+        +-- Warning
+             +-- DeprecationWarning
+             +-- PendingDeprecationWarning
+             +-- RuntimeWarning
+             +-- SyntaxWarning
+             +-- UserWarning
+             +-- FutureWarning
+       +-- ImportWarning
+       +-- UnicodeWarning
+       +-- BytesWarning
+#+END_EXAMPLE
+
+*** raise MyException vs raise MyException()
+- http://stackoverflow.com/questions/16706956/is-there-a-difference-between-raise-exception-and-raise-exception-without
+- The short answer is that both ~raise MyException~ and ~raise MyException()~ do the same thing.
+- This first form auto instantiates your exception.
+- So, use ~raise MyException~ when there are no arguments. 
+
+** list
+- https://docs.python.org/2/library/stdtypes.html#mutable-sequence-types
+- https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange
+
+#+BEGIN_EXAMPLE
+  x in s
+  x not in s
+  s + t         the concatenation of s and t
+  s * n, n * s  equivalent to adding s to itself n times
+  s[i]
+  s[i:j]
+  s[i:j:k]
+  s[i] = x
+  s[i:j] = t    slice of s from i to j is replaced by the contents of the iterable t
+  del s[i:j]    same as s[i:j] = []
+  s[i:j:k] = t  the elements of s[i:j:k] are replaced by those of t
+  del s[i:j:k]  removes the elements of s[i:j:k] from the list
+  s *= n        updates s with its contents repeated n times
+  len(s)
+  min(s)
+  max(s)
+
+  L.append(object)
+  L.count(value) -> integer
+  L.extend(iterable)
+  L.index(value, [start, [stop]]) -> integer  return first index of value; ValueError on failure
+  L.insert(index, object)                     insert object before index
+  L.pop([index]) -> item                      remove and return item at index (default last); IndexError on failure
+  L.remove(value)                             remove first occurrence of value; ValueError on failure
+  L.reverse()                                 reverse *IN PLACE*
+  L.sort(cmp=None, key=None, reverse=False)   stable sort *IN PLACE*; cmp(x, y) -> -1, 0, 1
+#+END_EXAMPLE
+
+** multiprocessing
+- https://docs.python.org/2/library/multiprocessing.html
+
+#+BEGIN_SRC python :results output
+  from multiprocessing import Pool
+  import time
+
+  def f(id_):
+      for _ in range(2):
+          print id_
+          time.sleep(1)
+
+
+  # pool must be created AFTER defining functions to apply
+  pool = Pool(processes=3)
+
+  for i in range(4):
+      pool.apply_async(f, (i,))
+
+  pool.close()  # Prevents any more tasks from being submitted to the pool
+  pool.join()
+#+END_SRC
+
+#+RESULTS:
+: 0
+: 1
+: 2
+: 1
+: 0
+: 2
+: 3
+: 3
+
+** re
+- https://docs.python.org/2/library/re.html
+#+BEGIN_EXAMPLE
+  The special characters are:
+      "."      Matches any character except a newline.
+      "^"      Matches the start of the string.
+      "$"      Matches the end of the string or just before the newline at
+                the end of the string.
+      "*"      Matches 0 or more (greedy) repetitions of the preceding RE.
+                Greedy means that it will match as many repetitions as possible.
+      "+"      Matches 1 or more (greedy) repetitions of the preceding RE.
+      "?"      Matches 0 or 1 (greedy) of the preceding RE.
+      ,*?,+?,?? Non-greedy versions of the previous three special characters.
+      {m,n}    Matches from m to n repetitions of the preceding RE.
+      {m,n}?   Non-greedy version of the above.
+      "\\"     Either escapes special characters or signals a special sequence.
+      []       Indicates a set of characters.
+                A "^" as the first character indicates a complementing set.
+      "|"      A|B, creates an RE that will match either A or B.
+      (...)    Matches the RE inside the parentheses.
+                The contents can be retrieved or matched later in the string.
+      (?iLmsux) Set the I, L, M, S, U, or X flag for the RE (see below).
+      (?:...)  Non-grouping version of regular parentheses.
+      (?P<name>...) The substring matched by the group is accessible by name.
+      (?P=name)     Matches the text matched earlier by the group named name.
+      (?#...)  A comment; ignored.
+      (?=...)  Matches if ... matches next, but doesn't consume the string.
+      (?!...)  Matches if ... doesn't match next.
+      (?<=...) Matches if preceded by ... (must be fixed length).
+      (?<!...) Matches if not preceded by ... (must be fixed length).
+      (?(id/name)yes|no) Matches yes pattern if the group with id/name matched,
+                          the (optional) no pattern otherwise.
+
+  The special sequences consist of "\\" and a character from the list
+  below.  If the ordinary character is not on the list, then the
+  resulting RE will match the second character.
+      \number  Matches the contents of the group of the same number.
+      \A       Matches only at the start of the string.
+      \Z       Matches only at the end of the string.
+      \b       Matches the empty string, but only at the start or end of a word.
+      \B       Matches the empty string, but not at the start or end of a word.
+      \d       Matches any decimal digit; equivalent to the set [0-9].
+      \D       Matches any non-digit character; equivalent to the set [^0-9].
+      \s       Matches any whitespace character; equivalent to [ \t\n\r\f\v].
+      \S       Matches any non-whitespace character; equiv. to [^ \t\n\r\f\v].
+      \w       Matches any alphanumeric character; equivalent to [a-zA-Z0-9_].
+                With LOCALE, it will match the set [0-9_] plus characters defined
+                as letters for the current locale.
+      \W       Matches the complement of \w.
+      \\       Matches a literal backslash.
+
+  This module exports the following functions:
+      match    Match a regular expression pattern to the beginning of a string.
+      search   Search a string for the presence of a pattern.
+      sub      Substitute occurrences of a pattern found in a string.
+      subn     Same as sub, but also return the number of substitutions made.
+      split    Split a string by the occurrences of a pattern.
+      findall  Find all occurrences of a pattern in a string.
+      finditer Return an iterator yielding a match object for each match.
+      compile  Compile a pattern into a RegexObject.
+      purge    Clear the regular expression cache.
+      escape   Backslash all non-alphanumerics in a string.
+
+  Some of the functions in this module takes flags as optional parameters:
+      I  IGNORECASE  Perform case-insensitive matching.
+      L  LOCALE      Make \w, \W, \b, \B, dependent on the current locale.
+      M  MULTILINE   "^" matches the beginning of lines (after a newline)
+                      as well as the string.
+                      "$" matches the end of lines (before a newline) as well
+                      as the end of the string.
+      S  DOTALL      "." matches any character at all, including the newline.
+      X  VERBOSE     Ignore whitespace and comments for nicer looking RE's.
+      U  UNICODE     Make \w, \W, \b, \B, dependent on the Unicode locale.
+#+END_EXAMPLE
+
+** set
+- https://docs.python.org/2/library/stdtypes.html#set-types-set-frozenset
+
+#+BEGIN_EXAMPLE
+  x in set
+  x not in set
+  set.isdisjoint(other)
+  set <= other           set.issubset(other)
+  set < other            set <= other and set != other
+  set >= other           set.issuperset(other)
+  set > other            set >= other and set != other
+  set | other | ...      set.union(*others)
+  set & other & ...      set.intersection(*others)
+  set - other - ...      set.difference(*others)
+  set ^ other            set.symmetric_difference(other)
+                         (either the set or other but not both)
+  set.copy()             (a shallow copy of s)
+
+  # only for set, not frozenset
+  set |= other | ...     set.update(*others)
+  set &= other & ...     set.intersection_update(*others)
+  set -= other | ...     set.difference_update(*others)
+  set ^= other           set.symmetric_difference_update(other)
+  set.add(elem)
+  set.remove(elem)       (remove elem. KeyError if elem doesn't exist)
+  set.discard(elem)      (remove elem if it is present)
+  set.pop()              (remove and return an arbitrary elem. KeyError if empty)
+  clear()
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+non-operator versions of union(), intersection(), difference(), and symmetric_difference(), issubset(), and issuperset()
+methods *will accept any iterable* as an argument.
+In contrast, their *operator based counterparts require their arguments to be sets*.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+~set('abc') == frozenset('abc')~ returns ~True~ and so does ~set('abc') in set([frozenset('abc')])~.
+#+END_QUOTE
+
+** str
+- https://docs.python.org/2/library/stdtypes.html#string-methods
+
+#+BEGIN_EXAMPLE
+  S.capitalize() -> string
+  S.center(width[, fillchar]) -> string             fillchar=' '
+  S.count(sub[, start[, end]]) -> int
+  S.decode([encoding[,errors]]) -> object
+  S.encode([encoding[,errors]]) -> object
+  S.endswith(suffix[, start[, end]]) -> bool        suffix can also be a tuple of strings
+  S.expandtabs([tabsize]) -> string                 tabsize=8
+  S.find(sub [,start [,end]]) -> int                return -1 on failure
+  S.format(*args, **kwargs) -> string
+  S.index(sub [,start [,end]]) -> int               raise ValueError on failure
+  S.isalnum() -> bool
+  S.isalpha() -> bool
+  S.isdigit() -> bool
+  S.islower() -> bool
+  S.isspace() -> bool
+  S.istitle() -> bool
+  S.isupper() -> bool
+  S.join(iterable) -> string
+  S.ljust(width[, fillchar]) -> string              fillchar=' '
+  S.lower() -> string
+  S.lstrip([chars]) -> string or unicode            like S.strip()
+  S.partition(sep) -> (head, sep, tail)             If sep is not found, return (S, '', '')
+  S.replace(old, new[, count]) -> string
+  S.rfind(sub [,start [,end]]) -> int               like S.find()
+  S.rindex(sub [,start [,end]]) -> int              like S.index()
+  S.rjust(width[, fillchar]) -> string              fillchar=' '
+  S.rpartition(sep) -> (head, sep, tail)            like S.partition()
+  S.rsplit([sep [,maxsplit]]) -> list of strings    sep=' '
+  S.rstrip([chars]) -> string or unicode            like S.strip()
+  S.split([sep [,maxsplit]]) -> list of strings     like S.rsplit()
+  S.splitlines(keepends=False) -> list of strings
+  S.startswith(prefix[, start[, end]]) -> bool      like S.endswith()
+  S.strip([chars]) -> string or unicode             remove leading whitespace(or chars)
+  S.swapcase() -> string
+  S.title() -> string
+  S.translate(table [,deletechars]) -> string
+  S.upper() -> string                               see also string.maketrans()
+  S.zfill(width) -> string                          zero padding for numeric string
+#+END_EXAMPLE
+
+** subprocesses
+- https://docs.python.org/2/library/subprocess.html
+
+*** Calling an external command in Python
+- http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
+- https://docs.python.org/2/library/subprocess.html#subprocess.call
+
+#+BEGIN_SRC python
+  # Simply exectus shell commands
+  os.system("some_command < input_file | another_command > output_file")
+
+  # Deprecated.  Use subprocess
+  stream = os.popen("some_command with args")
+
+  # Better, but a little bit complicated
+  print subprocess.Popen("echo Hello World",
+                         shell=True,
+                         stdout=subprocess.PIPE).stdout.read()
+
+  # Same as above, but simply waits until the command completes.
+  # Just gives you the return code.
+  >>> subprocess.call('exit 1', shell=True)
+  1
+
+  # raises an exception on non-zero exit code
+  >>> subprocess.check_call('exit 1', shell=True)
+  ...
+  subprocess.CalledProcessError: Command 'exit 1' returned non-zero exit status 1  output = subpro
+
+  # Gives the output as a string, raises an exception on no-zero exit code
+  >>> subprocess.check_output(['echo', 'hi'])
+  'hi\n'
+
+#+END_SRC
+
+*** Use PIPE along with communicate()
+- http://stackoverflow.com/questions/16768290/understanding-popen-communicate
+- Accessing piped streams directly may cause a deadlock because of stream buffering.
+
+#+BEGIN_QUOTE
+Warning This will deadlock when using stdout=PIPE and/or stderr=PIPE and
+the child process generates enough output to a pipe such that
+it blocks waiting for the OS pipe buffer to accept more data. Use communicate() to avoid that.
+
+Use communicate() rather than .stdin.write, .stdout.read or .stderr.read
+to avoid deadlocks due to any of the other OS pipe buffersfilling up and blocking the child process.
+#+END_QUOTE
+
+*** When to use shell=True
+- http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module
+
+- with ~shell=False~, the first argument should be *a list*.
+- with ~shell=True~, the first argument should be *a string*.
+  - The string for the first argument is like the command you put into the shell prompt.
+  - The command can use environment variables, globs, pipes.
+  - It's very dangerous, not recommended.
+
+* Details
+** Comparison
+- https://docs.python.org/2/library/stdtypes.html#comparisons
+- http://michael-yxf.appspot.com/?p=251002
+
+#+BEGIN_SRC python
+  >>> a = ['0', 9999, {}, [], False, ()]
+  >>> a.sort()
+  >>> a
+  [False, 9999, {}, [], '0', ()]
+#+END_SRC
+
+#+BEGIN_QUOTE
+CPython implementation detail: Objects of different types except numbers are ordered by their type names;
+objects of the same types that don't support proper comparison are ordered by their address.
+#+END_QUOTE
+
+** EAFP, LBYL
+- https://docs.python.org/3/glossary.html#term-eafp
+- https://docs.python.org/3/glossary.html#term-lbyl
+
+#+BEGIN_SRC python
+  # EAFP (Easier to ask for forgiveness than permission)
+  try:
+      return mapping[key]
+  except KeyError:
+      pass
+
+
+  # LBYL (Look Before you leap)
+  if key in mapping:
+      return mapping[key]
+#+END_SRC
+
+#+BEGIN_QUOTE
+*LBYL* can fail if another thread removes the key after the test, but before the lookup.
+This issue can be solved with locks or by using the *EAFP* approach.
+#+END_QUOTE
+** Final class
+- http://stackoverflow.com/questions/2825364/final-classes-in-python-3-x-something-guido-isnt-telling-me
+
+#+BEGIN_SRC python
+  class Final(type):
+      def __new__(cls, name, bases, classdict):
+          for b in bases:
+              if isinstance(b, Final):
+                  raise TypeError("type '{0}' is not an acceptable base type"
+                                  .format(b.__name__))
+          return type.__new__(cls, name, bases, classdict)
+
+
+  class C(object):
+      __metaclass__ = Final
+#+END_SRC
+
+** Packaging
+*** Which tool should use?
+- http://stackoverflow.com/questions/6344076/differences-between-distribute-distutils-setuptools-and-distutils2
+
+#+BEGIN_QUOTE
+So in conclusion, out of all these options, I would recommend Setuptools, unless your requirements are very basic and you only need Distutils. Setuptools works very well with Virtualenv and Pip, tools that I highly recommend. Virtualenv and Pip could both be considered official, as they're part of PyPA, and Python 3 now ships ensurepip (which helps you install pip on some systems).
+#+END_QUOTE
+
+*** Python Packaging User Guide
+- https://packaging.python.org/
+- https://github.com/pypa/sampleproject
+
+*** setup.py
+- https://packaging.python.org/distributing/#setup-args
+
+#+BEGIN_SRC python
+  from setuptools import setup, find_packages
+
+
+  setup(
+      name='sample',
+
+      # Versions should comply with PEP440.  For a discussion on single-sourcing
+      # the version across setup.py and the project code, see
+      # https://packaging.python.org/en/latest/single_source_version.html
+      version='1.2.0',
+
+      description='A sample Python project',
+      long_description=long_description,
+
+      # The project's main homepage.
+      url='https://github.com/pypa/sampleproject',
+
+      # Author details
+      author='The Python Packaging Authority',
+      author_email='pypa-dev@googlegroups.com',
+
+      # Choose your license
+      license='MIT',
+
+      # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
+      classifiers=[
+          # How mature is this project? Common values are
+          'Development Status :: 3 - Alpha',
+
+          # Indicate who your project is intended for
+          'Intended Audience :: Developers',
+          'Topic :: Software Development :: Build Tools',
+
+          # Pick your license as you wish (should match "license" above)
+          'License :: OSI Approved :: MIT License',
+
+          # Specify the Python versions you support here. In particular, ensure
+          # that you indicate whether you support Python 2, Python 3 or both.
+          'Programming Language :: Python :: 2',
+          'Programming Language :: Python :: 2.6',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.3',
+          'Programming Language :: Python :: 3.4',
+          'Programming Language :: Python :: 3.5',
+      ],
+
+      # What does your project relate to?
+      keywords='sample setuptools development',
+
+      # You can just specify the packages manually here if your project is
+      # simple. Or you can use find_packages().
+      packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+
+      # Alternatively, if you want to distribute just a my_module.py, uncomment
+      # this:
+      #   py_modules=["my_module"],
+
+      # List run-time dependencies here.
+      # These will be installed by pip when your project is installed.
+      install_requires=['peppercorn'],
+
+      # List additional groups of dependencies here (e.g. development
+      # dependencies). You can install these using the following syntax,
+      # for example:
+      # $ pip install -e .[dev,test]
+      extras_require={
+          'dev': ['check-manifest'],
+          'test': ['coverage'],
+      },
+
+      # If there are data files included in your packages that need to be
+      # installed, specify them here.  If using Python 2.6 or less, then these
+      # have to be included in MANIFEST.in as well.
+      package_data={
+          'sample': ['package_data.dat'],
+      },
+
+      # Although 'package_data' is the preferred approach, in some case you may
+      # need to place data files outside of your packages. See:
+      data_files=[('my_data', ['data/data_file'])],
+      entry_points={
+          'console_scripts': [
+              'sample=sample.__main__:main',
+          ],
+      },
+  )
+#+END_SRC
+
+
+**** install_requires vs requirements.txt
+- https://packaging.python.org/requirements/#requirements-files
+
+[[file:img/screenshot_2017-01-29_09-46-07.png]]
+
+**** scripts vs console_scripts
+- http://python-packaging.readthedocs.io/en/latest/command-line-scripts.html
+#+BEGIN_EXAMPLE
+  funniest/
+      funniest/
+          __init__.py
+          ...
+      setup.py
+      bin/
+          funniest-joke
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  setup(
+      ...
+      scripts=['bin/funniest-joke'],
+      ...
+  )
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  funniest/
+      funniest/
+          __init__.py
+          command_line.py
+          ...
+      setup.py
+      ...
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  setup(
+      ...
+      entry_points = {
+          'console_scripts': ['funniest-joke=funniest.command_line:main'],
+      }
+      ...
+  )
+#+END_SRC
+** Source Code Encodings
+- [[https://www.python.org/dev/peps/pep-0263/][PEP 263]]
+
+#+BEGIN_SRC python
+  #!/usr/bin/python
+  # -*- coding: utf-8 -*-
+#+END_SRC
+

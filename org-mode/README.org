@@ -1,0 +1,244 @@
+#+TITLE: Org Mode
+
+* Table of Contents                                                :TOC_1_GH:
+ - [[#settings][Settings]]
+ - [[#markup][Markup]]
+ - [[#easy-templates][Easy Templates]]
+ - [[#babel][Babel]]
+ - [[#export][Export]]
+ - [[#agenda][Agenda]]
+ - [[#add-ons][Add-ons]]
+
+* Settings
+- https://github.com/fniessen/refcard-org-mode
+- http://orgmode.org/manual/Structural-markup-elements.html
+- http://orgmode.org/manual/Export-settings.html
+
+#+BEGIN_EXAMPLE
+  ,#+TITLE:  Org Document Settings Cheatsheet
+  ,#+AUTHOR: Yeongho Kim
+  ,#+EMAIL:  yeonghoey@gmail.com
+  ,#+DESCRIPTION: a description
+  ,#+KEYWORDS:    org
+  ,#+LANGUAGE:    en
+
+  ,#+OPTIONS: H:4      (section numbering)
+  ,#+OPTIONS: num:nil  (no number)
+  ,#+OPTIONS: toc:2    (only inlcude two levels in TOC)
+  ,#+OPTIONS: toc:nil  (no default TOC at all)
+
+  ,#+TOC: headlines 2        (insert TOC here)
+  ,#+TOC: headlines 1 local  (insert local TOC, direct children only)
+  ,#+TOC: listings           (build a list of listings)
+  ,#+TOC: tables             (build a list of tables)
+
+  ,#+INCLUDE: "~/.emacs" src emacs-lisp
+  ,#+INCLUDE: "~/my-book/chapter2.org" :minlevel 1
+  ,#+INCLUDE: "~/.emacs" :lines "5-10"                 [5 to 10)
+  ,#+INCLUDE: "~/.emacs" :lines "-10"                  [1 to 10)
+  ,#+INCLUDE: "~/.emacs" :lines "10-"                  [10 to EOF)
+  ,#+INCLUDE: "./paper.org::#theory" :only-contents t  (custom-id)
+  ,#+INCLUDE: "./paper.org::mytable"                   (named element)
+  ,#+INCLUDE: "./paper.org::*conclusion" :lines 1-20   (headline named 'conclusion')
+
+  ,#+MACRO: name   replacement text $1, $2 are arguments
+  {{{name(arg1, arg2)}}}
+  {{{title}}}
+  {{{author}}}
+  {{{email}}}
+  {{{date}}}
+  {{{date(FORMAT)}}}
+  {{{time(FORMAT)}}}
+  {{{modification-time(FORMAT, VC)}}}
+  {{{input-file}}}
+  {{{property(PROPERTY-NAME)}}}
+  {{{property(PROPERTY-NAME,SEARCH-OPTION)}}}
+
+  ,* Goldberg Variations
+  :PROPERTIES:
+  :Title:     Goldberg Variations
+  :Composer:  J.S. Bach
+  :Artist:    Glen Gould
+  :Publisher: Deutsche Grammophon
+  :NDisks:    1
+  :END:
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  ,#+OPTIONS: ':t
+  ,#+OPTIONS: author:nil
+  ,#+OPTIONS: num:nil
+  ,#+OPTIONS: email:nil
+  ,#+OPTIONS: date:nil
+
+  ,#+OPTIONS: ':t author:nil date:nil email:nil num:nil
+#+END_EXAMPLE
+
+** Omitting #+TITLE
+- http://orgmode.org/manual/Document-title.html#Document-title
+#+BEGIN_QUOTE
+If you are exporting only a subtree,
+*its heading will become the title of the document.
+If the subtree has a property EXPORT_TITLE, that will take precedence.
+#+END_QUOTE
+
+* Markup
+- http://orgmode.org/manual/Markup.html#Markup
+- http://ergoemacs.org/emacs/emacs_org_markup.html
+- http://orgmode.org/manual/External-links.html#External-links
+
+#+BEGIN_EXAMPLE
+    ,* 1st level heading
+    ,** this is 2nd level heading
+    ,*** this is 3rd level heading
+
+    ,*bold*
+    /italic/
+    _underlined_
+    =verbatim=
+    ~code~
+    +strike-through+
+    X_{subscript}, X^{superscript}
+
+    Hello, \\  (enforce line break within a paragraph)
+    World.
+
+    - 1st item
+    ,* another item
+    + and 3rd item :: this is a description
+
+    1. 1st item
+    2) another item
+
+    20. [@20] Test
+    21. xargs
+    22. bcadf
+
+    [[http://example.com/]]
+    [[http://example.com/][description]]
+
+    -----
+    (a horizontal rule, 5 or more only dashes)
+
+    ,#+BEGIN_EXAMPLE
+      verbatime example
+    ,#+END_EXAMPLE
+
+    ,#+BEGIN_SOURCE python
+      print 'hello, world!'
+    ,#+END+SOURCE
+
+    : a single line example
+      : can be indented
+    (start the example lines with a colon followed by a space.)
+#+END_EXAMPLE
+
+** code(~~) vs verbatim(==)
+- http://stackoverflow.com/questions/18991981/difference-between-code-and-verbatim-in-org-mode
+- There are some differences in ~Latex~ related things, but *identical others*.
+
+** Can't stylize part of a word
+- http://stackoverflow.com/questions/1218238/how-to-make-part-of-a-word-bold-in-org-mode
+
+#+BEGIN_QUOTE
+Org-mode relies on heuristics to distinguish emphasis from
+normal text, and one of the most important parts of this
+heuristics method is *assuming that emphasis is on whole words*,
+delimited by whitespace or punctuation.
+#+END_QUOTE
+
+* Easy Templates
+- http://orgmode.org/manual/Easy-Templates.html
+
+#+BEGIN_EXAMPLE
+  s #+BEGIN_SRC ... #+END_SRC
+  e #+BEGIN_EXAMPLE ... #+END_EXAMPLE
+  q #+BEGIN_QUOTE ... #+END_QUOTE
+  v #+BEGIN_VERSE ... #+END_VERSE
+  c #+BEGIN_CENTER ... #+END_CENTER
+  l #+BEGIN_LaTeX ... #+END_LaTeX
+  L #+LaTeX:
+  h #+BEGIN_HTML ... #+END_HTML
+  H #+HTML:
+  a #+BEGIN_ASCII ... #+END_ASCII
+  A #+ASCII:
+  i #+INDEX: line
+  I #+INCLUDE: lin
+#+END_EXAMPLE
+
+* Babel
+- http://orgmode.org/worg/org-contrib/babel/languages.html
+- http://orgmode.org/manual/Structure-of-code-blocks.html
+
+** Basics
+#+BEGIN_SRC org
+  ,#+NAME: <name>
+  ,#+BEGIN_SRC <language> <switches> <header arguments>
+     <body>
+  ,#+END_SRC
+
+  ,#+BEGIN_SRC emacs-lisp
+  ,#+BEGIN_SRC emacs-lisp -n 20  ;; Show line numbers starting from 20
+  ,#+BEGIN_SRC emacs-lisp +n 20  ;; Show line numbers ending with 20
+#+END_SRC
+
+** Python
+#+BEGIN_SRC org
+  ,#+BEGIN_SRC python :results output
+    print "Hello, world!"
+  ,#+END_SRC
+
+  ,#+RESULTS:
+  : Hello, world!
+
+  ,#+TBLNAME: data_table
+  | a | 1 |
+  | b | 2 |
+  | c | 3 |
+
+  ,#+BEGIN_SRC python :var val=1 :var data=data_table
+    return data[val]
+  ,#+END_SRC
+
+  ,#+RESULTS:
+  | b | 2 |
+#+END_SRC
+
+* Export
+- http://orgmode.org/manual/Exporting.html
+- http://stackoverflow.com/questions/13363267/how-to-remove-footer-details-in-org-mode-html-export
+
+#+BEGIN_EXAMPLE
+  ,#+OPTIONS: author:nil html-postamble:nil num:nil timestamp:nil toc:nil
+#+END_EXAMPLE
+
+* Agenda
+- http://orgmode.org/manual/Capture-templates.html#Capture-templates
+
+#+BEGIN_EXAMPLE
+  <2006-11-01 Wed>
+  [2006-11-01 Wed]  # inactive timestamps, they do not trigger an entry to show up in the agenda.
+#+END_EXAMPLE
+* Add-ons
+** toc-org
+- https://github.com/snosov1/toc-org
+
+#+BEGIN_EXAMPLE
+  :TOC_2:
+  :TOC_2_gh:   (github style, [[#heading][heading]])
+  :TOC_2_org:  (org style,    [[heading][heading]])
+#+END_EXAMPLE
+
+** org-reveal
+- https://github.com/yjwen/org-reveal/
+- https://github.com/hakimel/reveal.js/
+- ~, e R B~ to generate and preview
+- ~#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/~
+- ~#+REVEAL_THEME: <theme>~ :: [[https://github.com/hakimel/reveal.js/tree/master/css/theme][reveal.js/css/theme]] 
+
+** ox-twbs
+- https://github.com/marsmining/ox-twbs
+- Export org as HTML compatible with Twitter Bootstrap.
+- I tried to use this, but *there were some inconsistencies*. I don't use it now.
+  - Some colors are indistinguishable.
+  - Image links are broken if I segregate htmls from orgs

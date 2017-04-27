@@ -1,0 +1,62 @@
+#+TITLE: logbook
+
+* Table of Contents :TOC_2_gh:
+ - [[#handlers][Handlers]]
+   - [[#basics][Basics]]
+   - [[#testhandler][TestHandler]]
+
+* Handlers
+- http://logbook.readthedocs.io/en/stable/api/handlers.html
+
+** Basics
+#+BEGIN_SRC python
+  with handler.applicationbound():
+      ...
+  with handler.threadbound():
+      ...
+  with handler.greenletbound():
+      ...
+  # threadbound by default, greenletbound if gevent used
+  with handler:
+      ...
+#+END_SRC
+
+** TestHandler
+- http://logbook.readthedocs.io/en/stable/unittesting.html
+
+#+BEGIN_SRC python
+  import logbook
+  import unittest
+
+  class LoggingTestCase(unittest.TestCase):
+
+      def setUp(self):
+          self.log_handler = logbook.TestHandler()
+          self.log_handler.push_thread()
+
+      def tearDown(self):
+          self.log_handler.pop_thread()
+#+END_SRC
+
+#+BEGIN_SRC python
+  def my_test():
+      with logbook.TestHandler() as log_handler:
+          ...
+#+END_SRC
+
+#+BEGIN_SRC python
+  >>> logger.warn('Hello World')
+  >>> handler.records
+  [<logbook.base.LogRecord object at 0x100640cd0>]
+  >>> handler.formatted_records
+  [u'[WARNING] Testing: Hello World']
+
+  # probing methods
+  >>> handler.has_warnings
+  >>> handler.has_errors
+  >>> handler.has_warning('Hello World')
+  >>> handler.has_warning('A different message')
+  >>> handler.has_warning(re.compile('^Hello'))
+  >>> handler.has_warning('Hello World', channel='Testing')
+  >>> handler.has_warning(channel='Testing')
+#+END_SRC

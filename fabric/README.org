@@ -1,0 +1,39 @@
+#+TITLE: fabric
+
+* Table of Contents :TOC_2_gh:
+ - [[#usage-][Usage ]]
+ - [[#reference-links][Reference Links]]
+
+* Usage 
+- http://docs.fabfile.org/en/1.13/usage/fab.html
+
+#+BEGIN_SRC python
+  from fabric.api import run
+
+  def anonymous():
+      run("uname -a")
+
+  def new_user(username, admin='no', comment="No comment provided"):
+      print("New User (%s): %s" % (username, comment))
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # multiple hosts
+  $ fab -H system1,system2,system3 anonymous
+
+  # explicit fabfile path (default is './fabfile.py')
+  $ fab -f '/path/to/my/fabfile.py' -H system1 anonymous
+  $ fab -f '/path/to/my/fabfile.py' -H system1 new_user:myusername
+
+  # multiple tasks
+  $ fab -f '/path/to/my/fabfile.py' -H system1 anonymous new_user:myusername
+
+  # passing arguments
+  $ fab -f '/path/to/my/fabfile.py' -H system1 new_user:username=myusername
+  $ fab -f '/path/to/my/fabfile.py' -H system1 new_user:username=myusername,yes
+  $ fab -f '/path/to/my/fabfile.py' -H system1 new_user:username=myusername,admin=yes
+#+END_SRC
+
+* Reference Links
+- http://docs.fabfile.org/en/1.13/
+- http://fabtools.readthedocs.io/en/0.19.0/

@@ -1,0 +1,7 @@
+#+TITLE: C#
+
+* Table of Contents :TOC_1_gh:
+ - [[#c-concepts][C# Concepts]]
+
+* C# Concepts
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/concepts

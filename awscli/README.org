@@ -1,0 +1,43 @@
+#+TITLE: AWS Command Line Interface
+
+* Table of Contents :TOC_1_gh:
+ - [[#configure][configure]]
+ - [[#ec2][ec2]]
+ - [[#s3][s3]]
+
+* configure
+- http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+
+#+BEGIN_SRC shell
+  # when '--profile' omitted, considered it as 'default'
+  $ aws configure --profile user2
+  AWS Access Key ID [None]: AKIAI44QH8DHBEXAMPLE
+  AWS Secret Access Key [None]: je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
+  Default region name [None]: us-east-1
+  Default output format [None]: text
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Specify options as arguments
+  aws ec2 describe-instances --output table --region us-west-1
+#+END_SRC
+
+* ec2
+- http://docs.aws.amazon.com/cli/latest/reference/ec2/index.html#cli-aws-ec2
+
+#+BEGIN_SRC shell
+  # Make the instance terminable (Disable Termination Protection)
+  aws ec2 modify-instance-attribute --instance-id <value> --no-disable-api-termination
+#+END_SRC
+
+* s3
+- http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#available-commands
+
+#+BEGIN_SRC shell
+  aws s3 mv test.txt s3://mybucket/test2.txt
+  aws s3 mv s3://mybucket/test.txt s3://mybucket/test2.txt
+  aws s3 mv s3://mybucket/test.txt test2.txt
+  aws s3 mv s3://mybucket . --recursive
+  aws s3 mv myDir s3://mybucket/ --recursive --exclude "*.jpg"
+  aws s3 mv s3://mybucket/ s3://mybucket2/ --recursive --exclude "mybucket/another/*"
+#+END_SRC
