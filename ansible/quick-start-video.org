@@ -1,0 +1,2 @@
+* Ansible: Quick Start Video
+- https://www.ansible.com/quick-start-video
