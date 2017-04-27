@@ -18,6 +18,16 @@
 - Heterogeneous: 다양한 기술을 조화롭게 쓸 수 있게 해주는 기능들
 
 * 더 좋은 코드를 위한 함수형 프로그래밍 - 모던 C++를 중심으로
+- Temporal Coupling
+- Identity mutability problem
+- Immutability changes everything - http://queue.acm.org/detail.cfm?id=2884038
+- CppCon accumulate: in YouTube
+- C++20, Ranges
+- null - "The worst mistake of computer science"
+- Algebraic daya types
+- 모나드는 부리또가 아니다
+- 안후보님의 어셈블리코드
+
 * 유저의 몰입과 재미를 돕는 메카니컬 콘트롤의 이해
 * <After Days>의 시작과 출시까지 - 게이머들이 바꾸는 세상
 * Nexon Zero - 점검 없이 실시간으로 코드 수정 & 게임 정보 수집하기
