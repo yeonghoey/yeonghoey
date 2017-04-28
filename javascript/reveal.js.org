@@ -1,4 +1,4 @@
-#+TITLE: Reveal.js
+#+TITLE: reveal.js
 
 * Table of Contents :TOC_1_gh:
  - [[#pdf-export][PDF Export]]
