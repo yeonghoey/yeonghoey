@@ -1,0 +1,15 @@
+#+TITLE: Reveal.js
+
+* Table of Contents :TOC_1_gh:
+ - [[#pdf-export][PDF Export]]
+
+* PDF Export
+- https://github.com/hakimel/reveal.js/#pdf-export
+
+#+BEGIN_SRC html
+  <link rel="stylesheet" href="reveal.js-3.4.1/css/print/pdf.css"/>
+#+END_SRC
+
+1. Put the line above
+2. ~http://<slide>:8000/?print-pdf~
+3. Save as PDF via Print
