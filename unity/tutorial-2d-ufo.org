@@ -7,6 +7,7 @@
  - [[#adding-collision][Adding Collision]]
  - [[#following-the-player-with-the-camera][Following the Player with the Camera]]
  - [[#creating-collectable-objects][Creating Collectable Objects]]
+ - [[#picking-up-collectables][Picking Up Collectables]]
 
 * Introduction to 2D UFO Project
 - https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/introduction-2d-ufo-project?playlist=25844
@@ -132,5 +133,25 @@ the Camera Object, a child of Player, also rotates.
   }
 #+END_SRC
 
-* TODO Creating Collectable Objects
+* Creating Collectable Objects
 - https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/creating-collectable-objects?playlist=25844
+
+[[file:img/screenshot_2017-04-29_16-26-09.png]]
+
+https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
+
+#+BEGIN_SRC csharp
+  using System.Collections;
+  using System.Collections.Generic;
+  using UnityEngine;
+
+  public class Rotator : MonoBehaviour {
+
+      void Update () {
+          transform.Rotate (new Vector3 (0, 0, 45) * Time.deltaTime);		
+      }
+  }
+#+END_SRC
+
+* Picking Up Collectables
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/picking-collectables?playlist=25844
