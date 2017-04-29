@@ -155,3 +155,27 @@ https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
 
 * Picking Up Collectables
 - https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/picking-collectables?playlist=25844
+- file:///Applications/Unity/Unity.app/Contents/Documentation/en/Manual/class-CircleCollider2D.html
+- file:///Applications/Unity/Unity.app/Contents/Documentation/en/ScriptReference/Collider2D.OnTriggerEnter2D.html
+- https://docs.unity3d.com/ScriptReference/GameObject-tag.html
+- https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html
+
+#+BEGIN_SRC csharp
+  void OnTriggerEnter2D(Collider2D other) 
+  {
+		  if (other.gameObject.CompareTag ("PickUp"))
+		  {
+          other.gameObject.SetActive (false);
+		  }
+  }
+#+END_SRC
+
+[[file:img/screenshot_2017-04-29_16-41-28.png]]
+
+[[file:img/screenshot_2017-04-29_16-44-11.png]]
+- Select multiple items with cmd+click.
+- Disable Sprite Renderer to observe colliders
+
+[[file:img/screenshot_2017-04-29_16-47-17.png]]
+
+[[file:img/screenshot_2017-04-29_16-49-24.png]]
