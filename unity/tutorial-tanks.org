@@ -6,6 +6,7 @@
  - [[#camera-control][Camera Control]]
  - [[#tank-health][Tank Health]]
  - [[#shell-creation][Shell Creation]]
+ - [[#firing-shells][Firing Shells]]
 
 * Scene Setup 
 - https://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081
@@ -403,3 +404,21 @@
 [[file:img/screenshot_2017-04-29_23-30-53.png]]
 
 [[file:img/screenshot_2017-04-29_23-33-14.png]]
+* Firing Shells
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/firing-shells?playlist=20081
+
+[[file:img/screenshot_2017-04-29_23-36-56.png]]
+
+[[file:img/screenshot_2017-04-29_23-38-07.png]]
+
+
+[[file:img/screenshot_2017-04-29_23-39-17.png]]
+- Click with ~Alt~ to fully open the hierarchy
+
+[[file:img/screenshot_2017-04-29_23-40-49.png]]
+
+[[file:img/screenshot_2017-04-29_23-44-14.png]]
+
+[[file:img/screenshot_2017-04-29_23-48-14.png]]
+
+[[file:img/screenshot_2017-04-30_00-10-13.png]]
