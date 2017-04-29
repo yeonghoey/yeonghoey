@@ -8,6 +8,7 @@
  - [[#shell-creation][Shell Creation]]
  - [[#firing-shells][Firing Shells]]
  - [[#game-managers][Game Managers]]
+ - [[#audio-mixing][Audio Mixing]]
 
 * Scene Setup 
 - https://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081
@@ -559,3 +560,25 @@ GameManager:
       yield return m_EndWait;
   }
 #+END_SRC
+* Audio Mixing
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/audio-mixing?playlist=20081
+
+[[file:img/screenshot_2017-04-30_08-32-24.png]]
+
+[[file:img/screenshot_2017-04-30_08-32-54.png]]
+
+[[file:img/screenshot_2017-04-30_08-33-38.png]]
+
+[[file:img/screenshot_2017-04-30_08-34-06.png]]
+
+[[file:img/screenshot_2017-04-30_08-39-15.png]]
+
+[[file:img/screenshot_2017-04-30_08-40-01.png]]
+
+[[file:img/screenshot_2017-04-30_08-41-42.png]]
+
+[[file:img/screenshot_2017-04-30_08-42-37.png]]
+
+[[file:img/screenshot_2017-04-30_08-49-40.png]]
+
+[[file:img/screenshot_2017-04-30_08-50-47.png]]
