@@ -202,6 +202,127 @@
 - ~InverseTransformPoint~ : Transforms position from world space to local space.
 
 [[file:img/screenshot_2017-04-29_19-03-41.png]]
-* TODO Tank Health
+* Tank Health
 - https://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081
 
+
+[[file:img/screenshot_2017-04-29_22-40-48.png]]
+
+[[file:img/screenshot_2017-04-29_22-41-35.png]]
+
+[[file:img/screenshot_2017-04-29_22-42-35.png]]
+
+
+[[file:img/screenshot_2017-04-29_22-43-54.png]]
+
+[[file:img/screenshot_2017-04-29_22-44-06.png]]
+
+[[file:img/screenshot_2017-04-29_22-45-05.png]]
+
+[[file:img/screenshot_2017-04-29_22-47-33.png]]
+
+[[file:img/screenshot_2017-04-29_22-48-55.png]]
+
+[[file:img/screenshot_2017-04-29_22-51-15.png]]
+
+[[file:img/screenshot_2017-04-29_22-53-55.png]]
+
+[[file:img/screenshot_2017-04-29_22-55-58.png]]
+
+[[file:img/screenshot_2017-04-29_22-57-13.png]]
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+
+  public class UIDirectionControl : MonoBehaviour
+  {
+      public bool m_UseRelativeRotation = true;  
+
+
+      private Quaternion m_RelativeRotation;     
+
+
+      private void Start()
+      {
+          m_RelativeRotation = transform.parent.localRotation;
+      }
+
+
+      private void Update()
+      {
+          if (m_UseRelativeRotation)
+              transform.rotation = m_RelativeRotation;
+      }
+  }
+#+END_SRC
+
+[[file:img/screenshot_2017-04-29_23-00-21.png]]
+
+[[file:img/screenshot_2017-04-29_23-01-26.png]]
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using UnityEngine.UI;
+
+  public class TankHealth : MonoBehaviour
+  {
+      public float m_StartingHealth = 100f;
+      public Slider m_Slider;
+      public Image m_FillImage;
+      public Color m_FullHealthColor = Color.green;
+      public Color m_ZeroHealthColor = Color.red;
+      public GameObject m_ExplosionPrefab;
+
+      private AudioSource m_ExplosionAudio;
+      private ParticleSystem m_ExplosionParticles;
+      private float m_CurrentHealth;
+      private bool m_Dead;
+
+
+      private void Awake()
+      {
+          m_ExplosionParticles = Instantiate(m_ExplosionPrefab).GetComponent<ParticleSystem>();
+          m_ExplosionAudio = m_ExplosionParticles.GetComponent<AudioSource>();
+
+          m_ExplosionParticles.gameObject.SetActive(false);
+      }
+
+
+      private void OnEnable()
+      {
+          m_CurrentHealth = m_StartingHealth;
+          m_Dead = false;
+
+          SetHealthUI();
+      }
+
+      public void TakeDamage(float amount)
+      {
+          m_CurrentHealth -= amount;
+
+          SetHealthUI ();
+
+          if (m_CurrentHealth <= 0f && !m_Dead) {
+            OnDeath ();
+          }
+      }
+
+
+      private void SetHealthUI()
+      {
+          m_Slider.value = m_CurrentHealth;
+          m_FillImage.color = Color.Lerp (m_ZeroHealthColor, m_FullHealthColor, m_CurrentHealth / m_StartingHealth);
+      }
+
+
+      private void OnDeath()
+      {
+          m_Dead = true;
+          m_ExplosionParticles.transform.position = transform.position;
+          m_ExplosionParticles.gameObject.SetActive (true);
+          m_ExplosionParticles.Play ();
+          m_ExplosionAudio.Play ();
+          gameObject.SetActive (false);
+      }
+  }
+#+END_SRC
