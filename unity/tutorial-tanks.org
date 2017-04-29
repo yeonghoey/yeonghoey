@@ -3,6 +3,7 @@
 * Table of Contents :TOC_1_gh:
  - [[#scene-setup][Scene Setup]]
  - [[#tank-creation--control][Tank Creation & Control]]
+ - [[#camera-control][Camera Control]]
 
 * Scene Setup 
 - https://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081
@@ -116,3 +117,87 @@
 [[file:img/screenshot_2017-04-29_18-33-53.png]]
 
 [[file:img/screenshot_2017-04-29_18-38-27.png]]
+* Camera Control
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/camera-control?playlist=20081
+
+[[file:img/screenshot_2017-04-29_18-43-36.png]]
+
+[[file:img/screenshot_2017-04-29_18-44-09.png]]
+
+[[file:img/screenshot_2017-04-29_18-45-15.png]]
+
+[[file:img/screenshot_2017-04-29_18-45-54.png]]
+
+[[file:img/screenshot_2017-04-29_18-46-11.png]]
+
+[[file:img/screenshot_2017-04-29_18-47-15.png]]
+
+[[file:img/screenshot_2017-04-29_18-47-29.png]]
+
+[[file:img/screenshot_2017-04-29_18-48-17.png]]
+
+
+[[file:img/screenshot_2017-04-29_18-53-12.png]]
+
+#+BEGIN_SRC csharp
+  [HideInInspector] public Transform[] m_Targets; 
+
+  private void Move()
+  {
+      FindAveragePosition();
+      transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
+
+  }
+  private void FindAveragePosition()
+  {
+      Vector3 averagePos = new Vector3();
+      int numTargets = 0;
+
+      for (int i = 0; i < m_Targets.Length; i++)
+      {
+          if (!m_Targets[i].gameObject.activeSelf)
+              continue;
+          averagePos += m_Targets[i].position;
+          numTargets++;
+      }
+
+      if (numTargets > 0)
+          averagePos /= numTargets;
+      averagePos.y = transform.position.y;
+      m_DesiredPosition = averagePos;
+  }
+#+END_SRC
+
+[[file:img/screenshot_2017-04-29_18-57-14.png]]
+
+#+BEGIN_SRC csharp
+  private void Zoom()
+  {
+      float requiredSize = FindRequiredSize();
+      m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
+  }
+
+  private float FindRequiredSize()
+  {
+      Vector3 desiredLocalPos = transform.InverseTransformPoint(m_DesiredPosition);
+      float size = 0f;
+      for (int i = 0; i < m_Targets.Length; i++)
+      {
+          if (!m_Targets[i].gameObject.activeSelf)
+              continue;
+
+          Vector3 targetLocalPos = transform.InverseTransformPoint(m_Targets[i].position);
+          Vector3 desiredPosToTarget = targetLocalPos - desiredLocalPos;
+          size = Mathf.Max (size, Mathf.Abs (desiredPosToTarget.y));
+          size = Mathf.Max (size, Mathf.Abs (desiredPosToTarget.x) / m_Camera.aspect);
+      }
+      size += m_ScreenEdgeBuffer;
+      size = Mathf.Max(size, m_MinSize);
+      return size;
+  }
+
+#+END_SRC
+
+- ~InverseTransformPoint~ : Transforms position from world space to local space.
+
+[[file:img/screenshot_2017-04-29_19-03-41.png]]
