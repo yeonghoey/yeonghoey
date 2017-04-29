@@ -9,6 +9,7 @@
  - [[#creating-collectable-objects][Creating Collectable Objects]]
  - [[#picking-up-collectables][Picking Up Collectables]]
  - [[#counting-collectables-and-displaying-score][Counting Collectables and Displaying Score]]
+ - [[#building-our-2d-ufo-game][Building our 2D UFO Game]]
 
 * Introduction to 2D UFO Project
 - https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/introduction-2d-ufo-project?playlist=25844
@@ -202,3 +203,7 @@ https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
       countText.text = "Count: " + count.ToString ();
   }
 #+END_SRC
+* Building our 2D UFO Game
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/building-our-2d-ufo-game?playlist=25844
+
+[[file:img/screenshot_2017-04-29_17-10-39.png]]
