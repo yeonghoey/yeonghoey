@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_1_gh:
  - [[#scene-setup][Scene Setup]]
+ - [[#tank-creation--control][Tank Creation & Control]]
 
 * Scene Setup 
 - https://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081
@@ -25,3 +26,93 @@
 [[file:img/screenshot_2017-04-29_17-34-22.png]]
 
 [[file:img/screenshot_2017-04-29_17-35-32.png]]
+* Tank Creation & Control
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-creation-control?playlist=20081
+
+
+[[file:img/screenshot_2017-04-29_17-40-28.png]]
+
+[[file:img/screenshot_2017-04-29_17-43-56.png]]
+
+[[file:img/screenshot_2017-04-29_17-46-55.png]]
+
+[[file:img/screenshot_2017-04-29_17-47-15.png]]
+
+[[file:img/screenshot_2017-04-29_17-47-23.png]]
+
+[[file:img/screenshot_2017-04-29_17-50-14.png]]
+
+[[file:img/screenshot_2017-04-29_17-53-48.png]]
+
+[[file:img/screenshot_2017-04-29_17-55-31.png]]
+
+[[file:img/screenshot_2017-04-29_17-58-53.png]]
+
+[[file:img/screenshot_2017-04-29_18-00-08.png]]
+
+[[file:img/screenshot_2017-04-29_18-11-16.png]]
+
+[[file:img/screenshot_2017-04-29_18-11-52.png]]
+
+[[file:img/screenshot_2017-04-29_18-13-23.png]]
+
+[[file:img/screenshot_2017-04-29_18-13-39.png]]
+
+[[file:img/screenshot_2017-04-29_18-14-24.png]]
+
+[[file:img/screenshot_2017-04-29_18-14-36.png]]
+
+[[file:img/screenshot_2017-04-29_18-14-55.png]]
+
+
+[[file:img/screenshot_2017-04-29_18-16-45.png]]
+
+[[file:img/screenshot_2017-04-29_18-16-32.png]]
+
+#+BEGIN_SRC csharp
+  private void EngineAudio()
+  {
+      // Play the correct audio clip based on whether or not the tank is moving and what audio is currently playing.
+      if (Mathf.Abs (m_MovementInputValue) < 0.1f && Mathf.Abs (m_TurnInputValue) < 0.1f) {
+        if (m_MovementAudio.clip == m_EngineDriving) {
+          m_MovementAudio.clip = m_EngineIdling;
+          m_MovementAudio.pitch = Random.Range (m_OriginalPitch - m_PitchRange, m_OriginalPitch + m_PitchRange);
+          m_MovementAudio.Play ();
+        }
+      } else {
+        if (m_MovementAudio.clip == m_EngineIdling)
+        {
+          m_MovementAudio.clip = m_EngineDriving;
+          m_MovementAudio.pitch = Random.Range (m_OriginalPitch - m_PitchRange, m_OriginalPitch + m_PitchRange);
+          m_MovementAudio.Play ();
+        }
+      }
+  }
+
+
+  private void FixedUpdate()
+  {
+      // Move and turn the tank.
+      Move();
+      Turn ();
+  }
+
+
+  private void Move()
+  {
+      Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
+      m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+  }
+
+
+  private void Turn()
+  {
+      float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime;
+      Quaternion turnRotation = Quaternion.Euler (0f, turn, 0f);
+      m_Rigidbody.MoveRotation (m_Rigidbody.rotation * turnRotation);
+  }
+#+END_SRC
+
+[[file:img/screenshot_2017-04-29_18-33-53.png]]
+
+[[file:img/screenshot_2017-04-29_18-38-27.png]]
