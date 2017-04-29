@@ -7,6 +7,7 @@
  - [[#tank-health][Tank Health]]
  - [[#shell-creation][Shell Creation]]
  - [[#firing-shells][Firing Shells]]
+ - [[#game-managers][Game Managers]]
 
 * Scene Setup 
 - https://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081
@@ -422,3 +423,5 @@
 [[file:img/screenshot_2017-04-29_23-48-14.png]]
 
 [[file:img/screenshot_2017-04-30_00-10-13.png]]
+* Game Managers
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/game-managers?playlist=20081
