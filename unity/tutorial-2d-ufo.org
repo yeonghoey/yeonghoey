@@ -8,6 +8,7 @@
  - [[#following-the-player-with-the-camera][Following the Player with the Camera]]
  - [[#creating-collectable-objects][Creating Collectable Objects]]
  - [[#picking-up-collectables][Picking Up Collectables]]
+ - [[#counting-collectables-and-displaying-score][Counting Collectables and Displaying Score]]
 
 * Introduction to 2D UFO Project
 - https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/introduction-2d-ufo-project?playlist=25844
@@ -179,3 +180,25 @@ https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
 [[file:img/screenshot_2017-04-29_16-47-17.png]]
 
 [[file:img/screenshot_2017-04-29_16-49-24.png]]
+
+* Counting Collectables and Displaying Score
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/counting-collectables-and-displaying-score?playlist=25844
+
+[[file:img/screenshot_2017-04-29_16-53-07.png]]
+
+[[file:img/screenshot_2017-04-29_16-56-15.png]]
+
+[[file:img/screenshot_2017-04-29_16-57-44.png]]
+
+[[file:img/screenshot_2017-04-29_17-03-41.png]]
+
+#+BEGIN_SRC csharp
+  using UnityEngine.UI;
+
+  public Text countText;
+
+  void SetCountText()
+  {
+      countText.text = "Count: " + count.ToString ();
+  }
+#+END_SRC
