@@ -425,3 +425,137 @@
 [[file:img/screenshot_2017-04-30_00-10-13.png]]
 * Game Managers
 - https://unity3d.com/learn/tutorials/projects/tanks-tutorial/game-managers?playlist=20081
+
+[[file:img/screenshot_2017-04-30_07-39-29.png]]
+
+[[file:img/screenshot_2017-04-30_07-40-28.png]]
+
+[[file:img/screenshot_2017-04-30_07-40-53.png]]
+
+[[file:img/screenshot_2017-04-30_07-41-55.png]]
+
+[[file:img/screenshot_2017-04-30_07-42-39.png]]
+
+[[file:img/screenshot_2017-04-30_07-44-11.png]]
+
+[[file:img/screenshot_2017-04-30_07-44-20.png]]
+
+[[file:img/screenshot_2017-04-30_07-45-40.png]]
+
+[[file:img/screenshot_2017-04-30_07-46-06.png]]
+
+[[file:img/screenshot_2017-04-30_07-47-04.png]]
+
+[[file:img/screenshot_2017-04-30_07-47-12.png]]
+
+[[file:img/screenshot_2017-04-30_07-50-44.png]]
+
+[[file:img/screenshot_2017-04-30_07-50-51.png]]
+
+[[file:img/screenshot_2017-04-30_07-54-46.png]]
+
+[[file:img/screenshot_2017-04-30_07-55-18.png]]
+
+[[file:img/screenshot_2017-04-30_07-56-02.png]]
+
+[[file:img/screenshot_2017-04-30_07-56-13.png]]
+
+[[file:img/screenshot_2017-04-30_07-58-43.png]]
+
+[[file:img/screenshot_2017-04-30_07-58-57.png]]
+
+[[file:img/screenshot_2017-04-30_07-59-40.png]]
+
+TankManager:
+#+BEGIN_SRC csharp
+  public void Setup()
+  {
+      m_Movement = m_Instance.GetComponent<TankMovement>();
+      m_Shooting = m_Instance.GetComponent<TankShooting>();
+      m_CanvasGameObject = m_Instance.GetComponentInChildren<Canvas>().gameObject;
+
+      m_Movement.m_PlayerNumber = m_PlayerNumber;
+      m_Shooting.m_PlayerNumber = m_PlayerNumber;
+
+      m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";
+
+      MeshRenderer[] renderers = m_Instance.GetComponentsInChildren<MeshRenderer>();
+
+      for (int i = 0; i < renderers.Length; i++)
+      {
+          renderers[i].material.color = m_PlayerColor;
+      }
+  }
+#+END_SRC
+
+[[file:img/screenshot_2017-04-30_08-13-09.png]]
+
+[[file:img/screenshot_2017-04-30_08-23-08.png]]
+
+GameManager:
+#+BEGIN_SRC csharp
+  private void Start()
+  {
+      m_StartWait = new WaitForSeconds(m_StartDelay);
+      m_EndWait = new WaitForSeconds(m_EndDelay);
+
+      SpawnAllTanks();
+      SetCameraTargets();
+
+      StartCoroutine(GameLoop());
+  }
+
+  private IEnumerator GameLoop()
+  {
+      yield return StartCoroutine(RoundStarting());
+      yield return StartCoroutine(RoundPlaying());
+      yield return StartCoroutine(RoundEnding());
+
+      if (m_GameWinner != null)
+      {
+          Application.LoadLevel (Application.loadedLevel);
+      }
+      else
+      {
+          StartCoroutine(GameLoop());
+      }
+  }
+
+  private IEnumerator RoundStarting()
+  {
+      ResetAllTanks ();
+      DisableTankControl ();
+      m_CameraControl.SetStartPositionAndSize ();
+
+      m_RoundNumber += 1;
+      m_MessageText.text = "ROUND " + m_RoundNumber;
+
+      yield return m_StartWait;
+  }
+
+  private IEnumerator RoundPlaying()
+  {
+      EnableTankControl ();
+      m_MessageText.text = string.Empty;
+
+      while (!OneTankLeft ()) {
+          yield return null;
+      }
+  }
+
+  private IEnumerator RoundEnding()
+  {
+      DisableTankControl ();
+      m_RoundWinner = null;
+      m_RoundWinner = GetRoundWinner ();
+      if (m_RoundWinner != null)
+          m_RoundWinner.m_Wins++;
+
+      m_GameWinner = GetGameWinner ();
+
+      string message = EndMessage ();
+      m_MessageText.text = message;
+
+      yield return m_EndWait;
+  }
+#+END_SRC
