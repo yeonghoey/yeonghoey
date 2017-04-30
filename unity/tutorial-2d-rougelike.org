@@ -1,0 +1,31 @@
+#+TITLE: 2D Rougelike tutorial
+
+* Table of Contents :TOC_1_gh:
+ - [[#project-introduction][Project Introduction]]
+ - [[#player-and-enemy-animations][Player and Enemy Animations]]
+
+* Project Introduction
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150
+
+[[file:img/screenshot_2017-04-30_19-16-38.png]]
+
+* Player and Enemy Animations
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-and-enemy-animations?playlist=17150
+
+[[file:img/screenshot_2017-04-30_19-19-04.png]]
+
+[[file:img/screenshot_2017-04-30_19-24-35.png]]
+
+[[file:img/screenshot_2017-04-30_19-24-43.png]]
+
+[[file:img/screenshot_2017-04-30_19-24-52.png]]
+
+[[file:img/screenshot_2017-04-30_19-25-29.png]]
+
+[[file:img/screenshot_2017-04-30_19-25-41.png]]
+
+[[file:img/screenshot_2017-04-30_19-27-05.png]]
+
+[[file:img/screenshot_2017-04-30_20-31-20.png]]
+
+[[file:img/screenshot_2017-04-30_20-32-41.png]]
