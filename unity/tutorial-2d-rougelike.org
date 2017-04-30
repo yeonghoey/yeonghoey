@@ -538,7 +538,7 @@
 		  if (instance == null)
 			  instance = this;
 		  else if (instance != this)
-			  Destroy(gameObject);    
+			  Destroy(gameObject);
 
 		  DontDestroyOnLoad(gameObject);
 		  enemies = new List<Enemy>();
@@ -583,7 +583,7 @@
 		  enemiesMoving = true;
 		  yield return new WaitForSeconds(turnDelay);
 
-		  if (enemies.Count == 0) 
+		  if (enemies.Count == 0)
 		  {
 			  yield return new WaitForSeconds(turnDelay);
 		  }
@@ -613,7 +613,7 @@ But It worked after restarting it.
   using System.Collections;
 
 
-  using System.Collections.Generic;       //Allows us to use Lists. 
+  using System.Collections.Generic;       //Allows us to use Lists.
   using UnityEngine.UI;                   //Allows us to use UI.
 
   public class GameManager : MonoBehaviour
@@ -637,7 +637,7 @@ But It worked after restarting it.
 		  if (instance == null)
 			  instance = this;
 		  else if (instance != this)
-			  Destroy(gameObject);    
+			  Destroy(gameObject);
 
 		  DontDestroyOnLoad(gameObject);
 		  enemies = new List<Enemy>();
@@ -692,7 +692,7 @@ But It worked after restarting it.
 	  {
 		  enemiesMoving = true;
 		  yield return new WaitForSeconds(turnDelay);
-		  if (enemies.Count == 0) 
+		  if (enemies.Count == 0)
 		  {
 			  yield return new WaitForSeconds(turnDelay);
 		  }
@@ -743,7 +743,7 @@ But It worked after restarting it.
   using UnityEngine;
   using System.Collections;
 
-  public class SoundManager : MonoBehaviour 
+  public class SoundManager : MonoBehaviour
   {
       public AudioSource efxSource;
       public AudioSource musicSource;
@@ -765,7 +765,7 @@ But It worked after restarting it.
           efxSource.clip = clip;
           efxSource.Play ();
       }
-		
+
       public void RandomizeSfx (params AudioClip[] clips)
       {
           int randomIndex = Random.Range(0, clips.Length);
@@ -788,7 +788,7 @@ But It worked after restarting it.
 		  food--;
 		  base.AttemptMove <T> (xDir, yDir);
 		  RaycastHit2D hit;
-		  if (Move (xDir, yDir, out hit)) 
+		  if (Move (xDir, yDir, out hit))
 		  {
           //Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.
           SoundManager.instance.RandomizeSfx(moveSound1, moveSound2);
