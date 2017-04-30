@@ -3,6 +3,8 @@
 * Table of Contents :TOC_1_gh:
  - [[#project-introduction][Project Introduction]]
  - [[#player-and-enemy-animations][Player and Enemy Animations]]
+ - [[#creating-the-tile-prefabs][Creating the Tile Prefabs]]
+ - [[#writing-the-board-manager][Writing the Board Manager]]
 
 * Project Introduction
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150
@@ -29,3 +31,18 @@
 [[file:img/screenshot_2017-04-30_20-31-20.png]]
 
 [[file:img/screenshot_2017-04-30_20-32-41.png]]
+* Creating the Tile Prefabs
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-tile-prefabs?playlist=17150
+
+[[file:img/screenshot_2017-04-30_20-41-58.png]]
+
+[[file:img/screenshot_2017-04-30_20-42-09.png]]
+
+[[file:img/screenshot_2017-04-30_20-43-41.png]]
+
+[[file:img/screenshot_2017-04-30_20-50-38.png]]
+
+* Writing the Board Manager
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-board-manager?playlist=17150
+
+
