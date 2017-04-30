@@ -8,6 +8,13 @@
  - [[#writing-the-game-manager][Writing the Game Manager]]
  - [[#moving-object-script][Moving Object Script]]
  - [[#creating-destructible-walls][Creating Destructible Walls]]
+ - [[#player-animator-controller][Player Animator Controller]]
+ - [[#writing-the-player-script][Writing the Player Script]]
+ - [[#writing-the-enemy-script][Writing the Enemy Script]]
+ - [[#enemy-animator-controller][Enemy Animator Controller]]
+ - [[#adding-ui--level-transitions][Adding UI & Level Transitions]]
+ - [[#audio-and-sound-manager][Audio and Sound Manager]]
+ - [[#adding-mobile-controls][Adding Mobile Controls]]
 
 * Project Introduction
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150
@@ -58,7 +65,7 @@
   public class BoardManager : MonoBehaviour {
 
 	  [Serializable]
-	  public class Count 
+	  public class Count
 	  {
 		  public int minimum;
 		  public int maximum;
@@ -161,7 +168,7 @@
           if (instance == null)
               instance = this;
           else if (instance != this)
-              Destroy(gameObject);    
+              Destroy(gameObject);
 
 
           DontDestroyOnLoad(gameObject);
@@ -199,7 +206,7 @@
           if (instance == null)
               instance = this;
           else if (instance != this)
-              Destroy(gameObject);    
+              Destroy(gameObject);
 
 
           DontDestroyOnLoad(gameObject);
@@ -315,4 +322,508 @@
               gameObject.SetActive (false);
       }
   }
+#+END_SRC
+
+* Player Animator Controller
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-animator-controller?playlist=17150
+
+[[file:img/screenshot_2017-04-30_21-26-44.png]]
+
+[[file:img/screenshot_2017-04-30_21-28-00.png]]
+
+[[file:img/screenshot_2017-04-30_21-29-15.png]]
+
+[[file:img/screenshot_2017-04-30_21-30-19.png]]
+
+
+[[file:img/screenshot_2017-04-30_21-31-09.png]]
+
+* Writing the Player Script
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-player-script?playlist=17150
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+  using UnityEngine.SceneManagement;
+
+  public class Player : MovingObject
+  {
+	  public float restartLevelDelay = 1f;
+	  public int pointsPerFood = 10;
+	  public int pointsPerSoda = 20;
+	  public int wallDamage = 1;
+
+	  private Animator animator;
+	  private int food;
+
+	  protected override void Start ()
+	  {
+		  animator = GetComponent<Animator>();
+		  food = GameManager.instance.playerFoodPoints;
+
+		  //Call the Start function of the MovingObject base class.
+		  base.Start ();
+	  }
+
+	  private void OnDisable ()
+	  {
+		  GameManager.instance.playerFoodPoints = food;
+	  }
+
+	  private void Update ()
+	  {
+		  if(!GameManager.instance.playersTurn) return;
+
+		  int horizontal = 0;
+		  int vertical = 0;
+
+		  horizontal = (int) (Input.GetAxisRaw ("Horizontal"));
+		  vertical = (int) (Input.GetAxisRaw ("Vertical"));
+		  if(horizontal != 0)
+		  {
+			  vertical = 0;
+		  }
+
+		  if(horizontal != 0 || vertical != 0)
+		  {
+			  AttemptMove<Wall> (horizontal, vertical);
+		  }
+	  }
+
+	  protected override void AttemptMove <T> (int xDir, int yDir)
+	  {
+		  food--;
+		  base.AttemptMove <T> (xDir, yDir);
+		  RaycastHit2D hit;
+		  if (Move (xDir, yDir, out hit))
+		  {
+			  //Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.
+		  }
+
+		  CheckIfGameOver ();
+		  GameManager.instance.playersTurn = false;
+	  }
+
+
+	  protected override void OnCantMove <T> (T component)
+	  {
+		  Wall hitWall = component as Wall;
+		  hitWall.DamageWall (wallDamage);
+		  animator.SetTrigger ("playerChop");
+	  }
+
+	  private void OnTriggerEnter2D (Collider2D other)
+	  {
+		  if(other.tag == "Exit")
+		  {
+			  Invoke ("Restart", restartLevelDelay);
+			  enabled = false;
+		  }
+		  else if(other.tag == "Food")
+		  {
+			  food += pointsPerFood;
+			  other.gameObject.SetActive (false);
+		  }
+		  else if(other.tag == "Soda")
+		  {
+			  food += pointsPerSoda;
+			  other.gameObject.SetActive (false);
+		  }
+	  }
+
+	  private void Restart ()
+	  {
+		  SceneManager.LoadScene (0);
+	  }
+
+	  public void LoseFood (int loss)
+	  {
+		  animator.SetTrigger ("playerHit");
+		  food -= loss;
+		  CheckIfGameOver ();
+	  }
+
+	  private void CheckIfGameOver ()
+	  {
+		  if (food <= 0)
+		  {
+			  // GameManager.instance.GameOver ();
+		  }
+	  }
+  }
+#+END_SRC
+
+* Writing the Enemy Script
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-enemy-script?playlist=17150
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+  public class Enemy : MovingObject
+  {
+	  public int playerDamage;
+
+	  private Animator animator;
+	  private Transform target;
+	  private bool skipMove;
+
+	  protected override void Start ()
+	  {
+		  // GameManager.instance.AddEnemyToList (this);
+		  animator = GetComponent<Animator> ();
+		  target = GameObject.FindGameObjectWithTag ("Player").transform;
+		  base.Start ();
+	  }
+
+	  protected override void AttemptMove <T> (int xDir, int yDir)
+	  {
+		  if(skipMove)
+		  {
+			  skipMove = false;
+			  return;
+		  }
+
+		  base.AttemptMove <T> (xDir, yDir);
+		  skipMove = true;
+	  }
+
+	  public void MoveEnemy ()
+	  {
+		  int xDir = 0;
+		  int yDir = 0;
+		  if(Mathf.Abs (target.position.x - transform.position.x) < float.Epsilon)
+			  yDir = target.position.y > transform.position.y ? 1 : -1;
+		  else
+			  xDir = target.position.x > transform.position.x ? 1 : -1;
+		  AttemptMove <Player> (xDir, yDir);
+	  }
+
+	  protected override void OnCantMove <T> (T component)
+	  {
+		  Player hitPlayer = component as Player;
+		  hitPlayer.LoseFood (playerDamage);
+		  animator.SetTrigger ("enemyAttack");
+	  }
+  }
+#+END_SRC
+
+* Enemy Animator Controller
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/enemy-animator-controller?playlist=17150
+
+[[file:img/screenshot_2017-04-30_21-54-23.png]]
+
+[[file:img/screenshot_2017-04-30_21-54-36.png]]
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+  using System.Collections.Generic;
+
+  public class GameManager : MonoBehaviour
+  {
+	  public float levelStartDelay = 2f;
+	  public float turnDelay = 0.1f;
+	  public int playerFoodPoints = 100;
+	  public static GameManager instance = null;
+	  [HideInInspector] public bool playersTurn = true;
+
+	  private BoardManager boardScript;
+	  private int level = 1;
+	  private List<Enemy> enemies;
+	  private bool enemiesMoving;
+
+	  void Awake()
+	  {
+		  if (instance == null)
+			  instance = this;
+		  else if (instance != this)
+			  Destroy(gameObject);    
+
+		  DontDestroyOnLoad(gameObject);
+		  enemies = new List<Enemy>();
+		  boardScript = GetComponent<BoardManager>();
+		  InitGame();
+	  }
+
+	  void OnLevelWasLoaded(int index)
+	  {
+		  level++;
+		  InitGame();
+	  }
+
+	  void InitGame()
+	  {
+		  enemies.Clear();
+		  boardScript.SetupScene(level);
+
+	  }
+
+	  void Update()
+	  {
+		  if(playersTurn || enemiesMoving)
+			  return;
+		  StartCoroutine (MoveEnemies ());
+	  }
+
+	  //Call this to add the passed in Enemy to the List of Enemy objects.
+	  public void AddEnemyToList(Enemy script)
+	  {
+		  enemies.Add(script);
+	  }
+
+	  public void GameOver()
+	  {
+		  // levelImage.SetActive(true);
+		  enabled = false;
+	  }
+
+	  IEnumerator MoveEnemies()
+	  {
+		  enemiesMoving = true;
+		  yield return new WaitForSeconds(turnDelay);
+
+		  if (enemies.Count == 0) 
+		  {
+			  yield return new WaitForSeconds(turnDelay);
+		  }
+
+		  for (int i = 0; i < enemies.Count; i++)
+		  {
+			  enemies[i].MoveEnemy ();
+			  yield return new WaitForSeconds(enemies[i].moveTime);
+		  }
+		  playersTurn = true;
+		  enemiesMoving = false;
+	  }
+  }
+#+END_SRC
+
+I don't know why these had not worked.
+But It worked after restarting it.
+
+* Adding UI & Level Transitions
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-ui-level-transitions?playlist=17150
+
+[[file:img/screenshot_2017-04-30_22-37-29.png]]
+
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+
+  using System.Collections.Generic;       //Allows us to use Lists. 
+  using UnityEngine.UI;                   //Allows us to use UI.
+
+  public class GameManager : MonoBehaviour
+  {
+	  public float levelStartDelay = 2f;
+	  public float turnDelay = 0.1f;
+	  public int playerFoodPoints = 100;
+	  public static GameManager instance = null;
+	  [HideInInspector] public bool playersTurn = true;
+
+	  private Text levelText;
+	  private GameObject levelImage;
+	  private BoardManager boardScript;
+	  private int level = 1;
+	  private List<Enemy> enemies;
+	  private bool enemiesMoving;
+	  private bool doingSetup = true;
+
+	  void Awake()
+	  {
+		  if (instance == null)
+			  instance = this;
+		  else if (instance != this)
+			  Destroy(gameObject);    
+
+		  DontDestroyOnLoad(gameObject);
+		  enemies = new List<Enemy>();
+		  boardScript = GetComponent<BoardManager>();
+		  InitGame();
+	  }
+
+	  void OnLevelWasLoaded(int index)
+	  {
+		  level++;
+		  InitGame();
+	  }
+
+	  void InitGame()
+	  {
+		  doingSetup = true;
+		  levelImage = GameObject.Find("LevelImage");
+		  levelText = GameObject.Find("LevelText").GetComponent<Text>();
+		  levelText.text = "Day " + level;
+		  levelImage.SetActive(true);
+		  Invoke("HideLevelImage", levelStartDelay);
+		  enemies.Clear();
+		  boardScript.SetupScene(level);
+	  }
+
+	  void HideLevelImage()
+	  {
+		  levelImage.SetActive(false);
+		  doingSetup = false;
+	  }
+
+	  void Update()
+	  {
+		  if(playersTurn || enemiesMoving || doingSetup)
+			  return;
+		  StartCoroutine (MoveEnemies ());
+	  }
+
+	  public void AddEnemyToList(Enemy script)
+	  {
+		  enemies.Add(script);
+	  }
+
+	  public void GameOver()
+	  {
+		  levelText.text = "After " + level + " days, you starved.";
+		  levelImage.SetActive(true);
+		  enabled = false;
+	  }
+
+	  IEnumerator MoveEnemies()
+	  {
+		  enemiesMoving = true;
+		  yield return new WaitForSeconds(turnDelay);
+		  if (enemies.Count == 0) 
+		  {
+			  yield return new WaitForSeconds(turnDelay);
+		  }
+
+		  for (int i = 0; i < enemies.Count; i++)
+		  {
+			  enemies[i].MoveEnemy ();
+			  yield return new WaitForSeconds(enemies[i].moveTime);
+		  }
+
+		  playersTurn = true;
+		  enemiesMoving = false;
+	  }
+  }
+#+END_SRC
+
+#+BEGIN_SRC csharp
+  public Text foodText;
+
+  private void OnTriggerEnter2D (Collider2D other)
+  {
+		  if(other.tag == "Exit")
+		  {
+          Invoke ("Restart", restartLevelDelay);
+          enabled = false;
+		  }
+		  else if(other.tag == "Food")
+		  {
+          food += pointsPerFood;
+          foodText.text = "+" + pointsPerFood + " Food: " + food;
+          other.gameObject.SetActive (false);
+		  }
+		  else if(other.tag == "Soda")
+		  {
+          food += pointsPerSoda;
+          foodText.text = "+" + pointsPerSoda + " Food: " + food;
+          other.gameObject.SetActive (false);
+		  }
+	  }
+#+END_SRC
+
+[[file:img/screenshot_2017-04-30_23-03-13.png]]
+
+* Audio and Sound Manager
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/audio-and-sound-manager?playlist=17150
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+  public class SoundManager : MonoBehaviour 
+  {
+      public AudioSource efxSource;
+      public AudioSource musicSource;
+      public static SoundManager instance = null;
+      public float lowPitchRange = .95f;
+      public float highPitchRange = 1.05f;
+
+      void Awake ()
+      {
+          if (instance == null)
+              instance = this;
+          else if (instance != this)
+              Destroy (gameObject);
+          DontDestroyOnLoad (gameObject);
+      }
+
+      public void PlaySingle(AudioClip clip)
+      {
+          efxSource.clip = clip;
+          efxSource.Play ();
+      }
+		
+      public void RandomizeSfx (params AudioClip[] clips)
+      {
+          int randomIndex = Random.Range(0, clips.Length);
+          float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+          efxSource.pitch = randomPitch;
+          efxSource.clip = clips[randomIndex];
+          efxSource.Play();
+      }
+  }
+#+END_SRC
+
+[[file:img/screenshot_2017-04-30_23-08-37.png]]
+
+#+BEGIN_SRC csharp
+  public AudioClip moveSound1;
+  public AudioClip moveSound2;
+
+  protected override void AttemptMove <T> (int xDir, int yDir)
+  {
+		  food--;
+		  base.AttemptMove <T> (xDir, yDir);
+		  RaycastHit2D hit;
+		  if (Move (xDir, yDir, out hit)) 
+		  {
+          //Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.
+          SoundManager.instance.RandomizeSfx(moveSound1, moveSound2);
+		  }
+
+		  CheckIfGameOver ();
+		  GameManager.instance.playersTurn = false;
+  }
+#+END_SRC
+
+* Adding Mobile Controls
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-mobile-controls?playlist=17150
+
+#+BEGIN_SRC csharp
+  #elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
+
+  if (Input.touchCount > 0)
+   {
+       Touch myTouch = Input.touches[0];
+       if (myTouch.phase == TouchPhase.Began)
+       {
+           touchOrigin = myTouch.position;
+       }
+       else if (myTouch.phase == TouchPhase.Ended && touchOrigin.x >= 0)
+       {
+           Vector2 touchEnd = myTouch.position;
+           float x = touchEnd.x - touchOrigin.x;
+           float y = touchEnd.y - touchOrigin.y;
+           touchOrigin.x = -1;
+           if (Mathf.Abs(x) > Mathf.Abs(y))
+               horizontal = x > 0 ? 1 : -1;
+           else
+               vertical = y > 0 ? 1 : -1;
+       }
+   }
+
+  #endif
 #+END_SRC
