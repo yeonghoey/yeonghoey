@@ -5,6 +5,9 @@
  - [[#player-and-enemy-animations][Player and Enemy Animations]]
  - [[#creating-the-tile-prefabs][Creating the Tile Prefabs]]
  - [[#writing-the-board-manager][Writing the Board Manager]]
+ - [[#writing-the-game-manager][Writing the Game Manager]]
+ - [[#moving-object-script][Moving Object Script]]
+ - [[#creating-destructible-walls][Creating Destructible Walls]]
 
 * Project Introduction
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150
@@ -45,4 +48,271 @@
 * Writing the Board Manager
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-board-manager?playlist=17150
 
+#+BEGIN_SRC csharp
+  using System.Collections;
+  using System.Collections.Generic;
+  using UnityEngine;
+  using System;
+  using Random = UnityEngine.Random;
 
+  public class BoardManager : MonoBehaviour {
+
+	  [Serializable]
+	  public class Count 
+	  {
+		  public int minimum;
+		  public int maximum;
+
+		  public Count (int min, int max)
+		  {
+			  minimum = min;
+			  maximum = max;
+		  }
+	  }
+
+	  public int columns = 8;
+	  public int rows = 8;
+	  public Count wallCount = new Count (5, 9);
+	  public Count foodCount = new Count(1, 5);
+	  public GameObject exit;
+	  public GameObject[] floorTiles;
+	  public GameObject[] wallTiles;
+	  public GameObject[] foodTiles;
+	  public GameObject[] enemyTiles;
+	  public GameObject[] outerWallTiles;
+
+	  private Transform boardHolder;
+	  private List<Vector3> gridPositions = new List<Vector3>();
+
+	  void InitialiseList() {
+		  gridPositions.Clear ();
+
+		  for (int x = 1; x < columns - 1; x++) {
+			  for (int y = 1; y < rows - 1; y++) {
+				  gridPositions.Add (new Vector3 (x, y, 0f));
+			  }
+		  }
+	  }
+
+	  void BoardSetup()
+	  {
+		  boardHolder = new GameObject ("Board").transform;
+
+		  for (int x = -1; x < columns + 1; x++) {
+			  for (int y = -1; y < rows + 1; y++) {
+				  GameObject toInstantiate = floorTiles [Random.Range (0, floorTiles.Length)];
+				  if (x == -1 || x == columns || y == -1 || y == rows) {
+					  toInstantiate = outerWallTiles [Random.Range (0, outerWallTiles.Length)];
+				  }
+				  GameObject instance = Instantiate (toInstantiate, new Vector3 (x, y, 0), Quaternion.identity) as GameObject;
+				  instance.transform.SetParent (boardHolder);
+			  }
+		  }
+	  }
+
+	  Vector3 RandomPosition() {
+		  int randomIndex = Random.Range (0, gridPositions.Count);
+		  Vector3 randomPosition = gridPositions (randomIndex);
+		  gridPositions.RemoveAt (randomIndex);
+		  return randomPosition;
+	  }
+
+	  void LayoutObjectAtRandom (GameObject[] tileArray, int minimum, int maximum)
+	  {
+		  int objectCount = Random.Range (minimum, maximum+1);
+		  for(int i = 0; i < objectCount; i++)
+		  {
+			  Vector3 randomPosition = RandomPosition();
+			  GameObject tileChoice = tileArray[Random.Range (0, tileArray.Length)];
+			  Instantiate(tileChoice, randomPosition, Quaternion.identity);
+		  }
+	  }
+
+	  public void SetupScene (int level)
+	  {
+		  BoardSetup ();
+		  InitialiseList ();
+		  LayoutObjectAtRandom (wallTiles, wallCount.minimum, wallCount.maximum);
+		  LayoutObjectAtRandom (foodTiles, foodCount.minimum, foodCount.maximum);
+
+		  int enemyCount = (int)Mathf.Log(level, 2f);
+		  LayoutObjectAtRandom (enemyTiles, enemyCount, enemyCount);
+		  Instantiate (exit, new Vector3 (columns - 1, rows - 1, 0f), Quaternion.identity);
+	  }
+  }
+#+END_SRC
+
+* Writing the Game Manager
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager?playlist=17150
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+  using System.Collections.Generic;
+
+  public class GameManager : MonoBehaviour
+  {
+      public static GameManager instance = null;
+      private BoardManager boardScript;
+      private int level = 3;
+
+      void Awake()
+      {
+          if (instance == null)
+              instance = this;
+          else if (instance != this)
+              Destroy(gameObject);    
+
+
+          DontDestroyOnLoad(gameObject);
+          boardScript = GetComponent<BoardManager>();
+          InitGame();
+      }
+
+      void InitGame()
+      {
+          boardScript.SetupScene(level);
+      }
+
+      void Update()
+      {
+
+      }
+  }
+#+END_SRC
+
+[[file:img/screenshot_2017-04-30_21-11-05.png]]
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+  using System.Collections.Generic;
+
+  public class GameManager : MonoBehaviour
+  {
+      public static GameManager instance = null;
+      private BoardManager boardScript;
+      private int level = 3;
+
+      void Awake()
+      {
+          if (instance == null)
+              instance = this;
+          else if (instance != this)
+              Destroy(gameObject);    
+
+
+          DontDestroyOnLoad(gameObject);
+          boardScript = GetComponent<BoardManager>();
+          InitGame();
+      }
+
+      void InitGame()
+      {
+          boardScript.SetupScene(level);
+      }
+  }
+#+END_SRC
+
+* Moving Object Script
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/moving-object-script?playlist=17150
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+  public abstract class MovingObject : MonoBehaviour
+  {
+	  public float moveTime = 0.1f;
+	  public LayerMask blockingLayer;
+
+	  private BoxCollider2D boxCollider;
+	  private Rigidbody2D rb2D;
+	  private float inverseMoveTime;
+
+	  protected virtual void Start ()
+	  {
+		  boxCollider = GetComponent <BoxCollider2D> ();
+		  rb2D = GetComponent <Rigidbody2D> ();
+		  inverseMoveTime = 1f / moveTime;
+	  }
+
+	  protected bool Move (int xDir, int yDir, out RaycastHit2D hit)
+	  {
+		  Vector2 start = transform.position;
+		  Vector2 end = start + new Vector2 (xDir, yDir);
+		  boxCollider.enabled = false;
+		  hit = Physics2D.Linecast (start, end, blockingLayer);
+		  boxCollider.enabled = true;
+		  if(hit.transform == null)
+		  {
+			  StartCoroutine (SmoothMovement (end));
+			  return true;
+		  }
+		  return false;
+	  }
+
+	  protected IEnumerator SmoothMovement (Vector3 end)
+	  {
+		  float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+		  while(sqrRemainingDistance > float.Epsilon)
+		  {
+			  Vector3 newPostion = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
+			  rb2D.MovePosition (newPostion);
+			  sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+			  yield return null;
+		  }
+	  }
+
+	  protected virtual void AttemptMove <T> (int xDir, int yDir)
+		  where T : Component
+	  {
+		  RaycastHit2D hit;
+		  bool canMove = Move (xDir, yDir, out hit);
+
+		  if(hit.transform == null)
+			  return;
+
+		  T hitComponent = hit.transform.GetComponent <T> ();
+		  if(!canMove && hitComponent != null)
+			  OnCantMove (hitComponent);
+	  }
+
+
+	  //The abstract modifier indicates that the thing being modified has a missing or incomplete implementation.
+	  //OnCantMove will be overriden by functions in the inheriting classes.
+	  protected abstract void OnCantMove <T> (T component)
+		  where T : Component;
+  }
+#+END_SRC
+
+* Creating Destructible Walls
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-destructible-walls?playlist=17150
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+  public class Wall : MonoBehaviour
+  {
+      public AudioClip chopSound1;
+      public AudioClip chopSound2;
+      public Sprite dmgSprite;
+      public int hp = 3;
+
+      private SpriteRenderer spriteRenderer;
+
+      void Awake ()
+      {
+          spriteRenderer = GetComponent<SpriteRenderer> ();
+      }
+
+      public void DamageWall (int loss)
+      {
+          spriteRenderer.sprite = dmgSprite;
+          hp -= loss;
+          if(hp <= 0)
+              gameObject.SetActive (false);
+      }
+  }
+#+END_SRC
