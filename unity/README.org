@@ -9,7 +9,11 @@
 - https://docs.unity3d.com/ScriptReference/Collider2D.html
 
 #+BEGIN_SRC csharp
-  void OnTriggerEnter2D(Collider2D other)
+  void OnTriggerEnter2D(Collider2D other) {
+		  if (other.CompareTag ("Bullet")) {
+          Destroy (other.gameObject);
+		  }
+  }
 #+END_SRC
 
 ** Object
