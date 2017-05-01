@@ -7,6 +7,7 @@
  - [[#ontriggerenter][OnTriggerEnter]]
  - [[#destroy][Destroy]]
  - [[#webgl-doent-work-in-chrome-locally][WebGL doen't work in chrome locally]]
+ - [[#physics-2d][Physics 2D]]
  - [[#random][Random]]
 
 * Start
@@ -18,6 +19,15 @@
 - https://docs.unity3d.com/Manual/webgl-building.html
 - Use Unity’s ~Build & Run~ command; the file is then temporarily hosted in a local web server and opened from a local host URL.
 - Run Chrome with the ~--allow-file-access-from-files~ command line option which allows it to load content from local file URLs.
+* Physics 2D
+- https://docs.unity3d.com/Manual/Physics2DReference.html
+
+
+- A Kinematic Rigidbody 2D *does not* collide with other Kinematic Rigidbody 2Ds or with Static Rigidbody 2Ds;
+  it only collides with Dynamic Rigidbody 2Ds.
+
+[[file:img/screenshot_2017-05-01_10-20-38.png]]
+
 * Random
 - https://docs.unity3d.com/ScriptReference/Random.html
 
