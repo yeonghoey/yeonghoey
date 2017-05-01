@@ -1,9 +1,15 @@
 #+TITLE: Aseprite
 
 * Table of Contents :TOC_1_gh:
- - [[#onion-skinning][Onion skinning]]
+ - [[#reference][Reference]]
+ - [[#details][Details]]
 
-* Onion skinning
+* Reference
+- https://www.aseprite.org/quickref/
+
+[[file:img/screenshot_2017-05-02_07-17-55.png]]
+* Details
+** Onion skinning
 - https://www.aseprite.org/docs/animation/
 
 [[file:img/screenshot_2017-05-02_07-16-29.png]]
