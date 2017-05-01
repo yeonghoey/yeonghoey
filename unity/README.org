@@ -7,6 +7,7 @@
  - [[#ontriggerenter][OnTriggerEnter]]
  - [[#destroy][Destroy]]
  - [[#webgl-doent-work-in-chrome-locally][WebGL doen't work in chrome locally]]
+ - [[#random][Random]]
 
 * Start
 * GetComponent
@@ -17,3 +18,20 @@
 - https://docs.unity3d.com/Manual/webgl-building.html
 - Use Unity’s ~Build & Run~ command; the file is then temporarily hosted in a local web server and opened from a local host URL.
 - Run Chrome with the ~--allow-file-access-from-files~ command line option which allows it to load content from local file URLs.
+* Random
+- https://docs.unity3d.com/ScriptReference/Random.html
+
+#+BEGIN_SRC csharp
+  // min [inclusive] and max [inclusive]
+  public static float Range(float min, float max);
+
+  // 0.0 [inclusive] and 1.0 [inclusive]
+  public static float value;
+
+  public static Quaternion rotation;
+
+  public static Vector2 insideUnitCircle;
+
+  // Many other overloadings
+  public static Color ColorHSV();
+#+END_SRC
