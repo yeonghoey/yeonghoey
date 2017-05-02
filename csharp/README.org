@@ -79,6 +79,48 @@ it's inherently static while a readonly field can be either static or instance.
     }
 #+END_SRC
 
+** Static Class and Static Class Members
+- https://msdn.microsoft.com/en-us/library/79b3xss3.aspx
+- https://msdn.microsoft.com/en-us/library/k9x6w0hc.aspx
+- http://stackoverflow.com/questions/3681055/is-the-order-of-static-class-initialization-in-c-sharp-deterministic
+- C# does not support static local variables
+- Static members are initialized
+  - before the static member is accessed for the first time
+  - before the static constructor, if there is one, is called
+
+#+BEGIN_SRC csharp
+  public class Automobile
+  {
+      public static int NumberOfWheels = 4;
+      public static int SizeOfGasTank
+      {
+          get
+          {
+              return 15;
+          }
+      }
+      public static void Drive() { }
+      public static event EventType RunOutOfGas;
+
+      // Other non-static fields and properties...
+  }
+#+END_SRC
+
+#+BEGIN_SRC csharp
+  class SimpleClass
+  {
+      // Static variable that must be initialized at run time.
+      static readonly long baseline;
+
+      // Static constructor is called at most one time, before any
+      // instance constructor is invoked or member is accessed.
+      static SimpleClass()
+      {
+          baseline = DateTime.Now.Ticks;
+      }
+    }
+#+END_SRC
+
 ** ToString
 - https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
 
