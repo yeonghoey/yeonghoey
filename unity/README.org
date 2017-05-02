@@ -1,10 +1,23 @@
 #+TITLE: Unity
 
-* Table of Contents :TOC_1_gh:
+* Table of Contents :TOC_2_gh:
  - [[#references][References]]
+   - [[#animation-window][Animation Window]]
+   - [[#animator-window][Animator Window]]
+   - [[#collider-2d][Collider 2D]]
+   - [[#coroutine][Coroutine]]
+   - [[#object][Object]]
+   - [[#physics-2d][Physics 2D]]
+   - [[#random][Random]]
+   - [[#sprites][Sprites]]
  - [[#details][Details]]
+   - [[#execution-order][Execution Order]]
+   - [[#awake-vs-start][Awake vs Start]]
+   - [[#layer-vs-sorting-layer][Layer vs Sorting Layer]]
  - [[#use-cases][Use Cases]]
+   - [[#webgl-doent-work-in-chrome-locally][WebGL doen't work in chrome locally]]
  - [[#troubleshootings][Troubleshootings]]
+   - [[#coroutine-named-main][Coroutine named Main]]
 
 * References
 ** Animation Window
@@ -89,6 +102,13 @@
   }
 #+END_SRC
 
+** Coroutine
+- https://docs.unity3d.com/Manual/Coroutines.html
+- http://answers.unity3d.com/questions/755196/yield-return-null-vs-yield-return-waitforendoffram.html
+- Coroutines have virtually no performance overhead.
+- ~StartCoroutine~ function always returns immediately,
+- SEE: [[#execution-order][Execution Order]]
+
 ** Object
 - https://docs.unity3d.com/ScriptReference/Object.html
 
@@ -137,6 +157,11 @@
 [[file:img/screenshot_2017-05-02_09-56-05.png]]
 
 * Details
+** Execution Order
+- https://docs.unity3d.com/Manual/ExecutionOrder.html
+
+[[file:img/screenshot_2017-05-02_16-38-10.png]]
+
 ** Awake vs Start
 - http://answers.unity3d.com/questions/8794/Difference-of-assigning-a-variable-outside-any-function-in-Awake-or-in-Start.html?_ga=1.171475872.1885432898.1491733403
 - ~Awake~ and ~Start~ are called only once in thier lifetime
