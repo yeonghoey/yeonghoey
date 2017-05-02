@@ -6,6 +6,7 @@
    - [[#animator-window][Animator Window]]
    - [[#collider-2d][Collider 2D]]
    - [[#coroutine][Coroutine]]
+   - [[#main-window][Main Window]]
    - [[#object][Object]]
    - [[#physics-2d][Physics 2D]]
    - [[#random][Random]]
@@ -15,6 +16,7 @@
    - [[#awake-vs-start][Awake vs Start]]
    - [[#layer-vs-sorting-layer][Layer vs Sorting Layer]]
  - [[#use-cases][Use Cases]]
+   - [[#make-input-axis-discrete][Make Input Axis discrete]]
    - [[#webgl-doent-work-in-chrome-locally][WebGL doen't work in chrome locally]]
  - [[#troubleshootings][Troubleshootings]]
    - [[#coroutine-named-main][Coroutine named Main]]
@@ -109,6 +111,8 @@
 - ~StartCoroutine~ function always returns immediately,
 - SEE: [[#execution-order][Execution Order]]
 
+** Main Window
+- https://docs.unity3d.com/Manual/UnityHotkeys.html
 ** Object
 - https://docs.unity3d.com/ScriptReference/Object.html
 
@@ -178,6 +182,13 @@
 [[file:img/screenshot_2017-05-02_10-00-27.png]]
 
 * Use Cases
+** Make Input Axis discrete
+- https://docs.unity3d.com/Manual/ConventionalGameInput.html
+- ~GetAxis()~ things have a joy-stick like input handling
+- By tweaking ~Gravity~, ~Dead~, ~Sensitivity~, can make axes work just like buttons or keys.
+
+[[file:img/screenshot_2017-05-02_16-46-41.png]]
+
 ** WebGL doen't work in chrome locally
 - https://docs.unity3d.com/Manual/webgl-building.html
 - Use Unity’s ~Build & Run~ command; the file is then temporarily hosted in a local web server and opened from a local host URL.
