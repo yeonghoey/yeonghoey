@@ -1,0 +1,38 @@
+#+TITLE: Animation Tutorial
+
+* Table of Contents :TOC_1_gh:
+ - [[#animator-scripting][Animator Scripting]]
+
+* Animator Scripting
+- https://unity3d.com/learn/tutorials/topics/animation/animator-scripting?playlist=17099
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+  public class EthanScript : MonoBehaviour
+  {
+      Animator anim;
+      int jumpHash = Animator.StringToHash("Jump");
+      int runStateHash = Animator.StringToHash("Base Layer.Run");
+
+
+      void Start ()
+      {
+          anim = GetComponent<Animator>();
+      }
+
+
+      void Update ()
+      {
+          float move = Input.GetAxis ("Vertical");
+          anim.SetFloat("Speed", move);
+
+          AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+          if(Input.GetKeyDown(KeyCode.Space) && stateInfo.nameHash == runStateHash)
+          {
+              anim.SetTrigger (jumpHash);
+          }
+      }
+  }
+#+END_SRC
