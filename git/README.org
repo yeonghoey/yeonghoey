@@ -140,6 +140,30 @@ and delete the branch manually after it merged.
 #+END_SRC
 
 ** tag
+*** Basics
+- https://git-scm.com/book/en/v2/Git-Basics-Tagging
+
+#+BEGIN_SRC shell
+  $ git tag
+  v0.1
+  v1.3
+  $ git tag -l "v1.8.5*"
+  v1.8.5
+  v1.8.5-rc0
+  v1.8.5-rc1
+  v1.8.5-rc2
+  v1.8.5-rc3
+
+  # Lightweight tags, a pointer to a specific commit.
+  $ git tag v1.4-lw
+
+  # Annotated tags, stored as full objects in the Git database
+  $ git tag -a v1.4 -m "my version 1.4"
+
+  $ git push origin v1.5
+  $ git push origin --tags # all local tags to remote
+#+END_SRC
+
 *** Prune local git tags that don't exist on remote
 - https://demisx.github.io/git/2014/11/02/git-prune-local-tags-dont-exist-remote.html
 
