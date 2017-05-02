@@ -53,6 +53,16 @@
 ** Sprites
 - https://docs.unity3d.com/Manual/Sprites.html
 
+*** Packer
+- file:///Applications/Unity/Unity.app/Contents/Documentation/en/Manual/SpritePacker.html
+- ~Edit~ -> ~Project Settings~ -> ~Editor~
+- ~Window~ -> ~Sprite Packer~
+- *Required to specify a Packing Tag* in the Texture Importer to enable packing for Sprites of that Texture.
+
+[[file:img/screenshot_2017-05-02_09-55-41.png]]
+
+[[file:img/screenshot_2017-05-02_09-56-05.png]]
+
 * Use Cases
 ** WebGL doen't work in chrome locally
 - https://docs.unity3d.com/Manual/webgl-building.html
