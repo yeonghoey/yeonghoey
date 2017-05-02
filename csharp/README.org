@@ -32,6 +32,19 @@ In short, No. Because:
 
 - ~const~ only for expressions can be evaluated at compile time
 - ~readonly~ only works on class level
+** Can I handle inputs in FixedUpdate?
+- http://answers.unity3d.com/questions/620981/input-and-applying-physics-update-or-fixedupdate.html
+
+*General Rule*:
+- Input should be in ~Update~,
+  so that there is no chance of having a frame in which you miss the player input
+  (which could happen if you placed it in ~FixedUpdate~)
+- Physics calculations should be in ~FixedUpdate~,
+  so that they are consistent and synchronised with the global physics timestep of the game
+  (by default 50 times per second)
+- Camera movement should be in ~LateUpdate~,
+  so that it reflects the positions of any objects that may have moved in the current frame
+
 ** Increment operator: Post vs Pre?
 - http://stackoverflow.com/questions/467322/is-there-any-performance-difference-between-i-and-i-in-c
 - The semantic is not different from C ++
