@@ -15,6 +15,7 @@
    - [[#random][Random]]
    - [[#sprites][Sprites]]
  - [[#details][Details]]
+   - [[#mononet-compatibility][Mono(.Net) Compatibility]]
    - [[#execution-order][Execution Order]]
    - [[#awake-vs-start][Awake vs Start]]
    - [[#layer-vs-sorting-layer][Layer vs Sorting Layer]]
@@ -290,6 +291,15 @@ What I experimented:
 [[file:img/screenshot_2017-05-02_09-56-05.png]]
 
 * Details
+** Mono(.Net) Compatibility
+- http://answers.unity3d.com/questions/1334261/unity-560f3-where-is-net-46-support.html
+- Currently, It looks like that ~C# 6.0~ (~.Net 4.6~) only supported for Windows target
+- For other platforms, only supports ~.Net 2.0~
+
+[[file:img/screenshot_2017-05-02_21-57-00.png]]
+
+[[file:img/screenshot_2017-05-02_22-00-41.png]]
+
 ** Execution Order
 - https://docs.unity3d.com/Manual/ExecutionOrder.html
 
