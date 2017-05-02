@@ -8,8 +8,42 @@
 * References
 ** Animations
 - https://docs.unity3d.com/Manual/AnimationSection.html
+- https://docs.unity3d.com/Manual/AnimationParameters.html
 
 [[file:img/screenshot_2017-05-02_10-32-44.png]]
+
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+  public class SimplePlayer : MonoBehaviour {
+
+      Animator animator;
+
+      // Use this for initialization
+      void Start () {
+          animator = GetComponent<Animator>();
+      }
+
+      // Update is called once per frame
+      void Update () {
+          float h = Input.GetAxis("Horizontal");
+          float v = Input.GetAxis("Vertical");
+          bool fire = Input.GetButtonDown("Fire1");
+
+          animator.SetFloat("Forward",v);
+          animator.SetFloat("Strafe",h);
+          animator.SetBool("Fire", fire);
+      }
+
+      void OnCollisionEnter(Collision col) {
+          if (col.gameObject.CompareTag("Enemy"))
+          {
+              animator.SetTrigger("Die");
+          }
+      }
+  }
+#+END_SRC
 
 ** Collider 2D
 - https://docs.unity3d.com/ScriptReference/Collider2D.html
@@ -83,4 +117,3 @@
 - https://docs.unity3d.com/Manual/webgl-building.html
 - Use Unity’s ~Build & Run~ command; the file is then temporarily hosted in a local web server and opened from a local host URL.
 - Run Chrome with the ~--allow-file-access-from-files~ command line option which allows it to load content from local file URLs.
-
