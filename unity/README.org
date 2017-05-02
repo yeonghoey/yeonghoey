@@ -4,6 +4,7 @@
  - [[#references][References]]
  - [[#details][Details]]
  - [[#use-cases][Use Cases]]
+ - [[#troubleshootings][Troubleshootings]]
 
 * References
 ** Animation Window
@@ -156,3 +157,15 @@
 - https://docs.unity3d.com/Manual/webgl-building.html
 - Use Unity’s ~Build & Run~ command; the file is then temporarily hosted in a local web server and opened from a local host URL.
 - Run Chrome with the ~--allow-file-access-from-files~ command line option which allows it to load content from local file URLs.
+
+* Troubleshootings
+** Coroutine named Main
+*Don't define a coroutine named ~Main~.*
+
+I wrote a coroutine named ~Main~.
+It executed twice, in an unexpected way.
+
+I've tweaked many times to understand why.
+~Main~ executed even I didn't explicitly call ~StartCoroutine~.
+
+At last, I renamed ~Main~ to ~Main2~, and it worked all the way I expected.
