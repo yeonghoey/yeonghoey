@@ -32,3 +32,7 @@ In short, No. Because:
 
 - ~const~ only for expressions can be evaluated at compile time
 - ~readonly~ only works on class level
+** Increment operator: Post vs Pre?
+- http://stackoverflow.com/questions/467322/is-there-any-performance-difference-between-i-and-i-in-c
+- The semantic is not different from C ++
+- Thanks to the compiler, In short, *there will be no difference* in the runtime for control variables
