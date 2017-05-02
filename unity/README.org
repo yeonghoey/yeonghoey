@@ -18,6 +18,7 @@
    - [[#awake-vs-start][Awake vs Start]]
    - [[#layer-vs-sorting-layer][Layer vs Sorting Layer]]
  - [[#use-cases][Use Cases]]
+   - [[#pixel-perfect][Pixel Perfect]]
    - [[#make-input-axis-discrete][Make Input Axis discrete]]
    - [[#webgl-doent-work-in-chrome-locally][WebGL doen't work in chrome locally]]
  - [[#troubleshootings][Troubleshootings]]
@@ -258,6 +259,26 @@ What I experimented:
 [[file:img/screenshot_2017-05-02_10-00-27.png]]
 
 * Use Cases
+** Pixel Perfect
+- https://blogs.unity3d.com/2015/06/19/pixel-perfect-2d/
+
+[[file:img/screenshot_2017-05-02_17-07-54.png]]
+
+#+BEGIN_QUOTE
+So on a screen height of ~1080~ with orthographic size of ~5~,
+each world space unit will take up ~108~ pixels ~(1080 / (5*2))~.
+It's ~5 * 2~ because orthographic size specifies the size going
+from the center of the screen to the top.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Therefore if your Sprite’s *Pixels Per Unit (PPU)* settings is ~108~, it will be rendered nicely.
+#+END_QUOTE
+
+#+BEGIN_EXAMPLE
+  Orthographic size = ((Vert Resolution)/(PPUScale * PPU)) * 0.5
+#+END_EXAMPLE
+
 ** Make Input Axis discrete
 - https://docs.unity3d.com/Manual/ConventionalGameInput.html
 - ~GetAxis()~ things have a joy-stick like input handling
