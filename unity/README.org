@@ -10,6 +10,7 @@
 - https://docs.unity3d.com/Manual/AnimationSection.html
 - https://docs.unity3d.com/Manual/AnimationParameters.html
 - https://docs.unity3d.com/Manual/animeditor-AnimationEvents.html
+- https://docs.unity3d.com/Manual/class-State.html
 - https://docs.unity3d.com/Manual/class-Transition.html
 
 [[file:img/screenshot_2017-05-02_10-32-44.png]]
@@ -57,6 +58,8 @@
 #+END_SRC
 
 [[file:img/screenshot_2017-05-02_11-03-03.png]]
+
+[[file:img/screenshot_2017-05-02_13-37-43.png]]
 
 [[file:img/screenshot_2017-05-02_11-18-01.png]]
 
