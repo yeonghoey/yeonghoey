@@ -17,6 +17,9 @@
 
 ** Properties
 - https://msdn.microsoft.com/en-us/library/w86s7x04.aspx
+- https://msdn.microsoft.com/en-us/library/bb384054.aspx
+- ~set~ accessor resembles a method whose return type is ~void~.
+  It uses an implicit parameter called ~value~
 
 #+BEGIN_SRC csharp
   public class Date
@@ -40,6 +43,17 @@
     }
 #+END_SRC
 
+#+BEGIN_SRC csharp
+  // From C# 3.0
+  // Auto-Impl Properties for trivial get and set
+  public double TotalPurchases { get; set; }
+  public string Name { get; set; }
+  public int CustomerID { get; set; }
+
+  // From C# 6.0
+  public string FirstName { get; set; } = "Jane";
+#+END_SRC
+
 ** readonly
 - https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx
 - A ~const~ field can only be initialized at the declaration of the field.
@@ -48,6 +62,22 @@
 - readonly *only works on class level*
 Also as a consequence of const requiring a literal,
 it's inherently static while a readonly field can be either static or instance.
+
+#+BEGIN_SRC csharp
+  class Age
+  {
+      readonly int _year;
+      Age(int year)
+      {
+          _year = year;
+      }
+
+      void ChangeYear()
+      {
+          //_year = 1967; // Compile error if uncommented.
+      }
+    }
+#+END_SRC
 
 ** ToString
 - https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
@@ -60,7 +90,7 @@ it's inherently static while a readonly field can be either static or instance.
 * Use Cases
 ** Can I make local vairalbes constant?
 - http://stackoverflow.com/questions/2054761/how-to-declare-a-local-constant-in-c
-- 
+-
 In short, No. Because:
 
 - ~const~ only for expressions can be evaluated at compile time
