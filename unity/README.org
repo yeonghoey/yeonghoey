@@ -136,6 +136,13 @@
 [[file:img/screenshot_2017-05-02_09-56-05.png]]
 
 * Details
+** Awake vs Start
+- http://answers.unity3d.com/questions/8794/Difference-of-assigning-a-variable-outside-any-function-in-Awake-or-in-Start.html?_ga=1.171475872.1885432898.1491733403
+- ~Awake~ and ~Start~ are called only once in thier lifetime
+- ~Awake~ is called when the script instance is being loaded(whther or not the script ~enabled~)
+- ~Start~ is called on the frame when a script is enabled(before ~Update~)
+- ~Awake~ is called on all objects in the scene before any object's ~Start~ is called.
+
 ** Layer vs Sorting Layer
 - http://answers.unity3d.com/questions/726726/which-is-the-difference-between-layer-and-sorting.html
 - *Layers* can be used for selective rendering from cameras or ignoring raycasts
