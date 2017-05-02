@@ -6,6 +6,11 @@
  - [[#use-cases][Use Cases]]
 
 * References
+** Animations
+- https://docs.unity3d.com/Manual/AnimationSection.html
+
+[[file:img/screenshot_2017-05-02_10-32-44.png]]
+
 ** Collider 2D
 - https://docs.unity3d.com/ScriptReference/Collider2D.html
 
