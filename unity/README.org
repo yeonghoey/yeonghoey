@@ -202,6 +202,7 @@ What I experimented:
 
 *** Instantiate
 - https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
+
 - If cloning a ~Component~ then the ~GameObject~ it is attached to will also be cloned
 - All child objects and components will also be cloned
 
@@ -212,6 +213,14 @@ What I experimented:
   public static Object Instantiate(Object original, Vector3 position, Quaternion rotation);
   public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
 #+END_SRC
+
+**** Instantiated GameObject
+- http://answers.unity3d.com/questions/839444/instantation-and-use-of-gameobject-in-same-frame.html
+
+1. Before Instantiate
+2. Awake of Instantiated GameObject
+3. After Instantiate
+4. Start of Instantiated GameObject
 
 *** Destroy
 - https://docs.unity3d.com/ScriptReference/Object.Destroy.html
