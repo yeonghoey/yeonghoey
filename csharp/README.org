@@ -1,12 +1,27 @@
 #+TITLE: C#
 
-* Table of Contents :TOC_1_gh:
+* Table of Contents :TOC_2_gh:
  - [[#c-concepts][C# Concepts]]
+ - [[#mono][Mono]]
  - [[#references][References]]
+   - [[#as][as]]
+   - [[#const][const]]
+   - [[#null][null]]
+   - [[#nullablet][Nullable<T>]]
+   - [[#properties][Properties]]
+   - [[#readonly][readonly]]
+   - [[#static-class-and-static-class-members][Static Class and Static Class Members]]
+   - [[#tostring][ToString]]
  - [[#use-cases][Use Cases]]
+   - [[#can-i-make-local-vairalbes-constant][Can I make local vairalbes constant?]]
+   - [[#can-i-handle-inputs-in-fixedupdate][Can I handle inputs in FixedUpdate?]]
+   - [[#increment-operator-post-vs-pre][Increment operator: Post vs Pre?]]
 
 * C# Concepts
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/concepts
+
+* Mono
+- http://www.mono-project.com/docs/about-mono/compatibility/
 
 * References
 ** as
@@ -60,6 +75,41 @@
 - The initializer of a constant local or a constant field must be
   a constant expression that can be implicitly converted to the target type
 - A constant expression is an expression that *can be fully evaluated at compile time*
+
+** null
+- https://msdn.microsoft.com/en-us/library/dn986595.aspx
+
+#+BEGIN_SRC csharp
+  // Traditional null check
+  var handler = this.PropertyChanged;
+  if (handler != null)
+      handler(…)
+
+  // equivalent to, and thread-safe thanks to compiler
+  PropertyChanged?.Invoke(e)
+#+END_SRC
+
+#+BEGIN_SRC csharp
+  int? length = customers?.Length; // null if customers is null
+  Customer first = customers?[0];  // null if customers is null
+  int? count = customers?[0]?.Orders?.Count();  // null if customers, the first customer, or Orders is null
+#+END_SRC
+
+#+BEGIN_SRC csharp
+  // The ?? operator is called the null-coalescing operator.
+  // It returns the left-hand operand if the operand is not null;
+  // otherwise it returns the right hand operand.
+
+  int? x = null;
+  // Set y to the value of x if x is NOT null; otherwise,
+  // if x = null, set y to -1.
+  int y = x ?? -1;
+#+END_SRC
+
+** Nullable<T>
+- https://msdn.microsoft.com/en-us/library/1t3y8s4s.aspx
+- The syntax ~T?~ is shorthand for ~Nullable<T>~,
+  where ~T~ is a value type. The two forms are interchangeable.
 
 ** Properties
 - https://msdn.microsoft.com/en-us/library/w86s7x04.aspx
