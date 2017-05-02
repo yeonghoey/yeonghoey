@@ -24,6 +24,14 @@
 Also as a consequence of const requiring a literal,
 it's inherently static while a readonly field can be either static or instance.
 
+** ToString
+- https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
+
+#+BEGIN_SRC csharp
+  float score = 100.12345;
+  Debug.Log(score.ToString("F2"));  # Fixed point, prints "100.12"
+#+END_SRC
+
 * Use Cases
 ** Can I make local vairalbes constant?
 - http://stackoverflow.com/questions/2054761/how-to-declare-a-local-constant-in-c
