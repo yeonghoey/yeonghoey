@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_1_gh:
  - [[#references][References]]
+ - [[#details][Details]]
  - [[#use-cases][Use Cases]]
 
 * References
@@ -62,6 +63,15 @@
 [[file:img/screenshot_2017-05-02_09-55-41.png]]
 
 [[file:img/screenshot_2017-05-02_09-56-05.png]]
+
+* Details
+** Layer vs Sorting Layer
+- http://answers.unity3d.com/questions/726726/which-is-the-difference-between-layer-and-sorting.html
+- *Layers* can be used for selective rendering from cameras or ignoring raycasts
+- *Sorting Layers* and *Order in Layer* are to determine the render order of sprites in a scene.
+- *Lower numbers are rendered first*
+
+[[file:img/screenshot_2017-05-02_10-00-27.png]]
 
 * Use Cases
 ** WebGL doen't work in chrome locally
