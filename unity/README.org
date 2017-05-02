@@ -6,7 +6,9 @@
    - [[#animator-window][Animator Window]]
    - [[#collider-2d][Collider 2D]]
    - [[#coroutine][Coroutine]]
+   - [[#input][Input]]
    - [[#main-window][Main Window]]
+   - [[#mathf][Mathf]]
    - [[#object][Object]]
    - [[#physics-2d][Physics 2D]]
    - [[#random][Random]]
@@ -111,8 +113,26 @@
 - ~StartCoroutine~ function always returns immediately,
 - SEE: [[#execution-order][Execution Order]]
 
+** Input
+- https://docs.unity3d.com/ScriptReference/Input-anyKey.html
+
+#+BEGIN_SRC csharp
+  if (Input.anyKey)
+      Debug.Log("A key or mouse click has been detected");
+#+END_SRC
+
 ** Main Window
 - https://docs.unity3d.com/Manual/UnityHotkeys.html
+
+** Mathf
+- https://docs.unity3d.com/ScriptReference/Mathf.PingPong.html
+
+#+BEGIN_SRC csharp
+  // PingPongs the value t, so that it is never larger than length and never smaller than 0.
+  // The returned value will move back and forth between 0 and length.
+  public static float PingPong(float t, float length);
+#+END_SRC
+
 ** Object
 - https://docs.unity3d.com/ScriptReference/Object.html
 
