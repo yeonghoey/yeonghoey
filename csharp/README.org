@@ -9,6 +9,52 @@
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/concepts
 
 * References
+** as
+- https://msdn.microsoft.com/en-us/library/cscsdfbt.aspx
+- if the conversion isn't possible, ~as~ returns null instead of raising an exception.
+
+#+BEGIN_SRC csharp
+  class ClassA { }
+  class ClassB { }
+
+  class MainClass
+  {
+      static void Main()
+      {
+          object[] objArray = new object[6];
+          objArray[0] = new ClassA();
+          objArray[1] = new ClassB();
+          objArray[2] = "hello";
+          objArray[3] = 123;
+          objArray[4] = 123.4;
+          objArray[5] = null;
+
+          for (int i = 0; i < objArray.Length; ++i)
+          {
+              string s = objArray[i] as string;
+              Console.Write("{0}:", i);
+              if (s != null)
+              {
+                  Console.WriteLine("'" + s + "'");
+              }
+              else
+              {
+                  Console.WriteLine("not a string");
+              }
+          }
+      }
+  }
+  /*
+    Output:
+    0:not a string
+    1:not a string
+    2:'hello'
+    3:not a string
+    4:not a string
+    5:not a string
+  ,*/
+#+END_SRC
+
 ** const
 - https://msdn.microsoft.com/en-us/library/e6w8fe1b.aspx
 - The initializer of a constant local or a constant field must be
