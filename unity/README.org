@@ -206,6 +206,14 @@ What I experimented:
 - All child objects and components will also be cloned
 
 #+BEGIN_SRC csharp
+  // Preferred
+  public static T Instantiate(T original);
+  public static T Instantiate(T original, Transform parent);
+  public static T Instantiate(T original, Transform parent, bool worldPositionStays);
+  public static T Instantiate(T original, Vector3 position, Quaternion rotation);
+  public static T Instantiate(T original, Vector3 position, Quaternion rotation, Transform parent);
+
+  // 'as T' required for type
   public static Object Instantiate(Object original);
   public static Object Instantiate(Object original, Transform parent);
   public static Object Instantiate(Object original, Transform parent, bool instantiateInWorldSpace);
