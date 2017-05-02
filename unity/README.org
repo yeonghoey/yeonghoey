@@ -50,6 +50,9 @@
   public static Color ColorHSV();
 #+END_SRC
 
+** Sprites
+- https://docs.unity3d.com/Manual/Sprites.html
+
 * Use Cases
 ** WebGL doen't work in chrome locally
 - https://docs.unity3d.com/Manual/webgl-building.html
