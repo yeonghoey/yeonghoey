@@ -28,7 +28,7 @@
 ** Animation Window
 - *Add Property*: *must select GameObject in Hierarchy window*
 - *Samples*: Frames per second
-  
+
 [[file:img/screenshot_2017-05-02_10-32-44.png]]
 
 *** Animation Event
@@ -199,6 +199,25 @@ What I experimented:
 
 ** Object
 - https://docs.unity3d.com/ScriptReference/Object.html
+
+*** Instantiate
+- https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
+- If cloning a ~Component~ then the ~GameObject~ it is attached to will also be cloned
+- All child objects and components will also be cloned
+
+#+BEGIN_SRC csharp
+  public static Object Instantiate(Object original);
+  public static Object Instantiate(Object original, Transform parent);
+  public static Object Instantiate(Object original, Transform parent, bool instantiateInWorldSpace);
+  public static Object Instantiate(Object original, Vector3 position, Quaternion rotation);
+  public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
+#+END_SRC
+
+*** Destroy
+- https://docs.unity3d.com/ScriptReference/Object.Destroy.html
+- If obj is a ~Component~ it will remove the component from the ~GameObject~ and destroy it.
+- Actual object destruction is always delayed until after the current Update loop,
+  but will always be done before rendering.
 
 #+BEGIN_SRC csharp
   public static void Destroy(Object obj, float t = 0.0F);
