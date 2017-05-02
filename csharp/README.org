@@ -15,6 +15,31 @@
   a constant expression that can be implicitly converted to the target type
 - A constant expression is an expression that *can be fully evaluated at compile time*
 
+** Properties
+- https://msdn.microsoft.com/en-us/library/w86s7x04.aspx
+
+#+BEGIN_SRC csharp
+  public class Date
+  {
+      private int month = 7;  // Backing store
+
+      public int Month
+      {
+          get
+          {
+              return month;
+          }
+          set
+          {
+              if ((value > 0) && (value < 13))
+              {
+                  month = value;
+              }
+          }
+      }
+    }
+#+END_SRC
+
 ** readonly
 - https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx
 - A ~const~ field can only be initialized at the declaration of the field.
