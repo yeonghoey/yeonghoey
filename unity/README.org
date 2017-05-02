@@ -89,6 +89,13 @@
 *** Animation Transitions
 - https://docs.unity3d.com/Manual/class-Transition.html
 
+[[file:img/screenshot_2017-05-02_18-22-28.png]]
+
+- *Exit Time*: Normalized Time;
+  for example, an exit time of ~0.75~ means that on the first frame where ~75%~ of the animation has played,
+  the Exit Time condition is ~true~
+- An *Exit Time* of ~3.5~ are evaluated once, after *three and a half loops*.
+
 [[file:img/screenshot_2017-05-02_11-18-01.png]]
 
 - *Duration out* marker to change the Duration of the transition.
