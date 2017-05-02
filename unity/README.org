@@ -9,6 +9,7 @@
 ** Animations
 - https://docs.unity3d.com/Manual/AnimationSection.html
 - https://docs.unity3d.com/Manual/AnimationParameters.html
+- https://docs.unity3d.com/Manual/animeditor-AnimationEvents.html
 
 [[file:img/screenshot_2017-05-02_10-32-44.png]]
 
@@ -44,6 +45,16 @@
       }
   }
 #+END_SRC
+
+#+BEGIN_SRC csharp
+  // This C# function can be called by an Animation Event
+  public void PrintFloat (float theValue) {
+      Debug.Log ("PrintFloat is called with a value of " + theValue);
+  }
+#+END_SRC
+
+[[file:img/screenshot_2017-05-02_11-03-03.png]]
+
 
 ** Collider 2D
 - https://docs.unity3d.com/ScriptReference/Collider2D.html
