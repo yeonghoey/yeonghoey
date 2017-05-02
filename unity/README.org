@@ -6,6 +6,7 @@
    - [[#animator-window][Animator Window]]
    - [[#collider-2d][Collider 2D]]
    - [[#coroutine][Coroutine]]
+   - [[#gameobject][GameObject]]
    - [[#input][Input]]
    - [[#main-window][Main Window]]
    - [[#mathf][Mathf]]
@@ -175,6 +176,15 @@ What I experimented:
 - Coroutines have virtually no performance overhead.
 - ~StartCoroutine~ function always returns immediately,
 - SEE: [[#execution-order][Execution Order]]
+
+** GameObject
+
+*** FindWithTag
+- https://docs.unity3d.com/ScriptReference/GameObject.FindWithTag.html
+
+#+BEGIN_SRC csharp
+  respawn = GameObject.FindWithTag("Respawn");
+#+END_SRC
 
 ** Input
 - https://docs.unity3d.com/ScriptReference/Input-anyKey.html
