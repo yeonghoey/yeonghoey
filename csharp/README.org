@@ -2,6 +2,33 @@
 
 * Table of Contents :TOC_1_gh:
  - [[#c-concepts][C# Concepts]]
+ - [[#references][References]]
+ - [[#use-cases][Use Cases]]
 
 * C# Concepts
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/concepts
+
+* References
+** const
+- https://msdn.microsoft.com/en-us/library/e6w8fe1b.aspx
+- The initializer of a constant local or a constant field must be
+  a constant expression that can be implicitly converted to the target type
+- A constant expression is an expression that *can be fully evaluated at compile time*
+
+** readonly
+- https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx
+- A ~const~ field can only be initialized at the declaration of the field.
+- A ~readonly~ field can be initialized either at the declaration or in a constructor
+
+- readonly *only works on class level*
+Also as a consequence of const requiring a literal,
+it's inherently static while a readonly field can be either static or instance.
+
+* Use Cases
+** Can I make local vairalbes constant?
+- http://stackoverflow.com/questions/2054761/how-to-declare-a-local-constant-in-c
+- 
+In short, No. Because:
+
+- ~const~ only for expressions can be evaluated at compile time
+- ~readonly~ only works on class level
