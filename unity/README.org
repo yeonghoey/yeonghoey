@@ -95,6 +95,62 @@
 - *Target transition* to adjust the Transition Offset.
 - *Preview playback marker* to scrub through the animation blend in the preview window at the bottom of the Inspector.
 
+*** State Machine
+- https://docs.unity3d.com/Manual/StateMachineTransitions.html
+
+[[file:img/screenshot_2017-05-02_16-59-20.png]]
+
+#+BEGIN_QUOTE
+The Exit node is used to indicate that a state machine should exit.
+#+END_QUOTE
+
+But, there is no explicit explanation what happens On Exit node.
+What I experimented:
+- If in top-level state machine, goes back to entry
+- If in a sub-state machine,
+  goes out on the edge of the representative node in the parent state machine
+
+*** StateMachineBehaviour
+- https://docs.unity3d.com/kr/current/ScriptReference/StateMachineBehaviour.html
+
+[[file:img/screenshot_2017-05-02_16-56-15.png]]
+
+#+BEGIN_SRC csharp
+  using System.Collections;
+  using System.Collections.Generic;
+  using UnityEngine;
+
+  public class MyBehaviour : StateMachineBehaviour {
+
+	  // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+	  override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+
+	  }
+
+	  // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+	  override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+
+	  }
+
+	  // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+	  override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+
+	  }
+
+	  // OnStateMove is called right after Animator.OnAnimatorMove().
+	  // Code that processes and affects root motion should be implemented here
+	  override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+
+	  }
+
+	  // OnStateIK is called right after Animator.OnAnimatorIK().
+	  // Code that sets up animation IK (inverse kinematics) should be implemented here.
+	  override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+
+	  }
+  }
+#+END_SRC
+
 ** Collider 2D
 - https://docs.unity3d.com/ScriptReference/Collider2D.html
 
