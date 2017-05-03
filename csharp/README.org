@@ -5,6 +5,7 @@
  - [[#c-net-and-mono][C#, .Net and Mono]]
  - [[#references][References]]
    - [[#accessibility-levels][Accessibility Levels]]
+   - [[#arraylist][ArrayList]]
    - [[#as][as]]
    - [[#const][const]]
    - [[#listt][List<T>]]
@@ -35,6 +36,11 @@
 [[file:img/screenshot_2017-05-03_11-10-34.png]]
 
 [[file:img/screenshot_2017-05-03_11-12-35.png]]
+
+** ArrayList
+- http://stackoverflow.com/questions/2309694/arraylist-vs-list-in-c-sharp
+- ~ArrayList~ simply stores object references.
+- ~ArrayList~ belongs to the days that C# didn't have generics. It's deprecated in favor of ~List<T>~
 
 ** as
 - https://msdn.microsoft.com/en-us/library/cscsdfbt.aspx
