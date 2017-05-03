@@ -4,6 +4,7 @@
  - [[#c-concepts][C# Concepts]]
  - [[#c-net-and-mono][C#, .Net and Mono]]
  - [[#references][References]]
+   - [[#accessibility-levels][Accessibility Levels]]
    - [[#as][as]]
    - [[#const][const]]
    - [[#null][null]]
@@ -27,6 +28,14 @@
 [[file:img/screenshot_2017-05-02_22-07-04.png]]
 
 * References
+** Accessibility Levels
+- https://msdn.microsoft.com/en-us/library/ba0a1yw2.aspx
+
+[[file:img/screenshot_2017-05-03_11-10-34.png]]
+
+[[file:img/screenshot_2017-05-03_11-12-35.png]]
+
+
 ** as
 - https://msdn.microsoft.com/en-us/library/cscsdfbt.aspx
 - if the conversion isn't possible, ~as~ returns null instead of raising an exception.
