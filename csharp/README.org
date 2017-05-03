@@ -7,6 +7,7 @@
    - [[#accessibility-levels][Accessibility Levels]]
    - [[#as][as]]
    - [[#const][const]]
+   - [[#listt][List<T>]]
    - [[#null][null]]
    - [[#nullablet][Nullable<T>]]
    - [[#properties][Properties]]
@@ -34,7 +35,6 @@
 [[file:img/screenshot_2017-05-03_11-10-34.png]]
 
 [[file:img/screenshot_2017-05-03_11-12-35.png]]
-
 
 ** as
 - https://msdn.microsoft.com/en-us/library/cscsdfbt.aspx
@@ -87,6 +87,53 @@
 - The initializer of a constant local or a constant field must be
   a constant expression that can be implicitly converted to the target type
 - A constant expression is an expression that *can be fully evaluated at compile time*
+
+** List<T>
+- https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx
+- http://csharp.net-informations.com/collection/list.htm
+
+#+BEGIN_SRC csharp
+  List<string> colors = new List<string>();
+  colors.Add("Red");
+  colors.Add("Blue");
+  colors.Add("Green");
+
+  colors.Count;
+
+
+  foreach (string color in colors)
+  {
+      MessageBox.Show(color);
+  }
+
+  for (int i = 0; i < colors.Count; i++)
+  {
+      MessageBox.Show(colors[i]);
+  }
+
+  colors.Insert(1, "violet");
+  colors.Sort();
+  colors.Remove("violet");
+
+
+  if (colors.Contains("Blue"))
+  {
+      MessageBox.Show("Blue color exist in the list");
+  }
+
+  string[] strArr = new string[3];
+  strArr[0] = "Red";
+  strArr[1] = "Blue";
+  strArr[2] = "Green";
+  //here to copy array to List
+  List<string> arrlist = new List<string>(strArr);
+
+  string combindedString = string.Join(",", colors);
+
+  string[] arr = colors.ToArray();
+
+  arrlist.Clear ();
+#+END_SRC
 
 ** null
 - https://msdn.microsoft.com/en-us/library/dn986595.aspx
