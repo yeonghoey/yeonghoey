@@ -23,6 +23,7 @@
    - [[#pixel-perfect][Pixel Perfect]]
    - [[#make-input-axis-discrete][Make Input Axis discrete]]
    - [[#webgl-doent-work-in-chrome-locally][WebGL doen't work in chrome locally]]
+   - [[#use-transformup-in-2d-as-forward][Use Transform.up in 2D as forward]]
  - [[#troubleshootings][Troubleshootings]]
    - [[#coroutine-named-main][Coroutine named Main]]
 
@@ -348,6 +349,11 @@ Therefore if your Sprite’s *Pixels Per Unit (PPU)* settings is ~108~, it will 
 - https://docs.unity3d.com/Manual/webgl-building.html
 - Use Unity’s ~Build & Run~ command; the file is then temporarily hosted in a local web server and opened from a local host URL.
 - Run Chrome with the ~--allow-file-access-from-files~ command line option which allows it to load content from local file URLs.
+
+** Use Transform.up in 2D as forward
+- https://docs.unity3d.com/ScriptReference/Transform-up.html
+- http://answers.unity3d.com/questions/797202/finding-forward-in-2d-rigid-body.html
+In 2D, you want to do your *rotation in the Z-axis*, and instead of ~.forward~ use ~.up~ or ~.right~
 
 * Troubleshootings
 ** Coroutine named Main
