@@ -1,7 +1,12 @@
 #+TITLE: Git LFS
 
 * Table of Contents :TOC_1_gh:
+ - [[#reference-links][Reference Links]]
  - [[#using-git-lfs-pull][Using git lfs pull]]
+
+* Reference Links
+- https://github.com/git-lfs/git-lfs/wiki/Tutorial
+- https://help.github.com/articles/configuring-git-large-file-storage/
 
 * Using git lfs pull
 - https://shuhrat.github.io/programming/git-lfs-tips-and-tricks.html
