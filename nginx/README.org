@@ -4,13 +4,13 @@
  - [[#beginners-guide][Beginner's Guide]]
    - [[#directives][Directives]]
  - [[#references][References]]
-   - [[#http][http]]
-     - [[#location][location]]
-     - [[#types][types]]
-   - [[#core-functionality][Core functionality]]
+   - [[#core][core]]
      - [[#events][events]]
      - [[#include][include]]
      - [[#worker_processes][worker_processes]]
+   - [[#http][http]]
+     - [[#location][location]]
+     - [[#types][types]]
  - [[#use-cases][Use Cases]]
    - [[#preserve-request-url][Preserve Request URL]]
 
@@ -31,6 +31,38 @@
 - Top level context is called the ~main context~
 
 * References
+** core
+- http://nginx.org/en/docs/ngx_core_module.html
+
+*** events
+- http://nginx.org/en/docs/ngx_core_module.html#events
+- Where directives relating connection processing are placed
+
+#+BEGIN_EXAMPLE
+#+BEGIN_EXAMPLE
+  events {
+      use kqueue;
+      worker_connections 2048;
+  }
+#+END_EXAMPLE
+
+*** include
+- http://nginx.org/en/docs/ngx_core_module.html#include
+- Directives in files are inlcuded in the current context
+
+#+BEGIN_EXAMPLE
+  include mime.types;
+  include vhosts/*.conf;
+#+END_EXAMPLE
+*** worker_processes
+- http://nginx.org/en/docs/ngx_core_module.html#worker_processes
+- Setting it to the number of available CPU cores would be a good start
+- The value ~auto~ will try to autodetect it
+
+#+BEGIN_EXAMPLE
+  worker_processes auto;
+#+END_EXAMPLE
+
 ** http
 - http://nginx.org/en/docs/http/ngx_http_core_module.html
 
@@ -85,38 +117,6 @@
       image/gif  gif;
       image/jpeg jpg;
   }
-#+END_EXAMPLE
-
-** Core functionality
-- http://nginx.org/en/docs/ngx_core_module.html
-
-*** events
-- http://nginx.org/en/docs/ngx_core_module.html#events
-- Where directives relating connection processing are placed
-
-#+BEGIN_EXAMPLE
-#+BEGIN_EXAMPLE
-  events {
-      use kqueue;
-      worker_connections 2048;
-  }
-#+END_EXAMPLE
-
-*** include
-- http://nginx.org/en/docs/ngx_core_module.html#include
-- Directives in files are inlcuded in the current context
-
-#+BEGIN_EXAMPLE
-  include mime.types;
-  include vhosts/*.conf;
-#+END_EXAMPLE
-*** worker_processes
-- http://nginx.org/en/docs/ngx_core_module.html#worker_processes
-- Setting it to the number of available CPU cores would be a good start
-- The value ~auto~ will try to autodetect it
-
-#+BEGIN_EXAMPLE
-  worker_processes auto;
 #+END_EXAMPLE
 
 
