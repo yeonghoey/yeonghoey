@@ -3,6 +3,7 @@
 * Table of Contents :TOC_1_gh:
  - [[#beginners-guide][Beginner's Guide]]
  - [[#references][References]]
+ - [[#use-cases][Use Cases]]
 
 * Beginner's Guide
 - http://nginx.org/en/docs/beginners_guide.html
@@ -62,4 +63,24 @@
   /documents/document.html -> C
   /images/1.gif            -> D
   /documents/1.jpg         -> E
+#+END_EXAMPLE
+* Use Cases
+** Preserve Request URL
+- http://stackoverflow.com/questions/5834025/how-to-preserve-request-url-with-nginx-proxy-pass
+
+#+BEGIN_EXAMPLE
+  location / {
+      proxy_pass http://my_app_upstream;
+      proxy_set_header Host $host;
+      # ...
+  }
+#+END_EXAMPLE
+
+** include
+- http://nginx.org/en/docs/ngx_core_module.html#include
+- Directives in files are inlcuded in the current context
+
+#+BEGIN_EXAMPLE
+  include mime.types;
+  include vhosts/*.conf;
 #+END_EXAMPLE
