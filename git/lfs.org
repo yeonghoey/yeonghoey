@@ -18,8 +18,7 @@ But when executing ~git pull~ to update local branch,
 *LFS* works on [[https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes][Git Attributes]], which provides a filtering interface by ~smudge~ and ~clean~.
 To prevent ~git pull~ from downloading lfs files seprately, make them skip downloading.
 
-It's on ~.gitconfig~.
-Maybe there is a configuration in ~$HOME/.gitconfig~ like this:
+~$ git lfs install~ configures ~lfs~ like this:
 #+BEGIN_EXAMPLE
   [filter "lfs"]
 	  clean = git-lfs clean -- %f
@@ -28,8 +27,10 @@ Maybe there is a configuration in ~$HOME/.gitconfig~ like this:
 	  required = true
 #+END_EXAMPLE
 
-Make smudge and process skip downloading:
+Make smudge and process skip downloading, these configs must be like this:
 #+BEGIN_EXAMPLE
-  smudge = git-lfs smudge --skip %f
+  smudge = git-lfs smudge --skip -- %f
   process = git-lfs filter-process --skip
 #+END_EXAMPLE
+
+You can manually edit the config or use ~--skip-smudge~ flag like ~$ git lfs install --skip-smudge~.
