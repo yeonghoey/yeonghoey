@@ -11,8 +11,13 @@
    - [[#http][http]]
      - [[#location][location]]
      - [[#types][types]]
+   - [[#proxy][proxy]]
+     - [[#proxy_redirect][proxy_redirect]]
+   - [[#rewrite][rewrite]]
+     - [[#rewrite-1][rewrite]]
  - [[#use-cases][Use Cases]]
-   - [[#preserve-request-url][Preserve Request URL]]
+   - [[#reverse-proxy-with-preserving-request-url][Reverse Proxy with preserving request URL]]
+   - [[#nginx-boilerplate][nginx-boilerplate]]
 
 * Beginner's Guide
 - http://nginx.org/en/docs/beginners_guide.html
@@ -119,16 +124,50 @@
   }
 #+END_EXAMPLE
 
+** proxy
+*** proxy_redirect
+- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_redirect
+- Sets the text that should be changed in the ~Location~ and ~Refresh~ header fields of a proxied server response
 
-* Use Cases
-** Preserve Request URL
-- http://stackoverflow.com/questions/5834025/how-to-preserve-request-url-with-nginx-proxy-pass
+** rewrite
+- http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
+
+*** rewrite
+- http://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite
+- https://serverfault.com/questions/379675/nginx-reverse-proxy-url-rewrite
 
 #+BEGIN_EXAMPLE
-  location / {
-      proxy_pass http://my_app_upstream;
-      proxy_set_header Host $host;
-      # ...
+  location  /foo {
+    rewrite /foo(.*) /$1  break;
+    proxy_pass         http://localhost:3200;
+    proxy_redirect     off;
+    proxy_set_header   Host $host;
   }
 #+END_EXAMPLE
 
+* Use Cases
+** Reverse Proxy with preserving request URL
+- https://www.nginx.com/resources/admin-guide/reverse-proxy/
+- http://stackoverflow.com/questions/5834025/how-to-preserve-request-url-with-nginx-proxy-pass
+
+#+BEGIN_EXAMPLE
+  user www-data www-data;
+  worker_processes auto;
+
+  events {
+  }
+
+  http {
+    server {
+      listen 80;
+      location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+      }
+    }
+  }
+#+END_EXAMPLE
+
+** nginx-boilerplate
+- https://github.com/nginx-boilerplate/nginx-boilerplate
