@@ -27,7 +27,7 @@ To prevent ~git pull~ from downloading lfs files seprately, make them skip downl
 	  required = true
 #+END_EXAMPLE
 
-Make smudge and process skip downloading, these configs must be like this:
+To make smudge and process skip downloading:
 #+BEGIN_EXAMPLE
   smudge = git-lfs smudge --skip -- %f
   process = git-lfs filter-process --skip
