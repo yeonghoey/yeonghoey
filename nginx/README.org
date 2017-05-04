@@ -1,9 +1,18 @@
 #+TITLE: nginx
 
-* Table of Contents :TOC_1_gh:
+* Table of Contents :TOC_3_gh:
  - [[#beginners-guide][Beginner's Guide]]
+   - [[#directives][Directives]]
  - [[#references][References]]
+   - [[#http][http]]
+     - [[#location][location]]
+     - [[#types][types]]
+   - [[#core-functionality][Core functionality]]
+     - [[#events][events]]
+     - [[#include][include]]
+     - [[#worker_processes][worker_processes]]
  - [[#use-cases][Use Cases]]
+   - [[#preserve-request-url][Preserve Request URL]]
 
 * Beginner's Guide
 - http://nginx.org/en/docs/beginners_guide.html
