@@ -291,7 +291,6 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 [[file:img/screenshot_2017-04-24_12-12-29.png]]
 
 - Special primitives that ~[[~ is defined to have, but ~[~ may be lacking
-[[file:img/screenshot_2017-04-24_12-12-57.png]]
 
 ** set
 - https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
