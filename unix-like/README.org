@@ -423,6 +423,20 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   pgrep -x python    # requires exact match, substr is default
 #+END_SRC
 
+#+BEGIN_SRC shell
+  $ pgrep nginx
+  2165
+  2166
+
+  $ pgrep nginx -l
+  2165 nginx
+  2166 nginx
+
+  $ pgrep nginx -a
+  2165 nginx: master process nginx
+  2166 nginx: worker process
+#+END_SRC
+
 ** pkill
 - Same as ~pgrep~, but kills matching processes
 
