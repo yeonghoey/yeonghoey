@@ -7,8 +7,8 @@
 - https://shuhrat.github.io/programming/git-lfs-tips-and-tricks.html
 
 ~git lfs pull~ downloads lfs files as batch, but works on *current local branch*.
-But when executing ~git pull~, *LFS* automatically missing files separately.
-This is really slow.
+But when executing ~git pull~ to update local branch,
+*LFS* automatically missing files separately. This is really slow.
 
 *LFS* works on *Git Attributes*, which provides a filtering interface by ~smudge~ and ~clean~.
 To prevent ~git pull~ from downloading lfs files seprately, make them skip downloading.
