@@ -10,7 +10,7 @@
 But when executing ~git pull~ to update local branch,
 *LFS* automatically missing files separately. This is really slow.
 
-*LFS* works on *Git Attributes*, which provides a filtering interface by ~smudge~ and ~clean~.
+*LFS* works on [[https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes][Git Attributes]], which provides a filtering interface by ~smudge~ and ~clean~.
 To prevent ~git pull~ from downloading lfs files seprately, make them skip downloading.
 
 It's on ~.gitconfig~.
