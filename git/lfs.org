@@ -33,4 +33,5 @@ To make smudge and process skip downloading:
   process = git-lfs filter-process --skip
 #+END_EXAMPLE
 
-You can manually edit the config or use ~--skip-smudge~ flag like ~$ git lfs install --skip-smudge~.
+You can manually edit the config or use ~--skip-smudge~ flag when ~git lfs install~,
+like ~$ git lfs install --skip-smudge~.
