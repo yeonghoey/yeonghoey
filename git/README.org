@@ -13,6 +13,8 @@
    - [[#tag][tag]]
    - [[#worktree][worktree]]
    - [[#gitignore][gitignore]]
+ - [[#details][Details]]
+   - [[#git-attributes][Git Attributes]]
  - [[#how-to][How to]]
    - [[#get-git-root-directory][Get git root directory]]
    - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
@@ -193,6 +195,30 @@ and delete the branch manually after it merged.
 
 ** gitignore
 - https://www.atlassian.com/git/tutorials/gitignore#git-ignore-patterns
+
+* Details
+** Git Attributes
+- https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes
+
+*Git Attributes* is a customization interface which tools like *Git LFS* implemented on.
+
+[[file:img/screenshot_2017-05-04_11-48-09.png]]
+
+[[file:img/screenshot_2017-05-04_11-49-47.png]]
+
+In ~.gitattributes~:
+#+BEGIN_EXAMPLE
+  *.png filter=lfs diff=lfs merge=lfs -text
+#+END_EXAMPLE
+
+In ~.gitconfig~:
+#+BEGIN_EXAMPLE
+  [filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+#+END_EXAMPLE
 
 * How to
 ** Get git root directory
