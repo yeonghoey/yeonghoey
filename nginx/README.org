@@ -1,0 +1,65 @@
+#+TITLE: nginx
+
+* Table of Contents :TOC_1_gh:
+ - [[#beginners-guide][Beginner's Guide]]
+ - [[#references][References]]
+
+* Beginner's Guide
+- http://nginx.org/en/docs/beginners_guide.html
+
+#+BEGIN_SRC shell
+  $ nginx -s stop   # fast shutdown
+  $ nginx -s quit   # graceful shutdown
+  $ nginx -s reload # reloading the configuration file
+  $ nginx -s reopen # reopening the log files
+#+END_SRC
+
+** Directives
+- simple: ~name~ and ~parameters~, separated by ~spaces~, ends with ~;~
+- block: Instead of the semicolon, it ends with a block surrounded by ~{}~
+- A block surrounding directives is called a ~context~
+- Top level context is called the ~main context~
+
+* References
+** location
+- http://nginx.org/en/docs/http/ngx_http_core_module.html#location
+
+
+1. If there exists exact match(~=~) its configuration used
+2. Pick the longest prefix match
+3. Regex checked, in order of appearance
+   1. first regex match configuration used
+   2. no regex match, the longest prefix match used.
+
+#+BEGIN_EXAMPLE
+  location = / {
+      [ configuration A ]
+  }
+
+  location / {
+      [ configuration B ]
+  }
+
+  location /documents/ {
+      [ configuration C ]
+  }
+
+  # '^~' modifier skips regex check
+  location ^~ /images/ {
+      [ configuration D ]
+  }
+
+  # '~*' modifier for regex case insensitive match
+  # '~' for case sensitive
+  location ~* \.(gif|jpg|jpeg)$ {
+      [ configuration E ]
+  }
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  /                        -> A
+  /index.html              -> B
+  /documents/document.html -> C
+  /images/1.gif            -> D
+  /documents/1.jpg         -> E
+#+END_EXAMPLE
