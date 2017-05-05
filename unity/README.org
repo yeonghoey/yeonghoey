@@ -180,6 +180,16 @@ What I experimented:
 - SEE: [[#execution-order][Execution Order]]
 
 ** GameObject
+*** Create Empty with Code
+- https://docs.unity3d.com/ScriptReference/GameObject-ctor.html
+- ~Transform~ is always added to the GameObject that is being created.
+
+#+BEGIN_SRC csharp
+  GameObject player;
+  player = new GameObject("Player");
+  player.AddComponent<Rigidbody>();
+  player.AddComponent<BoxCollider>();
+#+END_SRC
 
 *** FindWithTag
 - https://docs.unity3d.com/ScriptReference/GameObject.FindWithTag.html
