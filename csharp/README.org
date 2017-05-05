@@ -16,6 +16,8 @@
    - [[#readonly][readonly]]
    - [[#static-class-and-static-class-members][Static Class and Static Class Members]]
    - [[#tostring][ToString]]
+ - [[#details][Details]]
+   - [[#abstract-virtual-override-sealed][abstract, virtual, override, sealed]]
  - [[#use-cases][Use Cases]]
    - [[#can-i-make-local-vairalbes-constant][Can I make local vairalbes constant?]]
    - [[#can-i-handle-inputs-in-fixedupdate][Can I handle inputs in FixedUpdate?]]
@@ -308,6 +310,22 @@ it's inherently static while a readonly field can be either static or instance.
   float score = 100.12345;
   Debug.Log(score.ToString("F2"));  # Fixed point, prints "100.12"
 #+END_SRC
+
+* Details
+** abstract, virtual, override, sealed
+- https://msdn.microsoft.com/en-us/library/6tcf2h8w.aspx
+- http://stackoverflow.com/questions/6162451/the-difference-between-virtual-override-new-and-sealed-override
+- http://www.dotnetfunda.com/articles/show/2961/abstract-sealed-and-override-modifiers-in-csharp
+
+
+- The ~abstract~ modifier indicates that the thing being modified has a missing or incomplete implementation.
+- The ~virtual~ keyword is used to modify a method, property, indexer, or event declaration and allow for it to be overridden in a derived class.
+- By default, methods are *non-virtual*. You *cannot override* a non-virtual method.
+- The ~override~ modifier is required to extend or modify the ~abstract~ or ~virtual~ implementation of an inherited method, property, indexer, or event.
+- You can use ~sealed~ to prevent them from overriding specific ~virtual~ methods or properties. 
+
+[[file:img/screenshot_2017-05-05_16-52-37.png]]
+
 
 * Use Cases
 ** Can I make local vairalbes constant?
