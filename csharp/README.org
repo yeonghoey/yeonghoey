@@ -22,6 +22,7 @@
    - [[#can-i-make-local-vairalbes-constant][Can I make local vairalbes constant?]]
    - [[#can-i-handle-inputs-in-fixedupdate][Can I handle inputs in FixedUpdate?]]
    - [[#increment-operator-post-vs-pre][Increment operator: Post vs Pre?]]
+   - [[#gaussian-random][Gaussian Random]]
 
 * C# Concepts
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/concepts
@@ -352,3 +353,17 @@ In short, No. Because:
 - http://stackoverflow.com/questions/467322/is-there-any-performance-difference-between-i-and-i-in-c
 - The semantic is not different from C ++
 - Thanks to the compiler, In short, *there will be no difference* in the runtime for control variables
+** Gaussian Random
+- https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
+
+#+BEGIN_SRC csharp
+  // Box–Muller transform
+  // https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
+  public static float GaussianRandom(float mu, float sigma)
+  {
+		  float u1 = Random.Range(0.0f, 1.0f);
+		  float u2 = Random.Range(0.0f, 1.0f);
+		  float z0 = Mathf.Sqrt(-2.0f * Mathf.Log(u1)) * Mathf.Cos((2.0f * Mathf.PI) * u2);
+		  return (mu + sigma * z0);
+	  }
+#+END_SRC
