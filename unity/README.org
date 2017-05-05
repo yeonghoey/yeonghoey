@@ -29,10 +29,20 @@
 
 * References
 ** Animation Window
+- https://docs.unity3d.com/Manual/EditingCurves.html
 - *Add Property*: *must select GameObject in Hierarchy window*
 - *Samples*: Frames per second
 
 [[file:img/screenshot_2017-05-02_10-32-44.png]]
+
+[[file:img/screenshot_2017-05-05_10-51-26.png]]
+
+
+- For Sprite Animations, a key frame without sprite is *NOT* played
+- There are curves on transitions like:
+[[file:img/screenshot_2017-05-05_10-48-28.png]]
+
+[[file:img/screenshot_2017-05-05_10-57-37.png]]
 
 *** Animation Event
 - https://docs.unity3d.com/Manual/animeditor-AnimationEvents.html
