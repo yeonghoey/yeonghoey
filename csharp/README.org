@@ -13,6 +13,7 @@
    - [[#event][event]]
    - [[#lambda-expressions][Lambda Expressions]]
    - [[#listt][List<T>]]
+   - [[#named-and-optional-arguments][Named and Optional Arguments]]
    - [[#null][null]]
    - [[#nullablet][Nullable<T>]]
    - [[#properties][Properties]]
@@ -306,6 +307,57 @@
   string[] arr = colors.ToArray();
 
   arrlist.Clear ();
+#+END_SRC
+
+** Named and Optional Arguments
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/classes-and-structs/named-and-optional-arguments
+
+#+BEGIN_SRC csharp
+  namespace OptionalNamespace
+  {
+      class OptionalExample
+      {
+          static void Main(string[] args)
+          {
+              ExampleClass anExample = new ExampleClass();
+              anExample.ExampleMethod(1, "One", 1);
+              anExample.ExampleMethod(2, "Two");
+              anExample.ExampleMethod(3);
+
+              ExampleClass anotherExample = new ExampleClass("Provided name");
+              anotherExample.ExampleMethod(1, "One", 1);
+              anotherExample.ExampleMethod(2, "Two");
+              anotherExample.ExampleMethod(3);
+
+              // You can use a named parameter
+              anExample.ExampleMethod(3, optionalint: 4);
+          }
+      }
+
+      class ExampleClass
+      {
+          private string _name;
+
+          public ExampleClass(string name = "Default name")
+          {
+              _name = name;
+          }
+
+          public void ExampleMethod(int required, string optionalstr = "default string", int optionalint = 10)
+          {
+              Console.WriteLine("{0}: {1}, {2}, and {3}.", _name, required, optionalstr, optionalint);
+          }
+      }
+
+      // The output from this example is the following:
+      // Default name: 1, One, and 1.
+      // Default name: 2, Two, and 10.
+      // Default name: 3, default string, and 10.
+      // Provided name: 1, One, and 1.
+      // Provided name: 2, Two, and 10.
+      // Provided name: 3, default string, and 10.
+      // Default name: 3, default string, and 4.
+  }
 #+END_SRC
 
 ** null
