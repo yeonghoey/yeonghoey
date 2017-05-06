@@ -7,6 +7,7 @@
    - [[#array][Array]]
    - [[#arraylist][ArrayList]]
    - [[#as][as]]
+   - [[#attributes][Attributes]]
    - [[#const][const]]
    - [[#delegate][delegate]]
    - [[#event][event]]
@@ -111,6 +112,44 @@
     5:not a string
   ,*/
 #+END_SRC
+** Attributes
+- http://stackoverflow.com/questions/20346/what-are-attributes-in-net
+- Metadata. Data about your objects/methods/properties.
+- Attributes are used heavily with reflection.
+
+#+BEGIN_SRC csharp
+  [AttributeUsage(AttributeTargets.Class, AllowMultiple=false, Inherited=true)]
+  public class SortOrderAttribute : Attribute
+  {
+      public int SortOrder { get; set; }
+
+      public SortOrderAttribute(int sortOrder)
+      {
+          this.SortOrder = sortOrder;
+      }
+  }
+
+  [SortOrder(23)]
+  public class MyClass
+  {
+      public MyClass()
+      {
+      }
+  }
+
+  public class MyInvestigatorClass
+  {
+      public void InvestigateTheAttribute()
+      {
+          Type type = typeof(MyClass);
+          object[] attributes = type.GetCustomAttributes(typeof(SortOrderAttribute), true);
+          SortOrderAttribute attribute = attributes[0] as SortOrderAttribute;
+          int sortOrder = attribute.SortOrder;
+          // Do something with sortOrder
+      }
+  }
+#+END_SRC
+
 ** const
 - https://msdn.microsoft.com/en-us/library/e6w8fe1b.aspx
 - The initializer of a constant local or a constant field must be

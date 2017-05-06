@@ -7,6 +7,7 @@
    - [[#collider-2d][Collider 2D]]
    - [[#coroutine][Coroutine]]
    - [[#gameobject][GameObject]]
+   - [[#hideininspector][HideInInspector]]
    - [[#input][Input]]
    - [[#main-window][Main Window]]
    - [[#mathf][Mathf]]
@@ -207,6 +208,16 @@ What I experimented:
 
 #+BEGIN_SRC csharp
   respawn = GameObject.FindWithTag("Respawn");
+#+END_SRC
+
+** HideInInspector
+- https://docs.unity3d.com/ScriptReference/HideInInspector.html
+
+#+BEGIN_SRC csharp
+  public class ExampleClass : MonoBehaviour {
+      [HideInInspector]
+      public int p = 5;
+  }
 #+END_SRC
 
 ** Input
