@@ -11,6 +11,7 @@
    - [[#const][const]]
    - [[#delegate][delegate]]
    - [[#event][event]]
+   - [[#lambda-expressions][Lambda Expressions]]
    - [[#listt][List<T>]]
    - [[#null][null]]
    - [[#nullablet][Nullable<T>]]
@@ -242,6 +243,23 @@
 - A public ~delegate~ variable
 - A ~delegate~ variable backed by a property
 - A ~delegate~ variable with ~AddXXXHandler~ and ~RemoveXXXHandler~ methods
+
+** Lambda Expressions
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions
+- http://stackoverflow.com/questions/10538924/c-sharp-style-lambdas-or-x
+
+#+BEGIN_SRC csharp
+  (x, y) => x == y;
+  (int x, string s) => s.Length > x;
+  () => SomeMethod();
+
+  delegate void TestDelegate(string s);
+  TestDelegate del = n => { string s = n + " World";
+                            Console.WriteLine(s); };
+
+  // Many C# developers use _ to indicate that the parameter isn't going to be used
+  _ => 10
+#+END_SRC
 
 ** List<T>
 - https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx
