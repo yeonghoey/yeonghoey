@@ -23,6 +23,7 @@
    - [[#value-types-and-reference-types][Value Types and Reference Types]]
    - [[#abstract-virtual-override-sealed][abstract, virtual, override, sealed]]
    - [[#c-coding-conventions][C# Coding Conventions]]
+   - [[#creating-delegates-manually-vs-using-actionfunc-delegates][Creating delegates manually vs using Action/Func delegates]]
  - [[#use-cases][Use Cases]]
    - [[#can-i-make-local-vairalbes-constant][Can I make local vairalbes constant?]]
    - [[#can-i-handle-inputs-in-fixedupdate][Can I handle inputs in FixedUpdate?]]
@@ -557,6 +558,18 @@ it's inherently static while a readonly field can be either static or instance.
   // Do not qualify a static member defined in a base class with the name of a derived class.
   // While that code compiles, the code readability is misleading, and the code may break in the future
   // if you add a static member with the same name to the derived class.
+#+END_SRC
+
+** Creating delegates manually vs using Action/Func delegates
+- http://stackoverflow.com/questions/4482613/creating-delegates-manually-vs-using-action-func-delegates
+- The advantage is clarity. By giving the type an explicit name it is more clear to the reader what it does.
+- You can specify ~ref~ / ~out~ parameters unlike the other two generic delegates.
+- Can have optional parameters.
+
+#+BEGIN_SRC csharp
+  private delegate double ChangeListAction(string param1, int number);
+  private Func<string, int, double> ChangeListAction;
+  private Action<string,int> ChangeListAction;
 #+END_SRC
 
 * Use Cases
