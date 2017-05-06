@@ -1,7 +1,6 @@
 #+TITLE: C#
 
 * Table of Contents :TOC_2_gh:
- - [[#c-concepts][C# Concepts]]
  - [[#c-net-and-mono][C#, .Net and Mono]]
  - [[#references][References]]
    - [[#accessibility-levels][Accessibility Levels]]
@@ -9,6 +8,7 @@
    - [[#arraylist][ArrayList]]
    - [[#as][as]]
    - [[#const][const]]
+   - [[#delegate][delegate]]
    - [[#listt][List<T>]]
    - [[#null][null]]
    - [[#nullablet][Nullable<T>]]
@@ -23,9 +23,6 @@
    - [[#can-i-handle-inputs-in-fixedupdate][Can I handle inputs in FixedUpdate?]]
    - [[#increment-operator-post-vs-pre][Increment operator: Post vs Pre?]]
    - [[#gaussian-random][Gaussian Random]]
-
-* C# Concepts
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/concepts
 
 * C#, .Net and Mono
 - https://en.wikipedia.org/wiki/C_Sharp_(programming_language)
@@ -109,12 +106,58 @@
     5:not a string
   ,*/
 #+END_SRC
-
 ** const
 - https://msdn.microsoft.com/en-us/library/e6w8fe1b.aspx
 - The initializer of a constant local or a constant field must be
   a constant expression that can be implicitly converted to the target type
 - A constant expression is an expression that *can be fully evaluated at compile time*
+
+** delegate
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/delegate
+- A ~delegate~ is a reference type that can be used to encapsulate a named or an anonymous method.
+
+#+BEGIN_SRC csharp
+  // Declare delegate -- defines required signature:
+  delegate double MathAction(double num);
+
+  class DelegateTest
+  {
+      // Regular method that matches signature:
+      static double Double(double input)
+      {
+          return input * 2;
+      }
+
+      static void Main()
+      {
+          // Instantiate delegate with named method:
+          MathAction ma = Double;
+
+          // Invoke delegate ma:
+          double multByTwo = ma(4.5);
+          Console.WriteLine("multByTwo: {0}", multByTwo);
+
+          // Instantiate delegate with anonymous method:
+          MathAction ma2 = delegate(double input)
+              {
+                  return input * input;
+              };
+
+          double square = ma2(5);
+          Console.WriteLine("square: {0}", square);
+
+          // Instantiate delegate with lambda expression
+          MathAction ma3 = s => s * s * s;
+          double cube = ma3(4.375);
+
+          Console.WriteLine("cube: {0}", cube);
+      }
+      // Output:
+      // multByTwo: 9
+      // square: 25
+      // cube: 83.740234375
+  }
+#+END_SRC
 
 ** List<T>
 - https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx
@@ -323,10 +366,9 @@ it's inherently static while a readonly field can be either static or instance.
 - The ~virtual~ keyword is used to modify a method, property, indexer, or event declaration and allow for it to be overridden in a derived class.
 - By default, methods are *non-virtual*. You *cannot override* a non-virtual method.
 - The ~override~ modifier is required to extend or modify the ~abstract~ or ~virtual~ implementation of an inherited method, property, indexer, or event.
-- You can use ~sealed~ to prevent them from overriding specific ~virtual~ methods or properties. 
+- You can use ~sealed~ to prevent them from overriding specific ~virtual~ methods or properties.
 
 [[file:img/screenshot_2017-05-05_16-52-37.png]]
-
 
 * Use Cases
 ** Can I make local vairalbes constant?
