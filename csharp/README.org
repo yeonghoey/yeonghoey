@@ -9,6 +9,7 @@
    - [[#as][as]]
    - [[#const][const]]
    - [[#delegate][delegate]]
+   - [[#event][event]]
    - [[#listt][List<T>]]
    - [[#null][null]]
    - [[#nullablet][Nullable<T>]]
@@ -115,7 +116,6 @@
 - The initializer of a constant local or a constant field must be
   a constant expression that can be implicitly converted to the target type
 - A constant expression is an expression that *can be fully evaluated at compile time*
-
 ** delegate
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/delegate
 - A ~delegate~ is a reference type that can be used to encapsulate a named or an anonymous method.
@@ -162,6 +162,45 @@
       // cube: 83.740234375
   }
 #+END_SRC
+
+** event
+- http://csharpindepth.com/Articles/Chapter2/Events.aspx
+- Think of events a bit like properties.
+- Events are pairs of methods
+#+BEGIN_SRC csharp
+  using System;
+
+  class Test
+  {
+      public event EventHandler MyEvent
+      {
+          add
+          {
+              Console.WriteLine ("add operation");
+          }
+
+          remove
+          {
+              Console.WriteLine ("remove operation");
+          }
+      }
+
+      static void Main()
+      {
+          Test t = new Test();
+
+          t.MyEvent += new EventHandler (t.DoNothing);
+          t.MyEvent -= null;
+      }
+
+      void DoNothing (object sender, EventArgs e)
+      {
+      }
+  }
+#+END_SRC
+- A public ~delegate~ variable
+- A ~delegate~ variable backed by a property
+- A ~delegate~ variable with ~AddXXXHandler~ and ~RemoveXXXHandler~ methods
 
 ** List<T>
 - https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx
