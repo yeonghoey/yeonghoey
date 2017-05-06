@@ -433,6 +433,11 @@
 
 ** Named and Optional Arguments
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/classes-and-structs/named-and-optional-arguments
+- A default value must be one of the following types of expressions:
+  - a constant expression;
+  - an expression of the form ~new ValType()~, where ~ValType~ is a value type, such as an ~enum~ or a ~struct~;
+  - an expression of the form ~default(ValType)~, where ~ValType~ is a value type.
+  - ~default~ keyword, which will return ~null~ for reference types and ~zero~ for numeric value types.
 
 #+BEGIN_SRC csharp
   namespace OptionalNamespace
