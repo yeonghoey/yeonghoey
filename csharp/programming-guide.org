@@ -2,6 +2,8 @@
 
 * Table of Contents :TOC_1_gh:
  - [[#inside-a-c-program][Inside a C# Program]]
+ - [[#types][Types]]
+ - [[#classes-and-structs][Classes and Structs]]
 
 * Inside a C# Program
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/inside-a-program/
@@ -150,3 +152,21 @@
   // While that code compiles, the code readability is misleading, and the code may break in the future
   // if you add a static member with the same name to the derived class.
 #+END_SRC
+* Types
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/reference-tables-for-types
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/struct
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/class
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/interface
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/enum
+[[file:img/screenshot_2017-05-06_11-00-02.png]]
+
+- There are two categories of value types: ~struct~ and ~enum~.
+- Assigning one value type variable to another *copies the contained value*.
+- Unlike with reference types, you *cannot derive a new type from a value type*.
+- However, like reference types, ~structs~ can implement interfaces.
+- A type that is defined as a ~class~, ~delegate~, ~array~, or ~interface~ is a reference type.
+
+* Classes and Structs
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/classes-and-structs/
+- Classes are used to model more complex behavior, or data that is intended to be modified after a class object is created.
+- Structs are best suited for small data structures that contain primarily data that is not intended to be modified after the struct is created.
