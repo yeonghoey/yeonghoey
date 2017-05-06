@@ -9,6 +9,7 @@
    - [[#coroutine][Coroutine]]
    - [[#gameobject][GameObject]]
    - [[#input][Input]]
+   - [[#lambda][lambda]]
    - [[#main-window][Main Window]]
    - [[#mathf][Mathf]]
    - [[#object][Object]]
@@ -242,13 +243,24 @@ What I experimented:
 #+BEGIN_SRC csharp
   respawn = GameObject.FindWithTag("Respawn");
 #+END_SRC
-
 ** Input
 - https://docs.unity3d.com/ScriptReference/Input-anyKey.html
 
 #+BEGIN_SRC csharp
   if (Input.anyKey)
       Debug.Log("A key or mouse click has been detected");
+#+END_SRC
+
+** lambda
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions
+
+#+BEGIN_SRC csharp
+  delegate int del(int i);
+  static void Main(string[] args)
+  {
+      del myDelegate = x => x * x;
+      int j = myDelegate(5); //j = 25
+  }
 #+END_SRC
 
 ** Main Window
