@@ -18,6 +18,7 @@
    - [[#readonly][readonly]]
    - [[#static-class-and-static-class-members][Static Class and Static Class Members]]
    - [[#tostring][ToString]]
+   - [[#using][using]]
  - [[#details][Details]]
    - [[#value-types-and-reference-types][Value Types and Reference Types]]
    - [[#abstract-virtual-override-sealed][abstract, virtual, override, sealed]]
@@ -428,13 +429,26 @@ it's inherently static while a readonly field can be either static or instance.
       }
     }
 #+END_SRC
-
 ** ToString
 - https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
 
 #+BEGIN_SRC csharp
   float score = 100.12345;
   Debug.Log(score.ToString("F2"));  # Fixed point, prints "100.12"
+#+END_SRC
+
+** using
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/using-directive
+
+#+BEGIN_SRC csharp
+  // To allow the use of types in a namespace so that you do not have to qualify
+  using System.Text;
+
+  // To allow you to access static members of a type without having to qualify
+  using static System.Math;
+
+  // To create an alias for a namespace or a type. This is called a using alias directive
+  using Project = PC.MyCompany.Project;
 #+END_SRC
 
 * Details
