@@ -23,6 +23,7 @@
    - [[#layer-vs-sorting-layer][Layer vs Sorting Layer]]
    - [[#hideininspector-vs-nonserialized-vs-serializefield][HideInInspector vs NonSerialized vs SerializeField]]
    - [[#serialization][Serialization]]
+   - [[#c-classes-need-to-have-its-own-script-with-the-class-name][C# classes need to have its own script with the class' name?]]
  - [[#use-cases][Use Cases]]
    - [[#pixel-perfect][Pixel Perfect]]
    - [[#make-input-axis-discrete][Make Input Axis discrete]]
@@ -414,6 +415,11 @@ Many of *unity* features build ontop of the serialization system:
       public Animal[] animals;
   }
 #+END_SRC
+
+** C# classes need to have its own script with the class' name?
+- http://answers.unity3d.com/questions/497914/does-every-c-class-need-to-have-its-own-script-wit.html
+- Only ~MonoBehavior~, ~ScriptableObject~, and the children of either MUST have their own files
+- Unity magic (adding classes as Components, etc..) requires the class be alone in a file, with the same name. 
 
 * Use Cases
 ** Pixel Perfect
