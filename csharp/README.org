@@ -13,6 +13,7 @@
    - [[#event][event]]
    - [[#lambda-expressions][Lambda Expressions]]
    - [[#listt][List<T>]]
+   - [[#method-parameter-keywords][Method Parameter Keywords]]
    - [[#named-and-optional-arguments][Named and Optional Arguments]]
    - [[#null][null]]
    - [[#nullablet][Nullable<T>]]
@@ -307,6 +308,127 @@
   string[] arr = colors.ToArray();
 
   arrlist.Clear ();
+#+END_SRC
+
+** Method Parameter Keywords
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/method-parameters
+*** params
+- To specify a method parameter that takes a variable number of arguments
+- Can send a comma-separated list of arguments of the type
+- Can send an array of arguments of the type
+- Can send no arguments
+
+#+BEGIN_SRC csharp
+  public class MyClass
+  {
+      public static void UseParams(params int[] list)
+      {
+          for (int i = 0; i < list.Length; i++)
+          {
+              Console.Write(list[i] + " ");
+          }
+          Console.WriteLine();
+      }
+
+      public static void UseParams2(params object[] list)
+      {
+          for (int i = 0; i < list.Length; i++)
+          {
+              Console.Write(list[i] + " ");
+          }
+          Console.WriteLine();
+      }
+
+      static void Main()
+      {
+          UseParams(1, 2, 3, 4);
+          UseParams2(1, 'a', "test");
+          UseParams2();
+
+          int[] myIntArray = { 5, 6, 7, 8, 9 };
+          UseParams(myIntArray);
+
+          object[] myObjArray = { 2, 'b', "test", "again" };
+          UseParams2(myObjArray);
+
+          // The following call does not cause an error, but the entire
+          // integer array becomes the first element of the params array.
+          UseParams2(myIntArray);
+      }
+  }
+  /*
+  Output:
+      1 2 3 4
+      1 a test
+
+      5 6 7 8 9
+      2 b test again
+      System.Int32[]
+  ,*/
+#+END_SRC
+
+*** ref
+- The ~ref~ keyword causes an argument to be passed by reference, not by value
+- To use a ~ref~ parameter, both the method definition and the calling method must explicitly use the ~ref~ keyword
+
+#+BEGIN_SRC csharp
+  class RefExample
+  {
+      static void Method(ref int i)
+      {
+          i = i + 44;
+      }
+
+      static void Main()
+      {
+          int val = 1;
+          Method(ref val); // call with 'ref'
+          Console.WriteLine(val);
+          // Output: 45
+      }
+  }
+
+
+  class CS0663_Example
+  {
+      // Compiler error CS0663: "Cannot define overloaded
+      // methods that differ only on ref and out".
+      public void SampleMethod(out int i) { }
+      public void SampleMethod(ref int i) { }
+  }
+
+  class RefOverloadExample
+   {
+       // However, overloading can be done
+       // when one method has a ref or out parameter and the other has a value parameter
+       public void SampleMethod(int i) { }
+       public void SampleMethod(ref int i) { }
+  }
+#+END_SRC
+
+*** out
+- It is like the ~ref~ keyword, except that ~ref~ requires that the variable be initialized before it is passed.
+
+#+BEGIN_SRC csharp
+  class OutReturnExample
+  {
+      static void Method(out int i, out string s1, out string s2)
+      {
+          i = 44;
+          s1 = "I've been returned";
+          s2 = null;
+      }
+
+      static void Main()
+      {
+          int value;
+          string str1, str2;
+          Method(out value, out str1, out str2);
+          // value is now 44
+          // str1 is now "I've been returned"
+          // str2 is (still) null;
+      }
+  }
 #+END_SRC
 
 ** Named and Optional Arguments
