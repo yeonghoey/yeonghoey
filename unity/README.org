@@ -393,6 +393,15 @@ What I experimented:
 - https://docs.unity3d.com/Manual/script-Serialization.html
 - https://blogs.unity3d.com/kr/2014/06/24/serialization-in-unity/
 
+Many of *unity* features build ontop of the serialization system:
+- Storing data stored in your scripts
+- Inspector window
+- Prefabs
+- Instantiation
+- Saving and loading scenes
+- Hot reloading of editor code
+- Resource.GarbageCollectSharedAssets()
+
 #+BEGIN_SRC csharp
   [Serializable]
   class Animal
