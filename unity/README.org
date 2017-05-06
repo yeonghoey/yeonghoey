@@ -4,10 +4,10 @@
  - [[#references][References]]
    - [[#animation-window][Animation Window]]
    - [[#animator-window][Animator Window]]
+   - [[#attributes][Attributes]]
    - [[#collider-2d][Collider 2D]]
    - [[#coroutine][Coroutine]]
    - [[#gameobject][GameObject]]
-   - [[#hideininspector][HideInInspector]]
    - [[#input][Input]]
    - [[#main-window][Main Window]]
    - [[#mathf][Mathf]]
@@ -21,6 +21,8 @@
    - [[#execution-order][Execution Order]]
    - [[#awake-vs-start][Awake vs Start]]
    - [[#layer-vs-sorting-layer][Layer vs Sorting Layer]]
+   - [[#hideininspector-vs-nonserialized-vs-serializefield][HideInInspector vs NonSerialized vs SerializeField]]
+   - [[#serialization][Serialization]]
  - [[#use-cases][Use Cases]]
    - [[#pixel-perfect][Pixel Perfect]]
    - [[#make-input-axis-discrete][Make Input Axis discrete]]
@@ -173,6 +175,36 @@ What I experimented:
   }
 #+END_SRC
 
+** Attributes
+*** HideInInspector
+- https://docs.unity3d.com/ScriptReference/HideInInspector.html
+
+#+BEGIN_SRC csharp
+  public class ExampleClass : MonoBehaviour {
+      [HideInInspector]
+      public int p = 5;
+  }
+#+END_SRC
+
+*** SerializeField
+- https://docs.unity3d.com/ScriptReference/SerializeField.html
+
+#+BEGIN_SRC csharp
+  public class SomePerson : MonoBehaviour
+  {
+      //This field gets serialized because it is public.
+      public string name = "John";
+
+      //This field does not get serialized because it is private.
+      private int age = 40;
+
+      //This field gets serialized even though it is private
+      //because it has the SerializeField attribute applied.
+      [SerializeField]
+      private bool hasHealthPotion = true;
+  }
+#+END_SRC
+
 ** Collider 2D
 - https://docs.unity3d.com/ScriptReference/Collider2D.html
 
@@ -208,16 +240,6 @@ What I experimented:
 
 #+BEGIN_SRC csharp
   respawn = GameObject.FindWithTag("Respawn");
-#+END_SRC
-
-** HideInInspector
-- https://docs.unity3d.com/ScriptReference/HideInInspector.html
-
-#+BEGIN_SRC csharp
-  public class ExampleClass : MonoBehaviour {
-      [HideInInspector]
-      public int p = 5;
-  }
 #+END_SRC
 
 ** Input
@@ -356,6 +378,33 @@ What I experimented:
 - *Lower numbers are rendered first*
 
 [[file:img/screenshot_2017-05-02_10-00-27.png]]
+
+** HideInInspector vs NonSerialized vs SerializeField
+- http://answers.unity3d.com/questions/549814/using-serializefield-vs-public.html
+- http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html
+- http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html
+
+[[file:img/screenshot_2017-05-06_12-26-40.png]]
+- Things can only be visible in the inspector if they are serialized.
+- If something is not serialized it will never show up in the inspector.
+- ~HideInInspector~ attribute make it invisible in the inspector but still allow each instance of a SerializeField to hold its own default value.
+
+** Serialization
+- https://docs.unity3d.com/Manual/script-Serialization.html
+- https://blogs.unity3d.com/kr/2014/06/24/serialization-in-unity/
+
+#+BEGIN_SRC csharp
+  [Serializable]
+  class Animal
+  {
+      public string name;
+  }
+
+  class MyScript : MonoBehaviour
+  {
+      public Animal[] animals;
+  }
+#+END_SRC
 
 * Use Cases
 ** Pixel Perfect
