@@ -223,6 +223,8 @@ What I experimented:
 - http://answers.unity3d.com/questions/755196/yield-return-null-vs-yield-return-waitforendoffram.html
 - Coroutines have virtually no performance overhead.
 - ~StartCoroutine~ function always returns immediately,
+- ~yield return <something>~ to make coroutine resume after ~<something>~
+- ~yield break~ to stop the coroutine
 - SEE: [[#execution-order][Execution Order]]
 
 ** GameObject
