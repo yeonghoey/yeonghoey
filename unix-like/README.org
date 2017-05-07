@@ -37,6 +37,8 @@
    - [[#swap-spacesfiles][Swap spaces/files]]
    - [[#the-art-of-command-line][The Art of Command Line]]
    - [[#-vs-][$* vs $@]]
+ - [[#use-cases][Use Cases]]
+   - [[#set--x-for-a-line][set -x for a line]]
 
 * Primitives
 ** Arithmetic Expansion
@@ -1113,4 +1115,16 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
   arg  1
   arg  2
   arg  3
+#+END_SRC
+* Use Cases
+** set -x for a line
+- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
+
+#+BEGIN_SRC shell
+  set -x
+  command
+  { set +x; } 2>/dev/null
+
+  # or simply
+  ( set -x; command )
 #+END_SRC
