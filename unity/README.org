@@ -9,7 +9,6 @@
    - [[#coroutine][Coroutine]]
    - [[#gameobject][GameObject]]
    - [[#input][Input]]
-   - [[#lambda][lambda]]
    - [[#main-window][Main Window]]
    - [[#mathf][Mathf]]
    - [[#object][Object]]
@@ -18,6 +17,7 @@
    - [[#random][Random]]
    - [[#sprites][Sprites]]
  - [[#details][Details]]
+   - [[#use-emacs-as-the-script-editor][Use Emacs as the script editor]]
    - [[#mononet-compatibility][Mono(.Net) Compatibility]]
    - [[#execution-order][Execution Order]]
    - [[#awake-vs-start][Awake vs Start]]
@@ -251,18 +251,6 @@ What I experimented:
       Debug.Log("A key or mouse click has been detected");
 #+END_SRC
 
-** lambda
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions
-
-#+BEGIN_SRC csharp
-  delegate int del(int i);
-  static void Main(string[] args)
-  {
-      del myDelegate = x => x * x;
-      int j = myDelegate(5); //j = 25
-  }
-#+END_SRC
-
 ** Main Window
 - https://docs.unity3d.com/Manual/UnityHotkeys.html
 
@@ -363,6 +351,9 @@ What I experimented:
 [[file:img/screenshot_2017-05-02_09-56-05.png]]
 
 * Details
+** Use Emacs as the script editor
+[[file:img/screenshot_2017-05-07_13-28-22.png]]
+
 ** Mono(.Net) Compatibility
 - http://answers.unity3d.com/questions/1334261/unity-560f3-where-is-net-46-support.html
 - Currently, It looks like that ~C# 6.0~ (~.Net 4.6~) only supported for Windows target
