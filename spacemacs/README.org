@@ -6,6 +6,7 @@
    - [[#regex][Regex]]
  - [[#layers][Layers]]
    - [[#auto-completion][auto-completion]]
+   - [[#csharp][csharp]]
    - [[#restclient][restclient]]
  - [[#customization][Customization]]
    - [[#visual-pastes][Visual Pastes]]
@@ -112,6 +113,15 @@ Emacs Regex engine specialties:
 - ~$0~ is the exit point
 - A tapstop can show up multiple times, which mirrors the first occurance
 - Mirrors can be transformed with ~${2:$(elisp-code)~, with ~yas-text~ place holder
+
+** csharp
+- https://github.com/OmniSharp/omnisharp-emacs
+- ~SPC m s s~ to start omnisharp
+- Select ~*.sln~ file on the project root for unity3d
+
+#+BEGIN_SRC csharp
+  brew install omnisharp/omnisharp-roslyn/omnisharp-mono
+#+END_SRC
 
 ** restclient
 - https://github.com/pashky/restclient.el
