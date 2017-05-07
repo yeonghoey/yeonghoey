@@ -20,6 +20,7 @@
    - [[#properties][Properties]]
    - [[#readonly][readonly]]
    - [[#static-class-and-static-class-members][Static Class and Static Class Members]]
+   - [[#this][this]]
    - [[#tostring][ToString]]
    - [[#using][using]]
  - [[#details][Details]]
@@ -627,6 +628,29 @@ it's inherently static while a readonly field can be either static or instance.
       }
     }
 #+END_SRC
+** this
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/this
+- To qualify members hidden by similar names
+- To pass an object as a parameter to other methods
+- To declare indexers
+
+#+BEGIN_SRC csharp
+  public Employee(string name, string alias)
+  {
+      // Use this to qualify the fields, name and alias:
+      this.name = name;
+      this.alias = alias;
+  }
+
+  CalcTax(this);
+
+  public int this[int param]
+  {
+      get { return array[param]; }
+      set { array[param] = value; }
+  }
+#+END_SRC
+
 ** ToString
 - https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
 
