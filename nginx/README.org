@@ -13,6 +13,7 @@
      - [[#location][location]]
      - [[#types][types]]
    - [[#proxy][proxy]]
+     - [[#proxy_pass][proxy_pass]]
      - [[#proxy_redirect][proxy_redirect]]
    - [[#rewrite][rewrite]]
      - [[#rewrite-1][rewrite]]
@@ -79,12 +80,18 @@
 
 *** location
 - http://nginx.org/en/docs/http/ngx_http_core_module.html#location
+- The matching is performed against a *normalized* URI,
+- *normalized* URI
+  - Decoding the text encoded in the “%XX” form
+  - resolving references to relative path components “.” and “..”
+  - possible compression of two or more adjacent slashes into a single slash.
 
-1. If there exists exact match(~=~) its configuration used
-2. Pick the longest prefix match
-3. Regex checked, in order of appearance
-   1. first regex match configuration used
-   2. no regex match, the longest prefix match used.
+
+- If there exists exact match(~=~) its configuration used
+- Pick the longest prefix match
+- Regex checked, in order of appearance
+  1. first regex match configuration used
+  2. no regex match, the longest prefix match used.
 
 #+BEGIN_EXAMPLE
   location = / {
@@ -131,6 +138,34 @@
 #+END_EXAMPLE
 
 ** proxy
+*** proxy_pass
+- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
+
+If the ~proxy_pass~ directive is specified with a URI, then when a request is passed to the server,
+the part of a *normalized* request URI matching the location is replaced by a URI specified in the directive:
+#+BEGIN_EXAMPLE
+  location /name/ {
+      proxy_pass http://127.0.0.1/remote/;
+  }
+#+END_EXAMPLE
+
+~/name~ will be replaced with ~/remote~
+
+
+If ~proxy_pass~ is specified without a URI,
+the request URI is passed to the server *in the same form* as sent by a client when the original request is processed,
+or the full normalized request URI is passed when processing the changed URI:
+
+#+BEGIN_EXAMPLE
+  location /name/ {
+      rewrite    /name/([^/]+) /users?name=$1 break;
+      proxy_pass http://127.0.0.1;
+  }
+#+END_EXAMPLE
+
+In this case, the URI specified in the directive is ignored and
+the full changed request URI is passed to the server.
+
 *** proxy_redirect
 - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_redirect
 - Sets the text that should be changed in the ~Location~ and ~Refresh~ header fields of a proxied server response
