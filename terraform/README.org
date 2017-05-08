@@ -176,6 +176,10 @@ To work around this, use ~ignore_changes~
 #+END_SRC
 
 ** taint
+- https://github.com/yeonghoey/notes/tree/master/terraform#taint
+- You can taint resources within modules
+- It looks like that tainting a whole module is currently impossible
+
 #+BEGIN_SRC shell
   terraform taint aws_instance.main                                                                              1 ↵
   terraform taint -module=my_module aws_instance.main                                                                              1 ↵
