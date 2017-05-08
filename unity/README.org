@@ -13,6 +13,7 @@
    - [[#mathf][Mathf]]
    - [[#object][Object]]
    - [[#physics-2d][Physics 2D]]
+   - [[#platform-dependent-compilation][Platform dependent compilation]]
    - [[#prefabs][Prefabs]]
    - [[#random][Random]]
    - [[#sprites][Sprites]]
@@ -307,7 +308,6 @@ What I experimented:
 #+BEGIN_SRC csharp
   public static void Destroy(Object obj, float t = 0.0F);
 #+END_SRC
-
 ** Physics 2D
 - https://docs.unity3d.com/Manual/Physics2DReference.html
 
@@ -316,6 +316,10 @@ What I experimented:
   it only collides with Dynamic Rigidbody 2Ds.
 
 [[file:img/screenshot_2017-05-01_10-20-38.png]]
+
+** Platform dependent compilation
+- https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
+[[file:img/screenshot_2017-05-08_22-23-18.png]]
 
 ** Prefabs
 - https://docs.unity3d.com/Manual/Prefabs.html

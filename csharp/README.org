@@ -23,6 +23,8 @@
    - [[#this][this]]
    - [[#tostring][ToString]]
    - [[#using][using]]
+ - [[#compiler-options][Compiler Options]]
+   - [[#define][define]]
  - [[#details][Details]]
    - [[#value-types-and-reference-types][Value Types and Reference Types]]
    - [[#abstract-virtual-override-sealed][abstract, virtual, override, sealed]]
@@ -671,6 +673,28 @@ it's inherently static while a readonly field can be either static or instance.
 
   // To create an alias for a namespace or a type. This is called a using alias directive
   using Project = PC.MyCompany.Project;
+#+END_SRC
+
+* Compiler Options
+** define
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/compiler-options/define-compiler-option
+#+BEGIN_SRC csharp
+  // preprocessor_define.cs
+  // compile with: /define:xx
+  // or uncomment the next line
+  // #define xx
+  using System;
+  public class Test
+  {
+      public static void Main()
+      {
+          #if (xx)
+          Console.WriteLine("xx defined");
+          #else
+          Console.WriteLine("xx not defined");
+          #endif
+      }
+  }
 #+END_SRC
 
 * Details
