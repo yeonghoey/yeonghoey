@@ -1,0 +1,25 @@
+#+TITLE: Cygwin
+
+* Table of Contents :TOC_1_gh:
+ - [[#setup][Setup]]
+
+* Setup
+- Package List: https://cygwin.com/packages/package_list.html
+- CLI on setup.exe: https://www.cygwin.com/faq/faq.html#faq.setup.cli
+
+
+- http://stackoverflow.com/questions/745275/can-i-script-a-cygwin-install-to-include-certain-packages
+- https://superuser.com/questions/304541/how-to-install-new-packages-on-cygwin
+- Rerun the setup program to install new packages.
+
+#+BEGIN_EXAMPLE
+  setup-x86_64.exe ^
+  --quiet-mode ^
+  --packages ^
+  aria2,^
+  atool,^
+  autoconf,^
+  ...
+  xmlstarlet,^
+  zip
+#+END_EXAMPLE
