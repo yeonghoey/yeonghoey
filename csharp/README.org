@@ -678,6 +678,9 @@ it's inherently static while a readonly field can be either static or instance.
 * Compiler Options
 ** define
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/compiler-options/define-compiler-option
+- http://stackoverflow.com/questions/709463/c-sharp-macro-definitions-in-preprocessor
+- *Only conditional compilation* and pragmas are supported.
+
 #+BEGIN_SRC csharp
   // preprocessor_define.cs
   // compile with: /define:xx
@@ -689,9 +692,9 @@ it's inherently static while a readonly field can be either static or instance.
       public static void Main()
       {
           #if (xx)
-          Console.WriteLine("xx defined");
+              Console.WriteLine("xx defined");
           #else
-          Console.WriteLine("xx not defined");
+              Console.WriteLine("xx not defined");
           #endif
       }
   }
