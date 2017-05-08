@@ -17,7 +17,7 @@
    - [[#rewrite][rewrite]]
      - [[#rewrite-1][rewrite]]
  - [[#use-cases][Use Cases]]
-   - [[#reverse-proxy-with-preserving-request-url][Reverse Proxy with preserving request URL]]
+   - [[#reverse-proxy-with-preserving-request-host][Reverse Proxy with preserving request host]]
    - [[#nginx-boilerplate][nginx-boilerplate]]
 
 * Beginner's Guide
@@ -156,9 +156,16 @@
 #+END_EXAMPLE
 
 * Use Cases
-** Reverse Proxy with preserving request URL
+** Reverse Proxy with preserving request host
 - https://www.nginx.com/resources/admin-guide/reverse-proxy/
 - http://stackoverflow.com/questions/5834025/how-to-preserve-request-url-with-nginx-proxy-pass
+
+It seems that some hosts use ~Host~ header to redirect the client.
+nginx passes ~$proxy_host~, which contains the address of proxied server, by default.
+
+Some proxied servers redirect the client to a URL of their original host.
+By setting ~proxy_set_header Host $host~, nginx passes ~Host~ as its own address.
+By this, nginx keep clients communicating with it.
 
 #+BEGIN_EXAMPLE
   user www-data www-data;
