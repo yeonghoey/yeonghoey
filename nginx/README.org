@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_3_gh:
  - [[#beginners-guide][Beginner's Guide]]
+   - [[#processes][Processes]]
    - [[#directives][Directives]]
  - [[#references][References]]
    - [[#core][core]]
@@ -29,11 +30,16 @@
   $ nginx -s reopen # reopening the log files
 #+END_SRC
 
+** Processes
+- one master process and several worker processes
+- master process reads and evaluates configuration, and maintain worker processes.
+
 ** Directives
 - simple: ~name~ and ~parameters~, separated by ~spaces~, ends with ~;~
 - block: Instead of the semicolon, it ends with a block surrounded by ~{}~
 - A block surrounding directives is called a ~context~
 - Top level context is called the ~main context~
+- ~#~ to comment a line
 
 * References
 ** core
@@ -128,6 +134,10 @@
 *** proxy_redirect
 - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_redirect
 - Sets the text that should be changed in the ~Location~ and ~Refresh~ header fields of a proxied server response
+#+BEGIN_EXAMPLE
+  # will rewrite this string to “Location: http://frontend/one/some/uri/”.
+  proxy_redirect http://localhost:8000/two/ http://frontend/one/;
+#+END_EXAMPLE
 
 ** rewrite
 - http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
