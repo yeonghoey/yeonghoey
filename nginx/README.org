@@ -20,7 +20,8 @@
      - [[#rewrite-1][rewrite]]
  - [[#use-cases][Use Cases]]
    - [[#reverse-proxy-with-preserving-request-host][Reverse Proxy with preserving request host]]
-   - [[#nginx-boilerplate][nginx-boilerplate]]
+   - [[#server-block-examples][Server Block Examples]]
+ - [[#links][Links]]
 
 * Beginner's Guide
 - http://nginx.org/en/docs/beginners_guide.html
@@ -225,5 +226,12 @@ By this, nginx keep clients communicating with it.
   }
 #+END_EXAMPLE
 
-** nginx-boilerplate
+** Server Block Examples
+- https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/
+- Same as ~Virtual Host~ of Apache
+
+* Links
+- http://wiki.nginx.org/pitfalls
+- http://wiki.nginx.org/configuration
+- https://github.com/perusio/nginx_ensite
 - https://github.com/nginx-boilerplate/nginx-boilerplate
