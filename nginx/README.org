@@ -15,6 +15,7 @@
    - [[#proxy][proxy]]
      - [[#proxy_pass][proxy_pass]]
      - [[#proxy_redirect][proxy_redirect]]
+     - [[#proxy_hide_header][proxy_hide_header]]
    - [[#rewrite][rewrite]]
      - [[#rewrite-1][rewrite]]
  - [[#use-cases][Use Cases]]
@@ -148,9 +149,7 @@ the part of a *normalized* request URI matching the location is replaced by a UR
       proxy_pass http://127.0.0.1/remote/;
   }
 #+END_EXAMPLE
-
 ~/name~ will be replaced with ~/remote~
-
 
 If ~proxy_pass~ is specified without a URI,
 the request URI is passed to the server *in the same form* as sent by a client when the original request is processed,
@@ -162,7 +161,6 @@ or the full normalized request URI is passed when processing the changed URI:
       proxy_pass http://127.0.0.1;
   }
 #+END_EXAMPLE
-
 In this case, the URI specified in the directive is ignored and
 the full changed request URI is passed to the server.
 
@@ -173,6 +171,12 @@ the full changed request URI is passed to the server.
   # will rewrite this string to “Location: http://frontend/one/some/uri/”.
   proxy_redirect http://localhost:8000/two/ http://frontend/one/;
 #+END_EXAMPLE
+
+*** proxy_hide_header
+- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_hide_header
+- By default, nginx does not pass the header fields ~Date~, ~Server~, ~X-Pad~, and ~X-Accel-...~ from the response of a proxied server to a client.
+- The proxy_hide_header directive sets additional fields that will not be passed
+- [[http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass_header][proxy_pass_header]] for the opposite
 
 ** rewrite
 - http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
