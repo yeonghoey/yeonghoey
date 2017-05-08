@@ -68,10 +68,40 @@ The three separate condition operators are evaluated using *AND*.
 * Concepts
 ** Roles
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html
 - With some AWS SDKs, can use temporary credentials transparently.
 - Alternatively, can get the temporary credentials directly from the EC2 instance metadata
 
 [[file:img/screenshot_2017-04-22_22-38-40.png]]
+
+*** Role Policy
+- http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
+
+~Role Policy~ describes how the role is used for.
+This is related to AWS STS(Security Token Service);
+Following is an example on a role for *EC2*:
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": {
+      "Effect": "Allow",
+      "Principal": {"Service": "ec2.amazonaws.com"},
+      "Action": "sts:AssumeRole"
+    }
+  }
+#+END_SRC
+
+And it also requires its actual permissions:
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::example_bucket"
+    }
+  }
+#+END_SRC
 
 ** Policies Evaluation Logic
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
