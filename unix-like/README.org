@@ -20,6 +20,7 @@
    - [[#pgrep][pgrep]]
    - [[#pkill][pkill]]
    - [[#sort][sort]]
+   - [[#su][su]]
    - [[#tar][tar]]
    - [[#tee][tee]]
    - [[#watch][watch]]
@@ -470,6 +471,26 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   192.168.0.1
   192.168.0.5
   192.168.0.25
+#+END_SRC
+
+** su
+- http://www.linfo.org/su.html
+
+#+BEGIN_SRC shell
+  # if <user> is not specified, 'root' is used;
+  sudo su
+  sudo su root  # same as above
+
+  # Use switch to another user
+  sudo su yeonghoey
+
+  # With '-', su moves to target user's home directory,
+  # along with his environment variables
+  sudo su -
+  sudo su - yeonghoey
+
+  # run a command as a user
+  sudo su -c 'ls /usr' root
 #+END_SRC
 
 ** tar
