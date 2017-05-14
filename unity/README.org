@@ -17,6 +17,7 @@
    - [[#prefabs][Prefabs]]
    - [[#random][Random]]
    - [[#scriptableobject][ScriptableObject]]
+   - [[#special-folders][Special Folders]]
    - [[#sprites][Sprites]]
  - [[#details][Details]]
    - [[#use-emacs-as-the-script-editor][Use Emacs as the script editor]]
@@ -343,7 +344,6 @@ What I experimented:
   // Many other overloadings
   public static Color ColorHSV();
 #+END_SRC
-
 ** ScriptableObject
 - https://unity3d.com/kr/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects
 
@@ -356,6 +356,21 @@ What I experimented:
 [[file:img/screenshot_2017-05-14_11-07-18.png]]
 
 [[file:img/screenshot_2017-05-14_11-08-15.png]]
+
+** Special Folders
+- https://docs.unity3d.com/Manual/SpecialFolders.html
+- https://docs.unity3d.com/Manual/ScriptCompileOrderFolders.html
+
+| Folder                            | Description                         |
+|-----------------------------------+-------------------------------------|
+| ~Assets~                          | The main folder of assets           |
+| ~Assets/**/Editor~                | Treated as Editor scripts           |
+| ~Assets/Editor Default Resources~ | Editor script's on-demand resources |
+| ~Assets/Gizmos~                   |                                     |
+| ~Assets/Plugins~                  |                                     |
+| ~Assets/**/Resources~             |                                     |
+| ~Assets/Standard Assets~          |                                     |
+| ~Assets/StreamingAssets~          |                                     |
 
 ** Sprites
 - https://docs.unity3d.com/Manual/Sprites.html
