@@ -38,6 +38,7 @@
    - [[#general-structure-of-a-c-program][General Structure of a C# Program]]
    - [[#increment-operator-post-vs-pre][Increment operator: Post vs Pre?]]
    - [[#main-method][Main Method]]
+   - [[#get-property-name-inside-setter][Get property name inside setter]]
 
 * C#, .Net and Mono
 - https://en.wikipedia.org/wiki/C_Sharp_(programming_language)
@@ -951,3 +952,22 @@ In short, No. Because:
       return 0;
   }
 #+END_SRC
+** Get property name inside setter
+- https://msdn.microsoft.com/ko-kr/library/system.reflection.methodbase.aspx
+- http://stackoverflow.com/questions/1044519/get-property-name-inside-setter
+
+#+BEGIN_SRC csharp
+  using System.Reflection
+
+  public static int Dummy {
+      get {
+          var propertyName = MethodBase.GetCurrentMethod().Name.Substring(4);
+          Console.WriteLine(propertyName);
+          return 0;
+      }
+  }
+#+END_SRC
+
+Use ~string.Substring(4)~ to remoe ~get_~ or ~set_~:
+
+[[file:img/screenshot_2017-05-14_14-25-09.png]]
