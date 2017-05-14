@@ -22,6 +22,7 @@
    - [[#scriptableobject][ScriptableObject]]
    - [[#special-folders][Special Folders]]
    - [[#sprites][Sprites]]
+   - [[#time][Time]]
  - [[#details][Details]]
    - [[#use-emacs-as-the-script-editor][Use Emacs as the script editor]]
    - [[#mononet-compatibility][Mono(.Net) Compatibility]]
@@ -326,7 +327,7 @@ What I experimented:
 - https://docs.unity3d.com/Manual/PartSysMainModule.html
 - https://gist.github.com/AlexTiTanium/5676482
 
-~Time.timeSclae~ independent ~ParticleSystem~:
+~Time.timeScale~ independent ~ParticleSystem~:
 #+BEGIN_SRC csharp
   using UnityEngine;
   using System.Collections;
@@ -431,6 +432,12 @@ What I experimented:
 [[file:img/screenshot_2017-05-02_09-55-41.png]]
 
 [[file:img/screenshot_2017-05-02_09-56-05.png]]
+
+** Time
+- https://docs.unity3d.com/ScriptReference/Time.html
+- Use [[https://docs.unity3d.com/ScriptReference/Time-timeScale.html][Time.timeScale]] for slow motion effects.
+- Use [[https://docs.unity3d.com/ScriptReference/Time-realtimeSinceStartup.html][Time.realtimeSinceStartup]] to avoid the effect of ~Time.timeScale~.
+  Otherwise, should use [[https://docs.unity3d.com/ScriptReference/Time-realtimeSinceStartup.html][Time.time]] instead
 
 * Details
 ** Use Emacs as the script editor
