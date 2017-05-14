@@ -7,6 +7,7 @@
    - [[#attributes][Attributes]]
    - [[#collider-2d][Collider 2D]]
    - [[#coroutine][Coroutine]]
+   - [[#editorwindow][EditorWindow]]
    - [[#gameobject][GameObject]]
    - [[#input][Input]]
    - [[#main-window][Main Window]]
@@ -221,7 +222,6 @@ What I experimented:
 		  }
   }
 #+END_SRC
-
 ** Coroutine
 - https://docs.unity3d.com/Manual/Coroutines.html
 - http://answers.unity3d.com/questions/755196/yield-return-null-vs-yield-return-waitforendoffram.html
@@ -230,6 +230,15 @@ What I experimented:
 - ~yield return <something>~ to make coroutine resume after ~<something>~
 - ~yield break~ to stop the coroutine
 - SEE: [[#execution-order][Execution Order]]
+
+** EditorWindow
+- https://docs.unity3d.com/Manual/editor-EditorWindows.html
+- https://docs.unity3d.com/ScriptReference/EditorWindow.html
+- General Use case:
+  - ~void OnGUI()~ for updating UI
+  - ~void OnEnable()~ for restoring values (called when the editor loads)
+  - ~void OnDisable()~ for saving values (called when the editor loses its focus)
+  - To update during the runtime, saving and restoring on ~OnGUI()~
 
 ** GameObject
 *** Create Empty with Code
