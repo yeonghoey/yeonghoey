@@ -22,6 +22,7 @@
    - [[#static-class-and-static-class-members][Static Class and Static Class Members]]
    - [[#this][this]]
    - [[#tostring][ToString]]
+   - [[#typeof][typeof]]
    - [[#using][using]]
  - [[#compiler-options][Compiler Options]]
    - [[#define][define]]
@@ -652,13 +653,23 @@ it's inherently static while a readonly field can be either static or instance.
       set { array[param] = value; }
   }
 #+END_SRC
-
 ** ToString
 - https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
 
 #+BEGIN_SRC csharp
   float score = 100.12345;
   Debug.Log(score.ToString("F2"));  # Fixed point, prints "100.12"
+#+END_SRC
+
+** typeof
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/typeof
+- The ~typeof~ operator cannot be overloaded.
+
+#+BEGIN_SRC csharp
+  System.Type type = typeof(int);
+
+  int i = 0;
+  System.Type type = i.GetType();  // Get runtime type
 #+END_SRC
 
 ** using
