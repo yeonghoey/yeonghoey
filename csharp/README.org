@@ -680,6 +680,7 @@ it's inherently static while a readonly field can be either static or instance.
 
 ** typeof
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/typeof
+- http://stackoverflow.com/questions/5482844/how-to-compare-types
 - The ~typeof~ operator cannot be overloaded.
 
 #+BEGIN_SRC csharp
@@ -687,6 +688,10 @@ it's inherently static while a readonly field can be either static or instance.
 
   int i = 0;
   System.Type type = i.GetType();  // Get runtime type
+
+  // Compare just like any other values
+  typeField == typeof(string);
+  typeField == typeof(DateTime);
 #+END_SRC
 
 ** using
