@@ -13,6 +13,7 @@
    - [[#main-window][Main Window]]
    - [[#mathf][Mathf]]
    - [[#object][Object]]
+   - [[#particle-system][Particle System]]
    - [[#physics-2d][Physics 2D]]
    - [[#platform-dependent-compilation][Platform dependent compilation]]
    - [[#prefabs][Prefabs]]
@@ -319,6 +320,35 @@ What I experimented:
 
 #+BEGIN_SRC csharp
   public static void Destroy(Object obj, float t = 0.0F);
+#+END_SRC
+
+** Particle System
+- https://docs.unity3d.com/Manual/PartSysMainModule.html
+- https://gist.github.com/AlexTiTanium/5676482
+
+~Time.timeSclae~ independent ~ParticleSystem~:
+#+BEGIN_SRC csharp
+  using UnityEngine;
+  using System.Collections;
+
+  public class ParticaleAnimator : MonoBehaviour
+  {
+      public ParticleSystem particle;
+      private float lastTime;
+
+      void Start ()
+      {
+          lastTime = Time.realtimeSinceStartup;
+      }
+
+      void Update ()
+      {
+          float delta = Time.realtimeSinceStartup - lastTime;
+          particle.Simulate(delta, withChildren: true, restart: false, fixedTimeStep: false);
+          lastTime = Time.realtimeSinceStartup;
+      }
+
+  }
 #+END_SRC
 
 ** Physics 2D
