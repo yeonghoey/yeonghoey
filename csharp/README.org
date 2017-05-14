@@ -55,6 +55,7 @@
 
 ** Array
 - http://csharp.net-informations.com/collection/csharp-array.htm
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/arrays/multidimensional-arrays
 
 #+BEGIN_SRC csharp
   int[] array = new int[] {10, 20, 30, 40};
@@ -69,6 +70,21 @@
   {
       Console.WriteLine(element);
   }
+#+END_SRC
+
+#+BEGIN_SRC csharp
+  int[,] array = new int[4, 2];
+  int[, ,] array1 = new int[4, 2, 3];
+
+  int[, ,] array3D = new int[,,] { { { 1, 2, 3 }, { 4, 5, 6 } },
+                                   { { 7, 8, 9 }, { 10, 11, 12 } } };
+  // The same array with dimensions specified.
+  int[, ,] array3Da = new int[2, 2, 3] { { { 1, 2, 3 }, { 4, 5, 6 } },
+                                         { { 7, 8, 9 }, { 10, 11, 12 } } };
+
+  // Access like this:
+  System.Console.WriteLine(array3D[1, 1, 2]);
+  System.Console.WriteLine(array3Da[1, 0, 1]);
 #+END_SRC
 
 ** ArrayList
