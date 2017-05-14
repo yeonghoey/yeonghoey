@@ -28,6 +28,7 @@
    - [[#hideininspector-vs-nonserialized-vs-serializefield][HideInInspector vs NonSerialized vs SerializeField]]
    - [[#serialization][Serialization]]
    - [[#c-classes-need-to-have-its-own-script-with-the-class-name][C# classes need to have its own script with the class' name?]]
+   - [[#playerprefs-vs-editorprefs][PlayerPrefs vs EditorPrefs]]
  - [[#use-cases][Use Cases]]
    - [[#pixel-perfect][Pixel Perfect]]
    - [[#make-input-axis-discrete][Make Input Axis discrete]]
@@ -458,6 +459,15 @@ Many of *unity* features build ontop of the serialization system:
 - http://answers.unity3d.com/questions/497914/does-every-c-class-need-to-have-its-own-script-wit.html
 - Only ~MonoBehavior~, ~ScriptableObject~, and the children of either MUST have their own files
 - Unity magic (adding classes as Components, etc..) requires the class be alone in a file, with the same name. 
+
+** PlayerPrefs vs EditorPrefs
+- https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
+- https://docs.unity3d.com/ScriptReference/EditorPrefs.html
+- ~PlayerPrefs~: Stores and accesses player preferences between game sessions.
+- ~EditorPrefs~: Stores and accesses Unity editor preferences.
+- ~PlayerPrefs~ is in ~UnityEngine~, while ~EditorPrefs~ is in ~UnityEditor~
+- ~PlayerPrefs~ is used for the game player's preferences and stored in the local device.
+- ~EditorPrefs~ is the only one namesace across projects, within the development environment.
 
 * Use Cases
 ** Pixel Perfect
