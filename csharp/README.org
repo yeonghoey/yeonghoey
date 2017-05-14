@@ -11,6 +11,7 @@
    - [[#const][const]]
    - [[#delegate][delegate]]
    - [[#event][event]]
+   - [[#foreach][foreach]]
    - [[#lambda-expressions][Lambda Expressions]]
    - [[#listt][List<T>]]
    - [[#method-parameter-keywords][Method Parameter Keywords]]
@@ -228,7 +229,6 @@
       // cube: 83.740234375
   }
 #+END_SRC
-
 ** event
 - http://csharpindepth.com/Articles/Chapter2/Events.aspx
 - Think of events a bit like properties.
@@ -267,6 +267,21 @@
 - A public ~delegate~ variable
 - A ~delegate~ variable backed by a property
 - A ~delegate~ variable with ~AddXXXHandler~ and ~RemoveXXXHandler~ methods
+
+** foreach
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/foreach-in
+
+#+BEGIN_SRC csharp
+  int[,] numbers2D = new int[3, 2] { { 9, 99 }, { 3, 33 }, { 5, 55 } };
+  // Or use the short form:
+  // int[,] numbers2D = { { 9, 99 }, { 3, 33 }, { 5, 55 } };
+
+  foreach (int i in numbers2D)
+   {
+       System.Console.Write("{0} ", i);
+   }
+  // Output: 9 99 3 33 5 55
+#+END_SRC
 
 ** Lambda Expressions
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions
