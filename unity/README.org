@@ -16,6 +16,7 @@
    - [[#platform-dependent-compilation][Platform dependent compilation]]
    - [[#prefabs][Prefabs]]
    - [[#random][Random]]
+   - [[#scriptableobject][ScriptableObject]]
    - [[#sprites][Sprites]]
  - [[#details][Details]]
    - [[#use-emacs-as-the-script-editor][Use Emacs as the script editor]]
@@ -342,6 +343,19 @@ What I experimented:
   // Many other overloadings
   public static Color ColorHSV();
 #+END_SRC
+
+** ScriptableObject
+- https://unity3d.com/kr/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects
+
+[[file:img/screenshot_2017-05-14_11-04-32.png]]
+
+[[file:img/screenshot_2017-05-14_11-05-22.png]]
+
+[[file:img/screenshot_2017-05-14_11-06-17.png]]
+
+[[file:img/screenshot_2017-05-14_11-07-18.png]]
+
+[[file:img/screenshot_2017-05-14_11-08-15.png]]
 
 ** Sprites
 - https://docs.unity3d.com/Manual/Sprites.html
