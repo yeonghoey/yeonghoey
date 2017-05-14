@@ -59,6 +59,7 @@
 ** Array
 - http://csharp.net-informations.com/collection/csharp-array.htm
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/arrays/multidimensional-arrays
+- http://stackoverflow.com/questions/2044591/what-is-the-difference-between-array-getlength-and-array-length
 
 #+BEGIN_SRC csharp
   int[] array = new int[] {10, 20, 30, 40};
@@ -88,6 +89,14 @@
   // Access like this:
   System.Console.WriteLine(array3D[1, 1, 2]);
   System.Console.WriteLine(array3Da[1, 0, 1]);
+#+END_SRC
+
+#+BEGIN_SRC csharp
+  int[,,] a = new int[10,11,12];
+  Console.WriteLine(a.Length);           // 1320
+  Console.WriteLine(a.GetLength(0));     // 10
+  Console.WriteLine(a.GetLength(1));     // 11
+  Console.WriteLine(a.GetLength(2));     // 12
 #+END_SRC
 
 ** ArrayList
