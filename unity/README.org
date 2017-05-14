@@ -17,6 +17,7 @@
    - [[#platform-dependent-compilation][Platform dependent compilation]]
    - [[#prefabs][Prefabs]]
    - [[#random][Random]]
+   - [[#renderer][Renderer]]
    - [[#scriptableobject][ScriptableObject]]
    - [[#special-folders][Special Folders]]
    - [[#sprites][Sprites]]
@@ -277,7 +278,6 @@ What I experimented:
   // The returned value will move back and forth between 0 and length.
   public static float PingPong(float t, float length);
 #+END_SRC
-
 ** Object
 - https://docs.unity3d.com/ScriptReference/Object.html
 
@@ -320,6 +320,7 @@ What I experimented:
 #+BEGIN_SRC csharp
   public static void Destroy(Object obj, float t = 0.0F);
 #+END_SRC
+
 ** Physics 2D
 - https://docs.unity3d.com/Manual/Physics2DReference.html
 
@@ -336,7 +337,6 @@ What I experimented:
 ** Prefabs
 - https://docs.unity3d.com/Manual/Prefabs.html
 - To make it clear when a property has been *overridden*, it is shown in the inspector *with its name label in boldface*
-
 ** Random
 - https://docs.unity3d.com/ScriptReference/Random.html
 
@@ -354,6 +354,17 @@ What I experimented:
   // Many other overloadings
   public static Color ColorHSV();
 #+END_SRC
+
+** Renderer
+*** OnBecameVisible
+- https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameVisible.html
+- When running in the editor, *scene view cameras will also cause this function to be called*
+
+*** OnBecameInvisible
+- https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameInvisible.html
+- OnBecameInvisible is called when the renderer is no longer visible by any camera.
+- It's only called the *object had been visible*
+
 ** ScriptableObject
 - https://unity3d.com/kr/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects
 
