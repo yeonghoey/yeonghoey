@@ -1,0 +1,28 @@
+#+TITLE: Linear Algebra
+
+* Table of Contents :TOC_1_gh:
+ - [[#cross-product][Cross Product]]
+
+* Cross Product
+- https://en.wikipedia.org/wiki/Cross_product
+- Only in three-dimensional space
+- The cross product ~a × b~ is defined as a vector ~c~ that is perpendicular to both ~a~ and ~b~
+
+[[file:img/screenshot_2017-05-14_10-51-58.png]]
+
+[[file:img/screenshot_2017-05-14_10-50-18.png]]
+
+[[file:img/screenshot_2017-05-14_10-49-33.png]]
+
+*** 2D Game Use Case
+- http://allenchou.net/2013/07/cross-product-of-2d-vectors/
+- Cross product of two 2D vectors is not a 2D vector; instead, *it is a scalar*.
+- *The sign of the cross product of 2D vectors* tells you
+- *whether the second vector is on the left or right side* of the first vector
+
+#+BEGIN_SRC csharp
+  float cross(const Vec2 &a, const Vec2 &b)
+  {
+      return a.x * b.y - a.y * b.x;
+  }
+#+END_SRC
