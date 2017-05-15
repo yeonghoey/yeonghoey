@@ -171,8 +171,7 @@ So, we can use like this (code from [[http://docs.sqlalchemy.org/en/rel_0_9/orm/
 
 [[file:img/screenshot_2017-05-12_15-00-03.png]]
 
-
-[[file:img/screenshot_2017-05-12_15-01-48.png]]
+[[file:img/screenshot_2017-05-15_17-58-56.png]]
 
 ~:something~ is converted into python format string(like ~%(something)s~, complying with the backend engine:
 
