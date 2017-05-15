@@ -1,7 +1,55 @@
 #+TITLE: SQLAlachemy
 
-* Table of Contents :TOC_1_gh:
+* Table of Contents :TOC_2_gh:
+ - [[#references][References]]
+   - [[#column][Column]]
+   - [[#declarative-api][Declarative API]]
  - [[#tutorials][Tutorials]]
+   - [[#introduction-to-sqlalchemy][Introduction to SQLAlchemy]]
+
+* References
+** Column
+- http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column
+- http://docs.sqlalchemy.org/en/latest/core/type_basics.html
+
+#+BEGIN_SRC python
+  # use a type with arguments
+  Column('data', String(50))
+  # use no arguments
+  Column('level', Integer)
+
+  # turn on autoincrement for this column despite
+  # the ForeignKey()
+  Column('id', ForeignKey('other.id'),
+              primary_key=True, autoincrement='ignore_fk')
+#+END_SRC
+
+- [[http://docs.sqlalchemy.org/en/latest/orm/mapping_columns.html#sqlalchemy.orm.column_property][column_property]] can be used for column level options:
+#+BEGIN_SRC python
+  class User(Base):
+      __tablename__ = 'user'
+      id = Column(Integer, primary_key=True)
+      firstname = Column(String(50))
+      lastname = Column(String(50))
+      fullname = column_property(firstname + " " + lastname)
+#+END_SRC
+
+** Declarative API
+- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/index.html
+- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html
+- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/basic_use.html
+
+#+BEGIN_SRC python
+  from sqlalchemy import Column, Integer, String
+  from sqlalchemy.ext.declarative import declarative_base
+
+  Base = declarative_base()
+
+  class SomeClass(Base):
+      __tablename__ = 'some_table'
+      id = Column(Integer, primary_key=True)
+      name =  Column(String(50))
+#+END_SRC
 
 * Tutorials
 ** Introduction to SQLAlchemy
