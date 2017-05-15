@@ -36,6 +36,16 @@
 
 - ~Column~ can have positional arugments of [[http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.SchemaItem][SchemaItem]], such as ~Constraint~, ~ForeignKey~, ~Sequence~, etc.
 
+*** Float
+- http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.Float
+- https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
+- For mysql, set ~precision~ to ~53~ cause to make the column as double
+
+#+BEGIN_SRC python
+  # Use float with double precision
+  Column(Float(precision=53))
+#+END_SRC
+
 ** Declarative API
 - http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/index.html
 - http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html
