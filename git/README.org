@@ -136,7 +136,7 @@ and delete the branch manually after it merged.
 
 ** rebase
 - https://git-scm.com/docs/git-rebase#git-rebase
-- ~--autosquash~ is only valid when the --interactive option is used.
+- ~--autosquash~ is only valid when the ~--interactive~ option is used.
 
 ** rm
 - http://stackoverflow.com/questions/6964297/untrack-files-from-git
