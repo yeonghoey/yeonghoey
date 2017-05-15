@@ -4,6 +4,7 @@
  - [[#references][References]]
    - [[#column][Column]]
    - [[#declarative-api][Declarative API]]
+   - [[#session][Session]]
  - [[#tutorials][Tutorials]]
    - [[#introduction-to-sqlalchemy][Introduction to SQLAlchemy]]
 
@@ -61,6 +62,79 @@
       __tablename__ = 'some_table'
       id = Column(Integer, primary_key=True)
       name =  Column(String(50))
+#+END_SRC
+
+** Session
+- http://docs.sqlalchemy.org/en/latest/orm/session_basics.html
+- http://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.Session
+
+~Session.begin()~ returns a ~SessionTransaction~ object:
+#+BEGIN_SRC python
+  class SessionTransaction(object):
+      # ...
+      def __enter__(self):
+          return self
+
+      def __exit__(self, type, value, traceback):
+          self._assert_active(deactive_ok=True, prepared_ok=True)
+          if self.session.transaction is None:
+              return
+          if type is None:
+              try:
+                  self.commit()
+              except:
+                  with util.safe_reraise():
+                      self.rollback()
+          else:
+              self.rollback()
+#+END_SRC
+
+So, we can use like this (code from [[http://docs.sqlalchemy.org/en/rel_0_9/orm/session_transaction.html#autocommit-mode][here]]):
+#+BEGIN_SRC python
+  Session = sessionmaker(bind=engine, autocommit=True)
+  session = Session()
+  with session.begin():
+      item1 = session.query(Item).get(1)
+      item2 = session.query(Item).get(2)
+      item1.foo = 'bar'
+      item2.bar = 'foo'
+#+END_SRC
+
+*** Session.commit() vs Session.flush()
+- http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit
+- A Session object is basically an ongoing transaction of changes to a database
+- ~session.commit()~ commits (persists) those changes to the database.
+- ~flush()~ is always called as part of a call to commit()
+
+#+BEGIN_SRC python
+  s = Session()
+
+  # The Foo('A') object has been added to the session.
+  # It has not been committed to the database yet,
+  # but is returned as part of a query.
+  s.add(Foo('A'))
+  print s.query(Foo).all()  # Output: [<Foo('A')>]
+  s.commit()
+
+
+  s2 = Session()
+  s2.autoflush = False
+
+  # The Foo('B') object is *not* returned as part of this query
+  # because it hasn't been flushed yet.
+  s2.add(Foo('B'))
+  print s2.query(Foo).all()  # Output: [<Foo('A')>]
+
+
+  # Now, Foo('B') is in the same state as Foo('A') was above.
+  s2.flush()
+  print s2.query(Foo).all()  # Output: [<Foo('A')>, <Foo('B')>]
+
+
+  # Foo('B') has not been committed, and rolling
+  # back the session's transaction removes it from the session.
+  s2.rollback()
+  print s2.query(Foo).all()  # Output: [<Foo('A')>]
 #+END_SRC
 
 * Tutorials
