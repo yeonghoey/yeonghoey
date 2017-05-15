@@ -34,6 +34,8 @@
       fullname = column_property(firstname + " " + lastname)
 #+END_SRC
 
+- ~Column~ can have positional arugments of [[http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.SchemaItem][SchemaItem]], such as ~Constraint~, ~ForeignKey~, ~Sequence~, etc.
+
 ** Declarative API
 - http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/index.html
 - http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html
