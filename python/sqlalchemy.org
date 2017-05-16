@@ -4,6 +4,8 @@
  - [[#references][References]]
    - [[#column][Column]]
    - [[#declarative-api][Declarative API]]
+   - [[#functions][functions]]
+   - [[#query][Query]]
    - [[#session][Session]]
  - [[#tutorials][Tutorials]]
    - [[#introduction-to-sqlalchemy][Introduction to SQLAlchemy]]
@@ -63,6 +65,12 @@
       id = Column(Integer, primary_key=True)
       name =  Column(String(50))
 #+END_SRC
+
+** functions
+- http://docs.sqlalchemy.org/en/latest/core/tutorial.html#functions
+
+** Query
+- http://docs.sqlalchemy.org/en/latest/orm/query.html#sqlalchemy.orm.query.Query
 
 ** Session
 - http://docs.sqlalchemy.org/en/latest/orm/session_basics.html

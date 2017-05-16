@@ -1,11 +1,15 @@
 #+TITLE: pytest
 
 * Table of Contents :TOC_2_gh:
- - [[#usage][Usage]]
- - [[#test-layouts][Test Layouts]]
- - [[#raises-and-fail][raises and fail]]
+ - [[#references][References]]
+   - [[#cli][cli]]
+   - [[#monkeypatch][monkeypatch]]
+   - [[#raises-and-fail][raises and fail]]
+ - [[#details][Details]]
+   - [[#test-layouts][Test Layouts]]
 
-* Usage
+* References
+** cli
 - http://doc.pytest.org/en/latest/usage.html
 
 #+BEGIN_SRC shell
@@ -14,7 +18,8 @@
   pytest -h | --help # show help on command line and config file options
   pytest -x          # stop after first failure
   pytest --maxfail=2 # stop after two failures
-  pytest test_mod.py # run tests in module
+  pyt
+  est test_mod.py # run tests in module
   pytest somepath    # run all tests below somepath
 
   # only run tests with names that match the # "string expression".
@@ -45,7 +50,53 @@
   pytest --durations=10  # To get a list of the slowest 10 test durations
 #+END_SRC
 
-* Test Layouts
+** monkeypatch
+- https://docs.pytest.org/en/latest/monkeypatch.html
+
+#+BEGIN_SRC python
+  import module
+  def test_monkeypatch(monkeypatch):
+      monkeypatch.setattr(module, 'name', 'value')
+      monkeypatch.setattr('module.name', 'value')  # same as above
+      monkeypatch.delattr('module.name')
+
+      d = {}
+      monkeypatch.setitem(d, 'key', 'value')
+      monkeypatch.delitem(d, 'key')
+
+      # environment variable
+      monkeypatch.setenv('FOO', 'VALUE')
+      monkeypatch.delenv('FOO')
+
+      monkeypatch.syspath_prepend('./bin')
+      monkeypatch.chdir('../')
+
+      monkeypatch.undo()  # undo all changes
+#+END_SRC
+
+** raises and fail
+- http://doc.pytest.org/en/latest/assert.html#assertions-about-expected-exceptions
+- http://stackoverflow.com/questions/20274987/how-to-use-pytest-to-check-that-error-is-not-raised
+
+#+BEGIN_SRC python
+  import pytest
+
+  def test_zero_division():
+      with pytest.raises(ZeroDivisionError):
+          1 / 0
+#+END_SRC
+
+#+BEGIN_SRC python
+  def test_foo3():
+      try:
+          foo(7)
+      except MyError:
+          pytest.fail("Unexpected MyError ..")
+#+END_SRC
+
+
+* Details
+** Test Layouts
 - http://doc.pytest.org/en/latest/goodpractices.html
 
 -----
@@ -82,25 +133,5 @@ Useful if you have direct relation between (unit-)test and application modules a
   pytest mypkg/test/test_app.py  # for inlined test dirs
   pytest mypkg                   # run tests in all below test directories
   pytest                         # run all tests below current dir
-#+END_SRC
-
-* raises and fail
-- http://doc.pytest.org/en/latest/assert.html#assertions-about-expected-exceptions
-- http://stackoverflow.com/questions/20274987/how-to-use-pytest-to-check-that-error-is-not-raised
-
-#+BEGIN_SRC python
-  import pytest
-
-  def test_zero_division():
-      with pytest.raises(ZeroDivisionError):
-          1 / 0
-#+END_SRC
-
-#+BEGIN_SRC python
-  def test_foo3():
-      try:
-          foo(7)
-      except MyError:
-          pytest.fail("Unexpected MyError ..")
 #+END_SRC
 
