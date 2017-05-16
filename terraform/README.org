@@ -100,6 +100,8 @@ To work around this, use ~ignore_changes~
   connection {
     type        = "ssh"
     user        = "ubuntu"
+    # You can omit 'host' if defining within the instance
+    host        = "${aws_instance.main.private_ip}"
     private_key = "${file(var.key_path)}"
   }
 
