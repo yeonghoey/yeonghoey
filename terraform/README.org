@@ -85,6 +85,31 @@ To work around this, use ~ignore_changes~
 - https://www.terraform.io/docs/provisioners/null_resource.html
 - Allows to run provionsers not directly associated with a single existing resource
 
+#+BEGIN_SRC terraform
+  resource "null_resource" "docker_run" {
+    count = "${var.count}"
+
+    triggers {
+      cluster_instance_ids = "${join(",", aws_instance.cluster.*.id)}"
+    }
+
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      host        = "${element(aws_instance.cluster.*.private_ip, count.index)}"
+      private_key = "${file(var.key_path)}"
+    }
+
+    provisioner "remote-exec" {
+      inline = [
+        "sudo docker stop etcd || true",
+        "sudo docker rm -f etcd || true",
+        "${element(data.template_file.docker_run_command.*.rendered, count.index)}",
+      ]
+    }
+  }
+#+END_SRC
+
 ** local-exec
 - https://www.terraform.io/docs/provisioners/local-exec.html
 #+BEGIN_EXAMPLE
