@@ -1,9 +1,19 @@
 #+TITLE: Docker
 
 * Table of Contents :TOC_1_gh:
- - [[#installing-amazon-linux-instance][Installing Amazon Linux instance]]
+ - [[#reference][Reference]]
+ - [[#use-case][Use Case]]
 
-* Installing Amazon Linux instance
+* Reference
+* Use Case
+** Install docker with a single command
+- https://get.docker.com/
+
+#+BEGIN_SRC shell
+  curl -sSL https://get.docker.com/ | sh
+#+END_SRC
+
+** Installing Amazon Linux instance
 - http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
 
 #+BEGIN_SRC shell
