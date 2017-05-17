@@ -22,3 +22,26 @@
   sudo service docker start
   sudo usermod -a -G docker ec2-user
 #+END_SRC
+
+** Can't access internet from containers because of private DNS
+- https://github.com/moby/moby/issues/13381#issuecomment-159836002
+- https://github.com/docker/docker/issues/9889
+
+In private network with private DNS, the network administrator often blocks access to common DNS like ~8.8.8.8~.
+This may cause to block access to internet within the docker container.
+
+In this case, the private DNS is used within docker containers with ~--dns~ option.
+To use this option by default, put the following line in ~/etc/default/docker~:
+#+BEGIN_SRC shell
+  # Use DOCKER_OPTS to modify the daemon startup options.
+  DOCKER_OPTS="--dns 10.10.0.1 --dns 10.10.0.2"
+#+END_SRC
+
+Additionally, ~systemd~ script for ~docker~ doesn't read ~/etc/default/docker~ and ~$DOCKER_OPTS~.
+To fix it, add following lines to ~/lib/systemd/system/docker.service~:
+#+BEGIN_EXAMPLE
+  [Service]
+  // ...
+  EnvironmentFile=-/etc/default/docker
+  ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS
+#+END_EXAMPLE
