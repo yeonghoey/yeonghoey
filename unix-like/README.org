@@ -18,6 +18,7 @@
    - [[#grep][grep]]
    - [[#lsof][lsof]]
    - [[#mount][mount]]
+   - [[#nc][nc]]
    - [[#pgrep][pgrep]]
    - [[#pkill][pkill]]
    - [[#sort][sort]]
@@ -422,6 +423,15 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 | ~file~    | he mount point for the filesystem.                   |
 | ~vfstype~ | the type of the filesystem.                          |
 | ~mntopts~ | the mount options associated with the filesystem.    |
+
+** nc
+- https://unix.stackexchange.com/questions/5277/how-do-i-tell-a-script-to-wait-for-a-process-to-start-accepting-requests-on-a-po
+
+#+BEGIN_SRC shell
+  # Wait until 3306 port available
+  while ! nc -z localhost 3306; do sleep 3; done
+#+END_SRC
+
 
 ** pgrep
 - https://www.poftut.com/pgrep-pkill-command-tutorial-examples-linux/
