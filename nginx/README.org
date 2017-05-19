@@ -4,7 +4,7 @@
  - [[#beginners-guide][Beginner's Guide]]
    - [[#processes][Processes]]
    - [[#directives][Directives]]
- - [[#references][References]]
+ - [[#reference][Reference]]
    - [[#core][core]]
      - [[#events][events]]
      - [[#include][include]]
@@ -18,6 +18,8 @@
      - [[#proxy_hide_header][proxy_hide_header]]
    - [[#rewrite][rewrite]]
      - [[#rewrite-1][rewrite]]
+ - [[#details][Details]]
+   - [[#site-enabled-site-available][site-enabled, site-available]]
  - [[#use-cases][Use Cases]]
    - [[#reverse-proxy-with-preserving-request-host][Reverse Proxy with preserving request host]]
    - [[#server-block-examples][Server Block Examples]]
@@ -44,7 +46,7 @@
 - Top level context is called the ~main context~
 - ~#~ to comment a line
 
-* References
+* Reference
 ** core
 - http://nginx.org/en/docs/ngx_core_module.html
 
@@ -194,6 +196,22 @@ the full changed request URI is passed to the server.
     proxy_set_header   Host $host;
   }
 #+END_EXAMPLE
+
+* Details
+** site-enabled, site-available
+- https://serverfault.com/questions/527630/what-is-the-different-usages-for-sites-available-vs-the-conf-d-directory-for-ngi
+- The ~sites-available~ folder is for storing all of your vhost configurations, whether or not they're currently enabled.
+- The ~sites-enabled~ folder contains symlinks to files in the ~sites-available~ folder. This allows you to selectively disable vhosts by removing the symlink.
+- ~sites-~ are from Apache HTTP Server convention
+- The default ~nginx.conf~ contains following lines:
+#+BEGIN_SRC nginx
+  ##
+  # Virtual Host Configs
+  ##
+
+  include /etc/nginx/conf.d/*.conf;
+  include /etc/nginx/sites-enabled/*;
+#+END_SRC
 
 * Use Cases
 ** Reverse Proxy with preserving request host
