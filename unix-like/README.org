@@ -13,6 +13,7 @@
    - [[#set][set]]
  - [[#commands][Commands]]
    - [[#apt][apt]]
+   - [[#curl][curl]]
    - [[#du][du]]
    - [[#grep][grep]]
    - [[#lsof][lsof]]
@@ -330,6 +331,15 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   sudo apt-get install oracle-java8-set-default
 
   sudo update-alternatives --config java
+#+END_SRC
+
+** curl
+- https://ec.haxx.se/usingcurl-returns.html
+
+#+BEGIN_SRC shell
+  # return exit code 22 when url not found or
+  # HTTP error code being 400 or above
+  curl --fail <url>
 #+END_SRC
 
 ** du
