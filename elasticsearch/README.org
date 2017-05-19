@@ -97,7 +97,6 @@ A particular field is either mapped as a string, or a number, but not both.
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html
   - Don't follw this way manually. There is a [[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-reindex.html][Reindex API]].
 
-
 * Inverted Index
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html
 
@@ -126,6 +125,7 @@ This process of tokenization and normalization is called *analysis*.
 
 ** Analysis and Analyzers
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/analysis-intro.html
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html
 - Tokenizing a block of text into individual terms suitable for use in an inverted index
 - Normalizing these terms into a standard form to improve their *searchability* or *recall*
 
