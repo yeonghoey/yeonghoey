@@ -15,6 +15,7 @@
  - [[#how-queries-work][How Queries Work]]
  - [[#apis][APIs]]
    - [[#basic-operations][Basic operations]]
+   - [[#put-index-templates][Put Index Templates]]
    - [[#bulk-api][Bulk API]]
  - [[#settings-and-deployment][Settings and Deployment]]
  - [[#query-string-syntax][Query string syntax]]
@@ -218,6 +219,31 @@ To work around this, set the type of ~followers~ to [[https://www.elastic.co/gui
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
+
+** Put Index Templates
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+
+#+BEGIN_SRC shell
+  curl -XPUT "$ES_ENDPOINT/_template/my-logging" --fail \
+       -H 'Content-Type: application/json' -d'
+  {
+    "template": "logging-*",
+    "mappings": {
+      "log": {
+        "properties": {
+          "time":             {"type": "date"},
+          "level":            {"type": "integer"},
+          "host":             {"type": "string", "index": "not_analyzed"},
+          "pid":              {"type": "string", "index": "not_analyzed"},
+          "channel":          {"type": "string"},
+          "message":          {"type": "string", "analyzer": "whitespace"},
+          "exc_info":         {"type": "string", "analyzer": "whitespace"}
+        }
+      }
+    }
+  }
+  '
+#+END_SRC
 
 ** Bulk API
 #+BEGIN_EXAMPLE
