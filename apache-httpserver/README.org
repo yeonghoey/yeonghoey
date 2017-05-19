@@ -1,0 +1,14 @@
+#+TITLE: Apache HTTP Server
+
+* Table of Contents :TOC_1_gh:
+ - [[#reference][Reference]]
+
+* Reference
+** htpasswd
+- https://httpd.apache.org/docs/2.2/ko/programs/htpasswd.html
+
+#+BEGIN_SRC shell
+  htpasswd -c /etc/nginx/.htpasswd admin       # Create a new file with 'admin', prompt password
+  httpasswd /etc/nginx/.htpasswd yeonghoey     # Append 'yeonghoey' to the file, prompt password
+  htpasswd -b /etc/nginx/.htpasswd guest xxxxx # Append 'guest' to the file, with password 'xxxxx'
+#+END_SRC
