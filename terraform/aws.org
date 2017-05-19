@@ -5,6 +5,9 @@
 
 * resources
 ** aws_elasticsearch_domain
+- https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain.html
+- https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html
+
 #+BEGIN_SRC terraform
   resource "aws_elasticsearch_domain" "main" {
     domain_name           = "my-domain"
@@ -19,6 +22,39 @@
       ebs_enabled = true
       volume_type = "gp2"
       volume_size = "30" # in GBs per data instance
+    }
+  }
+#+END_SRC
+
+** aws_elb
+- https://www.terraform.io/docs/providers/aws/r/elb.html
+
+#+BEGIN_SRC terraform
+  resource "aws_elb" "endpoint" {
+    name            = "my-elb"
+    subnets         = ["${var.subnet_ids}"]
+    security_groups = ["${var.security_groups}"]
+    instances       = ["${aws_instance.cluster.*.id}"]
+
+    internal = true
+
+    listener {
+      instance_port     = 8080
+      instance_protocol = "http"
+      lb_port           = 80
+      lb_protocol       = "http"
+    }
+
+    health_check {
+      target              = "HTTP:8080/"
+      timeout             = 5
+      interval            = 30
+      unhealthy_threshold = 2
+      healthy_threshold   = 10
+    }
+
+    tags {
+      Cluster = "${var.cluster}"
     }
   }
 #+END_SRC
@@ -108,6 +144,9 @@
 #+END_SRC
 
 ** aws_lambda_function
+- https://www.terraform.io/docs/providers/aws/r/lambda_function.html
+- https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping.html
+
 #+BEGIN_SRC terraform
   data "archive_file" "code" {
     type        = "zip"
