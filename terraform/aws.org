@@ -4,6 +4,25 @@
  - [[#resources][resources]]
 
 * resources
+** aws_elasticsearch_domain
+#+BEGIN_SRC terraform
+  resource "aws_elasticsearch_domain" "main" {
+    domain_name           = "my-domain"
+    elasticsearch_version = "5.1"
+
+    cluster_config {
+      instance_type  = "m3.medium.elasticsearch"
+      instance_count = 3
+    }
+
+    ebs_options {
+      ebs_enabled = true
+      volume_type = "gp2"
+      volume_size = "30" # in GBs per data instance
+    }
+  }
+#+END_SRC
+
 ** aws_iam_role
 - https://www.terraform.io/docs/providers/aws/d/iam_role.html
 
@@ -120,4 +139,3 @@
     starting_position = "LATEST"
   }
 #+END_SRC
-
