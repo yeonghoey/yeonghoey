@@ -1,0 +1,13 @@
+#+TITLE: MySQL
+
+* Table of Contents :TOC_1_gh:
+ - [[#reference][Reference]]
+ - [[#details][Details]]
+
+* Reference
+* Details
+** Database? Schema?
+- http://stackoverflow.com/questions/11618277/difference-between-schema-database-in-mysql
+- ~CREATE SCHEMA~ is a synonym for ~CREATE DATABASE~
+- Most other database solutions make a distinction.
+  Usually a ~schema~ is a collection of ~tables~ and a ~database~ is a collection of ~schemas~.
