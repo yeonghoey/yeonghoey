@@ -2,7 +2,7 @@
 
 * Table of Contents :TOC_2_gh:
  - [[#c-net-and-mono][C#, .Net and Mono]]
- - [[#references][References]]
+ - [[#reference][Reference]]
    - [[#accessibility-levels][Accessibility Levels]]
    - [[#array][Array]]
    - [[#arraylist][ArrayList]]
@@ -22,6 +22,7 @@
    - [[#propertyinfo][PropertyInfo]]
    - [[#readonly][readonly]]
    - [[#static-class-and-static-class-members][Static Class and Static Class Members]]
+   - [[#string][string]]
    - [[#this][this]]
    - [[#tostring][ToString]]
    - [[#typeof][typeof]]
@@ -48,7 +49,7 @@
 
 [[file:img/screenshot_2017-05-02_22-07-04.png]]
 
-* References
+* Reference
 ** Accessibility Levels
 - https://msdn.microsoft.com/en-us/library/ba0a1yw2.aspx
 
@@ -689,6 +690,11 @@ it's inherently static while a readonly field can be either static or instance.
       }
     }
 #+END_SRC
+** string
+- http://stackoverflow.com/questions/7074/what-is-the-difference-between-string-and-string-in-c
+~string~ is an alias in C# for ~System.String~.
+So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
+
 ** this
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/this
 - To qualify members hidden by similar names
