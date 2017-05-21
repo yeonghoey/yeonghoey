@@ -692,8 +692,13 @@ it's inherently static while a readonly field can be either static or instance.
 #+END_SRC
 ** string
 - http://stackoverflow.com/questions/7074/what-is-the-difference-between-string-and-string-in-c
+- http://stackoverflow.com/questions/5418324/how-can-i-format-a-number-into-a-string-with-leading-zeros
+- http://blog.stevex.net/string-formatting-in-csharp/
+
 ~string~ is an alias in C# for ~System.String~.
 So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
+
+[[file:img/screenshot_2017-05-21_17-49-27.png]]
 
 ** this
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/this
