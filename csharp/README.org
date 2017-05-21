@@ -190,9 +190,12 @@
 
 ** const
 - https://msdn.microsoft.com/en-us/library/e6w8fe1b.aspx
+- http://stackoverflow.com/questions/408192/why-cant-i-have-public-static-const-string-s-stuff-in-my-class
 - The initializer of a constant local or a constant field must be
   a constant expression that can be implicitly converted to the target type
 - A constant expression is an expression that *can be fully evaluated at compile time*
+- A ~const~ object is always ~static~.
+
 ** delegate
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/delegate
 - A ~delegate~ is a reference type that can be used to encapsulate a named or an anonymous method.
