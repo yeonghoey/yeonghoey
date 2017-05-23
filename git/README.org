@@ -1,7 +1,7 @@
 #+TITLE: Git
 
 * Table of Contents                                                :TOC_2_gh:
- - [[#references][References]]
+ - [[#reference][Reference]]
    - [[#add][add]]
    - [[#branch][branch]]
    - [[#diff][diff]]
@@ -23,7 +23,7 @@
    - [[#purge-files-including-their-histories][Purge files including their histories]]
    - [[#how-to-git-commit-nothing-without-an-error][How to git commit nothing without an error]]
 
-* References
+* Reference
 ** add
 *** intent-to-add
 - https://robots.thoughtbot.com/intent-to-add
@@ -196,7 +196,7 @@ and delete the branch manually after it merged.
 - ~-b bugfix-1234~ option creates a new branch named ~bugfix-1234~
 - ~../bugfix~ is the new local copy
 - Based on ~origin/master~
-- ~--detach~ makes the working copy detached.
+- ~--detach~ makes the working copy detached. (Just commmit, not the branch)
 
 ** gitignore
 - https://www.atlassian.com/git/tutorials/gitignore#git-ignore-patterns
