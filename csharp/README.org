@@ -12,6 +12,7 @@
    - [[#delegate][delegate]]
    - [[#event][event]]
    - [[#foreach][foreach]]
+   - [[#int32-int64][Int32, Int64]]
    - [[#lambda-expressions][Lambda Expressions]]
    - [[#listt][List<T>]]
    - [[#method-parameter-keywords][Method Parameter Keywords]]
@@ -296,6 +297,12 @@
    }
   // Output: 9 99 3 33 5 55
 #+END_SRC
+
+** Int32, Int64
+- https://stackoverflow.com/questions/651956/sizeofint-on-x64
+- Both ~long~ and ~pointer~ are 64-bits
+- On all platforms, ~int~ is *32-bits* and ~long~ is *64-bits*
+- You can see this in the names of the underlying types ~System.Int32~ and ~System.Int64~.
 
 ** Lambda Expressions
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions
