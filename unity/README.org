@@ -1,9 +1,10 @@
 #+TITLE: Unity
 
 * Table of Contents :TOC_2_gh:
- - [[#references][References]]
+ - [[#reference][Reference]]
    - [[#animation-window][Animation Window]]
    - [[#animator-window][Animator Window]]
+   - [[#application][Application]]
    - [[#attributes][Attributes]]
    - [[#collider-2d][Collider 2D]]
    - [[#coroutine][Coroutine]]
@@ -41,7 +42,7 @@
  - [[#troubleshootings][Troubleshootings]]
    - [[#coroutine-named-main][Coroutine named Main]]
 
-* References
+* Reference
 ** Animation Window
 - https://docs.unity3d.com/Manual/EditingCurves.html
 - *Add Property*: *must select GameObject in Hierarchy window*
@@ -183,6 +184,17 @@ What I experimented:
 
       }
   }
+#+END_SRC
+
+** Application
+- https://docs.unity3d.com/ScriptReference/Application.html
+- https://docs.unity3d.com/ScriptReference/SystemLanguage.html
+- https://docs.unity3d.com/ScriptReference/RuntimePlatform.html
+
+#+BEGIN_SRC csharp
+  // Many other runtime informations
+  Application.systemLanguage;
+  Application.platform;
 #+END_SRC
 
 ** Attributes
