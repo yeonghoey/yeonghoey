@@ -1,0 +1,27 @@
+#+TITLE: reStructuredText
+
+* Table of Contents :TOC_1_gh:
+ - [[#inline-markup][Inline Markup]]
+ - [[#links][Links]]
+
+* Inline Markup
+- http://docutils.sourceforge.net/docs/user/rst/quickref.html#inline-markup
+
+#+BEGIN_SRC rst
+  ,*emphasis*
+  ,**strong emphasis**
+  `interpreted text`
+  ``inline literal``
+  reference_
+  `phrase reference`_
+  anonymous__
+  _`inline internal target`
+  |substitution reference|
+  footnote reference [1]_
+  citation reference [CIT2002]_
+  http://docutils.sf.net/
+#+END_SRC
+
+* Links
+- http://docutils.sourceforge.net/docs/user/rst/quickref.html
+- https://pythonhosted.org/an_example_pypi_project/sphinx.html#restructured-text-rest-resources
