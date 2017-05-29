@@ -224,3 +224,41 @@
 | 000-01-01 00:00:00 TO 9999-12-31 23:59:59 | 1970-01-01 00:00:01 UTC TO 2038-01-19 03:14:07 UTC     |
 | A specific point in time                  | A specific date and time in calender                   |
 | Mostly for logging                        | Mostly for domain data like reservation, reminder etc. |
+** Foreign key constraint
+- http://www.sqlines.com/mysql/set_foreign_key_checks
+- https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_foreign_key_checks
+- Dropping a table whose column is referenced as a foreign key by another table can fail
+- ~SET FOREIGN_KEY_CHECKS = 0;~ to ignore the constraint
+- It's not recommended for a general use
+
+#+BEGIN_SRC sql
+  -- Specify to check referential constraints
+  SET FOREIGN_KEY_CHECKS = 1;
+
+  -- Create a parent table
+  CREATE TABLE states
+  (
+    abbr CHAR(2) PRIMARY KEY,
+    name VARCHAR(90)
+  ) ENGINE = InnoDB;
+
+  CREATE TABLE cities
+  (
+    name VARCHAR(90),
+    state CHAR(2),
+    FOREIGN KEY (state) REFERENCES states(abbr)
+  ) ENGINE = InnoDB;
+
+  -- Try to insert a row to child table (corresponding rows does not exist in the parent table)
+  INSERT INTO cities VALUES ('Boston', 'MA');
+  -- ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails
+#+END_SRC
+
+#+BEGIN_SRC sql
+  -- Do not check referential constraints
+  SET FOREIGN_KEY_CHECKS = 0;
+
+  -- Now we can insert row
+  INSERT INTO cities VALUES ('Boston', 'MA');
+  -- Query OK, 1 row affected (0.03 sec)
+#+END_SRC
