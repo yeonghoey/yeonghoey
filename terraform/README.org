@@ -2,6 +2,7 @@
 * Table of Contents                                                :TOC_2_gh:
  - [[#configurations][Configurations]]
    - [[#path][path]]
+   - [[#depends_on][depends_on]]
    - [[#element][element]]
    - [[#ignore_changes][ignore_changes]]
    - [[#null_resource][null_resource]]
@@ -41,9 +42,24 @@
   source_file = "${path.module}/main.py" # Path to the current module
 #+END_EXAMPLE
 
+** depends_on
+- https://www.terraform.io/intro/getting-started/dependencies.html#implicit-and-explicit-dependencies
+- ~depends_on~ parameter which is available on any resource
+
+#+BEGIN_EXAMPLE
+  resource "aws_eip" "ip" {
+    instance   = "${aws_instance.example.id}"
+
+    # Use 'depends_on' to make the dependency explicit.
+    # It's redundant in this case because this resource already depends on 'aws_instance.example'
+    # by referencing its id
+    depends_on = ["aws_instance.example"]
+  }
+#+END_EXAMPLE
+
 ** element
 - https://www.terraform.io/docs/configuration/interpolation.html#element-list-index-
-- if ~index~ is greater than ~len(list)~, ~index~ modulo ~len(list)~ is used 
+- if ~index~ is greater than ~len(list)~, ~index~ modulo ~len(list)~ is used
 
 #+BEGIN_EXAMPLE
   vars {
