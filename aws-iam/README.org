@@ -1,12 +1,64 @@
 #+TITLE: AWS IAM
 
 * Table of Contents :TOC_2_gh:
- - [[#policy][Policy]]
-   - [[#id][Id]]
-   - [[#statement][Statement]]
  - [[#concepts][Concepts]]
    - [[#roles][Roles]]
    - [[#policies-evaluation-logic][Policies Evaluation Logic]]
+ - [[#policy][Policy]]
+   - [[#id][Id]]
+   - [[#statement][Statement]]
+ - [[#role][Role]]
+ - [[#use-cases][Use Cases]]
+   - [[#sharing-resources-with-an-external-aws-account-via-iam-role][Sharing resources with an external AWS account via IAM Role]]
+
+* Concepts
+** Roles
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html
+- With some AWS SDKs, can use temporary credentials transparently.
+- Alternatively, can get the temporary credentials directly from the EC2 instance metadata
+
+[[file:img/screenshot_2017-04-22_22-38-40.png]]
+
+*** Role Policy
+- http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
+
+~Role Policy~ describes how the role is used for.
+This is related to AWS STS(Security Token Service);
+Following is an example on a role for *EC2*:
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": {
+      "Effect": "Allow",
+      "Principal": {"Service": "ec2.amazonaws.com"},
+      "Action": "sts:AssumeRole"
+    }
+  }
+#+END_SRC
+
+And it also requires its actual permissions:
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": {
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::example_bucket"
+    }
+  }
+#+END_SRC
+
+** Policies Evaluation Logic
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
+
+[[file:img/screenshot_2017-02-19_14-05-01.png]]
+
+The enforcement code evaluates all user-based and resource-based policies
+that are applicable to the request(based on the resource, principal, action, and conditions).
+*The order in which the enforcement code evaluates the policies is not important*.
+
+[[file:img/screenshot_2017-02-19_14-06-20.png]]
 
 * Policy
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
@@ -64,52 +116,22 @@
 #+END_SRC
 The two values for ~aws:SourceIp~ are evaluated using *OR*.
 The three separate condition operators are evaluated using *AND*.
+* Role
+* Use Cases
+** Sharing resources with an external AWS account via IAM Role
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
 
-* Concepts
-** Roles
-- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html
-- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html
-- With some AWS SDKs, can use temporary credentials transparently.
-- Alternatively, can get the temporary credentials directly from the EC2 instance metadata
+[[file:img/screenshot_2017-05-29_18-30-17.png]]
 
-[[file:img/screenshot_2017-04-22_22-38-40.png]]
+[[file:img/screenshot_2017-05-29_18-30-28.png]]
 
-*** Role Policy
-- http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
+This creates an assume role policy like this:
 
-~Role Policy~ describes how the role is used for.
-This is related to AWS STS(Security Token Service);
-Following is an example on a role for *EC2*:
-#+BEGIN_SRC json
-  {
-    "Version": "2012-10-17",
-    "Statement": {
-      "Effect": "Allow",
-      "Principal": {"Service": "ec2.amazonaws.com"},
-      "Action": "sts:AssumeRole"
-    }
-  }
-#+END_SRC
+[[file:img/screenshot_2017-05-29_18-32-21.png]]
 
-And it also requires its actual permissions:
-#+BEGIN_SRC json
-  {
-    "Version": "2012-10-17",
-    "Statement": {
-      "Effect": "Allow",
-      "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::example_bucket"
-    }
-  }
-#+END_SRC
+But ironically, it's unable to specify an ~ExternalID~ when switching roles on AWS Console.
+They only can be specified through awscli or other programatic accesses.
 
-** Policies Evaluation Logic
-- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
-
-[[file:img/screenshot_2017-02-19_14-05-01.png]]
-
-The enforcement code evaluates all user-based and resource-based policies
-that are applicable to the request(based on the resource, principal, action, and conditions).
-*The order in which the enforcement code evaluates the policies is not important*.
-
-[[file:img/screenshot_2017-02-19_14-06-20.png]]
+An easy way to work around this is just delete that yellow line.
+This allows all users belong to target AWS Account to switch to the role.
