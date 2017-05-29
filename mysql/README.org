@@ -209,6 +209,16 @@
 #+END_SRC
 
 * Reference
+** DROP TABLE
+- https://dev.mysql.com/doc/refman/5.6/en/drop-table.html
+- ~RESTRICT~ and ~CASCADE~ are permitted to make porting easier. In MySQL 5.6, *they do nothing*.
+
+#+BEGIN_SRC sql
+  DROP [TEMPORARY] TABLE [IF EXISTS]
+      tbl_name [, tbl_name] ...
+      [RESTRICT | CASCADE]
+#+END_SRC
+
 * Details
 ** Database? Schema?
 - http://stackoverflow.com/questions/11618277/difference-between-schema-database-in-mysql
