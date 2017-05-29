@@ -21,6 +21,7 @@
    - [[#random][Random]]
    - [[#onbecamevisibleinvisible][OnBecameVisible/Invisible]]
    - [[#scriptableobject][ScriptableObject]]
+   - [[#sendmessage][SendMessage]]
    - [[#special-folders][Special Folders]]
    - [[#sprites][Sprites]]
    - [[#time][Time]]
@@ -416,6 +417,12 @@ What I experimented:
 [[file:img/screenshot_2017-05-14_11-07-18.png]]
 
 [[file:img/screenshot_2017-05-14_11-08-15.png]]
+
+** SendMessage
+- https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html
+- http://answers.unity3d.com/questions/23384/c-getting-a-return-from-sendmessage.html
+- Calls the method named ~methodName~ on every ~MonoBehaviour~ in the ~GameObject~.
+- It's not possible to get a return value from ~SendMessage~ or ~BroadcastMessage~
 
 ** Special Folders
 - https://docs.unity3d.com/Manual/SpecialFolders.html
