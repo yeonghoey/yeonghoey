@@ -1,0 +1,20 @@
+#+TITLE: flask
+
+* Table of Contents :TOC_1_gh:
+ - [[#reference][Reference]]
+
+* Reference
+** request
+- http://flask.pocoo.org/docs/0.12/api/#flask.Request
+- ~args~: A ~MultiDict~ with the parsed contents of the query string. (The part in the URL after the question mark).
+
+** MultiDict
+- http://werkzeug.pocoo.org/docs/0.12/datastructures/#werkzeug.datastructures.MultiDict
+
+#+BEGIN_SRC python
+  >>> d = TypeConversionDict(foo='42', bar='blub')
+  >>> d.get('foo', type=int)
+  42
+  >>> d.get('bar', -1, type=int)
+  -1
+#+END_SRC
