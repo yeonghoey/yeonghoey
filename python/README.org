@@ -1,9 +1,10 @@
 #+TITLE: Python
 
 * Table of Contents                                                :TOC_2_gh:
- - [[#references][References]]
+ - [[#reference][Reference]]
    - [[#dict][dict]]
    - [[#exceptions][exceptions]]
+   - [[#itertools][itertools]]
    - [[#list][list]]
    - [[#multiprocessing][multiprocessing]]
    - [[#re][re]]
@@ -17,7 +18,7 @@
    - [[#packaging][Packaging]]
    - [[#source-code-encodings][Source Code Encodings]]
 
-* References
+* Reference
 ** dict
 - https://docs.python.org/2/library/stdtypes.html#mapping-types-dict
 
@@ -121,6 +122,15 @@ or the empty string when there were no arguments.
 - The short answer is that both ~raise MyException~ and ~raise MyException()~ do the same thing.
 - This first form auto instantiates your exception.
 - So, use ~raise MyException~ when there are no arguments. 
+
+** itertools
+- https://docs.python.org/2/library/itertools.html
+
+#+BEGIN_SRC python
+  # Generates a break or new group every time the value of the key function changes
+  [k for k, g in groupby('AAAABBBCCDAABBB')]   # --> A B C D A B
+  [list(g) for k, g in groupby('AAAABBBCCD')]  # --> AAAA BBB CC D
+#+END_SRC
 
 ** list
 - https://docs.python.org/2/library/stdtypes.html#mutable-sequence-types
