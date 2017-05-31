@@ -4,6 +4,7 @@
  - [[#reference][Reference]]
    - [[#cli][cli]]
    - [[#fixture][fixture]]
+   - [[#mark][mark]]
    - [[#monkeypatch][monkeypatch]]
    - [[#raises-and-fail][raises and fail]]
  - [[#details][Details]]
@@ -112,6 +113,21 @@
   # pytest prints out like:
   #   <Function 'test_a[spam]'>
   #   <Function 'test_a[ham]'>
+#+END_SRC
+
+** mark
+- https://docs.pytest.org/en/latest/mark.html#mark
+- https://docs.pytest.org/en/latest/parametrize.html#parametrizemark
+
+#+BEGIN_SRC python
+  import pytest
+  @pytest.mark.parametrize("test_input,expected", [
+      ("3+5", 8),
+      ("2+4", 6),
+      ("6*9", 42),
+  ])
+  def test_eval(test_input, expected):
+      assert eval(test_input) == expected
 #+END_SRC
 
 ** monkeypatch
