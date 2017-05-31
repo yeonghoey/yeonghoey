@@ -28,7 +28,7 @@ in a multithreaded application rather than sharing a single instance among the t
 #+BEGIN_SRC python
   import boto3
   # Create a low-level client with the service name
-  sqs = boto3.client('sqs')# Create the resource
+  sqs = boto3.client('sqs')
 
   # Access client through resource
   sqs_resource = boto3.resource('sqs')
