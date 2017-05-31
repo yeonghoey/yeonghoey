@@ -1,0 +1,46 @@
+#+TITLE: Socket Programming
+
+* Table of Contents :TOC_1_gh:
+ - [[#details][Details]]
+
+* Details
+** EINTR handling
+- http://250bpm.com/blog:12
+- https://stackoverflow.com/questions/4959524/when-to-check-for-eintr-and-repeat-the-function-call
+
+- POSIX specification defines that when signal (such as ~Ctrl+C~) is caught, ~recv~ returns ~EINTR~ error.
+- When ~Ctrl+C~ is pressed in this case,
+  1. signal handler is executed, 'stop' is set to 1,
+  2. ~recv~ returns ~EINTR~
+- Using ~SA_RESTART~ within the signal handler, it's possible to make the functions not return ~EINTR~ and just retry.
+
+#+BEGIN_SRC c
+  volatile int stop = 0;
+
+  void handler (int)
+  {
+    stop = 1;
+  }
+
+  void event_loop (int sock)
+  {
+    signal (SIGINT, handler);
+
+    while (1) {
+      if (stop) {
+        printf ("do cleanup\n");
+        return;
+      }
+
+      /* What if signal handler is executed at this point?
+         This may be a problem, or not. 
+       */
+
+      char buf [1];
+      int rc = recv (sock, buf, 1, 0);
+      if (rc == -1 && errno == EINTR)
+        continue;
+      printf ("perform an action\n");
+    }
+  }
+#+END_SRC
