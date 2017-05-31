@@ -83,6 +83,7 @@
 #+BEGIN_SRC shell
   git diff --exit-code # Exits 0: no differences, 1: differences
   git diff --quiet     # No outputs. Implies --exit-code
+  git diff --name-only # Show only names of changed files
 #+END_SRC
 
 ** flow
