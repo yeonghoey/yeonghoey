@@ -1,0 +1,14 @@
+#+TITLE: Naming
+
+* Table of Contents :TOC_1_gh:
+ - [[#indices-vs-indexes][indices vs indexes]]
+ - [[#planned_at-vs-scheduled_at][planned_at vs scheduled_at]]
+
+* indices vs indexes
+- ~indices~: a plural form of a scientific number
+- ~indexes~: a plural form of a database index
+
+
+* planned_at vs scheduled_at
+- ~planned_at~: for a place
+- ~schduled_at~: for a specific time
