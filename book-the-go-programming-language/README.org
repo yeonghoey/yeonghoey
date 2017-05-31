@@ -1,6 +1,0 @@
-#+TITLE: The Go Programming Language
-
-* Table of Contents :TOC_2_gh:
- - [[#tutorial][Tutorial]]
-
-* Tutorial
