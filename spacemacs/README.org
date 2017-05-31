@@ -4,6 +4,8 @@
  - [[#emacs][Emacs]]
    - [[#indirect-buffers][Indirect Buffers]]
    - [[#regex][Regex]]
+ - [[#tips][Tips]]
+   - [[#searching][Searching]]
  - [[#layers][Layers]]
    - [[#auto-completion][auto-completion]]
    - [[#csharp][csharp]]
@@ -56,6 +58,10 @@ Emacs Regex engine specialties:
    <tag[^> C-q C-j ]*>\(.*?\)</tag>  html tag
 #+END_EXAMPLE
 
+* Tips
+** Searching
+I want non-fuzzy searches sometimes. I tried to set ~dotspacemacs-helm-use-fuzzy~ to ~nil~, but I couldn't recognize obvious changes.
+Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems to work as expected.
 
 * Layers
 ** auto-completion
