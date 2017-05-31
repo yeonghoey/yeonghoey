@@ -40,6 +40,17 @@
 
 - ~Column~ can have positional arugments of [[http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.SchemaItem][SchemaItem]], such as ~Constraint~, ~ForeignKey~, ~Sequence~, etc.
 
+*** String, Text
+- http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.String.params.convert_unicode
+- http://docs.sqlalchemy.org/en/latest/core/engines.html#sqlalchemy.create_engine.params.convert_unicode 
+
+#+BEGIN_SRC python
+  # will assume that input is to be passed as Python unicode objects,
+  # and results returned as Python unicode objects
+  # There is an engine configuration which sets this flag to True by default.
+  String(convert_unicode=True)
+#+END_SRC
+
 *** Float
 - http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.Float
 - https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
