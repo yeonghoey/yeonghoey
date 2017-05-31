@@ -1,14 +1,15 @@
 #+TITLE: pytest
 
 * Table of Contents :TOC_2_gh:
- - [[#references][References]]
+ - [[#reference][Reference]]
    - [[#cli][cli]]
+   - [[#fixture][fixture]]
    - [[#monkeypatch][monkeypatch]]
    - [[#raises-and-fail][raises and fail]]
  - [[#details][Details]]
    - [[#test-layouts][Test Layouts]]
 
-* References
+* Reference
 ** cli
 - http://doc.pytest.org/en/latest/usage.html
 
@@ -48,6 +49,69 @@
 
   pytest --pdb           # drop into the PDB prompt
   pytest --durations=10  # To get a list of the slowest 10 test durations
+#+END_SRC
+
+** fixture
+- https://docs.pytest.org/en/latest/fixture.html
+- https://docs.pytest.org/en/latest/builtin.html#_pytest.fixtures.fixture
+- https://docs.pytest.org/en/latest/builtin.html#builtin-fixtures-function-arguments
+
+#+BEGIN_SRC python
+  # content of ./test_smtpsimple.py
+  import pytest
+
+  @pytest.fixture
+  def smtp():
+      import smtplib
+      return smtplib.SMTP("smtp.gmail.com")
+
+  def test_ehlo(smtp):
+      response, msg = smtp.ehlo()
+      assert response == 250
+      assert 0 # for demo purposes
+#+END_SRC
+
+#+BEGIN_SRC python
+  @pytest.fixture(scope="module")  # only be invoked once per test module
+  def smtp():
+      smtp = smtplib.SMTP("smtp.gmail.com")
+      yield smtp  # provide the fixture value
+      print("teardown smtp")
+      smtp.close()
+
+
+  # request example
+  @pytest.fixture(scope="module")
+  def smtp(request):
+      server = getattr(request.module, "smtpserver", "smtp.gmail.com")
+      smtp = smtplib.SMTP(server)
+      yield smtp
+      print ("finalizing %s (%s)" % (smtp, server))
+      smtp.close()
+
+
+  # Each test case will be executed for
+  # each fixture based on each element of params
+  @pytest.fixture(scope="module",
+                  params=["smtp.gmail.com", "mail.python.org"])
+  def smtp(request):
+      smtp = smtplib.SMTP(request.param)
+      yield smtp
+      print ("finalizing %s" % smtp)
+      smtp.close()
+
+
+  # Set ids to inhence the readability of tests
+  @pytest.fixture(params=[0, 1], ids=["spam", "ham"])
+  def a(request):
+      return request.param
+
+  def test_a(a):
+      pass
+
+  # pytest prints out like:
+  #   <Function 'test_a[spam]'>
+  #   <Function 'test_a[ham]'>
 #+END_SRC
 
 ** monkeypatch
