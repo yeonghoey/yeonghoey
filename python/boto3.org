@@ -4,7 +4,9 @@
  - [[#concepts][Concepts]]
    - [[#client-vs-resource][Client vs Resource]]
    - [[#paginators][Paginators]]
- - [[#ec2][ec2]]
+ - [[#reference][Reference]]
+   - [[#core][core]]
+   - [[#ec2][ec2]]
  - [[#references][References]]
 
 * Concepts
@@ -48,7 +50,26 @@ in a multithreaded application rather than sharing a single instance among the t
       print(page['Contents'])
 #+END_SRC
 
-* ec2
+* Reference
+** core
+- http://boto3.readthedocs.io/en/latest/reference/core/boto3.html
+- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client
+- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource
+
+
+- http://boto3.readthedocs.io/en/latest/_modules/boto3.html#resource
+#+BEGIN_SRC python
+  # Entry functions like `boto3.resource`, boto3.client`
+  # just pass arguments to the default session
+  def resource(*args, **kwargs):
+      return _get_default_session().resource(*args, **kwargs)
+#+END_SRC
+
+#+BEGIN_SRC python
+  boto3.resource('sqs', region_name='ap-northeast1')
+#+END_SRC
+
+** ec2
 - https://boto3.readthedocs.io/en/latest/reference/services/ec2.html
 - [[https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Instance][EC2.Instance]] (for instance attributes)
 - [[https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource][EC2.ServiceResource]] (for entry access)
