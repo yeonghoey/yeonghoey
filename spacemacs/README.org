@@ -142,6 +142,8 @@ Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems 
   #
 
   POST https://api.github.com
+  Content-Type: application/json
+
   {
     "key": "value"
   }
