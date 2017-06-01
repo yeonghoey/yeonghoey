@@ -1,0 +1,65 @@
+#+TITLE: JSON
+
+* Table of Contents :TOC_1_gh:
+ - [[#json-structure][JSON Structure]]
+ - [[#links][Links]]
+
+* JSON Structure
+- https://google.github.io/styleguide/jsoncstyleguide.xml#JSON_Structure_&_Reserved_Property_Names
+
+#+BEGIN_EXAMPLE
+  object {
+    string apiVersion?;
+    string context?;
+    string id?;
+    string method?;
+    object {
+      string id?
+    }* params?;
+    object {
+      string kind?;
+      string fields?;
+      string etag?;
+      string id?;
+      string lang?;
+      string updated?; # date formatted RFC 3339
+      boolean deleted?;
+      integer currentItemCount?;
+      integer itemsPerPage?;
+      integer startIndex?;
+      integer totalItems?;
+      integer pageIndex?;
+      integer totalPages?;
+      string pageLinkTemplate /^https?:/ ?;
+      object {}* next?;
+      string nextLink?;
+      object {}* previous?;
+      string previousLink?;
+      object {}* self?;
+      string selfLink?;
+      object {}* edit?;
+      string editLink?;
+      array [
+        object {}*;
+      ] items?;
+    }* data?;
+    object {
+      integer code?;
+      string message?;
+      array [
+        object {
+          string domain?;
+          string reason?;
+          string message?;
+          string location?;
+          string locationType?;
+          string extendedHelp?;
+          string sendReport?;
+        }*;
+      ] errors?;
+    }* error?;
+  }*;
+#+END_EXAMPLE
+
+* Links
+- https://google.github.io/styleguide/jsoncstyleguide.xml
