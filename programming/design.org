@@ -1,0 +1,61 @@
+#+TITLE: Program Design
+
+* Table of Contents :TOC_1_gh:
+ - [[#coupling-vs-cohesion][Coupling vs Cohesion]]
+
+* Coupling vs Cohesion
+** Coupling
+- https://en.wikipedia.org/wiki/Coupling_(computer_programming)
+- A change in one module usually *forces a ripple effect* of changes in other modules.
+- Assembly of modules might require more effort and/or time due to the increased inter-module dependency.
+- A particular module might be harder to reuse and/or test because dependent modules must be included.
+
+** Cohesion
+- https://en.wikipedia.org/wiki/Cohesion_(computer_science)
+- *Functional cohesion* is superior
+- Communicational and sequential cohesion are very good
+
+*** Functional Cohesion
+- A module are goruped because they all contribute to a single well-defined task of the module 
+
+#+BEGIN_EXAMPLE
+  open(file)
+  read(file)
+  close(file)
+#+END_EXAMPLE
+
+*** Communicational Cohesion
+- A module are grouped because they operate on the same data
+
+#+BEGIN_EXAMPLE
+  send_mail(mail, message)
+  verify_mail(mail)
+  get_user(mail)
+  get_domain(mail)
+#+END_EXAMPLE
+
+*** Sequential Cohesion
+- A module are grouped because the output from one part is the input to another part like an assembly line
+
+#+BEGIN_EXAMPLE
+  read(file) => content
+  parse(content) => object
+  handle(object) => ...
+#+END_EXAMPLE
+
+*** Procedural cohesion
+- A module are grouped because they always follow a certain sequence of execution
+
+#+BEGIN_EXAMPLE
+  check_permission(file)
+  open(file)
+  is_file_empty(file)
+  read(file)
+#+END_EXAMPLE
+
+*** Others
+- Temporal: Grouped different things because they are noramlly exectued at the same time
+  - exception handling, logging, notifiing at one place
+- Logical: Grouped different things because they seem to do the same thing
+  - Keyboard and Mouse handlers
+  - SNS messages and emails
