@@ -46,6 +46,7 @@
    - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
    - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
    - [[#useful-one-liners][Useful One-liners]]
+   - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
  - [[#links][Links]]
 
 * Primitives
@@ -1179,6 +1180,15 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 
   # sum of all numbers in the third column
   awk '{ x += $3 } END { print x }' myfile
+#+END_SRC
+
+** Force exit code 0 in spite of error
+- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
+
+#+BEGIN_SRC shell
+  set -euo pipefail
+  <command> || true
+  echo 'Prints even if <command> fails'
 #+END_SRC
 
 * Links
