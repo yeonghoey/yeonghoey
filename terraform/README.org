@@ -31,6 +31,7 @@
  - [[#use-cases][Use Cases]]
    - [[#migrate-existing-aws-infra-with-terraforming][Migrate existing AWS Infra with terraforming]]
    - [[#change-an-aws-ec2-instance-type-without-destroying-recreating-it][Change an AWS ec2 instance type without destroying-recreating it]]
+   - [[#generate-documents-automatically][Generate documents automatically]]
 
 * Configurations
 ** path
@@ -405,3 +406,7 @@ If ~plan~ shows some unexpected changes, you can just remove the instance from t
   #+BEGIN_EXAMPLE
     $ terraform import aws_instance.my_instance i-abcdefg012345678
   #+END_EXAMPLE
+** Generate documents automatically
+- https://github.com/segmentio/terraform-docs
+
+This simple tool automatically generates markdown or json document based on ~variable~ and ~output~ blocks.
