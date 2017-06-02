@@ -40,13 +40,14 @@
    - [[#swap-spacesfiles][Swap spaces/files]]
    - [[#-vs-][$* vs $@]]
  - [[#use-cases][Use Cases]]
+   - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
+   - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
+   - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
+   - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
    - [[#set--x-for-a-line][set -x for a line]]
    - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
    - [[#use-command-output-as-a-file][Use command output as a file]]
-   - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
-   - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
    - [[#useful-one-liners][Useful One-liners]]
-   - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
  - [[#links][Links]]
 
 * Primitives
@@ -1123,31 +1124,24 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
   arg  3
 #+END_SRC
 * Use Cases
-** set -x for a line
-- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
+** Empty the contents of a file
+- https://unix.stackexchange.com/questions/88808/empty-the-contents-of-a-file
 
 #+BEGIN_SRC shell
-  set -x
-  command
-  { set +x; } 2>/dev/null
-
-  # or simply
-  ( set -x; command )
-#+END_SRC
-** Temporarily move to a different working directory via subshell
-- https://github.com/jlevy/the-art-of-command-line#everyday-use 
-
-#+BEGIN_SRC shell
-  # do something in current dir
-  (cd /some/other/dir && other-command)
-  # continue in original dir
+  > filename                   # clever
+  cp /dev/null filename        # naive
+  cat /dev/null > filename     # intuitive
+  dd if=/dev/null of=filename  # efficient
+  truncate filename --size 0   # explicit
 #+END_SRC
 
-** Use command output as a file
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
+** Force exit code 0 in spite of error
+- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
 
 #+BEGIN_SRC shell
-  diff /etc/hosts <(ssh somehost cat /etc/hosts)
+  set -euo pipefail
+  <command> || true
+  echo 'Prints even if <command> fails'
 #+END_SRC
 
 ** Prevents partially downloaded scripts from executing
@@ -1167,6 +1161,34 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
   python3 -m http.server 7777
 #+END_SRC
 
+** set -x for a line
+- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
+
+#+BEGIN_SRC shell
+  set -x
+  command
+  { set +x; } 2>/dev/null
+
+  # or simply
+  ( set -x; command )
+#+END_SRC
+
+** Temporarily move to a different working directory via subshell
+- https://github.com/jlevy/the-art-of-command-line#everyday-use 
+
+#+BEGIN_SRC shell
+  # do something in current dir
+  (cd /some/other/dir && other-command)
+  # continue in original dir
+#+END_SRC
+
+** Use command output as a file
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  diff /etc/hosts <(ssh somehost cat /etc/hosts)
+#+END_SRC
+
 ** Useful One-liners
 - https://github.com/jlevy/the-art-of-command-line#one-liners
 
@@ -1180,15 +1202,6 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 
   # sum of all numbers in the third column
   awk '{ x += $3 } END { print x }' myfile
-#+END_SRC
-
-** Force exit code 0 in spite of error
-- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
-
-#+BEGIN_SRC shell
-  set -euo pipefail
-  <command> || true
-  echo 'Prints even if <command> fails'
 #+END_SRC
 
 * Links
