@@ -38,10 +38,15 @@
    - [[#pseudo-terminals][Pseudo Terminals]]
    - [[#redirection][Redirection]]
    - [[#swap-spacesfiles][Swap spaces/files]]
-   - [[#the-art-of-command-line][The Art of Command Line]]
    - [[#-vs-][$* vs $@]]
  - [[#use-cases][Use Cases]]
    - [[#set--x-for-a-line][set -x for a line]]
+   - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
+   - [[#use-command-output-as-a-file][Use command output as a file]]
+   - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
+   - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
+   - [[#useful-one-liners][Useful One-liners]]
+ - [[#links][Links]]
 
 * Primitives
 ** Arithmetic Expansion
@@ -299,6 +304,7 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 
 ** set
 - https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+- https://github.com/jlevy/the-art-of-command-line
 
 #+BEGIN_SRC shell
   set -e # Exit immediately when a command fails
@@ -309,6 +315,14 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   set -- 'foo' 'bar' # set the positional parameters
   echo "$1, $2"      # 'foo, bar'
 #+END_SRC
+
+#+BEGIN_SRC shell
+  set -euo pipefail
+  trap "echo 'error: Script failed: see failed command above'" ERR
+#+END_SRC
+- ~-e~ for errors
+- ~-u~ for preventing unset
+- ~-o pipefail~ for errors within pipes
 
 * Commands
 ** apt
@@ -1075,56 +1089,6 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
   [root]$ rm -f /swap_file
 #+END_SRC
 
-** The Art of Command Line
-- https://github.com/jlevy/the-art-of-command-line
-
-*** set best practice
-#+BEGIN_SRC shell
-  set -euo pipefail
-  trap "echo 'error: Script failed: see failed command above'" ERR
-#+END_SRC
-- ~-e~ for errors
-- ~-u~ for preventing unset
-- ~-o pipefail~ for errors within pipes
-
-*** subshell
-#+BEGIN_SRC shell
-  # do something in current dir
-  (cd /some/other/dir && other-command)
-  # continue in original dir
-#+END_SRC
-
-*** command out like as a file
-#+BEGIN_SRC shell
-  diff /etc/hosts <(ssh somehost cat /etc/hosts)
-#+END_SRC
-
-*** prevents partially downloaded scripts from executing
-#+BEGIN_SRC shell
-  {
-      # Your code here
-  }
-#+END_SRC
-
-*** python simple web server for sharing files
-#+BEGIN_SRC shell
-  python -m SimpleHTTPServer 7777
-  python3 -m http.server 7777
-#+END_SRC
-
-*** One-liners
-#+BEGIN_SRC shell
-  cat a b | sort | uniq > c        # c is a union b
-  cat a b | sort | uniq -d > c     # c is a intersect b
-  cat a b b | sort | uniq -u > c   # c is set difference a - b
-
-  grep . *     # overview for contents of current directory
-  head -100 *  # same as above, with only first 100 lines
-
-  # sum of all numbers in the third column
-  awk '{ x += $3 } END { print x }' myfile
-#+END_SRC
-
 ** $* vs $@
 - http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
 - https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
@@ -1169,3 +1133,53 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
   # or simply
   ( set -x; command )
 #+END_SRC
+** Temporarily move to a different working directory via subshell
+- https://github.com/jlevy/the-art-of-command-line#everyday-use 
+
+#+BEGIN_SRC shell
+  # do something in current dir
+  (cd /some/other/dir && other-command)
+  # continue in original dir
+#+END_SRC
+
+** Use command output as a file
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  diff /etc/hosts <(ssh somehost cat /etc/hosts)
+#+END_SRC
+
+** Prevents partially downloaded scripts from executing
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  {
+      # Your code here
+  }
+#+END_SRC
+
+** Python simple web server for sharing files
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  python -m SimpleHTTPServer 7777
+  python3 -m http.server 7777
+#+END_SRC
+
+** Useful One-liners
+- https://github.com/jlevy/the-art-of-command-line#one-liners
+
+#+BEGIN_SRC shell
+  cat a b | sort | uniq > c        # c is a union b
+  cat a b | sort | uniq -d > c     # c is a intersect b
+  cat a b b | sort | uniq -u > c   # c is set difference a - b
+
+  grep . *     # overview for contents of current directory
+  head -100 *  # same as above, with only first 100 lines
+
+  # sum of all numbers in the third column
+  awk '{ x += $3 } END { print x }' myfile
+#+END_SRC
+
+* Links
+- https://github.com/jlevy/the-art-of-command-line
