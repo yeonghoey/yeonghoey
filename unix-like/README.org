@@ -27,6 +27,15 @@
    - [[#tee][tee]]
    - [[#watch][watch]]
    - [[#xargs][xargs]]
+ - [[#use-cases][Use Cases]]
+   - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
+   - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
+   - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
+   - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
+   - [[#set--x-for-a-line][set -x for a line]]
+   - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
+   - [[#use-command-output-as-a-file][Use command output as a file]]
+   - [[#useful-one-liners][Useful One-liners]]
  - [[#details][Details]]
    - [[#getting-the-source-directory][Getting the source directory]]
    - [[#glob-dotfiles][Glob dotfiles]]
@@ -39,15 +48,6 @@
    - [[#redirection][Redirection]]
    - [[#swap-spacesfiles][Swap spaces/files]]
    - [[#-vs-][$* vs $@]]
- - [[#use-cases][Use Cases]]
-   - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
-   - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
-   - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
-   - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
-   - [[#set--x-for-a-line][set -x for a line]]
-   - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
-   - [[#use-command-output-as-a-file][Use command output as a file]]
-   - [[#useful-one-liners][Useful One-liners]]
  - [[#links][Links]]
 
 * Primitives
@@ -738,6 +738,87 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   $ find . -name '*conflicted*' -print0 | xargs -0 rm
 #+END_SRC
 
+* Use Cases
+** Empty the contents of a file
+- https://unix.stackexchange.com/questions/88808/empty-the-contents-of-a-file
+
+#+BEGIN_SRC shell
+  > filename                   # clever
+  cp /dev/null filename        # naive
+  cat /dev/null > filename     # intuitive
+  dd if=/dev/null of=filename  # efficient
+  truncate filename --size 0   # explicit
+#+END_SRC
+
+** Force exit code 0 in spite of error
+- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
+
+#+BEGIN_SRC shell
+  set -euo pipefail
+  <command> || true
+  echo 'Prints even if <command> fails'
+#+END_SRC
+
+** Prevents partially downloaded scripts from executing
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  {
+      # Your code here
+  }
+#+END_SRC
+
+** Python simple web server for sharing files
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  python -m SimpleHTTPServer 7777
+  python3 -m http.server 7777
+#+END_SRC
+
+** set -x for a line
+- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
+
+#+BEGIN_SRC shell
+  set -x
+  command
+  { set +x; } 2>/dev/null
+
+  # or simply
+  ( set -x; command )
+#+END_SRC
+
+** Temporarily move to a different working directory via subshell
+- https://github.com/jlevy/the-art-of-command-line#everyday-use 
+
+#+BEGIN_SRC shell
+  # do something in current dir
+  (cd /some/other/dir && other-command)
+  # continue in original dir
+#+END_SRC
+
+** Use command output as a file
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  diff /etc/hosts <(ssh somehost cat /etc/hosts)
+#+END_SRC
+
+** Useful One-liners
+- https://github.com/jlevy/the-art-of-command-line#one-liners
+
+#+BEGIN_SRC shell
+  cat a b | sort | uniq > c        # c is a union b
+  cat a b | sort | uniq -d > c     # c is a intersect b
+  cat a b b | sort | uniq -u > c   # c is set difference a - b
+
+  grep . *     # overview for contents of current directory
+  head -100 *  # same as above, with only first 100 lines
+
+  # sum of all numbers in the third column
+  awk '{ x += $3 } END { print x }' myfile
+#+END_SRC
+
 * Details
 ** Getting the source directory
 - http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
@@ -1123,86 +1204,5 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
   arg  2
   arg  3
 #+END_SRC
-* Use Cases
-** Empty the contents of a file
-- https://unix.stackexchange.com/questions/88808/empty-the-contents-of-a-file
-
-#+BEGIN_SRC shell
-  > filename                   # clever
-  cp /dev/null filename        # naive
-  cat /dev/null > filename     # intuitive
-  dd if=/dev/null of=filename  # efficient
-  truncate filename --size 0   # explicit
-#+END_SRC
-
-** Force exit code 0 in spite of error
-- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
-
-#+BEGIN_SRC shell
-  set -euo pipefail
-  <command> || true
-  echo 'Prints even if <command> fails'
-#+END_SRC
-
-** Prevents partially downloaded scripts from executing
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  {
-      # Your code here
-  }
-#+END_SRC
-
-** Python simple web server for sharing files
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  python -m SimpleHTTPServer 7777
-  python3 -m http.server 7777
-#+END_SRC
-
-** set -x for a line
-- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
-
-#+BEGIN_SRC shell
-  set -x
-  command
-  { set +x; } 2>/dev/null
-
-  # or simply
-  ( set -x; command )
-#+END_SRC
-
-** Temporarily move to a different working directory via subshell
-- https://github.com/jlevy/the-art-of-command-line#everyday-use 
-
-#+BEGIN_SRC shell
-  # do something in current dir
-  (cd /some/other/dir && other-command)
-  # continue in original dir
-#+END_SRC
-
-** Use command output as a file
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  diff /etc/hosts <(ssh somehost cat /etc/hosts)
-#+END_SRC
-
-** Useful One-liners
-- https://github.com/jlevy/the-art-of-command-line#one-liners
-
-#+BEGIN_SRC shell
-  cat a b | sort | uniq > c        # c is a union b
-  cat a b | sort | uniq -d > c     # c is a intersect b
-  cat a b b | sort | uniq -u > c   # c is set difference a - b
-
-  grep . *     # overview for contents of current directory
-  head -100 *  # same as above, with only first 100 lines
-
-  # sum of all numbers in the third column
-  awk '{ x += $3 } END { print x }' myfile
-#+END_SRC
-
 * Links
 - https://github.com/jlevy/the-art-of-command-line
