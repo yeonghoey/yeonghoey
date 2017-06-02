@@ -28,26 +28,25 @@
    - [[#watch][watch]]
    - [[#xargs][xargs]]
  - [[#use-cases][Use Cases]]
+   - [[#-vs-][$* vs $@]]
    - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
    - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
-   - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
-   - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
-   - [[#set--x-for-a-line][set -x for a line]]
-   - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
-   - [[#use-command-output-as-a-file][Use command output as a file]]
-   - [[#useful-one-liners][Useful One-liners]]
- - [[#details][Details]]
    - [[#getting-the-source-directory][Getting the source directory]]
    - [[#glob-dotfiles][Glob dotfiles]]
    - [[#here-document][Here document]]
    - [[#history-expasion][History Expasion]]
    - [[#inode-structure][Inode Structure]]
    - [[#mounting-a-volume][Mounting a Volume]]
+   - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
    - [[#prompt-a-user-for-yesno][Prompt a user for yes/no]]
    - [[#pseudo-terminals][Pseudo Terminals]]
+   - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
    - [[#redirection][Redirection]]
+   - [[#set--x-for-a-line][set -x for a line]]
    - [[#swap-spacesfiles][Swap spaces/files]]
-   - [[#-vs-][$* vs $@]]
+   - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
+   - [[#use-command-output-as-a-file][Use command output as a file]]
+   - [[#useful-one-liners][Useful One-liners]]
  - [[#links][Links]]
 
 * Primitives
@@ -739,6 +738,38 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 #+END_SRC
 
 * Use Cases
+** $* vs $@
+- http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
+- https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
+- Use ~​"$@"​~ for most cases
+
+#+BEGIN_SRC shell
+  $ set -- "arg  1" "arg  2" "arg  3"
+
+  $ for word in $*; do echo "$word"; done
+  arg
+  1
+  arg
+  2
+  arg
+  3
+
+  $ for word in $@; do echo "$word"; done
+  arg
+  1
+  arg
+  2
+  arg
+  3
+
+  $ for word in "$*"; do echo "$word"; done
+  arg  1 arg  2 arg  3
+
+  $ for word in "$@"; do echo "$word"; done
+  arg  1
+  arg  2
+  arg  3
+#+END_SRC
 ** Empty the contents of a file
 - https://unix.stackexchange.com/questions/88808/empty-the-contents-of-a-file
 
@@ -759,67 +790,6 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   echo 'Prints even if <command> fails'
 #+END_SRC
 
-** Prevents partially downloaded scripts from executing
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  {
-      # Your code here
-  }
-#+END_SRC
-
-** Python simple web server for sharing files
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  python -m SimpleHTTPServer 7777
-  python3 -m http.server 7777
-#+END_SRC
-
-** set -x for a line
-- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
-
-#+BEGIN_SRC shell
-  set -x
-  command
-  { set +x; } 2>/dev/null
-
-  # or simply
-  ( set -x; command )
-#+END_SRC
-
-** Temporarily move to a different working directory via subshell
-- https://github.com/jlevy/the-art-of-command-line#everyday-use 
-
-#+BEGIN_SRC shell
-  # do something in current dir
-  (cd /some/other/dir && other-command)
-  # continue in original dir
-#+END_SRC
-
-** Use command output as a file
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  diff /etc/hosts <(ssh somehost cat /etc/hosts)
-#+END_SRC
-
-** Useful One-liners
-- https://github.com/jlevy/the-art-of-command-line#one-liners
-
-#+BEGIN_SRC shell
-  cat a b | sort | uniq > c        # c is a union b
-  cat a b | sort | uniq -d > c     # c is a intersect b
-  cat a b b | sort | uniq -u > c   # c is set difference a - b
-
-  grep . *     # overview for contents of current directory
-  head -100 *  # same as above, with only first 100 lines
-
-  # sum of all numbers in the third column
-  awk '{ x += $3 } END { print x }' myfile
-#+END_SRC
-
-* Details
 ** Getting the source directory
 - http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
 
@@ -1081,6 +1051,15 @@ because it preallocates a bit of space for ~fsck~ to deposit files there. (...)
 If you accidentally delete ~lost+found~, *don't re-create it with* ~mkdir~, *use* ~mklost+found~ *if available*.
 #+END_QUOTE
 
+** Prevents partially downloaded scripts from executing
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  {
+      # Your code here
+  }
+#+END_SRC
+
 ** Prompt a user for yes/no
 - http://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias/3231821#3231821
 - http://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
@@ -1112,6 +1091,14 @@ you'll see that specifying the command suppresses the ~pty~ allocation and you'l
 To avoid this, specify the ~-t~ option, and then the remote ~sshd~ will always try to allocate a terminal.
 
 Use the flag of ~-T~ for explicitly disabling ~pty~.
+
+** Python simple web server for sharing files
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  python -m SimpleHTTPServer 7777
+  python3 -m http.server 7777
+#+END_SRC
 
 ** Redirection
 - http://tldp.org/LDP/abs/html/io-redirection.html
@@ -1155,6 +1142,18 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
   #  Random access, by golly.
 #+END_SRC
 
+** set -x for a line
+- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
+
+#+BEGIN_SRC shell
+  set -x
+  command
+  { set +x; } 2>/dev/null
+
+  # or simply
+  ( set -x; command )
+#+END_SRC
+
 ** Swap spaces/files
 #+BEGIN_SRC shell
   [root]$ mkswap /dev/hdb1
@@ -1172,37 +1171,36 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
   [root]$ rm -f /swap_file
 #+END_SRC
 
-** $* vs $@
-- http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
-- https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
-- Use ~​"$@"​~ for most cases
+** Temporarily move to a different working directory via subshell
+- https://github.com/jlevy/the-art-of-command-line#everyday-use 
 
 #+BEGIN_SRC shell
-  $ set -- "arg  1" "arg  2" "arg  3"
-
-  $ for word in $*; do echo "$word"; done
-  arg
-  1
-  arg
-  2
-  arg
-  3
-
-  $ for word in $@; do echo "$word"; done
-  arg
-  1
-  arg
-  2
-  arg
-  3
-
-  $ for word in "$*"; do echo "$word"; done
-  arg  1 arg  2 arg  3
-
-  $ for word in "$@"; do echo "$word"; done
-  arg  1
-  arg  2
-  arg  3
+  # do something in current dir
+  (cd /some/other/dir && other-command)
+  # continue in original dir
 #+END_SRC
+
+** Use command output as a file
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  diff /etc/hosts <(ssh somehost cat /etc/hosts)
+#+END_SRC
+
+** Useful One-liners
+- https://github.com/jlevy/the-art-of-command-line#one-liners
+
+#+BEGIN_SRC shell
+  cat a b | sort | uniq > c        # c is a union b
+  cat a b | sort | uniq -d > c     # c is a intersect b
+  cat a b b | sort | uniq -u > c   # c is set difference a - b
+
+  grep . *     # overview for contents of current directory
+  head -100 *  # same as above, with only first 100 lines
+
+  # sum of all numbers in the third column
+  awk '{ x += $3 } END { print x }' myfile
+#+END_SRC
+
 * Links
 - https://github.com/jlevy/the-art-of-command-line
