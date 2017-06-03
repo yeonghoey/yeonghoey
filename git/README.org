@@ -18,10 +18,11 @@
    - [[#git-attributes][Git Attributes]]
  - [[#how-to][How to]]
    - [[#get-git-root-directory][Get git root directory]]
-   - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
-   - [[#resolve-conflicts][Resolve conflicts]]
-   - [[#purge-files-including-their-histories][Purge files including their histories]]
    - [[#how-to-git-commit-nothing-without-an-error][How to git commit nothing without an error]]
+   - [[#list-all-todos-written-by-a-specific-user][List all TODOs written by a specific user]]
+   - [[#purge-files-including-their-histories][Purge files including their histories]]
+   - [[#resolve-conflicts][Resolve conflicts]]
+   - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
 
 * Reference
 ** add
@@ -231,51 +232,22 @@ In ~.gitconfig~:
 - http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
 
 #+BEGIN_SRC shell
-  git rev-parse --show-toplevel
+git rev-parse --show-toplevel
 #+END_SRC
 
-** Run commands while not in a git directory
-- http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory
+** How to git commit nothing without an error
+- http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error
 
 #+BEGIN_SRC shell
-  git -C ~/foo status  # equivalent to (cd ~/foo && git status)
+if ! git diff --quiet --cached; then
+  git commit --verbose
+fi
+
+# or just
+git diff --quiet --cached || git commit
 #+END_SRC
 
-** Resolve conflicts
-- https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
-- https://backlogtool.com/git-guide/en/stepup/stepup2_8.html
-
-#+BEGIN_EXAMPLE
-  If you have questions, please
-  <<<<<<< HEAD
-  open an issue
-  =======
-  ask your question in IRC.
-  >>>>>>> branch-a
-#+END_EXAMPLE
-
-Fix the conflict like this:
-#+BEGIN_EXAMPLE
-  If you have questions, please open an issue or ask in our IRC channel if it's more urgent
-#+END_EXAMPLE
-
-Stage it:
-#+BEGIN_SRC shell
-  $ git add guide.md
-#+END_SRC
-
-
-- Case1. commit when merging
-#+BEGIN_SRC shell
-  $ git commit -m "Resolved merge conflict"
-#+END_SRC
-
-
-- Case2. rebase --continue when rebasing
-#+BEGIN_SRC shell
-  $ git rebase --continue
-#+END_SRC
-
+** List all TODOs written by a specific user
 ** Purge files including their histories
 - https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 
@@ -290,15 +262,45 @@ cd yeonghoey.git
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
 git push
 #+END_SRC
-** How to git commit nothing without an error
-- http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error
+** Resolve conflicts
+- https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
+- https://backlogtool.com/git-guide/en/stepup/stepup2_8.html
+
+#+BEGIN_EXAMPLE
+If you have questions, please
+<<<<<<< HEAD
+open an issue
+=======
+ask your question in IRC.
+>>>>>>> branch-a
+#+END_EXAMPLE
+
+Fix the conflict like this:
+#+BEGIN_EXAMPLE
+If you have questions, please open an issue or ask in our IRC channel if it's more urgent
+#+END_EXAMPLE
+
+Stage it:
+#+BEGIN_SRC shell
+$ git add guide.md
+#+END_SRC
+
+
+- Case1. commit when merging
+#+BEGIN_SRC shell
+$ git commit -m "Resolved merge conflict"
+#+END_SRC
+
+
+- Case2. rebase --continue when rebasing
+#+BEGIN_SRC shell
+$ git rebase --continue
+#+END_SRC
+
+** Run commands while not in a git directory
+- http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory
 
 #+BEGIN_SRC shell
-  if ! git diff --quiet --cached; then
-    git commit --verbose
-  fi
-
-  # or just
-  git diff --quiet --cached || git commit
+git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 #+END_SRC
 
