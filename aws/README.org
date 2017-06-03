@@ -1,0 +1,15 @@
+#+TITLE: AWS
+
+* Table of Contents :TOC_1_gh:
+ - [[#best-practices][Best Practices]]
+
+* Best Practices
+** Tagging
+- https://aws.amazon.com/ko/answers/account-management/aws-tagging-strategies/
+
+- Use a consistent, standardized, case-sensitive format for tags across all resource types.
+- Tag dimensions for manage resource access control, cost tracking, automation, and organization.
+- Implement automated tools to help manage resource tags.
+- Err on the side of using too many tags rather than too few tags.
+
+[[file:img/screenshot_2017-06-03_14-58-21.png]]
