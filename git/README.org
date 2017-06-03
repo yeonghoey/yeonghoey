@@ -13,6 +13,7 @@
    - [[#pull][pull]]
    - [[#rebase][rebase]]
    - [[#rm][rm]]
+   - [[#submodule][submodule]]
    - [[#tag][tag]]
    - [[#worktree][worktree]]
  - [[#details][Details]]
@@ -158,6 +159,40 @@ and delete the branch manually after it merged.
 #+BEGIN_SRC shell
   # Untrack <file> recursively
   $ git rm -r --cached <file>
+#+END_SRC
+
+** submodule
+- https://git-scm.com/book/en/v2/Git-Tools-Submodules
+- https://chrisjean.com/git-submodules-adding-using-removing-and-updating/
+
+#+BEGIN_SRC shell
+  # This will add .gitmodules to the repo
+  git submodule add git@github.com:yeonghoey/notes.git
+#+END_SRC
+
+~.gitmodules~:
+#+BEGIN_EXAMPLE
+  [submodule "notes"]
+    path = notes
+    url = git@github.com:yeonghoey/notes.git
+#+END_EXAMPLE
+
+When cloning this repository, there will only be empty directory for the submodule.
+#+BEGIN_SRC shell
+  git submodule init           # From '.gitmodule' to '.git/config'
+  git submodule update         # Actual fetching
+  git submodule update --init  # updates without explicit --init
+#+END_SRC
+
+#+BEGIN_SRC shell
+  git submodule update --init --recursive
+#+END_SRC
+
+To remove a submodule from the project, following steps required:
+#+BEGIN_SRC shell
+  # Delete target module's entry in '.gitmodule'
+  # Delete target module's entry in '.git/config'
+  git rm --cached <submodule-path>
 #+END_SRC
 
 ** tag
