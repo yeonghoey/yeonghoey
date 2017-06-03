@@ -1,14 +1,24 @@
 #+TITLE: HTTP
 
-* Table of Contents :TOC_1_gh:
+* Table of Contents :TOC_2_gh:
+ - [[#reference][Reference]]
+   - [[#cache-control][Cache Control]]
  - [[#details][Details]]
+   - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
+
+* Reference
+** Cache Control
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
 
 * Details
 ** URL vs URI vs URN
 - https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
 
-| Name  | Example                                 | Note                                              |
-|-------+-----------------------------------------+---------------------------------------------------|
-| ~URL~ | ~https://www.google.co.kr/search~       | Contains only about location                      |
-| ~URI~ | ~https://www.google.co.kr/search?q=uri~ | Superset of ~URL~. Including query string, etc.   |
-| ~URN~ | ~urn:google:search:uri~                 | Prefixed with ~urn:~, no location on the Internet |
+| Name  | Example                                 | Note                                                                                                         |
+|-------+-----------------------------------------+--------------------------------------------------------------------------------------------------------------|
+| ~URI~ | ~https://www.google.co.kr/search?q=uri~ |                                                                                                              |
+| ~URL~ | ~https://www.google.co.kr/search~       | Subset of ~URI~, contains only about location                                                                |
+| ~URN~ | ~urn:google:search:uri~                 | Subset of ~URI~, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with ~urn:~ |
+
+
+[[file:img/screenshot_2017-06-03_15-46-11.png]]
