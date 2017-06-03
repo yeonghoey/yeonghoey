@@ -9,9 +9,12 @@
 
 * Command
 ** read
-- Use Cases
-- Use Cases
-- Use Cases
+- http://vim.wikia.com/wiki/Append_output_of_an_external_command
+
+#+BEGIN_EXAMPLE
+  :read !ls     # Put the output of 'ls' at cursor position
+  :$read !date  # Put the output of 'data' at the last line
+#+END_EXAMPLE
 
 * Details
 ** Fold
