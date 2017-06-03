@@ -13,6 +13,7 @@
    - [[#subprocesses][subprocesses]]
  - [[#details][Details]]
    - [[#comparison][Comparison]]
+   - [[#docstring][Docstring]]
    - [[#eafp-lbyl][EAFP, LBYL]]
    - [[#final-class][Final class]]
    - [[#packaging][Packaging]]
@@ -121,7 +122,7 @@ or the empty string when there were no arguments.
 - http://stackoverflow.com/questions/16706956/is-there-a-difference-between-raise-exception-and-raise-exception-without
 - The short answer is that both ~raise MyException~ and ~raise MyException()~ do the same thing.
 - This first form auto instantiates your exception.
-- So, use ~raise MyException~ when there are no arguments. 
+- So, use ~raise MyException~ when there are no arguments.
 
 ** itertools
 - https://docs.python.org/2/library/itertools.html
@@ -431,6 +432,19 @@ CPython implementation detail: Objects of different types except numbers are ord
 objects of the same types that don't support proper comparison are ordered by their address.
 #+END_QUOTE
 
+** Docstring
+- https://www.python.org/dev/peps/pep-0257/
+- http://epydoc.sourceforge.net/manual-docstring.html
+- [[sphinx.org][Sphinx]] reStructuredText based .
+- [[docstring-google.py][Google]] and [[docstring-numpy.py][Numpy]] Styles
+
+Specific syntax for variable docstring:
+#+BEGIN_SRC python
+  #: docstring for x
+  x = 22
+  x = 22 #: docstring for x
+#+END_SRC
+
 ** EAFP, LBYL
 - https://docs.python.org/3/glossary.html#term-eafp
 - https://docs.python.org/3/glossary.html#term-lbyl
@@ -626,4 +640,3 @@ So in conclusion, out of all these options, I would recommend Setuptools, unless
   #!/usr/bin/python
   # -*- coding: utf-8 -*-
 #+END_SRC
-
