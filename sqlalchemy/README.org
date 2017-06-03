@@ -8,6 +8,8 @@
    - [[#query][Query]]
    - [[#session][Session]]
    - [[#hybrid_property][hybrid_property]]
+ - [[#use-cases][Use Cases]]
+   - [[#prefixing-all-tables-under-a-declarative_base][Prefixing all tables under a declarative_base]]
 
 * Reference
 ** Column
@@ -174,4 +176,32 @@ So, we can use like this (code from [[http://docs.sqlalchemy.org/en/rel_0_9/orm/
 Can use ~fullname~ like other columns:
 #+BEGIN_SRC python
   some_user = session.query(User).filter(User.fullname == "John Smith").first()
+#+END_SRC
+
+* Use Cases
+** Prefixing all tables under a declarative_base
+- https://stackoverflow.com/questions/38245145/how-to-set-common-prefix-for-all-tables-in-sqlalchemy
+- Overriding both ~cls.__tablename__~ along with ~dict_['__tablename__']~ is required
+  because ~DeclarativeMeta~ refers the attributes of ~cls~ during initialization.
+
+#+BEGIN_SRC python
+  from sqlalchemy.ext.declarative.api import DeclarativeMeta
+
+
+  class PrefixerMeta(DeclarativeMeta):
+
+      def __init__(cls, name, bases, dict_):
+          if '__tablename__' in dict_:
+              cls.__tablename__ = dict_['__tablename__'] = \
+                  'someprefix_' + dict_['__tablename__']
+
+          return super().__init__(name, bases, dict_)
+
+  Base = declarative_base(metaclass=PrefixerMeta)
+
+
+  class SomeModel(Base):
+
+      __tablename__ = 'sometable'
+      ...
 #+END_SRC
