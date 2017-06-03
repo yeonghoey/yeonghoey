@@ -1,6 +1,6 @@
 * Notes
 ** Goals
-- Can lookup things faster
+- Can look up things faster
 - Can recall concepts faster
 - Can write notes faster
 
