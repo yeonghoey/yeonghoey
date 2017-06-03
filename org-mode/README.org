@@ -10,6 +10,7 @@
  - [[#agenda][Agenda]]
  - [[#capture][Capture]]
  - [[#add-ons][Add-ons]]
+ - [[#use-cases][Use Cases]]
 
 * Settings
 - https://github.com/fniessen/refcard-org-mode
@@ -209,12 +210,19 @@ delimited by whitespace or punctuation.
 * Export
 - http://orgmode.org/manual/Exporting.html
 - http://stackoverflow.com/questions/13363267/how-to-remove-footer-details-in-org-mode-html-export
+- https://www.gnu.org/software/emacs/manual/html_node/org/Images-in-HTML-export.html
 
 #+BEGIN_EXAMPLE
   ,#+OPTIONS: author:nil html-postamble:nil num:nil timestamp:nil toc:nil
+
 #+END_EXAMPLE
 
-*** Fonts
+#+BEGIN_EXAMPLE
+  ,,#+CAPTION: A black cat stalking a spider
+  ,,#+ATTR_HTML: :alt cat/spider image :title Action! :align right
+  [[./img/a.jpg]]
+#+END_EXAMPLE
+
 - https://github.com/yyr/org-mode/blob/master/lisp/ox-html.el#L807
 - https://emacs.stackexchange.com/questions/7629/the-syntax-highlight-and-indentation-of-source-code-block-in-exported-html-file
 
@@ -276,3 +284,17 @@ and specify your custom ~css~
 - I tried to use this, but *there were some inconsistencies*. I don't use it now.
   - Some colors are indistinguishable.
   - Image links are broken if I segregate htmls from orgs
+
+* Use Cases
+** Automatically Save buffers after refiling and archiving
+- https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
+- http://stackoverflow.com/questions/5520302/what-do-each-of-these-stand-for-after-the-save-file-prompt-y-n-q-c
+
+#+BEGIN_SRC emacs-lisp
+    ;; Save org files automatically after arranging items
+    (defun my-org-save-all-org-buffers (old-function &rest args)
+      (org-save-all-org-buffers)
+      )
+    (advice-add 'org-refile :after 'my-org-save-all-org-buffers)
+    (advice-add 'org-archive :after 'my-org-save-all-org-buffers)
+#+END_SRC
