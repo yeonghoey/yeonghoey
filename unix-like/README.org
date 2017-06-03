@@ -408,9 +408,33 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 #+END_SRC
 
 ** lsof
+- https://itsmetommy.com/2011/06/23/lsof-list-of-open-files/
+
 #+BEGIN_SRC shell
-  # numeric ip(-n) and port(-P)
-  $ lsof -n -P | less
+  lsof         # files opened by processes
+  lsof -i      # opened internet sockets
+  lsof -i :80  # opened internet sockets on port 80
+  lsof -i udp
+  lsof -i tcp
+  lsof -i tcp:80
+  lsof -p 4455 # opend by pid 4455
+
+  sudo lsof /usr/sbin/httpd  # opened by httpd
+  sudo lsof "$(which httpd)"
+
+  # by pattern
+  lsof -c h
+  lsof -c httpd
+  lsof -c Dropbox
+  lsof | grep httpd
+  lsof -c bash
+
+  # by user
+  lsof -u tommy
+  lsof -u _www
+  lsof -u root
+
+  $ lsof -n -P # numeric ip(-n) and port(-P)
 #+END_SRC
 
 ** mount
