@@ -1,2 +1,16 @@
-* Notes
-A personal knowledge base
+#+TITLE: Notes
+
+* About
+A personal knowledge base.
+Most notes are about tech, but I'm trying to write about everything I learned.
+The notes are mostly written in [[http://orgmode.org/][org]] format.
+
+* Goals
+- Can lookup things faster
+- Can find out concepts faster
+- Can write notes faster
+
+* Principles
+- More Examples, less descriptions
+- Up to 2 levels deep of tree hierarchy
+- No obsession with perfection of categorization
