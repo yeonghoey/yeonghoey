@@ -471,7 +471,6 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   while ! nc -z localhost 3306; do sleep 3; done
 #+END_SRC
 
-
 ** pgrep
 - https://www.poftut.com/pgrep-pkill-command-tutorial-examples-linux/
 
