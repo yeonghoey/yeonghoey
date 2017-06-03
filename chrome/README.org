@@ -1,38 +1,14 @@
 #+TITLE: Chrome
 * Table of Contents                                                :TOC_2_gh:
- - [[#arguments][Arguments]]
-   - [[#allow-file-access-from-files][allow-file-access-from-files]]
-   - [[#incognito][incognito]]
- - [[#internals][Internals]]
-   - [[#view-http-headers][View HTTP headers]]
-   - [[#server-dns-address-could-not-be-found][server DNS address could not be found]]
  - [[#plugins][Plugins]]
    - [[#vimium][Vimium]]
-
-* Arguments
-** allow-file-access-from-files
-- http://blog.derraab.com/2013/05/30/start-google-chrome-with-local-file-access-on-mac-os-x/
-
-#+BEGIN_SRC shell
-  open /Applications/Google\ Chrome.app --args --allow-file-access-from-files
-#+END_SRC
-
-** incognito
-- https://www.tekrevue.com/tip/incognito-mode-shortcut/
-
-#+BEGIN_EXAMPLE
-  "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -incognito
-#+END_EXAMPLE
-* Internals
-** View HTTP headers
-- http://stackoverflow.com/questions/4423061/view-http-headers-in-google-chrome
-
-[[file:img/screenshot_2017-02-04_12-28-25.png]]
-
-** server DNS address could not be found
-- https://productforums.google.com/forum/#!topic/chrome/0qkak_17qb0
-- Try within *Incognito Mode*
-- If it works, open ~chrome://net-internals/#dns~, then click the button ~Clear Host Cache~
+ - [[#developer-tools][Developer Tools]]
+   - [[#storages-and-cookies][Storages and Cookies]]
+   - [[#view-http-headers][View HTTP headers]]
+ - [[#use-cases][Use Cases]]
+   - [[#allow-file-access-from-local-files][Allow file access from local files]]
+   - [[#run-with-an-intital-incognito-window][Run with an intital incognito window]]
+   - [[#server-dns-address-could-not-be-found][Server DNS address could not be found]]
 
 * Plugins
 ** Vimium
@@ -60,3 +36,32 @@
 - Checkboxes:
   - Use smooth scrolling
   - Don't let pages steal the focus on the load
+
+* Developer Tools
+** Storages and Cookies
+[[file:img/screenshot_2017-06-03_18-01-12.png]]
+
+** View HTTP headers
+- http://stackoverflow.com/questions/4423061/view-http-headers-in-google-chrome
+
+[[file:img/screenshot_2017-02-04_12-28-25.png]]
+
+* Use Cases
+** Allow file access from local files
+- http://blog.derraab.com/2013/05/30/start-google-chrome-with-local-file-access-on-mac-os-x/
+
+#+BEGIN_SRC shell
+  open /Applications/Google\ Chrome.app --args --allow-file-access-from-files
+#+END_SRC
+
+** Run with an intital incognito window
+- https://www.tekrevue.com/tip/incognito-mode-shortcut/
+
+#+BEGIN_EXAMPLE
+  "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -incognito
+#+END_EXAMPLE
+
+** Server DNS address could not be found
+- https://productforums.google.com/forum/#!topic/chrome/0qkak_17qb0
+- Try within *Incognito Mode*
+- If it works, open ~chrome://net-internals/#dns~, then click the button ~Clear Host Cache~
