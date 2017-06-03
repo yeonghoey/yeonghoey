@@ -1,10 +1,20 @@
 #+TITLE: Vim
 
 * Table of Contents                                                :TOC_2_gh:
- - [[#fold][Fold]]
- - [[#get-the-name-of-the-current-file][Get the name of the current file]]
+ - [[#command][Command]]
+   - [[#read][read]]
+ - [[#details][Details]]
+   - [[#fold][Fold]]
+   - [[#get-the-name-of-the-current-file][Get the name of the current file]]
 
-* Fold
+* Command
+** read
+- Use Cases
+- Use Cases
+- Use Cases
+
+* Details
+** Fold
 - http://vimcasts.org/episodes/how-to-fold/
 
 | command | effect                              |
@@ -22,7 +32,7 @@
 | ~zm~	  | reduce ~foldlevel~ by one           |
 | ~zv~    | expand folds to reveal cursor       |
 
-* Get the name of the current file
+** Get the name of the current file
 #+BEGIN_EXAMPLE
   For example, in directory /abc the command vim def/my.txt would edit file /abc/def/my.txt.
 

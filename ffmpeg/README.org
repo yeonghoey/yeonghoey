@@ -1,0 +1,13 @@
+#+TITLE: FFMPEG
+
+* Table of Contents :TOC_2_gh:
+ - [[#use-cases][Use Cases]]
+   - [[#extracting-audio-from-video][Extracting audio from video]]
+
+* Use Cases
+** Extracting audio from video
+- http://stackoverflow.com/questions/9913032/ffmpeg-to-extract-audio-from-video
+ 
+#+BEGIN_EXAMPLE
+  ffmpeg -i "video.mp4" -vn -codec:a libmp3lame -qscale:a 3 "audio.mp3"
+#+END_EXAMPLE
