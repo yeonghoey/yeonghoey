@@ -1,0 +1,15 @@
+#+TITLE: Couchbase
+
+* Table of Contents :TOC_2_gh:
+ - [[#use-cases][Use Cases]]
+   - [[#installing-enterprise-directly-from-shell][Installing Enterprise directly from shell]]
+
+* Use Cases
+** Installing Enterprise directly from shell
+- https://emacs.stackexchange.com/questions/715/how-to-know-when-or-when-not-to-use-the-single-quote-before-variable-names
+- Check the license for commercial use
+
+#+BEGIN_EXAMPLE
+  wget http://packages.couchbase.com/releases/4.5.1/couchbase-server-enterprise_4.5.1-ubuntu14.04_amd64.deb
+  sudo dpkg -i couchbase-server-enterprise_4.5.1-ubuntu14.04_amd64.deb
+#+END_EXAMPLE
