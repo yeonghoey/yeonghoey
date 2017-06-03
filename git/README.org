@@ -184,6 +184,7 @@ When cloning this repository, there will only be empty directory for the submodu
   git submodule update --init  # updates without explicit --init
 #+END_SRC
 
+Just simply:
 #+BEGIN_SRC shell
   git submodule update --init --recursive
 #+END_SRC
