@@ -1,0 +1,68 @@
+#+TITLE: SQLAlchemy - The Architecture of Open Source Applicaitons
+
+* Table of Contents :TOC_2_gh:
+ - [[#the-coreorm-dichotomy][The Core/ORM Dichotomy]]
+ - [[#taming-the-dbapi][Taming the DBAPI]]
+ - [[#schema-definition][Schema Definition]]
+ - [[#sql-expressions][SQL Expressions]]
+ - [[#class-mapping-with-the-orm][Class Mapping with the ORM]]
+ - [[#query-and-loading-behavior][Query and Loading Behavior]]
+ - [[#sessionidentity-map][Session/Identity Map]]
+ - [[#link][Link]]
+
+* The Core/ORM Dichotomy
+[[file:img/screenshot_2017-06-03_18-06-37.png]]
+
+* Taming the DBAPI
+[[file:img/screenshot_2017-06-03_18-08-37.png]]
+
+[[file:img/screenshot_2017-06-03_18-11-45.png]]
+
+[[file:img/screenshot_2017-06-03_18-13-45.png]]
+
+* Schema Definition
+[[file:img/screenshot_2017-06-03_18-15-32.png]]
+
+[[file:img/screenshot_2017-06-03_18-16-31.png]]
+
+* SQL Expressions
+[[file:img/screenshot_2017-06-03_18-19-16.png]]
+
+#+BEGIN_SRC sql
+  SELECT id FROM user WHERE name = ?
+#+END_SRC
+
+#+BEGIN_SRC python
+  from sqlalchemy.sql import table, column, select
+  user = table('user', column('id'), column('name'))
+  stmt = select([user.c.id]).where(user.c.name=='ed')
+#+END_SRC
+
+[[file:img/screenshot_2017-06-03_18-20-21.png]]
+
+[[file:img/screenshot_2017-06-03_18-21-32.png]]
+
+* Class Mapping with the ORM
+#+BEGIN_SRC python
+  user_table = Table("user", metadata,
+      Column('id', Integer, primary_key=True),
+  )
+
+  class User(object):
+      pass
+
+  mapper(User, user_table, properties={
+      'related':relationship(Address)
+  })
+#+END_SRC
+
+[[file:img/screenshot_2017-06-03_18-25-34.png]]
+
+* Query and Loading Behavior
+[[file:img/screenshot_2017-06-03_18-27-36.png]]
+
+* Session/Identity Map
+[[file:img/screenshot_2017-06-03_18-38-17.png]]
+
+* Link
+- http://aosabook.org/en/sqlalchemy.html
