@@ -1,0 +1,12 @@
+#+TITLE: Excel
+
+* Table of Contents :TOC_2_gh:
+ - [[#use-cases][Use Cases]]
+   - [[#import-data-from-text-based-files-like-csv-tsv][Import Data from Text based files like CSV, TSV]]
+
+* Use Cases
+** Import Data from Text based files like CSV, TSV
+- https://blog.cometdocs.com/how-to-export-gmail-contacts-to-excel
+- Only ~CRLF~ line endings work
+
+[[file:img/screenshot_2017-06-03_18-54-10.png]]
