@@ -1,4 +1,4 @@
-#+TITLE: FFMPEG
+#+TITLE: FFmpeg
 
 * Table of Contents :TOC_2_gh:
  - [[#use-cases][Use Cases]]
