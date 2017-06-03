@@ -1,10 +1,10 @@
 * Notes
 ** Goals
 - Can lookup things faster
-- Can find out concepts faster
+- Can recall concepts faster
 - Can write notes faster
 
 ** Principles
 - More Examples, less descriptions
 - Up to 2 levels deep of tree hierarchy
-- No obsession with perfection of categorization
+- No obsession with consistency of categorization
