@@ -6,5 +6,5 @@
 
 ** Principles
 - More Examples, less descriptions
-- Up to 2 levels deep of tree hierarchy
+- Up to 2 levels deep of note hierarchy
 - No obsession with consistency of categorization
