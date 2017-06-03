@@ -6,7 +6,9 @@
  - [[#easy-templates][Easy Templates]]
  - [[#babel][Babel]]
  - [[#export][Export]]
+ - [[#image][Image]]
  - [[#agenda][Agenda]]
+ - [[#capture][Capture]]
  - [[#add-ons][Add-ons]]
 
 * Settings
@@ -212,6 +214,27 @@ delimited by whitespace or punctuation.
   ,#+OPTIONS: author:nil html-postamble:nil num:nil timestamp:nil toc:nil
 #+END_EXAMPLE
 
+*** Fonts
+- https://github.com/yyr/org-mode/blob/master/lisp/ox-html.el#L807
+- https://emacs.stackexchange.com/questions/7629/the-syntax-highlight-and-indentation-of-source-code-block-in-exported-html-file
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-html-htmlize-output-type 'css)
+#+END_SRC
+~org-html-htmlize-output-type~ is ~inline-css~ by default, which generates ~css~ for code formatting
+based on th current editor color theme. To customize for editor free exporting, set it to ~css~ like above
+and specify your custom ~css~
+
+* Image
+- http://stackoverflow.com/questions/11670654/how-to-resize-images-in-org-mode
+- http://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html
+
+#+BEGIN_EXAMPLE
+  ,#+ATTR_HTML: width="100px"
+  ,#+ATTR_ORG: :width 100
+  [[~/images/example.jpg]]
+#+END_EXAMPLE
+
 * Agenda
 - http://orgmode.org/manual/Capture-templates.html#Capture-templates
 
@@ -219,6 +242,17 @@ delimited by whitespace or punctuation.
   <2006-11-01 Wed>
   [2006-11-01 Wed]  # inactive timestamps, they do not trigger an entry to show up in the agenda.
 #+END_EXAMPLE
+* Capture
+- http://orgmode.org/manual/Template-expansion.html#Template-expansion 
+#+BEGIN_SRC emacs-lisp
+  (setq-default
+   org-capture-templates `(("c" "Create a task"
+                            entry (file+headline ,my-org-inbox "Inbox")
+                            "* TODO %t %?"
+                            :empty-lines 1)
+   )
+#+END_SRC
+
 * Add-ons
 ** toc-org
 - https://github.com/snosov1/toc-org
