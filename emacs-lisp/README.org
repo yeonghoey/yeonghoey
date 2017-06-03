@@ -1,7 +1,7 @@
 #+TITLE: Emacs Lisp
 
 * Table of Contents                                                :TOC_2_gh:
- - [[#references][References]]
+ - [[#reference][Reference]]
    - [[#setq][setq]]
  - [[#details][Details]]
    - [[#char-syntax][Char Syntax]]
@@ -9,7 +9,7 @@
    - [[#interactive][Interactive]]
    - [[#snippets][Snippets]]
 
-* References
+* Reference
 ** setq
 - http://stackoverflow.com/questions/18172728/the-difference-between-setq-and-setq-default-in-emacs-lisp
 - https://emacs.stackexchange.com/questions/24940/what-does-setq-local-do-and-when-should-i-use-it
