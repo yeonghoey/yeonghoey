@@ -1,0 +1,20 @@
+#+TITLE: Javascript
+
+* Table of Contents :TOC_2_gh:
+ - [[#reference][Reference]]
+   - [[#global-functions][Global functions]]
+   - [[#string][String]]
+
+* Reference
+** Global functions
+*** encodeURI
+*** encodeURIComponent
+*** decodeURI
+*** decodeURIComponent
+- https://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-instead-of-encodeuri-encodeuricomponent
+- ~escape~, ~unescape~ are deprecated
+- The difference between ~-URI~ and ~-URIComponent~ is following:
+[[file:img/screenshot_2017-06-03_21-15-23.png]]
+
+** String
+- https://www.w3schools.com/jsref/jsref_obj_string.asp

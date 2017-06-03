@@ -4,6 +4,7 @@
  - [[#reference][Reference]]
    - [[#add][add]]
    - [[#branch][branch]]
+   - [[#clone][clone]]
    - [[#diff][diff]]
    - [[#flow][flow]]
    - [[#list-tree][list-tree]]
@@ -78,6 +79,14 @@
 #+BEGIN_SRC shell
   # prune when fetching
   $ git fetch --prune
+#+END_SRC
+
+** clone
+- https://stackoverflow.com/questions/1911109/how-to-clone-a-specific-git-branch
+
+#+BEGIN_SRC shell
+  # Clone only 'gh-pages' branch of 'note.git' repo into './notes-gh-pages'
+  git clone -b gh-pages --single-branch https://github.com/yeonghoey/notes.git notes-gh-pages
 #+END_SRC
 
 ** diff
@@ -248,6 +257,11 @@ git diff --quiet --cached || git commit
 #+END_SRC
 
 ** List all TODOs written by a specific user
+- https://stackoverflow.com/questions/25039242/how-to-list-all-my-todo-messages-in-the-current-git-managed-code-base
+#+BEGIN_SRC shell
+  git grep -l TODO | xargs -n1 git blame -f -n -w | grep "$(git config user.name)" | grep TODO | sed "s/.\{9\}//" | sed "s/(.*)[[:space:]]*//"
+#+END_SRC
+
 ** Purge files including their histories
 - https://help.github.com/articles/removing-sensitive-data-from-a-repository/
 
