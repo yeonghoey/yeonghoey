@@ -1,8 +1,8 @@
 * Notes
 ** Goals
-- Can look up things faster
-- Can recall concepts faster
-- Can write notes faster
+- Can look up things fast
+- Can recall concepts fast
+- Can write notes fast
 
 ** Principles
 - More Examples, less descriptions
