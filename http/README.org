@@ -1,0 +1,14 @@
+#+TITLE: HTTP
+
+* Table of Contents :TOC_1_gh:
+ - [[#details][Details]]
+
+* Details
+** URL vs URI vs URN
+- https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
+
+| Name  | Example                                 | Note                                              |
+|-------+-----------------------------------------+---------------------------------------------------|
+| ~URL~ | ~https://www.google.co.kr/search~       | Contains only about location                      |
+| ~URI~ | ~https://www.google.co.kr/search?q=uri~ | Superset of ~URL~. Including query string, etc.   |
+| ~URN~ | ~urn:google:search:uri~                 | Prefixed with ~urn:~, no location on the Internet |
