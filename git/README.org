@@ -7,6 +7,7 @@
    - [[#clone][clone]]
    - [[#diff][diff]]
    - [[#flow][flow]]
+   - [[#gitignore][gitignore]]
    - [[#list-tree][list-tree]]
    - [[#log][log]]
    - [[#pull][pull]]
@@ -14,7 +15,6 @@
    - [[#rm][rm]]
    - [[#tag][tag]]
    - [[#worktree][worktree]]
-   - [[#gitignore][gitignore]]
  - [[#details][Details]]
    - [[#git-attributes][Git Attributes]]
  - [[#how-to][How to]]
@@ -113,6 +113,9 @@ When trigger ~finish~, the merge flow is following:
 To work around this, just don't use ~finish~ but make a pull request
 and delete the branch manually after it merged.
 
+** gitignore
+- https://www.atlassian.com/git/tutorials/gitignore#git-ignore-patterns
+
 ** list-tree
 #+BEGIN_SRC shell
   # lists all of the already committed files being tracked by your git repo.
@@ -208,9 +211,6 @@ and delete the branch manually after it merged.
 - ~../bugfix~ is the new local copy
 - Based on ~origin/master~
 - ~--detach~ makes the working copy detached. (Just commmit, not the branch)
-
-** gitignore
-- https://www.atlassian.com/git/tutorials/gitignore#git-ignore-patterns
 
 * Details
 ** Git Attributes
