@@ -1,0 +1,26 @@
+#+TITLE: click
+
+* Table of Contents :TOC_2_gh:
+ - [[#details][Details]]
+   - [[#param_decls][param_decls]]
+
+* Details
+** param_decls
+- http://click.pocoo.org/5/parameters/#parameter-names
+- http://click.pocoo.org/5/api/#parameters
+
+- ~Parameter~ is the base class of ~option~ and ~argument~.
+- Positional arguments of ~option~ and ~argument~ become ~param_decl~
+- If a string is added *without any dashes*, it becomes the parameter name.
+- The parameter name is generated automatically by taking *the longest argument and converting all dashes to underscores.*
+
+#+BEGIN_SRC python
+  @click.option('-v', count=True)
+  def foo(v):
+
+  @click.option('-v', '--verbose', count=True)  # longest n
+  def foo(verbose):
+
+  @click.option('vvv', '-v', '--verbose', count=True)
+  def foo(vvv):
+#+END_SRC
