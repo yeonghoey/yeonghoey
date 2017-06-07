@@ -178,3 +178,30 @@
     starting_position = "LATEST"
   }
 #+END_SRC
+** aws_rds_cluster
+** aws_rds_cluster_instance
+#+BEGIN_SRC terraform
+  resource "aws_rds_cluster" "cluster" {
+    db_cluster_parameter_group_name = "default.aurora5.6"
+    cluster_identifier              = "mydb"
+
+    db_subnet_group_name   = "default-vpc-abcd1234"
+    vpc_security_group_ids = ["${data.terraform_remote_state.vpc.sg_default}"]
+    availability_zones     = ["ap-northeast-1a", "ap-northeast-1c"]
+
+    skip_final_snapshot = true
+
+    database_name   = "mydb"
+    master_username = "root"
+    master_password = "1234"
+  }
+
+  resource "aws_rds_cluster_instance" "node" {
+    count          = 2
+    instance_class = "db.t2.medium"
+    identifier     = "mydb-${count.index}"
+
+    cluster_identifier   = "${aws_rds_cluster.cluster.id}"
+    db_subnet_group_name = "default-vpc-abcd1234"
+  }
+#+END_SRC
