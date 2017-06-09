@@ -18,6 +18,7 @@
    - [[#final-class][Final class]]
    - [[#packaging][Packaging]]
    - [[#source-code-encodings][Source Code Encodings]]
+   - [[#dict-items-iteritems-viewitems][dict: items, iteritems, viewitems]]
 
 * Reference
 ** dict
@@ -649,3 +650,34 @@ So in conclusion, out of all these options, I would recommend Setuptools, unless
   #!/usr/bin/python
   # -*- coding: utf-8 -*-
 #+END_SRC
+
+** dict: items, iteritems, viewitems
+- https://stackoverflow.com/questions/10458437/what-is-the-difference-between-dict-items-and-dict-iteritems
+
+*** Py2
+- ~items()~: returns a list of tuples(copied elements)
+- ~iteritems()~: returns an iterator, can't iterate if ~dict~ changed *after iterator created*
+- ~viewitems()~: returns a [[https://docs.python.org/2/library/stdtypes.html#dictionary-view-objects][view object]], can't iterate if ~dict~ changed *during iteration*
+
+#+BEGIN_SRC python
+  >>> d = {'a': 0}
+  >>> it = d.iteritems()
+  >>> d['b'] = 1
+  >>> next(it)
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+  RuntimeError: dictionary changed size during iteration
+  >>> view = d.viewitems()
+  >>> d['c'] = 2
+  >>> it = iter(view)
+  >>> next(it)
+  ('a', 0)
+  >>> d['d'] = 3
+  >>> next(it)
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+  RuntimeError: dictionary changed size during iteration
+#+END_SRC
+
+*** Py3
+- ~dict.items()~ == ~dict.viewitems()~ of Py2
