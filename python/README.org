@@ -3,6 +3,7 @@
 * Table of Contents                                                :TOC_2_gh:
  - [[#reference][Reference]]
    - [[#dict][dict]]
+   - [[#docstring][docstring]]
    - [[#exceptions][exceptions]]
    - [[#itertools][itertools]]
    - [[#list][list]]
@@ -13,12 +14,9 @@
    - [[#subprocesses][subprocesses]]
  - [[#details][Details]]
    - [[#comparison][Comparison]]
-   - [[#docstring][Docstring]]
    - [[#eafp-lbyl][EAFP, LBYL]]
    - [[#final-class][Final class]]
-   - [[#packaging][Packaging]]
    - [[#source-code-encodings][Source Code Encodings]]
-   - [[#dict-items-iteritems-viewitems][dict: items, iteritems, viewitems]]
 
 * Reference
 ** dict
@@ -56,6 +54,50 @@
       If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
       In either case, this is followed by: for k in F: D[k] = F[k]
 #+END_EXAMPLE
+
+*** items, iteritems, viewitems
+- https://stackoverflow.com/questions/10458437/what-is-the-difference-between-dict-items-and-dict-iteritems
+
+**** Py2
+- ~items()~: returns a list of tuples(copied elements)
+- ~iteritems()~: returns an iterator, can't iterate if ~dict~ changed *after iterator created*
+- ~viewitems()~: returns a [[https://docs.python.org/2/library/stdtypes.html#dictionary-view-objects][view object]], can't iterate if ~dict~ changed *during iteration*
+
+#+BEGIN_SRC python
+  >>> d = {'a': 0}
+  >>> it = d.iteritems()
+  >>> d['b'] = 1
+  >>> next(it)
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+  RuntimeError: dictionary changed size during iteration
+  >>> view = d.viewitems()
+  >>> d['c'] = 2
+  >>> it = iter(view)
+  >>> next(it)
+  ('a', 0)
+  >>> d['d'] = 3
+  >>> next(it)
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+  RuntimeError: dictionary changed size during iteration
+#+END_SRC
+
+**** Py3
+- ~dict.items()~ == ~dict.viewitems()~ of Py2
+
+** docstring
+- https://www.python.org/dev/peps/pep-0257/
+- http://epydoc.sourceforge.net/manual-docstring.html
+- [[sphinx.org][Sphinx]] reStructuredText based .
+- [[docstring-google.py][Google]] and [[docstring-numpy.py][Numpy]] Styles
+
+Specific syntax for variable docstring:
+#+BEGIN_SRC python
+  #: docstring for x
+  x = 22
+  x = 22  #: docstring for x
+#+END_SRC
 
 ** exceptions
 - https://docs.python.org/2/library/exceptions.html
@@ -442,19 +484,6 @@ CPython implementation detail: Objects of different types except numbers are ord
 objects of the same types that don't support proper comparison are ordered by their address.
 #+END_QUOTE
 
-** Docstring
-- https://www.python.org/dev/peps/pep-0257/
-- http://epydoc.sourceforge.net/manual-docstring.html
-- [[sphinx.org][Sphinx]] reStructuredText based .
-- [[docstring-google.py][Google]] and [[docstring-numpy.py][Numpy]] Styles
-
-Specific syntax for variable docstring:
-#+BEGIN_SRC python
-  #: docstring for x
-  x = 22
-  x = 22 #: docstring for x
-#+END_SRC
-
 ** EAFP, LBYL
 - https://docs.python.org/3/glossary.html#term-eafp
 - https://docs.python.org/3/glossary.html#term-lbyl
@@ -476,6 +505,7 @@ Specific syntax for variable docstring:
 *LBYL* can fail if another thread removes the key after the test, but before the lookup.
 This issue can be solved with locks or by using the *EAFP* approach.
 #+END_QUOTE
+
 ** Final class
 - http://stackoverflow.com/questions/2825364/final-classes-in-python-3-x-something-guido-isnt-telling-me
 
@@ -493,156 +523,6 @@ This issue can be solved with locks or by using the *EAFP* approach.
       __metaclass__ = Final
 #+END_SRC
 
-** Packaging
-*** Which tool should use?
-- http://stackoverflow.com/questions/6344076/differences-between-distribute-distutils-setuptools-and-distutils2
-
-#+BEGIN_QUOTE
-So in conclusion, out of all these options, I would recommend Setuptools, unless your requirements are very basic and you only need Distutils. Setuptools works very well with Virtualenv and Pip, tools that I highly recommend. Virtualenv and Pip could both be considered official, as they're part of PyPA, and Python 3 now ships ensurepip (which helps you install pip on some systems).
-#+END_QUOTE
-
-*** Python Packaging User Guide
-- https://packaging.python.org/
-- https://github.com/pypa/sampleproject
-
-*** setup.py
-- https://packaging.python.org/distributing/#setup-args
-
-#+BEGIN_SRC python
-  from setuptools import setup, find_packages
-
-
-  setup(
-      name='sample',
-
-      # Versions should comply with PEP440.  For a discussion on single-sourcing
-      # the version across setup.py and the project code, see
-      # https://packaging.python.org/en/latest/single_source_version.html
-      version='1.2.0',
-
-      description='A sample Python project',
-      long_description=long_description,
-
-      # The project's main homepage.
-      url='https://github.com/pypa/sampleproject',
-
-      # Author details
-      author='The Python Packaging Authority',
-      author_email='pypa-dev@googlegroups.com',
-
-      # Choose your license
-      license='MIT',
-
-      # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
-      classifiers=[
-          # How mature is this project? Common values are
-          'Development Status :: 3 - Alpha',
-
-          # Indicate who your project is intended for
-          'Intended Audience :: Developers',
-          'Topic :: Software Development :: Build Tools',
-
-          # Pick your license as you wish (should match "license" above)
-          'License :: OSI Approved :: MIT License',
-
-          # Specify the Python versions you support here. In particular, ensure
-          # that you indicate whether you support Python 2, Python 3 or both.
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 2.6',
-          'Programming Language :: Python :: 2.7',
-          'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.3',
-          'Programming Language :: Python :: 3.4',
-          'Programming Language :: Python :: 3.5',
-      ],
-
-      # What does your project relate to?
-      keywords='sample setuptools development',
-
-      # You can just specify the packages manually here if your project is
-      # simple. Or you can use find_packages().
-      packages=find_packages(exclude=['contrib', 'docs', 'tests']),
-
-      # Alternatively, if you want to distribute just a my_module.py, uncomment
-      # this:
-      #   py_modules=["my_module"],
-
-      # List run-time dependencies here.
-      # These will be installed by pip when your project is installed.
-      install_requires=['peppercorn'],
-
-      # List additional groups of dependencies here (e.g. development
-      # dependencies). You can install these using the following syntax,
-      # for example:
-      # $ pip install -e .[dev,test]
-      extras_require={
-          'dev': ['check-manifest'],
-          'test': ['coverage'],
-      },
-
-      # If there are data files included in your packages that need to be
-      # installed, specify them here.  If using Python 2.6 or less, then these
-      # have to be included in MANIFEST.in as well.
-      package_data={
-          'sample': ['package_data.dat'],
-      },
-
-      # Although 'package_data' is the preferred approach, in some case you may
-      # need to place data files outside of your packages. See:
-      data_files=[('my_data', ['data/data_file'])],
-      entry_points={
-          'console_scripts': [
-              'sample=sample.__main__:main',
-          ],
-      },
-  )
-#+END_SRC
-
-
-**** install_requires vs requirements.txt
-- https://packaging.python.org/requirements/#requirements-files
-
-[[file:img/screenshot_2017-01-29_09-46-07.png]]
-
-**** scripts vs console_scripts
-- http://python-packaging.readthedocs.io/en/latest/command-line-scripts.html
-#+BEGIN_EXAMPLE
-  funniest/
-      funniest/
-          __init__.py
-          ...
-      setup.py
-      bin/
-          funniest-joke
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  setup(
-      ...
-      scripts=['bin/funniest-joke'],
-      ...
-  )
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  funniest/
-      funniest/
-          __init__.py
-          command_line.py
-          ...
-      setup.py
-      ...
-#+END_EXAMPLE
-
-#+BEGIN_SRC python
-  setup(
-      ...
-      entry_points = {
-          'console_scripts': ['funniest-joke=funniest.command_line:main'],
-      }
-      ...
-  )
-#+END_SRC
 ** Source Code Encodings
 - [[https://www.python.org/dev/peps/pep-0263/][PEP 263]]
 
@@ -650,34 +530,3 @@ So in conclusion, out of all these options, I would recommend Setuptools, unless
   #!/usr/bin/python
   # -*- coding: utf-8 -*-
 #+END_SRC
-
-** dict: items, iteritems, viewitems
-- https://stackoverflow.com/questions/10458437/what-is-the-difference-between-dict-items-and-dict-iteritems
-
-*** Py2
-- ~items()~: returns a list of tuples(copied elements)
-- ~iteritems()~: returns an iterator, can't iterate if ~dict~ changed *after iterator created*
-- ~viewitems()~: returns a [[https://docs.python.org/2/library/stdtypes.html#dictionary-view-objects][view object]], can't iterate if ~dict~ changed *during iteration*
-
-#+BEGIN_SRC python
-  >>> d = {'a': 0}
-  >>> it = d.iteritems()
-  >>> d['b'] = 1
-  >>> next(it)
-  Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
-  RuntimeError: dictionary changed size during iteration
-  >>> view = d.viewitems()
-  >>> d['c'] = 2
-  >>> it = iter(view)
-  >>> next(it)
-  ('a', 0)
-  >>> d['d'] = 3
-  >>> next(it)
-  Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
-  RuntimeError: dictionary changed size during iteration
-#+END_SRC
-
-*** Py3
-- ~dict.items()~ == ~dict.viewitems()~ of Py2
