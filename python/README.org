@@ -11,6 +11,7 @@
    - [[#re][re]]
    - [[#set][set]]
    - [[#str][str]]
+   - [[#string][string]]
    - [[#subprocesses][subprocesses]]
  - [[#details][Details]]
    - [[#comparison][Comparison]]
@@ -367,6 +368,7 @@ In contrast, their *operator based counterparts require their arguments to be se
 #+END_QUOTE
 
 ** str
+** string
 - https://docs.python.org/2/library/stdtypes.html#string-methods
 
 #+BEGIN_EXAMPLE
@@ -409,6 +411,9 @@ In contrast, their *operator based counterparts require their arguments to be se
   S.upper() -> string                               see also string.maketrans()
   S.zfill(width) -> string                          zero padding for numeric string
 #+END_EXAMPLE
+
+*** format
+- https://pyformat.info/
 
 ** subprocesses
 - https://docs.python.org/2/library/subprocess.html
