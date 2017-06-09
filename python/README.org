@@ -124,6 +124,15 @@ or the empty string when there were no arguments.
 - This first form auto instantiates your exception.
 - So, use ~raise MyException~ when there are no arguments.
 
+*** SystemExit
+- https://docs.python.org/2/library/exceptions.html#exceptions.SystemExit
+
+#+BEGIN_SRC python
+  raise SystemExit()       # exit status: 0
+  raise SystemExit(99)     # exit status: 99
+  raise SystemExit('foo')  # print 'foo', exit status: 1
+#+END_SRC
+
 ** itertools
 - https://docs.python.org/2/library/itertools.html
 
