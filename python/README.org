@@ -18,6 +18,11 @@
    - [[#eafp-lbyl][EAFP, LBYL]]
    - [[#final-class][Final class]]
    - [[#source-code-encodings][Source Code Encodings]]
+ - [[#staging][Staging]]
+   - [[#2017-03-24-fri-python-defining-bound-method][<2017-03-24 Fri> Python, defining bound method]]
+   - [[#2017-02-13-mon-isinstance-vs-issubclass][<2017-02-13 Mon> isinstance vs issubclass?]]
+   - [[#2017-03-21-tue-generator-and-throw][<2017-03-21 Tue> generator and throw]]
+   - [[#2017-05-18-thu-python-int-long-int64][<2017-05-18 Thu> python int, long, int64]]
 
 * Reference
 ** dict
@@ -535,3 +540,10 @@ This issue can be solved with locks or by using the *EAFP* approach.
   #!/usr/bin/python
   # -*- coding: utf-8 -*-
 #+END_SRC
+* Staging
+** TODO <2017-03-24 Fri> Python, defining bound method
+** TODO <2017-02-13 Mon> isinstance vs issubclass?
+- https://bugs.python.org/issue25537
+** TODO <2017-03-21 Tue> generator and throw
++ http://git.k.nexon.com/k/bronto/merge_requests/222/diffs
+** TODO <2017-05-18 Thu> python int, long, int64
