@@ -25,6 +25,8 @@
    - [[#purge-files-including-their-histories][Purge files including their histories]]
    - [[#resolve-conflicts][Resolve conflicts]]
    - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
+ - [[#staging][Staging]]
+   - [[#2017-02-14-tue-git-hooks][<2017-02-14 Tue> git hooks]]
 
 * Reference
 ** add
@@ -354,3 +356,7 @@ $ git rebase --continue
 git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 #+END_SRC
 
+* Staging
+** TODO <2017-02-14 Tue> git hooks
+- https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks
+- http://stackoverflow.com/questions/19041220/how-to-run-post-receive-hook-on-github
