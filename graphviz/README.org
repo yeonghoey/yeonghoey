@@ -1,0 +1,13 @@
+#+TITLE: Graphviz
+
+* Table of Contents :TOC_2_gh:
+ - [[#staging][Staging]]
+   - [[#2017-02-26-sun-graphviz-dot][<2017-02-26 Sun> graphviz, dot]]
+   - [[#2017-02-01-wed-graphviz-shpaes][<2017-02-01 Wed> graphviz-shpaes]]
+
+* Staging
+** TODO <2017-02-26 Sun> graphviz, dot
+- http://www.graphviz.org/pdf/dotguide.pdf
+
+** TODO <2017-02-01 Wed> graphviz-shpaes
+- http://www.graphviz.org/doc/info/shapes.html
