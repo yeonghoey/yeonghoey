@@ -10,6 +10,8 @@
    - [[#hybrid_property][hybrid_property]]
  - [[#use-cases][Use Cases]]
    - [[#prefixing-all-tables-under-a-declarative_base][Prefixing all tables under a declarative_base]]
+ - [[#staging][Staging]]
+   - [[#2017-04-11-tue-sqlalchemy-stringify][<2017-04-11 Tue> SQLAlchemy Stringify]]
 
 * Reference
 ** Column
@@ -205,3 +207,11 @@ Can use ~fullname~ like other columns:
       __tablename__ = 'sometable'
       ...
 #+END_SRC
+
+* Staging
+** TODO <2017-04-11 Tue> SQLAlchemy Stringify
+http://docs.sqlalchemy.org/en/latest/faq/sqlexpressions.html#faq-sql-expression-string
+#+BEGIN_EXAMPLE
+  (Pdb++) str(query.statement.compile(compile_kwargs={"literal_binds": True}))
+  "SELECT product_attributes.product_id, product_attributes.kind, product_attributes.value \nFROM product_attributes \nWHERE product_attributes.value = 'stone'"
+#+END_EXAMPLE
