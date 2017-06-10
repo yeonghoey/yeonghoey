@@ -1,0 +1,21 @@
+#+TITLE: REST API
+
+* Table of Contents :TOC_2_gh:
+ - [[#staging][Staging]]
+   - [[#2017-02-26-sun-architectural-styles-and-the-design-of-network-based-software-architectures][<2017-02-26 Sun> Architectural Styles and the Design of Network-based Software Architectures]]
+   - [[#2017-03-29-wed-rest-api-must-be][<2017-03-29 Wed> REST API must be]]
+   - [[#2017-03-29-wed-microsoft-api-guidelines][<2017-03-29 Wed> Microsoft API Guidelines]]
+   - [[#2017-03-29-wed-representational-state-transfer-rest][<2017-03-29 Wed> Representational State Transfer (REST)]]
+
+* Staging
+** TODO <2017-02-26 Sun> Architectural Styles and the Design of Network-based Software Architectures
+- http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm
+
+** TODO <2017-03-29 Wed> REST API must be
+http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven
+
+** TODO <2017-03-29 Wed> Microsoft API Guidelines
+https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md
+
+** TODO <2017-03-29 Wed> Representational State Transfer (REST)
+http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
