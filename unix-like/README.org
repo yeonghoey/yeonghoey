@@ -48,6 +48,19 @@
    - [[#use-command-output-as-a-file][Use command output as a file]]
    - [[#useful-one-liners][Useful One-liners]]
  - [[#links][Links]]
+ - [[#staging][Staging]]
+   - [[#2017-02-09-thu-grep][<2017-02-09 Thu> grep]]
+   - [[#2017-02-09-thu-how-do-i-copy-multiple-files-by-wildcard][<2017-02-09 Thu> How do I copy multiple files by wildcard?]]
+   - [[#2017-02-09-thu-cat-xargs-grep][<2017-02-09 Thu> cat, xargs, grep]]
+   - [[#2017-02-09-thu-iostat][<2017-02-09 Thu> iostat]]
+   - [[#2017-02-01-wed-crond][<2017-02-01 Wed> cron.d]]
+   - [[#2017-02-01-wed-device-naming-on-linux-instances][<2017-02-01 Wed> Device Naming on Linux Instances]]
+   - [[#2017-03-01-wed-command-command][<2017-03-01 Wed> command command]]
+   - [[#2017-03-01-wed-detect-ostype][<2017-03-01 Wed> Detect ostype]]
+   - [[#2017-03-02-thu-sed-separator][<2017-03-02 Thu> sed separator]]
+   - [[#2017-03-23-thu-bash-escape-color][<2017-03-23 Thu> bash escape color]]
+   - [[#2017-03-24-fri-resolvconf][<2017-03-24 Fri> resolvconf]]
+   - [[#2017-03-30-thu-trap][<2017-03-30 Thu> trap]]
 
 * Primitives
 ** Arithmetic Expansion
@@ -1195,7 +1208,7 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 #+END_SRC
 
 ** Temporarily move to a different working directory via subshell
-- https://github.com/jlevy/the-art-of-command-line#everyday-use 
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
 
 #+BEGIN_SRC shell
   # do something in current dir
@@ -1227,3 +1240,42 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 
 * Links
 - https://github.com/jlevy/the-art-of-command-line
+* Staging
+** TODO <2017-02-09 Thu> grep
+- https://www.digitalocean.com/community/tutorials/using-grep-regular-expressions-to-search-for-text-patterns-in-linux
+
+** TODO <2017-02-09 Thu> How do I copy multiple files by wildcard?
+http://unix.stackexchange.com/questions/122605/how-do-i-copy-multiple-files-by-wildcard
+
+** TODO <2017-02-09 Thu> cat, xargs, grep
+#+BEGIN_EXAMPLE
+  cat names | xargs -I {} grep --exclude='*.po' '{}' k1server/**/*(.)
+#+END_EXAMPLE
+
+** TODO <2017-02-09 Thu> iostat
+** TODO <2017-02-01 Wed> cron.d
+- http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log
+
+** TODO <2017-02-01 Wed> Device Naming on Linux Instances
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
+
+** TODO <2017-03-01 Wed> command command
+- http://askubuntu.com/questions/512770/what-is-use-of-command-command
+- http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script/677212#677212
+
+** TODO <2017-03-01 Wed> Detect ostype
+- http://stackoverflow.com/questions/394230/detect-the-os-from-a-bash-script
+
+** TODO <2017-03-02 Thu> sed separator
+- http://backreference.org/2010/02/20/using-different-delimiters-in-sed/
+
+** TODO <2017-03-23 Thu> bash escape color
+http://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+** TODO <2017-03-24 Fri> resolvconf
+- http://askubuntu.com/questions/157154/how-do-i-include-lines-in-resolv-conf-that-wont-get-lost-on-reboot
+- sudo vim /etc/resolvconf/resolv.conf.d/head --> ~nameserver 10.43.0.1~
+
+** TODO <2017-03-30 Thu> trap
+http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_12_02.html
+This instructs the trap command to catch the listed SIGNALS, which may be signal names with or without the SIG prefix, or signal numbers. If a signal is 0 or EXIT, the COMMANDS are executed when the shell exits. If one of the signals is DEBUG, the list of COMMANDS is executed after every simple command. A signal may also be specified as ERR;
