@@ -3,12 +3,17 @@
 * Table of Contents :TOC_1_gh:
  - [[#indices-vs-indexes][indices vs indexes]]
  - [[#planned_at-vs-scheduled_at][planned_at vs scheduled_at]]
+ - [[#staging][Staging]]
 
 * indices vs indexes
 - ~indices~: a plural form of a scientific number
 - ~indexes~: a plural form of a database index
 
-
 * planned_at vs scheduled_at
 - ~planned_at~: for a place
 - ~schduled_at~: for a specific time
+* Staging
+** TODO <2017-06-07 Wed> parse <-> compose
+- https://stackoverflow.com/questions/148857/what-is-the-opposite-of-parse
+
+** TODO <2017-06-07 Wed> naming: extant vs existing
