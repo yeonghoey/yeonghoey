@@ -8,6 +8,8 @@
    - [[#local-variableslet][Local Variables(let)]]
    - [[#interactive][Interactive]]
    - [[#snippets][Snippets]]
+ - [[#staging][Staging]]
+   - [[#2017-02-26-sun-elisp-notes][<2017-02-26 Sun> elisp notes]]
 
 * Reference
 ** setq
@@ -81,3 +83,10 @@ If a variable is buffer-local:
       (message output))
     )
 #+END_SRC
+* Staging
+** TODO <2017-02-26 Sun> elisp notes
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Defining-Functions.html#Defining-Functions
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Using-Interactive.html
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Function-Names.html#Function-Names
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Lambda-Expressions.html
+https://yoo2080.wordpress.com/2013/09/22/how-to-choose-emacs-lisp-package-namespace-prefix/
