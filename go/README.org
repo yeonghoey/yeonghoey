@@ -85,3 +85,12 @@ Go install do a little more. It move the executable file to $GOPATH/bin and cach
 
 ** TODO <2017-03-18 Sat> go project structure
 - https://github.com/tj/mmake
+
+** TODO <2017-03-13 Mon> go dependency management
+- https://github.com/golang/go/wiki/PackageManagementTools
+- vendor concept: http://engineeredweb.com/blog/2015/go-1.5-vendor-handling/
+- godep, glide: make easy to manage vendor folder
+- https://nathany.com/go-packages/
+
+** TODO <2017-03-19 Sun> Go at Google
+https://talks.golang.org/2012/splash.article
