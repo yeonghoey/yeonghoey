@@ -10,6 +10,8 @@
    - [[#2017-03-03-fri-css-property-order][<2017-03-03 Fri> css property order]]
    - [[#2017-03-26-sun-idiomatic-css][<2017-03-26 Sun> idiomatic-css]]
    - [[#2017-03-26-sun-css-import][<2017-03-26 Sun> CSS import]]
+   - [[#2017-02-26-sun-the-definitive-guide-to-form-based-website-auth][<2017-02-26 Sun> The definitive guide to form based website auth]]
+   - [[#2017-02-26-sun-front-end-developer-handbook-2017][<2017-02-26 Sun> Front-End Developer Handbook 2017]]
 
 * Template
 #+BEGIN_SRC html
@@ -55,3 +57,8 @@ http://stackoverflow.com/questions/14676613/how-to-import-google-web-font-in-css
 https://developer.mozilla.org/en-US/docs/Web/CSS/@import
 https://google.github.io/styleguide/htmlcssguide.html#Protocol
 https://google.github.io/styleguide/htmlcssguide.html#CSS_Quotation_Marks
+** TODO <2017-02-26 Sun> The definitive guide to form based website auth
+- http://stackoverflow.com/questions/549/the-definitive-guide-to-form-based-website-authentication
+
+** TODO <2017-02-26 Sun> Front-End Developer Handbook 2017
+- https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/
