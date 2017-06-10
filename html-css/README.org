@@ -12,6 +12,7 @@
    - [[#2017-03-26-sun-css-import][<2017-03-26 Sun> CSS import]]
    - [[#2017-02-26-sun-the-definitive-guide-to-form-based-website-auth][<2017-02-26 Sun> The definitive guide to form based website auth]]
    - [[#2017-02-26-sun-front-end-developer-handbook-2017][<2017-02-26 Sun> Front-End Developer Handbook 2017]]
+   - [[#2017-06-02-fri-session-storage-vs-local-storage-vs-cookies][<2017-06-02 Fri> session storage vs local storage vs cookies]]
 
 * Template
 #+BEGIN_SRC html
@@ -62,3 +63,9 @@ https://google.github.io/styleguide/htmlcssguide.html#CSS_Quotation_Marks
 
 ** TODO <2017-02-26 Sun> Front-End Developer Handbook 2017
 - https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/
+
+** TODO <2017-06-02 Fri> session storage vs local storage vs cookies
+- https://stackoverflow.com/questions/19867599/what-is-the-difference-between-localstorage-sessionstorage-session-and-cookies
+- https://stackoverflow.com/questions/3220660/local-storage-vs-cookies
+- https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage
+
