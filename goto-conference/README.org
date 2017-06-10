@@ -1,0 +1,17 @@
+#+TITLE: GOTO Conference
+
+* Table of Contents :TOC_2_gh:
+ - [[#staging][Staging]]
+   - [[#2017-06-05-mon-event-driven-architecture][<2017-06-05 Mon> Event Driven Architecture]]
+   - [[#2017-06-10-sat-patterns-of-effective-teams][<2017-06-10 Sat> Patterns of Effective Teams]]
+   - [[#2017-06-10-sat-programming-across-paradigms][<2017-06-10 Sat> Programming Across Paradigms]]
+
+* Staging
+** TODO <2017-06-05 Mon> Event Driven Architecture
+- https://www.youtube.com/watch?v=STKCRSUsyP0
+
+** TODO <2017-06-10 Sat> Patterns of Effective Teams
+- https://www.youtube.com/watch?v=lvs7VEsQzKY
+
+** TODO <2017-06-10 Sat> Programming Across Paradigms
+- https://www.youtube.com/watch?v=Pg3UeB-5FdA
