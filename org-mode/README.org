@@ -207,6 +207,13 @@ delimited by whitespace or punctuation.
   | b | 2 |
 #+END_SRC
 
+** Graphviz
+- http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-dot.html
+
+#+BEGIN_SRC org
+  ,#+BEGIN_SRC dot :file img/small-graph.png :exports results
+#+END_SRC
+
 * Export
 - http://orgmode.org/manual/Exporting.html
 - http://stackoverflow.com/questions/13363267/how-to-remove-footer-details-in-org-mode-html-export
