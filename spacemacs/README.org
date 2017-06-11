@@ -12,6 +12,8 @@
    - [[#restclient][restclient]]
  - [[#customization][Customization]]
    - [[#visual-pastes][Visual Pastes]]
+ - [[#use-cases][Use Cases]]
+   - [[#how-to-fix-evaluation-of-code-disabled][How to Fix 'Evaluation of code disabled']]
  - [[#staging][Staging]]
    - [[#2017-02-18-sat-spacemacs-search-with-evil-register][<2017-02-18 Sat> Spacemacs search with evil register]]
    - [[#2017-02-07-tue-require-final-newline][<2017-02-07 Tue> require-final-newline]]
@@ -193,6 +195,11 @@ It's *NOT* recommended if you use cut and paste routine.
 
   (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
 #+END_SRC
+* Use Cases
+** How to Fix 'Evaluation of code disabled'
+- https://github.com/syl20bnr/spacemacs/issues/7641
+- Simply run ~:spacemacs/recompile-elpa~
+
 * Staging
 ** TODO <2017-02-18 Sat> Spacemacs search with evil register
 - https://github.com/syl20bnr/spacemacs/issues/5101
