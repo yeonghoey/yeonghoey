@@ -198,7 +198,7 @@ It's *NOT* recommended if you use cut and paste routine.
 * Use Cases
 ** How to Fix 'Evaluation of code disabled'
 - https://github.com/syl20bnr/spacemacs/issues/7641
-- Simply run ~:spacemacs/recompile-elpa~
+- Simply run ~:spacemacs/recompile-elpa~ and restart emacs
 
 * Staging
 ** TODO <2017-02-18 Sat> Spacemacs search with evil register
