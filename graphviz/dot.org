@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_2_gh:
  - [[#test][test]]
+ - [[#links][Links]]
 
 * test
 #+BEGIN_SRC dot :file img/small-graph.png :exports results
@@ -19,3 +20,7 @@
 
 #+RESULTS:
 [[file:img/small-graph.png]]
+
+* Links
+- http://www.graphviz.org/pdf/dotguide.pdf
+- http://www.graphviz.org/doc/info/shapes.html

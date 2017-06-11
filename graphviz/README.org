@@ -3,19 +3,9 @@
 * Table of Contents :TOC_2_gh:
  - [[#concepts][Concepts]]
    - [[#layouts][Layouts]]
- - [[#staging][Staging]]
-   - [[#2017-02-26-sun-graphviz-dot][<2017-02-26 Sun> graphviz, dot]]
-   - [[#2017-02-01-wed-graphviz-shpaes][<2017-02-01 Wed> graphviz-shpaes]]
 
 * Concepts
 ** Layouts
 - http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html
 
 [[file:img/screenshot_2017-06-11_10-13-52.png]]
-
-* Staging
-** TODO <2017-02-26 Sun> graphviz, dot
-- http://www.graphviz.org/pdf/dotguide.pdf
-
-** TODO <2017-02-01 Wed> graphviz-shpaes
-- http://www.graphviz.org/doc/info/shapes.html
