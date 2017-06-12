@@ -11,6 +11,7 @@
    - [[#aws_rds_cluster_instance][aws_rds_cluster_instance]]
  - [[#use-cases][Use Cases]]
    - [[#setting-up-vpc][Setting up VPC]]
+   - [[#creating-an-instance][Creating an instance]]
 
 * Resources
 ** aws_eip
@@ -277,5 +278,34 @@
   resource "aws_main_route_table_association" "main" {
     vpc_id         = "${aws_vpc.main.id}"
     route_table_id = "${aws_route_table.main.id}"
+  }
+#+END_SRC
+** Creating an instance
+#+BEGIN_SRC terraform
+  data "aws_ami" "ubuntu1404" {
+    most_recent = true
+
+    filter {
+      name   = "name"
+      values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+    }
+
+    filter {
+      name   = "virtualization-type"
+      values = ["hvm"]
+    }
+
+    owners = ["099720109477"] # Canonical
+  }
+
+  resource "aws_instance" "main" {
+    ami           = "${data.aws_ami.ubuntu1404.id}"
+    instance_type = "t2.micro"
+    key_name      = "${var.key_name}"
+    subnet_id     = "${data.terraform_remote_state.vpc.main_public_a}"
+  }
+
+  resource "aws_eip" "main" {
+    instance = "${aws_instance.main.id}"
   }
 #+END_SRC
