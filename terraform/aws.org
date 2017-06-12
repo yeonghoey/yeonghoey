@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_2_gh:
  - [[#resources][Resources]]
+   - [[#aws_eip][aws_eip]]
    - [[#aws_elasticsearch_domain][aws_elasticsearch_domain]]
    - [[#aws_elb][aws_elb]]
    - [[#aws_iam_role][aws_iam_role]]
@@ -12,6 +13,23 @@
    - [[#setting-up-vpc][Setting up VPC]]
 
 * Resources
+** aws_eip
+- https://www.terraform.io/docs/providers/aws/r/eip.html
+- https://github.com/hashicorp/terraform/issues/4944#issuecomment-248884637
+
+#+BEGIN_SRC terraform
+  resource "aws_eip" "main" {
+    count    = "${var.num_hosts_eip}"
+    instance = "${aws_instance.main.*.id}"
+
+    # terraform tries to modify all eips when `count` changes.
+    # This is a workaround for this.
+    # SEE: https://github.com/hashicorp/terraform/issues/4944#issuecomment-248884637
+    lifecycle {
+      ignore_changes = ["instance"]
+    }
+  }
+#+END_SRC
 ** aws_elasticsearch_domain
 - https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain.html
 - https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html
