@@ -30,6 +30,34 @@
   aws ec2 modify-instance-attribute --instance-id <value> --no-disable-api-termination
 #+END_SRC
 
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#using-regions-availability-zones-describe
+
+#+BEGIN_SRC shell
+$ aws ec2 describe-availability-zones --region eu-west-1
+{
+    "AvailabilityZones": [
+        {
+            "State": "available",
+            "RegionName": "eu-west-1",
+            "Messages": [],
+            "ZoneName": "eu-west-1a"
+        },
+        {
+            "State": "available",
+            "RegionName": "eu-west-1",
+            "Messages": [],
+            "ZoneName": "eu-west-1b"
+        },
+        {
+            "State": "available",
+            "RegionName": "eu-west-1",
+            "Messages": [],
+            "ZoneName": "eu-west-1c"
+        }
+    ]
+}
+#+END_SRC
+
 * s3
 - http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#available-commands
 
