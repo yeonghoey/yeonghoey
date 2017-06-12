@@ -301,6 +301,9 @@
   resource "aws_instance" "main" {
     ami           = "${data.aws_ami.ubuntu1404.id}"
     instance_type = "t2.micro"
+
+    # Even though there's aws_key_pair,
+    # it's better to create a new one on web console manually.
     key_name      = "${var.key_name}"
     subnet_id     = "${data.terraform_remote_state.vpc.main_public_a}"
   }
