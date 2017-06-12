@@ -9,6 +9,7 @@
    - [[#aws_lambda_function][aws_lambda_function]]
    - [[#aws_rds_cluster][aws_rds_cluster]]
    - [[#aws_rds_cluster_instance][aws_rds_cluster_instance]]
+   - [[#aws_security_group][aws_security_group]]
  - [[#use-cases][Use Cases]]
    - [[#setting-up-vpc][Setting up VPC]]
    - [[#creating-an-instance][Creating an instance]]
@@ -231,6 +232,55 @@
 
     cluster_identifier   = "${aws_rds_cluster.cluster.id}"
     db_subnet_group_name = "default-vpc-abcd1234"
+  }
+#+END_SRC
+
+** aws_security_group
+- https://www.terraform.io/docs/providers/aws/r/security_group.html
+
+#+BEGIN_SRC terraform
+  resource "aws_security_group" "default" {
+    name   = "${var.project}-default"
+    vpc_id = "${aws_vpc.main.id}"
+
+    ingress {
+      from_port       = 0
+      to_port         = 0
+      protocol        = "-1"
+      security_groups = []
+      self            = true
+    }
+
+    egress {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "aws_security_group" "icmp" {
+    name   = "${var.project}-icmp"
+    vpc_id = "${aws_vpc.main.id}"
+
+    ingress {
+      from_port   = -1
+      to_port     = -1
+      protocol    = "icmp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "aws_security_group" "ssh" {
+    name   = "${var.project}-ssh"
+    vpc_id = "${aws_vpc.main.id}"
+
+    ingress {
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
 #+END_SRC
 
