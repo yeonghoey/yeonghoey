@@ -50,7 +50,7 @@
     hash_key       = "LockID"
 
     attribute {
-      name = "LockID"
+      name = "LockID" # Reserved name by terraform
       type = "S"
     }
   }
