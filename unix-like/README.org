@@ -10,6 +10,7 @@
    - [[#for][for]]
    - [[#function][function]]
    - [[#if][if]]
+   - [[#redirection][Redirection]]
    - [[#set][set]]
  - [[#commands][Commands]]
    - [[#apt][apt]]
@@ -41,7 +42,6 @@
    - [[#prompt-a-user-for-yesno][Prompt a user for yes/no]]
    - [[#pseudo-terminals][Pseudo Terminals]]
    - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
-   - [[#redirection][Redirection]]
    - [[#set--x-for-a-line][set -x for a line]]
    - [[#swap-spacesfiles][Swap spaces/files]]
    - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
@@ -316,6 +316,48 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 [[file:img/screenshot_2017-04-24_12-12-29.png]]
 
 - Special primitives that ~[[~ is defined to have, but ~[~ may be lacking
+
+** Redirection
+- http://tldp.org/LDP/abs/html/io-redirection.html
+
+#+BEGIN_SRC shell
+  $ : > foo.txt  # truncate
+  $ > foo.txt    # same as above, but some shells don't support
+
+  $ echo 'hi' > foo.txt   # stdout
+  $ echo 'hi' >> foo.txt  # stdout, append
+
+  # fd 1 is stdout; same as above
+  $ echo 'hi' 1> foo.txt
+  $ echo 'hi' 1>> foo.txt
+
+  # fd 2 is stderr (following commands will cause errors)
+  $ tar 2> foo.txt
+  $ cp 2>> foo.txt
+
+  $ tar &> foo.txt  # both
+
+  # redirects stderr to stdout
+  # (M>&N redirects file descriptor M to file descriptor N, M is 1 if omitted)
+  $ tar > out.txt 2>&1
+
+  # multiple redirections
+  $ command < input-file > output-file
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # '[j]<>filename'
+  # Open file "filename" for reading and writing, and assign file descriptor "j" to it.
+  # 'n<&-' Close input file descriptor n.
+  # '0<&-', '<&-', Close stdin
+  $ echo 1234567890 > File    # Write string to "File".
+  $ exec 3<> File             # Open "File" and assign fd 3 to it.
+  $ read -n 4 <&3             # Read only 4 characters.
+  $ echo -n . >&3             # Write a decimal point there.
+  $ exec 3>&-                 # Close fd 3.
+  $ cat File                  # ==> 1234.67890
+  #  Random access, by golly.
+#+END_SRC
 
 ** set
 - https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
@@ -1135,48 +1177,6 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 #+BEGIN_SRC shell
   python -m SimpleHTTPServer 7777
   python3 -m http.server 7777
-#+END_SRC
-
-** Redirection
-- http://tldp.org/LDP/abs/html/io-redirection.html
-
-#+BEGIN_SRC shell
-  $ : > foo.txt  # truncate
-  $ > foo.txt    # same as above, but some shells don't support
-
-  $ echo 'hi' > foo.txt   # stdout
-  $ echo 'hi' >> foo.txt  # stdout, append
-
-  # fd 1 is stdout; same as above
-  $ echo 'hi' 1> foo.txt
-  $ echo 'hi' 1>> foo.txt
-
-  # fd 2 is stderr (following commands will cause errors)
-  $ tar 2> foo.txt
-  $ cp 2>> foo.txt
-
-  $ tar &> foo.txt  # both
-
-  # redirects stderr to stdout
-  # (M>&N redirects file descriptor M to file descriptor N, M is 1 if omitted)
-  $ tar > out.txt 2>&1
-
-  # multiple redirections
-  $ command < input-file > output-file
-#+END_SRC
-
-#+BEGIN_SRC shell
-  # '[j]<>filename'
-  # Open file "filename" for reading and writing, and assign file descriptor "j" to it.
-  # 'n<&-' Close input file descriptor n.
-  # '0<&-', '<&-', Close stdin
-  $ echo 1234567890 > File    # Write string to "File".
-  $ exec 3<> File             # Open "File" and assign fd 3 to it.
-  $ read -n 4 <&3             # Read only 4 characters.
-  $ echo -n . >&3             # Write a decimal point there.
-  $ exec 3>&-                 # Close fd 3.
-  $ cat File                  # ==> 1234.67890
-  #  Random access, by golly.
 #+END_SRC
 
 ** set -x for a line
