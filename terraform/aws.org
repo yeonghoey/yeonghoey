@@ -286,6 +286,8 @@
 
 * Use Cases
 ** Setting up VPC
+- ~terrafrom~ will hang when destroying subnets if there are running instances on them.
+
 #+BEGIN_SRC terraform
   resource "aws_vpc" "main" {
     cidr_block = "10.0.0.0/16"
@@ -330,6 +332,7 @@
     route_table_id = "${aws_route_table.main.id}"
   }
 #+END_SRC
+
 ** Creating an instance
 #+BEGIN_SRC terraform
   data "aws_ami" "ubuntu1404" {
