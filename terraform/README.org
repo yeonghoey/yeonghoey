@@ -17,6 +17,7 @@
    - [[#import][import]]
    - [[#state][state]]
    - [[#taint][taint]]
+   - [[#force-unlcok][force-unlcok]]
  - [[#concepts][Concepts]]
    - [[#terraform-files][Terraform files]]
    - [[#resources-and-data-sources][Resources and Data Sources]]
@@ -259,6 +260,29 @@ To work around this, use ~ignore_changes~
 #+BEGIN_SRC shell
   terraform taint aws_instance.main                                                                              1 ↵
   terraform taint -module=my_module aws_instance.main                                                                              1 ↵
+#+END_SRC
+
+** force-unlcok
+- https://www.terraform.io/docs/commands/force-unlock.html
+- ~LockID~ will be printed out when commands fail
+
+#+BEGIN_SRC shell
+  Error locking state: Error acquiring the state lock: ConditionalCheckFailedException: The conditional request failed
+          status code: 400, request id: <...>
+  Lock Info:
+    ID:        abcdef01-ef34-abcd-5678-abc123def456
+    Path:      <...>
+    Operation: OperationTypePlan
+    Who:       <...>
+    Version:   0.9.8
+    Created:   2017-06-13 11:00:23.886816353 +0000 UTC
+    Info:
+
+  ...
+#+END_SRC
+
+#+BEGIN_SRC shell
+  terraform force-unlock "abcdef01-ef34-abcd-5678-abc123def456"
 #+END_SRC
 
 * Concepts
