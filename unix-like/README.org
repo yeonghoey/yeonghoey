@@ -47,6 +47,7 @@
    - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
    - [[#use-command-output-as-a-file][Use command output as a file]]
    - [[#useful-one-liners][Useful One-liners]]
+   - [[#how-to-pipe-stderr-and-not-stdout][How to pipe stderr, and not stdout?]]
  - [[#links][Links]]
  - [[#staging][Staging]]
    - [[#2017-02-09-thu-grep][<2017-02-09 Thu> grep]]
@@ -1236,6 +1237,15 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 
   # sum of all numbers in the third column
   awk '{ x += $3 } END { print x }' myfile
+#+END_SRC
+
+** How to pipe stderr, and not stdout?
+- https://stackoverflow.com/questions/2342826/how-to-pipe-stderr-and-not-stdout
+- Redirect ~stderr~ to ~stdout~
+- Redirect ~stdout~ to ~/dev/null~
+
+#+BEGIN_SRC shell
+  command 2>&1 >/dev/null | grep 'something'
 #+END_SRC
 
 * Links
