@@ -1,11 +1,15 @@
 #+TITLE: VPC
 
 * Table of Contents :TOC_2_gh:
+ - [[#links][Links]]
  - [[#staging][Staging]]
-   - [[#2017-06-09-fri-multiple-region-multi-vpc-connectivity][<2017-06-09 Fri> Multiple Region Multi-VPC Connectivity]]
+   - [[#multiple-region-multi-vpc-connectivity][Multiple Region Multi-VPC Connectivity]]
+
+* Links
+- https://www.cloudping.co/ (AWS Inter-Region Latency)
 
 * Staging
-** TODO <2017-06-09 Fri> Multiple Region Multi-VPC Connectivity
+** Multiple Region Multi-VPC Connectivity
 - https://aws.amazon.com/ko/answers/networking/aws-multiple-region-multi-vpc-connectivity/
 
 Routing Over AWS Networks;
