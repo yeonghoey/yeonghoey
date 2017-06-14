@@ -588,9 +588,7 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   192.168.0.25
 #+END_SRC
 
-** ssh
-- ssh has a bundle of commands, so it has a [[ssh.org][dedicated page]].
-
+** [[ssh.org][ssh]]
 ** su
 - http://www.linfo.org/su.html
 
