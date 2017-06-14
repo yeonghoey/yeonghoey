@@ -1,0 +1,13 @@
+#+TITLE: SSH
+
+* Table of Contents :TOC_2_gh:
+ - [[#use-cases][Use Cases]]
+   - [[#get-the-public-key-from-a-private-key][Get the public key from a private key]]
+
+* Use Cases
+** Get the public key from a private key
+- https://serverfault.com/questions/52285/create-a-public-ssh-key-from-the-private-key
+
+#+BEGIN_SRC shell
+  ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
+#+END_SRC
