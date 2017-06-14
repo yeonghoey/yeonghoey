@@ -4,6 +4,7 @@
  - [[#cheatsheet][CheatSheet]]
  - [[#reference][Reference]]
  - [[#details][Details]]
+ - [[#staging][Staging]]
 
 * CheatSheet
 - https://en.wikibooks.org/wiki/MySQL/CheatSheet
@@ -272,3 +273,13 @@
   INSERT INTO cities VALUES ('Boston', 'MA');
   -- Query OK, 1 row affected (0.03 sec)
 #+END_SRC
+
+* Staging
+** CHAR vs VARCHAR
+- https://dba.stackexchange.com/questions/2640/what-is-the-performance-impact-of-using-char-vs-varchar-on-a-fixed-size-field
+
+** VARCHAR vs TEXT
+- https://stackoverflow.com/questions/2023481/mysql-large-varchar-vs-text
+
+** Importance of VARCHAR length
+- https://stackoverflow.com/questions/1962310/importance-of-varchar-length-in-mysql-table
