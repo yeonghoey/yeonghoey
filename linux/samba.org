@@ -41,6 +41,7 @@ Configure ~/etc/samba/smb.conf~. Keep most settings default, just edit ~Share De
 #+BEGIN_SRC shell
   # Creates a user for samba. will prompt for password
   sudo smbpasswd -a <username>
+
   # Restart samba service
   sudo systemctl restart smbd.service, nmbd.service
 #+END_SRC
