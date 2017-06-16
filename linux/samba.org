@@ -1,0 +1,46 @@
+#+TITLE: Samba
+
+* Table of Contents :TOC_2_gh:
+ - [[#basic-setting-up-for-ubuntu-sharing-the-whole-home-directory][Basic setting up for Ubuntu, sharing the whole home directory]]
+
+* Basic setting up for Ubuntu, sharing the whole home directory
+- https://help.ubuntu.com/lts/serverguide/samba-fileserver.html
+
+#+BEGIN_SRC shell
+  sudo apt-get install samba
+#+END_SRC
+
+Configure ~/etc/samba/smb.conf~. Keep most settings default, just edit ~Share Definitions~ like following:
+#+BEGIN_SRC shell
+  sudo vim /etc/samba/smb.conf
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  #======================= Share Definitions =======================
+
+  # Un-comment the following (and tweak the other settings below to suit)
+  # to enable the default home directory shares. This will share each
+  # user's home directory as \\server\username
+  [homes]
+     comment = Home Directories
+     browseable = yes
+
+  # By default, the home directories are exported read-only. Change the
+  # next parameter to 'no' if you want to be able to write to them.
+     read only = no
+
+  # File creation mask is set to 0700 for security reasons. If you want to
+  # create files with group=rw permissions, set next parameter to 0775.
+     create mask = 0700
+
+  # Directory creation mask is set to 0700 for security reasons. If you want to
+  # create dirs. with group=rw permissions, set next parameter to 0775.
+     directory mask = 0700
+#+END_EXAMPLE
+
+#+BEGIN_SRC shell
+  # Creates a user for samba. will prompt for password
+  sudo smbpasswd -a <username>
+  # Restart samba service
+  sudo systemctl restart smbd.service, nmbd.service
+#+END_SRC
