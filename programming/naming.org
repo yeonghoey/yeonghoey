@@ -1,19 +1,30 @@
 #+TITLE: Naming
 
 * Table of Contents :TOC_1_gh:
- - [[#indices-vs-indexes][indices vs indexes]]
- - [[#planned_at-vs-scheduled_at][planned_at vs scheduled_at]]
- - [[#staging][Staging]]
+ - [[#contrasts][Contrasts]]
+ - [[#antonyms][Antonyms]]
 
-* indices vs indexes
+* Contrasts
+** existing, extant
+- https://forum.wordreference.com/threads/extant-vs-existing.2986681/
+- ~existing~ could be relatively new.
+- ~extant~ means something that has existed for a long time, that has not been destroyed. 
+
+** indices, indexes
 - ~indices~: a plural form of a scientific number
 - ~indexes~: a plural form of a database index
 
-* planned_at vs scheduled_at
+** planned_at vs scheduled_at
 - ~planned_at~: for a place
 - ~schduled_at~: for a specific time
-* Staging
-** TODO <2017-06-07 Wed> parse <-> compose
-- https://stackoverflow.com/questions/148857/what-is-the-opposite-of-parse
 
-** TODO <2017-06-07 Wed> naming: extant vs existing
+** version vs revision
+- http://www.product-lifecycle-management.com/plm-revision-version.htm
+- ~version~ is mostly used in software
+- ~revision~ is a noun form of ~revise~, more general
+- In some sense, ~reivision~ stands for a major release, while ~version~ stands for small changes.
+
+* Antonyms
+| A       | B                                 | Note          |
+|---------+-----------------------------------+---------------|
+| ~parse~ | ~compose~, ~serialize~, ~unparse~ | [[https://stackoverflow.com/questions/148857/what-is-the-opposite-of-parse][stackoverflow]] |
