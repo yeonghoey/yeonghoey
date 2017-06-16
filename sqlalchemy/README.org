@@ -226,3 +226,4 @@ http://docs.sqlalchemy.org/en/latest/faq/sqlexpressions.html#faq-sql-expression-
 #+END_EXAMPLE
 ** TODO <2017-06-16 Fri> MySQL Unicode, Charset support
 - http://docs.sqlalchemy.org/en/latest/dialects/mysql.html#unicode
+- PyMySQL uses ~lain1~ by [[https://github.com/PyMySQL/PyMySQL/blob/master/pymysql/connections.py#L105][default]].
