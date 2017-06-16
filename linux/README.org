@@ -43,7 +43,6 @@
    - [[#prompt-a-user-for-yesno][Prompt a user for yes/no]]
    - [[#pseudo-terminals][Pseudo Terminals]]
    - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
-   - [[#set--x-for-a-line][set -x for a line]]
    - [[#swap-spacesfiles][Swap spaces/files]]
    - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
    - [[#use-command-output-as-a-file][Use command output as a file]]
@@ -381,6 +380,18 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 - ~-e~ for errors
 - ~-u~ for preventing unset
 - ~-o pipefail~ for errors within pipes
+
+*** set -x for a line
+- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
+
+#+BEGIN_SRC shell
+  set -x
+  command
+  { set +x; } 2>/dev/null
+
+  # or simply
+  ( set -x; command )
+#+END_SRC
 
 * Commands
 ** apt
@@ -1181,18 +1192,6 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 #+BEGIN_SRC shell
   python -m SimpleHTTPServer 7777
   python3 -m http.server 7777
-#+END_SRC
-
-** set -x for a line
-- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
-
-#+BEGIN_SRC shell
-  set -x
-  command
-  { set +x; } 2>/dev/null
-
-  # or simply
-  ( set -x; command )
 #+END_SRC
 
 ** Swap spaces/files
