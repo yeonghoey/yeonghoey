@@ -1,4 +1,4 @@
-#+TITLE: Unix-like
+#+TITLE: Linux
 
 * Table of Contents                                                :TOC_2_gh:
  - [[#primitives][Primitives]]
