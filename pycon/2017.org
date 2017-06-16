@@ -1,0 +1,11 @@
+#+TITLE: PyCon 2017
+
+* Table of Contents :TOC_2_gh:
+ - [[#2017-06-15-thu-static-types-for-python][<2017-06-15 Thu> Static Types for Python]]
+ - [[#2017-06-15-thu-the-gilectomy-hows-it-going][<2017-06-15 Thu> The Gilectomy How's It Going]]
+
+* TODO <2017-06-15 Thu> Static Types for Python
+- https://www.youtube.com/watch?v=7ZbwZgrXnwY
+
+* TODO <2017-06-15 Thu> The Gilectomy How's It Going
+- https://www.youtube.com/watch?v=pLqv11ScGsQ
