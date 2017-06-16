@@ -123,6 +123,11 @@ So, we can use like this (code from [[http://docs.sqlalchemy.org/en/rel_0_9/orm/
       item2.bar = 'foo'
 #+END_SRC
 
+*** Session.begin()
+- [[https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/session.py#L793][Session.begin]]
+- [[https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/session.py#L556][SessionTransaction.__exit__]]
+- Returns ~SessionTransaction~. It implements ~__exit__~, which calls ~session.commit~ when levaving the block.
+
 *** Session.commit() vs Session.flush()
 - http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit
 - A Session object is basically an ongoing transaction of changes to a database
@@ -224,6 +229,7 @@ http://docs.sqlalchemy.org/en/latest/faq/sqlexpressions.html#faq-sql-expression-
   (Pdb++) str(query.statement.compile(compile_kwargs={"literal_binds": True}))
   "SELECT product_attributes.product_id, product_attributes.kind, product_attributes.value \nFROM product_attributes \nWHERE product_attributes.value = 'stone'"
 #+END_EXAMPLE
+
 ** TODO <2017-06-16 Fri> MySQL Unicode, Charset support
 - http://docs.sqlalchemy.org/en/latest/dialects/mysql.html#unicode
 - PyMySQL uses ~lain1~ by [[https://github.com/PyMySQL/PyMySQL/blob/master/pymysql/connections.py#L105][default]].
