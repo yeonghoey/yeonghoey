@@ -4,6 +4,7 @@
  - [[#primitives][Primitives]]
    - [[#arithmetic-expansion][Arithmetic Expansion]]
    - [[#brace-expansion][Brace Expansion]]
+   - [[#history-expansion][History Expansion]]
    - [[#shell-parameter-expansion][Shell Parameter Expansion]]
    - [[#array][array]]
    - [[#case][case]]
@@ -36,7 +37,6 @@
    - [[#getting-the-source-directory][Getting the source directory]]
    - [[#glob-dotfiles][Glob dotfiles]]
    - [[#here-document][Here document]]
-   - [[#history-expasion][History Expasion]]
    - [[#inode-structure][Inode Structure]]
    - [[#mounting-a-volume][Mounting a Volume]]
    - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
@@ -83,6 +83,63 @@
 
   $ mkdir /usr/local/src/bash/{old,new,dist,bugs}
   $ chown root /usr/{ucb/{ex,edit},lib/{ex?.?*,how_ex}}
+#+END_SRC
+
+** History Expansion
+- http://www.thegeekstuff.com/2011/08/bash-history-expansion
+
+#+BEGIN_SRC shell
+  $ history
+  1 tar cvf etc.tar /etc/
+  2 cp /etc/passwd /backup
+  3 ps -ef | grep http
+  4 service sshd restart
+  5 /usr/local/apache2/bin/apachectl restart
+
+  $ !4  # 4
+  service sshd restart
+
+  $ !-2  # 2 commands back
+  service sshd restart
+
+  $ !!   # last (1 command back)
+  $ !-1
+
+  $ !ps  # command that starts with 'ps'
+  ps -ef | grep http
+
+  $ !?apache  # command that contains 'apache'
+  /usr/local/apache2/bin/apachectl restart
+
+
+  $ ls /etc/cron.daily/logrotate
+
+  $ ^ls^cat^  # replace 'ls' with 'cat'
+  cat /etc/cron.daily/logrotate
+
+  $ cp /etc/passwd /backup
+
+  $ ls -l !cp:^  # first argument
+  ls -l /etc/passwd
+
+  $ cp /etc/passwd /backup
+
+  $ ls -l !cp:$  # last argument
+  ls -l /backup
+
+  $ ls -l !!:$  # last argument of last command
+  $ ls -l !$    # equivalent to above
+
+  $ ls -l !!:2  # second
+  $ ls -l !!:*  # all
+
+  $ !!:s/ls -l/cat/  # substitution
+
+  $ cp /etc/password /backup/password.bak
+  $ !!:gs/password/passwd/  # global substitution
+  cp /etc/passwd /backup/passwd.bak
+
+  $ ls -l !!:$:p  # print without executing it
 #+END_SRC
 
 ** Shell Parameter Expansion
@@ -981,63 +1038,6 @@ There are some workarounds:
   cat >out <<EOF
   test
   EOF
-#+END_SRC
-
-** History Expasion
-- http://www.thegeekstuff.com/2011/08/bash-history-expansion
-
-#+BEGIN_SRC shell
-  $ history
-  1 tar cvf etc.tar /etc/
-  2 cp /etc/passwd /backup
-  3 ps -ef | grep http
-  4 service sshd restart
-  5 /usr/local/apache2/bin/apachectl restart
-
-  $ !4  # 4
-  service sshd restart
-
-  $ !-2  # 2 commands back
-  service sshd restart
-
-  $ !!   # last (1 command back)
-  $ !-1
-
-  $ !ps  # command that starts with 'ps'
-  ps -ef | grep http
-
-  $ !?apache  # command that contains 'apache'
-  /usr/local/apache2/bin/apachectl restart
-
-
-  $ ls /etc/cron.daily/logrotate
-
-  $ ^ls^cat^  # replace 'ls' with 'cat'
-  cat /etc/cron.daily/logrotate
-
-  $ cp /etc/passwd /backup
-
-  $ ls -l !cp:^  # first argument
-  ls -l /etc/passwd
-
-  $ cp /etc/passwd /backup
-
-  $ ls -l !cp:$  # last argument
-  ls -l /backup
-
-  $ ls -l !!:$  # last argument of last command
-  $ ls -l !$    # equivalent to above
-
-  $ ls -l !!:2  # second
-  $ ls -l !!:*  # all
-
-  $ !!:s/ls -l/cat/  # substitution
-
-  $ cp /etc/password /backup/password.bak
-  $ !!:gs/password/passwd/  # global substitution
-  cp /etc/passwd /backup/passwd.bak
-
-  $ ls -l !!:$:p  # print without executing it
 #+END_SRC
 
 ** Inode Structure
