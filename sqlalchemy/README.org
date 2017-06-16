@@ -12,6 +12,7 @@
    - [[#prefixing-all-tables-under-a-declarative_base][Prefixing all tables under a declarative_base]]
  - [[#staging][Staging]]
    - [[#2017-04-11-tue-sqlalchemy-stringify][<2017-04-11 Tue> SQLAlchemy Stringify]]
+   - [[#2017-06-16-fri-mysql-unicode-charset-support][<2017-06-16 Fri> MySQL Unicode, Charset support]]
 
 * Reference
 ** Column
@@ -126,7 +127,7 @@ So, we can use like this (code from [[http://docs.sqlalchemy.org/en/rel_0_9/orm/
 - http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit
 - A Session object is basically an ongoing transaction of changes to a database
 - ~session.commit()~ commits (persists) those changes to the database.
-- ~flush()~ is always called as part of a call to commit()
+- ~flush()~ is always called as part of a call to ~commit()~
 
 #+BEGIN_SRC python
   s = Session()
@@ -158,6 +159,14 @@ So, we can use like this (code from [[http://docs.sqlalchemy.org/en/rel_0_9/orm/
   s2.rollback()
   print s2.query(Foo).all()  # Output: [<Foo('A')>]
 #+END_SRC
+
+*** scoped_session
+- http://docs.sqlalchemy.org/en/latest/orm/contextual.html
+- https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/scoping.py#L30
+- ~scoped_session~ is used for ensuring one ~session~ for a scope
+- ~scoped_session~ uses ~sessionmaker~
+- For ~scopefunc~, ~threading.local()~ is used by default.
+- Can be used like ~Session~, by [[https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/scoping.py#L151][dynamic things]].
 
 ** hybrid_property
 - http://docs.sqlalchemy.org/en/latest/orm/mapped_sql_expr.html
@@ -215,3 +224,5 @@ http://docs.sqlalchemy.org/en/latest/faq/sqlexpressions.html#faq-sql-expression-
   (Pdb++) str(query.statement.compile(compile_kwargs={"literal_binds": True}))
   "SELECT product_attributes.product_id, product_attributes.kind, product_attributes.value \nFROM product_attributes \nWHERE product_attributes.value = 'stone'"
 #+END_EXAMPLE
+** TODO <2017-06-16 Fri> MySQL Unicode, Charset support
+- http://docs.sqlalchemy.org/en/latest/dialects/mysql.html#unicode
