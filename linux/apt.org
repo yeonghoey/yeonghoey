@@ -1,0 +1,47 @@
+#+TITLE: apt-get
+
+* Table of Contents :TOC_2_gh:
+ - [[#subcommands][Subcommands]]
+   - [[#update][update]]
+ - [[#details][Details]]
+   - [[#apt-vs-apt-get][apt vs apt-get]]
+ - [[#use-cases][Use Cases]]
+    - [[#install-java8][Install java8]]
+
+* Subcommands
+** update
+*** When needed
+#+BEGIN_EXAMPLE
+  E: Failed to fetch <uri>  404  Not Found [IP: <ip> 80]
+  E: Failed to fetch <uri>  404  Not Found [IP: <ip> 80]
+#+END_EXAMPLE
+
+*** When fails
+- Check files in:
+  #+BEGIN_EXAMPLE
+    /etc/apt/sources.list
+    /etc/apt/sources.list.d/*.list
+  #+END_EXAMPLE
+
+* Details
+** apt vs apt-get
+- https://askubuntu.com/questions/445384/what-is-the-difference-between-apt-and-apt-get
+
+#+BEGIN_QUOTE
+The ~apt~ command is meant to be pleasant for end users and does not need to be backward compatible like apt-get(8).
+#+END_QUOTE
+
+* Use Cases
+**  Install java8
+- http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/
+
+#+BEGIN_SRC shell
+  sudo add-apt-repository ppa:webupd8team/java
+  sudo apt-get update
+  sudo apt-get install oracle-java8-installer
+
+  java -version
+  sudo apt-get install oracle-java8-set-default
+
+  sudo update-alternatives --config java
+#+END_SRC

@@ -14,7 +14,6 @@
    - [[#redirection][Redirection]]
    - [[#set][set]]
  - [[#commands][Commands]]
-   - [[#apt][apt]]
    - [[#curl][curl]]
    - [[#du][du]]
    - [[#grep][grep]]
@@ -451,29 +450,6 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 #+END_SRC
 
 * Commands
-** apt
-*** When 'apt-get update' fails
-
-- Check files in:
-  #+BEGIN_EXAMPLE
-    /etc/apt/sources.list
-    /etc/apt/sources.list.d/*.list
-  #+END_EXAMPLE
-
-***  Install java8
-- http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/
-
-#+BEGIN_SRC shell
-  sudo add-apt-repository ppa:webupd8team/java
-  sudo apt-get update
-  sudo apt-get install oracle-java8-installer
-
-  java -version
-  sudo apt-get install oracle-java8-set-default
-
-  sudo update-alternatives --config java
-#+END_SRC
-
 ** curl
 - https://ec.haxx.se/usingcurl-returns.html
 
