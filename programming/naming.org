@@ -1,8 +1,17 @@
 #+TITLE: Naming
 
 * Table of Contents :TOC_1_gh:
+ - [[#alternatives][Alternatives]]
  - [[#contrasts][Contrasts]]
  - [[#antonyms][Antonyms]]
+
+* Alternatives
+| General | Specific                                                        |
+|---------+-----------------------------------------------------------------|
+| ~send~  | ~deliver~, ~dispatch~, ~announce~, ~distribute~, ~route~        |
+| ~find~  | ~search~, ~extract~, ~locate~, ~recover~                        |
+| ~start~ | ~launch~, ~create~, ~begin~, ~open~                             |
+| ~make~  | ~create~, ~setup~, ~build~, ~generate~, ~compose~, ~add~, ~new~ |
 
 * Contrasts
 ** existing, extant
