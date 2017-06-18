@@ -23,9 +23,10 @@
 - https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 [[file:img/screenshot_2017-06-18_10-28-42.png]]
 
-- This process is mostly by RSA algorithm
-  - (m^{e})^{d}\equiv m (mod n)
-  - (m^{d})^{e}\equiv m (mod n)
+- This process is by RSA algorithm
+- {\displaystyle (m^{e})^{d}\equiv m{\pmod {n}}}
+- {\displaystyle (m^{d})^{e}\equiv m{\pmod {n}}}
+
 
 ** fingerprint
 - https://superuser.com/questions/421997/what-is-a-ssh-key-fingerprint-and-how-is-it-generated
