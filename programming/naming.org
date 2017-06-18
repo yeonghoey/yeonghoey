@@ -1,39 +1,59 @@
 #+TITLE: Naming
 
 * Table of Contents :TOC_1_gh:
+ - [[#ask-yourself][Ask yourself]]
  - [[#alternatives][Alternatives]]
  - [[#contrasts][Contrasts]]
  - [[#antonyms][Antonyms]]
 
+* Ask yourself
+- Will a newcomer understand the meaning of the name?
+
 * Alternatives
-| General | Specific                                                        |
-|---------+-----------------------------------------------------------------|
-| ~send~  | ~deliver~, ~dispatch~, ~announce~, ~distribute~, ~route~        |
-| ~find~  | ~search~, ~extract~, ~locate~, ~recover~                        |
-| ~start~ | ~launch~, ~create~, ~begin~, ~open~                             |
-| ~make~  | ~create~, ~setup~, ~build~, ~generate~, ~compose~, ~add~, ~new~ |
+| General    | Specific                                                        |
+|------------+-----------------------------------------------------------------|
+| ~send~     | ~deliver~, ~dispatch~, ~announce~, ~distribute~, ~route~        |
+| ~find~     | ~search~, ~extract~, ~locate~, ~recover~                        |
+| ~start~    | ~launch~, ~create~, ~begin~, ~open~                             |
+| ~make~     | ~create~, ~setup~, ~build~, ~generate~, ~compose~, ~add~, ~new~ |
+| ~filter~   | ~select~, ~exclude~                                             |
+| ~delay~    | ~delay_secs~                                                    |
+| ~size~     | ~size_mb~                                                       |
+| ~limit~    | ~max_kbps~                                                      |
+| ~angle~    | ~degrees_cw~                                                    |
+| ~password~ | ~plaintext_password~                                            |
+| ~html~     | ~html_utf8~                                                     |
+| ~data~     | ~data_urlenc~                                                   |
 
 * Contrasts
-** existing, extant
+** existing vs. extant
 - https://forum.wordreference.com/threads/extant-vs-existing.2986681/
 - ~existing~ could be relatively new.
 - ~extant~ means something that has existed for a long time, that has not been destroyed. 
 
-** indices, indexes
+** indices vs. indexes
 - ~indices~: a plural form of a scientific number
 - ~indexes~: a plural form of a database index
 
-** planned_at vs scheduled_at
+** planned_at vs. scheduled_at
 - ~planned_at~: for a place
 - ~schduled_at~: for a specific time
 
-** version vs revision
+** version vs. revision
 - http://www.product-lifecycle-management.com/plm-revision-version.htm
 - ~version~ is mostly used in software
 - ~revision~ is a noun form of ~revise~, more general
 - In some sense, ~reivision~ stands for a major release, while ~version~ stands for small changes.
 
+** min,max vs. first,last vs. begin,end
+- [ ~min~, ~max~ ]: inclusive limits
+- [ ~first~, ~last~ ]: incluslive range
+- [ ~begin~, ~end~): inclusive at first, exclusive at last
+
 * Antonyms
-| A       | B                                 | Note          |
-|---------+-----------------------------------+---------------|
-| ~parse~ | ~compose~, ~serialize~, ~unparse~ | [[https://stackoverflow.com/questions/148857/what-is-the-opposite-of-parse][stackoverflow]] |
+| A       | B                                 | Note                                           |
+|---------+-----------------------------------+------------------------------------------------|
+| ~parse~ | ~compose~, ~serialize~, ~unparse~ | [[https://stackoverflow.com/questions/148857/what-is-the-opposite-of-parse][stackoverflow]]                                  |
+| ~min~   | ~max~                             | ~[min, max]~, inclusive limits                 |
+| ~first~ | ~last~                            | ~[f, l]~, incluslive range                     |
+| ~begin~ | ~end~                             | ~[b, e]~, inclusive at begin, exclusive at end |
