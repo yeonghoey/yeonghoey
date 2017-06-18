@@ -22,8 +22,8 @@
 *** Authenticates the User's Access
 - https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 - This process is mostly by RSA algorithm
-- $(m^{e})^{d}\equiv m (mod n)$
-- $(m^{d})^{e}\equiv m{\pmod {n}}$
+- \( m^{e})^{d}\equiv m (mod n) \)
+- \( m^{d})^{e}\equiv m{\pmod {n}} \)
 [[file:img/screenshot_2017-06-18_10-28-42.png]]
 
 ** fingerprint
