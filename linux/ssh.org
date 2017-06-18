@@ -1,5 +1,5 @@
 #+TITLE: SSH
-#+OPTIONS: tex:t
+#+OPTIONS: tex:verbatim
 
 * Table of Contents :TOC_2_gh:
  - [[#details][Details]]
