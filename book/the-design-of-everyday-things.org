@@ -212,6 +212,20 @@ It seems obvious which one is better.
 I compared them neither for blaming ~urllib2~ nor flattering ~requests~.
 But for how the design concepts make sense to the programming world.
 
+* The Paradox of Automation
+#+BEGIN_QUOTE
+Automation can take over the dull, dreadry tasks, but fail with the complex ones.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+When automation fails, it often does so without warning.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+The person has not been paying much attention to the operation,
+and it takes time for the failure to be noticed and evaluated, and then to decide how to respond.
+#+END_QUOTE
+
 * Summary
 Technology is getting complicated.
 The speed at which technology changes is far faster than the speed of human change.
