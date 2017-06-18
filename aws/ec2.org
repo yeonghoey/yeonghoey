@@ -1,9 +1,17 @@
 #+TITLE: AWS EC2
 
 * Table of Contents :TOC_2_gh:
+ - [[#key-pairs][Key Pairs]]
+   - [[#fingerprint][Fingerprint]]
  - [[#status-checks][Status Checks]]
    - [[#system-status-checks][System Status Checks]]
    - [[#instance-status-checks][Instance Status Checks]]
+
+* Key Pairs 
+** Fingerprint
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
+- Created the key pair using AWS: the fingerprint is calculated using ~SHA-1~
+- Imported a public key: the fingerprint is calculated using ~MD5~
 
 * Status Checks
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html
