@@ -1,0 +1,9 @@
+#+TITLE: grep
+
+* Table of Contents :TOC_2_gh:
+ - [[#links][Links]]
+
+* Links
+- https://www.gnu.org/software/grep/manual/grep.html
+- https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
+- https://www.digitalocean.com/community/tutorials/using-grep-regular-expressions-to-search-for-text-patterns-in-linux

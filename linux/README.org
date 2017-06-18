@@ -23,7 +23,6 @@
    - [[#pgrep][pgrep]]
    - [[#pkill][pkill]]
    - [[#sort][sort]]
-   - [[#ssh][ssh]]
    - [[#su][su]]
    - [[#tar][tar]]
    - [[#tee][tee]]
@@ -49,7 +48,6 @@
    - [[#how-to-pipe-stderr-and-not-stdout][How to pipe stderr, and not stdout?]]
  - [[#links][Links]]
  - [[#staging][Staging]]
-   - [[#2017-02-09-thu-grep][<2017-02-09 Thu> grep]]
    - [[#2017-02-09-thu-how-do-i-copy-multiple-files-by-wildcard][<2017-02-09 Thu> How do I copy multiple files by wildcard?]]
    - [[#2017-02-09-thu-cat-xargs-grep][<2017-02-09 Thu> cat, xargs, grep]]
    - [[#2017-02-09-thu-iostat][<2017-02-09 Thu> iostat]]
@@ -631,9 +629,6 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   192.168.0.5
   192.168.0.25
 #+END_SRC
-
-** ssh
-- ~ssh~ has many related commands, so it has a [[ssh.org][dedicated page]].
 
 ** su
 - http://www.linfo.org/su.html
@@ -1230,9 +1225,6 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 * Links
 - https://github.com/jlevy/the-art-of-command-line
 * Staging
-** TODO <2017-02-09 Thu> grep
-- https://www.digitalocean.com/community/tutorials/using-grep-regular-expressions-to-search-for-text-patterns-in-linux
-
 ** TODO <2017-02-09 Thu> How do I copy multiple files by wildcard?
 http://unix.stackexchange.com/questions/122605/how-do-i-copy-multiple-files-by-wildcard
 
