@@ -1,5 +1,4 @@
 #+TITLE: SSH
-#+OPTIONS: tex:t
 
 * Table of Contents :TOC_2_gh:
  - [[#details][Details]]
