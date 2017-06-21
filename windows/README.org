@@ -6,6 +6,7 @@
  - [[#openvpn-gui][OpenVPN GUI]]
  - [[#vcxsrv][VcXsrv]]
    - [[#options][Options]]
+   - [[#using-on-virtualbox-ubuntu-guest][Using on VirtualBox Ubuntu Guest]]
 
 * Based on Windows 10
 I'm currently using Windows 10.  Most notes are tested against it.
@@ -31,8 +32,6 @@ I had been using ~Xming~, but it hung occasionally.
 I found ~VcXsrv~ which is compiled with VC++ 2012, faster and more reliable.
 
 ** Options
-- To use without errors on VirtualBox Ubuntu Guest, specify ~-nowgl~ when running 
-
 #+BEGIN_EXAMPLE
   "C:\Program Files\VcXsrv\vcxsrv.exe" -help
 #+END_EXAMPLE
@@ -211,4 +210,16 @@ I found ~VcXsrv~ which is compiled with VC++ 2012, faster and more reliable.
 	  Equivalent to XKBVariant in XF86Config files.
 	  For example: -xkbvariant nodeadkeys
   (II) Server terminated successfully (0). Closing log file.
+#+END_EXAMPLE
+
+** Using on VirtualBox Ubuntu Guest
+- To fix ollowing error, specify ~-nowgl~ when running
+#+BEGIN_EXAMPLE
+  libGL error: No matching fbConfigs or visuals found
+  libGL error: failed to load driver: swrast
+#+END_EXAMPLE
+
+For *Target* in shortcut properties window:
+#+BEGIN_EXAMPLE
+  "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -nowgl
 #+END_EXAMPLE
