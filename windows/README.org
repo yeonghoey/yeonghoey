@@ -24,7 +24,6 @@ openvpn-gui.exe --connect "client.ovpn" --config_dir "C:\Users\Foo\Documents\pro
 
 * VcXsrv
 - https://sourceforge.net/projects/vcxsrv/
-- https://gist.github.com/stowler/9921780
 
 Winodws X server for running ~Spacemacs~.
 
