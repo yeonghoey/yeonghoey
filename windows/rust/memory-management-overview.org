@@ -1,0 +1,63 @@
+#+TITLE: An Overview of Memory Management in Rust
+
+* Table of Contents :TOC_2_gh:
+ - [[#intro][Intro]]
+ - [[#examples][Examples]]
+ - [[#summary][Summary]]
+ - [[#link][Link]]
+
+* Intro
+The blog post is an old one. the syntax sugar of ~\~T~ and ~@T~ are deprecated.
+But the point seems still valid. The blog post explains in ~C++~ concepts which I'm familar with.
+
+* Examples
+#+BEGIN_SRC rust
+  fn f() {
+      let x: ~int = ~1024;          // allocate space and initialize an int
+                                    // on the heap
+      println(fmt!("%d", *x));      // print it on the screen
+  } // <-- the memory that x pointed at is automatically freed here
+#+END_SRC
+
+~\~T~ is same as ~unique_ptr<T>~ in ~C++~. In the latest version, this syntax is deprecated.
+Use ~Box<T>~ instead.
+
+#+BEGIN_SRC rust
+  fn foo() {
+      let x: @int = @1024;     // allocate space and initialize an int
+      // on the heap
+      bar(x);                  // pass it to `bar`
+      println(fmt!("%d", *x)); // print it on the screen
+  } // <-- the memory can be freed here
+
+  fn bar(x: @int) {
+      let y: @int = x;         // make a new smart pointer to `x`
+  } // <-- despite `y` going out of scope, the memory is *not* freed here
+#+END_SRC
+
+I couldn't find whether ~@T~ syntax is still valid, but it seems like it corresponds to ~Rc<T>~ in the latest rust.
+
+#+BEGIN_SRC rust
+  fn dogshow() {
+      let dogs: [~Dog * 3] = [
+          ~Dog { name: ~"Spot"   },
+          ~Dog { name: ~"Fido"   },
+          ~Dog { name: ~"Snoopy" },
+      ];
+      let winner: &Dog = dogs[1];  // note use of `&` to form a reference
+      for dogs.each |dog| {
+          println(fmt!("Say hello to %s", dog.name));
+      }
+      println(fmt!("And the winner is: %s!", winner.name));
+  } // <-- all dogs destroyed here
+#+END_SRC
+
+~&T~ syntax is still valid for references.
+
+* Summary
+With this simple blog post, I got concepts of rust memory management.
+The core of this architecture is making ~C++~ memory management techniques run in compile .
+
+* Link
+- http://pcwalton.github.io/blog/2013/03/18/an-overview-of-memory-management-in-rust/
+- https://github.com/rust-lang/rfcs/blob/master/text/0059-remove-tilde.md
