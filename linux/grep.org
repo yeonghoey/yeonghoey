@@ -7,26 +7,26 @@
 * regex
 - https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
 
-| ~.~          |                                                                                                |
-| ~?~          |                                                                                                |
-| ~*~          |                                                                                                |
-| ~+~          |                                                                                                |
-| ~{n}~        |                                                                                                |
-| ~{n,}~       |                                                                                                |
-| ~{,m}~       |                                                                                                |
-| ~{n,m}~      |                                                                                                |
-| ~[:upper:]~  | ~A B C D E F G H I J K L M N O P Q R S T U V W X Y Z~                                          |
-| ~[:lower:]~  | ~a b c d e f g h i j k l m n o p q r s t u v w x y z~                                          |
-| ~[:digit:]~  | ~0 1 2 3 4 5 6 7 8 9~                                                                          |
-| ~[:xdigit:]~ | ~0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f~                                                  |
-| ~[:punct:]~  | ~! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { \vert } ~~ (Punctuation characters) |
-| ~[:blank:]~  | ~space~ and ~tab~                                                                              |
-| ~[:space:]~  | ~tab~, ~newline~, ~vertical tab~, ~form feed~, ~carriage return~, and ~space~                  |
-| ~[:alpha:]~  | ~[:lower:]~ and ~[:upper:]~; same as ~[A-Za-z]~                                                |
-| ~[:alnum:]~  | ~[:alpha:]~ and ~[:digit:]~, same as ~[0-9A-Za-z]~                                             |
-| ~[:graph:]~  | ~[:alnum:]~ and ~[:punct:]~ (Graphical characters)                                             |
+| ~.~          |                                                                                            |
+| ~?~          |                                                                                            |
+| ~*~          |                                                                                            |
+| ~+~          |                                                                                            |
+| ~{n}~        |                                                                                            |
+| ~{n,}~       |                                                                                            |
+| ~{,m}~       |                                                                                            |
+| ~{n,m}~      |                                                                                            |
+| ~[:upper:]~  | ~A B C D E F G H I J K L M N O P Q R S T U V W X Y Z~                                      |
+| ~[:lower:]~  | ~a b c d e f g h i j k l m n o p q r s t u v w x y z~                                      |
+| ~[:digit:]~  | ~0 1 2 3 4 5 6 7 8 9~                                                                      |
+| ~[:xdigit:]~ | ~0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f~                                              |
+| ~[:punct:]~  | ~! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { ¦ } ~~ (Punctuation characters) |
+| ~[:blank:]~  | ~space~ and ~tab~                                                                          |
+| ~[:space:]~  | ~tab~, ~newline~, ~vertical tab~, ~form feed~, ~carriage return~, and ~space~              |
+| ~[:alpha:]~  | ~[:lower:]~ and ~[:upper:]~; same as ~[A-Za-z]~                                            |
+| ~[:alnum:]~  | ~[:alpha:]~ and ~[:digit:]~, same as ~[0-9A-Za-z]~                                         |
+| ~[:graph:]~  | ~[:alnum:]~ and ~[:punct:]~ (Graphical characters)                                         |
 | ~[:print:]~  | ~[:alnum:]~, ~[:punct:]~, and ~space~                                                      |
-| ~[:cntrl:]~  | octal codes ~000~ through ~037~, and ~177~ (DEL)                                               |
+| ~[:cntrl:]~  | octal codes ~000~ through ~037~, and ~177~ (DEL)                                           |
 
 * Links
 - https://www.gnu.org/software/grep/manual/grep.html
