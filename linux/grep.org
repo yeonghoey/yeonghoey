@@ -27,15 +27,16 @@
 | ~[:graph:]~  | ~[:alnum:]~ and ~[:punct:]~ (Graphical characters)                                         |
 | ~[:print:]~  | ~[:alnum:]~, ~[:punct:]~, and ~space~                                                      |
 | ~[:cntrl:]~  | octal codes ~000~ through ~037~, and ~177~ (DEL)                                           |
+| ~\b~         | Match the empty string at the edge of a word                                               |
+| ~\B~         | Match the empty string provided it’s not at the edge of a word.                            |
+| ~\<~         | Match the empty string at the beginning of word.                                           |
+| ~\>~         | Match the empty string at the end of word.                                                 |
+| ~\w~         | a synonym for ~[_[:alnum:]]~                                                               |
+| ~\W~         | a synonym for ~[^_[:alnum:]]~                                                              |
+| ~\s~         | a synonym for ~[[:space:]]~                                                                    |
+| ~\S~         | a synonym for ~[^[:space:]]~                                                               |
 
-| ~\b~ | Match the empty string at the edge of a word                    |
-| ~\B~ | Match the empty string provided it’s not at the edge of a word. |
-| ~\<~ | Match the empty string at the beginning of word.                |
-| ~\>~ | Match the empty string at the end of word.                      |
-| ~\w~ | a synonym for ~[_[:alnum:]]~                                    |
-| ~\W~ | a synonym for ~[^_[:alnum:]]~                                   |
-| ~\s~ | a synonym for ~[[:space:]]~                                         |
-| ~\S~ | a synonym for ~[^[:space:]]~                                    |
+- ~\<~, ~\>~ is specific, while ~\b~ can be placed at both ends
 
 * Links
 - https://www.gnu.org/software/grep/manual/grep.html
