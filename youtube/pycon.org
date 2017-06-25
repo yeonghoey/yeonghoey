@@ -1,17 +1,7 @@
 #+TITLE: PyCon
 
-* Table of Contents :TOC_2_gh:
+* Table of Contents :TOC_1_gh:
  - [[#pycon-2017-modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][PyCon 2017 Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
-   - [[#intro][Intro]]
-   - [[#separate-chaining][Separate Chaining]]
-   - [[#dynamic-resizing][Dynamic Resizing]]
-   - [[#faster-matching][Faster Matching]]
-   - [[#open-addressing][Open Addressing]]
-   - [[#deleted-entries][Deleted Entries]]
-   - [[#multiple-hashing][Multiple Hashing]]
-   - [[#early-out-for-lookups][Early-Out For Lookups]]
-   - [[#compact-dict][Compact Dict]]
-   - [[#key-sharing-dictionary][Key Sharing Dictionary]]
  - [[#pycon-2017-static-types-for-python---jukka-lehtosalo-david-fisher][PyCon 2017 Static Types for Python - Jukka Lehtosalo, David Fisher]]
  - [[#pycon-2017-the-gilectomy-hows-it-going---larry-hastings][PyCon 2017 The Gilectomy How's It Going - Larry Hastings]]
 
