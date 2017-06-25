@@ -1,0 +1,260 @@
+#+TITLE: NDC 2017 - Day 1 (4/25)
+
+* Table of Contents :TOC_2_gh:
+ - [[#day-1][Day 1]]
+   - [[#솔리테어-덱다웃-유니티-모바일-테스트-기법들][<솔리테어: 덱다웃>, 유니티 모바일 테스트 기법들]]
+   - [[#애-셋-키우기보다-쉬운-에셋번들-에셋번들-실용-가이드][애 셋 키우기보다 쉬운 에셋번들: 에셋번들 실용 가이드]]
+   - [[#npc를-무한대로-만들-수-있을까-페리아연대기에서의-npc-자동화-연구-삽질기][NPC를 무한대로 만들 수 있을까? <페리아연대기>에서의 NPC 자동화 연구 삽질기]]
+   - [[#내가-만든-언어로-게임-만들기---도메인-특화-언어-도입-사례-소개][내가 만든 언어로 게임 만들기 - 도메인 특화 언어 도입 사례 소개]]
+   - [[#내가-만든-언어의-개발환경을-visual-studio-code로-빠르고-쉽게-구축하기][내가 만든 언어의 개발환경을 Visual Studio Code로 빠르고 쉽게 구축하기]]
+   - [[#standing-out-in-the-stampede-인디-모바일-게임-로데오-스템피드-포스트모템][Standing out in the Stampede: 인디 모바일 게임 <로데오 스템피드> 포스트모템]]
+   - [[#오버워치-히어로-생성과정-및-테크니컬-아트][<오버워치> 히어로 생성과정 및 테크니컬 아트]]
+   - [[#ndc-replay-제작기][NDC Replay 제작기]]
+ - [[#day-2][Day 2]]
+   - [[#빅데이터-데이터의-대모험-데이터-파이프라인][<빅데이터> 데이터의 대모험 <데이터 파이프라인>]]
+   - [[#게임잼-48시간의-한계돌파---게임-만드는-지금-이-순간을-즐기세요][게임잼: 48시간의 한계돌파! - 게임 만드는 지금 이 순간을 즐기세요]]
+   - [[#소규모-개발자의-일본시장-진출---어비스리움과-빅헌터의-일본-서비스-사례][소규모 개발자의 일본시장 진출 - <어비스리움>과 <빅헌터>의 일본 서비스 사례]]
+   - [[#즉시-바로-살펴보자-on-demand-service를-향한-넥슨의-차별화된-게임서비스-인프라][즉시, 바로, 살펴보자! on-demand service를 향한 넥슨의 차별화된 게임서비스 인프라]]
+   - [[#kubernetes로-개발서버-간단히-찍어내기---개발팀-누구나-필요할-때-서버를-띄울-수-있게][Kubernetes로 개발서버 간단히 찍어내기 - 개발팀 누구나 필요할 때 서버를 띄울 수 있게]]
+   - [[#딥러닝으로-게임-콘텐츠-제작하기---vae를-이용한-콘텐츠-생성-기법-연구-사례][딥러닝으로 게임 콘텐츠 제작하기 - VAE를 이용한 콘텐츠 생성 기법 연구 사례]]
+ - [[#day-3][Day 3]]
+   - [[#devops-devops-개발자-북미에서의-6년][DevOps? DevOps 개발자? 북미에서의 6년]]
+   - [[#더-좋은-코드를-위한-함수형-프로그래밍---모던-c를-중심으로][더 좋은 코드를 위한 함수형 프로그래밍 - 모던 C++를 중심으로]]
+   - [[#유저의-몰입과-재미를-돕는-메카니컬-콘트롤의-이해][유저의 몰입과 재미를 돕는 메카니컬 콘트롤의 이해]]
+   - [[#after-days의-시작과-출시까지---게이머들이-바꾸는-세상][<After Days>의 시작과 출시까지 - 게이머들이 바꾸는 세상]]
+   - [[#글로벌에-통하는-엣지-만들기---북미-인기-top-10-이블팩토리의-개발-전략][글로벌에 통하는 '엣지' 만들기 - 북미 인기 TOP 10 <이블팩토리>의 개발 전략]]
+   - [[#왓-스튜디오-서비스파트---왓-스튜디오의-devops-살펴보기][<왓 스튜디오 서비스파트> - 왓 스튜디오의 DevOps 살펴보기]]
+
+* Day 1
+** <솔리테어: 덱다웃>, 유니티 모바일 테스트 기법들
+- UnitySettings
+  런타임 정보, 로그를 볼 수 있도록. 동그라미 제스쳐로 트리거
+- UnityCLI
+  클라이언트가 서버를 호스팅하고, IP를 통해 컴퓨터에서 접속해서 CLI 동작
+- EditorWindow
+  Unity에서 제공하는 GUI 기능을 잘 활용
+- UnityLuaREPL
+  xLua라는 것을 이용해서 Unity 객체를 조작함
+
+** 애 셋 키우기보다 쉬운 에셋번들: 에셋번들 실용 가이드
+- Resources에 올라간 File은 직렬화되어 메모리에 적재됨.
+  프로덕션 레벨에선 지양
+- AssetBundle을 먼저 로드, 그 안의 Asset을 다시 로드
+- Asset 간의 의존성이 있으니, 이걸 잘 풀어야 함.
+- AssetBundle을 어떻게 묶느냐는 논리적, 종류별, 씬별로 나눌 수 있음
+- UnityWebRequest를 사용하자
+- WebGL은 CachedXMLHttpRequest 사용
+- 다양한 AssetBundle 도구들이 만들어지고 있다.
+
+** NPC를 무한대로 만들 수 있을까? <페리아연대기>에서의 NPC 자동화 연구 삽질기
+- 설정
+  기획의도에 따라 설정을 잘 분류
+- 매력적인 외모
+  캐릭터 파트를 잘게 쪼개
+- 독특한 화법
+  어간, 어미, 활용형을 통해 화법을 만들 수 있다.
+  기본형으로 원문을 만들고, 이걸 다시 변환해서 화법을 생성할 수 있다.
+- 얼개를 정의하고 이를 바탕으로 NPC들이 이야기를 자동생성하는 정도
+
+** 내가 만든 언어로 게임 만들기 - 도메인 특화 언어 도입 사례 소개
+- 게임 캐릭터 도메인
+  1. 행동제어(FSM 언어)
+  2. 수치연산
+
+- GUI 도구에서 흔히 겪는 문제들 때문에
+- Visual Scripting이되, 편집은 텍스트로
+- 화살표 연산자(~->~)를 헤비하게 사용
+- C# 리플렉션을 활용한 인터프리터 기능 사용
+- Stacked FSM
+- 값 변경이 아니라 행위(액션 패턴)을 기술해야함
+- 애니메이션 키 프레임 이벤트로 액션 패턴을 삽입
+
+** 내가 만든 언어의 개발환경을 Visual Studio Code로 빠르고 쉽게 구축하기
+[[file:img/screenshot_2017-04-25_14-49-38.png]]
+
+- 구문 분석
+  - 라인 기반
+  - Recursive Descent Parser
+- 실행
+  - 트리로 구성하고 평가
+  - 실제 언어로 트랜스 컴파일
+- 디버거 확장 개발하기
+- 프로세스가 자신을 디버깅할 수 있는 인터페이스 제공
+
+[[file:img/screenshot_2017-04-25_15-00-45.png]]
+
+- 오류 체크를 위한 언어 서버 구현
+- 정의로 가기
+- 정의로 가기 구현하면 이름 바꾸기는 거의 공짜(정의가 같은지 보자)
+- IDE 지원을 처음부터 고려하라
+- 자동 완성
+  - 현재 커서를 기준으로 앞뒤로 부분 파싱
+  - 파싱을 전부 다 하고 위치 정보를 붙여서 검색
+
+** Standing out in the Stampede: 인디 모바일 게임 <로데오 스템피드> 포스트모템
+- Small team, modest development time
+- Rewarded ADs and IAP
+- Define the primal goal of the game design
+- Be creative with your Metagame(Crossy Road for Rodeo Stempede)
+- Work out what to copy and what not to copy
+- Login Bonus
+- Revie AD shown after seconds death
+- Missions as a soft energy system
+  No hearts; Reduce rewards by no missions on the play
+- Doesn't really feel like flying
+- Find a middle ground
+- Controls have to fit the game
+- Identify the fantasy your game creates
+- Text is Bad! - Environmental storytelling
+- Disguise anything that feels too 'gamey'
+  - Login Bonus -> Opening the Zoo
+  - IAP -> VIP Tour in the Zoo
+
+** <오버워치> 히어로 생성과정 및 테크니컬 아트
+- 모델 (A모델, T모델) -> Rigging(뼈를 심는다) -> 애니메이팅
+- https://vimeo.com/204601876 (이미지 넣기)
+- 캐릭터 세팅(물리 기반 가방, 옷 움직임 등)
+- 히어로 개발: 컨셉아트, 디자인(기획), 스토리
+
+[[file:img/screenshot_2017-04-25_18-11-58.png]]
+
+[[file:img/screenshot_2017-04-25_18-12-16.png]]
+
+** NDC Replay 제작기
+- 만들어 놓고 잊어버릴 수 있는
+- 세션정보(엑셀 파일)을 json으로 변환
+- json을 바탕으로 정적 웹사이트 생성
+- 강연자료 변환 도구
+- 검색엔진을 고려: 세션별로 html파일을 하나씩 생성
+- iSpring: HTML5/SWF Player 변환
+- 컴파일한다는 개념을 매우 어려워 함
+- 역시 편집툴이 있어야겠다
+- 정석 3Tier 어플리케이션, 정석을 이해했다면 깰 수도 있다.
+- 이게 최선인가? 반드시 해야 하는 일인가?
+
+* Day 2
+** <빅데이터> 데이터의 대모험 <데이터 파이프라인>
+- ?
+
+** 게임잼: 48시간의 한계돌파! - 게임 만드는 지금 이 순간을 즐기세요
+- 개발자를 위한 도트강의 들어보고 싶다
+
+** 소규모 개발자의 일본시장 진출 - <어비스리움>과 <빅헌터>의 일본 서비스 사례
+- 소규모 개발자에게 어쩌면 기회의 마켓
+- 일본에 게임 방송도 많고, 앱 소개도 많이 해준다
+- 일본 마케팅은 트위터, not 페이스북
+- 발표자분이 한국, 일본 게임 커뮤니티와 문화에 직접적으로 친숙한 점을 잘 살린 것 같다.
+- 일본에선 트위터 공유 기능 필수
+
+** 즉시, 바로, 살펴보자! on-demand service를 향한 넥슨의 차별화된 게임서비스 인프라
+- 넥슨 Zero
+- 리버스 엔지니어링 자동화
+- 클라이언트에 리버스엔지니어링 코드를 주입, 이를 통해 라이브패치, 모니터링, AB 테스팅 등
+- Quantopian
+
+** Kubernetes로 개발서버 간단히 찍어내기 - 개발팀 누구나 필요할 때 서버를 띄울 수 있게
+- Container Orchestration
+  - Scheduling: 적절한 머신에 원하는 컨테이너 띄워줌
+  - Scaling: 여러 대 띄우기, 죽으면 살리기
+  - Load Balancing: 특정 서비스 요청을 여러 도커 컨테이너로 분산
+- AWS ECS?: 실패 경험이 좀 있었다
+- Docker Swarm: 심플하지만 기능 부족
+- Kubernetes
+  - 내부 서비스 discovery
+  - Namespace
+
+- Pod
+- ReplicaSet
+- Load Balancing
+  - selector로 묶어서 관리
+- Service
+
+[[file:img/screenshot_2017-04-26_14-38-49.png]]
+
+- AWS: kube-aws
+  - CoreOS
+  - Flannel
+
+- 클라이언트의 엔드포인트 만들기
+  - NodePort
+  - Ingress Controller
+
+- Stove
+  - PyKube
+
+- Preset API?
+  - 접속시 사용할 서버 주소
+  - 접속시 사용할 리소스 버전
+** 딥러닝으로 게임 콘텐츠 제작하기 - VAE를 이용한 콘텐츠 생성 기법 연구 사례
+- FaceApp
+- VAE(Variational Auto-Encoder)
+- GAN(Generative Adversarial Networks)
+- PixelRNN
+- Auto Encoder (MSE, Mean Squared Error)
+  - 자기 자신을 재생산
+- x -f-> x
+- Variational Auto Encoder
+- Latent Space Walking, 잠재 변수 공간
+- Kevin frans 코드 참고
+- Recurrent Generation
+- http://greentec.egloos.com/
+- http://greentec.github.io/
+
+[[file:img/screenshot_2017-04-26_16-44-52.png]]
+[[file:img/screenshot_2017-04-26_16-44-24.png]]
+
+[[file:img/screenshot_2017-04-26_16-45-00.png]]
+
+[[file:img/screenshot_2017-04-26_16-43-58.png]]
+* Day 3
+** DevOps? DevOps 개발자? 북미에서의 6년
+- DevOps가 문제를 해결하는 방법: 자동화, 코드화, 간소화
+- Glassdoor, Indeed?
+- 북미에서 DevOps 인기가 좋다더라
+- Rundeck? http://rundeck.org/
+- Heterogeneous: 다양한 기술을 조화롭게 쓸 수 있게 해주는 기능들
+
+** 더 좋은 코드를 위한 함수형 프로그래밍 - 모던 C++를 중심으로
+- Temporal Coupling
+- Identity mutability problem
+- Immutability changes everything - http://queue.acm.org/detail.cfm?id=2884038
+- CppCon accumulate: in YouTube
+- C++20, Ranges
+- null - "The worst mistake of computer science"
+- Algebraic daya types
+- 모나드는 부리또가 아니다
+- 안후보님의 어셈블리코드
+
+** 유저의 몰입과 재미를 돕는 메카니컬 콘트롤의 이해
+- 스타2: 육체 활동을 쉽게 해준 것이 오히려 몰입감을 깬다
+
+[[file:img/screenshot_2017-04-27_17-22-59.png]]
+
+[[file:img/screenshot_2017-04-27_17-22-51.png]]
+
+[[file:img/screenshot_2017-04-27_17-22-43.png]]
+
+[[file:img/screenshot_2017-04-27_17-22-32.png]]
+
+[[file:img/screenshot_2017-04-27_17-22-23.png]]
+
+[[file:img/screenshot_2017-04-27_17-22-13.png]]
+
+** <After Days>의 시작과 출시까지 - 게이머들이 바꾸는 세상
+- 빈곤의 아픔을 강조하기 보단 즐겁게 보여주기
+- 게임에 대한 다른 시각을 보여주었다
+- Games for Change
+
+[[file:img/screenshot_2017-04-27_17-23-16.png]]
+
+** 글로벌에 통하는 '엣지' 만들기 - 북미 인기 TOP 10 <이블팩토리>의 개발 전략
+- 기획1, 도트2, 클라2
+- 엣지 = 차별화 + 간지
+  - 차별화: 조합의 문제, 20%의 독특함
+- EGG Inc.같은 게임 해보자
+- 강남스타일, 베비메탈? 잘할 수 있는 것에 집중
+- 현지의 피드백이 절대적
+- 직접 사운드 컨텍
+- 안 촌스럽게 하기
+
+** <왓 스튜디오 서비스파트> - 왓 스튜디오의 DevOps 살펴보기
