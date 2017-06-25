@@ -52,6 +52,32 @@ He shows many ways to find out hotspots.
 * GOTO 2017 • The Many Meanings of Event-Driven Architecture • Martin Fowler
 - <2017-06-10 Sat>
 - https://www.youtube.com/watch?v=STKCRSUsyP0
+- https://github.com/gregoryyoung
+
+[[file:img/screenshot_2017-06-25_13-29-10.png]]
+
+[[file:img/screenshot_2017-06-25_12-58-16.png]]
+
+[[file:img/screenshot_2017-06-25_12-59-03.png]]
+
+[[file:img/screenshot_2017-06-25_13-06-50.png]]
+
+[[file:img/screenshot_2017-06-25_13-08-52.png]]
+
+[[file:img/screenshot_2017-06-25_13-09-47.png]]
+
+[[file:img/screenshot_2017-06-25_13-10-12.png]]
+
+[[file:img/screenshot_2017-06-25_13-11-20.png]]
+
+(~total~ is wrong...)
+
+- Keep input events for keeping intentions which make undoing available
+- Keep output events for replayability
+
+[[file:img/screenshot_2017-06-25_13-28-30.png]]
+
+[[file:img/screenshot_2017-06-25_13-29-47.png]]
 
 * GOTO 2017 • Patterns of Effective Teams • Dan North
 - <2017-06-10 Sat>
