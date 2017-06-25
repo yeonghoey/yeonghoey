@@ -1,4 +1,4 @@
-#+TITLE: Scala Talks
+#+TITLE: NewCircle Training
 
 * Table of Contents :TOC_2_gh:
  - [[#scala-collections-why-not][Scala Collections: Why Not?]]
