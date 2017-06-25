@@ -2,12 +2,12 @@
 
 * Table of Contents :TOC_2_gh:
  - [[#details][Details]]
-   - [[#common-patterns][Common Patterns]]
+   - [[#common-expressions][Common Expressions]]
    - [[#meta-characters-that-require-escaping-when-using-as-literal-characters][Meta Characters that require escaping when using as literal characters]]
  - [[#links][Links]]
 
 * Details
-** Common Patterns
+** Common Expressions
 - https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
 
 | ~.~          |                                                                                            |
