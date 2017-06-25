@@ -1,18 +1,19 @@
 #+TITLE: GOTO Conferences
 
 * Table of Contents :TOC_2_gh:
- - [[#goto-2016--the-future-of-software-engineering--mary-poppendieck][GOTO 2016 • The Future of Software Engineering • Mary Poppendieck]]
- - [[#goto-2016--the-error-of-our-ways--kevlin-henney][GOTO 2016 • The Error of Our Ways • Kevlin Henney]]
- - [[#goto-2016--seven-secrets-of-maintainable-codebases--adam-tornhill][GOTO 2016 • Seven Secrets of Maintainable Codebases • Adam Tornhill]]
- - [[#goto-2017--the-many-meanings-of-event-driven-architecture--martin-fowler][GOTO 2017 • The Many Meanings of Event-Driven Architecture • Martin Fowler]]
+ - [[#2017-01-22-sun-goto-2016--the-future-of-software-engineering--mary-poppendieck][<2017-01-22 Sun> GOTO 2016 • The Future of Software Engineering • Mary Poppendieck]]
+ - [[#2017-01-02-mon-goto-2016--the-error-of-our-ways--kevlin-henney][<2017-01-02 Mon> GOTO 2016 • The Error of Our Ways • Kevlin Henney]]
+ - [[#2017-01-02-mon-goto-2016--seven-secrets-of-maintainable-codebases--adam-tornhill][<2017-01-02 Mon> GOTO 2016 • Seven Secrets of Maintainable Codebases • Adam Tornhill]]
+ - [[#2017-06-10-sat-goto-2017--the-many-meanings-of-event-driven-architecture--martin-fowler][<2017-06-10 Sat> GOTO 2017 • The Many Meanings of Event-Driven Architecture • Martin Fowler]]
+ - [[#2017-06-10-sat-patterns-of-effective-teams][<2017-06-10 Sat> Patterns of Effective Teams]]
+ - [[#2017-06-10-sat-programming-across-paradigms][<2017-06-10 Sat> Programming Across Paradigms]]
 
-* GOTO 2016 • The Future of Software Engineering • Mary Poppendieck
-- [2017-01-22 Sun]
+* <2017-01-22 Sun> GOTO 2016 • The Future of Software Engineering • Mary Poppendieck
 - https://youtu.be/6K4ljFZWgW8
 
 [[file:img/screenshot_2017-01-22_09-53-26.png]]
-* GOTO 2016 • The Error of Our Ways • Kevlin Henney
-- [2017-01-02 Mon]
+
+* <2017-01-02 Mon> GOTO 2016 • The Error of Our Ways • Kevlin Henney
 - https://youtu.be/IiGXq3yY70o
 
 [[file:img/screenshot_2017-01-02_22-12-15.png]]
@@ -33,8 +34,7 @@ His test code looks great.
 
 Great organization
 
-* GOTO 2016 • Seven Secrets of Maintainable Codebases • Adam Tornhill
-- [2017-01-02 Mon]
+* <2017-01-02 Mon> GOTO 2016 • Seven Secrets of Maintainable Codebases • Adam Tornhill
 - https://youtu.be/0oDporwhToQ
 
 He emphasizes to find out hotspots of the codebase, and concentrate efforts to improve them.
@@ -46,5 +46,11 @@ He shows many ways to find out hotspots.
 
 [[file:img/screenshot_2017-01-02_22-11-52.png]]
 
-* GOTO 2017 • The Many Meanings of Event-Driven Architecture • Martin Fowler
+* <2017-06-10 Sat> GOTO 2017 • The Many Meanings of Event-Driven Architecture • Martin Fowler
 - https://www.youtube.com/watch?v=STKCRSUsyP0
+
+* <2017-06-10 Sat> Patterns of Effective Teams
+- https://www.youtube.com/watch?v=lvs7VEsQzKY
+
+* <2017-06-10 Sat> Programming Across Paradigms
+- https://www.youtube.com/watch?v=Pg3UeB-5FdA
