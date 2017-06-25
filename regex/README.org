@@ -1,0 +1,21 @@
+#+TITLE: Regular Expressions
+
+* Table of Contents :TOC_2_gh:
+ - [[#escaping-required-characters-for-literal-meaning][Escaping required characters for literal meaning]]
+   - [[#pcre-ere-and-other-compatibles][PCRE, ERE, and other compatibles]]
+   - [[#bre-posix-basic-regular-expressions][BRE (POSIX Basic Regular Expressions)]]
+
+* Escaping required characters for literal meaning
+- https://stackoverflow.com/questions/399078/what-special-characters-must-be-escaped-in-regular-expressions
+
+** PCRE, ERE, and other compatibles
+- Tools like ~ag~, ~rg~, ~egrep~, ~grep -E~
+- Just most common symbols: ~.^$*+?()[{\|~
+- Because ~\~ is a literal chracter inside character classes, ~^-]\~ should be escaped by clever placement
+  - ~^~: Except at the start
+  - ~]~: At the start
+  - ~-~: At the start or the end of the character class
+
+** BRE (POSIX Basic Regular Expressions)
+- Tools like ~grep~
+- Only basical anchors and glob symbols: ~.^$*~
