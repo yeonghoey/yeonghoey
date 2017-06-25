@@ -1,8 +1,90 @@
 #+TITLE: PyCon
 
 * Table of Contents :TOC_2_gh:
+ - [[#pycon-2017-modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][PyCon 2017 Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
+   - [[#intro][Intro]]
+   - [[#separate-chaining][Separate Chaining]]
+   - [[#dynamic-resizing][Dynamic Resizing]]
+   - [[#faster-matching][Faster Matching]]
+   - [[#open-addressing][Open Addressing]]
+   - [[#deleted-entries][Deleted Entries]]
+   - [[#multiple-hashing][Multiple Hashing]]
+   - [[#early-out-for-lookups][Early-Out For Lookups]]
+   - [[#compact-dict][Compact Dict]]
+   - [[#key-sharing-dictionary][Key Sharing Dictionary]]
  - [[#pycon-2017-static-types-for-python---jukka-lehtosalo-david-fisher][PyCon 2017 Static Types for Python - Jukka Lehtosalo, David Fisher]]
  - [[#pycon-2017-the-gilectomy-hows-it-going---larry-hastings][PyCon 2017 The Gilectomy How's It Going - Larry Hastings]]
+
+* PyCon 2017 Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger 
+- https://youtu.be/npw4s1QTmPg
+- https://dl.dropboxusercontent.com/u/3967849/sfmu2/_build/html/recipe.html
+
+** Intro
+[[file:img/screenshot_2017-06-25_18-53-21.png]]
+
+[[file:img/screenshot_2017-06-25_18-53-53.png]]
+
+** Separate Chaining
+- Basical concept of hashing
+
+[[file:img/screenshot_2017-06-25_18-54-28.png]]
+
+[[file:img/screenshot_2017-06-25_18-54-37.png]]
+
+[[file:img/screenshot_2017-06-25_18-55-04.png]]
+
+** Dynamic Resizing
+- More entries, more buckets, which incurs resizing
+- When resizing, hash values of all entries requied
+- Make resizing faster by caching the hash value,
+
+[[file:img/screenshot_2017-06-25_18-56-02.png]]
+
+[[file:img/screenshot_2017-06-25_18-56-28.png]]
+
+[[file:img/screenshot_2017-06-25_18-56-43.png]]
+
+** Faster Matching
+- Do cheap equality tests first
+
+[[file:img/screenshot_2017-06-25_18-57-02.png]]
+
+** Open Addressing
+- Flatten entries from the separate chaining
+
+[[file:img/screenshot_2017-06-25_18-57-33.png]]
+
+[[file:img/screenshot_2017-06-25_18-57-56.png]]
+
+** Deleted Entries
+[[file:img/screenshot_2017-06-25_18-58-16.png]]
+
+** Multiple Hashing
+- Linear probing will end up with catastrophic linear pile-up
+- Re-hash to other locations based on the hash value and the number of probes
+
+[[file:img/screenshot_2017-06-25_18-58-54.png]]
+
+[[file:img/screenshot_2017-06-25_18-59-11.png]]
+
+** Early-Out For Lookups
+- versioning for dict
+
+[[file:img/screenshot_2017-06-25_18-59-32.png]]
+
+** Compact Dict
+[[file:img/screenshot_2017-06-25_18-59-55.png]]
+
+[[file:img/screenshot_2017-06-25_19-00-44.png]]
+
+** Key Sharing Dictionary
+- Share hash values and keys
+
+[[file:img/screenshot_2017-06-25_19-01-42.png]]
+
+[[file:img/screenshot_2017-06-25_19-02-11.png]]
+
+[[file:img/screenshot_2017-06-25_19-01-51.png]]
 
 * PyCon 2017 Static Types for Python - Jukka Lehtosalo, David Fisher
 - https://www.youtube.com/watch?v=7ZbwZgrXnwY
