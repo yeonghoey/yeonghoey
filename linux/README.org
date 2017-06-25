@@ -660,6 +660,7 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 | ~-x~      | extract          |
 | ~-t~      | list             |
 | ~-v~      | verbose          |
+| ~-z~      | gzip             |
 | ~-C DIR~  | change directory |
 | ~-f FILE~ | target file      |
 
