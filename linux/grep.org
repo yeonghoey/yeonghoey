@@ -26,17 +26,20 @@
 | ~[:alnum:]~  | ~[:alpha:]~ and ~[:digit:]~, same as ~[0-9A-Za-z]~                                         |
 | ~[:graph:]~  | ~[:alnum:]~ and ~[:punct:]~ (Graphical characters)                                         |
 | ~[:print:]~  | ~[:alnum:]~, ~[:punct:]~, and ~space~                                                      |
-| ~[:cntrl:]~  | octal codes ~000~ through ~037~, and ~177~ (DEL)                                           |
+| ~[:cntrl:]~  | Octal codes ~000~ through ~037~, and ~177~ (DEL)                                           |
 | ~\b~         | Match the empty string at the edge of a word                                               |
 | ~\B~         | Match the empty string provided it’s not at the edge of a word.                            |
 | ~\<~         | Match the empty string at the beginning of word.                                           |
 | ~\>~         | Match the empty string at the end of word.                                                 |
-| ~\w~         | a synonym for ~[_[:alnum:]]~                                                               |
-| ~\W~         | a synonym for ~[^_[:alnum:]]~                                                              |
-| ~\s~         | a synonym for ~[[:space:]]~                                                                    |
-| ~\S~         | a synonym for ~[^[:space:]]~                                                               |
+| ~\w~         | A synonym for ~[_[:alnum:]]~                                                               |
+| ~\W~         | A synonym for ~[^_[:alnum:]]~                                                              |
+| ~\s~         | A synonym for ~[[:space:]]~                                                                    |
+| ~\S~         | A synonym for ~[^[:space:]]~                                                               |
+| ~(a)\1~      | Matches ~aa~ (Back references)                                                             |
+| ~a(.)¦b\1~   | will not match ~ba~ (Only groups participated in the match can be back-referenced)         |
 
 - ~\<~, ~\>~ is specific, while ~\b~ can be placed at both ends
+- Meta-characters like ~?~, ~+~, ~{~, ~|~, ~(~, and ~)~ lose their literal meaning; should be used with backslash for that.
 
 * Links
 - https://www.gnu.org/software/grep/manual/grep.html
