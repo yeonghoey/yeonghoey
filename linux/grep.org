@@ -39,7 +39,7 @@
 | ~a(.)¦b\1~   | will not match ~ba~ (Only groups participated in the match can be back-referenced)         |
 
 - ~\<~, ~\>~ is specific, while ~\b~ can be placed at both ends
-- Meta-characters like ~?~, ~+~, ~{~, ~|~, ~(~, and ~)~ lose their literal meaning; should be used with backslash for that.
+- Meta-characters like ~?~, ~+~, ~{~, ~|~, ~(~, ~)~, ~[~, ~]~ lose their literal meaning; should be used with backslash for that.
 
 * Links
 - https://www.gnu.org/software/grep/manual/grep.html
