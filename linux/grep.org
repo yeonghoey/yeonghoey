@@ -1,10 +1,20 @@
 #+TITLE: grep
 
 * Table of Contents :TOC_2_gh:
- - [[#regex][regex]]
+ - [[#usage][Usage]]
+ - [[#regex][Regex]]
  - [[#links][Links]]
 
-* regex
+* Usage
+- https://www.digitalocean.com/community/tutorials/using-grep-regular-expressions-to-search-for-text-patterns-in-linux
+
+#+BEGIN_SRC shell
+  grep -i "license" GPL-3  # Ignore case
+  grep -v "the" BSD        # Invert match
+  grep -n "the" BSD        # Print line number
+#+END_SRC
+
+* Regex
 - https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
 
 | ~.~          |                                                                                            |
@@ -39,7 +49,8 @@
 | ~a(.)¦b\1~   | will not match ~ba~ (Only groups participated in the match can be back-referenced)         |
 
 - ~\<~, ~\>~ is specific, while ~\b~ can be placed at both ends
-- Meta-characters like ~?~, ~+~, ~{~, ~|~, ~(~, ~)~, ~[~, ~]~ lose their literal meaning; should be used with backslash for that.
+- Meta-characters like ~?~, ~+~, ~{~, ~|~, ~(~, ~)~ should be escaped with backslash
+  - ~egrep~ or ~grep -E~ will make these characters have meta meaning by default.
 
 * Links
 - https://www.gnu.org/software/grep/manual/grep.html
