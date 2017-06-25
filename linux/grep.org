@@ -1,11 +1,11 @@
 #+TITLE: grep
 
 * Table of Contents :TOC_2_gh:
- - [[#usage][Usage]]
+ - [[#use-cases][Use Cases]]
  - [[#regex][Regex]]
  - [[#links][Links]]
 
-* Usage
+* Use Cases
 - https://www.digitalocean.com/community/tutorials/using-grep-regular-expressions-to-search-for-text-patterns-in-linux
 
 #+BEGIN_SRC shell
