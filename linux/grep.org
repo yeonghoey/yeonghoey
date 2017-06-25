@@ -57,7 +57,6 @@
   $ grep -w foo foobar.txt  # -w, --word-regexp
   foo
 
-
   $ grep -C2 bar foobar.txt  # -C[num, --context=num], num=2 by default, See also -A(after), -B(before)
   foo
   bar
