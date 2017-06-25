@@ -7,14 +7,26 @@
 * regex
 - https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
 
-| ~.~    | The period ~.~ matches any single character.                               |
-| ~?~    | The preceding item is optional and will be matched at most once.           |
-| ~*~    | The preceding item will be matched zero or more times.                     |
-| ~+~    | The preceding item will be matched one or more times.                      |
-| ~{n}~  | The preceding item is matched exactly n times.                             |
-| ~{n,}~ | The preceding item is matched n or more times.                             |
-| ~{,m}~ | The preceding item is matched at most m times. This is a GNU extension.    |
-| ~{n,m}~ | The preceding item is matched at least n times, but not more than m times. |
+| ~.~          |                                                                                                |
+| ~?~          |                                                                                                |
+| ~*~          |                                                                                                |
+| ~+~          |                                                                                                |
+| ~{n}~        |                                                                                                |
+| ~{n,}~       |                                                                                                |
+| ~{,m}~       |                                                                                                |
+| ~{n,m}~      |                                                                                                |
+| ~[:upper:]~  | ~A B C D E F G H I J K L M N O P Q R S T U V W X Y Z~                                          |
+| ~[:lower:]~  | ~a b c d e f g h i j k l m n o p q r s t u v w x y z~                                          |
+| ~[:digit:]~  | ~0 1 2 3 4 5 6 7 8 9~                                                                          |
+| ~[:xdigit:]~ | ~0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f~                                                  |
+| ~[:punct:]~  | ~! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { \vert } ~~ (Punctuation characters) |
+| ~[:blank:]~  | ~space~ and ~tab~                                                                              |
+| ~[:space:]~  | ~tab~, ~newline~, ~vertical tab~, ~form feed~, ~carriage return~, and ~space~                  |
+| ~[:alpha:]~  | ~[:lower:]~ and ~[:upper:]~; same as ~[A-Za-z]~                                                |
+| ~[:alnum:]~  | ~[:alpha:]~ and ~[:digit:]~, same as ~[0-9A-Za-z]~                                             |
+| ~[:graph:]~  | ~[:alnum:]~ and ~[:punct:]~ (Graphical characters)                                             |
+| ~[:print:]~  | ~[:alnum:]~, ~[:punct:]~, and ~space~                                                      |
+| ~[:cntrl:]~  | octal codes ~000~ through ~037~, and ~177~ (DEL)                                               |
 
 * Links
 - https://www.gnu.org/software/grep/manual/grep.html
