@@ -25,6 +25,7 @@
    - [[#purge-files-including-their-histories][Purge files including their histories]]
    - [[#resolve-conflicts][Resolve conflicts]]
    - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
+ - [[#links][Links]]
  - [[#staging][Staging]]
    - [[#2017-02-14-tue-git-hooks][<2017-02-14 Tue> git hooks]]
 
@@ -355,6 +356,9 @@ $ git rebase --continue
 #+BEGIN_SRC shell
 git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 #+END_SRC
+
+* Links
+- https://github.com/git-tips/tips
 
 * Staging
 ** TODO <2017-02-14 Tue> git hooks
