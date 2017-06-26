@@ -50,7 +50,7 @@
 
 *** PCRE, ERE, and other compatibles
 - Tools like ~ag~, ~rg~, ~egrep~, ~grep -E~
-- Just most common symbols: ~.^$*+?()[{\|~
+- Common meta characters: ~.^$*+?()[{\|~
 - Because ~\~ is a literal chracter inside character classes, ~^-]\~ should be escaped by clever placement
   - ~^~: Except at the start
   - ~]~: At the start
