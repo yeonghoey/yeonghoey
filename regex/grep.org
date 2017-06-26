@@ -3,7 +3,6 @@
 * Table of Contents :TOC_2_gh:
  - [[#use-cases][Use Cases]]
  - [[#regex][Regex]]
-   - [[#common-expressions][Common Expressions]]
 
 * Use Cases
 - https://www.gnu.org/software/grep/manual/grep.html#Usage
@@ -81,7 +80,6 @@
 #+END_SRC
 
 * Regex
-** Common Expressions
 - https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
 
 | ~.~          |                                                                                            |
