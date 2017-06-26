@@ -1,9 +1,21 @@
-#+TITLE: grep
+#+TITLE: Search Tools
 
 * Table of Contents :TOC_2_gh:
- - [[#regex][Regex]]
+ - [[#details][Details]]
+   - [[#ignore][.ignore]]
+   - [[#expressions][Expressions]]
+   - [[#meta-characters-that-require-escaping-when-using-as-literal-characters][Meta Characters that require escaping when using as literal characters]]
+ - [[#tools][Tools]]
+   - [[#agthe-silver-searcher][ag(The Silver Searcher)]]
+   - [[#rgripgrep][rg(ripgrep)]]
+ - [[#links][Links]]
 
-* Regex
+* Details
+** .ignore
+Most search tools like ~ag~ and ~rg~ comply with ~.ignore~, which is formatted same as ~.gitignore~.
+Tools will ignore targets specified in ~.ignore~
+
+** Expressions
 - https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
 
 | ~.~          |                                                                                            |
@@ -40,3 +52,28 @@
 - ~\<~, ~\>~ is specific, while ~\b~ can be placed at both ends
 - Meta-characters like ~?~, ~+~, ~{~, ~|~, ~(~, ~)~ should be escaped with backslash
   - ~egrep~ or ~grep -E~ will make these characters have meta meaning by default.
+
+** Meta Characters that require escaping when using as literal characters
+- https://stackoverflow.com/questions/399078/what-special-characters-must-be-escaped-in-regular-expressions
+
+*** PCRE, ERE, and other compatibles
+- Tools like ~ag~, ~rg~, ~egrep~, ~grep -E~
+- Common meta characters: ~.^$*+?()[{\|~
+- Because ~\~ is a literal chracter inside character classes, ~^-]\~ should be escaped by clever placement
+  - ~^~: Except at the start
+  - ~]~: At the start
+  - ~-~: At the start or the end of the character class
+
+*** BRE (POSIX Basic Regular Expressions)
+- Tools like ~grep~
+- Only basical anchors and glob symbols: ~.^$*~
+
+* Tools
+** ag(The Silver Searcher)
+- https://github.com/ggreer/the_silver_searcher 
+
+** rg(ripgrep)
+- https://github.com/BurntSushi/ripgrep
+
+* Links
+- https://regex101.com/
