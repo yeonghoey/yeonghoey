@@ -1,10 +1,20 @@
 #+TITLE: Regular Expressions
 
 * Table of Contents :TOC_2_gh:
+ - [[#tools][Tools]]
+   - [[#ag][ag]]
+   - [[#rg][rg]]
  - [[#details][Details]]
    - [[#ignore][.ignore]]
    - [[#meta-characters-that-require-escaping-when-using-as-literal-characters][Meta Characters that require escaping when using as literal characters]]
  - [[#links][Links]]
+
+* Tools
+** ag
+- https://github.com/ggreer/the_silver_searcher 
+
+** rg
+- https://github.com/BurntSushi/ripgrep
 
 * Details
 ** .ignore
