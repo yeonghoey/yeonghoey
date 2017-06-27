@@ -98,8 +98,9 @@
 - https://git-scm.com/docs/git-config/2.13.1
 - About the contents of ~.git/config~
 
-| ~branch.<name>.remote~     | tells which remote to ~git fetch~ from and ~git push~ to |
-| ~branch.<name>.pushRemote~ | overrides ~branch.<name>.remote~ for pushing             |
+| ~branch.<name>.remote~     | Tells which remote to ~git fetch~ from and ~git push~ to                   |
+| ~branch.<name>.pushRemote~ | Overrides ~branch.<name>.remote~ for pushing                               |
+| ~remote.pushDefault~       | Overrides ~branch.<name>.remote~, overridden by ~branch.<name>.pushRemote~ |
 
 ** diff
 #+BEGIN_SRC shell
