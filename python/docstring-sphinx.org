@@ -15,6 +15,17 @@
   Here is a link :func:`time.time`.
 #+END_SRC
 
+- https://pythonhosted.org/an_example_pypi_project/sphinx.html#code
+#+BEGIN_SRC rst
+  Here is something I want to talk about::
+
+      def my_fn(foo, bar=True):
+          """A really useful function.
+
+          Returns None
+          """
+#+END_SRC
+
 #+BEGIN_SRC python
   """
   .. module:: useful_1
