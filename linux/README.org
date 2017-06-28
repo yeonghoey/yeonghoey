@@ -545,9 +545,9 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   ./foobar.txt:foobar
 
   $ grep -rh foo .  # -h, --no-filename
-  ./foo.txt:foo
-  ./foobar.txt:foo
-  ./foobar.txt:foobar
+  foo
+  foo
+  foobar
 
   $ grep -w foo foobar.txt  # -w, --word-regexp
   foo
