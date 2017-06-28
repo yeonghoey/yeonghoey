@@ -1290,6 +1290,10 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 
 * Links
 - https://github.com/jlevy/the-art-of-command-line
+- https://google.github.io/styleguide/shell.xml
+- https://github.com/progrium/bashstyle
+- https://github.com/bahamas10/bash-style-guide
+
 * Staging
 ** TODO <2017-02-09 Thu> How do I copy multiple files by wildcard?
 http://unix.stackexchange.com/questions/122605/how-do-i-copy-multiple-files-by-wildcard
