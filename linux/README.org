@@ -333,7 +333,7 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
   foo
   echo 'hi'
   bar
-  echo 'bye'
+  echo 'bye' # NOT printed
 #+END_SRC
 
 ** if
