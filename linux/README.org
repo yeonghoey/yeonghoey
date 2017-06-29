@@ -48,6 +48,7 @@
    - [[#how-to-pipe-stderr-and-not-stdout][How to pipe stderr, and not stdout?]]
  - [[#links][Links]]
  - [[#staging][Staging]]
+   - [[#2017-06-29-thu-shift][<2017-06-29 Thu> shift]]
    - [[#2017-02-09-thu-how-do-i-copy-multiple-files-by-wildcard][<2017-02-09 Thu> How do I copy multiple files by wildcard?]]
    - [[#2017-02-09-thu-cat-xargs-grep][<2017-02-09 Thu> cat, xargs, grep]]
    - [[#2017-02-09-thu-iostat][<2017-02-09 Thu> iostat]]
@@ -1295,6 +1296,9 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 - https://github.com/bahamas10/bash-style-guide
 
 * Staging
+** TODO <2017-06-29 Thu> shift
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_07.html
+
 ** TODO <2017-02-09 Thu> How do I copy multiple files by wildcard?
 http://unix.stackexchange.com/questions/122605/how-do-i-copy-multiple-files-by-wildcard
 
