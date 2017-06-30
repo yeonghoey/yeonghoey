@@ -720,6 +720,7 @@ objects of the same types that don't support proper comparison are ordered by th
 
 ** Double underscores
 - https://docs.python.org/2/reference/datamodel.html
+- https://docs.python.org/2/library/stdtypes.html#special-attributes
 - Also called ~dunder~, ~special methods~, ~magic methods~
 - [[https://www.python.org/dev/peps/pep-0008/#id36][PEP8]] guides to never use these style names for custom uses.
 
@@ -936,6 +937,7 @@ This issue can be solved with locks or by using the *EAFP* approach.
 - https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/
 - http://eli.thegreenplace.net/2011/08/14/python-metaclasses-by-example
 - https://stackoverflow.com/questions/6966772/using-the-call-method-of-a-metaclass-instead-of-new
+- https://docs.python.org/2/library/functions.html#type
 - Subclasses inherit the metaclass
 
 #+BEGIN_SRC python :results output
