@@ -9,6 +9,7 @@
    - [[#import][import]]
    - [[#itertools][itertools]]
    - [[#list][list]]
+   - [[#logging][logging]]
    - [[#multiprocessing][multiprocessing]]
    - [[#re][re]]
    - [[#set][set]]
@@ -304,6 +305,12 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
   L.sort(cmp=None, key=None, reverse=False)   stable sort *IN PLACE*; cmp(x, y) -> -1, 0, 1
 #+END_EXAMPLE
 
+** logging
+- https://docs.python.org/2/library/logging.html
+- https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
+- https://docs.python.org/2/howto/logging-cookbook.html#logging-cookbook
+
+[[file:img/screenshot_2017-06-30_22-28-31.png]]
 ** multiprocessing
 - https://docs.python.org/2/library/multiprocessing.html
 
