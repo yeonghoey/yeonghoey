@@ -203,7 +203,7 @@ or the empty string when there were no arguments.
 #+END_SRC
 
 ** import
-*** absolute_import vs implicit, explicit relative import
+*** Absolute import vs implicit, explicit relative import
 - https://www.python.org/dev/peps/pep-0328/
 - https://stackoverflow.com/questions/4209641/absolute-vs-explicit-relative-import-of-python-module
 - ~from __future__ import absolute_import~ for ~py2~
@@ -243,7 +243,7 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
   import .bar
 #+END_SRC
 
-*** import in function
+*** Import in function
 - https://stackoverflow.com/questions/128478/should-python-import-statements-always-be-at-the-top-of-a-module
 - https://stackoverflow.com/questions/11990556/python-how-to-make-global-imports-from-a-function
 - ~import~ will cache the module. So ~import in function~ won't cause reload and severe overhead.
@@ -256,6 +256,10 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
       global math
       import math
 #+END_SRC
+
+*** Sorting imports
+- https://pypi.python.org/pypi/isort
+- https://stackoverflow.com/questions/20762662/whats-the-correct-way-to-sort-python-import-x-and-from-x-import-y-statement
 
 ** itertools
 - https://docs.python.org/2/library/itertools.html
