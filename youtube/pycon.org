@@ -109,6 +109,7 @@
   $ mypy util.py view.py
 #+END_SRC
 
+- Even though, there are some cases that need ignore imports
 [[file:img/screenshot_2017-06-30_10-31-42.png]]
 
 ** Keep your code mypy clean
