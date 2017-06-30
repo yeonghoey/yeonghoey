@@ -79,5 +79,49 @@
 * PyCon 2017 Static Types for Python - Jukka Lehtosalo, David Fisher
 - https://www.youtube.com/watch?v=7ZbwZgrXnwY
 
+** Motivation
+[[file:img/screenshot_2017-06-30_10-23-57.png]]
+
+[[file:img/screenshot_2017-06-30_10-24-26.png]]
+
+[[file:img/screenshot_2017-06-30_10-24-41.png]]
+
+[[file:img/screenshot_2017-06-30_10-24-55.png]]
+
+** Demo
+[[file:img/screenshot_2017-06-30_10-25-31.png]]
+
+** How mypy works
+[[file:img/screenshot_2017-06-30_10-27-52.png]]
+
+** Annotating a codebase
+[[file:img/screenshot_2017-06-30_10-29-02.png]]
+
+Use bottom-up approach:
+[[file:img/screenshot_2017-06-30_10-29-33.png]]
+
+[[file:img/screenshot_2017-06-30_10-29-58.png]]
+
+#+BEGIN_SRC shell
+  $ mypy util.py
+  # Make mypy consistent gragually
+  $ mypy util.py view.py
+#+END_SRC
+
+[[file:img/screenshot_2017-06-30_10-31-42.png]]
+
+** Keep your code mypy clean
+[[file:img/screenshot_2017-06-30_10-32-12.png]]
+
+[[file:img/screenshot_2017-06-30_10-32-31.png]]
+
+** mypy at Dropbox
+[[file:img/screenshot_2017-06-30_10-32-54.png]]
+
+[[file:img/screenshot_2017-06-30_10-33-04.png]]
+
+[[file:img/screenshot_2017-06-30_10-33-20.png]]
+
+
 * PyCon 2017 The Gilectomy How's It Going - Larry Hastings
 - https://www.youtube.com/watch?v=pLqv11ScGsQ
