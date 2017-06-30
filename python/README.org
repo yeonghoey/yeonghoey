@@ -26,6 +26,8 @@
    - [[#descriptor][Descriptor]]
    - [[#getattr-setattr-why-need-them][getattr, setattr, Why need them?]]
    - [[#source-code-encodings][Source Code Encodings]]
+ - [[#use-cases][Use Cases]]
+   - [[#read-a-file-except-the-first-line][Read a file except the first line]]
  - [[#staging][Staging]]
    - [[#2017-03-24-fri-python-defining-bound-method][<2017-03-24 Fri> Python, defining bound method]]
    - [[#2017-02-13-mon-isinstance-vs-issubclass][<2017-02-13 Mon> isinstance vs issubclass?]]
@@ -1047,6 +1049,17 @@ This issue can be solved with locks or by using the *EAFP* approach.
 #+BEGIN_SRC python
   #!/usr/bin/python
   # -*- coding: utf-8 -*-
+#+END_SRC
+
+* Use Cases
+** Read a file except the first line
+- https://stackoverflow.com/questions/4796764/read-file-from-line-2-or-skip-header-row
+
+#+BEGIN_SRC python
+  with open(fname) as f:
+      next(f)
+      for line in f:
+          #do something
 #+END_SRC
 
 * Staging
