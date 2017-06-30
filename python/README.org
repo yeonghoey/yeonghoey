@@ -16,6 +16,7 @@
  - [[#details][Details]]
    - [[#absolute-imports][Absolute imports]]
    - [[#comparison][Comparison]]
+   - [[#double-underscores][Double underscores]]
    - [[#eafp-lbyl][EAFP, LBYL]]
    - [[#final-class][Final class]]
    - [[#meta-class][Meta Class]]
@@ -536,6 +537,141 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
 CPython implementation detail: Objects of different types except numbers are ordered by their type names;
 objects of the same types that don't support proper comparison are ordered by their address.
 #+END_QUOTE
+
+** Double underscores
+- https://docs.python.org/2/reference/datamodel.html
+- Also called ~dunder~
+
+#+BEGIN_SRC python
+  # Callables
+  callable.__doc__
+  callable.__name__
+  callable.__module__
+  callable.__defaults__
+  callable.__code__
+  callable.__globals__
+  callable.__dict__
+  callable.__closure__
+
+  # Basic
+  object.__new__(cls[, ...])
+  object.__init__(self[, ...])
+  object.__del__(self)
+  object.__repr__(self)
+  object.__str__(self)
+  object.__lt__(self, other)
+  object.__le__(self, other)
+  object.__eq__(self, other)
+  object.__ne__(self, other)
+  object.__gt__(self, other)
+  object.__ge__(self, other)
+  object.__cmp__(self, other)
+  object.__rcmp__(self, other)
+  object.__hash__(self)
+  object.__nonzero__(self)
+  object.__unicode__(self)
+
+  # Attribute access
+  object.__getattr__(self, name)
+  object.__setattr__(self, name, value)
+  object.__delattr__(self, name)¶
+  object.__getattribute__(self, name)
+
+  # Descriptors
+  object.__get__(self, instance, owner)
+  object.__set__(self, instance, value)
+  object.__delete__(self, instance)
+
+  # Class
+  __slots__
+  __metaclass__
+  class.__instancecheck__(self, instance)
+  class.__subclasscheck__(self, subclass)
+
+  # Callable
+  object.__call__(self[, args...])
+
+  # Container
+  object.__len__(self)
+  object.__getitem__(self, key)
+  object.__missing__(self, key)
+  object.__setitem__(self, key, value)
+  object.__delitem__(self, key)
+  object.__iter__(self)
+  object.__reversed__(self)
+  object.__contains__(self, item)
+
+  # Sequence
+  object.__getslice__(self, i, j)
+  object.__setslice__(self, i, j, sequence)
+  object.__delslice__(self, i, j)
+
+  # Numeric
+  object.__add__(self, other)
+  object.__sub__(self, other)
+  object.__mul__(self, other)
+  object.__floordiv__(self, other)
+  object.__mod__(self, other)
+  object.__divmod__(self, other)
+  object.__pow__(self, other[, modulo])
+  object.__lshift__(self, other)
+  object.__rshift__(self, other)
+  object.__and__(self, other)
+  object.__xor__(self, other)
+  object.__or__(self, other)
+  object.__div__(self, other)
+  object.__truediv__(self, other)
+
+  # Numeric, swapped operands
+  # For instance, to evaluate the expression x - y,
+  # where y is an instance of a class that has an __rsub__() method,
+  # y.__rsub__(x) is called if x.__sub__(y) returns NotImplemented.
+  object.__radd__(self, other)
+  object.__rsub__(self, other)
+  object.__rmul__(self, other)
+  object.__rdiv__(self, other)
+  object.__rtruediv__(self, other)
+  object.__rfloordiv__(self, other)
+  object.__rmod__(self, other)
+  object.__rdivmod__(self, other)
+  object.__rpow__(self, other)
+  object.__rlshift__(self, other)
+  object.__rrshift__(self, other)
+  object.__rand__(self, other)
+  object.__rxor__(self, other)
+  object.__ror__(self, other)
+
+  # Numeric, inplace (like +=)
+  object.__iadd__(self, other)
+  object.__isub__(self, other)
+  object.__imul__(self, other)
+  object.__idiv__(self, other)
+  object.__itruediv__(self, other)
+  object.__ifloordiv__(self, other)
+  object.__imod__(self, other)
+  object.__ipow__(self, other[, modulo])
+  object.__ilshift__(self, other)
+  object.__irshift__(self, other)
+  object.__iand__(self, other)
+  object.__ixor__(self, other)
+  object.__ior__(self, other)
+  object.__neg__(self)
+  object.__pos__(self)
+  object.__abs__(self)
+  object.__invert__(self)
+  object.__complex__(self)
+  object.__int__(self)
+  object.__long__(self)
+  object.__float__(self)
+  object.__oct__(self)
+  object.__hex__(self)
+  object.__index__(self)
+  object.__coerce__(self, other)
+
+  # with statement
+  object.__enter__(self)
+  object.__exit__(self, exc_type, exc_value, traceback)
+#+END_SRC
 
 ** EAFP, LBYL
 - https://docs.python.org/3/glossary.html#term-eafp
