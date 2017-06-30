@@ -540,7 +540,7 @@ objects of the same types that don't support proper comparison are ordered by th
 
 ** Double underscores
 - https://docs.python.org/2/reference/datamodel.html
-- Also called ~dunder~
+- Also called ~dunder~, ~special methods~, ~magic methods~
 
 #+BEGIN_SRC python
   # Callables
@@ -671,6 +671,45 @@ objects of the same types that don't support proper comparison are ordered by th
   # with statement
   object.__enter__(self)
   object.__exit__(self, exc_type, exc_value, traceback)
+#+END_SRC
+
+- Others search within python library directorin
+- ~egrep -oh '__[A-Za-z_][A-Za-z_0-9]*__' *.py | sort | uniq~
+
+#+BEGIN_SRC python
+  __all__
+  __args__
+  __author__
+  __bases__
+  __builtin__
+  __builtins__
+  __cached__
+  __class__
+  __copy__
+  __credits__
+  __date__
+  __decimal_context__
+  __deepcopy__
+  __exception__
+  __file__
+  __flags__
+  __getinitargs__
+  __getstate__
+  __import__
+  __importer__
+  __ispkg__
+  __loader__
+  __main__
+  __mro__
+  __package__
+  __path__
+  __pkgdir__
+  __return__
+  __safe_for_unpickling__
+  __setstate__
+  __temp__
+  __test__
+  __version__
 #+END_SRC
 
 ** EAFP, LBYL
