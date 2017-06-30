@@ -819,11 +819,9 @@ This issue can be solved with locks or by using the *EAFP* approach.
 
       print 'Defining class Foo (1)'
 
-      def __new__(cls, *args, **kwargs):
+      def __new__(cls):
           print 'Foo.__new__'
-          print 1, args
-          print 2, kwargs
-          return super(Foo, cls).__new__(cls, *args, **kwargs)
+          return super(Foo, cls).__new__(cls)
 
       print 'Defining class Foo (2)'
 
@@ -834,6 +832,7 @@ This issue can be solved with locks or by using the *EAFP* approach.
 
   print 'After class Foo'
 
+  print '--------------------------------------------------------------------------------'
 
   print 'Before instance foo'
   foo = Foo()
@@ -841,7 +840,7 @@ This issue can be solved with locks or by using the *EAFP* approach.
 #+END_SRC
 
 #+RESULTS:
-#+BEGIN_EXAMPLE
+#+begin_example
   Before class Foo
   Defining class Foo (1)
   Defining class Foo (2)
@@ -850,17 +849,16 @@ This issue can be solved with locks or by using the *EAFP* approach.
   1 <class '__main__.Meta'>
   2 Foo
   3 (<type 'object'>,)
-  4 {'__module__': '__main__', '__metaclass__': <class '__main__.Meta'>, '__new__': <function __new__ at 0x7f45cb820f50>, '__init__': <function __init__ at 0x7f45cb827050>}
+  4 {'__module__': '__main__', '__metaclass__': <class '__main__.Meta'>, '__new__': <function __new__ at 0x7f697432a050>, '__init__': <function __init__ at 0x7f697432a0c8>}
   Meta.__init__
   After class Foo
+  --------------------------------------------------------------------------------
   Before instance foo
   Meta.__call__
   Foo.__new__
-  1 ()
-  2 {}
   Foo.__init__
   After instance foo
-#+END_EXAMPLE
+#+end_example
 
 #+BEGIN_SRC python
   # 'type' is implemented like following:
