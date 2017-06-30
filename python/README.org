@@ -507,6 +507,208 @@ In contrast, their *operator based counterparts require their arguments to be se
 *** format
 - https://pyformat.info/
 
+#+BEGIN_SRC python
+  >>> '%s %s' % ('one', 'two')
+  >>> '{} {}'.format('one', 'two')
+  one two
+
+
+  >>> '%d %d' % (1, 2)
+  >>> '{} {}'.format(1, 2)
+  1 2
+
+
+  >>> '{1} {0}'.format('one', 'two')
+  two one
+
+
+  class Data(object):
+      def __str__(self):
+          return 'str'
+      def __repr__(self):
+          return 'repr'
+
+  >>> '%s %r' % (Data(), Data())
+  >>> '{0!s} {0!r}'.format(Data())
+  str repr
+
+
+  class Data(object):
+
+      def __repr__(self):
+          return 'räpr'
+  # '%a', '{0!a}' for ascii()
+  >>> '%r %a' % (Data(), Data())
+  >>> '{0!r} {0!a}'.format(Data())
+  räpr r\xe4pr
+
+
+  >>> '%10s' % ('test',)
+  >>> '{:>10}'.format('test')
+        test
+
+
+  >>> '%-10s' % ('test',)
+  >>> '{:10}'.format('test')
+
+  test      $
+
+
+  >>> '{:_<10}'.format('test')
+  test______
+
+
+  >>> '{:^10}'.format('test')
+     test   $
+
+
+  # The extra character will be replaced on the right
+  # for this case, 1 space on the left, 2 spaces on the right
+  >>> '{:^6}'.format('zip')
+   zip  $
+
+
+  >>> '%.5s' % ('xylophone',)
+  >>> '{:.5}'.format('xylophone')
+  xylop
+
+
+  >>> '%-10.5s' % ('xylophone',)
+  >>> '{:10.5}'.format('xylophone')
+  Output
+
+  xylop     $
+
+
+  >>> '%d' % (42,)
+  >>> '{:d}'.format(42)
+  42
+
+
+  >>> '%f' % (3.141592653589793,)
+  >>> '{:f}'.format(3.141592653589793)
+  3.141593
+
+
+  >>> '%4d' % (42,)
+  >>> '{:4d}'.format(42)
+    42
+
+
+  >>> '%06.2f' % (3.141592653589793,)
+  >>> '{:06.2f}'.format(3.141592653589793)
+  003.14
+
+
+  >>> '%04d' % (42,)
+  >>> '{:04d}'.format(42)
+  0042
+
+
+  >>> '%+d' % (42,)
+  >>> '{:+d}'.format(42)
+  +42
+
+
+  >>> '% d' % ((- 23),)
+  >>> '{: d}'.format((- 23))
+  -23
+
+
+  >>> '% d' % (42,)
+  >>> '{: d}'.format(42)
+   42
+
+
+  >>> '{:=5d}'.format((- 23))
+  -  23
+
+
+  >>> '{:=+5d}'.format(23)
+  +  23
+
+
+  data = {'first': 'Hodor', 'last': 'Hodor!'}
+
+  >>> '%(first)s %(last)s' % data
+  >>> '{first} {last}'.format(**data)
+  Hodor Hodor!
+
+
+  >>> '{first} {last}'.format(first='Hodor', last='Hodor!')
+  Hodor Hodor!
+
+
+  person = {'first': 'Jean-Luc', 'last': 'Picard'}
+  >>> '{p[first]} {p[last]}'.format(p=person)
+  Jean-Luc Picard
+
+
+  data = [4, 8, 15, 16, 23, 42]
+  >>> '{d[4]} {d[5]}'.format(d=data)
+  23 42
+
+
+  class Plant(object):
+      type = 'tree'
+  >>> '{p.type}'.format(p=Plant())
+  tree
+
+
+  class Plant(object):
+      type = 'tree'
+      kinds = [{'name': 'oak'}, {'name': 'maple'}]
+  >>> '{p.type}: {p.kinds[0][name]}'.format(p=Plant())
+  tree: oak
+
+
+  from datetime import datetime
+
+  >>> '{:%Y-%m-%d %H:%M}'.format(datetime(2001, 2, 3, 4, 5))
+  2001-02-03 04:05
+
+
+  >>> '{:{align}{width}}'.format('test', align='^', width='10')
+     test   $
+
+
+  >>> '%.*s = %.*f' % (3, 'Gibberish', 3, 2.7182)
+  >>> '{:.{prec}} = {:.{prec}f}'.format('Gibberish', 2.7182, prec=3)
+  Gib = 2.718
+
+
+  >>> '%*.*f' % (5, 2, 2.7182)
+  >>> '{:{width}.{prec}f}'.format(2.7182, width=5, prec=2)
+   2.72
+
+
+  >>> '{:{prec}} = {:{prec}}'.format('Gibberish', 2.7182, prec='.3')
+  Gib = 2.72
+
+
+  from datetime import datetime
+  dt = datetime(2001, 2, 3, 4, 5)
+  >>> '{:{dfmt} {tfmt}}'.format(dt, dfmt='%Y-%m-%d', tfmt='%H:%M')
+  2001-02-03 04:05
+
+
+  >>> '{:{}{}{}.{}}'.format(2.7182818284, '>', '+', 10, 3)
+       +2.72
+
+
+  >>> '{:{}{sign}{}.{}}'.format(2.7182818284, '>', 10, 3, sign='+')
+       +2.72
+
+
+  class HAL9000(object):
+      def __format__(self, format):
+          if (format == 'open-the-pod-bay-doors'):
+              return "I'm afraid I can't do that."
+          return 'HAL 9000'
+  >>> '{:open-the-pod-bay-doors}'.format(HAL9000())
+  I'm afraid I can't do that.
+#+END_SRC
+
 ** subprocesses
 - https://docs.python.org/2/library/subprocess.html
 
