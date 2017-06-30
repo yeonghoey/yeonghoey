@@ -14,9 +14,11 @@
    - [[#string][string]]
    - [[#subprocesses][subprocesses]]
  - [[#details][Details]]
+   - [[#absolute-imports][Absolute imports]]
    - [[#comparison][Comparison]]
    - [[#eafp-lbyl][EAFP, LBYL]]
    - [[#final-class][Final class]]
+   - [[#meta-class][Meta Class]]
    - [[#source-code-encodings][Source Code Encodings]]
  - [[#staging][Staging]]
    - [[#2017-03-24-fri-python-defining-bound-method][<2017-03-24 Fri> Python, defining bound method]]
@@ -479,6 +481,46 @@ to avoid deadlocks due to any of the other OS pipe buffersfilling up and blockin
   - It's very dangerous, not recommended.
 
 * Details
+** Absolute imports
+- https://www.python.org/dev/peps/pep-0328/
+- https://stackoverflow.com/questions/4209641/absolute-vs-explicit-relative-import-of-python-module
+- ~from __future__ import absolute_import~ for ~py2~
+- Default in ~py3~
+
+#+BEGIN_EXAMPLE
+  foo
+    |--__init__.py
+    |--bar.py
+    |--baz.py
+  bar.py
+  baz.py
+#+END_EXAMPLE
+
+- In implicit relative import, which is legacy and not recommended, the semantic of ~import bar~ is different among where it used.
+  - In ~baz.py~ it will imports ~bar.py~,
+  - In ~foo/baz.py~ it will imports ~foo/bar.py~
+
+This would cause subtle bugs. At this point, we need ~absolute_import~
+
+#+BEGIN_SRC python
+  from __future__ import absolute_import
+  import bar
+#+END_SRC
+With this code, ~import bar~ always imports ~bar.py~, not things like ~foo/bar.py~.
+To import ~foo/bar.py~, there are two ways. One is absoulte import and the other is explicit relative import.
+
+#+BEGIN_SRC python
+  from __future__ import absolute_import
+
+  # Absolute import
+  import foo.bar
+
+  # Explicit relative import
+  # This is valid only when this file is in 'foo' package
+  # This way is discouraged; PEP8 prefers absolute imports
+  import .bar
+#+END_SRC
+
 ** Comparison
 - https://docs.python.org/2/library/stdtypes.html#comparisons
 - http://michael-yxf.appspot.com/?p=251002
@@ -534,6 +576,7 @@ This issue can be solved with locks or by using the *EAFP* approach.
       __metaclass__ = Final
 #+END_SRC
 
+** Meta Class
 ** Source Code Encodings
 - [[https://www.python.org/dev/peps/pep-0263/][PEP 263]]
 
@@ -541,6 +584,7 @@ This issue can be solved with locks or by using the *EAFP* approach.
   #!/usr/bin/python
   # -*- coding: utf-8 -*-
 #+END_SRC
+
 * Staging
 ** TODO <2017-03-24 Fri> Python, defining bound method
 ** TODO <2017-02-13 Mon> isinstance vs issubclass?
