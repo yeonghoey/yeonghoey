@@ -124,6 +124,5 @@
 
 [[file:img/screenshot_2017-06-30_10-33-20.png]]
 
-
 * PyCon 2017 The Gilectomy How's It Going - Larry Hastings
 - https://www.youtube.com/watch?v=pLqv11ScGsQ
