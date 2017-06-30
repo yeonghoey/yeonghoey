@@ -788,6 +788,102 @@ This issue can be solved with locks or by using the *EAFP* approach.
 #+END_SRC
 
 ** Meta Class
+- https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/
+- http://eli.thegreenplace.net/2011/08/14/python-metaclasses-by-example
+- https://stackoverflow.com/questions/6966772/using-the-call-method-of-a-metaclass-instead-of-new
+- Subclasses inherit the metaclass
+
+#+BEGIN_SRC python :results output
+  class Meta(type):
+      def __new__(meta, name, bases, class_dict):
+          print 'Meta.__new__'
+          print 1, meta
+          print 2, name
+          print 3, bases
+          print 4, class_dict
+          return type.__new__(meta, name, bases, class_dict)
+
+      def __init__(cls, name, bases, class_dict):
+          print 'Meta.__init__'
+
+      def __call__(cls, *args, **kwargs):
+          print 'Meta.__call__'
+          return type.__call__(cls, *args, **kwargs)
+
+
+  print 'Before class Foo'
+
+
+  class Foo(object):
+      __metaclass__ = Meta
+
+      print 'Defining class Foo (1)'
+
+      def __new__(cls, *args, **kwargs):
+          print 'Foo.__new__'
+          print 1, args
+          print 2, kwargs
+          return super(Foo, cls).__new__(cls, *args, **kwargs)
+
+      print 'Defining class Foo (2)'
+
+      def __init__(self):
+          print 'Foo.__init__'
+
+      print 'Defining class Foo (3)'
+
+  print 'After class Foo'
+
+
+  print 'Before instance foo'
+  foo = Foo()
+  print 'After instance foo'
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_EXAMPLE
+  Before class Foo
+  Defining class Foo (1)
+  Defining class Foo (2)
+  Defining class Foo (3)
+  Meta.__new__
+  1 <class '__main__.Meta'>
+  2 Foo
+  3 (<type 'object'>,)
+  4 {'__module__': '__main__', '__metaclass__': <class '__main__.Meta'>, '__new__': <function __new__ at 0x7f45cb820f50>, '__init__': <function __init__ at 0x7f45cb827050>}
+  Meta.__init__
+  After class Foo
+  Before instance foo
+  Meta.__call__
+  Foo.__new__
+  1 ()
+  2 {}
+  Foo.__init__
+  After instance foo
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  # 'type' is implemented like following:
+  class type:
+      def __call__(cls, *args, **kwarg):
+
+          # A few things could possibly be done to cls here... maybe... or maybe not...
+          # then we call cls.__new__() to get a new object
+          obj = cls.__new__(cls, *args, **kwargs)
+
+          # A few things done to obj here... maybe... or not...
+          # then we call obj.__init__()
+          obj.__init__(*args, **kwargs)
+
+          # maybe a few more things done to obj here
+          # then we return obj
+          return obj
+#+END_SRC
+
+[[file:img/screenshot_2017-06-30_22-02-51.png]]
+
+[[file:img/screenshot_2017-06-30_22-02-40.png]]
+
 ** Source Code Encodings
 - [[https://www.python.org/dev/peps/pep-0263/][PEP 263]]
 
