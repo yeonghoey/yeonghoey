@@ -97,7 +97,8 @@
 ** Annotating a codebase
 [[file:img/screenshot_2017-06-30_10-29-02.png]]
 
-Use bottom-up approach:
+- Instead, use bottom-up approach:
+ 
 [[file:img/screenshot_2017-06-30_10-29-33.png]]
 
 [[file:img/screenshot_2017-06-30_10-29-58.png]]
