@@ -129,12 +129,31 @@ Specific syntax for variable docstring:
 
 ** exceptions
 - https://docs.python.org/2/library/exceptions.html
+- https://docs.python.org/2/faq/design.html#how-fast-are-exceptions
+- ~else:~ must be placed after ~except:~, which block will be executed if no exception raised
+- ~finally:~ will always be executed whether any exception raised or not
 
+*** How fast are exceptions?
+- A ~try~ / ~except~ block is extremely efficient if no exceptions are raised
+- Actually catching an exception is expensive.
+- Following code only makes sense when you expected the ~dict~ to have the ~key~ almost all the time.
+#+BEGIN_SRC python
+  try:
+      value = mydict[key]
+  except KeyError:
+      mydict[key] = getvalue(key)
+      value = mydict[key]
+#+END_SRC
+
+*** Casts to string
 If ~str()~ or ~unicode()~ is called on an instance of this class(~BaseException~),
 *the representation of the argument(s) to the instance are returned*,
 or the empty string when there were no arguments.
 
 ~BaseException.args~: The tuple of arguments given to the exception constructor.
+
+*** Built-in Exceptions
+- https://docs.python.org/2/library/exceptions.html
 
 #+BEGIN_EXAMPLE
   BaseException
@@ -189,13 +208,7 @@ or the empty string when there were no arguments.
        +-- BytesWarning
 #+END_EXAMPLE
 
-*** raise MyException vs raise MyException()
-- http://stackoverflow.com/questions/16706956/is-there-a-difference-between-raise-exception-and-raise-exception-without
-- The short answer is that both ~raise MyException~ and ~raise MyException()~ do the same thing.
-- This first form auto instantiates your exception.
-- So, use ~raise MyException~ when there are no arguments.
-
-*** SystemExit
+**** SystemExit
 - https://docs.python.org/2/library/exceptions.html#exceptions.SystemExit
 
 #+BEGIN_SRC python
@@ -203,6 +216,16 @@ or the empty string when there were no arguments.
   raise SystemExit(99)     # exit status: 99
   raise SystemExit('foo')  # print 'foo', exit status: 1
 #+END_SRC
+
+*** raise MyException vs raise MyException()
+- http://stackoverflow.com/questions/16706956/is-there-a-difference-between-raise-exception-and-raise-exception-without
+- The short answer is that both ~raise MyException~ and ~raise MyException()~ do the same thing.
+- This first form auto instantiates your exception.
+- So, use ~raise MyException~ when there are no arguments.
+
+*** Catching multiple exceptions
+Because ~except TypeError,e~ is equivalent to ~exception TypeError as e~, you must use ~tuple~ to catch multiple exceptions
+like ~except (TypeError, ValueError) as e~
 
 ** import
 *** Absolute import vs implicit, explicit relative import
