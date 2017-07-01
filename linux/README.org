@@ -450,6 +450,7 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 #+END_SRC
 
 ** Escaping quotes
+*** Escaping single quotes within a single quoted string
 - https://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
 
 #+BEGIN_EXAMPLE
@@ -463,6 +464,12 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 3. ' Quoted character.
 4. " End second quotation, using double-quotes.
 5. ' Start third quotation, using single quotes.
+
+Or, use ANSI C string:(~$''~). We can escape a single quote with =\'=.
+But in this way, we loses bash's literal meaning. Other meta character like =\n=, =\t= will also get a special meaning.
+#+BEGIN_SRC shell
+  echo $'Can\'t do that'
+#+END_SRC
 
 * Commands
 ** curl
