@@ -450,6 +450,13 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 #+END_SRC
 
 ** Escaping quotes
+*** Escaping double quotes
+- Just escape it with backslash
+
+#+BEGIN_EXAMPLE
+  "\""
+#+END_EXAMPLE
+
 *** Escaping single quotes within a single quoted string
 - https://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
 
