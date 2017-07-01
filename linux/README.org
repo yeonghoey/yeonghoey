@@ -558,6 +558,8 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   bar
   foobar
 
+  $ grep -F foo.* foobar.txt  # -F, --fixed-strings, literal match
+
   $ grep -q foo foo.txt; echo $?  # -q, --quiet, --silent
   0
   $ grep -q bar foo.txt; echo $?
@@ -983,7 +985,7 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 - http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
 
 #+BEGIN_SRC shell
-  DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd )"
+  DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 #+END_SRC
 
 Repalce ~BASH_SOURCE~ with ~$0~ for zsh, taking account of the [[http://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source][limitation]].
