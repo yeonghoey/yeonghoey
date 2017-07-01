@@ -13,6 +13,7 @@
    - [[#if][if]]
    - [[#redirection][Redirection]]
    - [[#set][set]]
+   - [[#escaping-quotes][Escaping quotes]]
  - [[#commands][Commands]]
    - [[#curl][curl]]
    - [[#du][du]]
@@ -447,6 +448,21 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
   # or simply
   ( set -x; command )
 #+END_SRC
+
+** Escaping quotes
+- https://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
+
+#+BEGIN_EXAMPLE
+   alias rxvt='urxvt -fg '"'"'#111111'"'"' -bg '"'"'#111111'"'"
+   #                     ^^^^^       ^^^^^     ^^^^^       ^^^^
+   #                     12345       12345     12345       1234
+
+#+END_EXAMPLE
+1. ' End first quotation which uses single quotes.
+2. " Start second quotation, using double-quotes.
+3. ' Quoted character.
+4. " End second quotation, using double-quotes.
+5. ' Start third quotation, using single quotes.
 
 * Commands
 ** curl
