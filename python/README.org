@@ -1034,6 +1034,75 @@ This issue can be solved with locks or by using the *EAFP* approach.
 [[file:img/screenshot_2017-06-30_22-02-40.png]]
 
 ** Descriptor
+- https://docs.python.org/2/howto/descriptor.html
+
+#+BEGIN_SRC python
+  descr.__get__(self, obj, type=None) --> value
+  descr.__set__(self, obj, value) --> None
+  descr.__delete__(self, obj) --> None
+#+END_SRC
+
+#+BEGIN_SRC python
+  from weakref import WeakKeyDictionary
+
+  class Grade(object):
+      def __init__(self):
+          self._values = WeakKeyDictionary()
+
+      def __get__(self, instance, instance_type):
+          if instance is None:
+              return self
+          else:
+              return self._values.get(instance, 0)
+
+      def __set__(self, instance, value):
+          # Do something special
+          self._values[instance] = value
+#+END_SRC
+
+#+BEGIN_SRC python
+  class Exam(object):
+      a = Grade()
+      b = Grade()
+#+END_SRC
+
+- Descriptors are invoked by the ~__getattribute__()~ method
+- Overriding ~__getattribute__()~ prevents automatic descriptor calls
+- ~__getattribute__()~ is only available with new style classes and objects
+- ~object.__getattribute__()~ and ~type.__getattribute__()~ make different calls to ~__get__()~.
+- If an object defines both ~__get__()~ and ~__set__()~, it is considered a data descriptor.
+- Descriptors that only define ~__get__()~ are called non-data descriptors
+- Data descriptors always override instance dictionaries.
+- non-data descriptors may be overridden by instance dictionaries.
+
+*** Data descriptors vs. non-data descriptors
+- https://stackoverflow.com/questions/13007179/python-data-and-non-data-descriptors
+- Following example shows that data descriptor(~@property~) takes precedence over non-data descriptor(~Descriptor~)
+
+#+BEGIN_SRC python
+  >>> class Descriptor(object):
+  ...     def __init__(self, name):
+  ...         self.name = name
+  ...     def __get__(self, instance, cls):
+  ...         print 'Getting %s, with instance %r, class %r' % (self.name, instance, cls)
+  ...
+  >>> class Foo(object):
+  ...     _spam = 'eggs'
+  ...     @property
+  ...     def spam(self):
+  ...         return self._spam
+  ...     @spam.setter
+  ...     def spam(self, val):
+  ...         self._spam = val
+  ...
+  >>> Foo().spam
+  'eggs'
+  >>> foo = Foo()
+  >>> foo.__dict__['spam'] = Descriptor('Override')
+  >>> foo.spam
+  'eggs'
+#+END_SRC
+
 ** getattr, setattr, Why need them?
 - https://stackoverflow.com/questions/19123707/why-use-setattr-and-getattr-built-ins
 
