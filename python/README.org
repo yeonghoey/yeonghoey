@@ -24,6 +24,7 @@
    - [[#final-class][Final class]]
    - [[#meta-class][Meta Class]]
    - [[#descriptor][Descriptor]]
+   - [[#__getattr__-vs-__getattribute__][__getattr__ vs. __getattribute__]]
    - [[#getattr-setattr-why-need-them][getattr, setattr, Why need them?]]
    - [[#source-code-encodings][Source Code Encodings]]
  - [[#use-cases][Use Cases]]
@@ -1102,6 +1103,40 @@ This issue can be solved with locks or by using the *EAFP* approach.
   >>> foo.spam
   'eggs'
 #+END_SRC
+
+** __getattr__ vs. __getattribute__
+- https://stackoverflow.com/questions/3278077/difference-between-getattr-vs-getattribute
+
+#+BEGIN_SRC python
+  class Foo(object):
+      def __getattr__(self, name):
+          print '__getattr_: %s' % name
+  foo = Foo()
+  foo.bar
+  foo.bar = 0
+  foo.bar  # __getattr__ won't be invoked, because 'foo.bar' is now existing
+
+  # Output:
+  # __getattr_: bar
+#+END_SRC
+
+#+BEGIN_SRC python
+  class Foo(object):
+      def __getattribute__(self, name):
+          print '__getattribute_: %s' % name
+  foo = Foo()
+  foo.bar
+  foo.bar = 0
+  foo.bar  # __getattribute__ will always be invoked, whether 'foo.bar' is existing or not.
+
+  # Output:
+  # __getattribute_: bar
+  # __getattribute_: bar
+#+END_SRC
+
+- Always ~__getattribute__~ is called first
+- ~Descriptor~ handling is done in the default ~__getattribute__~ implementation
+- ~__getattr__~ is good for fallback implementation for missing attributes.
 
 ** getattr, setattr, Why need them?
 - https://stackoverflow.com/questions/19123707/why-use-setattr-and-getattr-built-ins
