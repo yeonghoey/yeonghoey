@@ -1,0 +1,8 @@
+#+TITLE: Python Fire
+
+* Table of Contents :TOC_2_gh:
+ - [[#links][Links]]
+
+* Links
+- https://github.com/google/python-fire
+- https://github.com/google/python-fire/blob/master/doc/guide.md
