@@ -1,0 +1,72 @@
+#+TITLE: pyenv
+
+* Table of Contents :TOC_2_gh:
+ - [[#commands][Commands]]
+   - [[#local][local]]
+   - [[#global][global]]
+   - [[#shell][shell]]
+   - [[#install][install]]
+   - [[#version][version]]
+
+* Commands
+- https://github.com/pyenv/pyenv/blob/master/COMMANDS.md
+
+- pyenv commands
+- pyenv local
+- pyenv global
+- pyenv shell
+- pyenv install
+- pyenv uninstall
+- pyenv rehash
+- pyenv version
+- pyenv versions
+- pyenv which
+- pyenv whence
+
+** local
+- Written in ~$PWD/.python-version~
+- Overrides the global version
+- Overridden by ~PYENV_VERSION~ or ~pyenv shell~ command
+
+#+BEGIN_EXAMPLE
+  $ pyenv local 2.7.6
+  $ pyenv local --unset
+  $ pyenv local 2.7.6 3.3.3
+#+END_EXAMPLE
+
+** global
+- Written in ~$HOME/.pyenv/version~
+- Overridden by others
+
+#+BEGIN_EXAMPLE
+  $ pyenv global 2.7.6
+#+END_EXAMPLE
+
+** shell
+- Specify a version just for the current shell
+
+#+BEGIN_EXAMPLE
+  $ pyenv shell pypy-2.2.1
+  $ pyenv shell --unset
+#+END_EXAMPLE
+
+** install
+#+BEGIN_EXAMPLE
+  $ pyenv install 2.7.6
+  $ pyenv install 2.6.8
+  $ pyenv install --list
+#+END_EXAMPLE
+
+** version
+#+BEGIN_EXAMPLE
+  $ pyenv version
+  2.7.6 (set by /home/yyuu/.pyenv/version)
+
+  $ pyenv versions
+    2.5.6
+    2.6.8
+  * 2.7.6 (set by /home/yyuu/.pyenv/version)
+    3.3.3
+    jython-2.5.3
+    pypy-2.2.1
+#+END_EXAMPLE
