@@ -1326,6 +1326,7 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 - https://google.github.io/styleguide/shell.xml
 - https://github.com/progrium/bashstyle
 - https://github.com/bahamas10/bash-style-guide
+- https://github.com/alebcay/awesome-shell
 
 * Staging
 ** TODO <2017-06-29 Thu> shift
