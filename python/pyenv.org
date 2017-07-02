@@ -7,6 +7,7 @@
    - [[#shell][shell]]
    - [[#install][install]]
    - [[#version][version]]
+   - [[#virtualenv][virtualenv]]
 
 * Commands
 - https://github.com/pyenv/pyenv/blob/master/COMMANDS.md
@@ -69,4 +70,27 @@
     3.3.3
     jython-2.5.3
     pypy-2.2.1
+#+END_EXAMPLE
+
+** virtualenv
+- https://github.com/pyenv/pyenv-virtualenv#usage
+- If eval ~"$(pyenv virtualenv-init -)"~ is configured in the shell, ~pyenv-virtualenv~ will automatically activate/deactivate virtualenvs
+  based on ~.python-version~ file.
+
+#+BEGIN_EXAMPLE
+  $ pyenv virtualenv 2.7.10 my-virtual-env-2.7.10
+  $ pyenv version
+  3.4.3 (set by /home/yyuu/.pyenv/version)
+  $ pyenv virtualenv venv34
+  $ pyenv virtualenvs
+    miniconda3-3.9.1 (created from /home/yyuu/.pyenv/versions/miniconda3-3.9.1)
+    miniconda3-3.9.1/envs/myenv (created from /home/yyuu/.pyenv/versions/miniconda3-3.9.1)
+    2.7.10/envs/my-virtual-env-2.7.10 (created from /home/yyuu/.pyenv/versions/2.7.10)
+    3.4.3/envs/venv34 (created from /home/yyuu/.pyenv/versions/3.4.3)
+    my-virtual-env-2.7.10 (created from /home/yyuu/.pyenv/versions/2.7.10)
+  ,* venv34 (created from /home/yyuu/.pyenv/versions/3.4.3)
+
+  $ pyenv activate <name>
+  $ pyenv deactivate
+  $ pyenv uninstall my-virtual-env
 #+END_EXAMPLE
