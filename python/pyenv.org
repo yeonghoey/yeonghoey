@@ -7,22 +7,12 @@
    - [[#shell][shell]]
    - [[#install][install]]
    - [[#version][version]]
+   - [[#which][which]]
+   - [[#whence][whence]]
    - [[#virtualenv][virtualenv]]
 
 * Commands
 - https://github.com/pyenv/pyenv/blob/master/COMMANDS.md
-
-- pyenv commands
-- pyenv local
-- pyenv global
-- pyenv shell
-- pyenv install
-- pyenv uninstall
-- pyenv rehash
-- pyenv version
-- pyenv versions
-- pyenv which
-- pyenv whence
 
 ** local
 - Written in ~$PWD/.python-version~
@@ -66,10 +56,26 @@
   $ pyenv versions
     2.5.6
     2.6.8
-  * 2.7.6 (set by /home/yyuu/.pyenv/version)
+  ,* 2.7.6 (set by /home/yyuu/.pyenv/version)
     3.3.3
     jython-2.5.3
     pypy-2.2.1
+#+END_EXAMPLE
+
+** which
+- Displays the full path to the executable
+#+BEGIN_EXAMPLE
+  $ pyenv which python3.3
+  /home/yyuu/.pyenv/versions/3.3.3/bin/python3.3
+#+END_EXAMPLE
+
+** whence
+- Lists all Python versions with the given command installed
+#+BEGIN_EXAMPLE
+  $ pyenv whence 2to3
+  2.6.8
+  2.7.6
+  3.3.3
 #+END_EXAMPLE
 
 ** virtualenv
@@ -78,7 +84,9 @@
   based on ~.python-version~ file.
 
 #+BEGIN_EXAMPLE
-  $ pyenv virtualenv 2.7.10 my-virtual-env-2.7.10
+  $ pyenv virtualenv 2.7.10 my-virtual-env-2.7.10  # specify a version for venv
+  $ pyenv my-virtual-env # based on current pyenv version
+
   $ pyenv version
   3.4.3 (set by /home/yyuu/.pyenv/version)
   $ pyenv virtualenv venv34
@@ -92,5 +100,6 @@
 
   $ pyenv activate <name>
   $ pyenv deactivate
+
   $ pyenv uninstall my-virtual-env
 #+END_EXAMPLE
