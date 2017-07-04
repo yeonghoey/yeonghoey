@@ -1,10 +1,19 @@
 #+TITLE: PyCon
 
 * Table of Contents :TOC_1_gh:
+ - [[#pycon-2017-how-documentation-works-and-how-to-make-it-work-for-your-project---daniele-procida][PyCon 2017 How documentation works, and how to make it work for your project - Daniele Procida]]
  - [[#pycon-2017-awesome-command-line-tools---amjith-ramanujam][Pycon 2017 Awesome Command Line Tools - Amjith Ramanujam]]
  - [[#pycon-2017-modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][PyCon 2017 Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
  - [[#pycon-2017-static-types-for-python---jukka-lehtosalo-david-fisher][PyCon 2017 Static Types for Python - Jukka Lehtosalo, David Fisher]]
  - [[#pycon-2017-the-gilectomy-hows-it-going---larry-hastings][PyCon 2017 The Gilectomy How's It Going - Larry Hastings]]
+
+* PyCon 2017 How documentation works, and how to make it work for your project - Daniele Procida
+- https://youtu.be/azf6yzuJt54
+- https://www.divio.com/en/blog/documentation/
+
+[[file:img/screenshot_2017-07-04_12-59-41.png]]
+
+[[file:img/screenshot_2017-07-04_12-59-58.png]]
 
 * Pycon 2017 Awesome Command Line Tools - Amjith Ramanujam
 - https://youtu.be/hJhZhLg3obk
