@@ -1,21 +1,55 @@
 #+TITLE: PyCon
 
 * Table of Contents :TOC_1_gh:
- - [[#how-documentation-works-and-how-to-make-it-work-for-your-project---daniele-procida][How documentation works, and how to make it work for your project - Daniele Procida]]
+ - [[#5-ways-to-deploy-your-python-web-app-in-2017---andrew-t-baker][5 ways to deploy your Python web app in 2017 - Andrew T Baker]]
  - [[#awesome-command-line-tools---amjith-ramanujam][Awesome Command Line Tools - Amjith Ramanujam]]
+ - [[#cython-as-a-game-changer-for-efficiency---alex-orlov][Cython as a Game Changer for Efficiency - Alex Orlov]]
+ - [[#how-documentation-works-and-how-to-make-it-work-for-your-project---daniele-procida][How documentation works, and how to make it work for your project - Daniele Procida]]
  - [[#modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
  - [[#static-types-for-python---jukka-lehtosalo-david-fisher][Static Types for Python - Jukka Lehtosalo, David Fisher]]
- - [[#cython-as-a-game-changer-for-efficiency---alex-orlov][Cython as a Game Changer for Efficiency - Alex Orlov]]
- - [[#5-ways-to-deploy-your-python-web-app-in-2017---andrew-t-baker][5 ways to deploy your Python web app in 2017 - Andrew T Baker]]
  - [[#the-gilectomy-hows-it-going---larry-hastings][The Gilectomy How's It Going - Larry Hastings]]
 
-* How documentation works, and how to make it work for your project - Daniele Procida
-- https://youtu.be/azf6yzuJt54
-- https://www.divio.com/en/blog/documentation/
+* 5 ways to deploy your Python web app in 2017 - Andrew T Baker
+** ngrok
+- https://ngrok.com/
 
-[[file:img/screenshot_2017-07-04_12-59-41.png]]
+[[file:img/screenshot_2017-07-06_07-59-54.png]]
 
-[[file:img/screenshot_2017-07-04_12-59-58.png]]
+[[file:img/screenshot_2017-07-06_08-00-17.png]]
+
+[[file:img/screenshot_2017-07-06_08-00-46.png]]
+
+** Heroku
+- https://www.heroku.com/
+
+[[file:img/screenshot_2017-07-06_08-01-22.png]]
+
+[[file:img/screenshot_2017-07-06_08-01-50.png]]
+
+[[file:img/screenshot_2017-07-06_08-02-05.png]]
+
+[[file:img/screenshot_2017-07-06_08-02-35.png]]
+
+** Serverless(Zappa)
+- https://github.com/Miserlou/Zappa
+
+[[file:img/screenshot_2017-07-06_08-03-11.png]]
+
+[[file:img/screenshot_2017-07-06_08-03-31.png]]
+
+** Virtual Machines
+- https://cloud.google.com/compute/
+
+[[file:img/screenshot_2017-07-06_08-04-00.png]]
+
+[[file:img/screenshot_2017-07-06_08-04-31.png]]
+
+** Docker
+- https://www.docker.com/
+
+[[file:img/screenshot_2017-07-06_08-05-20.png]]
+
+[[file:img/screenshot_2017-07-06_08-05-54.png]]
 
 * Awesome Command Line Tools - Amjith Ramanujam
 - https://youtu.be/hJhZhLg3obk
@@ -34,6 +68,35 @@
 [[file:img/screenshot_2017-07-03_12-55-06.png]]
 
 [[file:img/screenshot_2017-07-03_12-56-17.png]]
+
+* Cython as a Game Changer for Efficiency - Alex Orlov
+- https://youtu.be/_1MSX7V28Po
+
+- For performance problem:
+
+[[file:img/screenshot_2017-07-06_07-51-02.png]]
+
+[[file:img/screenshot_2017-07-06_07-52-44.png]]
+
+- *Cython* is a superset of the Python programming language, designed to give C-like performance with code which is mostly written in Python.
+
+[[file:img/screenshot_2017-07-06_07-53-07.png]]
+
+[[file:img/screenshot_2017-07-06_07-53-51.png]]
+
+[[file:img/screenshot_2017-07-06_07-54-39.png]]
+
+[[file:img/screenshot_2017-07-06_07-54-55.png]]
+
+[[file:img/screenshot_2017-07-06_07-55-45.png]]
+
+* How documentation works, and how to make it work for your project - Daniele Procida
+- https://youtu.be/azf6yzuJt54
+- https://www.divio.com/en/blog/documentation/
+
+[[file:img/screenshot_2017-07-04_12-59-41.png]]
+
+[[file:img/screenshot_2017-07-04_12-59-58.png]]
 
 * Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger
 - https://youtu.be/npw4s1QTmPg
@@ -153,69 +216,6 @@
 [[file:img/screenshot_2017-06-30_10-33-04.png]]
 
 [[file:img/screenshot_2017-06-30_10-33-20.png]]
-
-* Cython as a Game Changer for Efficiency - Alex Orlov
-- https://youtu.be/_1MSX7V28Po
-- For performance problem:
-[[file:img/screenshot_2017-07-06_07-51-02.png]]
-
-[[file:img/screenshot_2017-07-06_07-52-44.png]]
-
-- *Cython* is a superset of the Python programming language, designed to give C-like performance with code which is mostly written in Python.
-
-[[file:img/screenshot_2017-07-06_07-53-07.png]]
-
-[[file:img/screenshot_2017-07-06_07-53-51.png]]
-
-[[file:img/screenshot_2017-07-06_07-54-39.png]]
-
-[[file:img/screenshot_2017-07-06_07-54-55.png]]
-
-[[file:img/screenshot_2017-07-06_07-55-45.png]]
-
-* 5 ways to deploy your Python web app in 2017 - Andrew T Baker
-** ngrok
-- https://ngrok.com/
-
-
-[[file:img/screenshot_2017-07-06_07-59-54.png]]
-
-[[file:img/screenshot_2017-07-06_08-00-17.png]]
-
-[[file:img/screenshot_2017-07-06_08-00-46.png]]
-
-** Heroku
-- https://www.heroku.com/
-
-[[file:img/screenshot_2017-07-06_08-01-22.png]]
-
-[[file:img/screenshot_2017-07-06_08-01-50.png]]
-
-
-[[file:img/screenshot_2017-07-06_08-02-05.png]]
-
-[[file:img/screenshot_2017-07-06_08-02-35.png]]
-
-** Serverless(Zappa)
-- https://github.com/Miserlou/Zappa
-
-[[file:img/screenshot_2017-07-06_08-03-11.png]]
-
-[[file:img/screenshot_2017-07-06_08-03-31.png]]
-
-** Virtual Machines
-- https://cloud.google.com/compute/
-
-[[file:img/screenshot_2017-07-06_08-04-00.png]]
-
-[[file:img/screenshot_2017-07-06_08-04-31.png]]
-
-** Docker
-- https://www.docker.com/
-
-[[file:img/screenshot_2017-07-06_08-05-20.png]]-
-
-[[file:img/screenshot_2017-07-06_08-05-54.png]]
 
 * The Gilectomy How's It Going - Larry Hastings
 - https://www.youtube.com/watch?v=pLqv11ScGsQ
