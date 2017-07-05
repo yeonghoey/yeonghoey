@@ -5,6 +5,7 @@
  - [[#pycon-2017-awesome-command-line-tools---amjith-ramanujam][Pycon 2017 Awesome Command Line Tools - Amjith Ramanujam]]
  - [[#pycon-2017-modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][PyCon 2017 Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
  - [[#pycon-2017-static-types-for-python---jukka-lehtosalo-david-fisher][PyCon 2017 Static Types for Python - Jukka Lehtosalo, David Fisher]]
+ - [[#pycon-2017-cython-as-a-game-changer-for-efficiency---alex-orlov][PyCon 2017 Cython as a Game Changer for Efficiency - Alex Orlov]]
  - [[#pycon-2017-the-gilectomy-hows-it-going---larry-hastings][PyCon 2017 The Gilectomy How's It Going - Larry Hastings]]
 
 * PyCon 2017 How documentation works, and how to make it work for your project - Daniele Procida
@@ -151,6 +152,25 @@
 [[file:img/screenshot_2017-06-30_10-33-04.png]]
 
 [[file:img/screenshot_2017-06-30_10-33-20.png]]
+
+* PyCon 2017 Cython as a Game Changer for Efficiency - Alex Orlov
+- https://youtu.be/_1MSX7V28Po
+- For performance problem:
+[[file:img/screenshot_2017-07-06_07-51-02.png]]
+
+[[file:img/screenshot_2017-07-06_07-52-44.png]]
+
+- *Cython* is a superset of the Python programming language, designed to give C-like performance with code which is mostly written in Python.
+
+[[file:img/screenshot_2017-07-06_07-53-07.png]]
+
+[[file:img/screenshot_2017-07-06_07-53-51.png]]
+
+[[file:img/screenshot_2017-07-06_07-54-39.png]]
+
+[[file:img/screenshot_2017-07-06_07-54-55.png]]
+
+[[file:img/screenshot_2017-07-06_07-55-45.png]]
 
 * PyCon 2017 The Gilectomy How's It Going - Larry Hastings
 - https://www.youtube.com/watch?v=pLqv11ScGsQ
