@@ -1,14 +1,15 @@
 #+TITLE: PyCon
 
 * Table of Contents :TOC_1_gh:
- - [[#pycon-2017-how-documentation-works-and-how-to-make-it-work-for-your-project---daniele-procida][PyCon 2017 How documentation works, and how to make it work for your project - Daniele Procida]]
- - [[#pycon-2017-awesome-command-line-tools---amjith-ramanujam][Pycon 2017 Awesome Command Line Tools - Amjith Ramanujam]]
- - [[#pycon-2017-modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][PyCon 2017 Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
- - [[#pycon-2017-static-types-for-python---jukka-lehtosalo-david-fisher][PyCon 2017 Static Types for Python - Jukka Lehtosalo, David Fisher]]
- - [[#pycon-2017-cython-as-a-game-changer-for-efficiency---alex-orlov][PyCon 2017 Cython as a Game Changer for Efficiency - Alex Orlov]]
- - [[#pycon-2017-the-gilectomy-hows-it-going---larry-hastings][PyCon 2017 The Gilectomy How's It Going - Larry Hastings]]
+ - [[#how-documentation-works-and-how-to-make-it-work-for-your-project---daniele-procida][How documentation works, and how to make it work for your project - Daniele Procida]]
+ - [[#awesome-command-line-tools---amjith-ramanujam][Awesome Command Line Tools - Amjith Ramanujam]]
+ - [[#modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
+ - [[#static-types-for-python---jukka-lehtosalo-david-fisher][Static Types for Python - Jukka Lehtosalo, David Fisher]]
+ - [[#cython-as-a-game-changer-for-efficiency---alex-orlov][Cython as a Game Changer for Efficiency - Alex Orlov]]
+ - [[#5-ways-to-deploy-your-python-web-app-in-2017---andrew-t-baker][5 ways to deploy your Python web app in 2017 - Andrew T Baker]]
+ - [[#the-gilectomy-hows-it-going---larry-hastings][The Gilectomy How's It Going - Larry Hastings]]
 
-* PyCon 2017 How documentation works, and how to make it work for your project - Daniele Procida
+* How documentation works, and how to make it work for your project - Daniele Procida
 - https://youtu.be/azf6yzuJt54
 - https://www.divio.com/en/blog/documentation/
 
@@ -16,7 +17,7 @@
 
 [[file:img/screenshot_2017-07-04_12-59-58.png]]
 
-* Pycon 2017 Awesome Command Line Tools - Amjith Ramanujam
+* Awesome Command Line Tools - Amjith Ramanujam
 - https://youtu.be/hJhZhLg3obk
 - http://bpython-interpreter.org/
 - http://click.pocoo.org/5/
@@ -34,7 +35,7 @@
 
 [[file:img/screenshot_2017-07-03_12-56-17.png]]
 
-* PyCon 2017 Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger 
+* Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger
 - https://youtu.be/npw4s1QTmPg
 - https://dl.dropboxusercontent.com/u/3967849/sfmu2/_build/html/recipe.html
 
@@ -105,7 +106,7 @@
 
 [[file:img/screenshot_2017-06-25_19-01-51.png]]
 
-* PyCon 2017 Static Types for Python - Jukka Lehtosalo, David Fisher
+* Static Types for Python - Jukka Lehtosalo, David Fisher
 - https://www.youtube.com/watch?v=7ZbwZgrXnwY
 
 ** Motivation
@@ -127,7 +128,7 @@
 [[file:img/screenshot_2017-06-30_10-29-02.png]]
 
 - Instead, use bottom-up approach:
- 
+
 [[file:img/screenshot_2017-06-30_10-29-33.png]]
 
 [[file:img/screenshot_2017-06-30_10-29-58.png]]
@@ -153,7 +154,7 @@
 
 [[file:img/screenshot_2017-06-30_10-33-20.png]]
 
-* PyCon 2017 Cython as a Game Changer for Efficiency - Alex Orlov
+* Cython as a Game Changer for Efficiency - Alex Orlov
 - https://youtu.be/_1MSX7V28Po
 - For performance problem:
 [[file:img/screenshot_2017-07-06_07-51-02.png]]
@@ -172,5 +173,49 @@
 
 [[file:img/screenshot_2017-07-06_07-55-45.png]]
 
-* PyCon 2017 The Gilectomy How's It Going - Larry Hastings
+* 5 ways to deploy your Python web app in 2017 - Andrew T Baker
+** ngrok
+- https://ngrok.com/
+
+
+[[file:img/screenshot_2017-07-06_07-59-54.png]]
+
+[[file:img/screenshot_2017-07-06_08-00-17.png]]
+
+[[file:img/screenshot_2017-07-06_08-00-46.png]]
+
+** Heroku
+- https://www.heroku.com/
+
+[[file:img/screenshot_2017-07-06_08-01-22.png]]
+
+[[file:img/screenshot_2017-07-06_08-01-50.png]]
+
+
+[[file:img/screenshot_2017-07-06_08-02-05.png]]
+
+[[file:img/screenshot_2017-07-06_08-02-35.png]]
+
+** Serverless(Zappa)
+- https://github.com/Miserlou/Zappa
+
+[[file:img/screenshot_2017-07-06_08-03-11.png]]
+
+[[file:img/screenshot_2017-07-06_08-03-31.png]]
+
+** Virtual Machines
+- https://cloud.google.com/compute/
+
+[[file:img/screenshot_2017-07-06_08-04-00.png]]
+
+[[file:img/screenshot_2017-07-06_08-04-31.png]]
+
+** Docker
+- https://www.docker.com/
+
+[[file:img/screenshot_2017-07-06_08-05-20.png]]-
+
+[[file:img/screenshot_2017-07-06_08-05-54.png]]
+
+* The Gilectomy How's It Going - Larry Hastings
 - https://www.youtube.com/watch?v=pLqv11ScGsQ
