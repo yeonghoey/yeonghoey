@@ -20,4 +20,4 @@
 - Done. login as the modified user.
 - Many things would be broken.
 - All symbolic links within your home directory should be re-linked.
-- If you use ~Dropbox~, =rm -rf "$HOME/.dropbox"= to reset your dropbox settings.
+- If you use ~Dropbox~, remove ~"$HOME/.dropbox"~ to reset your dropbox settings.
