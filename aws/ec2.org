@@ -1,24 +1,33 @@
 #+TITLE: AWS EC2
 
 * Table of Contents :TOC_2_gh:
- - [[#key-pairs][Key Pairs]]
-   - [[#fingerprint][Fingerprint]]
- - [[#status-checks][Status Checks]]
-   - [[#system-status-checks][System Status Checks]]
-   - [[#instance-status-checks][Instance Status Checks]]
+ - [[#how-to][How-to]]
+   - [[#modify-ebs-volume][Modify EBS Volume]]
+ - [[#discussions][Discussions]]
+   - [[#key-pairs][Key Pairs]]
+   - [[#status-checks][Status Checks]]
 
-* Key Pairs 
-** Fingerprint
+* How-to
+** Modify EBS Volume
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html?icmpid=docs_ec2_console
+
+1. Do Actions -> Modify Volume.
+2. Change settings, like size.
+3. Run ~sudo resize2fs /dev/xvda1~ to resize the running file system
+
+* Discussions
+** Key Pairs 
+*** Fingerprint
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
 - Created the key pair using AWS: the fingerprint is calculated using ~SHA-1~
 - Imported a public key: the fingerprint is calculated using ~MD5~
 
-* Status Checks
+** Status Checks
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html
 
 [[file:img/screenshot_2017-02-19_14-15-08.png]]
 
-** System Status Checks
+*** System Status Checks
 #+BEGIN_QUOTE
 require AWS involvement to repair. (...)
 *wait for AWS to fix the issue*, or you can resolve it yourself.
@@ -30,7 +39,7 @@ require AWS involvement to repair. (...)
 - Software issues on the physical host
 - Hardware issues on the physical host that impact network reachability
 
-** Instance Status Checks
+*** Instance Status Checks
 #+BEGIN_QUOTE
 require your involvement to repair. (...)
 (by *rebooting the instance* or by *making instance configuration changes*).
