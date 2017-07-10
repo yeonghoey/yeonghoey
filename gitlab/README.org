@@ -1,0 +1,14 @@
+#+TITLE: GitLab
+
+* Table of Contents :TOC_2_gh:
+ - [[#how-to][How To]]
+   - [[#restart-gitlab][Restart GitLab]]
+
+* How To
+** Restart GitLab
+- https://docs.gitlab.com/ee/administration/restart_gitlab.html
+
+#+BEGIN_SRC shell
+  # Omnibus GitLab restart
+  sudo gitlab-ctl restart
+#+END_SRC
