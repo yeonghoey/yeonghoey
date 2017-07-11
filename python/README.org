@@ -35,6 +35,7 @@
    - [[#2017-03-21-tue-generator-and-throw][<2017-03-21 Tue> generator and throw]]
    - [[#2017-05-18-thu-python-int-long-int64][<2017-05-18 Thu> python int, long, int64]]
    - [[#2017-06-09-fri-python-textwrap][<2017-06-09 Fri> python textwrap]]
+   - [[#2017-07-11-tue-python27-re-raise-nonetype][<2017-07-11 Tue> python2.7 re-raise, NoneType]]
 
 * Reference
 ** decorator
@@ -1174,3 +1175,5 @@ This issue can be solved with locks or by using the *EAFP* approach.
 + http://git.k.nexon.com/k/bronto/merge_requests/222/diffs
 ** TODO <2017-05-18 Thu> python int, long, int64
 ** TODO <2017-06-09 Fri> python textwrap
+** TODO <2017-07-11 Tue> python2.7 re-raise, NoneType 
+- https://stackoverflow.com/questions/25189545/why-doesnt-python-2-7-let-me-implicitly-re-raise-an-exception-after-yield
