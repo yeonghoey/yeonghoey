@@ -5,6 +5,7 @@
  - [[#how-to][How-to]]
  - [[#topics][Topics]]
    - [[#ebs-optimized-instances][EBS-Optimized Instances]]
+   - [[#monitor-io-characteristics-with-cloudwatch][Monitor I/O Characteristics with CloudWatch]]
    - [[#gp2-io-credits-and-burst-performance][gp2: I/O Credits and Burst Performance]]
    - [[#io1-for-the-best-per-io-latency-experience][io1: For the best per-I/O latency experience]]
    - [[#io1-within-10-percent-of-the-provisioned-iops-performance][io1: Within 10 percent of the provisioned IOPS performance?]]
@@ -33,6 +34,17 @@ When EBS-Optimized, Each instance can acquire IO Performance following:
 [[file:img/screenshot_2017-07-13_21-07-15.png]] 
  
 [[file:img/screenshot_2017-07-13_21-07-37.png]]
+
+** Monitor I/O Characteristics with CloudWatch
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html
+- BurstBalance: burst bucket balance for ~gp2~, ~st1~, and ~sc1~ 
+- VolumeQueueLength: To make sure your application is not trying to drive more IOPS than you have provisioned
+- VolumeReadBytes
+- VolumeWriteBytes
+- VolumeReadOps
+- VolumeWriteOps
+
+[[file:img/screenshot_2017-07-13_21-22-51.png]]
 
 ** gp2: I/O Credits and Burst Performance
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
@@ -64,3 +76,4 @@ It's more like this: 99.9% of the time over the year, AWS will deliver within 40
 
 * Links
 - https://www.slideshare.net/AmazonWebServices/overview-and-best-practices-for-amazon-elastic-block-store-september-2016-webinar-series
+- https://www.slideshare.net/AmazonWebServices/deep-dive-maximizing-ec2-and-ebs-performance
