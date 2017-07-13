@@ -1,16 +1,19 @@
 #+TITLE: macOS
 
 * Table of Contents :TOC_2_gh:
- - [[#how-to][How-To]]
+ - [[#how-to][How-to]]
    - [[#change-an-user-name-and-its-home-folder][Change an user name and its home folder]]
 
-* How-To
+* How-to
 ** Change an user name and its home folder
 - https://support.apple.com/en-us/HT201548
+- *This is not recommened. Many applications will break because of hard coded HOME path.
 
 - Create a temporary admin account and login as it.
 [[file:img/screenshot_2017-07-08_09-28-19.png]]
 
+
+- Rename ~/Users/<oldname>~ to ~/Users/<newname>~
 - ~Ctrl~ + ~click~ and open ~Advanced Options~
 [[file:img/screenshot_2017-07-08_09-29-21.png]]
 
