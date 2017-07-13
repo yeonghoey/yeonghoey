@@ -1,0 +1,39 @@
+#+TITLE: EBS
+
+* Table of Contents :TOC_2_gh:
+ - [[#reference][Reference]]
+ - [[#how-to][How-to]]
+ - [[#topics][Topics]]
+   - [[#gp2-io-credits-and-burst-performance][gp2: I/O Credits and Burst Performance]]
+   - [[#io1-within-10-percent-of-the-provisioned-iops-performance][io1: Within 10 percent of the provisioned IOPS performance?]]
+ - [[#links][Links]]
+
+* Reference
+* How-to
+
+* Topics
+** gp2: I/O Credits and Burst Performance
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+
+[[file:img/screenshot_2017-07-13_18-43-16.png]]
+
+[[file:img/screenshot_2017-07-13_18-45-08.png]]
+** io1: Within 10 percent of the provisioned IOPS performance?
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+- https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-KRgqrSoF3amTY4XOAat/confused_about_provisioned_iop
+- https://forums.aws.amazon.com/message.jspa?messageID=742320
+
+- Ambiguous wording
+
+#+BEGIN_QUOTE
+if you provision a volume with 5,000 IOPS,
+Amazon EBS delivers an average of 4,500 IOPS or higher for 99.9 percent of the time over a year.
+I think the document's wrong. They should edit it like "within 90%".
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+It's more like this: 99.9% of the time over the year, AWS will deliver within 4000 IOPS +(?)/- 10%.
+#+END_QUOTE
+
+* Links
+- https://www.slideshare.net/AmazonWebServices/overview-and-best-practices-for-amazon-elastic-block-store-september-2016-webinar-series
