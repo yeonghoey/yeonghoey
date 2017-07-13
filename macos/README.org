@@ -7,7 +7,7 @@
 * How-to
 ** Change an user name and its home folder
 - https://support.apple.com/en-us/HT201548
-- *This is not recommened. Many applications will break because of hard coded HOME path.
+- *This is not recommened. Many applications will break because of hard coded HOME path.*
 
 - Create a temporary admin account and login as it.
 [[file:img/screenshot_2017-07-08_09-28-19.png]]
