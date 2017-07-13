@@ -6,6 +6,7 @@
  - [[#topics][Topics]]
    - [[#key-pairs][Key Pairs]]
    - [[#status-checks][Status Checks]]
+   - [[#enhanced-networking-on-linux][Enhanced Networking on Linux]]
 
 * How-to
 ** Modify EBS Volume
@@ -50,3 +51,15 @@ require your involvement to repair. (...)
 - Exhausted memory
 - Corrupted file system
 - Incompatible kernel
+
+** Enhanced Networking on Linux
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html#enabling_enhanced_networking
+
+*** Single-root IO virtualization(SR-IOV)
+- https://en.wikipedia.org/wiki/Single-root_input/output_virtualization
+- SR-IOV is a network interface that allows the isolation of the PCI Express resources for manageability and performance reasons.
+- Reduces CPU utilization for processing network traffic
+- Reduces latency path
+- Increases throughput
+
+[[file:img/screenshot_2017-07-13_19-27-04.png]]
