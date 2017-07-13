@@ -5,11 +5,16 @@
  - [[#how-to][How-to]]
  - [[#topics][Topics]]
    - [[#gp2-io-credits-and-burst-performance][gp2: I/O Credits and Burst Performance]]
+   - [[#io1-for-the-best-per-io-latency-experience][io1: For the best per-I/O latency experience]]
    - [[#io1-within-10-percent-of-the-provisioned-iops-performance][io1: Within 10 percent of the provisioned IOPS performance?]]
  - [[#links][Links]]
 
 * Reference
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
+
+[[file:img/screenshot_2017-07-13_19-12-16.png]]
 * How-to
+
 
 * Topics
 ** gp2: I/O Credits and Burst Performance
@@ -18,6 +23,11 @@
 [[file:img/screenshot_2017-07-13_18-43-16.png]]
 
 [[file:img/screenshot_2017-07-13_18-45-08.png]]
+** io1: For the best per-I/O latency experience
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
+We recommend that you provision an IOPS-to-GiB ratio *greater than 2:1*.
+For example, a 2,000 IOPS volume *should be smaller than 1,000 GiB*.
+
 ** io1: Within 10 percent of the provisioned IOPS performance?
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 - https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-KRgqrSoF3amTY4XOAat/confused_about_provisioned_iop
