@@ -4,6 +4,7 @@
  - [[#reference][Reference]]
  - [[#how-to][How-to]]
  - [[#topics][Topics]]
+   - [[#ebs-optimized-instances][EBS-Optimized Instances]]
    - [[#gp2-io-credits-and-burst-performance][gp2: I/O Credits and Burst Performance]]
    - [[#io1-for-the-best-per-io-latency-experience][io1: For the best per-I/O latency experience]]
    - [[#io1-within-10-percent-of-the-provisioned-iops-performance][io1: Within 10 percent of the provisioned IOPS performance?]]
@@ -15,8 +16,24 @@
 [[file:img/screenshot_2017-07-13_19-12-16.png]]
 * How-to
 
-
 * Topics
+** EBS-Optimized Instances
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html
+- To *ensure sustained reliable network bandwidth* between your EC2 instance and your EBS volumes:
+  - To launch the EC2 instance as *EBS-optimized* 
+  - To choose an instance type with *10 Gigabit network connectivity*(like ~r4.8xtype~).
+
+#+BEGIN_QUOTE
+Be sure to choose an EBS-optimized instance that provides more dedicated EBS throughput than your application needs;
+otherwise, the Amazon EBS to Amazon EC2 connection will become a performance bottleneck.
+#+END_QUOTE
+
+When EBS-Optimized, Each instance can acquire IO Performance following:
+
+[[file:img/screenshot_2017-07-13_21-07-15.png]] 
+ 
+[[file:img/screenshot_2017-07-13_21-07-37.png]]
+
 ** gp2: I/O Credits and Burst Performance
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 

@@ -3,6 +3,7 @@
 * Table of Contents :TOC_2_gh:
  - [[#how-to][How-to]]
    - [[#modify-ebs-volume][Modify EBS Volume]]
+   - [[#enable-ena-on-ubuntu][Enable ENA on Ubuntu]]
  - [[#topics][Topics]]
    - [[#key-pairs][Key Pairs]]
    - [[#status-checks][Status Checks]]
@@ -15,6 +16,9 @@
 1. Do Actions -> Modify Volume.
 2. Change settings, like size.
 3. Run ~sudo resize2fs /dev/xvda1~ to resize the running file system
+
+** Enable ENA on Ubuntu
+- https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html
 
 * Topics
 ** Key Pairs 
