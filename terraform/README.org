@@ -358,6 +358,12 @@ you can reference existing security groups, VPCs, and the like by defining them 
 ** No dynamic interpolation over count
 - https://github.com/hashicorp/terraform/issues/1497#issuecomment-105874601
 
+*** Update
+- https://github.com/hashicorp/terraform/pull/11482
+- Interpolations other than ~computing required~ can be used for ~count~.
+- Now ~count = "${length(var.other_List)}"~ is valid
+
+*** Previous limitation
 For now, you can't use interpolation for referencing other resources
 to specify ~count~ because of the way that terraform handles ~count~.
 
