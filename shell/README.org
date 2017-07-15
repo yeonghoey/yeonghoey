@@ -157,6 +157,18 @@
   ${parameter:offset:length} # parameter[offset:offset+length]
 #+END_SRC
 
+#+BEGIN_SRC shell :outputs
+  # ${parameter/pattern/string}
+  #   longest match of pattern, If pattern begins with ‘/’, matches all
+  export FOO='a.b.c.d'
+  echo "${FOO/[.]/-}"
+  echo "${FOO//[.]/-}"
+#+END_SRC
+
+#+RESULTS:
+| a-b.c.d |
+| a-b-c-d |
+
 ** array
 - https://www.gnu.org/software/bash/manual/bashref.html#Arrays
 - http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
@@ -1339,7 +1351,7 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 -
 #+BEGIN_SRC shell
   sudo sed -i "s/^127.0.0.1 localhost.*\$/127.0.0.1 localhost ${NEW_NAME}/" /etc/hosts
-  sudo bash -c "echo "${NEW_NAME}" > /etc/hostname"
+  sudo bash -c "echo ${NEW_NAME} > /etc/hostname"
   sudo hostname "${NEW_NAME}"
 #+END_SRC
 
