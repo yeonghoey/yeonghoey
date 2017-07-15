@@ -22,6 +22,11 @@
     - cluster:yeonghoey
 #+END_EXAMPLE
 
+# For one-liner tags:
+#+BEGIN_SRC yaml
+  tags: ["role:couchbase", "cluster:yeonghoey"]
+#+END_SRC
+
 * Reference
 ** Setup
 - https://docs.datadoghq.com/guides/basic_agent_usage/ubuntu/
