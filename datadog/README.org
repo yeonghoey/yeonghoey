@@ -25,10 +25,12 @@
 * Reference
 ** Setup
 - https://docs.datadoghq.com/guides/basic_agent_usage/ubuntu/
-- ~DD_INSTALL_ONLY=true~ for not starting after installation
 
 #+BEGIN_SRC shell
   DD_API_KEY=<your-api-key> bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)"
+
+  # Just install without DD_API_KEY
+  DD_API_KEY=x DD_INSTALL_ONLY=true bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)"
 #+END_SRC
 
 ** Management
