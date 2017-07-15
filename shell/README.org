@@ -47,6 +47,7 @@
    - [[#use-command-output-as-a-file][Use command output as a file]]
    - [[#useful-one-liners][Useful One-liners]]
    - [[#how-to-pipe-stderr-and-not-stdout][How to pipe stderr, and not stdout?]]
+   - [[#change-hostname][Change hostname]]
  - [[#links][Links]]
  - [[#staging][Staging]]
    - [[#2017-06-29-thu-shift][<2017-06-29 Thu> shift]]
@@ -451,11 +452,24 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 
 ** Escaping quotes
 *** Escaping double quotes
-- Just escape it with backslash
+- Escape it with backslash
 
 #+BEGIN_EXAMPLE
   "\""
 #+END_EXAMPLE
+
+- Double quoted shell expansion is valid within double quotes
+
+#+BEGIN_SRC shell
+  $ echo 'echo $#' > arg-count
+  $ chmod +x arg-count
+  $ ./arg-count
+  0
+  $ echo "$(./arg-count $(echo foo bar))"
+  2
+  $ echo "$(./arg-count "$(echo foo bar)")"
+  1
+#+END_SRC
 
 *** Escaping single quotes within a single quoted string
 - https://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
@@ -1319,6 +1333,14 @@ Use the flag of ~-T~ for explicitly disabling ~pty~.
 
 #+BEGIN_SRC shell
   command 2>&1 >/dev/null | grep 'something'
+#+END_SRC
+
+** Change hostname
+-
+#+BEGIN_SRC shell
+  sudo sed -i "s/^127.0.0.1 localhost.*\$/127.0.0.1 localhost ${NEW_NAME}/" /etc/hosts
+  sudo bash -c "echo "${NEW_NAME}" > /etc/hostname"
+  sudo hostname "${NEW_NAME}"
 #+END_SRC
 
 * Links
