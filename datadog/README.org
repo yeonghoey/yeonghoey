@@ -2,12 +2,13 @@
 
 * Table of Contents :TOC_2_gh:
  - [[#how-to][How-to]]
-   - [[#install-and-manage-agent-on-ubuntu][Install and manage Agent on Ubuntu]]
  - [[#reference][Reference]]
+   - [[#basics][Basics]]
  - [[#topics][Topics]]
 
 * How-to
-** Install and manage Agent on Ubuntu
+* Reference
+** Basics
 - https://docs.datadoghq.com/guides/basic_agent_usage/ubuntu/
 
 #+BEGIN_SRC shell
@@ -37,5 +38,4 @@
   /var/log/datadog/forwarder.log
 #+END_SRC
 
-* Reference
 * Topics
