@@ -8,6 +8,7 @@
    - [[#management][Management]]
    - [[#host-naming][Host Naming]]
    - [[#tags][Tags]]
+   - [[#metrics][Metrics]]
  - [[#topics][Topics]]
 
 * How-to
@@ -108,5 +109,8 @@
     - database:primary
     - role:sobotka
 #+END_EXAMPLE
+
+** Metrics
+- https://docs.datadoghq.com/integrations/system/
 
 * Topics
