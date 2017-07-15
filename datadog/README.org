@@ -1,0 +1,41 @@
+#+TITLE: Datadog
+
+* Table of Contents :TOC_2_gh:
+ - [[#how-to][How-to]]
+   - [[#install-and-manage-agent-on-ubuntu][Install and manage Agent on Ubuntu]]
+ - [[#reference][Reference]]
+ - [[#topics][Topics]]
+
+* How-to
+** Install and manage Agent on Ubuntu
+- https://docs.datadoghq.com/guides/basic_agent_usage/ubuntu/
+
+#+BEGIN_SRC shell
+  DD_API_KEY=<your-api-key> bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)"
+#+END_SRC
+
+#+BEGIN_SRC shell
+  sudo /etc/init.d/datadog-agent start
+  sudo /etc/init.d/datadog-agent stop
+  sudo /etc/init.d/datadog-agent restart
+  sudo /etc/init.d/datadog-agent status
+  sudo /etc/init.d/datadog-agent info
+  sudo /etc/init.d/datadog-agent info -v
+  sudo /etc/init.d/datadog-agent check [integration]
+  sudo /etc/init.d/datadog-agent check [integration] check_rate
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Configs
+  /etc/dd-agent/datadog.conf  # Agent
+  /etc/dd-agent/conf.d/       # Integrations
+
+  # Logs
+  /var/log/datadog/supervisord.log (since 3.8.0)
+  /var/log/datadog/collector.log
+  /var/log/datadog/dogstatsd.log
+  /var/log/datadog/forwarder.log
+#+END_SRC
+
+* Reference
+* Topics
