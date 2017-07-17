@@ -1,0 +1,20 @@
+#+TITLE: Redis
+
+* Table of Contents :TOC_2_gh:
+ - [[#how-to][How-to]]
+   - [[#install-redis-cli-only-on-ubuntu][Install redis-cli only on Ubuntu]]
+ - [[#reference][Reference]]
+ - [[#topics][Topics]]
+ - [[#staging][Staging]]
+
+* How-to
+** Install redis-cli only on Ubuntu
+- https://stackoverflow.com/questions/21795340/linux-install-redis-cli-only
+
+#+BEGIN_SRC shell
+  sudo apt-get install redis-tools
+#+END_SRC
+
+* Reference
+* Topics
+* Staging
