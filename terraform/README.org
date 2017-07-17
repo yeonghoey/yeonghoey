@@ -32,7 +32,6 @@
    - [[#no-list-of-maps][No list of maps]]
  - [[#use-cases][Use Cases]]
    - [[#migrate-existing-aws-infra-with-terraforming][Migrate existing AWS Infra with terraforming]]
-   - [[#change-an-aws-ec2-instance-type-without-destroying-recreating-it][Change an AWS ec2 instance type without destroying-recreating it]]
    - [[#generate-documents-automatically][Generate documents automatically]]
 
 * Configurations
@@ -419,56 +418,6 @@ Because the actual schema is:
 ** Migrate existing AWS Infra with terraforming
 - https://github.com/dtan4/terraforming
 
-** Change an AWS ec2 instance type without destroying-recreating it
-- https://github.com/hashicorp/terraform/issues/1579
-- https://github.com/hashicorp/terraform/issues/2423
-
-Terraform currently doesn't support changing the instance type without destroying-recreating it.
-
-We should change it manually, and sync it with the terraform state
-to change the instance type without destroying the instance.
-
------
-
-For syncing, you have to remove its state from ~tfstate~ and ~import~ it again.
-Follow the steps below:
-
-1. Stop the target instance and change its instance type to what you desire.
-   [[file:img/screenshot_2017-01-31_13-41-13.png]]
-
-2. Update your ~tf~ file as you changed:
-  #+BEGIN_EXAMPLE
-    resource "aws_instance" "my_instance" {
-      (...)
-      instance_type = "t2.mirco"  # as you changed at step 1
-      (...)
-    }
-  #+END_EXAMPLE
-
-3. Verify it with ~terraform plan~
-  #+BEGIN_EXAMPLE
-    $ terraform plan
-    (...)
-
-    No changes. Infrastructure is up-to-date. This means that Terraform
-    could not detect any differences between your configuration and
-    the real physical resources that exist. As a result, Terraform
-    doesn't need to do anything.
-  #+END_EXAMPLE
-
------
-
-If ~plan~ shows some unexpected changes, you can just remove the instance from tfstate and re-import it.
-
-1. Remove the instance from ~terraform.tfstate~:
-   #+BEGIN_EXAMPLE
-     $ terraform state rm aws_instance.my_instance
-   #+END_EXAMPLE
-
-2. Import your instance
-  #+BEGIN_EXAMPLE
-    $ terraform import aws_instance.my_instance i-abcdefg012345678
-  #+END_EXAMPLE
 ** Generate documents automatically
 - https://github.com/segmentio/terraform-docs
 
