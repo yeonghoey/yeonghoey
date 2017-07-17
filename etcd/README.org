@@ -1,15 +1,89 @@
 #+TITLE: etcd
 
 * Table of Contents :TOC_2_gh:
+ - [[#how-to][How-to]]
+   - [[#test-a-cluster-correctly-configured][Test a cluster correctly configured]]
+ - [[#reference][Reference]]
+ - [[#topics][Topics]]
  - [[#staging][Staging]]
    - [[#setting-up-etcd2-static-cluster-under-docker][setting up etcd2 static cluster under docker]]
    - [[#etcd2-curl-usage][etcd2 curl usage]]
 
+* How-to
+** Test a cluster correctly configured
+- https://coreos.com/etcd/docs/latest/v2/api.html
+- Use statistics API to test the current cluster's status
+
+
+#+BEGIN_SRC shell
+  # For each node
+  $ curl -s http://127.0.0.1:2379/v2/stats/self | jq
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+    "name": "etcd1",
+    "id": "912193dcb3a37035",
+    "state": "StateFollower",
+    "startTime": "2017-07-17T09:36:46.406539193Z",
+    "leaderInfo": {
+      "leader": "c7a7eaa884a2af08",
+      "uptime": "7m38.68272438s",
+      "startTime": "2017-07-17T09:36:46.428994302Z"
+    },
+    "recvAppendRequestCnt": 2221,
+    "recvPkgRate": 4.8195062183526085,
+    "recvBandwidthRate": 357.34228855975414,
+    "sendAppendRequestCnt": 0
+  }
+#+END_SRC
+
+#+BEGIN_SRC  shell
+  # For the whole cluster
+  curl -s http://127.0.0.1:2379/v2/stats/leader
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+    "leader": "c7a7eaa884a2af08",
+    "followers": {
+      "912193dcb3a37035": {
+        "latency": {
+          "current": 0.003626,
+          "average": 0.004939527118043262,
+          "standardDeviation": 0.003546182920897243,
+          "minimum": 0.001497,
+          "maximum": 0.069869
+        },
+        "counts": {
+          "fail": 0,
+          "success": 2821
+        }
+      },
+      "ec29e3c44c6a8357": {
+        "latency": {
+          "current": 0.00536,
+          "average": 0.14451230827314546,
+          "standardDeviation": 7.688751073246117,
+          "minimum": 0.001447,
+          "maximum": 424.421438
+        },
+        "counts": {
+          "fail": 8,
+          "success": 3046
+        }
+      }
+    }
+  }
+#+END_SRC
+
+* Reference
+* Topics
 * Staging
 ** setting up etcd2 static cluster under docker
 - https://coreos.com/etcd/docs/latest/v2/docker_guide.html
 
-** etcd2 curl usage 
+** etcd2 curl usage
 - https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html
 
 #+BEGIN_SRC shell
