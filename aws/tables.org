@@ -1,7 +1,63 @@
 #+TITLE: AWS Tables
 
 * Table of Contents :TOC_2_gh:
+ - [[#ec2][EC2]]
+   - [[#t2][T2]]
+   - [[#m4][M4]]
+   - [[#m3][M3]]
+   - [[#c4][C4]]
+   - [[#c3][C3]]
+   - [[#x1][X1]]
+   - [[#r4][R4]]
+   - [[#r3][R3]]
+   - [[#p2][P2]]
+   - [[#g3][G3]]
+   - [[#f1][F1]]
+   - [[#i3][I3]]
+   - [[#d2][D2]]
  - [[#ebs][EBS]]
+
+* EC2
+- https://aws.amazon.com/ec2/instance-types/
+
+** T2
+[[file:img/screenshot_2017-07-18_14-25-46.png]]
+
+** M4
+[[file:img/screenshot_2017-07-18_14-25-57.png]]
+
+** M3
+[[file:img/screenshot_2017-07-18_14-26-09.png]]
+
+** C4
+[[file:img/screenshot_2017-07-18_14-26-49.png]]
+
+** C3
+[[file:img/screenshot_2017-07-18_14-27-24.png]]
+
+** X1
+[[file:img/screenshot_2017-07-18_14-27-43.png]]
+
+** R4
+[[file:img/screenshot_2017-07-18_14-28-04.png]]
+
+** R3
+[[file:img/screenshot_2017-07-18_14-28-21.png]]
+
+** P2
+[[file:img/screenshot_2017-07-18_14-29-26.png]]
+
+** G3
+[[file:img/screenshot_2017-07-18_14-29-39.png]]
+
+** F1
+[[file:img/screenshot_2017-07-18_14-29-52.png]]1
+
+** I3
+[[file:img/screenshot_2017-07-18_14-29-04.png]]
+
+** D2
+[[file:img/screenshot_2017-07-18_14-29-15.png]]
 
 * EBS
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html
