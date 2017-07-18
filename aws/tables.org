@@ -1,0 +1,16 @@
+#+TITLE: AWS Tables
+
+* Table of Contents :TOC_2_gh:
+ - [[#ebs][EBS]]
+
+* EBS
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html
+
+[[file:img/screenshot_2017-07-18_14-20-56.png]]
+
+[[file:img/screenshot_2017-07-18_14-21-12.png]]
+
+[[file:img/screenshot_2017-07-18_14-21-51.png]]
+
+- ~gp2~: 3 IOPS per GiB of volume size
+- ~io1~: The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1
