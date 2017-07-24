@@ -9,6 +9,7 @@
    - [[#zeppelin-envsh][zeppelin-env.sh]]
    - [[#dynamic-form][Dynamic Form]]
  - [[#topics][Topics]]
+   - [[#interpreter-mode][Interpreter mode]]
  - [[#staging][Staging]]
 
 * How-to
@@ -93,5 +94,14 @@
 #+END_SRC
 
 * Topics
+** Interpreter mode
+- https://medium.com/@leemoonsoo/apache-zeppelin-interpreter-mode-explained-bae0525d0555
+
+[[file:img/screenshot_2017-07-24_19-04-03.png]]
+
+[[file:img/screenshot_2017-07-24_19-04-15.png]]
+
+[[file:img/screenshot_2017-07-24_19-04-38.png]]
+
 * Staging
 
