@@ -1,15 +1,41 @@
 #+TITLE: Apache Zeppelin
 
-* Table of Contents :TOC_1_gh:
- - [[#dynamic-form][Dynamic Form]]
- - [[#interpreter-installation][Interpreter Installation]]
- - [[#zeppelin-envsh][zeppelin-env.sh]]
+#+TITLE: Apache Zeppelin
 
-* Dynamic Form
+* Table of Contents :TOC_2_gh:
+ - [[#how-to][How-to]]
+   - [[#install-interpreters][Install Interpreters]]
+ - [[#reference][Reference]]
+   - [[#zeppelin-envsh][zeppelin-env.sh]]
+   - [[#dynamic-form][Dynamic Form]]
+ - [[#topics][Topics]]
+ - [[#staging][Staging]]
+
+* How-to
+** Install Interpreters
+- https://zeppelin.apache.org/docs/0.7.1/manual/interpreterinstallation.html
+
+#+BEGIN_SRC shell
+  ./bin/install-interpreter.sh --all
+  ./bin/install-interpreter.sh --name md,shell,jdbc,python
+  ./bin/install-interpreter.sh --list
+#+END_SRC
+
+* Reference
+** zeppelin-env.sh
+- https://github.com/apache/zeppelin/blob/master/conf/zeppelin-env.sh.template
+
+#+BEGIN_SRC shell
+  # Double the memory for zeppelin itself
+  # '-XX:MaxPermSize=512m' is omitted because it's deprecated in Java8
+  export ZEPPELIN_MEM='-Xms2048m -Xmx2048m'
+#+END_SRC
+
+** Dynamic Form
 - https://zeppelin.apache.org/docs/0.7.1/manual/dynamicform.html
 - [[https://github.com/apache/zeppelin/blob/master/spark/src/main/java/org/apache/zeppelin/spark/ZeppelinContext.java][GitHub Code Reference]]
 
-** Text input form
+*** Text input form
 #+BEGIN_EXAMPLE
   ${formName}
   ${formName=defaultValue}
@@ -25,7 +51,7 @@
   println("Hello "+z.input("name", "sun"))
 #+END_SRC
 
-** Select form
+*** Select form
 #+BEGIN_EXAMPLE
   ${formName=defaultValue,option1|option2...}
   ${formName=defaultValue,option1(DisplayName)|option2(DisplayName)...}
@@ -46,7 +72,7 @@
                                        ("7","sun"))))
 #+END_SRC
 
-** Checkbox form
+*** Checkbox form
 #+BEGIN_EXAMPLE
   ${checkbox:formName=defaultValue1|defaultValue2...,option1|option2...}
   ${checkbox(delimiter):formName=...}:
@@ -57,6 +83,8 @@
   > apple,banana 
   ${checkbox( and ):fruit=apple|banana,apple|banana|orange}
   > apple and banana 
+  ${checkbox( and ):fruit=apple(사과),apple|banana|orange}  # Label can also be placed
+  > apple and banana 
 #+END_EXAMPLE
 
 #+BEGIN_SRC scala
@@ -64,20 +92,6 @@
   println("Hello "+z.checkbox("fruit", options).mkString(" and "))
 #+END_SRC
 
-* Interpreter Installation
-- https://zeppelin.apache.org/docs/0.7.1/manual/interpreterinstallation.html
+* Topics
+* Staging
 
-#+BEGIN_SRC shell
-  ./bin/install-interpreter.sh --all
-  ./bin/install-interpreter.sh --name md,shell,jdbc,python
-  ./bin/install-interpreter.sh --list
-#+END_SRC
-
-* zeppelin-env.sh
-- https://github.com/apache/zeppelin/blob/master/conf/zeppelin-env.sh.template
-
-#+BEGIN_SRC shell
-  # Double the memory for zeppelin itself
-  # '-XX:MaxPermSize=512m' is omitted because it's deprecated in Java8
-  export ZEPPELIN_MEM='-Xms2048m -Xmx2048m'
-#+END_SRC
