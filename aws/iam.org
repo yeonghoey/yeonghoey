@@ -130,6 +130,11 @@ This creates an assume role policy like this:
 
 [[file:img/screenshot_2017-05-29_18-32-21.png]]
 
+~Principal~ is 3rd party's AWS account id. For example:
+#+BEGIN_EXAMPLE
+  "AWS": ~arn:aws:iam::123456789012:root~
+#+END_EXAMPLE
+
 But ironically, it's unable to specify an ~ExternalID~ when switching roles on AWS Console.
 They only can be specified through awscli or other programatic accesses.
 
