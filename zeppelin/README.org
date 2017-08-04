@@ -97,10 +97,13 @@
 ** Interpreter mode
 - https://medium.com/@leemoonsoo/apache-zeppelin-interpreter-mode-explained-bae0525d0555
 
+- ~Shared~ mode shares both ~SparkContext~ and ~Scala REPL~
 [[file:img/screenshot_2017-07-24_19-04-03.png]]
 
+- In ~Scoped~ mode, each ~Note~ has its own ~Scala REPL~.
 [[file:img/screenshot_2017-07-24_19-04-15.png]]
 
+- In ~Isolated~ mode, each ~Note~ has its own ~SparkContext~ and ~Scala REPL~.
 [[file:img/screenshot_2017-07-24_19-04-38.png]]
 
 * Staging
