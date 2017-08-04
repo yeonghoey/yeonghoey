@@ -41,11 +41,11 @@
 ** URL vs URI vs URN
 - https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
 
-| Name                                | Example                                 | Note                                                                                                         |
-|-------------------------------------+-----------------------------------------+--------------------------------------------------------------------------------------------------------------|
-| ~URI~ (Uniform Resource Identifier) | ~https://www.google.co.kr/search?q=uri~ |                                                                                                              |
-| ~URL~ (Uniform Resource Locator)    | ~https://www.google.co.kr/search~       | Subset of ~URI~, contains only about location                                                                |
-| ~URN~ (Uniform Resource Name)       | ~urn:google:search:uri~                 | Subset of ~URI~, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with ~urn:~ |
+| Name (Uniform Resource -) | Example                                 | Note                                                                                                         |
+|---------------------------+-----------------------------------------+--------------------------------------------------------------------------------------------------------------|
+| ~URI~ (Identifier)        | ~https://www.google.co.kr/search?q=uri~ |                                                                                                              |
+| ~URL~ (Locator)           | ~https://www.google.co.kr/search~       | Subset of ~URI~, contains only about location                                                                |
+| ~URN~ (Name)              | ~urn:google:search:uri~                 | Subset of ~URI~, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with ~urn:~ |
 
 [[file:img/screenshot_2017-06-03_15-46-11.png]]
 
