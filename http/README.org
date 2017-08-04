@@ -1,11 +1,14 @@
 #+TITLE: HTTP
 
 * Table of Contents :TOC_2_gh:
+ - [[#how-to][How-to]]
  - [[#reference][Reference]]
    - [[#cache-control][Cache Control]]
- - [[#details][Details]]
+ - [[#topics][Topics]]
    - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
+ - [[#staging][Staging]]
 
+* How-to
 * Reference
 ** Cache Control
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
@@ -34,15 +37,16 @@
   Cache-Control: s-maxage=<seconds>
 #+END_EXAMPLE
 
-* Details
+* Topics
 ** URL vs URI vs URN
 - https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
 
-| Name  | Example                                 | Note                                                                                                         |
-|-------+-----------------------------------------+--------------------------------------------------------------------------------------------------------------|
-| ~URI~ | ~https://www.google.co.kr/search?q=uri~ |                                                                                                              |
-| ~URL~ | ~https://www.google.co.kr/search~       | Subset of ~URI~, contains only about location                                                                |
-| ~URN~ | ~urn:google:search:uri~                 | Subset of ~URI~, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with ~urn:~ |
-
+| Name                                | Example                                 | Note                                                                                                         |
+|-------------------------------------+-----------------------------------------+--------------------------------------------------------------------------------------------------------------|
+| ~URI~ (Uniform Resource Identifier) | ~https://www.google.co.kr/search?q=uri~ |                                                                                                              |
+| ~URL~ (Uniform Resource Locator)    | ~https://www.google.co.kr/search~       | Subset of ~URI~, contains only about location                                                                |
+| ~URN~ (Uniform Resource Name)       | ~urn:google:search:uri~                 | Subset of ~URI~, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with ~urn:~ |
 
 [[file:img/screenshot_2017-06-03_15-46-11.png]]
+
+* Staging
