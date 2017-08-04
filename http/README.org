@@ -5,7 +5,9 @@
  - [[#reference][Reference]]
    - [[#cache-control][Cache Control]]
  - [[#topics][Topics]]
+ - [[#terminology][Terminology]]
    - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
+   - [[#endpoint][Endpoint]]
  - [[#staging][Staging]]
 
 * How-to
@@ -38,6 +40,7 @@
 #+END_EXAMPLE
 
 * Topics
+* Terminology
 ** URL vs URI vs URN
 - https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
 
@@ -48,5 +51,9 @@
 | ~URN~ (Name)              | ~urn:google:search:uri~                 | Subset of ~URI~, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with ~urn:~ |
 
 [[file:img/screenshot_2017-06-03_15-46-11.png]]
+
+** Endpoint
+- https://stackoverflow.com/questions/9807382/what-is-a-web-service-endpoint
+- A web ~endpoint~ is ~URL~ that another program would use to communicate with your program.
 
 * Staging
