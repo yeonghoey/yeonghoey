@@ -702,7 +702,6 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   pgrep -u root ssh  # root user's ssh
   pgrep -f script.py # match against full arugment lists
   pgrep -l pytho     # Print pids along with their process names
-  pgrep -f -l .py    # Print pids along with their full argument lists
   pgrep -x python    # requires exact match, substr is default
 #+END_SRC
 
