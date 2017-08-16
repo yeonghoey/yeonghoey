@@ -1,0 +1,42 @@
+#+TITLE: View
+
+* Table of Contents :TOC_2_gh:
+- [[#how-to][How-to]]
+- [[#reference][Reference]]
+  - [[#maxparallelindexers][maxParallelIndexers]]
+- [[#topics][Topics]]
+  - [[#indexers][Indexers]]
+- [[#terminology][Terminology]]
+- [[#staging][Staging]]
+
+* How-to
+* Reference
+** maxParallelIndexers
+- https://developer.couchbase.com/documentation/server/3.x/admin/Misc/Trbl-blockedIndexer.html
+- https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html
+
+
+- Each ~design document~ maps to one ~indexer~
+- Couchbase Server limits the maximum number of ~indexers~ that can run in parallel.
+- There are two types of indexers: ~main indexers~ and ~replica indexers~.
+- Default is ~4~ (main), ~2~ (replica)
+- Can be modified by setting ~maxParallelIndexers~ and ~maxParallelReplicaIndexers~
+
+#+BEGIN_QUOTE
+Couchbase makes no recommendations for tuning beyond the default settings.
+#+END_QUOTE
+
+#+BEGIN_SRC shell
+  # Check current indexer tasks
+  curl -X GET  -u Administrator:password http://localhost:8092/_active_tasks
+
+  # Get / Set maxParallelIndexers
+  curl -X GET  -u Administrator:password http://localhost:8091/settings/maxParallelIndexers
+  curl -X POST -u Administrator:password http://localhost:8091/settings/maxParallelIndexers -d 'globalValue=8'
+#+END_SRC
+
+* Topics
+** Indexers
+
+* Terminology
+* Staging
