@@ -20,7 +20,7 @@
 - ~TTL~ in *seconds* if it's *30 days or less*
 - ~TTL~ in *Unix time* if it's *over 30 days*
 - Couchbase runs a process named ~expiry pager~ periodically to clean up expired items
-- ~Expire pager~ runs every ~60~ minutes by default(can be configured through ~[[https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html][exp_pager_stime]]~)
+- ~Expire pager~ runs every ~60~ minutes by default(can be configured through [[https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html][exp_pager_stime]])
 
 * Reference
 ** internalSettings
