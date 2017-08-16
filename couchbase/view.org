@@ -33,6 +33,9 @@ Couchbase makes no recommendations for tuning beyond the default settings.
   # Get / Set maxParallelIndexers
   curl -X GET  -u Administrator:password http://localhost:8091/settings/maxParallelIndexers
   curl -X POST -u Administrator:password http://localhost:8091/settings/maxParallelIndexers -d 'globalValue=8'
+
+  # Check current internalSettings
+  curl -x GET  -u Administrator:password http://localhost:8091/internalSettings
 #+END_SRC
 
 * Topics
