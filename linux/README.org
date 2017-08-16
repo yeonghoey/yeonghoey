@@ -21,12 +21,21 @@
 
 #+BEGIN_SRC shell
   iostat -xmdz 1
-  #       ││││ └─ Repeat every 1 second
-  #       │││└─ Omit output for any devices for which there was no activity during the sample period
-  #       ││└─ Display the device utilization report
-  #       │└─ Display statistics in megabytes per second
-  #       └─ Display extended statistics
+  #       ││││ └─ repeat every 1 second
+  #       │││└─ omit output for any devices for which there was no activity during the sample period
+  #       ││└─ display the device utilization report
+  #       │└─ display statistics in megabytes per second
+  #       └─ display extended statistics
 #+END_SRC
+
+#+BEGIN_EXAMPLE
+  Device:         rrqm/s   wrqm/s     r/s     w/s    rMB/s    wMB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+  xvdf              0.00  2934.00    0.00 2000.00     0.00    48.69    49.86     2.59    1.30    0.00    1.30   0.50  99.60
+#+END_EXAMPLE
+
+- ~%util~ :: Percentage of CPU time during whchi I/O requests were issed to the device. 
+  High ~%util~ doesn't always say that there is an overload.
+  If the device serves requests in parallel, this value can constantly be high.
 
 * Terminology
 * Staging
