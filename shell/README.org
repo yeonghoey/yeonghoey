@@ -1006,13 +1006,9 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 
 #+BEGIN_SRC json
   [{"id": "first", "val": 1}, {"id": "second", "val": 2}]
-#+END_SRC
-
-#+BEGIN_SRC shell
+  
   jq '.[] | select(.id == "second")'
-#+END_SRC
-
-#+BEGIN_SRC json
+  
   {"id": "second", "val": 2}
 #+END_SRC
 
