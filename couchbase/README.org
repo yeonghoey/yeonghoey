@@ -1,15 +1,18 @@
 #+TITLE: Couchbase
 
-
 * Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
 - [[#how-to][How-to]]
 - [[#topics][Topics]]
   - [[#document-expiration][Document Expiration]]
 - [[#reference][Reference]]
   - [[#internalsettings][internalSettings]]
+- [[#terminology][Terminology]]
+- [[#links][Links]]
 - [[#staging][Staging]]
   - [[#tunable-memory-and-ejection-policy][Tunable Memory and Ejection Policy]]
 
+* Overview
 * How-to
 * Topics
 ** Document Expiration
@@ -44,6 +47,8 @@
   }
 #+END_SRC
 
+* Terminology
+* Links
 * Staging
 ** Tunable Memory and Ejection Policy
 - https://developer.couchbase.com/documentation/server/4.6/architecture/db-engine-architecture.html#concept_b5n_bwn_vs__full-ejection
