@@ -1,69 +1,439 @@
 #+TITLE: Shell
 
 * Table of Contents                                                :TOC_2_gh:
- - [[#primitives][Primitives]]
-   - [[#arithmetic-expansion][Arithmetic Expansion]]
-   - [[#brace-expansion][Brace Expansion]]
-   - [[#history-expansion][History Expansion]]
-   - [[#shell-parameter-expansion][Shell Parameter Expansion]]
-   - [[#array][array]]
-   - [[#case][case]]
-   - [[#for][for]]
-   - [[#function][function]]
-   - [[#if][if]]
-   - [[#redirection][Redirection]]
-   - [[#set][set]]
-   - [[#escaping-quotes][Escaping quotes]]
- - [[#commands][Commands]]
-   - [[#curl][curl]]
-   - [[#du][du]]
-   - [[#grep][grep]]
-   - [[#lsof][lsof]]
-   - [[#mount][mount]]
-   - [[#nc][nc]]
-   - [[#pgrep][pgrep]]
-   - [[#pkill][pkill]]
-   - [[#sort][sort]]
-   - [[#su][su]]
-   - [[#tar][tar]]
-   - [[#tee][tee]]
-   - [[#watch][watch]]
-   - [[#xargs][xargs]]
- - [[#use-cases][Use Cases]]
-   - [[#-vs-][$* vs $@]]
-   - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
-   - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
-   - [[#getting-the-source-directory][Getting the source directory]]
-   - [[#glob-dotfiles][Glob dotfiles]]
-   - [[#here-document][Here document]]
-   - [[#inode-structure][Inode Structure]]
-   - [[#mounting-a-volume][Mounting a Volume]]
-   - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
-   - [[#prompt-a-user-for-yesno][Prompt a user for yes/no]]
-   - [[#pseudo-terminals][Pseudo Terminals]]
-   - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
-   - [[#swap-spacesfiles][Swap spaces/files]]
-   - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
-   - [[#use-command-output-as-a-file][Use command output as a file]]
-   - [[#useful-one-liners][Useful One-liners]]
-   - [[#how-to-pipe-stderr-and-not-stdout][How to pipe stderr, and not stdout?]]
-   - [[#change-hostname][Change hostname]]
- - [[#links][Links]]
- - [[#staging][Staging]]
-   - [[#2017-06-29-thu-shift][<2017-06-29 Thu> shift]]
-   - [[#2017-02-09-thu-how-do-i-copy-multiple-files-by-wildcard][<2017-02-09 Thu> How do I copy multiple files by wildcard?]]
-   - [[#2017-02-09-thu-cat-xargs-grep][<2017-02-09 Thu> cat, xargs, grep]]
-   - [[#2017-02-09-thu-iostat][<2017-02-09 Thu> iostat]]
-   - [[#2017-02-01-wed-crond][<2017-02-01 Wed> cron.d]]
-   - [[#2017-02-01-wed-device-naming-on-linux-instances][<2017-02-01 Wed> Device Naming on Linux Instances]]
-   - [[#2017-03-01-wed-command-command][<2017-03-01 Wed> command command]]
-   - [[#2017-03-01-wed-detect-ostype][<2017-03-01 Wed> Detect ostype]]
-   - [[#2017-03-02-thu-sed-separator][<2017-03-02 Thu> sed separator]]
-   - [[#2017-03-23-thu-bash-escape-color][<2017-03-23 Thu> bash escape color]]
-   - [[#2017-03-24-fri-resolvconf][<2017-03-24 Fri> resolvconf]]
-   - [[#2017-03-30-thu-trap][<2017-03-30 Thu> trap]]
+- [[#how-to][How-to]]
+  - [[#-vs-][$* vs $@]]
+  - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
+  - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
+  - [[#getting-the-source-directory][Getting the source directory]]
+  - [[#glob-dotfiles][Glob dotfiles]]
+  - [[#here-document][Here document]]
+  - [[#inode-structure][Inode Structure]]
+  - [[#mounting-a-volume][Mounting a Volume]]
+  - [[#prevents-partially-downloaded-scripts-from-executing][Prevents partially downloaded scripts from executing]]
+  - [[#prompt-a-user-for-yesno][Prompt a user for yes/no]]
+  - [[#pseudo-terminals][Pseudo Terminals]]
+  - [[#python-simple-web-server-for-sharing-files][Python simple web server for sharing files]]
+  - [[#swap-spacesfiles][Swap spaces/files]]
+  - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
+  - [[#use-command-output-as-a-file][Use command output as a file]]
+  - [[#useful-one-liners][Useful One-liners]]
+  - [[#how-to-pipe-stderr-and-not-stdout][How to pipe stderr, and not stdout?]]
+  - [[#change-hostname][Change hostname]]
+- [[#topics][Topics]]
+  - [[#arithmetic-expansion][Arithmetic Expansion]]
+  - [[#brace-expansion][Brace Expansion]]
+  - [[#history-expansion][History Expansion]]
+  - [[#shell-parameter-expansion][Shell Parameter Expansion]]
+  - [[#array][array]]
+  - [[#case][case]]
+  - [[#for][for]]
+  - [[#function][function]]
+  - [[#if][if]]
+  - [[#redirection][Redirection]]
+  - [[#set][set]]
+  - [[#escaping-quotes][Escaping quotes]]
+- [[#reference][Reference]]
+  - [[#curl][curl]]
+  - [[#du][du]]
+  - [[#grep][grep]]
+  - [[#lsof][lsof]]
+  - [[#mount][mount]]
+  - [[#nc][nc]]
+  - [[#pgrep][pgrep]]
+  - [[#pkill][pkill]]
+  - [[#sort][sort]]
+  - [[#su][su]]
+  - [[#tar][tar]]
+  - [[#tee][tee]]
+  - [[#watch][watch]]
+  - [[#xargs][xargs]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+  - [[#2017-06-29-thu-shift][<2017-06-29 Thu> shift]]
+  - [[#2017-02-09-thu-how-do-i-copy-multiple-files-by-wildcard][<2017-02-09 Thu> How do I copy multiple files by wildcard?]]
+  - [[#2017-02-09-thu-cat-xargs-grep][<2017-02-09 Thu> cat, xargs, grep]]
+  - [[#2017-02-01-wed-crond][<2017-02-01 Wed> cron.d]]
+  - [[#2017-02-01-wed-device-naming-on-linux-instances][<2017-02-01 Wed> Device Naming on Linux Instances]]
+  - [[#2017-03-01-wed-command-command][<2017-03-01 Wed> command command]]
+  - [[#2017-03-01-wed-detect-ostype][<2017-03-01 Wed> Detect ostype]]
+  - [[#2017-03-02-thu-sed-separator][<2017-03-02 Thu> sed separator]]
+  - [[#2017-03-23-thu-bash-escape-color][<2017-03-23 Thu> bash escape color]]
+  - [[#2017-03-24-fri-resolvconf][<2017-03-24 Fri> resolvconf]]
+  - [[#2017-03-30-thu-trap][<2017-03-30 Thu> trap]]
 
-* Primitives
+* How-to
+** $* vs $@
+- http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
+- https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
+- Use ~​"$@"​~ for most cases
+
+#+BEGIN_SRC shell
+  $ set -- "arg  1" "arg  2" "arg  3"
+
+  $ for word in $*; do echo "$word"; done
+  arg
+  1
+  arg
+  2
+  arg
+  3
+
+  $ for word in $@; do echo "$word"; done
+  arg
+  1
+  arg
+  2
+  arg
+  3
+
+  $ for word in "$*"; do echo "$word"; done
+  arg  1 arg  2 arg  3
+
+  $ for word in "$@"; do echo "$word"; done
+  arg  1
+  arg  2
+  arg  3
+#+END_SRC
+** Empty the contents of a file
+- https://unix.stackexchange.com/questions/88808/empty-the-contents-of-a-file
+
+#+BEGIN_SRC shell
+  > filename                   # clever
+  cp /dev/null filename        # naive
+  cat /dev/null > filename     # intuitive
+  dd if=/dev/null of=filename  # efficient
+  truncate filename --size 0   # explicit
+#+END_SRC
+
+** Force exit code 0 in spite of error
+- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
+
+#+BEGIN_SRC shell
+  set -euo pipefail
+  <command> || true
+  echo 'Prints even if <command> fails'
+#+END_SRC
+
+** Getting the source directory
+- http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
+
+#+BEGIN_SRC shell
+  DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+#+END_SRC
+
+Repalce ~BASH_SOURCE~ with ~$0~ for zsh, taking account of the [[http://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source][limitation]].
+
+** Glob dotfiles
+- http://stackoverflow.com/questions/20895502/bash-asterisk-omits-files-that-start-with
+- http://unix.stackexchange.com/questions/89749/cp-hidden-files-with-glob-patterns
+
+You can't just match dotfiles(whose names start with ~.~) with the wildcard(~*~).
+There are some workarounds:
+#+BEGIN_SRC shell
+  for item in .* *; do echo "$item"; done  # simplest
+
+  # for bash (shopt is bash specific)
+  shopt -s dotglob  # set dotglob
+  echo *
+  shopt -u dotglob  # unset dotglob
+
+  # for zsh (glob qualifier, GLOB_DOTS)
+  $ cp foo/*(D) .
+#+END_SRC
+
+** Here document
+- https://en.wikipedia.org/wiki/Here_document
+
+#+BEGIN_SRC shell
+  tr a-z A-Z << END_TEXT
+  one two three
+  four five six
+  END_TEXT
+#+END_SRC
+#+BEGIN_EXAMPLE
+  ONE TWO THREE
+  FOUR FIVE SIX
+#+END_EXAMPLE
+
+
+#+BEGIN_SRC shell
+  # Ignore leading tabs
+  tr a-z A-Z <<- END_TEXT
+           one two three
+           four five six
+           END_TEXT
+#+END_SRC
+#+BEGIN_EXAMPLE
+  (Same as above)
+#+END_EXAMPLE
+
+
+#+BEGIN_SRC shell
+  # Disable string interpolation
+  cat << 'EOF'
+  \$ Working dir "$PWD" `pwd`
+  EOF
+#+END_SRC
+#+BEGIN_EXAMPLE
+  \$ Working dir "$PWD" `pwd`
+#+END_EXAMPLE
+
+
+- For redirections and pipelining:
+- https://unix.stackexchange.com/questions/88490/how-do-you-use-output-redirection-in-combination-with-here-documents-and-cat
+
+#+BEGIN_SRC shell
+  cat <<EOF | sh
+  touch somefile
+  echo foo > somefile
+  EOF
+#+END_SRC
+
+#+BEGIN_SRC shell
+  (
+  cat <<EOF
+  touch somefile
+  echo foo > somefile
+  EOF
+  ) | sh
+#+END_SRC
+
+#+BEGIN_SRC shell
+  {
+  cat <<EOF
+  touch somefile
+  echo foo > somefile
+  EOF
+  } | sh
+#+END_SRC
+
+#+BEGIN_SRC shell
+  cat >out <<EOF
+  test
+  EOF
+#+END_SRC
+
+** Inode Structure
+- http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file
+
+[[file:img/screenshot_2017-03-02_22-48-52.png]]
+
+#+BEGIN_QUOTE
+inodes starts at number 2 (root)
+
+inode12(dir_1)’s count is 2, because it’s parent and self-reference(.) pointing it.
+root(2) is only exception(expected 3 but 4), *because it’s pointed by superblock*;
+
+The *superblock* is essentially file system metadata and defines the file system type, size, status, and
+information about other metadata structures (metadata of metadata).
+#+END_QUOTE
+
+#+BEGIN_SRC shell
+  $ ls -i
+  624402 Applications   638157 Dropbox        606644 Pictures     19695291 nltk_data
+  606600 Desktop        606588 Library      19316918 PredictionIO  2688212 repos
+  606584 Documents      606640 Movies         606646 Public       24277126 screenshots
+  606586 Downloads      606642 Music        24707402 bin          22461472 venvs
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ touch test
+  $ stat test
+  File: 'test'
+  Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+  Device: ca01h/51713d    Inode: 14999       Links: 1
+  Access: (0664/-rw-rw-r--)  Uid: (  500/ec2-user)   Gid: (  500/ec2-user)
+  Access: 2017-03-02 18:20:00.503961613 +0000
+  Modify: 2017-03-02 18:20:00.503961613 +0000
+  Change: 2017-03-02 18:20:00.503961613 +0000
+  Birth: -
+#+END_SRC
+
+** Mounting a Volume
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
+- https://en.wikipedia.org/wiki/Fstab
+
+#+BEGIN_SRC shell
+  # view your available disk devices and their mount points
+  [root]$ lsblk
+  NAME  MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+  xvdf  202:80   0  100G  0 disk
+  xvda1 202:1    0    8G  0 disk /
+
+  # check other details
+  [root]$ blkid
+  /dev/xvda1: LABEL="/" UUID="abcdefgh-1234-ijkl-4567-qwertyasdfgh" TYPE="ext4" PARTLABEL="Linux" PARTUUID="12321555-asda-asas-asdg-142khkhkhcsd"
+#+END_SRC
+
+#+BEGIN_SRC shell
+  [root]$ file -s /dev/xvda1
+  /dev/xvda1: Linux rev 1.0 ext4 filesystem data, UUID=1701d228-e1bd-4094-a14c-8c64d6819362, ...
+
+  [root]$ file -s /dev/xvdf
+  /dev/xvdf: data  # no file system
+#+END_SRC
+
+#+BEGIN_SRC shell
+  [root]$ mkfs -t ext4 /dev/xvdf
+  [root]$ mkdir /my/path
+  [root]$ mount /dev/xvdf /my/path
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Mount the volume permanently
+  [root]$ cp /etc/fstab /etc/fstab.orig  # backup
+
+  # /etc/fstab : columns are separated with ' ' or '\t'
+  # ------------------------------------------------------------------------------
+  # Use UUID because /dev/xvdf may change
+  # - check UUID from the output of file -s /dev/xvdf
+  # SEE: $ man fstab
+  # - 0 stands for (not dumping, default)
+  # - 2 stands for (other than root volume)
+  /dev/xvda1  (...)
+  UUID=de9a1ccd-a2dd-44f1-8be8-2d4275cb85a3  /my/path  ext4  defaults,nofail  0  2
+  # ------------------------------------------------------------------------------
+
+  # mount with /etc/fstab manually
+  [root]$ mount -a
+#+END_SRC
+
+*** lost+found
+- http://unix.stackexchange.com/questions/18154/what-is-the-purpose-of-the-lostfound-folder-in-linux-and-unix
+
+#+BEGIN_QUOTE
+The thing is, the file had a name and location once, but that information is no longer available.
+So ~fsck~ deposits the file in a specific directory, called ~lost+found~
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Files that appear in ~lost+found~ are typically files that were already unlinked (i.e. their name had been erased)
+but still opened by some process (so the data wasn't erased yet)when the system halted suddenly (kernel panic or power failure).
+If that's all that happened, these files were slated for deletion anyway, you don't need to care about them.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+On many filesystems, the ~lost+found~ directory is a bit special
+because it preallocates a bit of space for ~fsck~ to deposit files there. (...)
+If you accidentally delete ~lost+found~, *don't re-create it with* ~mkdir~, *use* ~mklost+found~ *if available*.
+#+END_QUOTE
+
+** Prevents partially downloaded scripts from executing
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  {
+      # Your code here
+  }
+#+END_SRC
+
+** Prompt a user for yes/no
+- http://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias/3231821#3231821
+- http://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
+
+#+BEGIN_SRC shell
+  read -p "Are you sure you want to continue? <y/N> " prompt
+  if [[ "$prompt" =~ [yY](es)* ]]
+  then
+  fi
+#+END_SRC
+
+** Pseudo Terminals
+- https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
+
+if you run a process on the terminal,
+you can interrupt it by pressing ~Ctrl+C~.
+
+if a process is not associated with any terminal,
+you *can't* interrupt it with ~Ctrl+C~,
+instead you would probably have to run ~kill~ or something like that
+
+~sshd~ process *passes your keystrokes to the remote process*
+by writing them to the master end of the *pseudo-terminal*.
+
+By default the remote ~sshd~ will allocate a ~pty~ only *when you don't specify* a command.
+
+If you try ~ssh remote.host screen~ then
+you'll see that specifying the command suppresses the ~pty~ allocation and you'll be in trouble again.
+To avoid this, specify the ~-t~ option, and then the remote ~sshd~ will always try to allocate a terminal.
+
+Use the flag of ~-T~ for explicitly disabling ~pty~.
+
+** Python simple web server for sharing files
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  python -m SimpleHTTPServer 7777
+  python3 -m http.server 7777
+#+END_SRC
+
+** Swap spaces/files
+#+BEGIN_SRC shell
+  [root]$ mkswap /dev/hdb1
+  [root]$ swapon /dev/hdb1
+#+END_SRC
+
+#+BEGIN_SRC shell
+  [root]$ dd if=/dev/zero of=/swap_file bs=1024k count=num_mb
+  [root]$ mkswap /swap_file
+  [root]$ swapon /swap_file
+#+END_SRC
+
+#+BEGIN_SRC shell
+  [root]$ swapoff -a  # turns off all swap spaces
+  [root]$ rm -f /swap_file
+#+END_SRC
+
+** Temporarily move to a different working directory via subshell
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  # do something in current dir
+  (cd /some/other/dir && other-command)
+  # continue in original dir
+#+END_SRC
+
+** Use command output as a file
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+
+#+BEGIN_SRC shell
+  diff /etc/hosts <(ssh somehost cat /etc/hosts)
+#+END_SRC
+
+** Useful One-liners
+- https://github.com/jlevy/the-art-of-command-line#one-liners
+
+#+BEGIN_SRC shell
+  cat a b | sort | uniq > c        # c is a union b
+  cat a b | sort | uniq -d > c     # c is a intersect b
+  cat a b b | sort | uniq -u > c   # c is set difference a - b
+
+  grep . *     # overview for contents of current directory
+  head -100 *  # same as above, with only first 100 lines
+
+  # sum of all numbers in the third column
+  awk '{ x += $3 } END { print x }' myfile
+#+END_SRC
+
+** How to pipe stderr, and not stdout?
+- https://stackoverflow.com/questions/2342826/how-to-pipe-stderr-and-not-stdout
+- Redirect ~stderr~ to ~stdout~
+- Redirect ~stdout~ to ~/dev/null~
+
+#+BEGIN_SRC shell
+  command 2>&1 >/dev/null | grep 'something'
+#+END_SRC
+
+** Change hostname
+-
+#+BEGIN_SRC shell
+  sudo sed -i "s/^127.0.0.1 localhost.*\$/127.0.0.1 localhost ${NEW_NAME}/" /etc/hosts
+  sudo bash -c "echo ${NEW_NAME} > /etc/hostname"
+  sudo hostname "${NEW_NAME}"
+#+END_SRC
+
+* Topics
 ** Arithmetic Expansion
 - https://www.gnu.org/software/bash/manual/bashref.html#Arithmetic-Expansion
 - https://www.gnu.org/software/bash/manual/bashref.html#Shell-Arithmetic
@@ -504,7 +874,7 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   echo $'Can\'t do that'
 #+END_SRC
 
-* Commands
+* Reference
 ** curl
 - https://ec.haxx.se/usingcurl-returns.html
 
@@ -983,377 +1353,6 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   $ find . -name '*conflicted*' -print0 | xargs -0 rm
 #+END_SRC
 
-* Use Cases
-** $* vs $@
-- http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
-- https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
-- Use ~​"$@"​~ for most cases
-
-#+BEGIN_SRC shell
-  $ set -- "arg  1" "arg  2" "arg  3"
-
-  $ for word in $*; do echo "$word"; done
-  arg
-  1
-  arg
-  2
-  arg
-  3
-
-  $ for word in $@; do echo "$word"; done
-  arg
-  1
-  arg
-  2
-  arg
-  3
-
-  $ for word in "$*"; do echo "$word"; done
-  arg  1 arg  2 arg  3
-
-  $ for word in "$@"; do echo "$word"; done
-  arg  1
-  arg  2
-  arg  3
-#+END_SRC
-** Empty the contents of a file
-- https://unix.stackexchange.com/questions/88808/empty-the-contents-of-a-file
-
-#+BEGIN_SRC shell
-  > filename                   # clever
-  cp /dev/null filename        # naive
-  cat /dev/null > filename     # intuitive
-  dd if=/dev/null of=filename  # efficient
-  truncate filename --size 0   # explicit
-#+END_SRC
-
-** Force exit code 0 in spite of error
-- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
-
-#+BEGIN_SRC shell
-  set -euo pipefail
-  <command> || true
-  echo 'Prints even if <command> fails'
-#+END_SRC
-
-** Getting the source directory
-- http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
-
-#+BEGIN_SRC shell
-  DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-#+END_SRC
-
-Repalce ~BASH_SOURCE~ with ~$0~ for zsh, taking account of the [[http://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source][limitation]].
-
-** Glob dotfiles
-- http://stackoverflow.com/questions/20895502/bash-asterisk-omits-files-that-start-with
-- http://unix.stackexchange.com/questions/89749/cp-hidden-files-with-glob-patterns
-
-You can't just match dotfiles(whose names start with ~.~) with the wildcard(~*~).
-There are some workarounds:
-#+BEGIN_SRC shell
-  for item in .* *; do echo "$item"; done  # simplest
-
-  # for bash (shopt is bash specific)
-  shopt -s dotglob  # set dotglob
-  echo *
-  shopt -u dotglob  # unset dotglob
-
-  # for zsh (glob qualifier, GLOB_DOTS)
-  $ cp foo/*(D) .
-#+END_SRC
-
-** Here document
-- https://en.wikipedia.org/wiki/Here_document
-
-#+BEGIN_SRC shell
-  tr a-z A-Z << END_TEXT
-  one two three
-  four five six
-  END_TEXT
-#+END_SRC
-#+BEGIN_EXAMPLE
-  ONE TWO THREE
-  FOUR FIVE SIX
-#+END_EXAMPLE
-
-
-#+BEGIN_SRC shell
-  # Ignore leading tabs
-  tr a-z A-Z <<- END_TEXT
-           one two three
-           four five six
-           END_TEXT
-#+END_SRC
-#+BEGIN_EXAMPLE
-  (Same as above)
-#+END_EXAMPLE
-
-
-#+BEGIN_SRC shell
-  # Disable string interpolation
-  cat << 'EOF'
-  \$ Working dir "$PWD" `pwd`
-  EOF
-#+END_SRC
-#+BEGIN_EXAMPLE
-  \$ Working dir "$PWD" `pwd`
-#+END_EXAMPLE
-
-
-- For redirections and pipelining:
-- https://unix.stackexchange.com/questions/88490/how-do-you-use-output-redirection-in-combination-with-here-documents-and-cat
-
-#+BEGIN_SRC shell
-  cat <<EOF | sh
-  touch somefile
-  echo foo > somefile
-  EOF
-#+END_SRC
-
-#+BEGIN_SRC shell
-  (
-  cat <<EOF
-  touch somefile
-  echo foo > somefile
-  EOF
-  ) | sh
-#+END_SRC
-
-#+BEGIN_SRC shell
-  {
-  cat <<EOF
-  touch somefile
-  echo foo > somefile
-  EOF
-  } | sh
-#+END_SRC
-
-#+BEGIN_SRC shell
-  cat >out <<EOF
-  test
-  EOF
-#+END_SRC
-
-** Inode Structure
-- http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file
-
-[[file:img/screenshot_2017-03-02_22-48-52.png]]
-
-#+BEGIN_QUOTE
-inodes starts at number 2 (root)
-
-inode12(dir_1)’s count is 2, because it’s parent and self-reference(.) pointing it.
-root(2) is only exception(expected 3 but 4), *because it’s pointed by superblock*;
-
-The *superblock* is essentially file system metadata and defines the file system type, size, status, and
-information about other metadata structures (metadata of metadata).
-#+END_QUOTE
-
-#+BEGIN_SRC shell
-  $ ls -i
-  624402 Applications   638157 Dropbox        606644 Pictures     19695291 nltk_data
-  606600 Desktop        606588 Library      19316918 PredictionIO  2688212 repos
-  606584 Documents      606640 Movies         606646 Public       24277126 screenshots
-  606586 Downloads      606642 Music        24707402 bin          22461472 venvs
-#+END_SRC
-
-#+BEGIN_SRC shell
-  $ touch test
-  $ stat test
-  File: 'test'
-  Size: 0               Blocks: 0          IO Block: 4096   regular empty file
-  Device: ca01h/51713d    Inode: 14999       Links: 1
-  Access: (0664/-rw-rw-r--)  Uid: (  500/ec2-user)   Gid: (  500/ec2-user)
-  Access: 2017-03-02 18:20:00.503961613 +0000
-  Modify: 2017-03-02 18:20:00.503961613 +0000
-  Change: 2017-03-02 18:20:00.503961613 +0000
-  Birth: -
-#+END_SRC
-
-** Mounting a Volume
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
-- https://en.wikipedia.org/wiki/Fstab
-
-#+BEGIN_SRC shell
-  # view your available disk devices and their mount points
-  [root]$ lsblk
-  NAME  MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-  xvdf  202:80   0  100G  0 disk
-  xvda1 202:1    0    8G  0 disk /
-
-  # check other details
-  [root]$ blkid
-  /dev/xvda1: LABEL="/" UUID="abcdefgh-1234-ijkl-4567-qwertyasdfgh" TYPE="ext4" PARTLABEL="Linux" PARTUUID="12321555-asda-asas-asdg-142khkhkhcsd"
-#+END_SRC
-
-#+BEGIN_SRC shell
-  [root]$ file -s /dev/xvda1
-  /dev/xvda1: Linux rev 1.0 ext4 filesystem data, UUID=1701d228-e1bd-4094-a14c-8c64d6819362, ...
-
-  [root]$ file -s /dev/xvdf
-  /dev/xvdf: data  # no file system
-#+END_SRC
-
-#+BEGIN_SRC shell
-  [root]$ mkfs -t ext4 /dev/xvdf
-  [root]$ mkdir /my/path
-  [root]$ mount /dev/xvdf /my/path
-#+END_SRC
-
-#+BEGIN_SRC shell
-  # Mount the volume permanently
-  [root]$ cp /etc/fstab /etc/fstab.orig  # backup
-
-  # /etc/fstab : columns are separated with ' ' or '\t'
-  # ------------------------------------------------------------------------------
-  # Use UUID because /dev/xvdf may change
-  # - check UUID from the output of file -s /dev/xvdf
-  # SEE: $ man fstab
-  # - 0 stands for (not dumping, default)
-  # - 2 stands for (other than root volume)
-  /dev/xvda1  (...)
-  UUID=de9a1ccd-a2dd-44f1-8be8-2d4275cb85a3  /my/path  ext4  defaults,nofail  0  2
-  # ------------------------------------------------------------------------------
-
-  # mount with /etc/fstab manually
-  [root]$ mount -a
-#+END_SRC
-
-*** lost+found
-- http://unix.stackexchange.com/questions/18154/what-is-the-purpose-of-the-lostfound-folder-in-linux-and-unix
-
-#+BEGIN_QUOTE
-The thing is, the file had a name and location once, but that information is no longer available.
-So ~fsck~ deposits the file in a specific directory, called ~lost+found~
-#+END_QUOTE
-
-#+BEGIN_QUOTE
-Files that appear in ~lost+found~ are typically files that were already unlinked (i.e. their name had been erased)
-but still opened by some process (so the data wasn't erased yet)when the system halted suddenly (kernel panic or power failure).
-If that's all that happened, these files were slated for deletion anyway, you don't need to care about them.
-#+END_QUOTE
-
-#+BEGIN_QUOTE
-On many filesystems, the ~lost+found~ directory is a bit special
-because it preallocates a bit of space for ~fsck~ to deposit files there. (...)
-If you accidentally delete ~lost+found~, *don't re-create it with* ~mkdir~, *use* ~mklost+found~ *if available*.
-#+END_QUOTE
-
-** Prevents partially downloaded scripts from executing
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  {
-      # Your code here
-  }
-#+END_SRC
-
-** Prompt a user for yes/no
-- http://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias/3231821#3231821
-- http://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
-
-#+BEGIN_SRC shell
-  read -p "Are you sure you want to continue? <y/N> " prompt
-  if [[ "$prompt" =~ [yY](es)* ]]
-  then
-  fi
-#+END_SRC
-
-** Pseudo Terminals
-- https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
-
-if you run a process on the terminal,
-you can interrupt it by pressing ~Ctrl+C~.
-
-if a process is not associated with any terminal,
-you *can't* interrupt it with ~Ctrl+C~,
-instead you would probably have to run ~kill~ or something like that
-
-~sshd~ process *passes your keystrokes to the remote process*
-by writing them to the master end of the *pseudo-terminal*.
-
-By default the remote ~sshd~ will allocate a ~pty~ only *when you don't specify* a command.
-
-If you try ~ssh remote.host screen~ then
-you'll see that specifying the command suppresses the ~pty~ allocation and you'll be in trouble again.
-To avoid this, specify the ~-t~ option, and then the remote ~sshd~ will always try to allocate a terminal.
-
-Use the flag of ~-T~ for explicitly disabling ~pty~.
-
-** Python simple web server for sharing files
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  python -m SimpleHTTPServer 7777
-  python3 -m http.server 7777
-#+END_SRC
-
-** Swap spaces/files
-#+BEGIN_SRC shell
-  [root]$ mkswap /dev/hdb1
-  [root]$ swapon /dev/hdb1
-#+END_SRC
-
-#+BEGIN_SRC shell
-  [root]$ dd if=/dev/zero of=/swap_file bs=1024k count=num_mb
-  [root]$ mkswap /swap_file
-  [root]$ swapon /swap_file
-#+END_SRC
-
-#+BEGIN_SRC shell
-  [root]$ swapoff -a  # turns off all swap spaces
-  [root]$ rm -f /swap_file
-#+END_SRC
-
-** Temporarily move to a different working directory via subshell
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  # do something in current dir
-  (cd /some/other/dir && other-command)
-  # continue in original dir
-#+END_SRC
-
-** Use command output as a file
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
-
-#+BEGIN_SRC shell
-  diff /etc/hosts <(ssh somehost cat /etc/hosts)
-#+END_SRC
-
-** Useful One-liners
-- https://github.com/jlevy/the-art-of-command-line#one-liners
-
-#+BEGIN_SRC shell
-  cat a b | sort | uniq > c        # c is a union b
-  cat a b | sort | uniq -d > c     # c is a intersect b
-  cat a b b | sort | uniq -u > c   # c is set difference a - b
-
-  grep . *     # overview for contents of current directory
-  head -100 *  # same as above, with only first 100 lines
-
-  # sum of all numbers in the third column
-  awk '{ x += $3 } END { print x }' myfile
-#+END_SRC
-
-** How to pipe stderr, and not stdout?
-- https://stackoverflow.com/questions/2342826/how-to-pipe-stderr-and-not-stdout
-- Redirect ~stderr~ to ~stdout~
-- Redirect ~stdout~ to ~/dev/null~
-
-#+BEGIN_SRC shell
-  command 2>&1 >/dev/null | grep 'something'
-#+END_SRC
-
-** Change hostname
--
-#+BEGIN_SRC shell
-  sudo sed -i "s/^127.0.0.1 localhost.*\$/127.0.0.1 localhost ${NEW_NAME}/" /etc/hosts
-  sudo bash -c "echo ${NEW_NAME} > /etc/hostname"
-  sudo hostname "${NEW_NAME}"
-#+END_SRC
-
 * Links
 - https://github.com/jlevy/the-art-of-command-line
 - https://google.github.io/styleguide/shell.xml
@@ -1373,7 +1372,6 @@ http://unix.stackexchange.com/questions/122605/how-do-i-copy-multiple-files-by-w
   cat names | xargs -I {} grep --exclude='*.po' '{}' k1server/**/*(.)
 #+END_EXAMPLE
 
-** TODO <2017-02-09 Thu> iostat
 ** TODO <2017-02-01 Wed> cron.d
 - http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log
 

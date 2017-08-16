@@ -17,5 +17,16 @@
 * Topics
 * Reference
 ** iostat
+- https://www.percona.com/blog/2014/06/25/why-util-number-from-iostat-is-meaningless-for-mysql-capacity-planning/
+
+#+BEGIN_SRC shell
+  iostat -xmdz 1
+  #       ││││ └─ Repeat every 1 second
+  #       │││└─ Omit output for any devices for which there was no activity during the sample period
+  #       ││└─ Display the device utilization report
+  #       │└─ Display statistics in megabytes per second
+  #       └─ Display extended statistics
+#+END_SRC
+
 * Terminology
 * Staging
