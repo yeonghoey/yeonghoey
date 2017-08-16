@@ -37,6 +37,7 @@
   - [[#curl][curl]]
   - [[#du][du]]
   - [[#grep][grep]]
+  - [[#jq][jq]]
   - [[#lsof][lsof]]
   - [[#mount][mount]]
   - [[#nc][nc]]
@@ -999,6 +1000,24 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   $ grep -Z baz foobar.tar.gz; echo $?
   1
 #+END_SRC
+
+** jq
+- https://stedolan.github.io/jq/
+
+#+BEGIN_SRC json
+  [{"id": "first", "val": 1}, {"id": "second", "val": 2}]
+#+END_SRC
+
+#+BEGIN_SRC shell
+  jq '.[] | select(.id == "second")'
+#+END_SRC
+
+#+BEGIN_SRC json
+  {"id": "second", "val": 2}
+#+END_SRC
+
+
+
 
 ** lsof
 - https://itsmetommy.com/2011/06/23/lsof-list-of-open-files/
