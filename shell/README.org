@@ -1002,20 +1002,8 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 #+END_SRC
 
 ** jq
-- https://stedolan.github.io/jq/
+- https://stedolan.github.io/jq/manual/
 - https://jqplay.org/
-
-#+BEGIN_SRC json
-  [{"id": "first", "val": 1}, {"id": "second", "val": 2}]
-#+END_SRC
-  
-#+BEGIN_SRC shell
-  jq '.[] | select(.id == "second")'
-#+END_SRC
-  
-#+BEGIN_SRC json
-  {"id": "second", "val": 2}
-#+END_SRC
 
 #+BEGIN_SRC json
   [{"name": "apple", "price": 10}, {"name": "orange", "price": 20}]
@@ -1032,7 +1020,6 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 #+BEGIN_SRC json
   {"orange": 20}
 #+END_SRC
-
 
 ** lsof
 - https://itsmetommy.com/2011/06/23/lsof-list-of-open-files/
