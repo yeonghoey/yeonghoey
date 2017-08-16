@@ -4,12 +4,34 @@
 * Table of Contents :TOC_2_gh:
 - [[#how-to][How-to]]
 - [[#reference][Reference]]
+  - [[#internalsettings][internalSettings]]
 - [[#topics][Topics]]
   - [[#tunable-memory-and-ejection-policy][Tunable Memory and Ejection Policy]]
 - [[#staging][Staging]]
 
 * How-to
 * Reference
+** internalSettings
+- https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html
+
+#+BEGIN_SRC shell
+  $ curl -u Administrator:password -v http://localhost:8091/internalSettings
+  {
+    "indexAwareRebalanceDisabled": false,
+    "rebalanceIndexWaitingDisabled": false,
+    "rebalanceIndexPausingDisabled": false,
+    "rebalanceIgnoreViewCompactions": false,
+    "rebalanceMovesPerNode": 1,
+    "rebalanceMovesBeforeCompaction": 64,
+    "maxParallelIndexers": 4,
+    "maxParallelReplicaIndexers": 2,
+    "maxBucketCount": 10,
+    "gotraceback": "crash",
+    "indexAutoFailoverDisabled": true,
+    "certUseSha1": false
+  }
+#+END_SRC
+
 * Topics
 ** Tunable Memory and Ejection Policy
 - https://developer.couchbase.com/documentation/server/4.6/architecture/db-engine-architecture.html#concept_b5n_bwn_vs__full-ejection

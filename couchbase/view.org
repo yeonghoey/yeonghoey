@@ -1,13 +1,27 @@
 #+TITLE: View
 
 * Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
 - [[#how-to][How-to]]
 - [[#reference][Reference]]
   - [[#maxparallelindexers][maxParallelIndexers]]
 - [[#topics][Topics]]
   - [[#indexers][Indexers]]
 - [[#terminology][Terminology]]
+- [[#links][Links]]
 - [[#staging][Staging]]
+
+* Overview
+- https://developer.couchbase.com/documentation/server/4.6/views/views-intro.html
+- https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html
+
+[[file:img/screenshot_2017-08-16_18-54-27.png]]
+
+- ~Views~ belong to a ~design document~. ~Design documents~ belong to a ~bucket~.
+- ~View~ names must be specified using *one or more* ~UTF-8~ characters.
+- All the ~views~ within a single ~design document~ are updated when the update to a single ~view~ is triggered.
+- Expired ~documents~ may still exist within the index.
+- ~Views~ are updated incrementally
 
 * How-to
 * Reference
@@ -42,4 +56,7 @@ Couchbase makes no recommendations for tuning beyond the default settings.
 ** Indexers
 
 * Terminology
+* Links
+- https://developer.couchbase.com/documentation/server/4.6/architecture/incremental-map-reduce-views.html
+
 * Staging
