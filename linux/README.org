@@ -17,6 +17,7 @@
 * Topics
 * Reference
 ** iostat
+- https://forums.aws.amazon.com/thread.jspa?messageID=124044#124227
 - https://www.percona.com/blog/2014/06/25/why-util-number-from-iostat-is-meaningless-for-mysql-capacity-planning/
 
 #+BEGIN_SRC shell
@@ -33,6 +34,8 @@
   xvdf       0.00  2934.00    0.00 2000.00     0.00    48.69    49.86     2.59    1.30    0.00    1.30   0.50  99.60
 #+END_EXAMPLE
 
+- ~await~ ::
+  test
 - ~%util~ ::
   Percentage of CPU time during whchi I/O requests were issed to the device. 
   High ~%util~ doesn't always say that there is an overload.
