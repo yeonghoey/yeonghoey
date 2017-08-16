@@ -23,12 +23,12 @@
 - ~View~ names must be specified using *one or more* ~UTF-8~ characters.
 - All the ~views~ within a single ~design document~ are updated when the update to a single ~view~ is triggered.
 - Expired ~documents~ may still exist within the index.
-- ~Views~ are updated incrementally
+- ~Views~ are updated incrementally.
 - ~Index~ queries are *always accessed from disk*;
   *Keep some RAM reserved* for your operating system to allocate filesystem cache
-- Mostly, ~Views~ are *CPU intensive* for indexing
+- Mostly, ~Views~ are *CPU intensive* (for indexing)
 - All ~views~ are output in a *sorted* order according to the content and structure of the key.
-  Keys using a numeric value are sorted numerically, for strings, UTF-8 is used.
+  Keys using a numeric value are sorted numerically, for ~strings~, ~UTF-8~ is used.
 
 * How-to
 * Reference
@@ -91,5 +91,6 @@ Couchbase makes no recommendations for tuning beyond the default settings.
 * Terminology
 * Links
 - https://developer.couchbase.com/documentation/server/4.6/architecture/incremental-map-reduce-views.html
+- https://developer.couchbase.com/documentation/server/4.6/views/views-writing-views.html
 
 * Staging
