@@ -16,6 +16,7 @@
 ** assume-role-policy
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html
+- http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
 
 
 - User (Replace ~root~ with an user name if restrict the role for a specific user) ::
@@ -37,7 +38,7 @@
     "Statement": [
       {
         "Effect": "Allow",
-        "Principal": { "Service": "ec2.amazonaws.com"},
+        "Principal": { "Service": "ec2.amazonaws.com" },
         "Action": "sts:AssumeRole"
       }
     ]
@@ -112,10 +113,10 @@ The three separate condition operators are evaluated using *AND*.
 
 [[file:img/screenshot_2017-04-22_22-38-40.png]]
 
-*** Role Policy
+*** Assume Role Policy
 - http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
 
-~Role Policy~ describes how the role is used for.
+~Assume Role Policy~ describes how the role is used for.
 This is related to AWS STS(Security Token Service);
 Following is an example on a role for *EC2*:
 #+BEGIN_SRC json
