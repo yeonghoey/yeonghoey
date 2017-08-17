@@ -25,20 +25,35 @@
     "Version": "2012-10-17",
     "Statement": {
       "Effect": "Allow",
-      "Principal": { "AWS": "arn:aws:iam::123456789012:root" },
+      "Principal": {"AWS": "arn:aws:iam::123456789012:root"},
       "Action": "sts:AssumeRole",
     }
   }
 #+END_SRC
 
-- EC2 Instance ::
+- EC2 ::
 #+BEGIN_SRC json
   {
     "Version": "2012-10-17",
     "Statement": [
       {
         "Effect": "Allow",
-        "Principal": { "Service": "ec2.amazonaws.com" },
+        "Principal": {"Service": "ec2.amazonaws.com"},
+        "Action": "sts:AssumeRole"
+      }
+    ]
+  }
+#+END_SRC
+
+- Lambda ::
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "",
+        "Effect": "Allow",
+        "Principal": {"Service": "lambda.amazonaws.com"},
         "Action": "sts:AssumeRole"
       }
     ]
