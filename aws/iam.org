@@ -1,18 +1,107 @@
 #+TITLE: AWS IAM
 
 * Table of Contents :TOC_2_gh:
- - [[#concepts][Concepts]]
-   - [[#roles][Roles]]
-   - [[#policies-evaluation-logic][Policies Evaluation Logic]]
- - [[#policy][Policy]]
-   - [[#id][Id]]
-   - [[#statement][Statement]]
- - [[#role][Role]]
- - [[#use-cases][Use Cases]]
-   - [[#sharing-resources-with-an-external-aws-account-via-iam-role][Sharing resources with an external AWS account via IAM Role]]
+- [[#reference][Reference]]
+  - [[#assume-role-policy][assume-role-policy]]
+  - [[#policy-elements][Policy Elements]]
+- [[#topics][Topics]]
+  - [[#iam-role][IAM Role]]
+  - [[#policies-evaluation-logic][Policies Evaluation Logic]]
+- [[#how-to][How-to]]
+  - [[#share-resources-with-an-external-aws-account-via-iam-role][Share resources with an external AWS account via IAM Role]]
+- [[#links][Links]]
+- [[#staging][Staging]]
 
-* Concepts
-** Roles
+* Reference
+** assume-role-policy
+
+- User (Replace ~root~ with an user name if restrict the role for a specific user) ::
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": {
+      "Effect": "Allow",
+      "Principal": { "AWS": "arn:aws:iam::123456789012:root" },
+      "Action": "sts:AssumeRole",
+    }
+  }
+#+END_SRC
+
+- EC2 Instance ::
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": { "Service": "ec2.amazonaws.com"},
+        "Action": "sts:AssumeRole"
+      }
+    ]
+  }
+#+END_SRC
+
+** Policy Elements
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
+
+*** Id
+- An optional identifier
+- Using a UUID for the value is recommended
+- Services like SQS or SNS might require this
+
+: "Id": "cd3ad3d9-2776-4ef1-a904-4c229d1642ee"
+
+*** Statement
+- Required
+- Contains an array of individual statements
+
+#+BEGIN_SRC json
+  "Statement": [{...},{...},{...}]
+#+END_SRC
+
+*** Effect
+- Either ~Allow~ or ~Deny~
+
+*** Sid
+- An optional identifier
+- The ~Sid~ value must be unique within a policy
+
+#+BEGIN_SRC json
+  "Sid": "1"
+#+END_SRC
+
+*** Principal
+To specify the user (IAM user, federated user, or assumed-role user), AWS account, AWS service, or other principal entity that is allowed or denied access to a resource.
+
+*** Action
+*** Resource
+*** Not-
+*NotPrincipal*, *NotAction*, *NotResource* are dvanced policy elements that explicitly matches everything except the specified list of the elements.
+
+*** Condition
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html
+
+[[file:img/screenshot_2017-04-22_23-50-50.png]]
+
+#+BEGIN_SRC json
+  "Condition" :  {
+        "DateGreaterThan" : {
+           "aws:CurrentTime" : "2013-08-16T12:00:00Z"
+         },
+        "DateLessThan": {
+           "aws:CurrentTime" : "2013-08-16T15:00:00Z"
+         },
+         "IpAddress" : {
+            "aws:SourceIp" : ["192.0.2.0/24", "203.0.113.0/24"]
+        }
+  }
+#+END_SRC
+The two values for ~aws:SourceIp~ are evaluated using *OR*.
+The three separate condition operators are evaluated using *AND*.
+
+* Topics
+** IAM Role
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html
 - With some AWS SDKs, can use temporary credentials transparently.
@@ -60,65 +149,8 @@ that are applicable to the request(based on the resource, principal, action, and
 
 [[file:img/screenshot_2017-02-19_14-06-20.png]]
 
-* Policy
-- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
-
-** Id
-- An optional identifier
-- Using a UUID for the value is recommended
-- Services like SQS or SNS might require this
-
-: "Id": "cd3ad3d9-2776-4ef1-a904-4c229d1642ee"
-
-** Statement
-- Required
-- Contains an array of individual statements
-
-#+BEGIN_SRC json
-  "Statement": [{...},{...},{...}]
-#+END_SRC
-
-*** Effect
-- Either ~Allow~ or ~Deny~
-
-*** Sid
-- An optional identifier
-- The ~Sid~ value must be unique within a policy
-
-#+BEGIN_SRC json
-  "Sid": "1"
-#+END_SRC
-
-*** Principal
-*** Action
-*** Resource
-*** Not-
-*NotPrincipal*, *NotAction*, *NotResource* are dvanced policy elements that explicitly matches everything except the specified list of the elements.
-
-*** Condition
-- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys
-- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html
-
-[[file:img/screenshot_2017-04-22_23-50-50.png]]
-
-#+BEGIN_SRC json
-  "Condition" :  {
-        "DateGreaterThan" : {
-           "aws:CurrentTime" : "2013-08-16T12:00:00Z"
-         },
-        "DateLessThan": {
-           "aws:CurrentTime" : "2013-08-16T15:00:00Z"
-         },
-         "IpAddress" : {
-            "aws:SourceIp" : ["192.0.2.0/24", "203.0.113.0/24"]
-        }
-  }
-#+END_SRC
-The two values for ~aws:SourceIp~ are evaluated using *OR*.
-The three separate condition operators are evaluated using *AND*.
-* Role
-* Use Cases
-** Sharing resources with an external AWS account via IAM Role
+* How-to
+** Share resources with an external AWS account via IAM Role
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
 
@@ -132,7 +164,7 @@ This creates an assume role policy like this:
 
 ~Principal~ is 3rd party's AWS account id. For example:
 #+BEGIN_EXAMPLE
-  "AWS": ~arn:aws:iam::123456789012:root~
+  "AWS": "arn:aws:iam::123456789012:root"
 #+END_EXAMPLE
 
 But ironically, it's unable to specify an ~ExternalID~ when switching roles on AWS Console.
@@ -140,3 +172,5 @@ They only can be specified through awscli or other programatic accesses.
 
 An easy way to work around this is just delete that yellow line.
 This allows all users belong to target AWS Account to switch to the role.
+* Links
+* Staging
