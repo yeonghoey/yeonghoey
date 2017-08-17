@@ -6,6 +6,7 @@
   - [[#s3][s3]]
 - [[#topics][Topics]]
   - [[#iam-role][IAM Role]]
+  - [[#instance-profiles][Instance Profiles]]
   - [[#policy-elements][Policy Elements]]
   - [[#policies-evaluation-logic][Policies Evaluation Logic]]
 - [[#how-to][How-to]]
@@ -157,6 +158,18 @@ And it also requires its actual permissions:
     }
   }
 #+END_SRC
+
+** Instance Profiles
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html
+
+The instance profile contains the role and can provide the role's credentials to an application that runs on the instance.
+If you use the IAM console, the instance profile is managed for you and is mostly transparent to you.
+if you use the AWS CLI or API to create and manage the role and EC2 instance,
+then *you must create the instance profile and assign the role to it as separate steps.*
+Then, when you launch the instance, *you must specify the instance profile name* instead of the role name.
+
+[[file:img/screenshot_2017-08-17_19-33-27.png]]
 
 ** Policy Elements
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
