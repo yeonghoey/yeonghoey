@@ -33,6 +33,7 @@
 #+END_SRC
 
 - EC2 ::
+To attach the role to EC2 instances, an *instance profile* must be created.
 #+BEGIN_SRC json
   {
     "Version": "2012-10-17",
