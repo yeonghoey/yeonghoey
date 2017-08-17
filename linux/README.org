@@ -18,6 +18,7 @@
 * Reference
 ** iostat
 - https://forums.aws.amazon.com/thread.jspa?messageID=124044#124227
+- https://unix.stackexchange.com/questions/104192/iostat-await-vs-svctm
 - https://www.percona.com/blog/2014/06/25/why-util-number-from-iostat-is-meaningless-for-mysql-capacity-planning/
 
 #+BEGIN_SRC shell
