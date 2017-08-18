@@ -4,17 +4,17 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#apis][APIs]]
+  - [[#query-string-syntax][Query string syntax]]
 - [[#topics][Topics]]
   - [[#understanding-cluster][Understanding Cluster]]
   - [[#types-and-mappings][Types and Mappings]]
   - [[#inverted-index][Inverted Index]]
   - [[#how-queries-work][How Queries Work]]
 - [[#how-to][How-to]]
+  - [[#configure-settings-and-deployment][Configure Settings and Deployment]]
   - [[#manage-the-change-of-mappings][Manage the change of mappings]]
 - [[#links][Links]]
 - [[#staging][Staging]]
-- [[#settings-and-deployment][Settings and Deployment]]
-- [[#query-string-syntax][Query string syntax]]
 
 * Overview
 * Reference
@@ -24,86 +24,6 @@
 
 #+BEGIN_SRC shell
   curl -X DELETE 'localhost:9200/twitter?pretty'
-#+END_SRC
-
-*** _cluster
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
-
-#+BEGIN_SRC shell
-  curl 'http://localhost:9200/_cluster/health'
-  curl 'http://localhost:9200/_cluster/health?level=indices'
-  curl 'http://localhost:9200/_cluster/stats'
-#+END_SRC
-
-*** _nodes
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
-
-#+BEGIN_SRC shell
-  curl 'http://localhost:9200/_nodes/stats'
-#+END_SRC
-
-#+BEGIN_SRC json
-  {
-     "cluster_name": "elasticsearch_zach",
-     "nodes": {
-        "UNr6ZMf5Qk-YCPA_L18BOQ": {
-           "timestamp": 1408474151742,
-           "name": "Zach",
-           "transport_address": "inet[zacharys-air/192.168.1.131:9300]",
-           "host": "zacharys-air",
-           "ip": [
-              "inet[zacharys-air/192.168.1.131:9300]",
-              "NONE"
-           ],
-  ...
-#+END_SRC
-
-*** _cat
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cat_api.html
-
-#+BEGIN_SRC shell
-  curl 'http://localhost:9200/_cat/indices?v'
-  #                                        └─ enable headers
-#+END_SRC
-
-#+BEGIN_EXAMPLE
-  health status index                                  uuid                   pri rep docs.count docs.deleted store.size pri.store.size
-  green  open   logs-live-v2-2017-08-13  WZsOKpLPTqenX94e9bHW1g   5   1  294275045            0    226.1gb          113gb
-  green  open   logs-live-v2-2017-08-15  toS_eRpLTjSTya3vY5Ptjw   5   1  223682189            0    169.9gb         84.9gb
-  green  open   logs-live-v2-2017-08-16  Cs__a2aARcCVpfzatSk_GA   5   1  217529882            0    167.7gb         83.8gb
-  green  open   logs-release-v2-2017-08  59lJiVBASNWmDtmpRrCajw   5   1    1495794            0      1.3gb        728.4mb
-  green  open   logs-hotfix-v2-2017-08   sNOe06HQQ9-GwY86AMlOUg   5   1    1920518            0      2.1gb            1gb
-  green  open   logs-hotfix-v2-2017-07   medqyWS2RjmHUzrF0mTOjA   5   1     980643            0    484.8mb        242.4mb
-  green  open   logs-live-v2-2017-08-18  n5xWNmMNR56lp7aHwulMkA   5   1  114339261            0     89.2gb         45.4gb
-  green  open   logs-release-v2-2017-07  YibGjpmfQyakDpKm9ZE6Dg   5   1     187285            0    108.9mb         54.4mb
-  green  open   .kibana                  nqIdvMr_QOe7tLZRcTatzg   1   1         15            1     60.5kb         30.2kb
-  green  open   logs-live-v2-2017-08-14  3xFuhX4_TvaeYMEeLgMkCQ   5   1  226026719            0    170.7gb         85.3gb
-  green  open   logs-live-v2-2017-08-17  GVqhRMk7TsWB0KjUUqwTQw   5   1  225820075            0    164.4gb         82.2gb
-#+END_EXAMPLE
-
-*** _template
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
-
-#+BEGIN_SRC shell
-  curl -XPUT "$ES_ENDPOINT/_template/my-logging" --fail \
-       -H 'Content-Type: application/json' -d'
-  {
-    "template": "logging-*",
-    "mappings": {
-      "log": {
-        "properties": {
-          "time":             {"type": "date"},
-          "level":            {"type": "integer"},
-          "host":             {"type": "string", "index": "not_analyzed"},
-          "pid":              {"type": "string", "index": "not_analyzed"},
-          "channel":          {"type": "string"},
-          "message":          {"type": "string", "analyzer": "whitespace"},
-          "exc_info":         {"type": "string", "analyzer": "whitespace"}
-        }
-      }
-    }
-  }
-  '
 #+END_SRC
 
 *** _bulk
@@ -145,6 +65,135 @@ It is often useful to keep an eye on the physical size of your bulk requests.
 One thousand 1KB documents is very different from one thousand 1MB documents.
 *A good bulk size to start playing with is around 5-15MB in size*
 #+END_QUOTE
+
+*** _cat
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cat_api.html
+
+#+BEGIN_SRC shell
+  curl 'http://localhost:9200/_cat/indices?v'
+  #                                        └─ enable headers
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  health status index                                  uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+  green  open   logs-live-v2-2017-08-13  WZsOKpLPTqenX94e9bHW1g   5   1  294275045            0    226.1gb          113gb
+  green  open   logs-live-v2-2017-08-15  toS_eRpLTjSTya3vY5Ptjw   5   1  223682189            0    169.9gb         84.9gb
+  green  open   logs-live-v2-2017-08-16  Cs__a2aARcCVpfzatSk_GA   5   1  217529882            0    167.7gb         83.8gb
+  green  open   logs-release-v2-2017-08  59lJiVBASNWmDtmpRrCajw   5   1    1495794            0      1.3gb        728.4mb
+  green  open   logs-hotfix-v2-2017-08   sNOe06HQQ9-GwY86AMlOUg   5   1    1920518            0      2.1gb            1gb
+  green  open   logs-hotfix-v2-2017-07   medqyWS2RjmHUzrF0mTOjA   5   1     980643            0    484.8mb        242.4mb
+  green  open   logs-live-v2-2017-08-18  n5xWNmMNR56lp7aHwulMkA   5   1  114339261            0     89.2gb         45.4gb
+  green  open   logs-release-v2-2017-07  YibGjpmfQyakDpKm9ZE6Dg   5   1     187285            0    108.9mb         54.4mb
+  green  open   .kibana                  nqIdvMr_QOe7tLZRcTatzg   1   1         15            1     60.5kb         30.2kb
+  green  open   logs-live-v2-2017-08-14  3xFuhX4_TvaeYMEeLgMkCQ   5   1  226026719            0    170.7gb         85.3gb
+  green  open   logs-live-v2-2017-08-17  GVqhRMk7TsWB0KjUUqwTQw   5   1  225820075            0    164.4gb         82.2gb
+#+END_EXAMPLE
+
+*** _cluster
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
+
+#+BEGIN_SRC shell
+  curl 'http://localhost:9200/_cluster/health'
+  curl 'http://localhost:9200/_cluster/health?level=indices'
+  curl 'http://localhost:9200/_cluster/stats'
+#+END_SRC
+
+*** _nodes
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
+
+#+BEGIN_SRC shell
+  curl 'http://localhost:9200/_nodes/stats'
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+     "cluster_name": "elasticsearch_zach",
+     "nodes": {
+        "UNr6ZMf5Qk-YCPA_L18BOQ": {
+           "timestamp": 1408474151742,
+           "name": "Zach",
+           "transport_address": "inet[zacharys-air/192.168.1.131:9300]",
+           "host": "zacharys-air",
+           "ip": [
+              "inet[zacharys-air/192.168.1.131:9300]",
+              "NONE"
+           ],
+  ...
+#+END_SRC
+
+*** _template
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+
+#+BEGIN_SRC shell
+  curl -XPUT "$ES_ENDPOINT/_template/my-logging" --fail \
+       -H 'Content-Type: application/json' -d'
+  {
+    "template": "logging-*",
+    "mappings": {
+      "log": {
+        "properties": {
+          "time":             {"type": "date"},
+          "level":            {"type": "integer"},
+          "host":             {"type": "string", "index": "not_analyzed"},
+          "pid":              {"type": "string", "index": "not_analyzed"},
+          "channel":          {"type": "string"},
+          "message":          {"type": "string", "analyzer": "whitespace"},
+          "exc_info":         {"type": "string", "analyzer": "whitespace"}
+        }
+      }
+    }
+  }
+  '
+#+END_SRC
+
+** Query string syntax
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax
+
+#+BEGIN_EXAMPLE
+  apple                                  # search "apple" in the default field(which is '_all' by default)
+
+  fruit:apple                            # search "apple" in 'fruit' field
+  fruit:"pen pineapple"                  # exact phrase
+
+  fruit:(pineapple OR apple)
+  fruit:(pineapple apple)                # Same as above
+
+  A AND B OR (NOT C)
+  A && B || (! C)                        # Same as above
+
+  fruit.\*:apple                         # fields pattern
+  _exists_:fruit                         # where the field has any non-null value
+
+  fruit:ap?le                            # single character wildcard
+  fruit:apple*                           # zero or more
+  fruit:*apple                           # Don't do this: Leading wildcards are particularly heavy
+  name:/joh?n/                           # regex
+
+  quikc~ brwn~ foks~                     # fuzzy search (Damerau-Levenshtein distance)
+  quikc~1                                # specific edit distance (default is 2)
+  "fox quick"~5                          # can find "quick fox". 5 is the edit distance by word
+
+  count:[1 TO 5]                         # inclusive (1, 2, 3, 4, 5)
+  count:{1 TO 5}                         # exclusive (2, 3, 4)
+  count:[1 TO 5}                         # half-open (1, 2, 3, 4)
+
+  date:[2016-12-24 TO 2016-12-25]
+  date:[2016-12-07 TO *]                 # since 2016-12-07
+
+  age:>10
+  age:>=10
+  age:<10
+  age:<=10
+
+  quick^2 fox                            # boost (find 'fox'. but especially interested in "quick fox")
+
+  quick +fox -news                       # +term must be present; -term must not be present; others are optional
+  ((quick AND fox) OR fox) AND NOT news  # equivalent to above
+
+
+  # reserved characters (You should escape these characters with '\' if you want to search them literally)
+  + - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /  
+#+END_EXAMPLE
 
 * Topics
 ** Understanding Cluster
@@ -323,25 +372,7 @@ To work around this, set the type of ~followers~ to [[https://www.elastic.co/gui
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html
 
 * How-to
-** Manage the change of mappings
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html
-  - Don't follw this way manually. There is a [[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-reindex.html][Reindex API]].
-
-There seems to be a conflict between the use case of ~index templates~ and ~index aliases~.
-
-My personal workaround is using index templates with versioning like REST APIs.
-ex) ~myindex-v1-2017-08-15~, ~myindex-v2-2017-08-16~, etc.
-
-In this way, you can query for common fields across indexes
-even if the mapping has been changed through index wildcard queries.
-
-* Links
-* Staging
-
-
-* Settings and Deployment
+** Configure Settings and Deployment
 - [[https://www.elastic.co/guide/en/elasticsearch/guide/current/_revisit_this_list_before_production.html][Revisit This List Before Production]]
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_java_virtual_machine.html
@@ -360,51 +391,19 @@ A quorum is ~(number of master-eligible nodes / 2) + 1~.
 - [[https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_give_less_than_half_your_memory_to_lucene][Give (less than) Half Your Memory to Lucene]]
 - [[https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#compressed_oops][Don't Cross 32GB]] 
 
-* Query string syntax
-#+BEGIN_EXAMPLE
-  apple                                  # search "apple" in the default field(which is '_all' by default)
+** Manage the change of mappings
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html
+  - Don't follw this way manually. There is a [[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-reindex.html][Reindex API]].
 
-  fruit:apple                            # search "apple" in 'fruit' field
-  fruit:"pen pineapple"                  # exact phrase
+There seems to be a conflict between the use case of ~index templates~ and ~index aliases~.
 
-  fruit:(pineapple OR apple)
-  fruit:(pineapple apple)                # Same as above
+My personal workaround is using index templates with versioning like REST APIs.
+ex) ~myindex-v1-2017-08-15~, ~myindex-v2-2017-08-16~, etc.
 
-  A AND B OR (NOT C)
-  A && B || (! C)                        # Same as above
+In this way, you can query for common fields across indexes
+even if the mapping has been changed through index wildcard queries.
 
-  fruit.\*:apple                         # fields pattern
-  _exists_:fruit                         # where the field has any non-null value
-
-  fruit:ap?le                            # single character wildcard
-  fruit:apple*                           # zero or more
-  fruit:*apple                           # Don't do this: Leading wildcards are particularly heavy
-  name:/joh?n/                           # regex
-
-  quikc~ brwn~ foks~                     # fuzzy search (Damerau-Levenshtein distance)
-  quikc~1                                # specific edit distance (default is 2)
-  "fox quick"~5                          # can find "quick fox". 5 is the edit distance by word
-
-  count:[1 TO 5]                         # inclusive (1, 2, 3, 4, 5)
-  count:{1 TO 5}                         # exclusive (2, 3, 4)
-  count:[1 TO 5}                         # half-open (1, 2, 3, 4)
-
-  date:[2016-12-24 TO 2016-12-25]
-  date:[2016-12-07 TO *]                 # since 2016-12-07
-
-  age:>10
-  age:>=10
-  age:<10
-  age:<=10
-
-  quick^2 fox                            # boost (find 'fox'. but especially interested in "quick fox")
-
-  quick +fox -news                       # +term must be present; -term must not be present; others are optional
-  ((quick AND fox) OR fox) AND NOT news  # equivalent to above
-
-
-  # reserved characters (You should escape these characters with '\' if you want to search them literally)
-  + - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /  
-#+END_EXAMPLE
-
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax
+* Links
+* Staging
