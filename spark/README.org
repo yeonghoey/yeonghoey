@@ -1,13 +1,14 @@
 #+TITLE: Spark
 
 * Table of Contents                                                :TOC_2_gh:
- - [[#writing-spark-applications][Writing Spark Applications]]
-   - [[#input-files-pattern][Input files pattern]]
- - [[#spark-sql][Spark SQL]]
-   - [[#reference-links][Reference Links]]
-   - [[#examples][Examples]]
-   - [[#recipes][Recipes]]
-   - [[#example-codes][Example codes]]
+- [[#writing-spark-applications][Writing Spark Applications]]
+  - [[#input-files-pattern][Input files pattern]]
+- [[#spark-sql][Spark SQL]]
+  - [[#reference-links][Reference Links]]
+  - [[#examples][Examples]]
+  - [[#recipes][Recipes]]
+  - [[#example-codes][Example codes]]
+- [[#staging][Staging]]
 
 * Writing Spark Applications
 ** Input files pattern
@@ -199,3 +200,6 @@ Spark SQL's query languages is based on ~HiveQL~.
 
 ** Example codes
 https://github.com/apache/spark/tree/master/examples/src/main/scala/org/apache/spark/examples/sql
+
+* Staging
+- https://docs.databricks.com/user-guide/cloud-configurations/aws/iam-roles.html
