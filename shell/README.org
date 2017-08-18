@@ -887,6 +887,7 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 #+END_SRC
 
 ** date
+- https://www.gnu.org/software/coreutils/manual/html_node/Options-for-date.html
 - https://www.gnu.org/software/coreutils/manual/html_node/Examples-of-date.html
 
 #+BEGIN_SRC shell
