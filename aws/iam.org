@@ -3,6 +3,7 @@
 * Table of Contents :TOC_2_gh:
 - [[#reference][Reference]]
   - [[#assume-role-policy][assume-role-policy]]
+  - [[#kinesis][kinesis]]
   - [[#s3][s3]]
 - [[#topics][Topics]]
   - [[#iam-role][IAM Role]]
@@ -62,6 +63,9 @@ To attach the role to EC2 instances, an *instance profile* must be created.
     ]
   }
 #+END_SRC
+** kinesis
+- http://docs.aws.amazon.com/streams/latest/dev/controlling-access.html
+
 ** s3
 - http://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
 - https://aws.amazon.com/ko/blogs/security/writing-iam-policies-how-to-grant-access-to-an-amazon-s3-bucket/
