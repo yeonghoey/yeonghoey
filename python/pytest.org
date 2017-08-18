@@ -1,17 +1,23 @@
 #+TITLE: pytest
 
 * Table of Contents :TOC_2_gh:
- - [[#reference][Reference]]
-   - [[#cli][cli]]
-   - [[#fixture][fixture]]
-   - [[#mark][mark]]
-   - [[#monkeypatch][monkeypatch]]
-   - [[#raises-and-fail][raises and fail]]
- - [[#details][Details]]
-   - [[#test-layouts][Test Layouts]]
+- [[#overview][Overview]]
+  - [[#commandline-usage][Commandline Usage]]
+- [[#reference][Reference]]
+  - [[#approx][approx]]
+  - [[#fixture][fixture]]
+  - [[#mark][mark]]
+  - [[#monkeypatch][monkeypatch]]
+  - [[#raises-and-fail][raises and fail]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#test-layouts][Test Layouts]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
 
-* Reference
-** cli
+* Overview
+** Commandline Usage
 - http://doc.pytest.org/en/latest/usage.html
 
 #+BEGIN_SRC shell
@@ -50,6 +56,18 @@
 
   pytest --pdb           # drop into the PDB prompt
   pytest --durations=10  # To get a list of the slowest 10 test durations
+#+END_SRC
+
+* Reference
+** approx
+- https://docs.pytest.org/en/latest/builtin.html#pytest.approx
+
+#+BEGIN_SRC python
+  >>> from pytest import approx
+  >>> 0.1 + 0.2 == approx(0.3)
+  True
+  >>> (0.1 + 0.2, 0.2 + 0.4) == approx((0.3, 0.6))
+  True
 #+END_SRC
 
 ** fixture
@@ -174,8 +192,8 @@
           pytest.fail("Unexpected MyError ..")
 #+END_SRC
 
-
-* Details
+* Terminology
+* Topics
 ** Test Layouts
 - http://doc.pytest.org/en/latest/goodpractices.html
 
@@ -215,3 +233,6 @@ Useful if you have direct relation between (unit-)test and application modules a
   pytest                         # run all tests below current dir
 #+END_SRC
 
+* How-to
+* Links
+* Staging
