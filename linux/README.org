@@ -6,6 +6,7 @@
 - [[#topics][Topics]]
 - [[#reference][Reference]]
   - [[#iostat][iostat]]
+  - [[#top][top]]
 - [[#terminology][Terminology]]
 - [[#staging][Staging]]
 
@@ -63,6 +64,13 @@
   High ~%util~ doesn't always say that there is an overload.
   If the device serves requests in parallel, this value can constantly be high.
 
+** top
+- http://www.thegeekstuff.com/2010/01/15-practical-unix-linux-top-command-examples/
+
+#+BEGIN_SRC shell
+  top
+  top -u <user>
+#+END_SRC
 
 * Terminology
 * Staging
