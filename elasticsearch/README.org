@@ -1,26 +1,117 @@
 #+TITLE: Elasticsearch
 
-* Table of Contents                                                :TOC_2_gh:
- - [[#understanding-cluster][Understanding Cluster]]
-   - [[#inside-a-shard][Inside a Shard]]
-   - [[#routing-a-document-to-a-shard][Routing a Document to a Shard]]
-   - [[#choosing-number-of-shards][Choosing Number of Shards]]
-   - [[#routing][Routing]]
- - [[#types-and-mappings][Types and Mappings]]
- - [[#index-aliases-and-zero-downtime][Index Aliases and Zero Downtime]]
- - [[#inverted-index][Inverted Index]]
-   - [[#terms-are-normalized][Terms are normalized]]
-   - [[#analysis-and-analyzers][Analysis and Analyzers]]
-   - [[#how-innernested-objects-are-indexed][How Inner(Nested) Objects are Indexed]]
- - [[#how-queries-work][How Queries Work]]
- - [[#apis][APIs]]
-   - [[#basic-operations][Basic operations]]
-   - [[#put-index-templates][Put Index Templates]]
-   - [[#bulk-api][Bulk API]]
- - [[#settings-and-deployment][Settings and Deployment]]
- - [[#query-string-syntax][Query string syntax]]
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#apis][APIs]]
+- [[#topics][Topics]]
+  - [[#understanding-cluster][Understanding Cluster]]
+  - [[#types-and-mappings][Types and Mappings]]
+  - [[#inverted-index][Inverted Index]]
+  - [[#how-queries-work][How Queries Work]]
+- [[#how-to][How-to]]
+  - [[#manage-the-change-of-mappings][Manage the change of mappings]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+- [[#settings-and-deployment][Settings and Deployment]]
+- [[#query-string-syntax][Query string syntax]]
 
-* Understanding Cluster
+* Overview
+* Reference
+** APIs
+*** <index>
+#+BEGIN_SRC 
+
+#+END_SRC
+
+*** _cluster
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
+
+#+BEGIN_SRC shell
+  curl 'http://localhost:9200/_cluster/health'
+  curl 'http://localhost:9200/_cluster/health?level=indices'
+  curl 'http://localhost:9200/_cluster/stats'
+#+END_SRC
+
+*** _nodes
+#+BEGIN_SRC shell
+  curl 'http://localhost:9200/_nodes/stats'
+#+END_SRC
+
+*** _cat
+#+BEGIN_SRC shell
+curl 'http://localhost:9200/_cat'
+#+END_SRC
+
+*** _template
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+
+#+BEGIN_SRC shell
+  curl -XPUT "$ES_ENDPOINT/_template/my-logging" --fail \
+       -H 'Content-Type: application/json' -d'
+  {
+    "template": "logging-*",
+    "mappings": {
+      "log": {
+        "properties": {
+          "time":             {"type": "date"},
+          "level":            {"type": "integer"},
+          "host":             {"type": "string", "index": "not_analyzed"},
+          "pid":              {"type": "string", "index": "not_analyzed"},
+          "channel":          {"type": "string"},
+          "message":          {"type": "string", "analyzer": "whitespace"},
+          "exc_info":         {"type": "string", "analyzer": "whitespace"}
+        }
+      }
+    }
+  }
+  '
+#+END_SRC
+
+*** _bulk
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/bulk.html
+
+
+- Every line must end with a newline character (\n), *including the last line*.
+- The lines *cannot contain unescaped newline characters*, as they would interfere with parsing.
+
+#+BEGIN_SRC shell
+  curl -XPOST 'localhost:9200/_bulk?pretty' -H 'Content-Type: application/json' -d'
+  { "delete": { "_index": "website", "_type": "blog", "_id": "123" }} 
+  { "create": { "_index": "website", "_type": "blog", "_id": "123" }}
+  { "title":    "My first blog post" }
+  { "index":  { "_index": "website", "_type": "blog" }}
+  { "title":    "My second blog post" }
+  { "update": { "_index": "website", "_type": "blog", "_id": "123", "_retry_on_conflict" : 3} }
+  { "doc" : {"title" : "My updated blog post"} }
+  '
+#+END_SRC
+
+The syntactic format is:
+#+BEGIN_EXAMPLE
+  { action: { metadata }}\n
+  { request body        }\n
+  { action: { metadata }}\n
+  { request body        }\n
+  ...
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+Fortunately, it is easy to find this sweet spot:
+Try indexing typical documents in batches of increasing size.
+When performance starts to drop off, your batch size is too big.
+*A good place to start is with batches of 1,000 to 5,000 documents* or,
+if your documents are very large, with even smaller batches.
+
+It is often useful to keep an eye on the physical size of your bulk requests.
+One thousand 1KB documents is very different from one thousand 1MB documents.
+*A good bulk size to start playing with is around 5-15MB in size*
+#+END_QUOTE
+
+* Topics
+** Understanding Cluster
 #+BEGIN_QUOTE
 One node in the cluster is elected to be the master node,
 which is in charge of managing cluster-wide changes like creating or deleting an index,
@@ -30,7 +121,7 @@ which means that having just one master node will not become a bottleneck as tra
 Any node can become the master. Our example cluster has only one node, so it performs the master role.
 #+END_QUOTE
 
-** Inside a Shard
+*** Inside a Shard
 [[file:img/screenshot_2017-01-12_14-44-43.png]]
 
 - A shard is a low-level worker unit that holds just a slice of all the data in the index. 
@@ -46,14 +137,14 @@ Any node can become the master. Our example cluster has only one node, so it per
 - The action of performing a commit and truncating the translog is known in Elasticsearch as a flush.
 - Small segments are merged into bigger segments, which, in turn, are merged into even bigger segments.
 
-** Routing a Document to a Shard
+*** Routing a Document to a Shard
 : shard = hash(routing) % number_of_primary_shards
 #+BEGIN_QUOTE
 This explains why the number of primary shards can be set only when an index is created and never changed
 #+END_QUOTE
 
-** Choosing Number of Shards
-*** A Shard is not free
+*** Choosing Number of Shards
+**** A Shard is not free
 - A shard is a Lucene index under the covers, which uses file handles, memory, and CPU cycles.
 - Every search request needs to hit a copy of every shard in the index. That’s fine if every shard is sitting on a different node, but not if many shards have to compete for the same resources.
 - Term statistics, used to calculate relevance, are per shard. Having a small amount of data in many shards leads to poor relevance.
@@ -62,7 +153,7 @@ This explains why the number of primary shards can be set only when an index is 
 Searching 1 index of 50 shards is exactly equivalent to searching 50 indices with 1 shard each: both search requests hit 50 shards.
 #+END_QUOTE
 
-** Routing
+*** Routing
 #+BEGIN_QUOTE
 The routing value defaults to the document’s ~_id~,
 but we can override that and provide our own custom routing value, such as ~forum_id~.
@@ -76,7 +167,7 @@ but we can override that and provide our own custom routing value, such as ~foru
   }
 #+END_EXAMPLE
 
-* Types and Mappings
+** Types and Mappings
 #+BEGIN_QUOTE
 what happens if you have two different types,
 each with an identically named field but mapped differently
@@ -93,12 +184,7 @@ A particular field is either mapped as a string, or a number, but not both.
 - When Elasticsearch encounters a previously unknown field in a document,
   it uses dynamic mapping to determine the datatype for the field and automatically adds the new field to the type mapping.
 
-* Index Aliases and Zero Downtime
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html
-  - Don't follw this way manually. There is a [[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-reindex.html][Reindex API]].
-
-* Inverted Index
+** Inverted Index
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html
 
 #+BEGIN_EXAMPLE
@@ -110,7 +196,7 @@ A particular field is either mapped as a string, or a number, but not both.
   the   |   X   |       |  X    | ...
 #+END_EXAMPLE
 
-** Terms are normalized
+*** Terms are normalized
 - ~Quick~ can be lowercased to become ~quick~.
 - ~foxes~ can be stemmed--reduced to its root formto become ~fox~.
 - Similarly, ~dogs~ could be stemmed to ~dog~.
@@ -124,13 +210,13 @@ so both the indexed text and the query string must be normalized into the same f
 
 This process of tokenization and normalization is called *analysis*.
 
-** Analysis and Analyzers
+*** Analysis and Analyzers
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/analysis-intro.html
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html
 - Tokenizing a block of text into individual terms suitable for use in an inverted index
 - Normalizing these terms into a standard form to improve their *searchability* or *recall*
 
-*** Kinds of analyzers
+**** Kinds of analyzers
 - Standard 
     : set, the, shape, to, semi, transparent, by, calling, set_trans, 5~
 - Simple
@@ -140,7 +226,7 @@ This process of tokenization and normalization is called *analysis*.
 - Language analyzers
     : set, shape, semi, transpar, call, set_tran, 5 (english)
 
-*** Mappings for Configuring Analyzers
+**** Mappings for Configuring Analyzers
 #+BEGIN_SRC json
   {
       "tag": {
@@ -168,8 +254,8 @@ If you were to change the field mapping,
 the indexed data would be wrong and would not be properly searchable.
 #+END_QUOTE
 
-** How Inner(Nested) Objects are Indexed
-*** Inner objects
+*** How Inner(Nested) Objects are Indexed
+**** Inner objects
 #+BEGIN_SRC json
   {
       "tweet":            [elasticsearch, flexible, very],
@@ -182,7 +268,7 @@ the indexed data would be wrong and would not be properly searchable.
   }
 #+END_SRC
 
-*** Array of Inner objects
+**** Array of Inner objects
 #+BEGIN_SRC json
   {
       "followers.age":    [19, 26, 35],
@@ -192,7 +278,7 @@ the indexed data would be wrong and would not be properly searchable.
 In this way, the relation between ~age~ and ~name~ is lost.
 To work around this, set the type of ~followers~ to [[https://www.elastic.co/guide/en/elasticsearch/guide/current/nested-objects.html][nested]].
 
-* How Queries Work
+** How Queries Work
 [[file:img/screenshot_2017-01-12_18-32-46.png]]
 
 [[file:img/screenshot_2017-01-12_18-33-17.png]]
@@ -200,74 +286,23 @@ To work around this, set the type of ~followers~ to [[https://www.elastic.co/gui
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_query_phase.html
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html
 
-* APIs
-** Basic operations
-#+BEGIN_SRC shell
-  # Monitoring
-  curl 'http://localhost:9200/_cluster/health'
-  curl 'http://localhost:9200/_cluster/health?level=indices'
-  curl 'http://localhost:9200/_cluster/stats'
-  curl 'http://localhost:9200/_nodes/stats'
-
-  # Returns stats in ascii tabular form
-  curl 'http://localhost:9200/_cat'
-
-  # Delete index named 'twitter'
-  curl -XDELETE 'http://localhost:9200/twitter'  
-#+END_SRC
-
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
-
-** Put Index Templates
+* How-to
+** Manage the change of mappings
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html
+  - Don't follw this way manually. There is a [[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-reindex.html][Reindex API]].
 
-#+BEGIN_SRC shell
-  curl -XPUT "$ES_ENDPOINT/_template/my-logging" --fail \
-       -H 'Content-Type: application/json' -d'
-  {
-    "template": "logging-*",
-    "mappings": {
-      "log": {
-        "properties": {
-          "time":             {"type": "date"},
-          "level":            {"type": "integer"},
-          "host":             {"type": "string", "index": "not_analyzed"},
-          "pid":              {"type": "string", "index": "not_analyzed"},
-          "channel":          {"type": "string"},
-          "message":          {"type": "string", "analyzer": "whitespace"},
-          "exc_info":         {"type": "string", "analyzer": "whitespace"}
-        }
-      }
-    }
-  }
-  '
-#+END_SRC
+There seems to be a conflict between the use case of ~index templates~ and ~index aliases~.
 
-** Bulk API
-#+BEGIN_EXAMPLE
-  { action: { metadata }}\n
-  { request body        }\n
-  { action: { metadata }}\n
-  { request body        }\n
-  ...
-#+END_EXAMPLE
-- Every line must end with a newline character (\n), *including the last line*.
-- The lines *cannot contain unescaped newline characters*, as they would interfere with parsing.
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/bulk.html
+My personal workaround is using index templates with versioning like REST APIs.
+ex) ~myindex-v1-2017-08-15~, ~myindex-v2-2017-08-16~, etc.
 
-#+BEGIN_QUOTE
-Fortunately, it is easy to find this sweet spot:
-Try indexing typical documents in batches of increasing size.
-When performance starts to drop off, your batch size is too big.
-A good place to start is with batches of 1,000 to 5,000 documents or,
-if your documents are very large, with even smaller batches.
+In this way, you can query for common fields across indexes
+even if the mapping has been changed through index wildcard queries.
 
-It is often useful to keep an eye on the physical size of your bulk requests.
-One thousand 1KB documents is very different from one thousand 1MB documents.
-A good bulk size to start playing with is around 5-15MB in size
-#+END_QUOTE
+* Links
+* Staging
 
 
 * Settings and Deployment
