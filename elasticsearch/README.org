@@ -20,14 +20,14 @@
 * Reference
 ** APIs
 *** <index>
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
+
 #+BEGIN_SRC 
 
 #+END_SRC
 
 *** _cluster
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
 
 #+BEGIN_SRC shell
   curl 'http://localhost:9200/_cluster/health'
@@ -36,14 +36,50 @@
 #+END_SRC
 
 *** _nodes
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
+
 #+BEGIN_SRC shell
   curl 'http://localhost:9200/_nodes/stats'
 #+END_SRC
 
-*** _cat
-#+BEGIN_SRC shell
-curl 'http://localhost:9200/_cat'
+#+BEGIN_SRC json
+  {
+     "cluster_name": "elasticsearch_zach",
+     "nodes": {
+        "UNr6ZMf5Qk-YCPA_L18BOQ": {
+           "timestamp": 1408474151742,
+           "name": "Zach",
+           "transport_address": "inet[zacharys-air/192.168.1.131:9300]",
+           "host": "zacharys-air",
+           "ip": [
+              "inet[zacharys-air/192.168.1.131:9300]",
+              "NONE"
+           ],
+  ...
 #+END_SRC
+
+*** _cat
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cat_api.html
+
+#+BEGIN_SRC shell
+  curl 'http://localhost:9200/_cat/indices?v'
+  #                                        └─ enable headers
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  health status index                                  uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+  green  open   logs-live-v2-2017-08-13  WZsOKpLPTqenX94e9bHW1g   5   1  294275045            0    226.1gb          113gb
+  green  open   logs-live-v2-2017-08-15  toS_eRpLTjSTya3vY5Ptjw   5   1  223682189            0    169.9gb         84.9gb
+  green  open   logs-live-v2-2017-08-16  Cs__a2aARcCVpfzatSk_GA   5   1  217529882            0    167.7gb         83.8gb
+  green  open   logs-release-v2-2017-08  59lJiVBASNWmDtmpRrCajw   5   1    1495794            0      1.3gb        728.4mb
+  green  open   logs-hotfix-v2-2017-08   sNOe06HQQ9-GwY86AMlOUg   5   1    1920518            0      2.1gb            1gb
+  green  open   logs-hotfix-v2-2017-07   medqyWS2RjmHUzrF0mTOjA   5   1     980643            0    484.8mb        242.4mb
+  green  open   logs-live-v2-2017-08-18  n5xWNmMNR56lp7aHwulMkA   5   1  114339261            0     89.2gb         45.4gb
+  green  open   logs-release-v2-2017-07  YibGjpmfQyakDpKm9ZE6Dg   5   1     187285            0    108.9mb         54.4mb
+  green  open   .kibana                  nqIdvMr_QOe7tLZRcTatzg   1   1         15            1     60.5kb         30.2kb
+  green  open   logs-live-v2-2017-08-14  3xFuhX4_TvaeYMEeLgMkCQ   5   1  226026719            0    170.7gb         85.3gb
+  green  open   logs-live-v2-2017-08-17  GVqhRMk7TsWB0KjUUqwTQw   5   1  225820075            0    164.4gb         82.2gb
+#+END_EXAMPLE
 
 *** _template
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
