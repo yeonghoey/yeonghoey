@@ -336,13 +336,13 @@ the indexed data would be wrong and would not be properly searchable.
 **** Inner objects
 #+BEGIN_SRC json
   {
-      "tweet":            ['elasticsearch', 'flexible', 'very'],
-      "user.id":          ['@johnsmith'],
-      "user.gender":      ['male'],
+      "tweet":            ["elasticsearch", "flexible", "very"],
+      "user.id":          ["@johnsmith"],
+      "user.gender":      ["male"],
       "user.age":         [26],
-      "user.name.full":   ['john', 'smith'],
-      "user.name.first":  ['john'],
-      "user.name.last":   ['smith']
+      "user.name.full":   ["john", "smith"],
+      "user.name.first":  ["john"],
+      "user.name.last":   ["smith"]
   }
 #+END_SRC
 
@@ -350,7 +350,7 @@ the indexed data would be wrong and would not be properly searchable.
 #+BEGIN_SRC json
   {
       "followers.age":    [19, 26, 35],
-      "followers.name":   ['alex', 'jones', 'lisa', 'smith', 'mary', 'white']
+      "followers.name":   ["alex", "jones", "lisa", "smith", "mary", "white"]
   }
 #+END_SRC
 In this way, the relation between ~age~ and ~name~ is lost.
