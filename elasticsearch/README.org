@@ -22,8 +22,8 @@
 *** <index>
 - https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
 
-#+BEGIN_SRC 
-
+#+BEGIN_SRC shell
+  curl -X DELETE 'localhost:9200/twitter?pretty'
 #+END_SRC
 
 *** _cluster
