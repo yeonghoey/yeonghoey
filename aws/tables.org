@@ -1,6 +1,7 @@
 #+TITLE: AWS Tables
 
 * Table of Contents :TOC_2_gh:
+- [[#aurora][Aurora]]
 - [[#ebs][EBS]]
 - [[#ec2][EC2]]
   - [[#t2][T2]]
@@ -17,6 +18,19 @@
   - [[#i3][I3]]
   - [[#d2][D2]]
 - [[#elasticache][ElastiCache]]
+
+* Aurora
+- http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html
+- https://aws.amazon.com/rds/aurora/pricing
+- [2017-08-18 Fri] Tokyo, On-Demand
+
+[[file:img/screenshot_2017-08-18_19-25-01.png]]
+
+[[file:img/screenshot_2017-08-18_19-24-15.png]]
+
+[[file:img/screenshot_2017-08-18_19-24-45.png]]
+
+[[file:img/screenshot_2017-08-18_19-22-12.png]]
 
 * EBS
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html
@@ -74,7 +88,7 @@
 
 * ElastiCache
 - https://aws.amazon.com/elasticache/pricing/
-- [2017-08-18 Fri] Tokyo
+- [2017-08-18 Fri] Tokyo, On-Demand
 
 [[file:img/screenshot_2017-08-18_19-18-07.png]]
 
