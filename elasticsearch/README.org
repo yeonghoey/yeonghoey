@@ -17,12 +17,12 @@
     - [[#routing-a-document-to-a-shard][Routing a Document to a Shard]]
     - [[#choosing-number-of-shards][Choosing Number of Shards]]
     - [[#routing][Routing]]
-  - [[#types-and-mappings][Types and Mappings]]
   - [[#inverted-index][Inverted Index]]
     - [[#terms-are-normalized][Terms are normalized]]
     - [[#analysis-and-analyzers][Analysis and Analyzers]]
     - [[#how-innernested-objects-are-indexed][How Inner(Nested) Objects are Indexed]]
   - [[#how-queries-work][How Queries Work]]
+  - [[#types-and-mappings][Types and Mappings]]
 - [[#how-to][How-to]]
   - [[#configure-settings-and-deployment][Configure Settings and Deployment]]
   - [[#manage-the-change-of-mappings][Manage the change of mappings]]
@@ -265,23 +265,6 @@ but we can override that and provide our own custom routing value, such as ~foru
   }
 #+END_EXAMPLE
 
-** Types and Mappings
-#+BEGIN_QUOTE
-what happens if you have two different types,
-each with an identically named field but mapped differently
-(e.g. one is a string, the other is a number)?
-#+END_QUOTE
-
-#+BEGIN_QUOTE
-The longer answer is that each Lucene index contains a single, flat schema for all fields.
-A particular field is either mapped as a string, or a number, but not both. 
-#+END_QUOTE
-
-- ~_all~ field: a special field that indexes the values from all other fields as one big string.
-  The query_string query clause (and searches performed as ~?q=john~) defaults to searching in the ~_all~ field if no other field is specified.
-- When Elasticsearch encounters a previously unknown field in a document,
-  it uses dynamic mapping to determine the datatype for the field and automatically adds the new field to the type mapping.
-
 ** Inverted Index
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html
 
@@ -383,6 +366,23 @@ To work around this, set the type of ~followers~ to [[https://www.elastic.co/gui
 
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_query_phase.html
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html
+
+** Types and Mappings
+#+BEGIN_QUOTE
+what happens if you have two different types,
+each with an identically named field but mapped differently
+(e.g. one is a string, the other is a number)?
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+The longer answer is that each Lucene index contains a single, flat schema for all fields.
+A particular field is either mapped as a string, or a number, but not both. 
+#+END_QUOTE
+
+- ~_all~ field: a special field that indexes the values from all other fields as one big string.
+  The query_string query clause (and searches performed as ~?q=john~) defaults to searching in the ~_all~ field if no other field is specified.
+- When Elasticsearch encounters a previously unknown field in a document,
+  it uses dynamic mapping to determine the datatype for the field and automatically adds the new field to the type mapping.
 
 * How-to
 ** Configure Settings and Deployment
