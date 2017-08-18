@@ -202,4 +202,5 @@ Spark SQL's query languages is based on ~HiveQL~.
 https://github.com/apache/spark/tree/master/examples/src/main/scala/org/apache/spark/examples/sql
 
 * Staging
-- https://docs.databricks.com/user-guide/cloud-configurations/aws/iam-roles.html
+- https://docs.databricks.com/user-guide/cloud-configurations/aws/iam-roles.html ::
+  For using spark with data in s3, just s3 Programmatic Access policy required
