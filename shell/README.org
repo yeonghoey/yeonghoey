@@ -892,29 +892,23 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 #+BEGIN_SRC shell
   date -u
   #     └─ --utc
-  #
   # Fri Aug 18 06:57:31 UTC 2017
 
   date -R
   #     └─ --rfc─2822
-  #
   # Fri, 18 Aug 2017 15:55:42 +0900
 
   date '+%Y%m%dT%H%M%S'
-  #
   # 20170818T144038
 
   TZ='America/Los_Angeles' date
-  #
   # Fri Aug 18 00:01:11 PDT 2017
 
   date -d '2days ago'
   #     └─ --date, display time described by STRING, not 'now'
-  #
   # Wed Aug 16 16:05:03 KST 2017
 
   date -d '2days ago' '+%Y%m%dT%H%M%S'
-  #
   # 20170816T160622
 #+END_SRC
 
