@@ -66,6 +66,85 @@ To attach the role to EC2 instances, an *instance profile* must be created.
 ** kinesis
 - http://docs.aws.amazon.com/streams/latest/dev/controlling-access.html
 
+- Readonly ::
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "kinesis:Get*",
+          "kinesis:DescribeStream"
+        ],
+        "Resource": [
+          "arn:aws:kinesis:us-east-1:111122223333:stream/stream1"
+        ]
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "kinesis:ListStreams"
+        ],
+        "Resource": [
+          "*"
+        ]
+      }
+    ]
+  }
+#+END_SRC
+
+- Writeonly ::
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "kinesis:PutRecord"
+        ],
+        "Resource": [
+          "arn:aws:kinesis:us-east-1:111122223333:stream/*"
+        ]
+      }
+    ]
+  }
+  
+#+END_SRC
+
+- Fullaccess ::
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "kinesis:*",
+        "Resource": [
+          "arn:aws:kinesis:us-east-1:111122223333:stream/stream1"
+        ]
+      }
+    ]
+  }
+#+END_SRC
+
+- Fullaccess on all streams ::
+#+BEGIN_SRC json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "kinesis:*",
+        "Resource": [
+          "arn:aws:kinesis:*:111122223333:stream/*"
+        ]
+      }
+    ]
+  }
+#+END_SRC
+
 ** s3
 - http://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
 - https://aws.amazon.com/ko/blogs/security/writing-iam-policies-how-to-grant-access-to-an-amazon-s3-bucket/
