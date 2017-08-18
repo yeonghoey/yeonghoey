@@ -1,7 +1,6 @@
 #+TITLE: Elasticsearch
 
 * Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#apis][APIs]]
     - [[#index][<index>]]
@@ -29,7 +28,6 @@
 - [[#links][Links]]
 - [[#staging][Staging]]
 
-* Overview
 * Reference
 ** APIs
 *** <index>
@@ -131,7 +129,6 @@ One thousand 1KB documents is very different from one thousand 1MB documents.
               "inet[zacharys-air/192.168.1.131:9300]",
               "NONE"
            ],
-  ...
 #+END_SRC
 
 *** _template
