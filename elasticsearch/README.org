@@ -88,7 +88,7 @@ One thousand 1KB documents is very different from one thousand 1MB documents.
 #+END_SRC
 
 #+BEGIN_EXAMPLE
-  health status index                                  uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+  health status index                    uuid                   pri rep docs.count docs.deleted store.size pri.store.size
   green  open   logs-live-v2-2017-08-13  WZsOKpLPTqenX94e9bHW1g   5   1  294275045            0    226.1gb          113gb
   green  open   logs-live-v2-2017-08-15  toS_eRpLTjSTya3vY5Ptjw   5   1  223682189            0    169.9gb         84.9gb
   green  open   logs-live-v2-2017-08-16  Cs__a2aARcCVpfzatSk_GA   5   1  217529882            0    167.7gb         83.8gb
