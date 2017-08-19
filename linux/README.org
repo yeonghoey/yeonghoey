@@ -260,10 +260,43 @@ information about other metadata structures (metadata of metadata).
      2 root      20   0  0.000g 0.000g 0.000g S  0.0  0.0   0:00.00 kthreadd
 #+END_EXAMPLE
 
+- ~J~, ~j~ :: Num/Str justify
+#+BEGIN_EXAMPLE
+      1 root      20   0  119916   6116   4028 S       0.2   0:01.01 systemd
+      2 root      20   0                       S                     kthreadd
+      3 root      20   0                       S                     ksoftirqd/0
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  1     root     20  0   119916  6116   4028   S      0.2  0:01.01   systemd
+  2     root     20  0                         S                     kthreadd
+  3     root     20  0                         S                     ksoftirqd/0
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  1         root 20  0   119916  6116   4028   S      0.2  0:01.01                                           systemd
+  2         root 20  0                         S                                                            kthreadd
+  3         root 20  0                         S                                                         ksoftirqd/0
+  5         root 0   -20                       S                                                        kworker/0:0H
+#+END_EXAMPLE
+
 - ~x~ :: Toggle highlight of sort field
 [[file:img/screenshot_2017-08-19_22-21-02.png]]
 
 [[file:img/screenshot_2017-08-19_22-21-22.png]]
+
+- ~y~ :: Toggle highlight of running tasks
+[[file:img/screenshot_2017-08-19_22-33-18.png]]
+
+- ~z~ :: Toggle color/mono
+[[file:img/screenshot_2017-08-19_22-33-58.png]]
+
+[[file:img/screenshot_2017-08-19_22-34-12.png]]
+
+- ~b~ :: Toggle bold/reverse
+[[file:img/screenshot_2017-08-19_22-35-04.png]]
+
+[[file:img/screenshot_2017-08-19_22-35-21.png]]
 
 - ~k~ :: Kill a task
 #+BEGIN_EXAMPLE
