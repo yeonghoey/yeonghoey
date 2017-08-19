@@ -189,8 +189,6 @@ information about other metadata structures (metadata of metadata).
   If the device serves requests in parallel, this value can constantly be high.
 
 ** top
-- http://www.thegeekstuff.com/2010/01/15-practical-unix-linux-top-command-examples/
-
 #+BEGIN_SRC shell
   top
   top -u <user>
