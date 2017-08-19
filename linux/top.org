@@ -49,7 +49,40 @@
       2 root      20   0                       S                     kthreadd
 #+END_EXAMPLE
 
--  ~1~, ~2~, ~3~ :: 
+- ~1~ :: Toggle single/separate CPU states
+#+BEGIN_EXAMPLE
+  %Cpu(s):  1.0 us,  0.2 sy,  0.0 ni, 98.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  %Cpu0  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+  %Cpu1  :  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+  %Cpu2  :  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+  %Cpu3  :  1.3 us,  0.0 sy,  0.0 ni, 98.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+#+END_EXAMPLE
+
+- ~2~ :: NUMA-Nodes/CPU summary
+#+BEGIN_EXAMPLE
+  %Cpu(s):  0.8 us,  0.1 sy,  0.0 ni, 99.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+  %Node0 :  0.8 us,  0.1 sy,  0.0 ni, 99.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+#+END_EXAMPLE
+
+- ~3~ :: Expand-NUMA-Node
+#+BEGIN_EXAMPLE
+  expand which node (0-0)
+  %Node0 :  0.8 us,  0.2 sy,  0.0 ni, 99.0 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+  %Cpu0  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+  %Cpu1  :  1.0 us,  0.0 sy,  0.0 ni, 98.7 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st
+  %Cpu2  :  0.7 us,  0.3 sy,  0.0 ni, 99.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+  %Cpu3  :  1.3 us,  0.3 sy,  0.0 ni, 98.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+#+END_EXAMPLE
+
+- ~I~ :: Toggle Irix mode
+#+BEGIN_QUOTE
+  if 'Irix mode' is Off,  top  will  operate  in
+      'Solaris  mode' where a task's cpu usage will be divided by the
+      total number of CPUs.
+#+END_QUOTE
 
 - ~E~ :: Change memory scale of summary
 #+BEGIN_EXAMPLE
@@ -144,6 +177,6 @@
 - ~A~ :: Toggle Single / Multiple windows
 [[file:img/screenshot_2017-08-19_22-49-30.png]]
 
-  - ~a~, ~w~ :: Cycle through all four windows
-  - ~-~ :: Show/Hide
-  - ~_~ :: All visiable/invisiable
+- ~a~, ~w~ :: Cycle through all four windows
+- ~-~ :: Show/Hide current window
+- ~_~ :: All visiable/invisiable
