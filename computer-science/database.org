@@ -1,0 +1,35 @@
+#+TITLE: Database
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#cardinality][Cardinality]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+** Cardinality
+- https://en.wikipedia.org/wiki/Cardinality_(data_modeling)
+
+#+BEGIN_QUOTE
+In the relational model, tables can be related as any of
+"one-to-many", "many-to-many", "one-to-zero-or-one", etc..
+This is said to be the *cardinality* of a given table in relation to another.
+#+END_QUOTE
+
+| Relationship	                        | Example                   | 	left	  | right     |
+|---------------------------------------+---------------------------+-----------+-----------|
+| one-to-one                            | person ←→ id card         | 1         | 1         |
+| one-to-one (optional on one side)     | person ←→ driving license | 1         | 0..1 or ? |
+| many-to-one                           | person ←→ birth place     | 1..* or + | 1         |
+| many-to-many (optional on both sides) | person ←→ book            | 0..* or * | 0..* or * |
+
+* How-to
+* Links
+* Staging
