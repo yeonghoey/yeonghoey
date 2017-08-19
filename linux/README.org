@@ -7,6 +7,7 @@
   - [[#mount-a-volume][Mount a Volume]]
 - [[#topics][Topics]]
   - [[#inode-structure][Inode Structure]]
+  - [[#numa][NUMA]]
 - [[#reference][Reference]]
   - [[#iostat][iostat]]
   - [[#top][top]]
@@ -140,6 +141,20 @@ information about other metadata structures (metadata of metadata).
   Change: 2017-03-02 18:20:00.503961613 +0000
   Birth: -
 #+END_SRC
+** NUMA
+- https://en.wikipedia.org/wiki/Non-uniform_memory_access
+
+Non-uniform memory access.
+
+#+BEGIN_QUOTE
+A system can starve several processors at the same time,
+notably because only one processor can access the computer's memory at a time.(...)
+NUMA attempts to address this problem by providing separate memory for each processor,
+avoiding the performance hit when several processors attempt to address the same memory.
+#+END_QUOTE
+
+[[file:img/screenshot_2017-08-20_01-26-42.png]]
+
 * Reference
 ** iostat
 - https://forums.aws.amazon.com/thread.jspa?messageID=124044#124227

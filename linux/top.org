@@ -232,7 +232,7 @@
    1267 yeonghoey           20   0   45360   4708   3816 S   0.0  0.1   0:00.00 systemd
 #+END_EXAMPLE
 
-- ~~ :: Show other filters
+- ~^O~ :: Show other filters (Ctrl + o)
 - ~=~, ~+~ :: Reset filltering current / all windows
 
 - ~n~ or ~#~ :: Set max tasks displayed
