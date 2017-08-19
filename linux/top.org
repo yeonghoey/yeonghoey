@@ -130,3 +130,20 @@
 #+BEGIN_EXAMPLE
   Change delay from 3.0 to
 #+END_EXAMPLE
+
+- ~g~ :: Choose another field group
+#+BEGIN_EXAMPLE
+  Choose field group (1 - 4)
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+    PID  PPID   UID USER     RUSER    TTY          TIME+  %CPU %MEM S COMMAND
+#+END_EXAMPLE
+
+- ~A~ :: Toggle Single / Multiple windows
+[[file:img/screenshot_2017-08-19_22-49-30.png]]
+
+  - ~a~, ~w~ :: Cycle through all four windows
+  - ~-~ :: Show/Hide
+  - ~_~ :: All visiable/invisiable
