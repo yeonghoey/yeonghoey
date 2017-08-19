@@ -1,0 +1,132 @@
+#+TITLE: Linux top
+
+* Table of Contents :TOC_2_gh:
+- [[#commandline][Commandline]]
+- [[#interface][Interface]]
+
+* Commandline
+#+BEGIN_SRC shell
+  top
+  top -u <user>
+#+END_SRC
+
+* Interface
+- ~l~ :: load avg
+#+BEGIN_EXAMPLE
+  top - 21:52:09 up 9 min,  2 users,  load average: 0.02, 0.08, 0.07
+#+END_EXAMPLE
+- ~t~ :: task/cpu stats
+#+BEGIN_EXAMPLE
+  Tasks: 175 total,   1 running, 174 sleeping,   0 stopped,   0 zombie
+  %Cpu(s):  3.7 us,  0.3 sy,  0.0 ni, 96.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  %Cpu(s):   3.4/0.3     4[|||
+#+END_EXAMPLE
+
+- ~m~ :: Memory info
+#+BEGIN_EXAMPLE
+  KiB Mem :  4046268 total,  2908216 free,   606148 used,   531904 buff/cache
+  KiB Swap:  4191228 total,  4191228 free,        0 used.  3190404 avail Mem
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  KiB Mem : 21.2/4046268  [||||||||||||||||||                                                                      ]
+  KiB Swap:  0.0/4191228  [                                                                                        ]
+#+END_EXAMPLE
+
+- ~0~ :: Toggle zeros
+#+BEGIN_EXAMPLE
+   1857 yeongho+  20   0   97496   3940   2944 S  0.3  0.1   0:00.91 sshd
+   2023 root      20   0       0      0      0 S  0.3  0.0   0:00.12 kworker/0:1
+   2034 yeongho+  20   0   50264   4032   3308 R  0.3  0.1   0:00.26 top
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+    890 root      20   0  306860  71340  29248 S  0.3  1.8   0:04.25 Xorg
+      1 root      20   0  119868   6080   4044 S       0.2   0:00.94 systemd
+      2 root      20   0                       S                     kthreadd
+#+END_EXAMPLE
+
+-  ~1~, ~2~, ~3~ :: 
+
+- ~E~ :: Change memory scale of summary
+#+BEGIN_EXAMPLE
+  MiB Mem : 3951.434 total, 2841.020 free,  592.242 used,  518.172 buff/cache
+  MiB Swap: 4092.996 total, 4092.996 free,    0.000 used. 3115.512 avail Mem
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  GiB Mem :    3.859 total,    2.774 free,    0.579 used,    0.506 buff/cache
+  GiB Swap:    3.997 total,    3.997 free,    0.000 used.    3.042 avail Mem
+#+END_EXAMPLE
+
+- ~e~ :: Change memory scale of tasks
+#+BEGIN_EXAMPLE
+  1490 yeongho+  20   0 1203.0m 162.8m  71.6m S  5.0  4.1   0:25.77 compiz
+   890 root      20   0  299.7m  69.7m  28.6m S  0.3  1.8   0:02.42 Xorg
+     1 root      20   0  117.1m   5.9m   3.9m S  0.0  0.1   0:00.94 systemd
+     2 root      20   0    0.0m   0.0m   0.0m S  0.0  0.0   0:00.00 kthreadd
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  1490 yeongho+  20   0  1.175g 0.159g 0.070g S  6.7  4.1   0:26.55 compiz
+   890 root      20   0  0.293g 0.068g 0.028g S  0.7  1.8   0:02.47 Xorg
+     1 root      20   0  0.114g 0.006g 0.004g S  0.0  0.1   0:00.94 systemd
+     2 root      20   0  0.000g 0.000g 0.000g S  0.0  0.0   0:00.00 kthreadd
+#+END_EXAMPLE
+
+- ~J~, ~j~ :: Num/Str justify
+#+BEGIN_EXAMPLE
+      1 root      20   0  119916   6116   4028 S       0.2   0:01.01 systemd
+      2 root      20   0                       S                     kthreadd
+      3 root      20   0                       S                     ksoftirqd/0
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  1     root     20  0   119916  6116   4028   S      0.2  0:01.01   systemd
+  2     root     20  0                         S                     kthreadd
+  3     root     20  0                         S                     ksoftirqd/0
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  1         root 20  0   119916  6116   4028   S      0.2  0:01.01                                           systemd
+  2         root 20  0                         S                                                            kthreadd
+  3         root 20  0                         S                                                         ksoftirqd/0
+  5         root 0   -20                       S                                                        kworker/0:0H
+#+END_EXAMPLE
+
+- ~x~ :: Toggle highlight of sort field
+[[file:img/screenshot_2017-08-19_22-21-02.png]]
+
+[[file:img/screenshot_2017-08-19_22-21-22.png]]
+
+- ~y~ :: Toggle highlight of running tasks
+[[file:img/screenshot_2017-08-19_22-33-18.png]]
+
+- ~z~ :: Toggle color/mono
+[[file:img/screenshot_2017-08-19_22-33-58.png]]
+
+[[file:img/screenshot_2017-08-19_22-34-12.png]]
+
+- ~b~ :: Toggle bold/reverse
+[[file:img/screenshot_2017-08-19_22-35-04.png]]
+
+[[file:img/screenshot_2017-08-19_22-35-21.png]]
+
+- ~k~ :: Kill a task
+#+BEGIN_EXAMPLE
+  PID to signal/kill [default pid = 1632]
+#+END_EXAMPLE
+
+- ~r~ :: Renice a task
+#+BEGIN_EXAMPLE
+  PID to renice [default pid = 1632]
+  Renice PID 1632 to value
+#+END_EXAMPLE
+
+- ~d~ or ~s~ :: Set update interval
+#+BEGIN_EXAMPLE
+  Change delay from 3.0 to
+#+END_EXAMPLE
