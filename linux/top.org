@@ -7,7 +7,9 @@
 * Commandline
 #+BEGIN_SRC shell
   top
-  top -u <user>
+  top -b          # Batch-mode (not refreshing, just append the output)
+  top -n <number> # Number of iterations. After refreshing number times, top exits.
+  top -p <pid>    # Monitor PIDs
 #+END_SRC
 
 * Interface
@@ -277,6 +279,24 @@
 - ~d~ or ~s~ :: Set update interval
 #+BEGIN_EXAMPLE
   Change delay from 3.0 to
+#+END_EXAMPLE
+
+- ~W~ :: Write configuration file
+#+BEGIN_EXAMPLE
+   Wrote configuration to '/home/yeonghoey/.toprc'
+#+END_EXAMPLE
+
+- ~Y~ :: Inspect other output for a process
+#+BEGIN_EXAMPLE
+  inspect at PID [default pid = 1632]
+    PID USER                PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+   1632 yeonghoey           20   0 1328920 163696  73764 S   5.0  4.0   8:19.00 compiz
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  Inspection Pause at: pid 1632 running compiz as user yeonghoey
+  Use:  left/right then <Enter> to select an option; 'q' or <Esc> to end !
+  Options:  Open Files  NUMA Info  Log
 #+END_EXAMPLE
 
 - ~g~ :: Choose another field group
