@@ -281,6 +281,8 @@
   Change delay from 3.0 to
 #+END_EXAMPLE
 
+- ~SPC~ :: Refresh immediately
+
 - ~W~ :: Write configuration file
 #+BEGIN_EXAMPLE
    Wrote configuration to '/home/yeonghoey/.toprc'
