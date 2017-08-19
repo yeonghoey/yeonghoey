@@ -262,6 +262,11 @@ information about other metadata structures (metadata of metadata).
      2 root      20   0  0.000g 0.000g 0.000g S  0.0  0.0   0:00.00 kthreadd
 #+END_EXAMPLE
 
+- ~x~ :: Toggle highlight of sort field
+[[file:img/screenshot_2017-08-19_22-21-02.png]]
+
+[[file:img/screenshot_2017-08-19_22-21-22.png]]
+
 - ~k~ :: Kill a task
 #+BEGIN_EXAMPLE
   PID to signal/kill [default pid = 1632]
