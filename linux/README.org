@@ -205,7 +205,9 @@ information about other metadata structures (metadata of metadata).
 #+BEGIN_EXAMPLE
   MiB Mem : 3951.434 total, 2841.020 free,  592.242 used,  518.172 buff/cache
   MiB Swap: 4092.996 total, 4092.996 free,    0.000 used. 3115.512 avail Mem
+#+END_EXAMPLE
 
+#+BEGIN_EXAMPLE
   GiB Mem :    3.859 total,    2.774 free,    0.579 used,    0.506 buff/cache
   GiB Swap:    3.997 total,    3.997 free,    0.000 used.    3.042 avail Mem
 #+END_EXAMPLE
