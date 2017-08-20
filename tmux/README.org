@@ -1,0 +1,28 @@
+
+#+TITLE: tmux
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#commandline][Commandline]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+** Commandline
+*** new-session
+#+BEGIN_SRC shell
+  tmux new-session -d -s 'hello' 'echo hello'
+  #                 │  └─ session name
+  #                 └─ detached
+#+END_SRC
+
+* Terminology
+* Topics
+* How-to
+* Links
+* Staging
