@@ -1,16 +1,9 @@
 #+TITLE: AWS Command Line Interface
 
 * Table of Contents :TOC_1_gh:
- - [[#how-to][How-to]]
- - [[#reference][Reference]]
-
-* How-to
-** List AMIs
-- http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
-
-#+BEGIN_SRC shell
-  aws ec2 describe-images --owners 099720109477 --filters 'Name=name,Values=*ubuntu-*-16.04*' --query 'Images[*].{NAME: Name, ID: ImageId}' --output text
-#+END_SRC
+- [[#reference][Reference]]
+- [[#how-to][How-to]]
+- [[#staging][Staging]]
 
 * Reference
 ** configure
@@ -76,4 +69,17 @@ $ aws ec2 describe-availability-zones --region eu-west-1
   aws s3 mv s3://mybucket . --recursive
   aws s3 mv myDir s3://mybucket/ --recursive --exclude "*.jpg"
   aws s3 mv s3://mybucket/ s3://mybucket2/ --recursive --exclude "mybucket/another/*"
+
 #+END_SRC
+* How-to
+** List AMIs
+- http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
+
+#+BEGIN_SRC shell
+  aws ec2 describe-images --owners 099720109477 --filters 'Name=name,Values=*ubuntu-*-16.04*' --query 'Images[*].{NAME: Name, ID: ImageId}' --output text
+#+END_SRC
+
+* Staging
+** TODO <2017-07-12 Wed> aws s3 wildcard
+http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#use-of-exclude-and-include-filters
+aws s3 sync s3://examplebucket/ . --exclude "*" --include "*/latest.json"

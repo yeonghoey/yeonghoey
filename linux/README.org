@@ -13,6 +13,9 @@
   - [[#top][top]]
 - [[#terminology][Terminology]]
 - [[#staging][Staging]]
+  - [[#2017-07-16-sun-sudo-service---status-all][<2017-07-16 Sun> sudo service --status-all]]
+  - [[#2017-07-13-thu-linux-kernel-parameters][<2017-07-13 Thu> Linux kernel parameters]]
+  - [[#2017-07-14-fri-linux-usergroup][<2017-07-14 Fri> linux user/group]]
 
 * Overview
 - http://www.brendangregg.com/linuxperf.html
@@ -208,3 +211,12 @@ avoiding the performance hit when several processors attempt to address the same
 
 * Terminology
 * Staging
+** TODO <2017-07-16 Sun> sudo service --status-all
+- https://askubuntu.com/questions/407075/how-to-read-service-status-all-results
+
+** TODO <2017-07-13 Thu> Linux kernel parameters
+- http://meetup.toast.com/posts/54
+
+** TODO <2017-07-14 Fri> linux user/group
+- https://www.linode.com/docs/tools-reference/linux-users-and-groups
+- https://stackoverflow.com/questions/14059916/is-there-a-command-to-list-all-unix-group-names

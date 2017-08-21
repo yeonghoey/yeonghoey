@@ -1,14 +1,16 @@
 #+TITLE: Emacs Lisp
 
 * Table of Contents                                                :TOC_2_gh:
- - [[#reference][Reference]]
-   - [[#setq][setq]]
- - [[#details][Details]]
-   - [[#char-syntax][Char Syntax]]
-   - [[#local-variableslet][Local Variables(let)]]
-   - [[#interactive][Interactive]]
-   - [[#snippets][Snippets]]
- - [[#staging][Staging]]
+- [[#reference][Reference]]
+  - [[#setq][setq]]
+- [[#topics][Topics]]
+  - [[#char-syntax][Char Syntax]]
+  - [[#local-variableslet][Local Variables(let)]]
+  - [[#interactive][Interactive]]
+  - [[#snippets][Snippets]]
+- [[#staging][Staging]]
+  - [[#links][Links]]
+  - [[#2017-06-27-tue-emacs-hook][<2017-06-27 Tue> emacs-hook]]
 
 * Reference
 ** setq
@@ -29,7 +31,7 @@ If a variable is buffer-local:
 - ~setq~ sets its local value in the current buffer
 - ~setq-default~ sets the global default value.
 
-* Details
+* Topics
 ** Char Syntax
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Basic-Char-Syntax.html
 - Prefix ~?~ before a character.
@@ -48,6 +50,7 @@ If a variable is buffer-local:
   ?\\ ⇒ 92                ; backslash character, \
   ?\d ⇒ 127               ; delete character, DEL
 #+END_SRC
+
 ** Local Variables(let)
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Local-Variables.html
  
@@ -82,7 +85,9 @@ If a variable is buffer-local:
       (message output))
     )
 #+END_SRC
+
 * Staging
+** Links
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Defining-Functions.html#Defining-Functions
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Using-Interactive.html
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Function-Names.html#Function-Names
@@ -91,3 +96,11 @@ If a variable is buffer-local:
 - https://github.com/chrisdone/elisp-guide
 - http://wikemacs.org/wiki/Emacs_Lisp_Cheat_Sheet
 
+
+** TODO <2017-06-27 Tue> emacs-hook
+- https://www.gnu.org/software/emacs/manual/html_node/elisp/Standard-Hooks.html#Standard-Hooks
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html
+- https://stackoverflow.com/questions/7899949/is-there-an-emacs-hook-that-runs-after-every-buffer-is-created
+- after-change-major-mode-hook
+- Text mode (see HTML Mode); when HTML mode is enabled, it runs text-mode-hook before running html-mode-hook.
+-   (add-hook 'after-change-major-mode-hook 'spacemacs/toggle-truncate-lines-on) ;; No line-wrapping

@@ -2,7 +2,6 @@
 
 
 * Table of Contents                                                :TOC_2_gh:
-- [[#how-to][How-to]]
 - [[#reference][Reference]]
   - [[#decorator][decorator]]
   - [[#dict][dict]]
@@ -18,6 +17,7 @@
   - [[#str][str]]
   - [[#string][string]]
   - [[#subprocesses][subprocesses]]
+- [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#__new__-vs-__init__][__new__ vs __init__]]
   - [[#comparison][Comparison]]
@@ -29,9 +29,9 @@
   - [[#__getattr__-vs-__getattribute__][__getattr__ vs. __getattribute__]]
   - [[#getattr-setattr-why-need-them][getattr, setattr, Why need them?]]
   - [[#source-code-encodings][Source Code Encodings]]
-- [[#how-to-1][How-to]]
+- [[#how-to][How-to]]
   - [[#read-a-file-except-the-first-line][Read a file except the first line]]
-- [[#terminology][Terminology]]
+- [[#links][Links]]
 - [[#staging][Staging]]
   - [[#2017-03-24-fri-python-defining-bound-method][<2017-03-24 Fri> Python, defining bound method]]
   - [[#2017-02-13-mon-isinstance-vs-issubclass][<2017-02-13 Mon> isinstance vs issubclass?]]
@@ -39,8 +39,10 @@
   - [[#2017-05-18-thu-python-int-long-int64][<2017-05-18 Thu> python int, long, int64]]
   - [[#2017-06-09-fri-python-textwrap][<2017-06-09 Fri> python textwrap]]
   - [[#2017-07-11-tue-python27-re-raise-nonetype][<2017-07-11 Tue> python2.7 re-raise, NoneType]]
+  - [[#2017-06-28-wed-msgpack-python][<2017-06-28 Wed> msgpack python]]
+  - [[#2017-06-28-wed-gevent---threadpool][<2017-06-28 Wed> gevent - threadpool]]
+  - [[#2017-07-03-mon-mypy-mypy_cache][<2017-07-03 Mon> mypy .mypy_cache]]
 
-* How-to
 * Reference
 ** decorator
 *** class decorator
@@ -705,6 +707,7 @@ to avoid deadlocks due to any of the other OS pipe buffersfilling up and blockin
   - The command can use environment variables, globs, pipes.
   - It's very dangerous, not recommended.
 
+* Terminology
 * Topics
 ** __new__ vs __init__
 - https://docs.python.org/2/reference/datamodel.html#basic-customization
@@ -1172,7 +1175,7 @@ This issue can be solved with locks or by using the *EAFP* approach.
           #do something
 #+END_SRC
 
-* Terminology
+* Links
 * Staging
 ** TODO <2017-03-24 Fri> Python, defining bound method
 ** TODO <2017-02-13 Mon> isinstance vs issubclass?
@@ -1183,3 +1186,12 @@ This issue can be solved with locks or by using the *EAFP* approach.
 ** TODO <2017-06-09 Fri> python textwrap
 ** TODO <2017-07-11 Tue> python2.7 re-raise, NoneType 
 - https://stackoverflow.com/questions/25189545/why-doesnt-python-2-7-let-me-implicitly-re-raise-an-exception-after-yield
+** TODO <2017-06-28 Wed> msgpack python
+- https://pypi.python.org/pypi/msgpack-python
+- ~encoding~, ~is_list~
+** TODO <2017-06-28 Wed> gevent - threadpool
+- System Call 같은건 GIL 영향 안 받으니까 스레드를 돌림
+- 요걸 처리하기 위해 gevent도 자체 threadpool을 가지고 있는 듯
+- ~_threading.py~, ~threading.py~ 차이를 잘 구분해서 볼 것.
+** TODO <2017-07-03 Mon> mypy .mypy_cache
+- https://github.com/python/mypy/issues/3336

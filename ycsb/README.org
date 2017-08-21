@@ -1,0 +1,28 @@
+#+TITLE: YCSB
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+  - [[#2017-07-15-sat-ycsb][<2017-07-15 Sat> ycsb]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+* How-to
+* Links
+* Staging
+** TODO <2017-07-15 Sat> ycsb
+
+#+BEGIN_SRC shell
+  sudo apt-get update
+  sudo apt-get install -y default-jre python
+  curl -O --location https://github.com/brianfrankcooper/YCSB/releases/download/0.12.0/ycsb-0.12.0.tar.gz
+  tar xfvz ycsb-0.12.0.tar.gz
+  cd ycsb-0.12.0
+#+END_SRC

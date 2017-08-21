@@ -15,6 +15,7 @@
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
+  - [[#2017-07-05-wed-pytest][<2017-07-05 Wed> pytest]]
 
 * Overview
 ** Commandline Usage
@@ -236,3 +237,5 @@ Useful if you have direct relation between (unit-)test and application modules a
 * How-to
 * Links
 * Staging
+** TODO <2017-07-05 Wed> pytest
+autofixture? session scope?

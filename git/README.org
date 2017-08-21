@@ -30,6 +30,7 @@
 - [[#staging][Staging]]
   - [[#2017-02-14-tue-git-hooks][<2017-02-14 Tue> git hooks]]
   - [[#2017-07-25-tue-git-rebase---onto-something][<2017-07-25 Tue> git rebase --onto something]]
+  - [[#2017-06-26-mon-git-auto-commit][<2017-06-26 Mon> git auto-commit]]
 
 * Reference
 ** add
@@ -375,3 +376,5 @@ git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 - https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks
 - http://stackoverflow.com/questions/19041220/how-to-run-post-receive-hook-on-github
 ** TODO <2017-07-25 Tue> git rebase --onto something
+** TODO <2017-06-26 Mon> git auto-commit
+- https://stackoverflow.com/questions/420143/making-git-auto-commit

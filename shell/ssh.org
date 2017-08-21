@@ -1,13 +1,15 @@
 #+TITLE: SSH
 
 * Table of Contents :TOC_2_gh:
- - [[#details][Details]]
-   - [[#how-ssh-works][How SSH works]]
-   - [[#fingerprint][fingerprint]]
- - [[#use-cases][Use Cases]]
-   - [[#get-the-public-key-from-a-private-key][Get the public key from a private key]]
+- [[#topics][Topics]]
+  - [[#how-ssh-works][How SSH works]]
+  - [[#fingerprints][Fingerprints]]
+- [[#how-to][How-to]]
+  - [[#get-the-public-key-from-a-private-key][Get the public key from a private key]]
+- [[#staging][Staging]]
+  - [[#2017-07-21-fri-gpg-usage][<2017-07-21 Fri> GPG Usage]]
 
-* Details
+* Topics
 ** How SSH works
 - https://en.wikipedia.org/wiki/Public-key_cryptography
 - https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process
@@ -30,7 +32,7 @@
   - Finding ~d~ from ~e~ and ~n~ is hard
   - ~e~ stands for ~public exponent~, and [[https://github.com/openssl/openssl/blob/52df25cf2e656146cb3b206d8220124f0417d03f/include/openssl/rsa.h#L46][OpenSSL]] sets it as ~65537~ (~0x10001~) by default
 
-** fingerprint
+** Fingerprints
 - https://superuser.com/questions/421997/what-is-a-ssh-key-fingerprint-and-how-is-it-generated
 
 If the *fingerprint changes*:
@@ -38,10 +40,14 @@ If the *fingerprint changes*:
 - It could also indicate that you are *connecting to a different machine* at the same domain/IP
 - It could also indicate that you are *being targeted with a man-in-the-middle attack*
 
-* Use Cases
+* How-to
 ** Get the public key from a private key
 - https://serverfault.com/questions/52285/create-a-public-ssh-key-from-the-private-key
 
 #+BEGIN_SRC shell
   ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 #+END_SRC
+
+* Staging
+** TODO <2017-07-21 Fri> GPG Usage
+https://futureboy.us/pgp.html
