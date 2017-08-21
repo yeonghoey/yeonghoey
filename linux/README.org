@@ -16,6 +16,7 @@
   - [[#2017-07-16-sun-sudo-service---status-all][<2017-07-16 Sun> sudo service --status-all]]
   - [[#2017-07-13-thu-linux-kernel-parameters][<2017-07-13 Thu> Linux kernel parameters]]
   - [[#2017-07-14-fri-linux-usergroup][<2017-07-14 Fri> linux user/group]]
+  - [[#read-free-command][Read 'free' command]]
 
 * Overview
 - http://www.brendangregg.com/linuxperf.html
@@ -220,3 +221,6 @@ avoiding the performance hit when several processors attempt to address the same
 ** TODO <2017-07-14 Fri> linux user/group
 - https://www.linode.com/docs/tools-reference/linux-users-and-groups
 - https://stackoverflow.com/questions/14059916/is-there-a-command-to-list-all-unix-group-names
+
+** Read 'free' command
+- http://www.linuxnix.com/find-ram-size-in-linuxunix/

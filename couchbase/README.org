@@ -18,6 +18,7 @@
   - [[#multi-dimensional-scalability][multi-dimensional-scalability]]
   - [[#sizing-guidelines][sizing guidelines]]
   - [[#querying-data-with-views][querying data with views]]
+  - [[#graceful-failover][graceful failover]]
 
 * Overview
 * How-to
@@ -88,3 +89,7 @@ curl -X POST -u Administrator:password http://10.42.42.10:8091/pools/default/buc
 
 ** querying data with views
 - https://developer.couchbase.com/documentation/server/4.6/architecture/querying-data-with-views.html
+
+
+** graceful failover
+- https://developer.couchbase.com/documentation/server/current/clustersetup/setup-failover-graceful.html

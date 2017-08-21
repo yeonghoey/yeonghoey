@@ -81,6 +81,7 @@
   - [[#gnu-locale-categories][GNU locale categories]]
   - [[#set--e-not-exit-in-function][set -e not exit in function]]
   - [[#bash-check-variable-exists][bash check variable exists]]
+  - [[#shell-initialization][shell initialization]]
 
 * Reference
 ** $* vs $@
@@ -1439,3 +1440,6 @@ https://serverfault.com/questions/417241/extract-repository-name-from-github-url
 
 ** bash check variable exists
 - https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
+
+** shell initialization
+- https://github.com/rbenv/rbenv/wiki/Unix-shell-initialization
