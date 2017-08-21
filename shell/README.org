@@ -83,6 +83,13 @@
   - [[#bash-check-variable-exists][bash check variable exists]]
   - [[#shell-initialization][shell initialization]]
   - [[#imagemagick][imagemagick]]
+  - [[#commandlinefu][commandlinefu]]
+  - [[#check-if-a-program-exists][check if a program exists]]
+  - [[#check-if-two-paths-are-equal-in-bash][check if two paths are equal in Bash]]
+  - [[#delete-all-broken-symbolic-links-with-a-line][Delete all broken symbolic links with a line]]
+  - [[#determine-current-shell][determine current shell]]
+  - [[#process-substitution][Process substitution]]
+  - [[#example-of-alrradotfiles][example of alrra/dotfiles]]
 
 * Reference
 ** $* vs $@
@@ -1435,9 +1442,11 @@ https://serverfault.com/questions/417241/extract-repository-name-from-github-url
 
 ** GNU locale categories
 - https://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Locale-Categories.html
+- https://stackoverflow.com/questions/30479607/explain-the-effects-of-export-lang-lc-ctype-lc-all
 
 ** set -e not exit in function
 - https://stackoverflow.com/questions/25794905/why-does-set-e-true-false-true-not-exit
+- https://stackoverflow.com/questions/19789102/why-is-bash-errexit-not-behaving-as-expected-in-function-calls
 
 ** bash check variable exists
 - https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
@@ -1448,3 +1457,25 @@ https://serverfault.com/questions/417241/extract-repository-name-from-github-url
 ** imagemagick
 - http://www.imagemagick.org/script/mogrify.php
 - http://www.imagemagick.org/script/command-line-processing.php
+
+** commandlinefu
+- http://www.commandlinefu.com/commands/browse
+
+** check if a program exists
+- https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+
+** check if two paths are equal in Bash
+- https://stackoverflow.com/questions/33980224/how-to-check-if-two-paths-are-equal-in-bash
+
+** Delete all broken symbolic links with a line
+- https://stackoverflow.com/questions/22097130/delete-all-broken-symbolic-links-with-a-line
+
+** determine current shell
+- https://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on
+
+** Process substitution
+- http://tldp.org/LDP/abs/html/process-sub.html
+- https://en.wikipedia.org/wiki/Process_substitution
+
+** example of alrra/dotfiles
+- https://github.com/alrra/dotfiles/blob/55dc53a81c92f766a677c9e4696b8f4bbf6088c5/src/os/setup.sh

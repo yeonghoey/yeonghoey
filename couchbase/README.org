@@ -19,6 +19,7 @@
   - [[#sizing-guidelines][sizing guidelines]]
   - [[#querying-data-with-views][querying data with views]]
   - [[#graceful-failover][graceful failover]]
+  - [[#deployment][deployment]]
 
 * Overview
 * Reference
@@ -93,3 +94,6 @@ curl -X POST -u Administrator:password http://10.42.42.10:8091/pools/default/buc
 
 ** graceful failover
 - https://developer.couchbase.com/documentation/server/current/clustersetup/setup-failover-graceful.html
+
+** deployment
+- https://www.slideshare.net/Couchbase/managing-a-healthy-couchbase-server-deployment

@@ -15,6 +15,7 @@
   - [[#2017-06-02-fri-session-storage-vs-local-storage-vs-cookies][<2017-06-02 Fri> session storage vs local storage vs cookies]]
   - [[#seo-checkup][SEO checkup]]
   - [[#facebook-share-debugger][facebook share debugger]]
+  - [[#beautiful-open][Beautiful Open]]
 
 * Template
 #+BEGIN_SRC html
@@ -76,3 +77,6 @@ https://google.github.io/styleguide/htmlcssguide.html#CSS_Quotation_Marks
 
 ** facebook share debugger
 - https://developers.facebook.com/tools/debug/sharing/
+
+** Beautiful Open
+- http://beautifulopen.com/

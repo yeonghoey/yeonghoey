@@ -8,6 +8,8 @@
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
+  - [[#zsh-completions][zsh-completions]]
+  - [[#autoload][autoload]]
 
 * Overview
 * Reference
@@ -18,3 +20,8 @@
 - http://zsh.sourceforge.net/Guide/zshguide06.html
 
 * Staging
+** zsh-completions
+- https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
+
+** autoload
+- https://stackoverflow.com/questions/12570749/zsh-completion-difference

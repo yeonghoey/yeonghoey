@@ -1,11 +1,13 @@
 #+TITLE: Javascript
 
 * Table of Contents :TOC_2_gh:
- - [[#reference][Reference]]
-   - [[#global-functions][Global functions]]
-   - [[#string][String]]
- - [[#use-cases][Use Cases]]
-   - [[#parsing-uri][Parsing URI]]
+- [[#reference][Reference]]
+  - [[#global-functions][Global functions]]
+  - [[#string][String]]
+- [[#how-to][How-to]]
+  - [[#parse-uri][Parse URI]]
+- [[#staging][Staging]]
+  - [[#redux-and-flux][redux and flux]]
 
 * Reference
 ** Global functions
@@ -21,8 +23,8 @@
 ** String
 - https://www.w3schools.com/jsref/jsref_obj_string.asp
 
-* Use Cases
-** Parsing URI
+* How-to
+** Parse URI
 - https://gist.github.com/jlong/2428561
 
 #+BEGIN_SRC javascript
@@ -37,3 +39,8 @@
   parser.hash;     // => "#hash"
   parser.host;     // => "example.com:3000"
 #+END_SRC
+
+* Staging
+** redux and flux
+- https://code-cartoons.com/a-cartoon-intro-to-redux-3afb775501a6
+- https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207

@@ -1,4 +1,4 @@
-#+TITLE: shellcheck
+#+TITLE: Sentry
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
@@ -8,6 +8,7 @@
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
+  - [[#rollups-and-sampling][Rollups and Sampling]]
 
 * Overview
 * Reference
@@ -15,7 +16,6 @@
 * Topics
 * How-to
 * Links
-- https://github.com/koalaman/shellcheck/wiki/Ignore
-- https://github.com/koalaman/shellcheck/wiki/SC2155
-
 * Staging
+** Rollups and Sampling
+- https://docs.sentry.io/learn/rollups/

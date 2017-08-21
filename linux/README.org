@@ -17,6 +17,8 @@
   - [[#2017-07-13-thu-linux-kernel-parameters][<2017-07-13 Thu> Linux kernel parameters]]
   - [[#2017-07-14-fri-linux-usergroup][<2017-07-14 Fri> linux user/group]]
   - [[#read-free-command][Read 'free' command]]
+  - [[#where-in--should-extra-disks-be-mounted][Where in “/” should extra disks be mounted?]]
+  - [[#diskcache][diskcache]]
 
 * Overview
 - http://www.brendangregg.com/linuxperf.html
@@ -224,3 +226,9 @@ avoiding the performance hit when several processors attempt to address the same
 
 ** Read 'free' command
 - http://www.linuxnix.com/find-ram-size-in-linuxunix/
+
+** Where in “/” should extra disks be mounted?
+- https://unix.stackexchange.com/questions/29134/where-in-should-extra-disks-be-mounted
+
+** diskcache
+- http://www.linuxatemyram.com/play.html
