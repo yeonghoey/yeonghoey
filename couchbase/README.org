@@ -14,6 +14,10 @@
   - [[#2017-07-21-fri-couchbase-cli-group-add][<2017-07-21 Fri> couchbase-cli group-add]]
   - [[#2017-07-15-sat-couchbase-cli-flush][<2017-07-15 Sat> couchbase-cli flush]]
   - [[#2017-07-15-sat-cbbackupmgr][<2017-07-15 Sat> cbbackupmgr]]
+  - [[#production][Production]]
+  - [[#multi-dimensional-scalability][multi-dimensional-scalability]]
+  - [[#sizing-guidelines][sizing guidelines]]
+  - [[#querying-data-with-views][querying data with views]]
 
 * Overview
 * How-to
@@ -69,3 +73,18 @@ curl -X POST -u Administrator:password http://10.42.42.10:8091/pools/default/buc
 - cbbackupmgr list --archive /data/backup
 - ./cbbackupmgr backup --archive /data/backup --repo default --host couchbase://10.42.42.10 --username Administrator --password password
 - ./cbbackupmgr restore -a /data/backup -r cluster -c 10.42.131.69 -u Administrator -p password --start 2017-07-15T09_59_58.451600859Z --end 2017-07-15T09_59_58.451600859Z
+
+** Production
+- https://developer.couchbase.com/documentation/server/4.6/install/plan-for-production.html
+
+** multi-dimensional-scalability
+- https://www.couchbase.com/multi-dimensional-scalability-overview
+- https://www.couchbase.com/binaries/content/assets/website/docs/datasheets/couchbase-multi-dimensional-scaling-isolate-and-optimize-query.pdf
+
+** sizing guidelines
+- https://developer.couchbase.com/documentation/server/current/install/sizing-general.html
+- https://www.slideshare.net/Couchbase/sizing-your-couchbase-cluster-couchbase-connect-2015
+- https://www.youtube.com/watch?v=kDZwjLW_GEo
+
+** querying data with views
+- https://developer.couchbase.com/documentation/server/4.6/architecture/querying-data-with-views.html

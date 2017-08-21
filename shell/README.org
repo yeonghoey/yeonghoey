@@ -69,6 +69,18 @@
   - [[#2017-07-03-mon-here_strings][<2017-07-03 Mon> HERE_STRINGS]]
   - [[#2017-07-03-mon-wc--l][<2017-07-03 Mon> wc -l]]
   - [[#2017-07-03-mon-source-in-function][<2017-07-03 Mon> source in function]]
+  - [[#eval-vs-source][eval vs source]]
+  - [[#addpath][addpath]]
+  - [[#basename][basename]]
+  - [[#if-content-exists-multiline-string][if content exists multiline string]]
+  - [[#echo-string1string2][echo "${string1#"$string2"}"]]
+  - [[#bash-grouping-commands][bash grouping commands]]
+  - [[#capturing-multiline-output][capturing multiline output]]
+  - [[#bash-source-return][bash source return]]
+  - [[#sudo-keep-alive][sudo keep alive]]
+  - [[#gnu-locale-categories][GNU locale categories]]
+  - [[#set--e-not-exit-in-function][set -e not exit in function]]
+  - [[#bash-check-variable-exists][bash check variable exists]]
 
 * Reference
 ** $* vs $@
@@ -1369,7 +1381,8 @@ https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/
 ** TODO <2017-07-03 Mon> here-document to variables
 - https://stackoverflow.com/questions/1167746/how-to-assign-a-heredoc-value-to-a-variable-in-bash
 - https://unix.stackexchange.com/questions/265149/why-is-set-o-errexit-breaking-this-read-heredoc-expression/265151#265151
-
+- https://unix.stackexchange.com/questions/68419/how-to-print-in-here-document
+  
 ** TODO <2017-07-03 Mon> "cat -"
 
 ** TODO <2017-07-03 Mon> IFS?
@@ -1380,3 +1393,49 @@ https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/
 
 ** TODO <2017-07-03 Mon> source in function
 - https://unix.stackexchange.com/questions/151889/why-does-bashs-source-command-behave-differently-when-called-from-a-function
+** eval vs source
+- https://unix.stackexchange.com/questions/123063/what-is-the-difference-between-eval-and-source-dev-stdin
+
+** addpath
+- https://unix.stackexchange.com/questions/217622/add-path-to-path-if-not-already-in-path
+#+BEGIN_SRC shell
+  addpath() {
+    if [[ ":${PATH}:" != *":$1:"* ]]; then
+      PATH="$1:${PATH}"
+    fi
+  }
+
+#+END_SRC
+** basename
+https://serverfault.com/questions/417241/extract-repository-name-from-github-url-in-bash
+
+#+BEGIN_SRC shell
+  "$(basename "$x" .git)"
+#+END_SRC
+
+** if content exists multiline string
+- https://stackoverflow.com/questions/21128592/bash-text-search-find-if-the-content-of-one-file-exists-in-another-file
+
+** echo "${string1#"$string2"}"
+- https://stackoverflow.com/questions/25725391/bash-path-difference-between-two-paths
+
+** bash grouping commands
+- https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html
+
+** capturing multiline output
+- https://stackoverflow.com/questions/613572/capturing-multiple-line-output-into-a-bash-variable
+
+** bash source return
+- https://stackoverflow.com/questions/9640660/any-way-to-exit-bash-script-but-not-quitting-the-terminal
+
+** sudo keep alive
+- https://gist.github.com/cowboy/3118588
+
+** GNU locale categories
+- https://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Locale-Categories.html
+
+** set -e not exit in function
+- https://stackoverflow.com/questions/25794905/why-does-set-e-true-false-true-not-exit
+
+** bash check variable exists
+- https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash

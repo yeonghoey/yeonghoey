@@ -1,0 +1,20 @@
+#+TITLE: zsh
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+* How-to
+* Links
+- http://zsh.sourceforge.net/Guide/zshguide06.html
+
+* Staging

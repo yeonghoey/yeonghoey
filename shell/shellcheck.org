@@ -1,0 +1,19 @@
+#+TITLE: shellcheck
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+* How-to
+* Links
+- https://github.com/koalaman/shellcheck/wiki/Ignore
+* Staging
