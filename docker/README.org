@@ -1,11 +1,12 @@
 #+TITLE: Docker
 
 * Table of Contents :TOC_1_gh:
- - [[#reference][Reference]]
- - [[#use-case][Use Case]]
+- [[#reference][Reference]]
+- [[#how-to][How-to]]
+- [[#staging][Staging]]
 
 * Reference
-* Use Case
+* How-to
 ** Install docker with a single command
 - https://get.docker.com/
 
@@ -13,7 +14,7 @@
   curl -sSL https://get.docker.com/ | sh
 #+END_SRC
 
-** Installing Amazon Linux instance
+** Install docker on Amazon Linux instance
 - http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
 
 #+BEGIN_SRC shell
@@ -23,7 +24,7 @@
   sudo usermod -a -G docker ec2-user
 #+END_SRC
 
-** Can't access internet from containers because of private DNS
+** Access internet from containers when private DNS intrudes
 - https://github.com/moby/moby/issues/13381#issuecomment-159836002
 - https://github.com/docker/docker/issues/9889
 
@@ -45,3 +46,7 @@ To fix it, add following lines to ~/lib/systemd/system/docker.service~:
   EnvironmentFile=-/etc/default/docker
   ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS
 #+END_EXAMPLE
+
+* Staging
+** docker-cheat-sheet
+- https://github.com/wsargent/docker-cheat-sheet#table-of-contents

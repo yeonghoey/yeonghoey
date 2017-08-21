@@ -1,17 +1,19 @@
 #+TITLE: AWS Data Pipeline
 
 * Table of Contents                                                :TOC_2_gh:
- - [[#key-concepts][Key Concepts]]
-   - [[#objects][Objects]]
-   - [[#schedule][Schedule]]
-   - [[#resource][Resource]]
-   - [[#activity][Activity]]
-   - [[#the-default-object][The Default Object]]
-   - [[#custom-fields][Custom Fields]]
-   - [[#referencing-values][Referencing Values]]
- - [[#references][References]]
+- [[#references][References]]
+- [[#topics][Topics]]
+  - [[#objects][Objects]]
+  - [[#schedule][Schedule]]
+  - [[#resource][Resource]]
+  - [[#activity][Activity]]
+  - [[#the-default-object][The Default Object]]
+  - [[#custom-fields][Custom Fields]]
+  - [[#referencing-values][Referencing Values]]
+- [[#staging][Staging]]
 
-* Key Concepts
+* References
+* Topics
 ** Objects
 Everything in AWS Data Pipeline(DP) is an object with some fields.  
 
@@ -68,7 +70,6 @@ Objects which have its ~type~ value as ~EmrCluster~ or ~Ec2Resource~ are Resourc
 They are nodes which activities run on.  
 They are created at every scheduled moment.  
 They are terminated when every scheduled activity ends.  
-
 
 ** Activity
 Activities are the tasks which we want to be done.  
@@ -129,6 +130,9 @@ Within an object, fields prefixed with ~my~ are custom fields.
 With enclosing field names with ~#{}~, we can reference its values.  
 There are also some functions and operators to tweak the values.
 
-* References
+* Staging
+- http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-object-emractivity.html
+- http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-pipeline-objects.html
 - http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-pipeline-objects.html
 - https://github.com/awslabs/data-pipeline-samples
+- http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-object-schedule.html

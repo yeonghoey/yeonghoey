@@ -2,12 +2,12 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
-- [[#how-to][How-to]]
-- [[#topics][Topics]]
-  - [[#document-expiration][Document Expiration]]
 - [[#reference][Reference]]
   - [[#internalsettings][internalSettings]]
 - [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#document-expiration][Document Expiration]]
+- [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
   - [[#tunable-memory-and-ejection-policy][Tunable Memory and Ejection Policy]]
@@ -21,18 +21,6 @@
   - [[#graceful-failover][graceful failover]]
 
 * Overview
-* How-to
-* Topics
-** Document Expiration
-- https://developer.couchbase.com/documentation/server/3.x/developer/dev-guide-3.0/doc-expiration.html
-- https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html
-
-
-- ~TTL~ in *seconds* if it's *30 days or less*
-- ~TTL~ in *Unix time* if it's *over 30 days*
-- Couchbase runs a process named ~expiry pager~ periodically to clean up expired items
-- ~Expire pager~ runs every ~60~ minutes by default(can be configured through [[https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html][exp_pager_stime]])
-
 * Reference
 ** internalSettings
 - https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html
@@ -56,6 +44,18 @@
 #+END_SRC
 
 * Terminology
+* Topics
+** Document Expiration
+- https://developer.couchbase.com/documentation/server/3.x/developer/dev-guide-3.0/doc-expiration.html
+- https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html
+
+
+- ~TTL~ in *seconds* if it's *30 days or less*
+- ~TTL~ in *Unix time* if it's *over 30 days*
+- Couchbase runs a process named ~expiry pager~ periodically to clean up expired items
+- ~Expire pager~ runs every ~60~ minutes by default(can be configured through [[https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html][exp_pager_stime]])
+
+* How-to
 * Links
 * Staging
 ** Tunable Memory and Ejection Policy

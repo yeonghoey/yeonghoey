@@ -1,18 +1,20 @@
 #+TITLE: HTML/CSS
 
 * Table of Contents :TOC_2_gh:
- - [[#template][Template]]
- - [[#staging][Staging]]
-   - [[#the-best-place-to-put-script-tags-in-html][The best place to put <script> tags in HTML]]
-   - [[#style-guides][Style Guides]]
-   - [[#2017-03-03-fri-css-combined][<2017-03-03 Fri> css combined]]
-   - [[#2017-03-03-fri-css-twice][<2017-03-03 Fri> css twice]]
-   - [[#2017-03-03-fri-css-property-order][<2017-03-03 Fri> css property order]]
-   - [[#2017-03-26-sun-idiomatic-css][<2017-03-26 Sun> idiomatic-css]]
-   - [[#2017-03-26-sun-css-import][<2017-03-26 Sun> CSS import]]
-   - [[#2017-02-26-sun-the-definitive-guide-to-form-based-website-auth][<2017-02-26 Sun> The definitive guide to form based website auth]]
-   - [[#2017-02-26-sun-front-end-developer-handbook-2017][<2017-02-26 Sun> Front-End Developer Handbook 2017]]
-   - [[#2017-06-02-fri-session-storage-vs-local-storage-vs-cookies][<2017-06-02 Fri> session storage vs local storage vs cookies]]
+- [[#template][Template]]
+- [[#staging][Staging]]
+  - [[#the-best-place-to-put-script-tags-in-html][The best place to put <script> tags in HTML]]
+  - [[#style-guides][Style Guides]]
+  - [[#2017-03-03-fri-css-combined][<2017-03-03 Fri> css combined]]
+  - [[#2017-03-03-fri-css-twice][<2017-03-03 Fri> css twice]]
+  - [[#2017-03-03-fri-css-property-order][<2017-03-03 Fri> css property order]]
+  - [[#2017-03-26-sun-idiomatic-css][<2017-03-26 Sun> idiomatic-css]]
+  - [[#2017-03-26-sun-css-import][<2017-03-26 Sun> CSS import]]
+  - [[#2017-02-26-sun-the-definitive-guide-to-form-based-website-auth][<2017-02-26 Sun> The definitive guide to form based website auth]]
+  - [[#2017-02-26-sun-front-end-developer-handbook-2017][<2017-02-26 Sun> Front-End Developer Handbook 2017]]
+  - [[#2017-06-02-fri-session-storage-vs-local-storage-vs-cookies][<2017-06-02 Fri> session storage vs local storage vs cookies]]
+  - [[#seo-checkup][SEO checkup]]
+  - [[#facebook-share-debugger][facebook share debugger]]
 
 * Template
 #+BEGIN_SRC html
@@ -69,3 +71,8 @@ https://google.github.io/styleguide/htmlcssguide.html#CSS_Quotation_Marks
 - https://stackoverflow.com/questions/3220660/local-storage-vs-cookies
 - https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage
 
+** SEO checkup
+- https://seositecheckup.com/
+
+** facebook share debugger
+- https://developers.facebook.com/tools/debug/sharing/

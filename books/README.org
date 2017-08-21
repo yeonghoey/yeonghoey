@@ -1,0 +1,21 @@
+#+TITLE: Books
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+  - [[#game-mechanics-advanced-game-design-voices-that-matter][Game Mechanics: Advanced Game Design (Voices That Matter)]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+* How-to
+* Links
+* Staging
+** Game Mechanics: Advanced Game Design (Voices That Matter)
+- https://www.amazon.com/Game-Mechanics-Advanced-Design-Voices-ebook/dp/B008CG8E8Y/ref=mt_kindle?_encoding=UTF8&me=#nav-subnav

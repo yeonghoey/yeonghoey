@@ -82,6 +82,7 @@
   - [[#set--e-not-exit-in-function][set -e not exit in function]]
   - [[#bash-check-variable-exists][bash check variable exists]]
   - [[#shell-initialization][shell initialization]]
+  - [[#imagemagick][imagemagick]]
 
 * Reference
 ** $* vs $@
@@ -1443,3 +1444,7 @@ https://serverfault.com/questions/417241/extract-repository-name-from-github-url
 
 ** shell initialization
 - https://github.com/rbenv/rbenv/wiki/Unix-shell-initialization
+
+** imagemagick
+- http://www.imagemagick.org/script/mogrify.php
+- http://www.imagemagick.org/script/command-line-processing.php

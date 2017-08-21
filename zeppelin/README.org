@@ -1,26 +1,14 @@
 #+TITLE: Apache Zeppelin
 
-#+TITLE: Apache Zeppelin
-
 * Table of Contents :TOC_2_gh:
- - [[#how-to][How-to]]
-   - [[#install-interpreters][Install Interpreters]]
- - [[#reference][Reference]]
-   - [[#zeppelin-envsh][zeppelin-env.sh]]
-   - [[#dynamic-form][Dynamic Form]]
- - [[#topics][Topics]]
-   - [[#interpreter-mode][Interpreter mode]]
- - [[#staging][Staging]]
-
-* How-to
-** Install Interpreters
-- https://zeppelin.apache.org/docs/0.7.1/manual/interpreterinstallation.html
-
-#+BEGIN_SRC shell
-  ./bin/install-interpreter.sh --all
-  ./bin/install-interpreter.sh --name md,shell,jdbc,python
-  ./bin/install-interpreter.sh --list
-#+END_SRC
+- [[#reference][Reference]]
+  - [[#zeppelin-envsh][zeppelin-env.sh]]
+  - [[#dynamic-form][Dynamic Form]]
+- [[#topics][Topics]]
+  - [[#interpreter-mode][Interpreter mode]]
+- [[#how-to][How-to]]
+  - [[#install-interpreters][Install Interpreters]]
+- [[#staging][Staging]]
 
 * Reference
 ** zeppelin-env.sh
@@ -106,5 +94,15 @@
 - In ~Isolated~ mode, each ~Note~ has its own ~SparkContext~ and ~Scala REPL~.
 [[file:img/screenshot_2017-07-24_19-04-38.png]]
 
-* Staging
+* How-to
+** Install Interpreters
+- https://zeppelin.apache.org/docs/0.7.1/manual/interpreterinstallation.html
 
+#+BEGIN_SRC shell
+  ./bin/install-interpreter.sh --all
+  ./bin/install-interpreter.sh --name md,shell,jdbc,python
+  ./bin/install-interpreter.sh --list
+#+END_SRC
+
+* Staging
+- https://github.com/hortonworks-gallery/zeppelin-notebooks
