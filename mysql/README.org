@@ -1,12 +1,33 @@
 #+TITLE: MySQL
 
-* Table of Contents :TOC_1_gh:
- - [[#cheatsheet][CheatSheet]]
- - [[#reference][Reference]]
- - [[#details][Details]]
- - [[#staging][Staging]]
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+  - [[#cli][CLI]]
+  - [[#select][SELECT]]
+  - [[#insertupdate][INSERT/UPDATE]]
+  - [[#show][SHOW]]
+  - [[#database][DATABASE]]
+  - [[#table][TABLE]]
+  - [[#types][TYPES]]
+  - [[#key][KEY]]
+  - [[#view][VIEW]]
+  - [[#grantrevoke][GRANT/REVOKE]]
+- [[#reference][Reference]]
+  - [[#drop-table][DROP TABLE]]
+- [[#topics][Topics]]
+  - [[#database-schema][Database? Schema?]]
+  - [[#datetime-vs-timestamp][DATETIME vs TIMESTAMP]]
+  - [[#foreign-key-constraint][Foreign key constraint]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+  - [[#char-vs-varchar][CHAR vs VARCHAR]]
+  - [[#varchar-vs-text][VARCHAR vs TEXT]]
+  - [[#importance-of-varchar-length][Importance of VARCHAR length]]
+  - [[#2017-07-26-wed-transaction-isolation-levels][<2017-07-26 Wed> Transaction Isolation Levels]]
+  - [[#2017-07-26-wed-mysql-for-update][<2017-07-26 Wed> MySQL FOR UPDATE]]
 
-* CheatSheet
+* Overview
 - https://en.wikibooks.org/wiki/MySQL/CheatSheet
 
 ** CLI
@@ -220,12 +241,13 @@
       [RESTRICT | CASCADE]
 #+END_SRC
 
-* Details
+* Topics
 ** Database? Schema?
 - http://stackoverflow.com/questions/11618277/difference-between-schema-database-in-mysql
 - ~CREATE SCHEMA~ is a synonym for ~CREATE DATABASE~
 - Most other database solutions make a distinction.
   Usually a ~schema~ is a collection of ~tables~ and a ~database~ is a collection of ~schemas~.
+
 ** DATETIME vs TIMESTAMP
 - http://stackoverflow.com/questions/409286/should-i-use-field-datetime-or-timestamp
 
@@ -235,6 +257,7 @@
 | 000-01-01 00:00:00 TO 9999-12-31 23:59:59 | 1970-01-01 00:00:01 UTC TO 2038-01-19 03:14:07 UTC     |
 | A specific point in time                  | A specific date and time in calender                   |
 | Mostly for logging                        | Mostly for domain data like reservation, reminder etc. |
+
 ** Foreign key constraint
 - http://www.sqlines.com/mysql/set_foreign_key_checks
 - https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_foreign_key_checks
@@ -274,6 +297,8 @@
   -- Query OK, 1 row affected (0.03 sec)
 #+END_SRC
 
+* How-to
+* Links
 * Staging
 ** CHAR vs VARCHAR
 - https://dba.stackexchange.com/questions/2640/what-is-the-performance-impact-of-using-char-vs-varchar-on-a-fixed-size-field
@@ -283,3 +308,9 @@
 
 ** Importance of VARCHAR length
 - https://stackoverflow.com/questions/1962310/importance-of-varchar-length-in-mysql-table
+
+** TODO <2017-07-26 Wed> Transaction Isolation Levels
+- https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html
+
+** TODO <2017-07-26 Wed> MySQL FOR UPDATE
+- https://dev.mysql.com/doc/refman/5.7/en/innodb-locking-reads.html

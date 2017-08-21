@@ -1,18 +1,20 @@
 #+TITLE: SQLAlachemy
 
 * Table of Contents :TOC_2_gh:
- - [[#reference][Reference]]
-   - [[#column][Column]]
-   - [[#declarative-api][Declarative API]]
-   - [[#functions][functions]]
-   - [[#query][Query]]
-   - [[#session][Session]]
-   - [[#hybrid_property][hybrid_property]]
- - [[#use-cases][Use Cases]]
-   - [[#prefixing-all-tables-under-a-declarative_base][Prefixing all tables under a declarative_base]]
- - [[#staging][Staging]]
-   - [[#2017-04-11-tue-sqlalchemy-stringify][<2017-04-11 Tue> SQLAlchemy Stringify]]
-   - [[#2017-06-16-fri-mysql-unicode-charset-support][<2017-06-16 Fri> MySQL Unicode, Charset support]]
+- [[#reference][Reference]]
+  - [[#column][Column]]
+  - [[#declarative-api][Declarative API]]
+  - [[#functions][functions]]
+  - [[#query][Query]]
+  - [[#session][Session]]
+  - [[#hybrid_property][hybrid_property]]
+- [[#how-to][How-to]]
+  - [[#prefix-all-tables-under-a-declarative_base][Prefix all tables under a declarative_base]]
+- [[#staging][Staging]]
+  - [[#2017-04-11-tue-sqlalchemy-stringify][<2017-04-11 Tue> SQLAlchemy Stringify]]
+  - [[#2017-06-16-fri-mysql-unicode-charset-support][<2017-06-16 Fri> MySQL Unicode, Charset support]]
+  - [[#2017-07-26-wed-sqlalchemywith_for_update][<2017-07-26 Wed> SQLAlchemy.with_for_update]]
+  - [[#2017-07-26-wed-sqlalchemy-filter-and_-][<2017-07-26 Wed> sqlalchemy filter, and_, &]]
 
 * Reference
 ** Column
@@ -194,8 +196,8 @@ Can use ~fullname~ like other columns:
   some_user = session.query(User).filter(User.fullname == "John Smith").first()
 #+END_SRC
 
-* Use Cases
-** Prefixing all tables under a declarative_base
+* How-to
+** Prefix all tables under a declarative_base
 - https://stackoverflow.com/questions/38245145/how-to-set-common-prefix-for-all-tables-in-sqlalchemy
 - Overriding both ~cls.__tablename__~ along with ~dict_['__tablename__']~ is required
   because ~DeclarativeMeta~ refers the attributes of ~cls~ during initialization.
@@ -233,3 +235,8 @@ http://docs.sqlalchemy.org/en/latest/faq/sqlexpressions.html#faq-sql-expression-
 ** TODO <2017-06-16 Fri> MySQL Unicode, Charset support
 - http://docs.sqlalchemy.org/en/latest/dialects/mysql.html#unicode
 - PyMySQL uses ~lain1~ by [[https://github.com/PyMySQL/PyMySQL/blob/master/pymysql/connections.py#L105][default]].
+** TODO <2017-07-26 Wed> SQLAlchemy.with_for_update
+- http://docs.sqlalchemy.org/en/latest/core/selectable.html#sqlalchemy.sql.expression.CompoundSelect.with_for_update
+
+** TODO <2017-07-26 Wed> sqlalchemy filter, and_, &
+- http://docs.sqlalchemy.org/en/latest/core/sqlelement.html#sqlalchemy.sql.expression.and_
