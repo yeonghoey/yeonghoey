@@ -8,6 +8,7 @@
   - [[#curl][curl]]
   - [[#date][date]]
   - [[#du][du]]
+  - [[#export][export]]
   - [[#for][for]]
   - [[#function][function]]
   - [[#grep][grep]]
@@ -259,6 +260,19 @@
   4.0K    CNAME
   4.0K    index.html
   0B    temp
+#+END_SRC
+
+** export
+- https://ss64.com/bash/export.html
+- Mark each *name to be passed to child processes* in the environment.
+- In other words, it doesn't matter whether you set a variable before ~export~ or vice versa.
+
+#+BEGIN_SRC shell
+  export [-fn] [-p] [name[=value]]
+  # -f   The names refer to shell functions
+  #      otherwise the names refer to shell variables
+  # -n   no longer mark each name for export
+  # -p   Display output in a form that can be reused as input.
 #+END_SRC
 
 ** for

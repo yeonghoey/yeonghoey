@@ -168,7 +168,7 @@ and delete the branch manually after it merged.
 
 *** List untracked files
 #+BEGIN_SRC shell
-  git ls-files --exclude-standard --others
+  git ls-files . --exclude-standard --others
   #                 │                 └─ untracked
   #                 └─ exclude files decalred in .gitignore, etc.
 #+END_SRC
