@@ -1,27 +1,39 @@
 #+TITLE: Git
 
-* Table of Contents                                                :TOC_2_gh:
+* Table of Contents                                                :TOC_3_gh:
 - [[#reference][Reference]]
   - [[#add][add]]
+    - [[#intent-to-add][intent-to-add]]
   - [[#branch][branch]]
+    - [[#cleanup-branches][Cleanup branches]]
+    - [[#cleanup-remote-branch-references][Cleanup remote branch references]]
   - [[#clone][clone]]
   - [[#config][config]]
   - [[#diff][diff]]
   - [[#flow][flow]]
+    - [[#git-flow-release-finish][git flow release finish]]
+    - [[#when-it-comes-to-code-review][When it comes to code review]]
   - [[#gitignore][gitignore]]
   - [[#list-tree][list-tree]]
   - [[#log][log]]
+    - [[#find-deleted-files][Find deleted files]]
+  - [[#ls-files][ls-files]]
+    - [[#list-ignored-files][List ignored files]]
+    - [[#list-untracked-files][List untracked files]]
   - [[#pull][pull]]
   - [[#rebase][rebase]]
+  - [[#rev-parse][rev-parse]]
+    - [[#get-git-root-directory][Get git root directory]]
   - [[#rm][rm]]
   - [[#submodule][submodule]]
   - [[#tag][tag]]
+    - [[#basics][Basics]]
+    - [[#prune-local-git-tags-that-dont-exist-on-remote][Prune local git tags that don't exist on remote]]
   - [[#worktree][worktree]]
 - [[#topics][Topics]]
   - [[#git-attributes][Git Attributes]]
 - [[#how-to][How-to]]
-  - [[#get-git-root-directory][Get git root directory]]
-  - [[#how-to-git-commit-nothing-without-an-error][How to git commit nothing without an error]]
+  - [[#commit-only-when-theres-something-staged][Commit only when there's something staged]]
   - [[#list-all-todos-written-by-a-specific-user][List all TODOs written by a specific user]]
   - [[#purge-files-including-their-histories][Purge files including their histories]]
   - [[#resolve-conflicts][Resolve conflicts]]
@@ -151,6 +163,21 @@ and delete the branch manually after it merged.
   # There won't exist the file in <SHA> because it has been deleted.
   git checkout <SHA>^ -- <path-to-file>
 #+END_SRC
+** ls-files
+- https://stackoverflow.com/questions/3538144/how-do-you-git-show-untracked-files-that-do-not-exist-in-gitignore
+
+*** List ignored files
+#+BEGIN_SRC shell
+  git ls-files . --exclude-standard --ignored --others
+#+END_SRC
+
+*** List untracked files
+#+BEGIN_SRC shell
+  git ls-files --exclude-standard --others
+  #                 │                 └─ untracked
+  #                 └─ exclude files decalred in .gitignore, etc.
+#+END_SRC
+
 ** pull
 - http://stackoverflow.com/questions/30208928/can-git-pull-automatically-stash-and-pop-pending-changes
 
@@ -166,6 +193,14 @@ and delete the branch manually after it merged.
 ** rebase
 - https://git-scm.com/docs/git-rebase#git-rebase
 - ~--autosquash~ is only valid when the ~--interactive~ option is used.
+
+** rev-parse
+*** Get git root directory
+- http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
+
+#+BEGIN_SRC shell
+  git rev-parse --show-toplevel
+#+END_SRC
 
 ** rm
 - http://stackoverflow.com/questions/6964297/untrack-files-from-git
@@ -287,19 +322,12 @@ In ~.gitconfig~:
 #+END_EXAMPLE
 
 * How-to
-** Get git root directory
-- http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
-
-#+BEGIN_SRC shell
-git rev-parse --show-toplevel
-#+END_SRC
-
-** How to git commit nothing without an error
+** Commit only when there's something staged
 - http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error
 
 #+BEGIN_SRC shell
 if ! git diff --quiet --cached; then
-  git commit --verbose
+  git commit
 fi
 
 # or just
@@ -308,6 +336,7 @@ git diff --quiet --cached || git commit
 
 ** List all TODOs written by a specific user
 - https://stackoverflow.com/questions/25039242/how-to-list-all-my-todo-messages-in-the-current-git-managed-code-base
+
 #+BEGIN_SRC shell
   git grep -l TODO | xargs -n1 git blame -f -n -w | grep "$(git config user.name)" | grep TODO | sed "s/.\{9\}//" | sed "s/(.*)[[:space:]]*//"
 #+END_SRC
@@ -326,6 +355,7 @@ cd yeonghoey.git
 git reflog expire --expire=now --all && git gc --prune=now --aggressive
 git push
 #+END_SRC
+
 ** Resolve conflicts
 - https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
 - https://backlogtool.com/git-guide/en/stepup/stepup2_8.html

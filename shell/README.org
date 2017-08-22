@@ -91,6 +91,7 @@
   - [[#process-substitution][Process substitution]]
   - [[#example-of-alrradotfiles][example of alrra/dotfiles]]
   - [[#shell-parameter-expansions][shell parameter expansions]]
+  - [[#hash--r][hash -r]]
 
 * Reference
 ** $* vs $@
@@ -1482,3 +1483,15 @@ https://serverfault.com/questions/417241/extract-repository-name-from-github-url
 - https://github.com/alrra/dotfiles/blob/55dc53a81c92f766a677c9e4696b8f4bbf6088c5/src/os/setup.sh
 ** shell parameter expansions
 Bash tests for a parameter that is unset or null. Omitting the colon results in a test only for a parameter that is unset. Put another way, if the colon is included, the operator tests for both parameter’s existence and that its value is not null; if the colon is omitted, the operator tests only for existence.
+
+** hash -r
+#+BEGIN_SRC shell
+  # ----------------------------------------------------------------------------
+  # For bash and zhs,  hash command must be called to forget past commands.
+  # Without forgetting past commands, $PATH changes may not take effect.
+  if [[ "${BASH-}" || "${ZSH_VERSION-}" ]]; then
+    hash -r 2>/dev/null
+    #     └─ forget all previously remembered utility locations
+  fi
+  # ----------------------------------------------------------------------------
+#+END_SRC
