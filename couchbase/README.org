@@ -24,6 +24,8 @@
   - [[#deployment][deployment]]
 
 * Overview
+[[file:img/screenshot_2017-08-22_23-47-26.png]]
+
 * Reference
 ** internalSettings
 - https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html
@@ -47,11 +49,26 @@
 #+END_SRC
 
 * Terminology
+- https://developer.couchbase.com/documentation/server/4.6/architecture/terminology.html
+
+- Node        :: A single Couchbase Server instance
+- Cluster     :: A collection of nodes that are accessed and managed as a single group.
+- Bucket      :: A logical container for a related set of items
+- Item        :: The basic unit of data such as JSON documents
+- vBucket     :: Physical partitions of the bucket data.
+- Cluster map :: A mapping of which services belong to which nodes at a given point in time.
+- vBucket map :: A mapping of vBuckets to nodes at a given point in time.
+- Replication :: The process of creating additional copies of active data on alternate nodes.
+- Rebalance   :: Used to redistribute the load and adapt to the new topology of nodes.
+- Failover    :: To divert traffic away from failing nodes to the remaining healthy nodes.
+
+- Node lifecycle ::
+[[file:img/screenshot_2017-08-22_23-54-23.png]]
+
 * Topics
 ** Document Expiration
 - https://developer.couchbase.com/documentation/server/3.x/developer/dev-guide-3.0/doc-expiration.html
 - https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html
-
 
 - ~TTL~ in *seconds* if it's *30 days or less*
 - ~TTL~ in *Unix time* if it's *over 30 days*
