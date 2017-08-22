@@ -265,7 +265,7 @@
 ** export
 - https://ss64.com/bash/export.html
 - Mark each *name to be passed to child processes* in the environment.
-- In other words, it doesn't matter whether you set a variable before ~export~ or vice versa.
+- It doesn't matter whether you set a variable before ~export~ or vice versa.
 
 #+BEGIN_SRC shell
   export [-fn] [-p] [name[=value]]
