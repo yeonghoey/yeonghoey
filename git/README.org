@@ -174,18 +174,18 @@ and delete the branch manually after it merged.
 #+END_SRC
 
 *** List ignored files
-- List ignored, cached files (~ls-files~ uses ~--cached~ by default) ::
+- ignored, cached files (~--cached~ is default) ::
 #+BEGIN_SRC shell
   git ls-files . --exclude-standard --ignored
-  #                 │                  └─ only those matched by an exclude pattern
+  #                 │                  └─ show only those matched by an exclude pattern
   #                 └─ exclude files decalred in .gitignore, etc.
 #+END_SRC
 
-- List ignored, untracked files ::
+- ignored, untracked files ::
 #+BEGIN_SRC shell
   git ls-files . --exclude-standard --ignored --others
   #                 │                  │         └─ untracked
-  #                 │                  └─ only those matched by an exclude pattern
+  #                 │                  └─ show only those matched by an exclude pattern
   #                 └─ exclude files decalred in .gitignore, etc.
 #+END_SRC
 
