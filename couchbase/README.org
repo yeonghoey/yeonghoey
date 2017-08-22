@@ -8,6 +8,8 @@
 - [[#topics][Topics]]
   - [[#document-expiration][Document Expiration]]
 - [[#how-to][How-to]]
+  - [[#failover][Failover]]
+  - [[#reset-couchbase-password][Reset couchbase password]]
 - [[#links][Links]]
 - [[#staging][Staging]]
   - [[#tunable-memory-and-ejection-policy][Tunable Memory and Ejection Policy]]
@@ -57,6 +59,27 @@
 - ~Expire pager~ runs every ~60~ minutes by default(can be configured through [[https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html][exp_pager_stime]])
 
 * How-to
+** Failover
+- Click ~Fail Over~ button next to the failing over node
+- Select ~Fail Over~ strategy
+
+[[file:img/screenshot_2017-08-22_23-26-22.png]]
+
+- After failing over process, the node becomes pending.
+[[file:img/screenshot_2017-08-22_23-27-58.png]]
+
+- After shutting down the node
+[[file:img/screenshot_2017-08-22_23-32-37.png]]
+
+- After putting back the node, select one of recovery strategy and click ~Rebalance~.
+
+** Reset couchbase password
+- https://developer.couchbase.com/documentation/server/3.x/admin/CLI/cbreset_password_tool.html
+
+#+BEGIN_SRC shell
+  /opt/couchbase/bin/cbreset_password
+#+END_SRC
+
 * Links
 * Staging
 ** Tunable Memory and Ejection Policy
