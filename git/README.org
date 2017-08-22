@@ -18,8 +18,8 @@
   - [[#log][log]]
     - [[#find-deleted-files][Find deleted files]]
   - [[#ls-files][ls-files]]
-    - [[#list-ignored-files][List ignored files]]
     - [[#list-untracked-files][List untracked files]]
+    - [[#list-ignored-files][List ignored files]]
   - [[#pull][pull]]
   - [[#rebase][rebase]]
   - [[#rev-parse][rev-parse]]
@@ -166,15 +166,26 @@ and delete the branch manually after it merged.
 ** ls-files
 - https://stackoverflow.com/questions/3538144/how-do-you-git-show-untracked-files-that-do-not-exist-in-gitignore
 
-*** List ignored files
-#+BEGIN_SRC shell
-  git ls-files . --exclude-standard --ignored --others
-#+END_SRC
-
 *** List untracked files
 #+BEGIN_SRC shell
   git ls-files --exclude-standard --others
   #                 │                 └─ untracked
+  #                 └─ exclude files decalred in .gitignore, etc.
+#+END_SRC
+
+*** List ignored files
+- List ignored, cached files (~ls-files~ uses ~--cached~ by default) ::
+#+BEGIN_SRC shell
+  git ls-files . --exclude-standard --ignored
+  #                 │                  └─ only those matched by an exclude pattern
+  #                 └─ exclude files decalred in .gitignore, etc.
+#+END_SRC
+
+- List ignored, untracked files ::
+#+BEGIN_SRC shell
+  git ls-files . --exclude-standard --ignored --others
+  #                 │                  │         └─ untracked
+  #                 │                  └─ only those matched by an exclude pattern
   #                 └─ exclude files decalred in .gitignore, etc.
 #+END_SRC
 
