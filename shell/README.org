@@ -93,6 +93,8 @@
   - [[#example-of-alrradotfiles][example of alrra/dotfiles]]
   - [[#shell-parameter-expansions][shell parameter expansions]]
   - [[#hash--r][hash -r]]
+  - [[#negative-offset-of-shell-parameter-expansion][negative offset of shell parameter expansion]]
+  - [[#empty-array-and-][empty array and [@]]]
 
 * Reference
 ** $* vs $@
@@ -1509,3 +1511,13 @@ Bash tests for a parameter that is unset or null. Omitting the colon results in 
   fi
   # ----------------------------------------------------------------------------
 #+END_SRC
+** negative offset of shell parameter expansion
+#+BEGIN_SRC shell
+
+  if [[ "${file: -3}" == ".tf" ]]; then
+    #           └─  a negative offset must be separated from the colon by
+    #               at least one space to avoid being confused with :- expansion
+#+END_SRC
+
+** empty array and [@]
+- https://stackoverflow.com/questions/7577052/bash-empty-array-expansion-with-set-u
