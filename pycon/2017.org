@@ -1,13 +1,14 @@
 #+TITLE: PyCon
 
 * Table of Contents :TOC_1_gh:
- - [[#5-ways-to-deploy-your-python-web-app-in-2017---andrew-t-baker][5 ways to deploy your Python web app in 2017 - Andrew T Baker]]
- - [[#awesome-command-line-tools---amjith-ramanujam][Awesome Command Line Tools - Amjith Ramanujam]]
- - [[#cython-as-a-game-changer-for-efficiency---alex-orlov][Cython as a Game Changer for Efficiency - Alex Orlov]]
- - [[#how-documentation-works-and-how-to-make-it-work-for-your-project---daniele-procida][How documentation works, and how to make it work for your project - Daniele Procida]]
- - [[#modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
- - [[#static-types-for-python---jukka-lehtosalo-david-fisher][Static Types for Python - Jukka Lehtosalo, David Fisher]]
- - [[#the-gilectomy-hows-it-going---larry-hastings][The Gilectomy How's It Going - Larry Hastings]]
+- [[#5-ways-to-deploy-your-python-web-app-in-2017---andrew-t-baker][5 ways to deploy your Python web app in 2017 - Andrew T Baker]]
+- [[#awesome-command-line-tools---amjith-ramanujam][Awesome Command Line Tools - Amjith Ramanujam]]
+- [[#cython-as-a-game-changer-for-efficiency---alex-orlov][Cython as a Game Changer for Efficiency - Alex Orlov]]
+- [[#how-documentation-works-and-how-to-make-it-work-for-your-project---daniele-procida][How documentation works, and how to make it work for your project - Daniele Procida]]
+- [[#modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
+- [[#static-types-for-python---jukka-lehtosalo-david-fisher][Static Types for Python - Jukka Lehtosalo, David Fisher]]
+- [[#the-gilectomy-hows-it-going---larry-hastings][The Gilectomy How's It Going - Larry Hastings]]
+- [[#the-python-visualization-landscape---jake-vanderplas][The Python Visualization Landscape - Jake VanderPlas]]
 
 * 5 ways to deploy your Python web app in 2017 - Andrew T Baker
 ** ngrok
@@ -219,3 +220,44 @@
 
 * The Gilectomy How's It Going - Larry Hastings
 - https://www.youtube.com/watch?v=pLqv11ScGsQ
+
+* The Python Visualization Landscape - Jake VanderPlas 
+- https://youtu.be/FytuB8nFHPQ
+
+[[file:img/screenshot_2017-08-23_23-07-05.png]]
+
+[[file:img/screenshot_2017-08-23_23-07-37.png]]
+
+[[file:img/screenshot_2017-08-23_23-07-58.png]]
+
+[[file:img/screenshot_2017-08-23_23-08-23.png]]
+
+[[file:img/screenshot_2017-08-23_23-08-55.png]]
+
+[[file:img/screenshot_2017-08-23_23-09-13.png]]
+
+[[file:img/screenshot_2017-08-23_23-09-29.png]]
+
+[[file:img/screenshot_2017-08-23_23-09-54.png]]
+
+[[file:img/screenshot_2017-08-23_23-11-16.png]]
+
+[[file:img/screenshot_2017-08-23_23-11-44.png]]
+
+[[file:img/screenshot_2017-08-23_23-12-01.png]]
+
+[[file:img/screenshot_2017-08-23_23-12-12.png]]
+
+[[file:img/screenshot_2017-08-23_23-13-10.png]]
+
+[[file:img/screenshot_2017-08-23_23-13-26.png]]
+
+[[file:img/screenshot_2017-08-23_23-13-59.png]]
+
+[[file:img/screenshot_2017-08-23_23-14-12.png]]
+
+[[file:img/screenshot_2017-08-23_23-14-23.png]]
+
+[[file:img/screenshot_2017-08-23_23-14-32.png]]
+
+[[file:img/screenshot_2017-08-23_23-14-53.png]]
