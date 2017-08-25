@@ -1,13 +1,4 @@
-* Notes
-** Getting started
-#+BEGIN_SRC shell
-  # Smuding(downloading images one by one) is much slower than
-  # git lfs pull (Batch downloading).
-
-  GIT_LFS_SKIP_SMUDGE=1 git clone git@github.com:yeonghoey/yeonghoey.git
-  yeonghoey/update.sh
-#+END_SRC
-
+* yeonghoey
 ** Goals
 - Can look up things fast
 - Can recall concepts fast
