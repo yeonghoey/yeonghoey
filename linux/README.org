@@ -16,6 +16,7 @@
   - [[#2017-07-16-sun-sudo-service---status-all][<2017-07-16 Sun> sudo service --status-all]]
   - [[#2017-07-13-thu-linux-kernel-parameters][<2017-07-13 Thu> Linux kernel parameters]]
   - [[#2017-07-14-fri-linux-usergroup][<2017-07-14 Fri> linux user/group]]
+  - [[#2017-03-24-fri-resolvconf][<2017-03-24 Fri> resolvconf]]
   - [[#read-free-command][Read 'free' command]]
   - [[#where-in--should-extra-disks-be-mounted][Where in “/” should extra disks be mounted?]]
   - [[#diskcache][diskcache]]
@@ -224,6 +225,10 @@ avoiding the performance hit when several processors attempt to address the same
 - https://www.linode.com/docs/tools-reference/linux-users-and-groups
 - https://stackoverflow.com/questions/14059916/is-there-a-command-to-list-all-unix-group-names
 
+** TODO <2017-03-24 Fri> resolvconf
+- http://askubuntu.com/questions/157154/how-do-i-include-lines-in-resolv-conf-that-wont-get-lost-on-reboot
+- sudo vim /etc/resolvconf/resolv.conf.d/head --> ~nameserver 10.43.0.1~
+
 ** Read 'free' command
 - http://www.linuxnix.com/find-ram-size-in-linuxunix/
 
@@ -232,3 +237,4 @@ avoiding the performance hit when several processors attempt to address the same
 
 ** diskcache
 - http://www.linuxatemyram.com/play.html
+

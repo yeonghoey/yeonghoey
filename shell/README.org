@@ -31,6 +31,7 @@
   - [[#escaping-quotes][Escaping quotes]]
   - [[#here-document][Here document]]
   - [[#history-expansion][History Expansion]]
+  - [[#process-substitution][Process Substitution]]
   - [[#redirection][Redirection]]
   - [[#shell-parameter-expansion][Shell Parameter Expansion]]
 - [[#topics][Topics]]
@@ -53,14 +54,10 @@
 - [[#staging][Staging]]
   - [[#2017-06-29-thu-shift][<2017-06-29 Thu> shift]]
   - [[#2017-02-09-thu-how-do-i-copy-multiple-files-by-wildcard][<2017-02-09 Thu> How do I copy multiple files by wildcard?]]
-  - [[#2017-02-09-thu-cat-xargs-grep][<2017-02-09 Thu> cat, xargs, grep]]
   - [[#2017-02-01-wed-crond][<2017-02-01 Wed> cron.d]]
   - [[#2017-02-01-wed-device-naming-on-linux-instances][<2017-02-01 Wed> Device Naming on Linux Instances]]
   - [[#2017-03-01-wed-command-command][<2017-03-01 Wed> command command]]
   - [[#2017-03-01-wed-detect-ostype][<2017-03-01 Wed> Detect ostype]]
-  - [[#2017-03-02-thu-sed-separator][<2017-03-02 Thu> sed separator]]
-  - [[#2017-03-23-thu-bash-escape-color][<2017-03-23 Thu> bash escape color]]
-  - [[#2017-03-24-fri-resolvconf][<2017-03-24 Fri> resolvconf]]
   - [[#2017-03-30-thu-trap][<2017-03-30 Thu> trap]]
   - [[#2017-07-02-sun-bash-curly-braces-in-variables][<2017-07-02 Sun> Bash curly braces in variables]]
   - [[#2017-07-02-sun-usrbinenv-bash][<2017-07-02 Sun> #!/usr/bin/env bash]]
@@ -83,14 +80,11 @@
   - [[#set--e-not-exit-in-function][set -e not exit in function]]
   - [[#bash-check-variable-exists][bash check variable exists]]
   - [[#shell-initialization][shell initialization]]
-  - [[#imagemagick][imagemagick]]
-  - [[#commandlinefu][commandlinefu]]
   - [[#check-if-a-program-exists][check if a program exists]]
   - [[#check-if-two-paths-are-equal-in-bash][check if two paths are equal in Bash]]
   - [[#delete-all-broken-symbolic-links-with-a-line][Delete all broken symbolic links with a line]]
   - [[#determine-current-shell][determine current shell]]
-  - [[#process-substitution][Process substitution]]
-  - [[#example-of-alrradotfiles][example of alrra/dotfiles]]
+  - [[#process-substitution-1][Process substitution]]
   - [[#shell-parameter-expansions][shell parameter expansions]]
   - [[#hash--r][hash -r]]
   - [[#negative-offset-of-shell-parameter-expansion][negative offset of shell parameter expansion]]
@@ -1120,6 +1114,27 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   $ ls -l !!:$:p  # print without executing it
 #+END_SRC
 
+** Process Substitution
+- https://www.gnu.org/software/bash/manual/bashref.html#Process-Substitution
+- http://tldp.org/LDP/abs/html/process-sub.html
+- https://en.wikipedia.org/wiki/Process_substitution
+
+- ~<(command)~ ::
+  Runs command and make its output appear as a file.
+
+#+BEGIN_SRC shell
+  $ diff <(sort file1) <(sort file2)
+#+END_SRC
+
+- ~>(command)~ ::
+  Captures output that would normally go to a file, and redirect it to the input of a process.
+
+#+BEGIN_SRC shell
+  $ cat foo | tee >(tr '[:lower:]' '[:upper:]')
+  hello, world  #    stdout of tee (original output)
+  HELLO, WORLD  # file part of tee (process substitution)
+#+END_SRC
+
 ** Redirection
 - http://tldp.org/LDP/abs/html/io-redirection.html
 
@@ -1357,6 +1372,8 @@ There are some workarounds:
 - https://github.com/progrium/bashstyle
 - https://github.com/bahamas10/bash-style-guide
 - https://github.com/alebcay/awesome-shell
+- http://www.commandlinefu.com/
+- https://github.com/alrra/dotfiles
 
 * Staging
 ** TODO <2017-06-29 Thu> shift
@@ -1364,11 +1381,6 @@ There are some workarounds:
 
 ** TODO <2017-02-09 Thu> How do I copy multiple files by wildcard?
 http://unix.stackexchange.com/questions/122605/how-do-i-copy-multiple-files-by-wildcard
-
-** TODO <2017-02-09 Thu> cat, xargs, grep
-#+BEGIN_EXAMPLE
-  cat names | xargs -I {} grep --exclude='*.po' '{}' k1server/**/*(.)
-#+END_EXAMPLE
 
 ** TODO <2017-02-01 Wed> cron.d
 - http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log
@@ -1382,16 +1394,6 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
 
 ** TODO <2017-03-01 Wed> Detect ostype
 - http://stackoverflow.com/questions/394230/detect-the-os-from-a-bash-script
-
-** TODO <2017-03-02 Thu> sed separator
-- http://backreference.org/2010/02/20/using-different-delimiters-in-sed/
-
-** TODO <2017-03-23 Thu> bash escape color
-http://misc.flogisoft.com/bash/tip_colors_and_formatting
-
-** TODO <2017-03-24 Fri> resolvconf
-- http://askubuntu.com/questions/157154/how-do-i-include-lines-in-resolv-conf-that-wont-get-lost-on-reboot
-- sudo vim /etc/resolvconf/resolv.conf.d/head --> ~nameserver 10.43.0.1~
 
 ** TODO <2017-03-30 Thu> trap
 http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_12_02.html
@@ -1472,13 +1474,6 @@ https://serverfault.com/questions/417241/extract-repository-name-from-github-url
 ** shell initialization
 - https://github.com/rbenv/rbenv/wiki/Unix-shell-initialization
 
-** imagemagick
-- http://www.imagemagick.org/script/mogrify.php
-- http://www.imagemagick.org/script/command-line-processing.php
-
-** commandlinefu
-- http://www.commandlinefu.com/commands/browse
-
 ** check if a program exists
 - https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
 
@@ -1495,8 +1490,6 @@ https://serverfault.com/questions/417241/extract-repository-name-from-github-url
 - http://tldp.org/LDP/abs/html/process-sub.html
 - https://en.wikipedia.org/wiki/Process_substitution
 
-** example of alrra/dotfiles
-- https://github.com/alrra/dotfiles/blob/55dc53a81c92f766a677c9e4696b8f4bbf6088c5/src/os/setup.sh
 ** shell parameter expansions
 Bash tests for a parameter that is unset or null. Omitting the colon results in a test only for a parameter that is unset. Put another way, if the colon is included, the operator tests for both parameter’s existence and that its value is not null; if the colon is omitted, the operator tests only for existence.
 
