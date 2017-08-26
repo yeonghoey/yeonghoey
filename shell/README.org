@@ -22,7 +22,7 @@
     - [[#for][for]]
     - [[#function][function]]
     - [[#if][if]]
-  - [[#sytax][Sytax]]
+  - [[#syntax][Syntax]]
     - [[#arithmetic-expansion][Arithmetic Expansion]]
     - [[#brace-expansion][Brace Expansion]]
     - [[#escaping-quotes][Escaping quotes]]
@@ -30,6 +30,7 @@
     - [[#history-expansion][History Expansion]]
     - [[#process-substitution][Process Substitution]]
     - [[#redirection][Redirection]]
+    - [[#shebang][Shebang]]
     - [[#shell-parameter-expansion][Shell Parameter Expansion]]
 - [[#topics][Topics]]
   - [[#pseudo-terminals][Pseudo Terminals]]
@@ -58,7 +59,6 @@
   - [[#2017-03-01-wed-detect-ostype][<2017-03-01 Wed> Detect ostype]]
   - [[#2017-03-30-thu-trap][<2017-03-30 Thu> trap]]
   - [[#2017-07-02-sun-bash-curly-braces-in-variables][<2017-07-02 Sun> Bash curly braces in variables]]
-  - [[#2017-07-02-sun-usrbinenv-bash][<2017-07-02 Sun> #!/usr/bin/env bash]]
   - [[#2017-07-03-mon-here-document-to-variables][<2017-07-03 Mon> here-document to variables]]
   - [[#2017-07-03-mon-cat--][<2017-07-03 Mon> "cat -"]]
   - [[#2017-07-03-mon-ifs][<2017-07-03 Mon> IFS?]]
@@ -67,7 +67,6 @@
   - [[#2017-07-03-mon-source-in-function][<2017-07-03 Mon> source in function]]
   - [[#eval-vs-source][eval vs source]]
   - [[#addpath][addpath]]
-  - [[#basename][basename]]
   - [[#if-content-exists-multiline-string][if content exists multiline string]]
   - [[#echo-string1string2][echo "${string1#"$string2"}"]]
   - [[#bash-grouping-commands][bash grouping commands]]
@@ -82,8 +81,6 @@
   - [[#check-if-two-paths-are-equal-in-bash][check if two paths are equal in Bash]]
   - [[#delete-all-broken-symbolic-links-with-a-line][Delete all broken symbolic links with a line]]
   - [[#determine-current-shell][determine current shell]]
-  - [[#process-substitution-1][Process substitution]]
-  - [[#shell-parameter-expansions][shell parameter expansions]]
   - [[#hash--r][hash -r]]
   - [[#negative-offset-of-shell-parameter-expansion][negative offset of shell parameter expansion]]
   - [[#empty-array-and-][empty array and [@]]]
@@ -769,7 +766,7 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 
 - Special primitives that ~[[~ is defined to have, but ~[~ may be lacking
 
-** Sytax
+** Syntax
 *** Arithmetic Expansion
 - https://www.gnu.org/software/bash/manual/bashref.html#Arithmetic-Expansion
 - https://www.gnu.org/software/bash/manual/bashref.html#Shell-Arithmetic
@@ -1024,6 +1021,11 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   $ cat File                  # ==> 1234.67890
   #  Random access, by golly.
 #+END_SRC
+
+*** Shebang
+- https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/10383546#10383546
+- Use ~#!/usr/bin/env bash~ for portability ::
+  Different *nixes put ~bash~ in different places, and using ~/usr/bin/env~ is a workaround to run the *first ~bash~ found on the ~PATH~ *.
 
 *** Shell Parameter Expansion
 - https://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion
@@ -1362,9 +1364,6 @@ This instructs the trap command to catch the listed SIGNALS, which may be signal
 - https://stackoverflow.com/questions/8748831/when-do-we-need-curly-braces-in-variables-using-bash
 - https://google.github.io/styleguide/shell.xml#Variable_expansion
 
-** TODO <2017-07-02 Sun> #!/usr/bin/env bash
-https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/10383546#10383546
-
 ** TODO <2017-07-03 Mon> here-document to variables
 - https://stackoverflow.com/questions/1167746/how-to-assign-a-heredoc-value-to-a-variable-in-bash
 - https://unix.stackexchange.com/questions/265149/why-is-set-o-errexit-breaking-this-read-heredoc-expression/265151#265151
@@ -1393,13 +1392,6 @@ https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/
   }
 
 #+END_SRC
-** basename
-https://serverfault.com/questions/417241/extract-repository-name-from-github-url-in-bash
-
-#+BEGIN_SRC shell
-  "$(basename "$x" .git)"
-#+END_SRC
-
 ** if content exists multiline string
 - https://stackoverflow.com/questions/21128592/bash-text-search-find-if-the-content-of-one-file-exists-in-another-file
 
@@ -1443,13 +1435,6 @@ https://serverfault.com/questions/417241/extract-repository-name-from-github-url
 
 ** determine current shell
 - https://stackoverflow.com/questions/3327013/how-to-determine-the-current-shell-im-working-on
-
-** Process substitution
-- http://tldp.org/LDP/abs/html/process-sub.html
-- https://en.wikipedia.org/wiki/Process_substitution
-
-** shell parameter expansions
-Bash tests for a parameter that is unset or null. Omitting the colon results in a test only for a parameter that is unset. Put another way, if the colon is included, the operator tests for both parameter’s existence and that its value is not null; if the colon is omitted, the operator tests only for existence.
 
 ** hash -r
 #+BEGIN_SRC shell
