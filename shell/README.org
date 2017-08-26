@@ -1025,7 +1025,7 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 *** Shebang
 - https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/10383546#10383546
 - Use ~#!/usr/bin/env bash~ for portability ::
-  Different *nixes put ~bash~ in different places, and using ~/usr/bin/env~ is a workaround to run the *first ~bash~ found on the ~PATH~ *.
+  *Different *nixes* put ~bash~ in different places, and using ~/usr/bin/env~ is a workaround to run the *first bash found on the PATH*.
 
 *** Shell Parameter Expansion
 - https://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion
