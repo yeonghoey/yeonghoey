@@ -27,6 +27,7 @@
     - [[#brace-expansion][Brace Expansion]]
     - [[#escaping-quotes][Escaping quotes]]
     - [[#here-document][Here document]]
+    - [[#here-strings][Here strings]]
     - [[#history-expansion][History Expansion]]
     - [[#process-substitution][Process Substitution]]
     - [[#redirection][Redirection]]
@@ -62,7 +63,6 @@
   - [[#2017-07-03-mon-here-document-to-variables][<2017-07-03 Mon> here-document to variables]]
   - [[#2017-07-03-mon-cat--][<2017-07-03 Mon> "cat -"]]
   - [[#2017-07-03-mon-ifs][<2017-07-03 Mon> IFS?]]
-  - [[#2017-07-03-mon-here_strings][<2017-07-03 Mon> HERE_STRINGS]]
   - [[#2017-07-03-mon-wc--l][<2017-07-03 Mon> wc -l]]
   - [[#2017-07-03-mon-source-in-function][<2017-07-03 Mon> source in function]]
   - [[#eval-vs-source][eval vs source]]
@@ -934,6 +934,30 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   EOF
 #+END_SRC
 
+*** Here strings
+- https://en.wikipedia.org/wiki/Here_document#Here_strings
+- The key difference from here documents is that, in here documents, the delimiters are on separate lines;
+
+#+BEGIN_SRC shell
+  $ tr a-z A-Z <<< one
+  ONE
+
+  $ FOO='one two three'
+  $ tr a-z A-Z <<< $FOO
+  ONE TWO THREE
+#+END_SRC
+
+- Here strings are particularly useful when the last command needs to run in the current process
+#+BEGIN_SRC shell
+  $ echo 'one two three' | read a b c
+  $ echo $a $b $c
+  # yields nothing, because 'read' ran on subshell
+
+  $ read a b c <<< 'one two three'
+  $ echo $a $b $c
+  one two three
+#+END_SRC
+
 *** History Expansion
 - http://www.thegeekstuff.com/2011/08/bash-history-expansion
 
@@ -1405,7 +1429,6 @@ This instructs the trap command to catch the listed SIGNALS, which may be signal
 
 ** TODO <2017-07-03 Mon> IFS?
 
-** TODO <2017-07-03 Mon> HERE_STRINGS
 ** TODO <2017-07-03 Mon> wc -l
 - https://stackoverflow.com/questions/6314679/in-bash-how-do-i-count-the-number-of-lines-in-a-variable
 
