@@ -700,6 +700,7 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 
 *** if
 - http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+- http://mywiki.wooledge.org/BashFAQ/031
 
 #+BEGIN_SRC shell
   if commands; then
@@ -711,8 +712,9 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
   fi
 #+END_SRC
 
-The ~TEST-COMMAND~ list is executed, and if its return status is ~zero~,
-the ~CONSEQUENT-COMMANDS~ list is executed.
+- ~[~ and ~test~ are available in POSIX shells
+- ~[[~ works only in Bash, Zsh and the Korn shell, and is more powerful
+- ~[[~ is preferred over ~[~, ~test~ (from [[https://google.github.io/styleguide/shell.xml][Google Shell Style Guide]])
 
 | ~[ -a FILE ]~            | True if FILE exists.                                                      |
 | ~[ -b FILE ]~            | True if FILE exists and is a block-special file.                          |
@@ -749,25 +751,17 @@ the ~CONSEQUENT-COMMANDS~ list is executed.
 | ~[ ARG1 OP ARG2 ]~       | "OP" is one of ~-eq~, ~-ne~, ~-lt~, ~-le~, ~-gt~ or ~-ge~.                |
 
 
-
-[[file:img/screenshot_2017-04-24_12-19-35.png]]
-
-[[file:img/screenshot_2017-04-24_12-10-01.png]]
+| ~[ ! EXPR ]~         | True if EXPR is false.                                                     |
+| ~[ ( EXPR ) ]~       | Returns the value of EXPR. To override the normal precedence of operators. |
+| ~[ EXPR1 -a EXPR2 ]~ | True if both EXPR1 and EXPR2 are true.                                     |
+| ~[ EXPR1 -o EXPR2 ]~ | True if either EXPR1 or EXPR2 is true.                                     |
 
 #+BEGIN_SRC shell
   if [[ -z "$foo" ]] && [[ -z "$bar" ]];
   if [[ -z "$foo" && -z "$bar" ]]; # equivalent to above
 #+END_SRC
 
-**** [[, [ and test
-- http://mywiki.wooledge.org/BashFAQ/031
-- ~[~ and ~test~ are available in POSIX shells
-- ~[[~ works only in Bash, Zsh and the Korn shell, and is more powerful
-- ~[[~ is preferred over ~[~, ~test~ (from [[https://google.github.io/styleguide/shell.xml][Google Shell Style Guide]])
-
-[[file:img/screenshot_2017-04-24_12-12-29.png]]
-
-- Special primitives that ~[[~ is defined to have, but ~[~ may be lacking
+[[file:img/screenshot_2017-08-26_11-35-09.png]]
 
 ** Others
 *** $@ or $*
