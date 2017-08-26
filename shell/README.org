@@ -761,6 +761,8 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
   if [[ -z "$foo" && -z "$bar" ]]; # equivalent to above
 #+END_SRC
 
+- http://mywiki.wooledge.org/BashFAQ/031
+
 [[file:img/screenshot_2017-08-26_11-35-09.png]]
 
 ** Others
