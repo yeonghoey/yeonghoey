@@ -1180,11 +1180,112 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 ** Shell Parameter Expansion
 - https://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion
 
+*** unset and null testing expansions  
+- [[unset-null-examples.sh]]
+
+- ~${parameter:-word}~ ::
+#+BEGIN_EXAMPLE
+  if not parameter:
+    word
+  else:
+    parameter
+#+END_EXAMPLE
+
+- ~${parameter:=word}~ ::
+#+BEGIN_EXAMPLE
+  if not parameter:
+    parameter = word
+    parameter
+#+END_EXAMPLE
+
+- ~${parameter:?word}~ ::
+#+BEGIN_EXAMPLE
+  if not parameter:
+    stderr.write(word)
+    exit
+  else:
+    parameter
+#+END_EXAMPLE
+
+- ~${parameter:+word}~ ::
+#+BEGIN_EXAMPLE
+  if not parameter:
+    parameter 
+  else:
+    word
+#+END_EXAMPLE
+
+- non ~:~ versions like ~${parameter-word}~ ::
+  Tests only whether ~parameter~ is ~unset~, but not ~null~
+
+- ~word~ ::
+  Can be a variable like ~$(parameter:-$foo}~
+
 #+BEGIN_SRC shell
-  ${parameter:-word} # parameter if parameter else word
-  ${parameter:=word} # if not parameter: parameter = word; parameter
-  ${parameter:?word} # if not parameter: stderr.write(word); exit; else: parameter
-  ${parameter:+word} # if not parameter: '' else word
+  unset FOO
+  echo ${FOO-bar}   # bar
+  echo ${FOO?bar}   # (cause an error)
+  echo ${FOO+bar}   # (unset value of FOO)
+  echo ${FOO:-bar}  # bar
+  echo ${FOO:?bar}  # (cause an error)
+  echo ${FOO:+bar}  # (unset value of FOO)
+  unset FOO
+  echo ${FOO=bar}   # bar
+  echo ${FOO}       # bar
+  unset FOO
+  echo ${FOO:=bar}  # bar
+  echo ${FOO}       # bar
+
+
+  FOO=
+  echo ${FOO-bar}   # (null value of FOO)
+  echo ${FOO?bar}   # (null value of FOO)
+  echo ${FOO+bar}   # bar
+  echo ${FOO:-bar}  # bar
+  echo ${FOO:?bar}  # (cause an error)
+  echo ${FOO:+bar}  # (null value of FOO)
+  FOO=
+  echo ${FOO=bar}   # (null value of FOO)
+  echo ${FOO}       # (null value of FOO)
+  FOO=
+  echo ${FOO:=bar}  # bar
+  echo ${FOO}       # bar
+
+
+  FOO=foo
+  echo ${FOO-bar}   # foo
+  echo ${FOO?bar}   # foo
+  echo ${FOO+bar}   # bar
+  echo ${FOO:-bar}  # foo
+  echo ${FOO:?bar}  # foo
+  echo ${FOO:+bar}  # bar
+  FOO=foo
+  echo ${FOO=bar}   # foo
+  echo ${FOO}       # foo
+  FOO=foo
+  echo ${FOO:=bar}  # foo
+  echo ${FOO}       # foo
+#+END_SRC
+
+*** Others
+#+BEGIN_SRC shell
+  #!/usr/bin/env bash
+
+  echo 'FOO is unset'
+  printf '%-11s %s %s\n' '${FOO-bar}' '# ' "${FOO-bar}"
+  printf '%-11s %s %s\n' '${FOO:-bar}' '# ' "${FOO:-bar}"
+
+  echo
+  echo 'FOO='
+  FOO=
+  printf '%-11s %s %s\n' '${FOO-bar}' '# ' "(empty string of FOO)"
+  printf '%-11s %s %s\n' '${FOO:-bar}' '# ' "${FOO:-bar}"
+
+  echo
+  echo 'FOO=foo'
+  FOO=foo
+  printf '%-11s %s %s\n' '${FOO-bar}' '# ' "${FOO-bar}"
+  printf '%-11s %s %s\n' '${FOO:-bar}' '# ' "${FOO:-bar}"
 #+END_SRC
 
 #+BEGIN_SRC shell
@@ -1200,9 +1301,10 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   echo "${FOO//[.]/-}"
 #+END_SRC
 
-#+RESULTS:
-| a-b.c.d |
-| a-b-c-d |
+#+BEGIN_EXAMPLE
+  | a-b.c.d |
+  | a-b-c-d |
+#+END_EXAMPLE
 
 * Topics
 ** Pseudo Terminals
