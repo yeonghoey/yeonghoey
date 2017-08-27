@@ -39,6 +39,7 @@
   - [[#list-all-todos-written-by-a-specific-user][List all TODOs written by a specific user]]
   - [[#purge-files-including-their-histories][Purge files including their histories]]
   - [[#resolve-conflicts][Resolve conflicts]]
+    - [[#check-the-conflict-causing-commits][Check the conflict causing commits]]
     - [[#resolve-conflicts-manually][Resolve conflicts manually]]
     - [[#resolve-conflicts-with-ours-or-theirs][Resolve conflicts with ours or theirs]]
     - [[#continue-with-the-resolved-resulte][Continue with the resolved resulte]]
@@ -47,7 +48,6 @@
 - [[#staging][Staging]]
   - [[#2017-02-14-tue-git-hooks][<2017-02-14 Tue> git hooks]]
   - [[#2017-07-25-tue-git-rebase---onto-something][<2017-07-25 Tue> git rebase --onto something]]
-  - [[#2017-06-26-mon-git-auto-commit][<2017-06-26 Mon> git auto-commit]]
 
 * Reference
 ** add
@@ -413,6 +413,14 @@ ask your question in IRC.
 >>>>>>> branch-a
 #+END_EXAMPLE
 
+*** Check the conflict causing commits
+#+BEGIN_SRC shell
+  git log --merge --left-right -p
+  #           │       │         └─ --patch, generate patch(show commit messages and diffs)
+  #           │       └─ display '<' if the commit is left(ours), right(theirs) otherwise.
+  #           └─ show only commits related to the conflict
+#+END_SRC
+
 *** Resolve conflicts manually
 - Fix the conflict like this ::
 #+BEGIN_EXAMPLE
@@ -471,5 +479,3 @@ git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 - https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks
 - http://stackoverflow.com/questions/19041220/how-to-run-post-receive-hook-on-github
 ** TODO <2017-07-25 Tue> git rebase --onto something
-** TODO <2017-06-26 Mon> git auto-commit
-- https://stackoverflow.com/questions/420143/making-git-auto-commit
