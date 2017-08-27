@@ -34,6 +34,7 @@
 - [[#topics][Topics]]
   - [[#git-attributes][Git Attributes]]
 - [[#how-to][How-to]]
+  - [[#clone-the-latest-revision][Clone the latest revision]]
   - [[#commit-only-when-theres-something-staged][Commit only when there's something staged]]
   - [[#list-all-todos-written-by-a-specific-user][List all TODOs written by a specific user]]
   - [[#purge-files-including-their-histories][Purge files including their histories]]
@@ -106,10 +107,16 @@
 
 ** clone
 - https://stackoverflow.com/questions/1911109/how-to-clone-a-specific-git-branch
+- https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision
 
 #+BEGIN_SRC shell
   # Clone only 'gh-pages' branch of 'note.git' repo into './notes-gh-pages'
-  git clone -b gh-pages --single-branch https://github.com/yeonghoey/notes.git notes-gh-pages
+  git clone -b gh-pages --single-branch https://github.com/yeonghoey/yeonghoey.git yeonghoey-gh-pages
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Clone just the latest revision
+  git clone --depth=1 'https://github.com/yeonghoey/yeonghoey.git'
 #+END_SRC
 
 ** config
@@ -351,6 +358,14 @@ In ~.gitconfig~:
 #+END_EXAMPLE
 
 * How-to
+** Clone the latest revision
+- https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision
+
+#+BEGIN_SRC shell
+  # Clone just the latest revision
+  git clone --depth=1 'https://github.com/yeonghoey/yeonghoey.git'
+#+END_SRC
+
 ** Commit only when there's something staged
 - http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error
 
@@ -440,7 +455,6 @@ $ git add guide.md
 #+BEGIN_SRC shell
   $ git rebase --continue
 #+END_SRC
-
 
 ** Run commands while not in a git directory
 - http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory
