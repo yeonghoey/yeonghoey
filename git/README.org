@@ -20,6 +20,7 @@
   - [[#ls-files][ls-files]]
     - [[#list-untracked-files][List untracked files]]
     - [[#list-ignored-files][List ignored files]]
+  - [[#merge][merge]]
   - [[#pull][pull]]
   - [[#rebase][rebase]]
   - [[#rev-parse][rev-parse]]
@@ -188,6 +189,20 @@ and delete the branch manually after it merged.
   #                 │                  └─ show only those matched by an exclude pattern
   #                 └─ exclude files decalred in .gitignore, etc.
 #+END_SRC
+
+** merge
+#+BEGIN_SRC shell
+  # To merge 'other_branch' into 'branch'
+  # Current branch is always the target branch
+  git checkout 'branch'
+  git merge 'other_branch'
+#+END_SRC
+
+#+BEGIN_QUOTE
+The three-way merge marker lines (~<<<<<<<<~, ~========~, and ~>>>>>>>>~) are automatically generated,
+but they’re just meant to be read by you, not (necessarily) a program.
+You should delete them with your text editor once you resolve the conflict.
+#+END_QUOTE
 
 ** pull
 - http://stackoverflow.com/questions/30208928/can-git-pull-automatically-stash-and-pop-pending-changes
