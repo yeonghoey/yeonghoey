@@ -38,6 +38,9 @@
   - [[#list-all-todos-written-by-a-specific-user][List all TODOs written by a specific user]]
   - [[#purge-files-including-their-histories][Purge files including their histories]]
   - [[#resolve-conflicts][Resolve conflicts]]
+    - [[#resolve-conflicts-manually][Resolve conflicts manually]]
+    - [[#resolve-conflicts-with-ours-or-theirs][Resolve conflicts with ours or theirs]]
+    - [[#continue-with-the-resolved-resulte][Continue with the resolved resulte]]
   - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
 - [[#links][Links]]
 - [[#staging][Staging]]
@@ -395,6 +398,7 @@ ask your question in IRC.
 >>>>>>> branch-a
 #+END_EXAMPLE
 
+*** Resolve conflicts manually
 - Fix the conflict like this ::
 #+BEGIN_EXAMPLE
 If you have questions, please open an issue or ask in our IRC channel if it's more urgent
@@ -405,15 +409,38 @@ If you have questions, please open an issue or ask in our IRC channel if it's mo
 $ git add guide.md
 #+END_SRC
 
-  - Case1 :: commit when merging
-  #+BEGIN_SRC shell
-    $ git commit -m "Resolved merge conflict"
-  #+END_SRC
+*** Resolve conflicts with ours or theirs
+- https://stackoverflow.com/questions/10697463/resolve-git-merge-conflicts-in-favor-of-their-changes-during-a-pull/
 
-  - Case2 :: rebase --continue when rebasing
-  #+BEGIN_SRC shell
-    $ git rebase --continue
-  #+END_SRC
+- Before triggering merge ::
+#+BEGIN_SRC shell
+  git merge -X theirs
+  #          └─ --strategy-option
+
+  # NOTE: Don't be confused with '-s, --strategy' option.
+  # If '-s theirs`, The merge simply uses all the changes from 'theirs
+  # and ignores all the changes from 'ours',
+  # while '-X theirs' mergers with the default strategy('recursive') and
+  # uses the changes from `theirs` only when there are conflicts.
+#+END_SRC
+
+- If you are already in conflicted state ::
+#+BEGIN_SRC shell
+  git checkout --theirs .
+  git add .
+#+END_SRC
+
+*** Continue with the resolved resulte
+- Case1 :: commit when merging
+#+BEGIN_SRC shell
+  $ git commit -m "Resolved merge conflict"
+#+END_SRC
+
+- Case2 :: rebase --continue when rebasing
+#+BEGIN_SRC shell
+  $ git rebase --continue
+#+END_SRC
+
 
 ** Run commands while not in a git directory
 - http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory
