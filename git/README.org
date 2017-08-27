@@ -395,27 +395,25 @@ ask your question in IRC.
 >>>>>>> branch-a
 #+END_EXAMPLE
 
-Fix the conflict like this:
+- Fix the conflict like this ::
 #+BEGIN_EXAMPLE
 If you have questions, please open an issue or ask in our IRC channel if it's more urgent
 #+END_EXAMPLE
 
-Stage it:
+- Stage it ::
 #+BEGIN_SRC shell
 $ git add guide.md
 #+END_SRC
 
+  - Case1 :: commit when merging
+  #+BEGIN_SRC shell
+    $ git commit -m "Resolved merge conflict"
+  #+END_SRC
 
-- Case1. commit when merging
-#+BEGIN_SRC shell
-$ git commit -m "Resolved merge conflict"
-#+END_SRC
-
-
-- Case2. rebase --continue when rebasing
-#+BEGIN_SRC shell
-$ git rebase --continue
-#+END_SRC
+  - Case2 :: rebase --continue when rebasing
+  #+BEGIN_SRC shell
+    $ git rebase --continue
+  #+END_SRC
 
 ** Run commands while not in a git directory
 - http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory
