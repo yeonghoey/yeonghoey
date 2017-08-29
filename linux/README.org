@@ -219,7 +219,7 @@
 - ~svctm~ :: Service time in *milliseconds*.
   While ~await~ counts the whole wait time of requests, ~svctm~ counts only the time consumed by device.
   As Linux doesn't measure the actual service time, so ~svctm~ is just approximation.
-  *Consider ~await~ more importantly.*
+  *Consider await more importantly.*
 
 - ~%util~ ::
   Percentage of CPU time during whchi I/O requests were issed to the device. 
