@@ -215,6 +215,7 @@
   The average amount of time the requests that were completed during this period waited
   from when they entered the queue to when they were serviced. 
   This number is a combination of the queue length and the average service time.
+  *This is one of the most important metrics.*
 
 - ~svctm~ :: Service time in *milliseconds*.
   While ~await~ counts the whole wait time of requests, ~svctm~ counts only the time consumed by device.
