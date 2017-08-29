@@ -3,6 +3,12 @@
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#du][du]]
+  - [[#lsof][lsof]]
+  - [[#mount][mount]]
+  - [[#pgrep][pgrep]]
+  - [[#pkill][pkill]]
+  - [[#su][su]]
   - [[#iostat][iostat]]
   - [[#top][top]]
 - [[#terminology][Terminology]]
@@ -26,7 +32,7 @@
 
 [[file:img/screenshot_2017-08-16_20-34-39.png]]
 * Reference
-*** du
+** du
 #+BEGIN_SRC shell
   $ du
   0       ./temp
@@ -65,7 +71,7 @@
   0B    temp
 #+END_SRC
 
-*** lsof
+** lsof
 - https://itsmetommy.com/2011/06/23/lsof-list-of-open-files/
 
 #+BEGIN_SRC shell
@@ -95,7 +101,7 @@
   $ lsof -n -P # numeric ip(-n) and port(-P)
 #+END_SRC
 
-*** mount
+** mount
 - http://unix.stackexchange.com/questions/91960/can-anyone-explain-the-output-of-mount
 
 #+BEGIN_SRC shell
@@ -121,7 +127,7 @@
 | ~vfstype~ | the type of the filesystem.                          |
 | ~mntopts~ | the mount options associated with the filesystem.    |
 
-*** pgrep
+** pgrep
 - https://www.poftut.com/pgrep-pkill-command-tutorial-examples-linux/
 
 #+BEGIN_SRC shell
@@ -146,14 +152,14 @@
   2166 nginx: worker process
 #+END_SRC
 
-*** pkill
+** pkill
 - Same as ~pgrep~, but kills matching processes
 
 #+BEGIN_SRC shell
   pkill -9 pytho     # You can also specify singal
 #+END_SRC
 
-*** su
+** su
 - http://www.linfo.org/su.html
 
 #+BEGIN_SRC shell
@@ -196,24 +202,24 @@
 
 - ~r/s~, ~w/s~, ~rMB/s~, ~wMB/s~ :: reads/writes (throughput) per second
 
-- ~avgrq-sz~ :: Average request size in sectors (512 bytes)
+- ~avgrq-sz~ :: Average request size in *sectors* (512 bytes)
   In general if this number is below 16 (16 * 512 bytes = 8KB).
   If this number is low (<50), you are going to be IOPS limited.
   If it's high (>100), you are likely to be bandwidth limited.
 
 - ~avgqu-sz~ :: Average queue size.
   Indicates how many requests are queued waiting to be serviced.
-  If ~avgqu-sz~ gets big (>30), your application is submitting more requests per secondthan the volume can handle.
+  If ~avgqu-sz~ gets big (*>30*), your application is submitting more requests per secondthan the volume can handle.
 
-- ~await~ :: Average wait in milliseconds.
+- ~await~ :: Average wait in *milliseconds*.
   The average amount of time the requests that were completed during this period waited
   from when they entered the queue to when they were serviced. 
   This number is a combination of the queue length and the average service time.
 
-- ~svctm~ :: Service time in milliseconds.
+- ~svctm~ :: Service time in *milliseconds*.
   While ~await~ counts the whole wait time of requests, ~svctm~ counts only the time consumed by device.
   As Linux doesn't measure the actual service time, so ~svctm~ is just approximation.
-  Consider ~await~ more importantly.
+  *Consider ~await~ more importantly.*
 
 - ~%util~ ::
   Percentage of CPU time during whchi I/O requests were issed to the device. 
