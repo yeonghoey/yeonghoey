@@ -42,7 +42,7 @@
 
 - Buffer ~A~, on the left    :: Contains the content of ~MINE~, ~ours~, etc.
 - Buffer ~B~, on the right   :: Contains the content of ~OTHER~, ~theirs~, etc.
-- Buffer ~C~, on the bottom  :: Contains the merge result. Can directly edit the content on the buffer.
+- Buffer ~C~, on the bottom  :: Contains the merge result. *Can edit the content directly*
 - ~X~ or ~x~ in Quick Help   :: Stands for ~A~ or ~B~, ~a~ or ~b~.
 
 * Links
