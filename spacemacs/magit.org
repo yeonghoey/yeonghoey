@@ -1,0 +1,51 @@
+#+TITLE: Magit
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+  - [[#resolve-a-conflict][Resolve a conflict]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+* How-to
+** Resolve a conflict
+
+- On ~master~ branch ::
+#+BEGIN_SRC python
+  print 'foo'
+#+END_SRC
+
+- On ~bar~ branch ::
+#+BEGIN_SRC python
+  print 'bar'
+#+END_SRC
+
+- On ~master~ branch, do merge by pressing ~m~, ~m~::
+
+[[file:img/screenshot_2017-08-28_12-58-28.png]]
+
+- Select ~bar~ branch
+[[file:img/screenshot_2017-08-28_12-59-09.png]]
+
+- On the conflicted file, press ~e~ (Ediff dwimming)
+[[file:img/screenshot_2017-08-28_13-00-13.png]]
+
+
+[[file:img/screenshot_2017-08-29_16-47-43.png]]
+
+- Buffer ~A~, on the left    :: Contains the content of ~MINE~, ~ours~, etc.
+- Buffer ~B~, on the right   :: Contains the content of ~OTHER~, ~theirs~, etc.
+- Buffer ~C~, on the bottom  :: Contains the merge result. Can directly edit the content on the buffer.
+- ~X~ or ~x~ in Quick Help   :: Stands for ~A~ or ~B~, ~a~ or ~b~.
+
+* Links
+- https://magit.vc/manual/magit/#Top
+
+* Staging
