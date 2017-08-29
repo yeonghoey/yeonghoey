@@ -35,7 +35,7 @@
     - [[#shell-parameter-expansion][Shell Parameter Expansion]]
 - [[#topics][Topics]]
   - [[#pseudo-terminals][Pseudo Terminals]]
-  - [[#usage-of-dash---in-place-of-a-filename-like-cat--][Usage of dash (-) in place of a filename, like ~cat -~]]
+  - [[#usage-of-dash---in-place-of-a-filename-like-cat--][Usage of dash (-) in place of a filename, like 'cat -']]
 - [[#how-to][How-to]]
   - [[#change-hostname][Change hostname]]
   - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
@@ -1260,11 +1260,10 @@ To avoid this, specify the ~-t~ option, and then the remote ~sshd~ will always t
 
 Use the flag of ~-T~ for explicitly disabling ~pty~.
 
-** Usage of dash (-) in place of a filename, like ~cat -~
+** Usage of dash (-) in place of a filename, like 'cat -'
 - https://unix.stackexchange.com/questions/16357/usage-of-dash-in-place-of-a-filename
 Using ~-~ as a filename to mean ~stdin~ / ~stdout~ is a convention that a lot of programs use.
 It is not a special property of the filename.
-
 If you want to use a file named as ~-~, you should pass the argument like ~./-~.
 
 * How-to
