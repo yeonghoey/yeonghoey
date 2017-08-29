@@ -5,6 +5,12 @@
   - [[#builtins][Builtins]]
     - [[#export][export]]
     - [[#set][set]]
+  - [[#keywords][Keywords]]
+    - [[#array][array]]
+    - [[#case][case]]
+    - [[#for][for]]
+    - [[#function][function]]
+    - [[#if][if]]
   - [[#commands][Commands]]
     - [[#curl][curl]]
     - [[#date][date]]
@@ -15,12 +21,6 @@
     - [[#tee][tee]]
     - [[#watch][watch]]
     - [[#xargs][xargs]]
-  - [[#keywords][Keywords]]
-    - [[#array][array]]
-    - [[#case][case]]
-    - [[#for][for]]
-    - [[#function][function]]
-    - [[#if][if]]
   - [[#others][Others]]
     - [[#-or-][$@ or $*]]
     - [[#arithmetic-expansion][Arithmetic Expansion]]
@@ -35,6 +35,7 @@
     - [[#shell-parameter-expansion][Shell Parameter Expansion]]
 - [[#topics][Topics]]
   - [[#pseudo-terminals][Pseudo Terminals]]
+  - [[#usage-of-dash---in-place-of-a-filename-like-cat--][Usage of dash (-) in place of a filename, like ~cat -~]]
 - [[#how-to][How-to]]
   - [[#change-hostname][Change hostname]]
   - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
@@ -55,13 +56,11 @@
   - [[#2017-06-29-thu-shift][<2017-06-29 Thu> shift]]
   - [[#2017-02-09-thu-how-do-i-copy-multiple-files-by-wildcard][<2017-02-09 Thu> How do I copy multiple files by wildcard?]]
   - [[#2017-02-01-wed-crond][<2017-02-01 Wed> cron.d]]
-  - [[#2017-02-01-wed-device-naming-on-linux-instances][<2017-02-01 Wed> Device Naming on Linux Instances]]
   - [[#2017-03-01-wed-command-command][<2017-03-01 Wed> command command]]
   - [[#2017-03-01-wed-detect-ostype][<2017-03-01 Wed> Detect ostype]]
   - [[#2017-03-30-thu-trap][<2017-03-30 Thu> trap]]
   - [[#2017-07-02-sun-bash-curly-braces-in-variables][<2017-07-02 Sun> Bash curly braces in variables]]
   - [[#2017-07-03-mon-here-document-to-variables][<2017-07-03 Mon> here-document to variables]]
-  - [[#2017-07-03-mon-cat--][<2017-07-03 Mon> "cat -"]]
   - [[#2017-07-03-mon-ifs][<2017-07-03 Mon> IFS?]]
   - [[#2017-07-03-mon-wc--l][<2017-07-03 Mon> wc -l]]
   - [[#2017-07-03-mon-source-in-function][<2017-07-03 Mon> source in function]]
@@ -83,7 +82,6 @@
   - [[#determine-current-shell][determine current shell]]
   - [[#hash--r][hash -r]]
   - [[#negative-offset-of-shell-parameter-expansion][negative offset of shell parameter expansion]]
-  - [[#empty-array-and-][empty array and [@]]]
 
 * Reference
 ** Builtins
@@ -133,6 +131,284 @@
   # or simply
   ( set -x; command )
 #+END_SRC
+
+** Keywords
+*** array
+- https://www.gnu.org/software/bash/manual/bashref.html#Arrays
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
+- https://www.cyberciti.biz/faq/bash-iterate-array/
+- https://unix.stackexchange.com/questions/252368/is-there-a-reason-why-the-first-element-of-a-zsh-array-is-indexed-by-1-instead-o
+
+- Declare an array variable :: 
+#+BEGIN_SRC shell
+  name[subscript]=value
+  declare -a nameo
+  declare -a name[subscript]  # 'subscript' is ignored
+  name=(value1 value2 … )
+#+END_SRC
+
+- Usage ::
+#+BEGIN_SRC shell
+  $ array=(one two three)
+
+  $ echo "${array[@]}"
+  one two three
+
+  # NOTE: indexing starts at 0 in bash,
+  # but some other shells like zsh starts at 1,
+  # to be consistent with arugments indexing
+  $ echo "${array[0]}"
+  one
+
+  $ echo "${array[2]}"
+  three
+
+  $ array[3]=four
+
+  $ echo "${array[@]}"
+  one two three four
+
+  $ echo "${#array[@]}" # length
+  4
+
+  $ echo "${!array[@]}" # indexes
+  0 1 2 3
+
+  unset array[1] # delete an element
+
+  echo "${array[@]}"
+  one three four
+#+END_SRC
+
+- The difference between ~${name[*]}~ and ~${name[@]}~ is corresponds to [[#-vs-][$* vs $@]]
+- Bash empty array expansion with ~set -u~ may cause an error ::
+  There are many [[https://stackoverflow.com/questions/7577052/bash-empty-array-expansion-with-set-u][workarounds]], but I think that it is the simplest to check empty before expansion
+
+#+BEGIN_SRC shell
+  arr=(one two three)
+  if [[ "${#arr[@]}" -gt 0 ]]; then
+    for n in "${arr[@]}"; do
+      echo "$n"
+    done
+  fi
+#+END_SRC
+
+*** case
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html
+
+#+BEGIN_SRC shell
+  case "$1" in
+    start)
+      start
+      ;;
+    stop)
+      stop
+      ;;
+    ,*)
+      echo $"Usage: $0 {start|stop}"
+      exit 1
+      ;;
+  esac
+#+END_SRC
+
+*** for
+- https://www.cyberciti.biz/faq/bash-for-loop/
+- https://google.github.io/styleguide/shell.xml?showone=Loops#Loops
+
+
+- Put ~; do~ and ~; then~ on the same line as the ~while~, ~for~ or ~if~.
+- Use a for loop if you are confident that the input will not contain spaces or special characters (usually, this means not user input).
+
+#+BEGIN_SRC shell
+  for i in 1 2 3 4 5; do
+    echo "$i"
+  done
+
+  for file in ~/repos/* ; do
+    echo "$file"
+  done
+
+  # continue and break
+  for i in 1 2 3; do
+    if [[ "$i" == 1 ]]; then
+      continue
+    fi
+    if [[ "$i" == 3 ]]; then
+      break
+    fi
+    echo "$i"
+  done
+
+  for (( i=1; i<=5; i++)); do
+    echo "$i"
+  done
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # requires bash v3.0+
+  for i in {1..5}; do
+    echo "$i"
+  done
+
+  # requires bash v4.0+
+  for i in {0..10..2}; do
+    echo "$i"
+  done
+#+END_SRC
+
+*** function
+- http://tldp.org/LDP/abs/html/functions.html
+- http://tldp.org/LDP/abs/html/complexfunct.html
+- http://ryanstutorials.net/bash-scripting-tutorial/bash-functions.php
+- https://google.github.io/styleguide/shell.xml?showone=Function_Comments#Function_Comments
+- http://stackoverflow.com/questions/18042279/how-to-exit-a-function-in-bash
+
+
+#+BEGIN_SRC shell
+  print_something() {
+      echo Hello $1
+  }
+  print_something Mars
+  print_something Jupiter
+#+END_SRC
+
+- The keyword ~function~ is *optional*, but must be used consistently throughout a project.
+- If you're writing a package, separate package names with ~::~.
+
+#+BEGIN_SRC shell
+  # Single function
+  my_func() {
+      ...
+  }
+
+  # Part of a package
+  mypackage::my_func() {
+      ...
+  }
+#+END_SRC
+
+#+BEGIN_SRC shell
+  #######################################
+  # Cleanup files from the backup dir
+  # Globals:
+  #   BACKUP_DIR
+  #   ORACLE_SID
+  # Arguments:
+  #   None
+  # Returns:
+  #   None
+  #######################################
+  cleanup() {
+      ...
+  }
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # If N is omitted, the return status is that of the
+  # last command executed within the function or script.
+  return [n]
+#+END_SRC
+
+#+BEGIN_QUOTE
+Note that if you have ~set -e~ set at the top of your script and
+your ~return 1~ or any other number besides ~0~, your entire script will exit.
+~exit~ abandons the current shell.
+#+END_QUOTE
+
+- By *default a variable is global.*
+- When we create a local variable within a function, *it is only visible* within that function.
+#+BEGIN_SRC shell
+  var_change () {
+      local var1='local 1'
+      echo Inside function: var1 is $var1 : var2 is $var2
+      var1='changed again'
+      var2='2 changed again'
+  }
+  var1='global 1'
+  var2='global 2'
+  # only var2 changed
+#+END_SRC
+
+#+BEGIN_SRC shell
+  foo() {
+    return 0 # return returns a value from a function.
+  }
+  bar() {
+    exit 1 # exit abandons the current shell.
+  }
+
+  foo
+  echo 'hi'
+  bar
+  echo 'bye' # NOT printed
+#+END_SRC
+
+*** if
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+- http://mywiki.wooledge.org/BashFAQ/031
+
+#+BEGIN_SRC shell
+  if commands; then
+    commands
+  [elif commands; then
+    commands ...]
+  [else
+    commands]
+  fi
+#+END_SRC
+
+- ~[~ and ~test~ are available in POSIX shells
+- ~[[~ works only in Bash, Zsh and the Korn shell, and is more powerful
+- ~[[~ is preferred over ~[~, ~test~ (from [[https://google.github.io/styleguide/shell.xml][Google Shell Style Guide]])
+
+| ~[ -a FILE ]~            | True if FILE exists.                                                      |
+| ~[ -b FILE ]~            | True if FILE exists and is a block-special file.                          |
+| ~[ -c FILE ]~            | True if FILE exists and is a character-special file.                      |
+| ~[ -d FILE ]~            | True if FILE exists and is a directory.                                   |
+| ~[ -e FILE ]~            | True if FILE exists.                                                      |
+| ~[ -f FILE ]~            | True if FILE exists and is a regular file.                                |
+| ~[ -g FILE ]~            | True if FILE exists and its SGID bit is set.                              |
+| ~[ -h FILE ]~            | True if FILE exists and is a symbolic link.                               |
+| ~[ -k FILE ]~            | True if FILE exists and its sticky bit is set.                            |
+| ~[ -p FILE ]~            | True if FILE exists and is a named pipe (FIFO).                           |
+| ~[ -r FILE ]~            | True if FILE exists and is readable.                                      |
+| ~[ -s FILE ]~            | True if FILE exists and has a size greater than zero.                     |
+| ~[ -t FD ]~              | True if file descriptor FD is open and refers to a terminal.              |
+| ~[ -u FILE ]~            | True if FILE exists and its SUID (set user ID) bit is set.                |
+| ~[ -w FILE ]~            | True if FILE exists and is writable.                                      |
+| ~[ -x FILE ]~            | True if FILE exists and is executable.                                    |
+| ~[ -O FILE ]~            | True if FILE exists and is owned by the effective user ID.                |
+| ~[ -G FILE ]~            | True if FILE exists and is owned by the effective group ID.               |
+| ~[ -L FILE ]~            | True if FILE exists and is a symbolic link.                               |
+| ~[ -N FILE ]~            | True if FILE exists and has been modified since it was last read.         |
+| ~[ -S FILE ]~            | True if FILE exists and is a socket.                                      |
+| ~[ FILE1 -nt FILE2 ]~    | True if FILE1 is newer than FILE2, or if FILE1 exists and FILE2 does not. |
+| ~[ FILE1 -ot FILE2 ]~    | True if FILE1 is older than FILE2, or is FILE2 exists and FILE1 does not. |
+| ~[ FILE1 -ef FILE2 ]~    | True if FILE1 and FILE2 refer to the same device and inode numbers.       |
+| ~[ -o OPTIONNAME ]~      | True if shell option "OPTIONNAME" is enabled.                             |
+| ~[ -z STRING ]~          | True of the length if "STRING" is zero.                                   |
+| ~[ -n STRING ]~          | True if the length of "STRING" is non-zero.                               |
+| ~[ STRING ]~             | True if the length of "STRING" is non-zero.                               |
+| ~[ STRING1 == STRING2 ]~ | True if the strings are equal.                                            |
+| ~[ STRING1 != STRING2 ]~ | True if the strings are not equal.                                        |
+| ~[ STRING1 < STRING2 ]~  | True if "STRING1" sorts before "STRING2"                                  |
+| ~[ STRING1 > STRING2 ]~  | True if "STRING1" sorts after "STRING2"                                   |
+| ~[ ARG1 OP ARG2 ]~       | "OP" is one of ~-eq~, ~-ne~, ~-lt~, ~-le~, ~-gt~ or ~-ge~.                |
+
+
+| ~[ ! EXPR ]~         | True if EXPR is false.                                                     |
+| ~[ ( EXPR ) ]~       | Returns the value of EXPR. To override the normal precedence of operators. |
+| ~[ EXPR1 -a EXPR2 ]~ | True if both EXPR1 and EXPR2 are true.                                     |
+| ~[ EXPR1 -o EXPR2 ]~ | True if either EXPR1 or EXPR2 is true.                                     |
+
+#+BEGIN_SRC shell
+  if [[ -z "$foo" ]] && [[ -z "$bar" ]];
+  if [[ -z "$foo" && -z "$bar" ]]; # equivalent to above
+#+END_SRC
+
+- http://mywiki.wooledge.org/BashFAQ/031
+
+[[file:img/screenshot_2017-08-26_11-35-09.png]]
 
 ** Commands
 *** curl
@@ -514,256 +790,6 @@
   # Delete files whose names contain 'conflicted'
   $ find . -name '*conflicted*' -print0 | xargs -0 rm
 #+END_SRC
-
-** Keywords
-*** array
-- https://www.gnu.org/software/bash/manual/bashref.html#Arrays
-- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
-
-#+BEGIN_SRC shell
-  name[subscript]=value
-  declare -a nameo
-  declare -a name[subscript]
-  name=(value1 value2 … )
-#+END_SRC
-
-#+BEGIN_SRC shell
-  $ array=(one two three)
-
-  $ echo "${array[@]}"
-  one two three
-
-  $ echo "$array[@]"
-  one[@]
-
-  $ echo "${array[2]}"
-  three
-
-  $ array[3]=four
-
-  $ echo "${array[@]}"
-  one two three four
-#+END_SRC
-
-- ~${name[*]}~ vs ~${name[@]}~
-- [[#-vs-][$* vs $@]]
-
-*** case
-- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html
-
-#+BEGIN_SRC shell
-  case "$1" in
-    start)
-      start
-      ;;
-    stop)
-      stop
-      ;;
-    ,*)
-      echo $"Usage: $0 {start|stop}"
-      exit 1
-      ;;
-  esac
-#+END_SRC
-
-*** for
-- https://www.cyberciti.biz/faq/bash-for-loop/
-- https://google.github.io/styleguide/shell.xml?showone=Loops#Loops
-
-
-- Put ~; do~ and ~; then~ on the same line as the ~while~, ~for~ or ~if~.
-- Use a for loop if you are confident that the input will not contain spaces or special characters (usually, this means not user input).
-
-#+BEGIN_SRC shell
-  for i in 1 2 3 4 5; do
-    echo "$i"
-  done
-
-  for file in ~/repos/* ; do
-    echo "$file"
-  done
-
-  # continue and break
-  for i in 1 2 3; do
-    if [[ "$i" == 1 ]]; then
-      continue
-    fi
-    if [[ "$i" == 3 ]]; then
-      break
-    fi
-    echo "$i"
-  done
-
-  for (( i=1; i<=5; i++)); do
-    echo "$i"
-  done
-#+END_SRC
-
-#+BEGIN_SRC shell
-  # requires bash v3.0+
-  for i in {1..5}; do
-    echo "$i"
-  done
-
-  # requires bash v4.0+
-  for i in {0..10..2}; do
-    echo "$i"
-  done
-#+END_SRC
-
-*** function
-- http://tldp.org/LDP/abs/html/functions.html
-- http://tldp.org/LDP/abs/html/complexfunct.html
-- http://ryanstutorials.net/bash-scripting-tutorial/bash-functions.php
-- https://google.github.io/styleguide/shell.xml?showone=Function_Comments#Function_Comments
-- http://stackoverflow.com/questions/18042279/how-to-exit-a-function-in-bash
-
-
-#+BEGIN_SRC shell
-  print_something() {
-      echo Hello $1
-  }
-  print_something Mars
-  print_something Jupiter
-#+END_SRC
-
-- The keyword ~function~ is *optional*, but must be used consistently throughout a project.
-- If you're writing a package, separate package names with ~::~.
-
-#+BEGIN_SRC shell
-  # Single function
-  my_func() {
-      ...
-  }
-
-  # Part of a package
-  mypackage::my_func() {
-      ...
-  }
-#+END_SRC
-
-#+BEGIN_SRC shell
-  #######################################
-  # Cleanup files from the backup dir
-  # Globals:
-  #   BACKUP_DIR
-  #   ORACLE_SID
-  # Arguments:
-  #   None
-  # Returns:
-  #   None
-  #######################################
-  cleanup() {
-      ...
-  }
-#+END_SRC
-
-#+BEGIN_SRC shell
-  # If N is omitted, the return status is that of the
-  # last command executed within the function or script.
-  return [n]
-#+END_SRC
-
-#+BEGIN_QUOTE
-Note that if you have ~set -e~ set at the top of your script and
-your ~return 1~ or any other number besides ~0~, your entire script will exit.
-~exit~ abandons the current shell.
-#+END_QUOTE
-
-- By *default a variable is global.*
-- When we create a local variable within a function, *it is only visible* within that function.
-#+BEGIN_SRC shell
-  var_change () {
-      local var1='local 1'
-      echo Inside function: var1 is $var1 : var2 is $var2
-      var1='changed again'
-      var2='2 changed again'
-  }
-  var1='global 1'
-  var2='global 2'
-  # only var2 changed
-#+END_SRC
-
-#+BEGIN_SRC shell
-  foo() {
-    return 0 # return returns a value from a function.
-  }
-  bar() {
-    exit 1 # exit abandons the current shell.
-  }
-
-  foo
-  echo 'hi'
-  bar
-  echo 'bye' # NOT printed
-#+END_SRC
-
-*** if
-- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
-- http://mywiki.wooledge.org/BashFAQ/031
-
-#+BEGIN_SRC shell
-  if commands; then
-    commands
-  [elif commands; then
-    commands ...]
-  [else
-    commands]
-  fi
-#+END_SRC
-
-- ~[~ and ~test~ are available in POSIX shells
-- ~[[~ works only in Bash, Zsh and the Korn shell, and is more powerful
-- ~[[~ is preferred over ~[~, ~test~ (from [[https://google.github.io/styleguide/shell.xml][Google Shell Style Guide]])
-
-| ~[ -a FILE ]~            | True if FILE exists.                                                      |
-| ~[ -b FILE ]~            | True if FILE exists and is a block-special file.                          |
-| ~[ -c FILE ]~            | True if FILE exists and is a character-special file.                      |
-| ~[ -d FILE ]~            | True if FILE exists and is a directory.                                   |
-| ~[ -e FILE ]~            | True if FILE exists.                                                      |
-| ~[ -f FILE ]~            | True if FILE exists and is a regular file.                                |
-| ~[ -g FILE ]~            | True if FILE exists and its SGID bit is set.                              |
-| ~[ -h FILE ]~            | True if FILE exists and is a symbolic link.                               |
-| ~[ -k FILE ]~            | True if FILE exists and its sticky bit is set.                            |
-| ~[ -p FILE ]~            | True if FILE exists and is a named pipe (FIFO).                           |
-| ~[ -r FILE ]~            | True if FILE exists and is readable.                                      |
-| ~[ -s FILE ]~            | True if FILE exists and has a size greater than zero.                     |
-| ~[ -t FD ]~              | True if file descriptor FD is open and refers to a terminal.              |
-| ~[ -u FILE ]~            | True if FILE exists and its SUID (set user ID) bit is set.                |
-| ~[ -w FILE ]~            | True if FILE exists and is writable.                                      |
-| ~[ -x FILE ]~            | True if FILE exists and is executable.                                    |
-| ~[ -O FILE ]~            | True if FILE exists and is owned by the effective user ID.                |
-| ~[ -G FILE ]~            | True if FILE exists and is owned by the effective group ID.               |
-| ~[ -L FILE ]~            | True if FILE exists and is a symbolic link.                               |
-| ~[ -N FILE ]~            | True if FILE exists and has been modified since it was last read.         |
-| ~[ -S FILE ]~            | True if FILE exists and is a socket.                                      |
-| ~[ FILE1 -nt FILE2 ]~    | True if FILE1 is newer than FILE2, or if FILE1 exists and FILE2 does not. |
-| ~[ FILE1 -ot FILE2 ]~    | True if FILE1 is older than FILE2, or is FILE2 exists and FILE1 does not. |
-| ~[ FILE1 -ef FILE2 ]~    | True if FILE1 and FILE2 refer to the same device and inode numbers.       |
-| ~[ -o OPTIONNAME ]~      | True if shell option "OPTIONNAME" is enabled.                             |
-| ~[ -z STRING ]~          | True of the length if "STRING" is zero.                                   |
-| ~[ -n STRING ]~          | True if the length of "STRING" is non-zero.                               |
-| ~[ STRING ]~             | True if the length of "STRING" is non-zero.                               |
-| ~[ STRING1 == STRING2 ]~ | True if the strings are equal.                                            |
-| ~[ STRING1 != STRING2 ]~ | True if the strings are not equal.                                        |
-| ~[ STRING1 < STRING2 ]~  | True if "STRING1" sorts before "STRING2"                                  |
-| ~[ STRING1 > STRING2 ]~  | True if "STRING1" sorts after "STRING2"                                   |
-| ~[ ARG1 OP ARG2 ]~       | "OP" is one of ~-eq~, ~-ne~, ~-lt~, ~-le~, ~-gt~ or ~-ge~.                |
-
-
-| ~[ ! EXPR ]~         | True if EXPR is false.                                                     |
-| ~[ ( EXPR ) ]~       | Returns the value of EXPR. To override the normal precedence of operators. |
-| ~[ EXPR1 -a EXPR2 ]~ | True if both EXPR1 and EXPR2 are true.                                     |
-| ~[ EXPR1 -o EXPR2 ]~ | True if either EXPR1 or EXPR2 is true.                                     |
-
-#+BEGIN_SRC shell
-  if [[ -z "$foo" ]] && [[ -z "$bar" ]];
-  if [[ -z "$foo" && -z "$bar" ]]; # equivalent to above
-#+END_SRC
-
-- http://mywiki.wooledge.org/BashFAQ/031
-
-[[file:img/screenshot_2017-08-26_11-35-09.png]]
 
 ** Others
 *** $@ or $*
@@ -1234,6 +1260,13 @@ To avoid this, specify the ~-t~ option, and then the remote ~sshd~ will always t
 
 Use the flag of ~-T~ for explicitly disabling ~pty~.
 
+** Usage of dash (-) in place of a filename, like ~cat -~
+- https://unix.stackexchange.com/questions/16357/usage-of-dash-in-place-of-a-filename
+Using ~-~ as a filename to mean ~stdin~ / ~stdout~ is a convention that a lot of programs use.
+It is not a special property of the filename.
+
+If you want to use a file named as ~-~, you should pass the argument like ~./-~.
+
 * How-to
 ** Change hostname
 #+BEGIN_SRC shell
@@ -1401,9 +1434,6 @@ http://unix.stackexchange.com/questions/122605/how-do-i-copy-multiple-files-by-w
 ** TODO <2017-02-01 Wed> cron.d
 - http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log
 
-** TODO <2017-02-01 Wed> Device Naming on Linux Instances
-http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
-
 ** TODO <2017-03-01 Wed> command command
 - http://askubuntu.com/questions/512770/what-is-use-of-command-command
 - http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script/677212#677212
@@ -1425,10 +1455,7 @@ This instructs the trap command to catch the listed SIGNALS, which may be signal
 - https://unix.stackexchange.com/questions/265149/why-is-set-o-errexit-breaking-this-read-heredoc-expression/265151#265151
 - https://unix.stackexchange.com/questions/68419/how-to-print-in-here-document
   
-** TODO <2017-07-03 Mon> "cat -"
-
 ** TODO <2017-07-03 Mon> IFS?
-
 ** TODO <2017-07-03 Mon> wc -l
 - https://stackoverflow.com/questions/6314679/in-bash-how-do-i-count-the-number-of-lines-in-a-variable
 
@@ -1502,6 +1529,7 @@ This instructs the trap command to catch the listed SIGNALS, which may be signal
   fi
   # ----------------------------------------------------------------------------
 #+END_SRC
+
 ** negative offset of shell parameter expansion
 #+BEGIN_SRC shell
 
@@ -1509,6 +1537,3 @@ This instructs the trap command to catch the listed SIGNALS, which may be signal
     #           └─  a negative offset must be separated from the colon by
     #               at least one space to avoid being confused with :- expansion
 #+END_SRC
-
-** empty array and [@]
-- https://stackoverflow.com/questions/7577052/bash-empty-array-expansion-with-set-u

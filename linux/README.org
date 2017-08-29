@@ -20,6 +20,7 @@
   - [[#mount-a-volume][Mount a Volume]]
 - [[#staging][Staging]]
   - [[#2017-07-16-sun-sudo-service---status-all][<2017-07-16 Sun> sudo service --status-all]]
+  - [[#2017-02-01-wed-device-naming-on-linux-instances][<2017-02-01 Wed> Device Naming on Linux Instances]]
   - [[#2017-07-13-thu-linux-kernel-parameters][<2017-07-13 Thu> Linux kernel parameters]]
   - [[#2017-07-14-fri-linux-usergroup][<2017-07-14 Fri> linux user/group]]
   - [[#2017-03-24-fri-resolvconf][<2017-03-24 Fri> resolvconf]]
@@ -371,6 +372,9 @@ If you accidentally delete ~lost+found~, *don't re-create it with* ~mkdir~, *use
 * Staging
 ** TODO <2017-07-16 Sun> sudo service --status-all
 - https://askubuntu.com/questions/407075/how-to-read-service-status-all-results
+
+** TODO <2017-02-01 Wed> Device Naming on Linux Instances
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
 
 ** TODO <2017-07-13 Thu> Linux kernel parameters
 - http://meetup.toast.com/posts/54
