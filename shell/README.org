@@ -14,6 +14,7 @@
   - [[#commands][Commands]]
     - [[#curl][curl]]
     - [[#date][date]]
+    - [[#find][find]]
     - [[#grep][grep]]
     - [[#jq][jq]]
     - [[#sort][sort]]
@@ -34,10 +35,12 @@
     - [[#shebang][Shebang]]
     - [[#shell-parameter-expansion][Shell Parameter Expansion]]
 - [[#topics][Topics]]
+  - [[#subtlety-of-following-symlinks][Subtlety of Following Symlinks]]
   - [[#pseudo-terminals][Pseudo Terminals]]
   - [[#usage-of-dash---in-place-of-a-filename-like-cat--][Usage of dash (-) in place of a filename, like 'cat -']]
 - [[#how-to][How-to]]
   - [[#change-hostname][Change hostname]]
+  - [[#delete-all-broken-symbolic-links][Delete all broken symbolic links]]
   - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
   - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
   - [[#get-the-source-directory][Get the source directory]]
@@ -455,6 +458,15 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 
   date --utc --iso-8601=seconds
   # 2017-08-18T08:12:49+00:00
+#+END_SRC
+
+*** find
+- https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find
+
+- The operator ~-or~ was implemented as ~-o~, and the operator ~-and~ was implemented as ~-a~.
+#+BEGIN_SRC shell
+  find -L . -name . -o -type d -prune -o -type l -exec rm {} +
+  #     | |    |  |  |   |   |    |    |       |   |       | +-
 #+END_SRC
 
 *** grep
@@ -1239,6 +1251,36 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 #+END_EXAMPLE
 
 * Topics
+** Subtlety of Following Symlinks
+- https://unix.stackexchange.com/questions/31114/find-usage-with-l
+
+The general rule is,
+
+- if a command operates on links (i.e. directory entries, which are pointers to inodes) ::
+  The command treats symlinks as themselves rather than as the object the link points to.
+#+BEGIN_SRC shell
+  $ mkdir d
+  $ ln -s d dd
+  $ cp -R dd e  # -R, because 'dd' is a directory
+  # ----------------------------------------------
+  d
+  dd -> d
+  e -> d
+#+END_SRC
+
+- Otherwise ::
+  The command operates on what the symlink points to.
+#+BEGIN_SRC shell
+  $ touch a
+  $ ln -s a aa
+  $ cp aa b
+  # ----------------------------------------------
+  a
+  aa -> a
+  b
+#+END_SRC
+
+
 ** Pseudo Terminals
 - https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
 
@@ -1272,6 +1314,18 @@ If you want to use a file named as ~-~, you should pass the argument like ~./-~.
   sudo sed -i "s/^127.0.0.1 localhost.*\$/127.0.0.1 localhost ${NEW_NAME}/" /etc/hosts
   sudo bash -c "echo ${NEW_NAME} > /etc/hostname"
   sudo hostname "${NEW_NAME}"
+#+END_SRC
+
+** Delete all broken symbolic links
+- https://stackoverflow.com/questions/22097130/delete-all-broken-symbolic-links-with-a-line
+
+#+BEGIN_SRC shell
+  find -L "$HOME" -maxdepth 1 -type l -exec rm {} +
+  #     │              │            │             └─ cause 'rm path1 path2' not 'rm path1' 'rm path2'
+  #     │              │            + symbolic link
+  #     │              + descend at most n directory levels
+  #     │                in other words, just find in current directory
+  #     +- 
 #+END_SRC
 
 ** Empty the contents of a file
