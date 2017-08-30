@@ -463,7 +463,8 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 *** find
 - https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find
 
-- ~-L~ causes find to follow symlinks for all properties *except the name, which cannot be ignored when doing directory search*
+- ~-L~ causes find to follow symlinks for all properties *except the name* ::
+  Because the name cannot be ignored when doing directory search
 - The operator ~-or~ was implemented as ~-o~, and the operator ~-and~ was implemented as ~-a~.
 
 *** grep
