@@ -463,9 +463,10 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 *** find
 - https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find
 
-- ~-L~ causes find to follow symlinks for all properties *except the name* ::
+- ~-L~ causes ~find~ to follow symlinks for all properties *except the name* ::
   Because the name cannot be ignored when doing directory search
-- The operator ~-or~ was implemented as ~-o~, and the operator ~-and~ was implemented as ~-a~.
+- ~-o~ , ~-a~ ::
+  Corresponds to ~-or~ and ~-and~
 
 *** grep
 - https://www.gnu.org/software/grep/manual/grep.html#Usage
@@ -1257,13 +1258,15 @@ The general rule is,
 - if a command operates on links (i.e. directory entries, which are pointers to inodes) ::
   The command treats symlinks as themselves rather than as the object the link points to.
 #+BEGIN_SRC shell
-  $ mkdir d
-  $ ln -s d dd
-  $ cp -R dd e  # -R, because 'dd' is a directory
+  $ mkdir a
+  $ ln -s a aa
+  $ cp -R aa b  # -R, because followed 'aa' is a directory
   # ----------------------------------------------
-  d
-  dd -> d
-  e -> d
+  a
+  aa -> a
+  b -> a
+  # ----------------------------------------------
+  # 'b' is a copy of the symlink ('aa'), not the actual file ('a')
 #+END_SRC
 
 - Otherwise ::
@@ -1276,6 +1279,8 @@ The general rule is,
   a
   aa -> a
   b
+  # ----------------------------------------------
+  # 'b' is a copy of the actual file ('a')
 #+END_SRC
 
 
