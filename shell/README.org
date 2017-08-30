@@ -463,11 +463,8 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 *** find
 - https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find
 
+- ~-L~ causes find to follow symlinks for all properties *except the name, which cannot be ignored when doing directory search*
 - The operator ~-or~ was implemented as ~-o~, and the operator ~-and~ was implemented as ~-a~.
-#+BEGIN_SRC shell
-  find -L . -name . -o -type d -prune -o -type l -exec rm {} +
-  #     | |    |  |  |   |   |    |    |       |   |       | +-
-#+END_SRC
 
 *** grep
 - https://www.gnu.org/software/grep/manual/grep.html#Usage
@@ -1325,7 +1322,7 @@ If you want to use a file named as ~-~, you should pass the argument like ~./-~.
   #     │              │            + symbolic link
   #     │              + descend at most n directory levels
   #     │                in other words, just find in current directory
-  #     +- 
+  #     └─ follow symlinks, the link itself if the link target doens't exist
 #+END_SRC
 
 ** Empty the contents of a file
