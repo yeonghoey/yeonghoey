@@ -1,41 +1,51 @@
 #+TITLE: Terraform
-* Table of Contents                                                :TOC_2_gh:
- - [[#configurations][Configurations]]
-   - [[#backend][backend]]
-   - [[#path][path]]
-   - [[#depends_on][depends_on]]
-   - [[#element][element]]
-   - [[#ignore_changes][ignore_changes]]
-   - [[#null_resource][null_resource]]
-   - [[#local-exec][local-exec]]
-   - [[#remote-exec][remote-exec]]
-   - [[#archive_file][archive_file]]
-   - [[#template_file][template_file]]
- - [[#commands][Commands]]
-   - [[#plan][plan]]
-   - [[#apply][apply]]
-   - [[#import][import]]
-   - [[#state][state]]
-   - [[#taint][taint]]
-   - [[#force-unlcok][force-unlcok]]
- - [[#concepts][Concepts]]
-   - [[#terraform-files][Terraform files]]
-   - [[#resources-and-data-sources][Resources and Data Sources]]
-   - [[#state-file][State file]]
-   - [[#variable-files][Variable files]]
-   - [[#resource-addressing][Resource Addressing]]
-   - [[#interpolation][Interpolation]]
-   - [[#modules][Modules]]
- - [[#limitations][Limitations]]
-   - [[#no-dynamic-interpolation-over-count][No dynamic interpolation over count]]
-   - [[#no-integer-variable][No integer variable]]
-   - [[#no-list-of-maps][No list of maps]]
- - [[#use-cases][Use Cases]]
-   - [[#migrate-existing-aws-infra-with-terraforming][Migrate existing AWS Infra with terraforming]]
-   - [[#generate-documents-automatically][Generate documents automatically]]
 
-* Configurations
-** backend
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#configurations][Configurations]]
+    - [[#backend][backend]]
+    - [[#path][path]]
+    - [[#depends_on][depends_on]]
+    - [[#element][element]]
+    - [[#ignore_changes][ignore_changes]]
+    - [[#null_resource][null_resource]]
+    - [[#local-exec][local-exec]]
+    - [[#remote-exec][remote-exec]]
+    - [[#archive_file][archive_file]]
+    - [[#template_file][template_file]]
+  - [[#commands][Commands]]
+    - [[#plan][plan]]
+    - [[#apply][apply]]
+    - [[#import][import]]
+    - [[#state][state]]
+    - [[#taint][taint]]
+    - [[#force-unlcok][force-unlcok]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#terraform-files][Terraform files]]
+  - [[#resources-and-data-sources][Resources and Data Sources]]
+  - [[#state-file][State file]]
+  - [[#variable-files][Variable files]]
+  - [[#resource-addressing][Resource Addressing]]
+  - [[#interpolation][Interpolation]]
+  - [[#limitations][Limitations]]
+    - [[#no-dynamic-interpolation-over-count][No dynamic interpolation over count]]
+    - [[#no-integer-variable][No integer variable]]
+    - [[#no-list-of-maps][No list of maps]]
+  - [[#modules][Modules]]
+- [[#how-to][How-to]]
+  - [[#make-a-manual-modifications-on-remote-backeded-tfstates][Make a manual modifications on remote backeded tfstates]]
+  - [[#migrate-existing-aws-infra-with-terraforming][Migrate existing AWS Infra with terraforming]]
+  - [[#generate-documents-automatically][Generate documents automatically]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+** Configurations
+*** backend
 - https://www.terraform.io/docs/backends/types/s3.html
 
 #+BEGIN_SRC terraform
@@ -67,7 +77,7 @@
   }
 #+END_SRC
 
-** path
+*** path
 - https://www.terraform.io/docs/configuration/interpolation.html#path-information
 
 #+BEGIN_EXAMPLE
@@ -76,7 +86,7 @@
   source_file = "${path.module}/main.py" # Path to the current module
 #+END_EXAMPLE
 
-** depends_on
+*** depends_on
 - https://www.terraform.io/intro/getting-started/dependencies.html#implicit-and-explicit-dependencies
 - ~depends_on~ parameter which is available on any resource
 
@@ -91,7 +101,7 @@
   }
 #+END_EXAMPLE
 
-** element
+*** element
 - https://www.terraform.io/docs/configuration/interpolation.html#element-list-index-
 - if ~index~ is greater than ~len(list)~, ~index~ modulo ~len(list)~ is used
 
@@ -101,7 +111,7 @@
   }
 #+END_EXAMPLE
 
-** ignore_changes
+*** ignore_changes
 - https://www.terraform.io/docs/configuration/resources.html
 - https://github.com/hashicorp/terraform/issues/4944
 
@@ -131,7 +141,7 @@ To work around this, use ~ignore_changes~
     }
   }
 #+END_EXAMPLE
-** null_resource
+*** null_resource
 - https://www.terraform.io/docs/provisioners/null_resource.html
 - Allows to run provionsers not directly associated with a single existing resource
 
@@ -160,7 +170,7 @@ To work around this, use ~ignore_changes~
   }
 #+END_SRC
 
-** local-exec
+*** local-exec
 - https://www.terraform.io/docs/provisioners/local-exec.html
 #+BEGIN_EXAMPLE
   provisioner "local-exec" {
@@ -168,7 +178,7 @@ To work around this, use ~ignore_changes~
   }
 #+END_EXAMPLE
 
-** remote-exec
+*** remote-exec
 - https://www.terraform.io/docs/provisioners/remote-exec.html
 
 #+BEGIN_EXAMPLE
@@ -186,7 +196,7 @@ To work around this, use ~ignore_changes~
   }
 #+END_EXAMPLE
 
-** archive_file
+*** archive_file
 - https://www.terraform.io/docs/providers/archive/d/archive_file.html
 - Useful to provision resources which require zip files.
 #+BEGIN_EXAMPLE
@@ -203,7 +213,7 @@ To work around this, use ~ignore_changes~
   }
 #+END_EXAMPLE
 
-** template_file
+*** template_file
 - https://www.terraform.io/docs/providers/template/index.html
 - Use ~$$~ in ~template~ to escape ~$~
 
@@ -217,10 +227,10 @@ To work around this, use ~ignore_changes~
   }
 #+END_EXAMPLE
 
-* Commands
+** Commands
 - https://www.terraform.io/docs/commands/index.html
 
-** plan
+*** plan
 #+BEGIN_SRC shell
   terraform plan
   terraform plan -var 'access_key=foo' -var 'secret_key=bar'
@@ -228,19 +238,19 @@ To work around this, use ~ignore_changes~
   terraform plan -out=my.plan
 #+END_SRC
 
-** apply
+*** apply
 #+BEGIN_SRC shell
   terraform apply
   terraform apply 'my.plan'
 #+END_SRC
 
-** import
+*** import
 #+BEGIN_SRC shell
   terraform import aws_instance.main i-abcd1234
 #+END_SRC
 
-** state
-*** mv
+*** state
+**** mv
 - https://www.terraform.io/docs/commands/state/mv.html
 
 #+BEGIN_SRC shell
@@ -251,7 +261,7 @@ To work around this, use ~ignore_changes~
             aws_instance.server
 #+END_SRC
 
-** taint
+*** taint
 - https://github.com/yeonghoey/notes/tree/master/terraform#taint
 - You can taint resources within modules
 - It looks like that tainting a whole module is currently impossible
@@ -261,7 +271,7 @@ To work around this, use ~ignore_changes~
   terraform taint -module=my_module aws_instance.main                                                                              1 ↵
 #+END_SRC
 
-** force-unlcok
+*** force-unlcok
 - https://www.terraform.io/docs/commands/force-unlock.html
 - ~LockID~ will be printed out when commands fail
 
@@ -284,7 +294,8 @@ To work around this, use ~ignore_changes~
   terraform force-unlock "abcdef01-ef34-abcd-5678-abc123def456"
 #+END_SRC
 
-* Concepts
+* Terminology
+* Topics
 ** Terraform files
 - All ~.tf~ files are loaded
 - ~.tf~ files are declarative, so the order of loading files doesn't matter, except for Override files
@@ -348,21 +359,16 @@ you can reference existing security groups, VPCs, and the like by defining them 
   .. and many more including some functions
 #+END_EXAMPLE
 
-** Modules
-- https://www.terraform.io/docs/modules/create.html
-- When you run ~terraform apply~, the current working directory holding the Terraform files is called the *root module*.
-- With *Local File Paths*, Terraform will *create a symbolic link to the original directory.* Therefore, any changes are automatically available.
-
-* Limitations
-** No dynamic interpolation over count
+** Limitations
+*** No dynamic interpolation over count
 - https://github.com/hashicorp/terraform/issues/1497#issuecomment-105874601
 
-*** Update
+**** Update
 - https://github.com/hashicorp/terraform/pull/11482
 - Interpolations other than ~computing required~ can be used for ~count~.
 - Now ~count = "${length(var.other_List)}"~ is valid
 
-*** Previous limitation
+**** Previous limitation
 For now, you can't use interpolation for referencing other resources
 to specify ~count~ because of the way that terraform handles ~count~.
 
@@ -387,10 +393,10 @@ before the primary graph walk, which means we can't support "computed" counts ri
 (A "computed" value in TF is one that's flagged as not known until all its dependencies are calculated.)
 #+END_QUOTE
 
-** No integer variable
+*** No integer variable
 - https://github.com/hashicorp/terraform/issues/6254
 
-** No list of maps
+*** No list of maps
 - https://github.com/hashicorp/terraform/issues/7705
 - The type of most mapping arguments are actually the list of maps
 
@@ -414,7 +420,28 @@ Because the actual schema is:
 		  Schema: map[string]*schema.Schema{
 #+END_SRC
 
-* Use Cases
+** Modules
+- https://www.terraform.io/docs/modules/create.html
+- When you run ~terraform apply~, the current working directory holding the Terraform files is called the *root module*.
+- With *Local File Paths*, Terraform will *create a symbolic link to the original directory.* Therefore, any changes are automatically available.
+
+* How-to
+** Make a manual modifications on remote backeded tfstates
+
+- https://www.terraform.io/docs/commands/state/pull.html
+- https://www.terraform.io/docs/commands/state/push.html
+
+#+BEGIN_SRC shell
+  # Download the backended tfstate
+  $ terraform state pull > terraform.tfstate
+
+  # Most terraform state commands modify './terraform.tfstate' by default
+  $ terraform import ADDR ID
+
+  # Push the modified tfstate back
+  $ terraform state push terraform.tfstate
+#+END_SRC
+
 ** Migrate existing AWS Infra with terraforming
 - https://github.com/dtan4/terraforming
 
@@ -422,3 +449,7 @@ Because the actual schema is:
 - https://github.com/segmentio/terraform-docs
 
 This simple tool automatically generates markdown or json document based on ~variable~ and ~output~ blocks.
+* Links
+* Staging
+
+
