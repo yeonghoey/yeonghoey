@@ -36,7 +36,7 @@
     - [[#no-list-of-maps][No list of maps]]
   - [[#modules][Modules]]
 - [[#how-to][How-to]]
-  - [[#make-a-manual-modifications-on-remote-backeded-tfstates][Make a manual modifications on remote backeded tfstates]]
+  - [[#make-manual-modifications-on-remote-backeded-tfstates][Make manual modifications on remote backeded tfstates]]
   - [[#migrate-existing-aws-infra-with-terraforming][Migrate existing AWS Infra with terraforming]]
   - [[#generate-documents-automatically][Generate documents automatically]]
 - [[#links][Links]]
@@ -426,7 +426,7 @@ Because the actual schema is:
 - With *Local File Paths*, Terraform will *create a symbolic link to the original directory.* Therefore, any changes are automatically available.
 
 * How-to
-** Make a manual modifications on remote backeded tfstates
+** Make manual modifications on remote backeded tfstates
 
 - https://www.terraform.io/docs/commands/state/pull.html
 - https://www.terraform.io/docs/commands/state/push.html
