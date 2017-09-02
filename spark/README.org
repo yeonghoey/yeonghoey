@@ -217,6 +217,8 @@ https://github.com/apache/spark/tree/master/examples/src/main/scala/org/apache/s
 * Terminology
 * Topics
 ** How merging schema across files works
+- https://spark.apache.org/docs/latest/sql-programming-guide.html#schema-merging
+
 There were no clear documentation about how the merging schema across files works.
 There are only some the general guidelines of growing schema: Append only, no modification.
 
