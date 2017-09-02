@@ -12,7 +12,7 @@
     - [[#example-codes][Example codes]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
-  - [[#how-merging-schema-across-files-works][How merging schema across files works]]
+  - [[#how-schema-merging-works][How schema merging works]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
@@ -216,7 +216,7 @@ https://github.com/apache/spark/tree/master/examples/src/main/scala/org/apache/s
 
 * Terminology
 * Topics
-** How merging schema across files works
+** How schema merging works
 - https://spark.apache.org/docs/latest/sql-programming-guide.html#schema-merging
 
 There were no clear documentation about how the merging schema across files works.
