@@ -222,7 +222,7 @@ https://github.com/apache/spark/tree/master/examples/src/main/scala/org/apache/s
 There were no clear documentation about how the merging schema across files works.
 There are only some the general guidelines of growing schema: Append only, no modification.
 
-But I was curious that if appending is ok, can I just reorder the ~StructFields~?
+But I was curious that if appending is OK, can I just reorder the ~StructFields~?
 Because ~StructType~ takes them as a ~List~, it may. But as the data source can be ~json~,
 which doesn't care the order of fields, it may not. So I tested.
 
@@ -230,8 +230,8 @@ The conclusion is following:
 - The order of ~StructField~ doesn't matter. *Only field name matters.*
 - If ~mergeSchema~ is ~true~, all fields are merged.
 - If ~mergeSchema~ is ~false~, which is default, The schema of the first file in alphabetical order has priority 
-- The ~nullable~ in ~StructType~ doesn't matter. It seemm to only matter when processing raw data, but merging files.
-- *If there are fields with the same name and different types, schema merging will cause runtime erros.*
+- The ~nullable~ in ~StructType~ doesn't matter. It seem to only matter when processing raw data, but merging files.
+- *If there are fields with the same name and different types, schema merging will cause runtime errors.*
 
 #+BEGIN_SRC scala
   import org.apache.spark.sql.Row
