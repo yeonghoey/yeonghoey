@@ -1,0 +1,54 @@
+#+TITLE: GDC 2017
+
+* Table of Contents :TOC_3_gh:
+- [[#overwatch-gameplay-architecture-and-netcode]['Overwatch' Gameplay Architecture and Netcode]]
+
+* 'Overwatch' Gameplay Architecture and Netcode
+- http://schedule.gdconf.com/session/overwatch-gameplay-architecture-and-netcode
+
+[[file:img/screenshot_2017-09-04_07-28-15.png]]
+
+[[file:img/screenshot_2017-09-04_07-29-23.png]]
+
+[[file:img/screenshot_2017-09-04_07-29-49.png]]
+
+[[file:img/screenshot_2017-09-04_07-33-40.png]]
+
+[[file:img/screenshot_2017-09-04_07-34-55.png]]
+
+[[file:img/screenshot_2017-09-04_07-38-02.png]]
+
+[[file:img/screenshot_2017-09-04_07-40-40.png]]
+
+[[file:img/screenshot_2017-09-04_07-43-14.png]]
+
+[[file:img/screenshot_2017-09-04_07-46-19.png]]
+
+[[file:img/screenshot_2017-09-04_07-46-33.png]]
+
+[[file:img/screenshot_2017-09-04_07-48-27.png]]
+
+[[file:img/screenshot_2017-09-04_07-49-22.png]]
+
+- Few call sites example ::
+  PlayerMove utility function has two call sites;
+  One for server and the other for client to predict the movevent.
+
+[[file:img/screenshot_2017-09-04_07-52-37.png]]
+
+*Behaviors are much less complex if they're expessed in a single call site,*
+*in which all major behavior or side effects are localized to the call site*
+
+[[file:img/screenshot_2017-09-04_07-54-29.png]]
+
+[[file:img/screenshot_2017-09-04_07-56-08.png]]
+
+[[file:img/screenshot_2017-09-04_07-57-11.png]]
+
+[[file:img/screenshot_2017-09-04_07-57-23.png]]
+
+[[file:img/screenshot_2017-09-04_07-57-47.png]]
+
+[[file:img/screenshot_2017-09-04_08-00-50.png]]
+
+[[file:img/screenshot_2017-09-04_08-03-40.png]]
