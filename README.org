@@ -1,10 +1,4 @@
 * yeonghoey
-** Goals
-- Can look up things fast
-- Can recall concepts fast
-- Can write notes fast
-
-** Principles
-- More Examples, less descriptions
-- Up to 2 levels deep of note hierarchy
-- No obsession with consistency of categorization
+#+BEGIN_QUOTE
+It's a long way by the rules, but short and efficient with examples!
+#+END_QUOTE
