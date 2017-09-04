@@ -1,10 +1,21 @@
-#+TITLE: Socket Programming
+#+TITLE: Socket
 
-* Table of Contents :TOC_1_gh:
- - [[#details][Details]]
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#handling-eintr][Handling EINTR]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+  - [[#2017-08-23-wed-so_reuseaddr][<2017-08-23 Wed> SO_REUSEADDR]]
 
-* Details
-** EINTR handling
+* Overview
+* Reference
+* Terminology
+* Topics
+** Handling EINTR
 - http://250bpm.com/blog:12
 - https://stackoverflow.com/questions/4959524/when-to-check-for-eintr-and-repeat-the-function-call
 
@@ -44,3 +55,9 @@
     }
   }
 #+END_SRC
+
+* How-to
+* Links
+* Staging
+** TODO <2017-08-23 Wed> SO_REUSEADDR
+- https://stackoverflow.com/questions/14388706/socket-options-so-reuseaddr-and-so-reuseport-how-do-they-differ-do-they-mean-t
