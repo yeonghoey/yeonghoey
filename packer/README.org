@@ -1,0 +1,74 @@
+#+TITLE: Packer
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#builders][Builders]]
+    - [[#amazon-ebs][amazon-ebs]]
+  - [[#templates][Templates]]
+    - [[#comments][Comments]]
+    - [[#functions][Functions]]
+    - [[#variables][Variables]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+** Builders
+*** amazon-ebs
+** Templates
+*** Comments
+- Prefix a *root level key* with an *underscore*
+#+BEGIN_SRC json
+  {
+    "_comment": "This is a comment",
+    "builders": [
+      {}
+    ]
+  }
+#+END_SRC
+
+*** Functions
+- https://www.packer.io/docs/templates/engine.html#functions
+- ~build_name~ :: The name of the build being run.
+- ~build_type~ :: The type of the builder being used currently.
+- ~isotime [FORMAT]~ :: UTC time, which can be formatted. See more examples below in the [[https://www.packer.io/docs/templates/engine.html#isotime-function-format-reference][isotime format reference]].
+- ~lower~ :: Lowercases the string.
+- ~pwd~ :: The working directory while executing Packer.
+- ~template_dir~ :: The directory to the template for the build.
+- ~timestamp~ :: The current Unix timestamp in UTC.
+- ~uuid~ :: Returns a random UUID.
+- ~upper~ :: Uppercases the string.
+- ~user~ :: Specifies a user variable.
+
+*** Variables
+- ~{{function}}~ :: The result of the function
+- ~{{env `VARIABLE`}}~ :: Environment variable named ~VARIABLE~
+- ~{{user `variable`}}~ :: User variable named ~variable~
+  - These variables are defined in ~variables~ section like following:
+#+BEGIN_SRC json
+  {
+    "variables": {
+      "name": "yeonghoey"
+    },
+    "builders": [{
+      "name": "{{user `name`}}"
+    }]
+  }
+#+END_SRC
+
+- ~{{.Variable}}~ :: Template variable named ~Variable~
+  - These variables are defined by ~Packer~.
+  - They are specified for each option like following:
+[[file:img/screenshot_2017-09-11_21-31-52.png]] 
+
+* Terminology
+* Topics
+* How-to
+* Links
+- https://github.com/hashicorp/packer/tree/master/examples
+
+* Staging
