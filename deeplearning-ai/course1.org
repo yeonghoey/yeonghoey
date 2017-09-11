@@ -2,8 +2,10 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#week1][Week1]]
+  - [[#what-is-a-neural-network][What is a neural network?]]
 
 * Week1
+** What is a neural network?
 [[file:img/screenshot_2017-09-12_08-01-22.png]]
 
 [[file:img/screenshot_2017-09-12_08-01-40.png]]
