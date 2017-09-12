@@ -27,6 +27,7 @@
     - [[#arithmetic-expansion][Arithmetic Expansion]]
     - [[#brace-expansion][Brace Expansion]]
     - [[#escaping-quotes][Escaping quotes]]
+    - [[#filename-expansion][Filename Expansion]]
     - [[#here-document][Here document]]
     - [[#here-strings][Here strings]]
     - [[#history-expansion][History Expansion]]
@@ -899,6 +900,14 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   echo $'Can\'t do that'
 #+END_SRC
 
+*** Filename Expansion
+- https://www.gnu.org/software/bash/manual/bashref.html#Filename-Expansion
+- ~*~     :: Matches any string, including the null string.
+- ~**~    :: Matches all files and zero or more directories and subdirectories.
+- ~**/~   :: Matches all subdirectories.
+- ~?~     :: Matches any single character.
+- ~[...]~ :: Matches any one of the enclosed characters.
+
 *** Here document
 - https://en.wikipedia.org/wiki/Here_document
 
@@ -1210,15 +1219,70 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   echo ${FOO}       # foo
 #+END_SRC
 
-**** Others
+**** offset and length
 #+BEGIN_SRC shell
   ${parameter:offset}        # parameter[offset:]
   ${parameter:offset:length} # parameter[offset:offset+length]
 #+END_SRC
 
+#+BEGIN_SRC shell
+  # 1. A normal variable
+  $ string=01234567890abcdefgh
+  $ echo ${string:7}
+  7890abcdefgh
+  $ echo ${string:7:2}
+  78
+
+  # If length evaluates to a number less than zero,
+  # it is interpreted as an offset in characters from the end of the value of parameter
+  # rather than a number of characters
+  $ echo ${string:7:-2}
+  7890abcdef
+
+  # offset can be negative, but must be separated from the colon by at least one space
+  # to avoid being confused with the ‘:-’ expansion.
+  $ echo ${string: -7}
+  bcdefgh
+  $ echo ${string: -7:-2}
+  bcdef
+
+  # 2. Arguments
+  $ set -- 01234567890abcdefgh
+  $ echo ${1:7}
+  7890abcdefgh
+
+  # 3. Array
+  $ array[0]=01234567890abcdefgh
+  $ echo ${array[0]:7}
+  7890abcdefgh
+#+END_SRC
+
+**** begining and trailing match deletion (~#~, ~%~)
+- The ~word~ is expanded to produce a pattern just as in [[#filename-expansion][Filename Expansion]]
+
+#+BEGIN_SRC shell
+  # If the pattern matches the **beginning** of the expanded value of parameter,
+  ${parameter#word}  # the shortest matching pattern **deleted**
+  ${parameter##word} # the longest matching pattern **deleted**
+
+  # If the pattern matches a **trailing portion** of the expanded value of parameter,
+  ${parameter%word}  # the shortest matching pattern **deleted**
+  ${parameter%%word} # the longest matching pattern **deleted**
+#+END_SRC
+
+**** replace
+- The ~pattern~ is expanded to produce a pattern just as in [[#filename-expansion][Filename Expansion]]
+
+#+BEGIN_SRC shell
+  ${parameter/pattern/string}  # the longest match of pattern against its value is replaced with string.
+  ${parameter//pattern/string} # all matches of pattern are replaced with string. 
+  ${parameter/#pattern/string} # matches at the beginning of the expanded value of parameter.
+  ${parameter/%pattern/string} # matches at the end of the expanded value of parameter.
+  ${parameter/pattern/}        # deleted
+  ${parameter/pattern}         # same as above
+#+END_SRC
+
 #+BEGIN_SRC shell :outputs
-  # ${parameter/pattern/string}
-  #   longest match of pattern, If pattern begins with ‘/’, matches all
   export FOO='a.b.c.d'
   echo "${FOO/[.]/-}"
   echo "${FOO//[.]/-}"
@@ -1228,6 +1292,19 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   | a-b.c.d |
   | a-b-c-d |
 #+END_EXAMPLE
+
+**** Others
+#+BEGIN_SRC shell
+  # This expansion modifies the case of alphabetic characters in parameter.
+  ${parameter^pattern}
+  ${parameter^^pattern}
+  ${parameter,pattern}
+  ${parameter,,pattern}
+
+  # The expansion is either a transformation of the value of parameter or information about parameter itself, depending on the value of operator.
+  # Operators: Q, E, P, A, a
+  ${parameter@operator}
+#+END_SRC
 
 * Topics
 ** Subtlety of Following Symlinks
@@ -1262,7 +1339,6 @@ The general rule is,
   # ----------------------------------------------
   # 'b' is a copy of the actual file ('a')
 #+END_SRC
-
 
 ** Pseudo Terminals
 - https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
