@@ -1158,7 +1158,7 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
     word
 #+END_EXAMPLE
 
-- non ~:~ versions like ~${parameter-word}~ ::
+- non ~:~ versions (like ~${parameter-word}~) ::
   Tests only whether ~parameter~ is ~unset~, but not ~null~
 
 - ~word~ ::
@@ -1211,26 +1211,6 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 #+END_SRC
 
 **** Others
-#+BEGIN_SRC shell
-  #!/usr/bin/env bash
-
-  echo 'FOO is unset'
-  printf '%-11s %s %s\n' '${FOO-bar}' '# ' "${FOO-bar}"
-  printf '%-11s %s %s\n' '${FOO:-bar}' '# ' "${FOO:-bar}"
-
-  echo
-  echo 'FOO='
-  FOO=
-  printf '%-11s %s %s\n' '${FOO-bar}' '# ' "(empty string of FOO)"
-  printf '%-11s %s %s\n' '${FOO:-bar}' '# ' "${FOO:-bar}"
-
-  echo
-  echo 'FOO=foo'
-  FOO=foo
-  printf '%-11s %s %s\n' '${FOO-bar}' '# ' "${FOO-bar}"
-  printf '%-11s %s %s\n' '${FOO:-bar}' '# ' "${FOO:-bar}"
-#+END_SRC
-
 #+BEGIN_SRC shell
   ${parameter:offset}        # parameter[offset:]
   ${parameter:offset:length} # parameter[offset:offset+length]
