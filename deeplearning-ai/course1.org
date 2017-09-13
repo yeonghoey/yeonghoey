@@ -6,7 +6,9 @@
   - [[#supervised-learning-with-neural-networks][Supervised Learning with Neural Networks]]
   - [[#why-is-deep-learning-taking-off][Why is Deep Learning taking off?]]
   - [[#about-this-course][About this Course]]
-  - [[#geoffrey-hinton-interview][Geoffrey Hinton interview]]
+- [[#week2][Week2]]
+  - [[#binary-classification][Binary Classification]]
+  - [[#logistic-regression][Logistic Regression]]
 
 * Week1
 ** What is a neural network?
@@ -30,4 +32,10 @@
 ** About this Course
 [[file:img/screenshot_2017-09-13_08-26-24.png]]
 
-** Geoffrey Hinton interview
+* Week2
+** Binary Classification
+[[file:img/screenshot_2017-09-14_07-24-18.png]]
+
+[[file:img/screenshot_2017-09-14_07-24-44.png]]
+** Logistic Regression
+[[file:img/screenshot_2017-09-14_07-31-55.png]]
