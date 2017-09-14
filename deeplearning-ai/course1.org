@@ -1,41 +1,55 @@
 #+TITLE: Neural Networks and Deep Learning
 
 * Table of Contents :TOC_3_gh:
-- [[#week1][Week1]]
-  - [[#what-is-a-neural-network][What is a neural network?]]
-  - [[#supervised-learning-with-neural-networks][Supervised Learning with Neural Networks]]
-  - [[#why-is-deep-learning-taking-off][Why is Deep Learning taking off?]]
-  - [[#about-this-course][About this Course]]
-- [[#week2][Week2]]
-  - [[#binary-classification][Binary Classification]]
-  - [[#logistic-regression][Logistic Regression]]
+- [[#week-1][Week 1]]
+  - [[#introduction-to-deep-learning][Introduction to Deep Learning]]
+    - [[#what-is-a-neural-network][What is a neural network?]]
+    - [[#supervised-learning-with-neural-networks][Supervised Learning with Neural Networks]]
+    - [[#why-is-deep-learning-taking-off][Why is Deep Learning taking off?]]
+    - [[#about-this-course][About this Course]]
+- [[#week-2][Week 2]]
+  - [[#logistic-regression-as-a-neural-network][Logistic Regression as a Neural Network]]
+    - [[#binary-classification][Binary Classification]]
+    - [[#logistic-regression][Logistic Regression]]
+    - [[#logistic-regression-cost-function][Logistic Regression Cost Function]]
+    - [[#gradient-descent][Gradient Descent]]
 
-* Week1
-** What is a neural network?
+* Week 1
+** Introduction to Deep Learning
+*** What is a neural network?
 [[file:img/screenshot_2017-09-12_08-01-22.png]]
 
 [[file:img/screenshot_2017-09-12_08-01-40.png]]
 
 [[file:img/screenshot_2017-09-12_08-01-54.png]]
-** Supervised Learning with Neural Networks
+*** Supervised Learning with Neural Networks
 [[file:img/screenshot_2017-09-13_00-50-59.png]]
 
 [[file:img/screenshot_2017-09-13_00-51-21.png]]
 
 [[file:img/screenshot_2017-09-13_00-51-43.png]]
-** Why is Deep Learning taking off?
+*** Why is Deep Learning taking off?
 [[file:img/screenshot_2017-09-13_01-04-45.png]]
 
 - ~m~ stands for the number of training examples
 
 [[file:img/screenshot_2017-09-13_01-05-22.png]]
-** About this Course
+*** About this Course
 [[file:img/screenshot_2017-09-13_08-26-24.png]]
 
-* Week2
-** Binary Classification
+* Week 2
+** Logistic Regression as a Neural Network
+*** Binary Classification
 [[file:img/screenshot_2017-09-14_07-24-18.png]]
 
 [[file:img/screenshot_2017-09-14_07-24-44.png]]
-** Logistic Regression
+*** Logistic Regression
 [[file:img/screenshot_2017-09-14_07-31-55.png]]
+
+*** Logistic Regression Cost Function
+[[file:img/screenshot_2017-09-15_07-34-40.png]]
+
+*** Gradient Descent
+[[file:img/screenshot_2017-09-15_08-47-22.png]]
+
+[[file:img/screenshot_2017-09-15_08-46-52.png]]
