@@ -13,6 +13,10 @@
     - [[#logistic-regression][Logistic Regression]]
     - [[#logistic-regression-cost-function][Logistic Regression Cost Function]]
     - [[#gradient-descent][Gradient Descent]]
+    - [[#derivatives][Derivatives]]
+    - [[#more-derivative-examples][More Derivative Examples]]
+    - [[#computation-graph][Computation Graph]]
+    - [[#derivatives-with-a-computation-graph][Derivatives with a Computation Graph]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -53,3 +57,23 @@
 [[file:img/screenshot_2017-09-15_08-47-22.png]]
 
 [[file:img/screenshot_2017-09-15_08-46-52.png]]
+*** Derivatives
+[[file:img/screenshot_2017-09-16_14-41-04.png]]
+
+*** More Derivative Examples
+[[file:img/screenshot_2017-09-16_15-30-37.png]]
+
+
+
+[[file:img/screenshot_2017-09-16_15-31-29.png]]
+
+*** Computation Graph
+[[file:img/screenshot_2017-09-16_15-32-09.png]]
+
+*** Derivatives with a Computation Graph
+- Calculus :: Chain rule
+
+
+[[file:img/screenshot_2017-09-16_15-46-34.png]]
+
+[[file:img/screenshot_2017-09-16_15-47-24.png]]
