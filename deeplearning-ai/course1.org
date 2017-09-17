@@ -17,6 +17,11 @@
     - [[#more-derivative-examples][More Derivative Examples]]
     - [[#computation-graph][Computation Graph]]
     - [[#derivatives-with-a-computation-graph][Derivatives with a Computation Graph]]
+    - [[#logistic-regression-gradient-descent][Logistic Regression Gradient Descent]]
+    - [[#gradient-descent-on-m-examples][Gradient Descent on m Examples]]
+  - [[#python-and-vectorization][Python and Vectorization]]
+    - [[#vectorization][Vectorization]]
+    - [[#more-vectorization-examples][More Vectorization Examples]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -77,3 +82,22 @@
 [[file:img/screenshot_2017-09-16_15-46-34.png]]
 
 [[file:img/screenshot_2017-09-16_15-47-24.png]]
+*** Logistic Regression Gradient Descent
+[[file:img/screenshot_2017-09-17_13-19-16.png]]
+
+*** Gradient Descent on m Examples
+[[file:img/screenshot_2017-09-17_13-29-07.png]]
+
+[[file:img/screenshot_2017-09-17_13-27-08.png]]
+** Python and Vectorization
+*** Vectorization
+[[file:img/screenshot_2017-09-17_13-38-39.png]]
+
+[[file:img/screenshot_2017-09-17_13-38-54.png]]
+
+[[file:img/screenshot_2017-09-17_13-39-21.png]]
+
+*** More Vectorization Examples
+[[file:img/screenshot_2017-09-18_08-32-09.png]]
+
+[[file:img/screenshot_2017-09-18_08-32-39.png]]
