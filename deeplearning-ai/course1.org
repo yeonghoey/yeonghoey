@@ -22,6 +22,7 @@
   - [[#python-and-vectorization][Python and Vectorization]]
     - [[#vectorization][Vectorization]]
     - [[#more-vectorization-examples][More Vectorization Examples]]
+    - [[#vectorizing-logistic-regression][Vectorizing Logistic Regression]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -101,3 +102,6 @@
 [[file:img/screenshot_2017-09-18_08-32-09.png]]
 
 [[file:img/screenshot_2017-09-18_08-32-39.png]]
+
+*** Vectorizing Logistic Regression
+[[file:img/screenshot_2017-09-18_08-41-30.png]]
