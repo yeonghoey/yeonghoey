@@ -23,6 +23,8 @@
     - [[#vectorization][Vectorization]]
     - [[#more-vectorization-examples][More Vectorization Examples]]
     - [[#vectorizing-logistic-regression][Vectorizing Logistic Regression]]
+    - [[#vectorizing-logistic-regressions-gradient-output][Vectorizing Logistic Regression's Gradient Output]]
+    - [[#broadcasting-in-python][Broadcasting in Python]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -105,3 +107,14 @@
 
 *** Vectorizing Logistic Regression
 [[file:img/screenshot_2017-09-18_08-41-30.png]]
+*** Vectorizing Logistic Regression's Gradient Output 
+[[file:img/screenshot_2017-09-20_08-42-00.png]]
+
+[[file:img/screenshot_2017-09-20_08-42-26.png]]
+
+*** Broadcasting in Python
+[[file:img/screenshot_2017-09-20_08-47-36.png]]
+
+[[file:img/screenshot_2017-09-20_08-45-33.png]]
+
+[[file:img/screenshot_2017-09-20_08-45-51.png]]
