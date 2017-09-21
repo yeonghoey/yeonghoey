@@ -27,6 +27,8 @@
     - [[#broadcasting-in-python][Broadcasting in Python]]
     - [[#a-note-on-pythonnumpy-vectors][A note on python/numpy vectors]]
     - [[#explanation-of-logistic-regression-cost-function-optional][Explanation of logistic regression cost function (optional)]]
+  - [[#programming-assignments][Programming Assignments]]
+    - [[#python-basics-with-numpy][Python Basics with numpy]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -130,3 +132,19 @@ Generally, most algorithms get a loss function and try to minimize it.
 For ~P(y|x)~, the bigger the better. So, the loss function ~L~ is the negative of ~P(y|x)~.
 
 [[file:img/screenshot_2017-09-20_09-00-19.png]]
+** Programming Assignments
+Because I'm not allowed to post my code for the assignments,
+I'll just put the instructions and summary notes instead.
+
+*** Python Basics with numpy
+[[file:img/screenshot_2017-09-21_18-16-54.png]]
+
+[[file:img/screenshot_2017-09-21_18-22-10.png]]
+
+[[file:img/screenshot_2017-09-21_18-23-44.png]]
+
+[[file:img/screenshot_2017-09-21_18-31-13.png]]
+
+[[file:img/screenshot_2017-09-21_22-48-12.png]]
+
+[[file:img/screenshot_2017-09-21_22-55-01.png]]
