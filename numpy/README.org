@@ -1,0 +1,43 @@
+#+TITLE: NumPy
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#dimensions][Dimensions]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+** Dimensions
+- http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/arrays.html
+
+[[file:img/screenshot_2017-09-21_23-00-36.png]]
+
+#+BEGIN_SRC python
+  >>> a = np.ones((2, 3))
+  >>> a
+  array([[ 1.,  1.,  1.],
+         [ 1.,  1.,  1.]])
+  >>> np.sum(a, axis=0)
+  array([ 2.,  2.,  2.])
+  >>> np.sum(a, axis=1)
+  array([ 3.,  3.])
+  >>> np.sum(a, axis=1, keepdims=True)
+  array([[ 3.],
+         [ 3.]])
+  >>> np.sum(a, axis=1).shape
+  (2,)
+  >>> np.sum(a, axis=1, keepdims=True).shape
+  (2, 1)
+#+END_SRC
+
+* How-to
+* Links
+
+* Staging
