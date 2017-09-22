@@ -556,7 +556,7 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 #+END_SRC
 
 #+BEGIN_SRC shell
-  jq '.[] | select(.["name"] | test("or.*")) | {(.["name"]): .["price"]}'
+  jq '.[] | select(.["name"] | test("oran.*")) | {(.["name"]): .["price"]}'
   #              │                │             │          └─ object construction
   #              │                │             └─ expression keys need to be parenthesized
   #              │                └─ regex match returns boolean
