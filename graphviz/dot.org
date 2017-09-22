@@ -74,8 +74,20 @@
   - any double-quoted string (~"..."~) possibly containing escaped quotes (~\"~);
   - an HTML string (~<...>~).
 
-- The keywords ~node~, ~edge~, ~graph~, ~digraph~, ~subgraph~, and ~strict~ are *case-independent*.
+- keywords are case-independent ::
+  ~node~, ~edge~, ~graph~, ~digraph~, ~subgraph~, and ~strict~
 
+- edgeop :: 
+  - ~--~ in undirected graphs(~graph~).
+  - ~->~ in directed graphs(~digraph~)
+
+- comments :: 
+  - The language supports C++-style comments
+  - ~/* */~ and ~//~.
+
+- C prerprocessor ::
+  - A line beginning with a ~#~ character is considered a line output from a C preprocessor
+  - e.g., ~# 34~ to indicate ~line 34~, and discarded
   
 ** Subgraphs and Clusters
 #+BEGIN_SRC dot
