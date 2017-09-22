@@ -1,26 +1,107 @@
-#+TITLE: Dot
+#+TITLE: dot
 
-* Table of Contents :TOC_2_gh:
- - [[#test][test]]
- - [[#links][Links]]
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#syntax][Syntax]]
+  - [[#subgraphs-and-clusters][Subgraphs and Clusters]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
 
-* test
-#+BEGIN_SRC dot :file img/small-graph.png :exports results
+* Overview
+
+#+BEGIN_SRC dot :file img/overview-example.png :exports results
   digraph G {
-    main -> parse -> execute;
-    main -> init;
-    main -> cleanup;
-    execute -> make_string;
-    execute -> printf
-    init -> make_string;
-    main -> printf;
-    execute -> compare;
+    subgraph cluster0 {
+      node [style=filled,color=white];
+      style=filled;
+      color=lightgrey;
+      a0 -> a1 -> a2 -> a3;
+      label = "process #1";
+    }
+    subgraph cluster1 {
+      node [style=filled];
+      b0 -> b1 -> b2 -> b3;
+      label = "process #2";
+      color=blue
+    }
+    start -> a0;
+    start -> b0;
+    a1 -> b3;
+    b2 -> a3;
+    a3 -> a0;
+    a3 -> end;
+    b3 -> end;
+    start [shape=Mdiamond];
+    end [shape=Msquare];
   }
 #+END_SRC
 
 #+RESULTS:
-[[file:img/small-graph.png]]
+[[file:img/overview-example.png]]
 
+* Reference
+** Syntax
+- http://www.graphviz.org/doc/info/lang.html
+
+#+BEGIN_EXAMPLE
+  graph	:	[ strict ] (graph | digraph) [ ID ] '{' stmt_list '}'
+  stmt_list	:	[ stmt [ ';' ] stmt_list ]
+  stmt	:	node_stmt
+  |	edge_stmt
+  |	attr_stmt
+  |	ID '=' ID
+  |	subgraph
+  attr_stmt	:	(graph | node | edge) attr_list
+  attr_list	:	'[' [ a_list ] ']' [ attr_list ]
+  a_list	:	ID '=' ID [ (';' | ',') ] [ a_list ]
+  edge_stmt	:	(node_id | subgraph) edgeRHS [ attr_list ]
+  edgeRHS	:	edgeop (node_id | subgraph) [ edgeRHS ]
+  node_stmt	:	node_id [ attr_list ]
+  node_id	:	ID [ port ]
+  port	:	':' ID [ ':' compass_pt ]
+  |	':' compass_pt
+  subgraph	:	[ subgraph [ ID ] ] '{' stmt_list '}'
+  compass_pt	:	(n | ne | e | se | s | sw | w | nw | c | _)
+#+END_EXAMPLE
+
+- ~ID~ ::
+  - Any string of alphabetic (~[a-zA-Z\200-\377]~) characters, underscores (~_~) or digits (~[0-9]~), not beginning with a digit;
+  - a numeral ~[-]?(.[0-9]+ | [0-9]+(.[0-9]*)? )~;
+  - any double-quoted string (~"..."~) possibly containing escaped quotes (~\"~);
+  - an HTML string (~<...>~).
+
+- The keywords ~node~, ~edge~, ~graph~, ~digraph~, ~subgraph~, and ~strict~ are *case-independent*.
+
+  
+** Subgraphs and Clusters
+#+BEGIN_SRC dot
+  A -> {B C}
+#+END_SRC
+is equivalent to
+
+#+BEGIN_SRC dot
+  A -> B
+  A -> C
+#+END_SRC
+
+#+BEGIN_SRC dot
+  // A, B and C should all be placed on the same rank 
+  subgraph { 
+    rank = same; A; B; C; 
+  } 
+#+END_SRC
+
+- If *the name of the subgraph begins with* ~cluster~, Graphviz notes the subgraph as a special cluster subgraph. 
+
+* Terminology
+* Topics
+* How-to
 * Links
 - http://www.graphviz.org/pdf/dotguide.pdf
 - http://www.graphviz.org/doc/info/shapes.html
+  
+* Staging
