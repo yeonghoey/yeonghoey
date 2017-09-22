@@ -114,6 +114,7 @@ is equivalent to
 * How-to
 * Links
 - http://www.graphviz.org/pdf/dotguide.pdf
+- http://www.graphviz.org/doc/info/attrs.html
 - http://www.graphviz.org/doc/info/shapes.html
   
 * Staging
