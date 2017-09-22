@@ -29,6 +29,7 @@
     - [[#explanation-of-logistic-regression-cost-function-optional][Explanation of logistic regression cost function (optional)]]
   - [[#programming-assignments][Programming Assignments]]
     - [[#python-basics-with-numpy][Python Basics with numpy]]
+    - [[#logistic-regression-with-a-neural-network-mindset][Logistic Regression with a Neural Network mindset]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -148,3 +149,11 @@ I'll just put the instructions and summary notes instead.
 [[file:img/screenshot_2017-09-21_22-48-12.png]]
 
 [[file:img/screenshot_2017-09-21_22-55-01.png]]
+*** Logistic Regression with a Neural Network mindset
+[[file:img/screenshot_2017-09-23_07-34-05.png]]
+
+[[file:img/screenshot_2017-09-23_07-36-34.png]]
+
+[[file:img/screenshot_2017-09-23_07-35-34.png]]
+
+[[file:img/screenshot_2017-09-23_07-37-21.png]]

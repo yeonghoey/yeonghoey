@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#zeros][zeros]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#dimensions][Dimensions]]
@@ -12,6 +13,11 @@
 
 * Overview
 * Reference
+** zeros
+- https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.zeros.html
+
+: numpy.zeros(shape, dtype=float, order='C')
+
 * Terminology
 * Topics
 ** Dimensions
