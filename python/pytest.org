@@ -8,7 +8,8 @@
   - [[#fixture][fixture]]
   - [[#mark][mark]]
   - [[#monkeypatch][monkeypatch]]
-  - [[#raises-and-fail][raises and fail]]
+  - [[#raises][raises]]
+  - [[#fail][fail]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#test-layouts][Test Layouts]]
@@ -173,17 +174,29 @@
       monkeypatch.undo()  # undo all changes
 #+END_SRC
 
-** raises and fail
-- http://doc.pytest.org/en/latest/assert.html#assertions-about-expected-exceptions
-- http://stackoverflow.com/questions/20274987/how-to-use-pytest-to-check-that-error-is-not-raised
+** raises
+- https://docs.pytest.org/en/latest/builtin.html?highlight=raises#pytest.raises
+- https://docs.pytest.org/en/latest/_modules/_pytest/_code/code.html#ExceptionInfo
 
 #+BEGIN_SRC python
   import pytest
 
+
   def test_zero_division():
       with pytest.raises(ZeroDivisionError):
           1 / 0
+
+
+  def test_recursion_depth():
+      with pytest.raises(RuntimeError) as exc_info:
+          def f():
+              f()
+          f()
+      assert exc_info.match('maximum recursion' )
 #+END_SRC
+
+** fail
+- http://stackoverflow.com/questions/20274987/how-to-use-pytest-to-check-that-error-is-not-raised
 
 #+BEGIN_SRC python
   def test_foo3():
@@ -237,6 +250,7 @@ Useful if you have direct relation between (unit-)test and application modules a
 * How-to
 * Links
 - http://plugincompat.herokuapp.com/
+- https://docs.pytest.org/en/latest/builtin.html?highlight=raises#_pytest._code.ExceptionInfo
 
 * Staging
 ** TODO <2017-07-05 Wed> pytest
