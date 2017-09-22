@@ -3,10 +3,10 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
-  - [[#syntax][Syntax]]
-  - [[#subgraphs-and-clusters][Subgraphs and Clusters]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
+  - [[#language-syntax][Language Syntax]]
+  - [[#subgraphs-and-clusters][Subgraphs and Clusters]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
@@ -44,7 +44,9 @@
 [[file:img/overview-example.png]]
 
 * Reference
-** Syntax
+* Terminology
+* Topics
+** Language Syntax
 - http://www.graphviz.org/doc/info/lang.html
 
 #+BEGIN_EXAMPLE
@@ -109,8 +111,6 @@ is equivalent to
 
 - If *the name of the subgraph begins with* ~cluster~, Graphviz notes the subgraph as a special cluster subgraph. 
 
-* Terminology
-* Topics
 * How-to
 * Links
 - http://www.graphviz.org/pdf/dotguide.pdf
