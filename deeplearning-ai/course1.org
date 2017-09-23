@@ -30,6 +30,9 @@
   - [[#programming-assignments][Programming Assignments]]
     - [[#python-basics-with-numpy][Python Basics with numpy]]
     - [[#logistic-regression-with-a-neural-network-mindset][Logistic Regression with a Neural Network mindset]]
+- [[#week-3][Week 3]]
+  - [[#shallow-neural-network][Shallow Neural Network]]
+  - [[#neural-network-representation][Neural Network Representation]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -173,3 +176,9 @@ I'll just put the instructions and summary notes instead.
 [[file:img/screenshot_2017-09-23_08-24-26.png]]
 
 [[file:img/screenshot_2017-09-23_08-25-59.png]]
+* Week 3
+** Shallow Neural Network
+[[file:img/screenshot_2017-09-23_09-52-42.png]]
+
+** Neural Network Representation
+[[file:img/screenshot_2017-09-23_09-58-03.png]]
