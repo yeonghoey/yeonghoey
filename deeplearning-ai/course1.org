@@ -157,3 +157,19 @@ I'll just put the instructions and summary notes instead.
 [[file:img/screenshot_2017-09-23_07-35-34.png]]
 
 [[file:img/screenshot_2017-09-23_07-37-21.png]]
+
+[[file:img/screenshot_2017-09-23_07-46-22.png]]
+
+- The formula of ~J~ must be calculated by ~elementwise multiplication~, not ~dot product~.
+
+[[file:img/screenshot_2017-09-23_08-14-32.png]]
+
+[[file:img/screenshot_2017-09-23_08-20-04.png]]
+
+[[file:img/screenshot_2017-09-23_08-23-02.png]]
+
+[[file:img/screenshot_2017-09-23_08-23-41.png]]
+
+[[file:img/screenshot_2017-09-23_08-24-26.png]]
+
+[[file:img/screenshot_2017-09-23_08-25-59.png]]
