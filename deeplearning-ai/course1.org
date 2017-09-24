@@ -32,7 +32,13 @@
     - [[#logistic-regression-with-a-neural-network-mindset][Logistic Regression with a Neural Network mindset]]
 - [[#week-3][Week 3]]
   - [[#shallow-neural-network][Shallow Neural Network]]
-  - [[#neural-network-representation][Neural Network Representation]]
+    - [[#neural-networks-overview][Neural Networks Overview]]
+    - [[#neural-network-representation][Neural Network Representation]]
+    - [[#computing-a-neural-networks-output][Computing a Neural Network's Output]]
+    - [[#vectorizing-across-multiple-examples][Vectorizing across multiple examples]]
+    - [[#explanation-for-vectorized-implementation][Explanation for Vectorized Implementation]]
+    - [[#activation-functions][Activation functions]]
+    - [[#why-do-you-need-non-linear-activation-functions][Why do you need non-linear activation functions?]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -178,7 +184,41 @@ I'll just put the instructions and summary notes instead.
 [[file:img/screenshot_2017-09-23_08-25-59.png]]
 * Week 3
 ** Shallow Neural Network
+*** Neural Networks Overview
 [[file:img/screenshot_2017-09-23_09-52-42.png]]
 
-** Neural Network Representation
+*** Neural Network Representation
 [[file:img/screenshot_2017-09-23_09-58-03.png]]
+
+*** Computing a Neural Network's Output
+[[file:img/screenshot_2017-09-24_15-51-31.png]]
+
+[[file:img/screenshot_2017-09-24_15-52-25.png]]
+
+[[file:img/screenshot_2017-09-24_15-53-08.png]]
+
+*** Vectorizing across multiple examples
+[[file:img/screenshot_2017-09-24_15-53-58.png]]
+
+[[file:img/screenshot_2017-09-24_15-54-36.png]]
+
+*** Explanation for Vectorized Implementation
+[[file:img/screenshot_2017-09-24_15-55-39.png]]
+
+[[file:img/screenshot_2017-09-24_15-56-39.png]]
+
+*** Activation functions
+- For hidden units, ~tanh~ is almost alway superior to ~sigmoid~
+- Because ~[-1, 1]~ and ~0~ mean, rather than ~[0, 1]~ and ~0.5~ mean, actually make the learning for the next layer easier.
+- ~sigmoid~ is preferred mostly for the output layer which expects values of ~[0, 1]~
+- There days, ~ReLU~ is the default and generally most preferred.
+
+k[[file:img/screenshot_2017-09-24_15-58-26.png]]
+
+[[file:img/screenshot_2017-09-24_15-58-53.png]]
+
+*** Why do you need non-linear activation functions?
+- If all activation functions are linear, *the calculation of hidden layers can be boiled down to a single linear layer.*
+- When *the output value can have all the real number*, then the activation function for the output layer can be a linear one.
+
+[[file:img/screenshot_2017-09-24_16-09-21.png]]
