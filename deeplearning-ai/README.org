@@ -1,8 +1,5 @@
 #+TITLE: deeplearning.ai
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-
 * Overview
 A series of courses about Deep Learning from Coursea.
 
