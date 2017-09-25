@@ -1,14 +1,14 @@
 #+TITLE: Chrome
 * Table of Contents                                                :TOC_2_gh:
- - [[#plugins][Plugins]]
-   - [[#vimium][Vimium]]
- - [[#developer-tools][Developer Tools]]
-   - [[#storages-and-cookies][Storages and Cookies]]
-   - [[#view-http-headers][View HTTP headers]]
- - [[#use-cases][Use Cases]]
-   - [[#allow-file-access-from-local-files][Allow file access from local files]]
-   - [[#run-with-an-intital-incognito-window][Run with an intital incognito window]]
-   - [[#server-dns-address-could-not-be-found][Server DNS address could not be found]]
+- [[#plugins][Plugins]]
+  - [[#vimium][Vimium]]
+- [[#developer-tools][Developer Tools]]
+  - [[#storages-and-cookies][Storages and Cookies]]
+  - [[#view-http-headers][View HTTP headers]]
+- [[#use-cases][Use Cases]]
+  - [[#allow-file-access-from-local-files][Allow file access from local files]]
+  - [[#run-with-an-intital-incognito-window][Run with an intital incognito window]]
+  - [[#server-dns-address-could-not-be-found][Server DNS address could not be found]]
 
 * Plugins
 ** Vimium
@@ -36,6 +36,7 @@
 - Checkboxes:
   - Use smooth scrolling
   - Don't let pages steal the focus on the load
+  - Ignore keyboard layout
 
 * Developer Tools
 ** Storages and Cookies
