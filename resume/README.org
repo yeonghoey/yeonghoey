@@ -4,7 +4,7 @@
 - [[#about][About]]
 - [[#interests][Interests]]
 - [[#experience][Experience]]
-  - [[#what-studio-from-nexon-korea][What! Studio from NEXON Korea]]
+  - [[#nexon-korea][NEXON Korea]]
   - [[#frograms][FROGRAMS]]
 - [[#education][Education]]
 - [[#skills][Skills]]
@@ -14,12 +14,12 @@
 * About
 * Interests
 * Experience
-** [[http://what.studio][What! Studio]] from NEXON Korea
-- DevOps and Data Engineer :: June 2016 to Present
+** [[http://company.nexon.com/Eng/][NEXON Korea]]
+- DevOps and Data Engineer / June 2016 to Present
 
 
 ** [[http://frograms.com][FROGRAMS]]
-- Software Engineer :: November 2015 to May 2016
+- Software Engineer / November 2015 to May 2016
 
 * Education
 * Skills
