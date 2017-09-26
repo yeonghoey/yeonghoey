@@ -7,7 +7,6 @@
 - *DevOps and Data Engineer* for [[https://durango.nexon.com/en][Durango: Wild Lands]]
 - June 2016 – Present
 
-
 *** [[http://frograms.com][FROGRAMS]]
 - *Software Engineer* for [[https://watcha.net/][WATCHA]] and [[https://play.watcha.net][WATCHA PLAY]]
 - November 2015 – May 2016
