@@ -1,15 +1,28 @@
 * Yeongho Kim
 
 ** Interests
+
 ** Experience
 *** [[http://company.nexon.com/Eng/][NEXON Korea]]
-- DevOps and Data Engineer / June 2016 to Present
+- June 2016 to Present
+- *DevOps and Data Engineer* for [[https://durango.nexon.com/en][Durango: Wild Lands]]
 
 
 *** [[http://frograms.com][FROGRAMS]]
-- Software Engineer / November 2015 to May 2016
+- November 2015 to May 2016
+- *Software Engineer* for [[https://watcha.net/][WATCHA]] and [[https://play.watcha.net][WATCHA PLAY]]
+
+*** [[http://company.nexon.com/Eng/][NEXON Korea]]
+- December 2013 to November 2015
+- *Software Engineer* for [[http://bf.nexon.com][Bubble Fighter]]
 
 ** Education
 ** Skills
 *** Python
-*** Terraform
+*** Bash
+*** AWS and Terraform
+*** Apache Spark and Zeppelin
+*** Elasticsearch
+*** Scala
+*** C++
+*** TrueSkill
