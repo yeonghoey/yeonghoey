@@ -1,27 +1,15 @@
-#+TITLE: Yeongho Kim
+* Yeongho Kim
 
-* Table of Contents :TOC_3_gh:
-- [[#about][About]]
-- [[#interests][Interests]]
-- [[#experience][Experience]]
-  - [[#nexon-korea][NEXON Korea]]
-  - [[#frograms][FROGRAMS]]
-- [[#education][Education]]
-- [[#skills][Skills]]
-  - [[#python][Python]]
-  - [[#terraform][Terraform]]
-
-* About
-* Interests
-* Experience
-** [[http://company.nexon.com/Eng/][NEXON Korea]]
+** Interests
+** Experience
+*** [[http://company.nexon.com/Eng/][NEXON Korea]]
 - DevOps and Data Engineer / June 2016 to Present
 
 
-** [[http://frograms.com][FROGRAMS]]
+*** [[http://frograms.com][FROGRAMS]]
 - Software Engineer / November 2015 to May 2016
 
-* Education
-* Skills
-** Python
-** Terraform
+** Education
+** Skills
+*** Python
+*** Terraform
