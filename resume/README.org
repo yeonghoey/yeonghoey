@@ -3,18 +3,18 @@
 ** Interests
 
 ** Experience
-*** [[http://company.nexon.com/Eng/][NEXON Korea]]
-- June 2016 to Present
+*** [[http://http://what.studio/][What! Studio]]
 - *DevOps and Data Engineer* for [[https://durango.nexon.com/en][Durango: Wild Lands]]
+- June 2016 to Present
 
 
 *** [[http://frograms.com][FROGRAMS]]
-- November 2015 to May 2016
 - *Software Engineer* for [[https://watcha.net/][WATCHA]] and [[https://play.watcha.net][WATCHA PLAY]]
+- November 2015 to May 2016
 
 *** [[http://company.nexon.com/Eng/][NEXON Korea]]
-- December 2013 to November 2015
 - *Software Engineer* for [[http://bf.nexon.com][Bubble Fighter]]
+- December 2013 to November 2015
 
 ** Education
 ** Skills
