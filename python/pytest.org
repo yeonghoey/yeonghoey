@@ -153,6 +153,9 @@
 ** monkeypatch
 - https://docs.pytest.org/en/latest/monkeypatch.html
 
+- ~monkeypatch.setattr/delattr/delitem/delenv()~ *all by default raise an Exception* if the target does not exist.
+  Pass ~raising=False~ if you want to skip this check.
+
 #+BEGIN_SRC python
   import module
   def test_monkeypatch(monkeypatch):
