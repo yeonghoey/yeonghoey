@@ -258,6 +258,42 @@ By multipling ~0.01~, it can be avoided to have very large values of ~a~ which h
 [[file:img/screenshot_2017-09-24_18-11-26.png]]
 ** Programming Assignment
 *** Planar data classification
+#+BEGIN_SRC python
+  def initialize_parameters(n_x, n_h, n_y):
+      parameters = {"W1": W1,
+                    "b1": b1,
+                    "W2": W2,
+                    "b2": b2}
+      return parameters
+
+  def forward_propagation(X, parameters):
+      cache = {"Z1": Z1,
+               "A1": A1,
+               "Z2": Z2,
+               "A2": A2}
+      return A2, cache
+
+  def compute_cost(A2, Y, parameters):
+      return cost
+
+  def backward_propagation(parameters, cache, X, Y):
+      grads = {"dW1": dW1,
+               "db1": db1,
+               "dW2": dW2,
+               "db2": db2}
+      return grads
+
+  def update_parameters(parameters, grads, learning_rate = 1.2):
+      parameters = {"W1": W1,
+                    "b1": b1,
+                    "W2": W2,
+                    "b2": b2}
+      return parameters
+
+  def predict(parameters, X):
+      return predictions
+#+END_SRC
+
 [[file:img/screenshot_2017-09-28_06-28-11.png]]
 
 [[file:img/screenshot_2017-09-28_06-30-57.png]]
