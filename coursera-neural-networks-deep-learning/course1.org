@@ -45,6 +45,9 @@
     - [[#random-initialization][Random Initialization]]
   - [[#programming-assignment][Programming Assignment]]
     - [[#planar-data-classification][Planar data classification]]
+- [[#week-4][Week 4]]
+  - [[#deep-neural-network][Deep Neural Network]]
+    - [[#deep-l-layer-neural-network][Deep L-layer neural network]]
 
 * Week 1
 ** Introduction to Deep Learning
@@ -313,3 +316,9 @@ By multipling ~0.01~, it can be avoided to have very large values of ~a~ which h
 [[file:img/screenshot_2017-09-28_07-26-05.png]]
 
 [[file:img/screenshot_2017-09-28_07-26-36.png]]
+* Week 4
+** Deep Neural Network
+*** Deep L-layer neural network
+[[file:img/screenshot_2017-09-28_07-50-15.png]]
+
+[[file:img/screenshot_2017-09-28_07-49-33.png]]
