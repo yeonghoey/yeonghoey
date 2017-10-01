@@ -1,6 +1,7 @@
 * Deep Learning Specialization
 
 - https://www.coursera.org/specializations/deep-learning
+- https://deeplearning.ai
 
 - Course 1 :: [[http://yeonghoey.com/coursera-neural-networks-deep-learning][Neural Networks and Deep Learning]]
 - Course 2 :: [[course2.org][Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization]]
