@@ -1,0 +1,6 @@
+* Neural Networks and Deep Learning
+
+- Week 1 :: [[week1.org][Introduction to Deep Learning]]
+- Week 2 :: [[week2.org][Logistic Regression as a Neural Network, Python and Vectorization]]
+- Week 3 :: [[week3.org][Shallow Neural Network]]
+- Week 4 :: [[week4.org][Deep Neural Network]]

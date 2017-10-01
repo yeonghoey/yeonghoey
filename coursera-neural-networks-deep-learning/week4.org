@@ -1,0 +1,15 @@
+#+TITLE: Neural Networks and Deep Learning: Week 4
+
+* Table of Contents :TOC_3_gh:
+- [[#deep-neural-network][Deep Neural Network]]
+  - [[#deep-l-layer-neural-network][Deep L-layer neural network]]
+  - [[#forward-propagation-in-a-deep-network][Forward Propagation in a Deep Network]]
+
+* Deep Neural Network
+** Deep L-layer neural network
+[[file:img/screenshot_2017-09-28_07-50-15.png]]
+
+[[file:img/screenshot_2017-09-28_07-49-33.png]]
+
+** Forward Propagation in a Deep Network
+[[file:img/screenshot_2017-09-29_07-11-09.png]]

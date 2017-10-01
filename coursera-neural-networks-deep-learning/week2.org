@@ -1,0 +1,148 @@
+#+TITLE: Neural Networks and Deep Learning: Week 2
+
+* Table of Contents :TOC_3_gh:
+- [[#logistic-regression-as-a-neural-network][Logistic Regression as a Neural Network]]
+  - [[#binary-classification][Binary Classification]]
+  - [[#logistic-regression][Logistic Regression]]
+  - [[#logistic-regression-cost-function][Logistic Regression Cost Function]]
+  - [[#gradient-descent][Gradient Descent]]
+  - [[#derivatives][Derivatives]]
+  - [[#more-derivative-examples][More Derivative Examples]]
+  - [[#computation-graph][Computation Graph]]
+  - [[#derivatives-with-a-computation-graph][Derivatives with a Computation Graph]]
+  - [[#logistic-regression-gradient-descent][Logistic Regression Gradient Descent]]
+  - [[#gradient-descent-on-m-examples][Gradient Descent on m Examples]]
+- [[#python-and-vectorization][Python and Vectorization]]
+  - [[#vectorization][Vectorization]]
+  - [[#more-vectorization-examples][More Vectorization Examples]]
+  - [[#vectorizing-logistic-regression][Vectorizing Logistic Regression]]
+  - [[#vectorizing-logistic-regressions-gradient-output][Vectorizing Logistic Regression's Gradient Output]]
+  - [[#broadcasting-in-python][Broadcasting in Python]]
+  - [[#a-note-on-pythonnumpy-vectors][A note on python/numpy vectors]]
+  - [[#explanation-of-logistic-regression-cost-function-optional][Explanation of logistic regression cost function (optional)]]
+- [[#programming-assignments][Programming Assignments]]
+  - [[#python-basics-with-numpy][Python Basics with numpy]]
+  - [[#logistic-regression-with-a-neural-network-mindset][Logistic Regression with a Neural Network mindset]]
+
+* Logistic Regression as a Neural Network
+** Binary Classification
+[[file:img/screenshot_2017-09-14_07-24-18.png]]
+
+[[file:img/screenshot_2017-09-14_07-24-44.png]]
+
+** Logistic Regression
+[[file:img/screenshot_2017-09-14_07-31-55.png]]
+
+** Logistic Regression Cost Function
+[[file:img/screenshot_2017-09-15_07-34-40.png]]
+
+** Gradient Descent
+[[file:img/screenshot_2017-09-15_08-47-22.png]]
+
+[[file:img/screenshot_2017-09-15_08-46-52.png]]
+
+** Derivatives
+[[file:img/screenshot_2017-09-16_14-41-04.png]]
+
+** More Derivative Examples
+[[file:img/screenshot_2017-09-16_15-30-37.png]]
+
+[[file:img/screenshot_2017-09-16_15-31-29.png]]
+
+** Computation Graph
+[[file:img/screenshot_2017-09-16_15-32-09.png]]
+
+** Derivatives with a Computation Graph
+- Calculus :: Chain rule
+[[file:img/screenshot_2017-09-16_15-46-34.png]]
+
+[[file:img/screenshot_2017-09-16_15-47-24.png]]
+
+** Logistic Regression Gradient Descent
+[[file:img/screenshot_2017-09-17_13-19-16.png]]
+
+** Gradient Descent on m Examples
+[[file:img/screenshot_2017-09-17_13-29-07.png]]
+
+[[file:img/screenshot_2017-09-17_13-27-08.png]]
+
+* Python and Vectorization
+** Vectorization
+[[file:img/screenshot_2017-09-17_13-38-39.png]]
+
+[[file:img/screenshot_2017-09-17_13-38-54.png]]
+
+[[file:img/screenshot_2017-09-17_13-39-21.png]]
+
+** More Vectorization Examples
+[[file:img/screenshot_2017-09-18_08-32-09.png]]
+
+[[file:img/screenshot_2017-09-18_08-32-39.png]]
+
+** Vectorizing Logistic Regression
+[[file:img/screenshot_2017-09-18_08-41-30.png]]
+
+** Vectorizing Logistic Regression's Gradient Output 
+[[file:img/screenshot_2017-09-20_08-42-00.png]]
+
+[[file:img/screenshot_2017-09-20_08-42-26.png]]
+
+** Broadcasting in Python
+[[file:img/screenshot_2017-09-20_08-47-36.png]]
+
+[[file:img/screenshot_2017-09-20_08-45-33.png]]
+
+[[file:img/screenshot_2017-09-20_08-45-51.png]]
+
+** A note on python/numpy vectors
+[[file:img/screenshot_2017-09-20_08-48-48.png]]
+
+** Explanation of logistic regression cost function (optional)
+[[file:img/screenshot_2017-09-20_08-53-24.png]]
+
+Generally, most algorithms get a loss function and try to minimize it.
+For ~P(y|x)~, the bigger the better. So, the loss function ~L~ is the negative of ~P(y|x)~.
+
+[[file:img/screenshot_2017-09-20_09-00-19.png]]
+
+* Programming Assignments
+Because I'm not allowed to post my code for the assignments,
+I'll just put the instructions and summary notes instead.
+
+** Python Basics with numpy
+[[file:img/screenshot_2017-09-21_18-16-54.png]]
+
+[[file:img/screenshot_2017-09-21_18-22-10.png]]
+
+[[file:img/screenshot_2017-09-21_18-23-44.png]]
+
+[[file:img/screenshot_2017-09-21_18-31-13.png]]
+
+[[file:img/screenshot_2017-09-21_22-48-12.png]]
+
+[[file:img/screenshot_2017-09-21_22-55-01.png]]
+
+** Logistic Regression with a Neural Network mindset
+[[file:img/screenshot_2017-09-23_07-34-05.png]]
+
+[[file:img/screenshot_2017-09-23_07-36-34.png]]
+
+[[file:img/screenshot_2017-09-23_07-35-34.png]]
+
+[[file:img/screenshot_2017-09-23_07-37-21.png]]
+
+[[file:img/screenshot_2017-09-23_07-46-22.png]]
+
+- The formula of ~J~ must be calculated by ~elementwise multiplication~, not ~dot product~.
+
+[[file:img/screenshot_2017-09-23_08-14-32.png]]
+
+[[file:img/screenshot_2017-09-23_08-20-04.png]]
+
+[[file:img/screenshot_2017-09-23_08-23-02.png]]
+
+[[file:img/screenshot_2017-09-23_08-23-41.png]]
+
+[[file:img/screenshot_2017-09-23_08-24-26.png]]
+
+[[file:img/screenshot_2017-09-23_08-25-59.png]]
