@@ -3,13 +3,18 @@
 ** Interests
 
 ** Experience
-*** [[http://http://what.studio/][What! Studio]]
+*** [[https://github.com/what-studio][What! Studio]]
 - *DevOps and Data Engineer* for [[https://durango.nexon.com/en][Durango: Wild Lands]]
 - June 2016 – Present
+
+- Log Streaming ::
+  Built log streaming system for distributed game servers based on 
+  /Fluentd/, /Amazon Kinesis Streams/, /AWS Lambda/, /Amazon Elasticsearch Service/, /Amazon EMR/, /Spark/ and /Zeppelin/.
 
 *** [[http://frograms.com][FROGRAMS]]
 - *Software Engineer* for [[https://watcha.net/][WATCHA]] and [[https://play.watcha.net][WATCHA PLAY]]
 - November 2015 – May 2016
+- 
 
 *** [[http://company.nexon.com/Eng/][NEXON Korea]]
 - *Game Developer* for [[http://bf.nexon.com][Bubble Fighter]]
