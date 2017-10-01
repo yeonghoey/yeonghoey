@@ -3,7 +3,7 @@
 * Overview
 A series of courses about Deep Learning from Coursea.
 
-- Course 1 :: [[course1.org][Neural Networks and Deep Learning]]
+- Course 1 :: [[yeonghoey.com/coursera-neural-networks-deep-learning][Neural Networks and Deep Learning]]
 - Course 2 :: [[course2.org][Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization]]
 - Course 3 :: [[course3.org][Structuring Machine Learning Projects]]
 - Course 4 :: [[course4.org][Convolutional Neural Networks]]
