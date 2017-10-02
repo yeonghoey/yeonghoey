@@ -5,6 +5,7 @@
   - [[#deep-l-layer-neural-network][Deep L-layer neural network]]
   - [[#forward-propagation-in-a-deep-network][Forward Propagation in a Deep Network]]
   - [[#getting-your-matrix-dimensions-right][Getting your matrix dimensions right]]
+  - [[#why-deep-representations][Why deep representations?]]
 
 * Deep Neural Network
 ** Deep L-layer neural network
@@ -19,3 +20,8 @@
 [[file:img/screenshot_2017-10-02_22-02-34.png]]
 
 [[file:img/screenshot_2017-10-02_22-06-47.png]]
+
+** Why deep representations?
+[[file:img/screenshot_2017-10-02_22-13-12.png]]
+
+[[file:img/screenshot_2017-10-02_22-25-13.png]]
