@@ -39,5 +39,3 @@ a Netflix-like movie recommendation and streaming service in Korea.
 ** [[http://company.nexon.com/Eng/][NEXON Korea]]
 *** Game Developer  | December 2013 – November 2015
 Broadrange[[http://bf.nexon.com][Bubble Fighter]], A casual TPS Game
-
-- Test2
