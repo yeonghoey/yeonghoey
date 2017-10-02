@@ -4,6 +4,7 @@
 - [[#deep-neural-network][Deep Neural Network]]
   - [[#deep-l-layer-neural-network][Deep L-layer neural network]]
   - [[#forward-propagation-in-a-deep-network][Forward Propagation in a Deep Network]]
+  - [[#getting-your-matrix-dimensions-right][Getting your matrix dimensions right]]
 
 * Deep Neural Network
 ** Deep L-layer neural network
@@ -13,3 +14,8 @@
 
 ** Forward Propagation in a Deep Network
 [[file:img/screenshot_2017-09-29_07-11-09.png]]
+
+** Getting your matrix dimensions right
+[[file:img/screenshot_2017-10-02_22-02-34.png]]
+
+[[file:img/screenshot_2017-10-02_22-06-47.png]]
