@@ -30,10 +30,14 @@ In charge of infrastructures for _[[https://durango.nexon.com/en][Durango: Wild 
 Improved code quality for the recommendation engine of _[[https://watcha.net/][WATCHA]]_ and _[[https://play.watcha.net][WATCHA PLAY]]_,
 a Netflix-like movie recommendation and streaming service in Korea.
 
-- 
+- Drafted /Scala/ coding standard and made guidelines for the team.
+- Introduced /Scala/ code quality tools like /scalafmt/, /scalariform/
+- Introduced testing frameworks like /Specs2/, /ScalaCheck/
+- Did lots of refactoring on /Scala/ codebase which is based on /Finagle/, high-concurrency RPC framework by /Twitter/.
+- Built CI/CD pipeline for the recommendation engine with /Jenkins/
 
 ** [[http://company.nexon.com/Eng/][NEXON Korea]]
 *** Game Developer  | December 2013 – November 2015
-[[http://bf.nexon.com][Bubble Fighter]]
+Broadrange[[http://bf.nexon.com][Bubble Fighter]], A casual TPS Game
 
 - Test2
