@@ -1,6 +1,6 @@
 #+TITLE: Yeongho Kim
 
-#+OPTIONS: date:nil num:nil
+#+OPTIONS: date:nil
 
 #+LATEX_HEADER: \usepackage[margin=0.7in]{geometry}
 
