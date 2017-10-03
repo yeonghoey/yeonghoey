@@ -1,3 +1,4 @@
+* Personal Statement Draft1
 One of my lifetime goals is to make an influential indie game based on data science, including machine learning.
 
 Since I was 11, when I was fascinated by games, my life is deeply connected to games.
@@ -25,7 +26,7 @@ like being more fluent in English, joining the bleeding edge, bU.S is setting th
 I think my forte is to find my curiosity in any task. 
 Following my curiosity, I've been teaching myself and being successful during my career.
 
-When I was a junior game developer, working on the matchmaking system for Bubble Fighter,
+When I was a junior developer, I got to implement the matchmaking system for Bubble Fighter.
 I had to research TrueSkill, a player rating algorithm, based on Bayesian statistical inference.
 Apart from its complex nature, it was almost impossible for a junior developer to understand, design and implement the whole system.
 
@@ -41,3 +42,77 @@ I've read lots CS books, taking lots of courses from Coursera and Udacity.
 
 The broad range of successful achievements in my career proves the point.
 
+
+* Personal Statement Draft2
+About a year ago, I made a simple dodging game and implemented Deep Q Learning to play it.
+It was my 2 week personal project of free subject for the new comers of my current team.
+Implementing Deep Q Learning for 2 weeks without any background was challenging.
+I was afraid of failing to finish the project, but I didn't care about it. 
+I was just fascinated with it because it has been a dream of mine to build an intelligent game AI.
+Anyway, after 2 weeks, I managed to finish my project. My implementation was not so great, but at least it seemed to work.
+
+AI is the perfect field for mine, as a curisotiy and my field.
+I majored both Philosophy and Computer science. The 
+
+I majored Philosophy. I wanted to become a game designer.
+I though Philosophy would be helpful to design virtual worlds, values of virtual characters, etc.
+But
+
+
+1년 전 쯤에, 간단한 총알 피하기 게임을 만들고, 이것을 Deep Q Learning으로 구현한 적이 있습니다.
+지금 다니는 스튜디오의 신규 입사자들을 위한 자유 주제 프로젝트로 2주 동안했던 것이었습니다.
+2주만에 배경 지식없이 Deep Q Learning을 구현하는 것은 꽤나 도전적이었습니다.
+하지만 저는 Tensor Flow와 Deep Q Learning에 매료되었고, 프로젝트를 완료하지 못할지도 모른다는 걱정도 있었지만,
+밀어붙였습니다. Deep Q Learning을 소개하는 Atari 페이퍼를 읽고 또 읽으며, 계속 새롭게 실험해보고 하면서, 겨우 완성시킬 수 있었습니다.
+썩 훌륭하진 않았지만, 어느 정도 동작하는 것 같은 모습이 무척 흥미로웠습니다.
+
+AI는 철학과 컴퓨터를 전공한 저에게 완벽한 분야라고 생각합니다.
+저는 다른 제 또래 아이들처럼 게임에 매료되었고, 게임 개발자를 천직으로 생각하며 자랐습니다.
+프로그래밍을 배우기도 했었지만, 고등학교 무렵에는 게임 디자이너가 더 매혹적으로 느껴졌습니다.
+저는 세계관이나 가치관을 이해해서 한다면 좀 더 그럴 듯한 가상 세계를 디자인할 수 있을 것이란 생각에
+철학과에 진학했습니다.
+
+철학과에서 절 매료시켰던 것은 물질과 마음의 철학이라는 과목이었습니다.
+지능이란 무엇인지, 우리의 뇌와 마음에 대한 과거 철학자들의 통찰을 이해하기도 하고,
+관련 주제를 다룬 SF 소설들을 읽고 함께 토론하는 시간도 갖고 했었는데, 이 과목이 무쳑 흥미로웠습니다.
+
+한편, 철학과를 다니면서 여가 시간에는 게임을 직접 만들어보고 싶다는 생각에 독학으로 C++, TCP/IP 프로그래밍을 공부해서 다양한 자작 게임들을 만들었습니다.
+이 때 게임을 만드는 행위 자체에 매료되면서 게임 디자인보다는 게임 개발로 방향을 옮기기 시작했었습니다. 그리고 컴퓨터 공학을 이중 전공으로 선택하게 되었습니다.
+
+컴퓨터 공학 수업에서 놀랐던 점은 철학과 수업과 컴퓨터 공학이 무척 닮아 있다는 점이었습니다.
+철학과에서 재미있게 들었던 기호논리학 수업은 이산수학 수업과 정말 밀접하게 비슷한 내용을 다루고 있었습니다.
+컴퓨터 공학 수업에서 제일 좋아했던 AI 수업들은, 물질과 마음의 철학 수업의 심화 과정이라고 느껴질 만큼, 그 학문적 뿌리를 공유하고 있었습니다.
+
+졸업 후 한국에서 제일 유명한 게임 회사 중 하나인 넥슨에 입사했습니다. 저는 버블파이터라는 게임을 개발했는데요,
+제 흥미를 잘 어필해서 베이지안 확률 추론을 응용한 TrueSkill 알고리즘을 기반으로 한 매치메이킹 시스템을 디자인하고 구현했습니다.
+TrueSkill은 자체적으로도 무척 복잡한 알고리즘인데다, 이것을 서비스 중인 온라인 게임에 녹여내는 것은 무척 도전적인 일이었지만,
+매치메이킹 시스템을 성공적으로 런칭할 수 있었습니다.
+
+Data Science와 머신러닝에 더 갈증을 느낀 저는 머신러닝을 기반으로 영화를 추천해주는 Watcha를 서비스하는 Frograms로 직장을 이동했습니다.
+당시 저는 머신러닝 외에도 함수형 프로그래밍에 무척 흥미를 갖고 있었는데요,
+후로그램스에는 대학원에서 머신러닝을 전공한 데이터 사이언티스트들이 많이 있었고,
+덕분에 저는 머신러닝보다는 함수형 언어인 Scala를 활용한 프로그래밍의 전반적인 가이드란일 세우고 코드베이스의 전체적인 품질 향상시키는 일을 맡게 되었습니다.
+
+이후 온라인 오픈월드 게임인 듀랑고를 개발하는 현재 팀인 왓스튜디오에서 일하게 되었습니다.
+야생과 오픈월드라는 게임 배경 자체가 흥미로웠고, 데이터 과학을 적용할 여지 역시 더 풍부할 것이라고 기대했습니다.
+
+팀에서 처음 맡은 일은 데이터 파이프라인을 구축하는 일이었습니다.
+게임 속에서 일어나는 다양한 이벤트 데이터들을 스트리밍하고 이를 분석할 수 있도록 하는 시스템을 처음부터 끝까지 설계하고 구현했습니다.
+
+현재 듀랑고는 정식 오픈 전인 CBT 중인데, 하루에도 수백기가 이상의 데이터가 스트리밍되고, Parquet로 배치작업이 동작합니다.
+덕분에 팀의 게임 디자이너들이 Zeppelin을 통해 분석해보고 다양한 인사이트를 얻을 수 있습니다.
+
+저는 여가시간에 틈틈이 코세라나 유다시티 강좌를 즐겨 듣는데요, 최근에는 Coursera의 Deep Learning Specialization을 수강하고 있습니다.
+수강 중에 MSC-DS 코스를 알게 되었고, 이 코스는 완벽히 저를 위한 프로그램이라는 생각이 들었습니다.
+
+저는 대부분의 경험이 독학을 통해서 이루어졌기 때문에, Data Science에 있어서 체계적인 학습 경험이 부족하다고 느껴왔습니다.
+제다가 후로그람스에서처럼, 계속해서 현재 잘하는 일을 맡게 되다 보면, Data Science로 커리어를 이동해나가는 것이 쉽지 않을 것이라고도 생각해왔구요.
+또한, 저는 첨단 기술을 달리는 미국에서 커리어를 이어나가보고 싶다는 꿈도 있습니다.
+
+제 creator로서의 인생의 목표는 데이터 과학을 통해 영향력있는 인디게임을 만드는 것입니다.
+저는 재미 뿐만아니라 가치관과 세상을 보는 시각을 바꿔주는 인디게임들을 가치 있게 생각합니다.
+그리고 저는 데이터 과하고가 AI가, 저 자신 뿐만아니라 게임을 플레이하는 플레이어들을 매료시키고
+세상을 보는 새로운 관점을 줄 수 있다고 믿습니다.
+
+MCS-DS 코스는 제가 당면한 부족한 접을 잘 채워 줄 수 있으리라는 확신을 얻었습니다.
+제 목표를 이루는 도움닫기 과정이 될 것이라 확신합니다.
