@@ -9,25 +9,26 @@
 #+LATEX_HEADER: \setlength{\droptitle}{-14ex}
 
 #+LATEX_HEADER: \usepackage{parskip}
-#+LATEX_HEADER:\setlength{\parindent}{2ex}
 
 #+LATEX_HEADER: \pagenumbering{gobble}
+
 #+LATEX: \vspace{-6ex}
 
-About a year ago, I developed an AI with Deep Q Learning for a simple dodging game I made.
+About a year ago, I developed an AI with Deep Q Learning for a simple dodging game.
 It was for my 2-week personal project for the new comers of my current team.
-The personal project was a kind of a welcome task for new comers.
-The only restriction of the project was that the outcome had to be a game.
-When I got to do my one, I had been fascinated by Deep Q Learning introduced by Atari paper.
-Even though I had no background of machine learning and 2 weeks seemed not enough, I decided to push myself to pursue it.
-I went over the Atari paper several times. I analyzed the example codes on GitHub. I crammed basics of neural networks on the Internet.
-After all, I managed to finish the project. The performance of the AI was not so good, but at least it seemed to work.
-I fused the AI to the game as a partner of the player.
+The only restriction of a personal project was that the outcome had to be a game.
+When I got to do mine, I had been fascinated by Deep Q Learning introduced by Atari paper.
+Even though I had no background of machine learning, and 2 weeks seemed not enough, I decided to pursue it.
+I crammed basics of neural networks, went over the Atari paper several times, analyzed the example codes on GitHub.
+After all, I managed to finish the project.
+The performance of AI was not so great, but at least it seemed to work.
+To package the AI as a game, I made the as a partner of the player.
 In the game, the player and the AI should control a spaceship in tandem.
-The game was not so fun, but it was enough to inspire my teammates. 
+Admittedly, The game was not so fun. But I was proud of it and I thought it was enough to inspire my teammates. 
 
-As the previous story, my greatest strength is that I can find my curiosity in anything and make it real.
-Thanks to the point, even though my work experience has been very broad, I've been successful throughout my career. 
+As the previous story, my greatest strength is that
+I can find my curiosity in anything I was tasked with and make it happen.
+Thanks to the point, I've been successful throughout my career in a wide range of works. 
 
 I developed an intelligent matchmaking system for Bubble Fighter.
 Bubble Fighter is a water gun fight online game for kids.
@@ -36,7 +37,7 @@ It had no matchmaking system.
 Like many other modern online games, my team wanted a matchmaking system to hook players more.
 I researched TrueSkill to develop intelligent matchmaking system for the game.
 TrueSkill is a player rating system which is based on Bayesian inference.
-It is a kind of an advanced version of the popular Elo rating system.
+It is a kind of advanced version of the popular Elo rating system.
 Apart from its complex nature, I thought it was almost impossible for me, as a junior developer who just graduated from university, to develop the whole system.
 But my curiosity made me achieve it.
 I wanted to understand the complex mathematical symbols and graphs on the papers about TrueSkill.
@@ -53,3 +54,8 @@ I really enjoyed programming in Scala.
 I took Scala Coursera courses and watched lots of Scala conferences on YouTube.
 I read the famous Functional Programming in Scala book and solved all the practice problems of the book.
 I was new to the language when I joined the team, I soon became the most proficient Scala programmer on the team.
+
+My goal for the course is to cultivate my capacity for applying data science to game development.
+Even though I've been doing works related to Data Science, I have always felt the lack of solid foundations for the field.
+
+Data science astonishes the whole world everyday.
