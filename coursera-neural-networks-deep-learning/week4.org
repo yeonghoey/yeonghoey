@@ -9,6 +9,7 @@
   - [[#building-blocks-of-deep-neural-networks][Building blocks of deep neural networks]]
   - [[#forward-and-backward-propagation][Forward and Backward Propagation]]
   - [[#parameters-vs-hyperparameters][Parameters vs Hyperparameters]]
+  - [[#what-does-this-have-to-do-with-the-brain][What does this have to do with the brain?]]
 
 * Deep Neural Network
 ** Deep L-layer neural network
@@ -51,3 +52,6 @@ So maybe one rule of thumb is (..)
 just try a few values for the hyper parameters and double check if there's a better value for the hyper parameters
 and as you do so you slowly gain intuition as well about the hyper parameters that work best for your problems (...)
 #+END_QUOTE
+
+** What does this have to do with the brain?
+[[file:img/screenshot_2017-10-04_08-24-10.png]]
