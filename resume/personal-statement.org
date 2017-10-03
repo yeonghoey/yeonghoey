@@ -208,3 +208,72 @@ Data Science와 AI에 강하게 매료되었다.
 ** 앞으로의 계획(Projection) – 어떤 목표를 갖고 있고 앞으로 어떤 일을 하고 싶은지 서술
 - IT의 첨단인 미국에서 커리어를 이어나가고 싶다.
 - 게임 업계와 데이터 과학 분야를 연결하는 핵심 인재가 되고 싶다.
+
+
+
+* Personal Statement Draft5
+About a year ago, I made a simple dodging game and implemented an AI with Deep Q Learning for it.
+It was for my 2-week personal project for the new comers of my current team.
+It was a kind of a welcome event for new comers.
+The only restriction of the project was that it had to be a game.
+At that time, I was fascinated by Deep Q Learning introduced by Atari paper.
+Even though I had no background of machine learning, and 2 weeks seemed not enough, I decided to push myself to pursue it.
+I went over the paper several times. I analyzed the example codes on GitHub. I crammed basics of neural networks on the Internet.
+After all, I managed to finish the project. The performance of the AI was not so great, but at least it seemed to work.
+And I fused the AI to the game as a partner of the player which controls the spaceship in tandem.
+
+It was my 2 week personal project of free subject for the new comers of my current team.
+Implementing Deep Q Learning for 2 weeks without any background was challenging.
+I was afraid of failing to finish the project, but I didn't care about it. 
+I was just fascinated with it because it has been a dream of mine to build an intelligent game AI.
+Anyway, after 2 weeks, I managed to finish my project. My implementation was not so great, but at least it seemed to work.
+
+AI is the perfect field for mine, as a curisotiy and my field.
+I majored both Philosophy and Computer science. The 
+
+I majored Philosophy. I wanted to become a game designer.
+I though Philosophy would be helpful to design virtual worlds, values of virtual characters, etc.
+But
+
+One of my lifetime goals is to make an influential indie game based on data science, including machine learning.
+
+Since I was 11, when I was fascinated by games, my life is deeply connected to games.
+My parents supported me to pursue it, and I could learn Turbo Pascal and Turbo C when I was kid.
+
+
+I was fascinated by games since I was 7. Since then, I'd been dreaming of becoming a game developer.
+
+I told my dream to my parents. They supported me to pursue my dream. 
+
+I could attend a computer academies to learn computer algorithms.
+After 1-2 years of learning them, when I was a middle school student, 
+I even participated regional preliminaries of International Olympiad in Informatics.
+
+But I didn't get any noticeable result, because I was not so interested in them.
+The middle school student of me couldn't related computer science and game development.
+It was another boring math problem at that moment.
+
+I quit to continue my effort to algorithms at high school.
+I shifted my goal as becoming a game designer.
+
+
+like being more fluent in English, joining the bleeding edge, bU.S is setting the pace of my profession thesedays.
+
+I think my forte is to find my curiosity in any task. 
+Following my curiosity, I've been teaching myself and being successful during my career.
+
+When I was a junior developer, I got to implement the matchmaking system for Bubble Fighter.
+I had to research TrueSkill, a player rating algorithm, based on Bayesian statistical inference.
+Apart from its complex nature, it was almost impossible for a junior developer to understand, design and implement the whole system.
+
+But my curiosity led me to read over all the related papers.
+It made me lookup all the mathematical symbols I was not familiar with on those papers.
+I got to lots of 
+to try lots of examples of the algorithm.
+
+
+
+I've read lots CS books, taking lots of courses from Coursera and Udacity.
+
+
+The broad range of successful achievements in my career proves the point.
