@@ -70,9 +70,7 @@ On _[[http://bf.nexon.com][Bubble Fighter]]_, a casual /TPS/.
 -----
 #+LATEX: \vspace{-4ex}
 
-** Hanyang University, Seoul | Feb 2006 – Feb 2014
+** Hanyang University, Seoul | 2014
 #+ATTR_LATEX: :environment itemize :options [label=$\circ$,itemsep=-0.5ex]
 - B.A in /Philosophy/
 - B.S in /Computer Science/
-- Fulfilled /mandatory national military service/
-- Took a leave of absence for building mobile apps
