@@ -6,6 +6,7 @@
   - [[#forward-propagation-in-a-deep-network][Forward Propagation in a Deep Network]]
   - [[#getting-your-matrix-dimensions-right][Getting your matrix dimensions right]]
   - [[#why-deep-representations][Why deep representations?]]
+  - [[#building-blocks-of-deep-neural-networks][Building blocks of deep neural networks]]
 
 * Deep Neural Network
 ** Deep L-layer neural network
@@ -25,3 +26,8 @@
 [[file:img/screenshot_2017-10-02_22-13-12.png]]
 
 [[file:img/screenshot_2017-10-02_22-25-13.png]]
+
+** Building blocks of deep neural networks
+[[file:img/screenshot_2017-10-04_07-16-05.png]]
+
+[[file:img/screenshot_2017-10-04_07-21-20.png]]
