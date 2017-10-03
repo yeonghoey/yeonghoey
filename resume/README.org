@@ -24,7 +24,7 @@
 -----
 #+LATEX: \vspace{-4ex}
 
-** _[[https://github.com/what-studio][What! Studio]]_ | Data and DevOps Engineer | June 2016 – Present
+** _[[https://github.com/what-studio][What! Studio]]_ | Data/DevOps Engineer | June 2016 – Present
 On _[[https://durango.nexon.com/en][Durango: Wild Lands]]_, a seamless open world /MMORPG/.
 
 #+ATTR_LATEX: :environment itemize :options [label=$\circ$,itemsep=-0.5ex]
