@@ -8,6 +8,7 @@
   - [[#why-deep-representations][Why deep representations?]]
   - [[#building-blocks-of-deep-neural-networks][Building blocks of deep neural networks]]
   - [[#forward-and-backward-propagation][Forward and Backward Propagation]]
+  - [[#parameters-vs-hyperparameters][Parameters vs Hyperparameters]]
 
 * Deep Neural Network
 ** Deep L-layer neural network
@@ -39,3 +40,14 @@
 [[file:img/screenshot_2017-10-04_07-37-12.png]]
 
 [[file:img/screenshot_2017-10-04_07-40-19.png]]
+
+** Parameters vs Hyperparameters
+[[file:img/screenshot_2017-10-04_08-14-19.png]]
+
+[[file:img/screenshot_2017-10-04_08-18-29.png]]
+
+#+BEGIN_QUOTE
+So maybe one rule of thumb is (..)
+just try a few values for the hyper parameters and double check if there's a better value for the hyper parameters
+and as you do so you slowly gain intuition as well about the hyper parameters that work best for your problems (...)
+#+END_QUOTE
