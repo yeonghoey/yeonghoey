@@ -24,7 +24,7 @@ After all, I managed to finish the project.
 The performance of AI was not so great, but at least it seemed to work.
 To package the AI as a game, I made the as a partner of the player.
 In the game, the player and the AI should control a spaceship in tandem.
-Admittedly, The game was not so fun. But I was proud of it and I thought it was enough to inspire my teammates. 
+Admittedly, the game was not so fun. But I was proud of it and I thought it was enough to inspire my teammates. 
 
 As the previous story, my greatest strength is that
 I can find my curiosity in anything I was tasked with and make it happen.
@@ -33,7 +33,6 @@ Thanks to the point, I've been successful throughout my career in a wide range o
 I developed an intelligent matchmaking system for Bubble Fighter.
 Bubble Fighter is a water gun fight online game for kids.
 At the time I joined the team, the game had already been servicing for 5 years.
-It had no matchmaking system.
 Like many other modern online games, my team wanted a matchmaking system to hook players more.
 I researched TrueSkill to develop intelligent matchmaking system for the game.
 TrueSkill is a player rating system which is based on Bayesian inference.
@@ -43,11 +42,11 @@ But my curiosity made me achieve it.
 I wanted to understand the complex mathematical symbols and graphs on the papers about TrueSkill.
 I taught myself the mathematical backgrounds for understanding the algorithm via Khan Academy and many other YouTube lectures.
 I read lots of other implementation codes and wrote lots of prototypes.
-Through this, I could implement the algorithm and system gradually.
+Through this, I could implement the algorithm and the system gradually.
 I also wrote lots of tests to prove that the implementation works correctly.
 Over 6 months of striving for the matchmaking system, The matchmaking system named Arena was successfully launched.
 
-FROGRAMS which is servicing WATCHA and WATCHA PLAY is a one of famous startups in Korea for their machine learned movie recommendation service.
+FROGRAMS, which is servicing WATCHA and WATCHA PLAY, is a one of famous startups in Korea for their machine learned movie recommendation service.
 Their recommendation engine was implemented in Scala, a JVM based functional programming language.
 Because I also had curiosity about functional programming, I joined the team for the experience of both Data Science and functional programming.
 I really enjoyed programming in Scala.
@@ -55,7 +54,9 @@ I took Scala Coursera courses and watched lots of Scala conferences on YouTube.
 I read the famous Functional Programming in Scala book and solved all the practice problems of the book.
 I was new to the language when I joined the team, I soon became the most proficient Scala programmer on the team.
 
-My goal for the course is to cultivate my capacity for applying data science to game development.
+I think there are a lot more potentials to applications of data science for games.
+Throughout my career, even though it's rather successful, I couldn't keep working on data science related jobs.
+I think that's because I've been growing up as a generalist. In other words, I'm lack of specialty and solid backgrounds for the field.
+I expect MCS-DS will provide me a great opportunity to cultivate my capacity for applying data science to game development.
+With my previous experience as a DevOps enginner, I'm sure that I would become a successful practioner of data science.
 Even though I've been doing works related to Data Science, I have always felt the lack of solid foundations for the field.
-
-Data science astonishes the whole world everyday.
