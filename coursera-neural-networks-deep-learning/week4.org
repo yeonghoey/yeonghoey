@@ -10,6 +10,9 @@
   - [[#forward-and-backward-propagation][Forward and Backward Propagation]]
   - [[#parameters-vs-hyperparameters][Parameters vs Hyperparameters]]
   - [[#what-does-this-have-to-do-with-the-brain][What does this have to do with the brain?]]
+- [[#programming-assignments][Programming Assignments]]
+  - [[#building-your-deep-neural-network-step-by-step][Building your Deep Neural Network: Step by Step]]
+    - [[#signatures-of-subroutines][Signatures of subroutines]]
 
 * Deep Neural Network
 ** Deep L-layer neural network
@@ -55,3 +58,62 @@ and as you do so you slowly gain intuition as well about the hyper parameters th
 
 ** What does this have to do with the brain?
 [[file:img/screenshot_2017-10-04_08-24-10.png]]
+* Programming Assignments
+** Building your Deep Neural Network: Step by Step
+
+[[file:img/screenshot_2017-10-06_05-46-31.png]]
+
+[[file:img/screenshot_2017-10-06_05-47-48.png]]
+
+[[file:img/screenshot_2017-10-06_05-54-53.png]]
+
+[[file:img/screenshot_2017-10-06_06-15-46.png]]
+
+[[file:img/screenshot_2017-10-06_06-17-01.png]]
+
+[[file:img/screenshot_2017-10-06_06-17-26.png]]
+
+[[file:img/screenshot_2017-10-06_06-25-09.png]]
+
+[[file:img/screenshot_2017-10-06_06-29-59.png]]
+
+*** Signatures of subroutines
+#+BEGIN_SRC python
+  def initialize_parameters(n_x, n_h, n_y):
+      parameters = {"W1": W1,
+                    "b1": b1,
+                    "W2": W2,
+                    "b2": b2}
+      return parameters
+
+  def initialize_parameters_deep(layer_dims):
+    # parameters is like {"W1":, "b1":, "W2":, ...}
+    return parameters
+
+  def linear_forward(A, W, b):
+      assert(Z.shape == (W.shape[0], A.shape[1]))
+      cache = (A, W, b)
+      return Z, cache
+
+  def linear_activation_forward(A_prev, W, b, activation):
+      return A, cache
+
+  def L_model_forward(X, parameters):
+      return AL, caches
+
+  def compute_cost(AL, Y):
+      # cross-entropy cost
+      return cost
+
+  def linear_backward(dZ, cache):
+      return dA_prev, dW, db
+
+  def linear_activation_backward(dA, cache, activation):
+      return dA_prev, dW, db
+
+  def L_model_backward(AL, Y, caches):
+      return grads
+
+  def update_parameters(parameters, grads, learning_rate):
+      return parameters
+#+END_SRC
