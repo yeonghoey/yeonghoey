@@ -6,6 +6,8 @@
   - [[#hiding][Hiding]]
   - [[#puzzle-friendly][Puzzle-friendly]]
   - [[#sha-256][SHA-256]]
+- [[#hash-pointers-and-data-structures][Hash Pointers and Data Structures]]
+  - [[#self-study-to-understand-more][Self study to understand more]]
 
 * Cryptographic Hash Functions
 [[file:img/screenshot_2017-09-29_07-45-44.png]]
@@ -37,3 +39,33 @@
 
 ** SHA-256
 [[file:img/screenshot_2017-09-29_07-50-47.png]]
+* Hash Pointers and Data Structures
+[[file:img/screenshot_2017-10-06_13-44-57.png]]
+
+[[file:img/screenshot_2017-10-06_13-45-23.png]]
+
+[[file:img/screenshot_2017-10-06_13-45-45.png]]
+
+[[file:img/screenshot_2017-10-06_13-50-57.png]]
+
+- Because the header for the list is the list itself, the adversary can't falsify the whole data.
+
+[[file:img/screenshot_2017-10-06_13-53-02.png]]
+
+[[file:img/screenshot_2017-10-06_13-53-44.png]]
+
+[[file:img/screenshot_2017-10-06_14-41-42.png]]
+
+[[file:img/screenshot_2017-10-06_14-42-50.png]]
+
+** Self study to understand more
+- http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#merkle_trees
+- Most explanations are vaguely couch, but it seems that **the data blocks should be ordered**, otherwise the hashes will be different,
+  Because the values are concatenated in the order of data blocks.
+- Most expalnations says the merkle tree can save the retrival of data as ~O(log n)~, but I wondered how.
+  For the example below, I understand the only blue blocks are needed to prove ~Hk~ is valid,
+  but I don't know how to find out that the blue blocks are needed.
+- I've waded through lots of implementations on GitHub, and *most implementations keep the original data blocks as an array*
+  and indexing it to calculate hashes.
+
+[[file:img/screenshot_2017-10-06_16-12-52.png]]
