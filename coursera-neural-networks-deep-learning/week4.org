@@ -13,6 +13,7 @@
 - [[#programming-assignments][Programming Assignments]]
   - [[#building-your-deep-neural-network-step-by-step][Building your Deep Neural Network: Step by Step]]
     - [[#signatures-of-subroutines][Signatures of subroutines]]
+  - [[#deep-neural-network---application][Deep Neural Network - Application]]
 
 * Deep Neural Network
 ** Deep L-layer neural network
@@ -117,3 +118,8 @@ and as you do so you slowly gain intuition as well about the hyper parameters th
   def update_parameters(parameters, grads, learning_rate):
       return parameters
 #+END_SRC
+
+** Deep Neural Network - Application
+[[file:img/screenshot_2017-10-07_07-48-52.png]]
+
+[[file:img/screenshot_2017-10-07_07-49-58.png]]
