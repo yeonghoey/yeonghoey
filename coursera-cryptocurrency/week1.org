@@ -8,6 +8,7 @@
   - [[#sha-256][SHA-256]]
 - [[#hash-pointers-and-data-structures][Hash Pointers and Data Structures]]
   - [[#self-study-to-understand-more][Self study to understand more]]
+- [[#digital-signatures][Digital Signatures]]
 
 * Cryptographic Hash Functions
 [[file:img/screenshot_2017-09-29_07-45-44.png]]
@@ -69,3 +70,4 @@
   and indexing it to calculate hashes.
 
 [[file:img/screenshot_2017-10-06_16-12-52.png]]
+* Digital Signatures

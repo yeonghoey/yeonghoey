@@ -14,25 +14,69 @@
 
 #+LATEX: \vspace{-6ex}
 
-About a year ago, I developed an AI with Deep Q Learning for a simple dodging game.
-It was for my 2-week personal project for the new comers of my current team.
-The only restriction of a personal project was that the outcome had to be a game.
-When I got to do mine, I had been fascinated by Deep Q Learning introduced by Atari paper.
-Even though I had no background of machine learning, and 2 weeks seemed not enough, I decided to pursue it.
-I crammed basics of neural networks, went over the Atari paper several times, analyzed the example codes on GitHub.
-After all, I managed to finish the project.
-The performance of AI was not so great, but at least it seemed to work.
-To package the AI as a game, I made the as a partner of the player.
-In the game, the player and the AI should control a spaceship in tandem.
-Admittedly, the game was not so fun. But I was proud of it and I thought it was enough to inspire my teammates. 
+Personal Statement Yeongho Kim
+I developed a simple dodging game by using AI with Deep Q Learning in 2016.
+It was a 2 week long project for the new comers for my current team.
+At the moment of the project, I was fascinated by Deep Q Learning introduced by Atari paper,
+therefore I decide to challenge myself to work on the project.
+Because of the lack of my knowledge about the theory, 2 weeks flow very fast, so it was very tough to make the dodging game on time.    
+I crammed knowledge on basics of neural networks, went over the Atari paper several times, and analyzed the example codes on GitHub.
+As a result, I managed to ﬁnish the project in 2 weeks.
+The performance of AI was not as I expected, however the program worked ok.
+I made a partner of a player to package AI as a game.
+The player and the AI control a spaceship in tandem.
+My team crew were inspired of my arduous work and I was proud of it. 
+The experience shown above proves that I can turn my curiosity in anything to happen.
+Thankfully, I’ve been successful throughout my career in many fields. 
 
-As the previous story, my greatest strength is that
-I can find my curiosity in anything I was tasked with and make it happen.
-Thanks to the point, I've been successful throughout my career in a wide range of works. 
 
-I developed an intelligent matchmaking system for Bubble Fighter.
-Bubble Fighter is a water gun fight online game for kids.
-At the time I joined the team, the game had already been servicing for 5 years.
+FROGRAMS serviced by WATCHA and WATCHA PLAY is a one of well-known startups in Korea.
+It became famous by machine learned movie recommendation service.
+Their recommendation engine was implemented in Scala, a JVM based functional programming language.
+Because I was interested in the functional programming,
+I joined the team to experience both Data Science and functional programming.
+I enjoyed programming in Scala.
+I took Scala Coursera courses and watched lots of Scala conferences on YouTube.
+I read the renowned Functional Programming book in Scala over and over to reference the problems and the examples on the book.
+The program language was not familiar when I joined the team, however, soon I became the most proﬁcient Scala programmer in the team. 
+
+My goal for the course is to cultivate my capacity for applying data science to develop game.
+I always feel the lack of solid foundations although I’ve been working related to Data Science,
+Data science astonishes the whole world everyday.
+
+I developed an AI with Deep Q Learning for a simple dodging game I made in 2016.
+It was a 2 week long project for the new comers of my current team.
+The only restriction of the project was that the outcome had to be a game.
+At the moment of the project, I was fascinated by Deep Q Learning introduced by Atari paper.
+I decided to challenge myself to work on the project.
+Because of the lack of my knowledge about the theory, 2 weeks flow were very fast, so it was very tough to finish the project on time.    
+I crammed knowledge on basics of neural networks, went over the Atari paper several times, analyzed the example codes on GitHub.
+After all, I managed to finish the project in 2 weeks.
+The performance of AI was not as I expected, however it worked ok.
+To package the AI as a game, I made the AI as a partner of the player.
+The player and the AI control a spaceship in tandem.
+My team crew were inspired of my work and I was proud of it. 
+
+The experience shown above proves that I can turn my curiosity in anything to happen.
+Thankfully, I’ve been successful throughout my career in many fields. 
+
+I developed an intelligent matchmaking system for Bubble Fighter Game.
+Shortly introduce Bubble Fighter game, it is an online water gun ﬁght for kids.
+It already had been out for 5 years, however there was no matchmaking system at the time.
+Like many other online games, my team desired to gather more player by planting a matchmaking system.
+I researched TrueSkill to insert intelligent matchmaking system for the game.
+TrueSkill, based on Bayesian inference, is a player rating system.
+It is an advanced version of the popular Elo rating system. 
+It was almost impossible to progress the whole system as a junior developer.
+However, my curiosity helped me to develop it.
+I wanted to learn the complex mathematical symbols and graphs on TrueSkill.
+It was self-learning pressure.
+I read lots of other implementation codes and wrote lots of prototypes.
+I put a lot of efforts to understand the mathematical backgrounds and algorithm via YouTube letcutres and Khan Academy, etc.
+Through this process, I could implement the algorithm and system.
+I ran lots of tests to prove the implementation was working properly.
+The matchmaking system called ‘Arena’ was launched successfully after striving for over 6 months. 
+
 Like many other modern online games, my team wanted a matchmaking system to hook players more.
 I researched TrueSkill to develop intelligent matchmaking system for the game.
 TrueSkill is a player rating system which is based on Bayesian inference.
