@@ -14,15 +14,6 @@
 
 #+LATEX: \vspace{-6ex}
 
-Personal Statement Yeongho Kim
-I developed a simple dodging game by using AI with Deep Q Learning in 2016.
-It was a 2 week long project for the new comers for my current team.
-At the moment of the project, I was fascinated by Deep Q Learning introduced by Atari paper,
-therefore I decide to challenge myself to work on the project.
-Because of the lack of my knowledge about the theory, 2 weeks flow very fast, so it was very tough to make the dodging game on time.    
-I crammed knowledge on basics of neural networks, went over the Atari paper several times, and analyzed the example codes on GitHub.
-As a result, I managed to ﬁnish the project in 2 weeks.
-The performance of AI was not as I expected, however the program worked ok.
 I made a partner of a player to package AI as a game.
 The player and the AI control a spaceship in tandem.
 My team crew were inspired of my arduous work and I was proud of it. 
@@ -44,18 +35,28 @@ My goal for the course is to cultivate my capacity for applying data science to 
 I always feel the lack of solid foundations although I’ve been working related to Data Science,
 Data science astonishes the whole world everyday.
 
-I developed an AI with Deep Q Learning for a simple dodging game I made in 2016.
-It was a 2 week long project for the new comers of my current team.
-The only restriction of the project was that the outcome had to be a game.
-At the moment of the project, I was fascinated by Deep Q Learning introduced by Atari paper.
-I decided to challenge myself to work on the project.
-Because of the lack of my knowledge about the theory, 2 weeks flow were very fast, so it was very tough to finish the project on time.    
-I crammed knowledge on basics of neural networks, went over the Atari paper several times, analyzed the example codes on GitHub.
-After all, I managed to finish the project in 2 weeks.
+---
+
+In 2016, when I joined my current team, I developed a simple dodging game which exploits Deep Q Learning.
+It was a 2 week-long project for the new comers of my current team.
+At the moment of the project, I was fascinated by Deep Q Learning which was introduced by Atari paper.
+Even though I thought 2 weeks were short, I decided to challenge myself to follow my curiosity.
+
+After I went over the Atari paper several times, I realized that I lacked the basics to understand Deep Q Learning.
+I crammed knowledge onneural networks across blogs, TensorFlow exampes, YouTube tutorials.
+And then, when I felt a little confident, I analyzed the Deep Q Learning examples on GitHub.
+I built many prototypes and ran experiments with tweaking hyper parameters on them.
+After all, I managed to finish the project in before the deadline.
 The performance of AI was not as I expected, however it worked ok.
 To package the AI as a game, I made the AI as a partner of the player.
 The player and the AI control a spaceship in tandem.
 My team crew were inspired of my work and I was proud of it. 
+
+I made a partner of a player to package AI as a game.
+The player and the AI control a spaceship in tandem.
+My team crew were inspired of my arduous work and I was proud of it. 
+The experience shown above proves that I can turn my curiosity in anything to happen.
+Thankfully, I’ve been successful throughout my career in many fields. 
 
 The experience shown above proves that I can turn my curiosity in anything to happen.
 Thankfully, I’ve been successful throughout my career in many fields. 
