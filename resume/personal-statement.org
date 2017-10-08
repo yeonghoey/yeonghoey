@@ -14,33 +14,10 @@
 
 #+LATEX: \vspace{-6ex}
 
-I made a partner of a player to package AI as a game.
-The player and the AI control a spaceship in tandem.
-My team crew were inspired of my arduous work and I was proud of it. 
-The experience shown above proves that I can turn my curiosity in anything to happen.
-Thankfully, I’ve been successful throughout my career in many fields. 
-
-
-FROGRAMS serviced by WATCHA and WATCHA PLAY is a one of well-known startups in Korea.
-It became famous by machine learned movie recommendation service.
-Their recommendation engine was implemented in Scala, a JVM based functional programming language.
-Because I was interested in the functional programming,
-I joined the team to experience both Data Science and functional programming.
-I enjoyed programming in Scala.
-I took Scala Coursera courses and watched lots of Scala conferences on YouTube.
-I read the renowned Functional Programming book in Scala over and over to reference the problems and the examples on the book.
-The program language was not familiar when I joined the team, however, soon I became the most proﬁcient Scala programmer in the team. 
-
-My goal for the course is to cultivate my capacity for applying data science to develop game.
-I always feel the lack of solid foundations although I’ve been working related to Data Science,
-Data science astonishes the whole world everyday.
-
----
-
 In 2016, when I joined my current team, I developed a simple dodging game which exploits Deep Q Learning.
 In the game, the agent controls a spaceship to avoid a barrage of bullets as long as possible.
 It was a 2 week-long project for the new comers of my current team.
-At the moment of the project, I was fascinated by Deep Q Learning which was introduced by Atari paper.
+At the moment of the project, I was fascinated by Deep Q Learning introduced by Atari paper.
 Even though I thought 2 weeks were short, I decided to challenge myself to follow my curiosity.
 
 After I went over the Atari paper several times, I realized that I lacked the basics to understand Deep Q Learning.
@@ -49,66 +26,40 @@ And then, when I felt a little confident, I analyzed the Deep Q Learning example
 I built many prototypes and ran experiments with tweaking hyper parameters on them.
 
 After all, I managed to finish the project in before the deadline.
-The performance of the AI I trained was not as I expected, however it worked okay.
+The performance of the AI I developed was not as I expected, however it worked okay.
 Under some circumstances it could survive for almost a minute.
 
 I packaged the AI as a partner of the player.
 The player and the AI control a spaceship in tandem.
 It was a weird idea, but the game inspired my team crew.
+I was excited by the fact that data science can bring innovation to game development.
 
-I saw the possibility that Data Science could bring an innovaction to gaming industry.
-
-The application of Data science on the game development, which is one of my lifetime goald, 
-
-The player and the AI control a spaceship in tandem.
-My team crew were inspired of my arduous work and I was proud of it. 
-The experience shown above proves that I can turn my curiosity in anything to happen.
+The experience shown above proves that I can turn my curiosity to something that actually happens.
 Thankfully, I’ve been successful throughout my career in many fields. 
 
-The experience shown above proves that I can turn my curiosity in anything to happen.
-Thankfully, I’ve been successful throughout my career in many fields. 
-
-I developed an intelligent matchmaking system for Bubble Fighter Game.
-Shortly introduce Bubble Fighter game, it is an online water gun ﬁght for kids.
+When I was in the first year of my professional career, I was in charge of an intelligent matchmaking system for Bubble Fighter.
+As for Bubble Fighter, it is an online water gun fight game for kids.
 It already had been out for 5 years, however there was no matchmaking system at the time.
 Like many other online games, my team desired to gather more player by planting a matchmaking system.
-I researched TrueSkill to insert intelligent matchmaking system for the game.
-TrueSkill, based on Bayesian inference, is a player rating system.
-It is an advanced version of the popular Elo rating system. 
-It was almost impossible to progress the whole system as a junior developer.
-However, my curiosity helped me to develop it.
-I wanted to learn the complex mathematical symbols and graphs on TrueSkill.
-It was self-learning pressure.
-I read lots of other implementation codes and wrote lots of prototypes.
-I put a lot of efforts to understand the mathematical backgrounds and algorithm via YouTube letcutres and Khan Academy, etc.
-Through this process, I could implement the algorithm and system.
-I ran lots of tests to prove the implementation was working properly.
-The matchmaking system called ‘Arena’ was launched successfully after striving for over 6 months. 
 
-Like many other modern online games, my team wanted a matchmaking system to hook players more.
-I researched TrueSkill to develop intelligent matchmaking system for the game.
-TrueSkill is a player rating system which is based on Bayesian inference.
-It is a kind of advanced version of the popular Elo rating system.
-Apart from its complex nature, I thought it was almost impossible for me, as a junior developer who just graduated from university, to develop the whole system.
-But my curiosity made me achieve it.
-I wanted to understand the complex mathematical symbols and graphs on the papers about TrueSkill.
-I taught myself the mathematical backgrounds for understanding the algorithm via Khan Academy and many other YouTube lectures.
-I read lots of other implementation codes and wrote lots of prototypes.
-Through this, I could implement the algorithm and the system gradually.
-I also wrote lots of tests to prove that the implementation works correctly.
-Over 6 months of striving for the matchmaking system, The matchmaking system named Arena was successfully launched.
+I was put in charge of the system because I was the only developer who was interested in Data Science on the team.
+I was tasked to research TrueSkill, an advanced version of the popular Elo rating system for computer games.
+TrueSkill is based on many mathematical theories, such as Bayesian inference and Factor graph.
+The TrueSkill paper was filled with unfamiliar mathematical notations.
+It seemed almost impossible for me to understand the paper and apply it to the game.
 
-FROGRAMS, which is servicing WATCHA and WATCHA PLAY, is a one of famous startups in Korea for their machine learned movie recommendation service.
-Their recommendation engine was implemented in Scala, a JVM based functional programming language.
-Because I also had curiosity about functional programming, I joined the team for the experience of both Data Science and functional programming.
-I really enjoyed programming in Scala.
-I took Scala Coursera courses and watched lots of Scala conferences on YouTube.
-I read the famous Functional Programming in Scala book and solved all the practice problems of the book.
-I was new to the language when I joined the team, I soon became the most proficient Scala programmer on the team.
+Self-learning pressure caused by my curiosity saved me. I felt an inner drive to understand the paper.
+I could put a lot of efforts to build the mathematical backgrounds via YouTube and Khan Academy even in my free time.
+I consolidated my understanding through implmenting prototypes and writing tests.
+Through this, I could develop the system gradually.
+The matchmaking system called 'Arena' was launched successfully after striving for over 6 months. 
 
-I think there are a lot more potentials to applications of data science for games.
-Throughout my career, even though it's rather successful, I couldn't keep working on data science related jobs.
-I think that's because I've been growing up as a generalist. In other words, I'm lack of specialty and solid backgrounds for the field.
-I expect MCS-DS will provide me a great opportunity to cultivate my capacity for applying data science to game development.
-With my previous experience as a DevOps enginner, I'm sure that I would become a successful practioner of data science.
-Even though I've been doing works related to Data Science, I have always felt the lack of solid foundations for the field.
+# My goal for the course is to cultivate my capacity for applying data science to develop game.
+# I always feel the lack of solid foundations although I’ve been working related to Data Science,
+# Data science astonishes the whole world everyday.
+
+# Throughout my career, even though it's rather successful, I couldn't keep working on data science related jobs.
+# I think that's because I've been growing up as a generalist. In other words, I'm lack of specialty and solid backgrounds for the field.
+# I expect MCS-DS will provide me a great opportunity to cultivate my capacity for applying data science to game development.
+# With my previous experience as a DevOps enginner, I'm sure that I would become a successful practioner of data science.
+# Even though I've been doing works related to Data Science, I have always felt the lack of solid foundations for the field.
