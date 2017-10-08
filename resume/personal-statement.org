@@ -12,30 +12,30 @@
 
 #+LATEX_HEADER: \pagenumbering{gobble}
 
-#+LATEX: \vspace{-6ex}
+#+LATEX: \vspace{-4ex}
 
 In 2016, when I joined my current team, I developed a simple dodging game which exploits Deep Q Learning.
 In the game, the agent controls a spaceship to avoid a barrage of bullets as long as possible.
-It was a 2 week-long project for the new comers of my current team.
+It was a 2 week-long project for the new comers of the team.
 At the moment of the project, I was fascinated by Deep Q Learning introduced by Atari paper.
-Even though I thought 2 weeks were short, I decided to challenge myself to follow my curiosity.
+Even though 2 weeks seemed short, I decided to challenge myself to follow my curiosity.
 
 After I went over the Atari paper several times, I realized that I lacked the basics to understand Deep Q Learning.
-I crammed knowledge on neural networks across blogs, TensorFlow exampes, YouTube tutorials.
+I crammed knowledge on neural networks across blogs, TensorFlow examples, YouTube tutorials.
 And then, when I felt a little confident, I analyzed the Deep Q Learning examples on GitHub.
 I built many prototypes and ran experiments with tweaking hyper parameters on them.
 
 After all, I managed to finish the project in before the deadline.
-The performance of the AI I developed was not as I expected, however it worked okay.
+The performance of the AI was not as I expected, however it worked okay.
 Under some circumstances it could survive for almost a minute.
 
 I packaged the AI as a partner of the player.
 The player and the AI control a spaceship in tandem.
-It was a weird idea, but the game inspired my team crew.
-I was excited by the fact that data science can bring innovation to game development.
+It was a weird idea, but my team crew seemed to be inspired by the game.
+I was excited by the fact that Data Science can bring innovation to game development.
 
 The experience shown above proves that I can turn my curiosity to something that actually happens.
-Thankfully, I’ve been successful throughout my career in many fields. 
+Thankfully, this trait made me successful throughout my career in many fields. 
 
 When I was in the first year of my professional career, I was in charge of an intelligent matchmaking system for Bubble Fighter.
 As for Bubble Fighter, it is an online water gun fight game for kids.
@@ -43,23 +43,25 @@ It already had been out for 5 years, however there was no matchmaking system at 
 Like many other online games, my team desired to gather more player by planting a matchmaking system.
 
 I was put in charge of the system because I was the only developer who was interested in Data Science on the team.
-I was tasked to research TrueSkill, an advanced version of the popular Elo rating system for computer games.
-TrueSkill is based on many mathematical theories, such as Bayesian inference and Factor graph.
-The TrueSkill paper was filled with unfamiliar mathematical notations.
+I was tasked to research TrueSkill.
+It is an advanced version of the popular Elo rating system.
+It is based on many mathematical theories, such as Bayesian inference and Factor graph.
+At first, I gave the TrueSkill paper a cursory reading.
+It was filled with unrecognizable mathematical notations.
 It seemed almost impossible for me to understand the paper and apply it to the game.
 
-Self-learning pressure caused by my curiosity saved me. I felt an inner drive to understand the paper.
-I could put a lot of efforts to build the mathematical backgrounds via YouTube and Khan Academy even in my free time.
-I consolidated my understanding through implmenting prototypes and writing tests.
+Self-learning pressure caused by my curiosity saved me.
+I felt an inner drive to understand the paper.
+I put a lot of efforts to build mathematical backgrounds even in my free time.
+I mostly studied them via YouTube and Khan Academy.
+I consolidated my understanding through implementing prototypes.
+I wrote lots of tests to prove that it works as expected.
 Through this, I could develop the system gradually.
 The matchmaking system called 'Arena' was launched successfully after striving for over 6 months. 
 
-# My goal for the course is to cultivate my capacity for applying data science to develop game.
-# I always feel the lack of solid foundations although I’ve been working related to Data Science,
-# Data science astonishes the whole world everyday.
-
-# Throughout my career, even though it's rather successful, I couldn't keep working on data science related jobs.
-# I think that's because I've been growing up as a generalist. In other words, I'm lack of specialty and solid backgrounds for the field.
-# I expect MCS-DS will provide me a great opportunity to cultivate my capacity for applying data science to game development.
-# With my previous experience as a DevOps enginner, I'm sure that I would become a successful practioner of data science.
-# Even though I've been doing works related to Data Science, I have always felt the lack of solid foundations for the field.
+I believe Data Science can create more innovation to gaming industry.
+One of my lifetime goals is to develop a unique, innovative game based on Data Science.
+Although I've been doing Data Science related works, I feel lack of structured knowledge for the field.
+MCS-DS is the best opportunity for my procession to the goal.
+I think the course suits to my self-learning trait. I expect to build a solid foundation for Data Science from the course.
+After the course, I'm sure that I will become a unique expert of being both a Data Scientist and a Game Developer.
