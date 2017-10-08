@@ -1,0 +1,6 @@
+#+TITLE: Practical aspects of Deep Learning
+
+* Table of Contents :TOC_3_gh:
+- [[#setting-up-your-machine-learning-application][Setting up your Machine Learning Application]]
+
+* Setting up your Machine Learning Application
