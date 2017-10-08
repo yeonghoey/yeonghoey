@@ -38,21 +38,28 @@ Data science astonishes the whole world everyday.
 ---
 
 In 2016, when I joined my current team, I developed a simple dodging game which exploits Deep Q Learning.
+In the game, the agent controls a spaceship to avoid a barrage of bullets as long as possible.
 It was a 2 week-long project for the new comers of my current team.
 At the moment of the project, I was fascinated by Deep Q Learning which was introduced by Atari paper.
 Even though I thought 2 weeks were short, I decided to challenge myself to follow my curiosity.
 
 After I went over the Atari paper several times, I realized that I lacked the basics to understand Deep Q Learning.
-I crammed knowledge onneural networks across blogs, TensorFlow exampes, YouTube tutorials.
+I crammed knowledge on neural networks across blogs, TensorFlow exampes, YouTube tutorials.
 And then, when I felt a little confident, I analyzed the Deep Q Learning examples on GitHub.
 I built many prototypes and ran experiments with tweaking hyper parameters on them.
-After all, I managed to finish the project in before the deadline.
-The performance of AI was not as I expected, however it worked ok.
-To package the AI as a game, I made the AI as a partner of the player.
-The player and the AI control a spaceship in tandem.
-My team crew were inspired of my work and I was proud of it. 
 
-I made a partner of a player to package AI as a game.
+After all, I managed to finish the project in before the deadline.
+The performance of the AI I trained was not as I expected, however it worked okay.
+Under some circumstances it could survive for almost a minute.
+
+I packaged the AI as a partner of the player.
+The player and the AI control a spaceship in tandem.
+It was a weird idea, but the game inspired my team crew.
+
+I saw the possibility that Data Science could bring an innovaction to gaming industry.
+
+The application of Data science on the game development, which is one of my lifetime goald, 
+
 The player and the AI control a spaceship in tandem.
 My team crew were inspired of my arduous work and I was proud of it. 
 The experience shown above proves that I can turn my curiosity in anything to happen.
