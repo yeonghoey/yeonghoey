@@ -42,9 +42,8 @@ As for Bubble Fighter, it is an online water gun fight game for kids.
 It already had been out for 5 years, however there was no matchmaking system at the time.
 Like many other online games, my team desired to gather more player by planting a matchmaking system.
 
-I was put in charge of the system because I was the only developer who was interested in Data Science on the team.
-I was tasked to research TrueSkill.
-It is an advanced version of the popular Elo rating system.
+Because I was the only developer interested in Data Science on the team, I was put in charge of the development of the matchmaking system.
+I researched TrueSkill. It is an advanced version of the popular Elo rating system.
 It is based on many mathematical theories, such as Bayesian inference and Factor graph.
 At first, I gave the TrueSkill paper a cursory reading.
 It was filled with unrecognizable mathematical notations.
@@ -56,12 +55,12 @@ I put a lot of efforts to build mathematical backgrounds even in my free time.
 I mostly studied them via YouTube and Khan Academy.
 I consolidated my understanding through implementing prototypes.
 I wrote lots of tests to prove that it works as expected.
-Through this, I could develop the system gradually.
+Through this, I could develop the whole matchmaking system gradually.
 The matchmaking system called 'Arena' was launched successfully after striving for over 6 months. 
 
 I believe Data Science can create more innovation to gaming industry.
 One of my lifetime goals is to develop a unique, innovative game based on Data Science.
-Although I've been doing Data Science related works, I feel lack of structured knowledge for the field.
-MCS-DS is the best opportunity for my procession to the goal.
-I think the course suits to my self-learning trait. I expect to build a solid foundation for Data Science from the course.
+I think MCS-DS is the best opportunity for my procession to the goal.
+Although I've been doing some Data Science related works, I feel lack of the field's structured knowledge.
+I expect to build a solid foundation for Data Science from the course.
 After the course, I'm sure that I will become a unique expert of being both a Data Scientist and a Game Developer.
