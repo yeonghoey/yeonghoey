@@ -1,18 +1,3 @@
 #+TITLE: How Bitcoin Achieves Decentralization
 
 * Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-- [[#staging][Staging]]
-
-* Overview
-* Reference
-* Terminology
-* Topics
-* How-to
-* Links
-* Staging
