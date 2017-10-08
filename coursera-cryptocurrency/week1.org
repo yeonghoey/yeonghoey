@@ -9,6 +9,7 @@
 - [[#hash-pointers-and-data-structures][Hash Pointers and Data Structures]]
   - [[#self-study-to-understand-more][Self study to understand more]]
 - [[#digital-signatures][Digital Signatures]]
+- [[#public-keys-as-identities][Public Keys as Identities]]
 
 * Cryptographic Hash Functions
 [[file:img/screenshot_2017-09-29_07-45-44.png]]
@@ -82,3 +83,11 @@
 [[file:img/screenshot_2017-10-08_09-43-56.png]]
 
 [[file:img/screenshot_2017-10-08_09-44-16.png]]
+* Public Keys as Identities
+[[file:img/screenshot_2017-10-08_09-47-20.png]]
+
+[[file:img/screenshot_2017-10-08_09-50-28.png]]
+
+[[file:img/screenshot_2017-10-08_09-51-51.png]]
+
+[[file:img/screenshot_2017-10-08_09-52-36.png]]
