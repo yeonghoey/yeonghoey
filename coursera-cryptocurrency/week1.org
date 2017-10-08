@@ -10,6 +10,9 @@
   - [[#self-study-to-understand-more][Self study to understand more]]
 - [[#digital-signatures][Digital Signatures]]
 - [[#public-keys-as-identities][Public Keys as Identities]]
+- [[#a-simple-cryptocurrency][A Simple Cryptocurrency]]
+  - [[#goofy-coin][Goofy Coin]]
+  - [[#scrooge-coin][Scrooge Coin]]
 
 * Cryptographic Hash Functions
 [[file:img/screenshot_2017-09-29_07-45-44.png]]
@@ -91,3 +94,23 @@
 [[file:img/screenshot_2017-10-08_09-51-51.png]]
 
 [[file:img/screenshot_2017-10-08_09-52-36.png]]
+
+* A Simple Cryptocurrency
+** Goofy Coin
+[[file:img/screenshot_2017-10-08_10-11-21.png]]
+
+[[file:img/screenshot_2017-10-08_10-11-47.png]]
+
+[[file:img/screenshot_2017-10-08_10-12-34.png]]
+
+[[file:img/screenshot_2017-10-08_10-13-00.png]]
+** Scrooge Coin
+[[file:img/screenshot_2017-10-08_10-13-27.png]]
+
+[[file:img/screenshot_2017-10-08_10-13-58.png]]
+
+[[file:img/screenshot_2017-10-08_10-14-15.png]]
+
+[[file:img/screenshot_2017-10-08_10-14-30.png]]
+
+[[file:img/screenshot_2017-10-08_10-15-03.png]]
