@@ -1,10 +1,28 @@
 #+TITLE: GitLab
 
-* Table of Contents :TOC_2_gh:
- - [[#how-to][How To]]
-   - [[#restart-gitlab][Restart GitLab]]
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#config-file-paths][Config file paths]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+  - [[#restart-gitlab][Restart GitLab]]
+- [[#links][Links]]
+- [[#staging][Staging]]
 
-* How To
+* Overview
+* Reference
+** Config file paths
+- https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/configuration.md
+- https://gitlab.com/gitlab-org/gitlab-runner/blob/master/docs/configuration/advanced-configuration.md
+
+| ~/etc/gitlab/gitlab.rb~          | General configs     |
+| ~/etc/gitlab-runner/config.toml~ | Runner (CI) configs |
+
+* Terminology
+* Topics
+* How-to
 ** Restart GitLab
 - https://docs.gitlab.com/ee/administration/restart_gitlab.html
 
@@ -12,3 +30,6 @@
   # Omnibus GitLab restart
   sudo gitlab-ctl restart
 #+END_SRC
+
+* Links
+* Staging
