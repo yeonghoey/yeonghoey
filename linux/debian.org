@@ -105,7 +105,7 @@
 - Makefile
 
 *** debian/compat
-- Use ~7~
+- Use ~9~
 
 *** debhelper
 - Factor the common tasks in standard tools used by all packages
