@@ -3,9 +3,12 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#deb-files][.deb files]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
+  - [[#create-a-debian-pacakge][Create a debian pacakge]]
+    - [[#source-package][Source package]]
 - [[#links][Links]]
 - [[#staging][Staging]]
 
@@ -13,8 +16,31 @@
 [[file:img/screenshot_2017-09-04_22-35-21.png]]
 
 * Reference
+** .deb files
+- https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
+- an [[https://en.wikipedia.org/wiki/Ar_(Unix)][ar]] archive, contains:
+  - ~debian-binary~  :: version of the deb file format, ~"2.0\n"~
+  - ~control.tar.gz~ :: metadata about the package
+  - ~data.tar.gz~    :: data files of the package
+
 * Terminology
+
 * Topics
 * How-to
+** Create a debian pacakge
+- https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
+
+[[file:img/screenshot_2017-10-10_16-27-53.png]]
+
+*** Source package
+- One source package can generate several binary packages
+- Two kinds of packages
+  - Native Packages     :: normally for Debian specific software (~dpkg~, ~apt~)
+  - Non-native packages :: software developed outside Debian
+- Main file :: ~.dsc~ (meta-data)
+- Other files depending on the version of the source format(Here shows only ~3.0 (quilt)~
+  - ~pkg_ver.orig.tar.gz~      :: Upstream source
+  - ~pkg_debver.debian.tar.gz~ :: tarball with the Debian changes
+
 * Links
 * Staging
