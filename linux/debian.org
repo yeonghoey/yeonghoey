@@ -68,13 +68,9 @@
 - Edited manually or with ~dch~, for new release: ~dch -i~
 
 #+BEGIN_EXAMPLE
-  mpich2 (1.2.1.1-5) unstable ; urgency = low
-    ,* Use /usr/bin/python instead of /usr/bin/python2 .5. Allow
-      to drop dependency on python2 .5. Closes : #595268
-    ,* Make /usr/bin/ mpdroot setuid . This is the default after
-      the installation of mpich2 from source , too . LP : #616929
-      + Add corresponding lintian override .
-   -- Lucas Nussbaum <lucas@debian.org> Wed , 15 Sep 2010 18:13:44 +020
+  mpich2 (1.2.1.1-5) unstable; urgency = low
+    ,* Descriptions
+   -- Lucas Nussbaum <lucas@debian.org>	Wed, 15 Sep 2010 18:13:44 +0200
 #+END_EXAMPLE
 
 *** debian/control
