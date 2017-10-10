@@ -9,6 +9,13 @@
 - [[#how-to][How-to]]
   - [[#create-a-debian-pacakge][Create a debian pacakge]]
     - [[#source-package][Source package]]
+    - [[#files-in-debian][Files in debian/]]
+    - [[#debianchangelog][debian/changelog]]
+    - [[#debiancontrol][debian/control]]
+    - [[#debinrules][debin/rules]]
+    - [[#debiancompat][debian/compat]]
+    - [[#debhelper][debhelper]]
+    - [[#dh][dh]]
 - [[#links][Links]]
 - [[#staging][Staging]]
 
@@ -41,6 +48,81 @@
 - Other files depending on the version of the source format(Here shows only ~3.0 (quilt)~
   - ~pkg_ver.orig.tar.gz~      :: Upstream source
   - ~pkg_debver.debian.tar.gz~ :: tarball with the Debian changes
+
+*** Files in debian/
+- Main files
+  - ~control~   :: meta-data about the package (dependencies, etc.)
+  - ~rules~     :: specifies how to build the package
+  - ~copyright~ :: copyright information for the package
+  - ~changelog~ :: history of the Debian package
+
+*** debian/changelog
+- https://www.debian.org/doc/debian-policy/#debian-changelog-debian-changelog
+
+- Lists the Debian pacakging changes
+- Gives the current version of the package
+- [[file:img/screenshot_2017-10-10_16-39-43.png]]
+- Edited manually or with ~dch~, for new release: ~dch -i~
+
+#+BEGIN_EXAMPLE
+  mpich2 (1.2.1.1 -5) unstable ; urgency = low
+    ,* Use / usr / bin / python instead of / usr / bin / python2 .5. Allow
+      to drop dependency on python2 .5. Closes : #595268
+    ,* Make / usr / bin / mpdroot setuid . This is the default after
+      the installation of mpich2 from source , too . LP : #616929
+      + Add corresponding lintian override .
+   -- Lucas Nussbaum < lucas@debian . org > Wed , 15 Sep 2010 18:13:44 +020
+#+END_EXAMPLE
+
+*** debian/control
+- https://www.debian.org/doc/debian-policy/#source-package-control-files-debian-control
+
+- Package metadata like ::
+  Package name, section, priority, maintainer, uploaders,
+  build-dependencies, dependencies, description, homepage
+
+#+BEGIN_EXAMPLE
+  Source : wget
+  Section : web
+  Priority : important
+  Maintainer : Noel Kothe < noel@debian.org >
+  Build - Depends : debhelper (>> 5.0.0) , gettext , texinfo ,
+  libssl - dev ( >= 0.9.8) , dpatch , info2man
+  Standards - Version : 3.8.4
+  Homepage : http://www.gnu.org/software/wget/
+  Package : wget
+  Architecture : any
+  Depends : ${ shlibs : Depends }, ${ misc : Depends }
+  Description : retrieves files from the web
+  Wget is a network utility to retrieve files from the Web
+#+END_EXAMPLE
+
+*** debin/rules
+- https://www.debian.org/doc/debian-policy/#main-building-script-debian-rules
+- Makefile
+
+*** debian/compat
+- Use ~7~
+
+*** debhelper
+- Factor the common tasks in standard tools used by all packages
+- Fix some packaging bugs once for all packages
+- Called from ~debian/rules~
+
+*** dh
+- Simple ~debian/rules~, listing only overrides
+
+#+BEGIN_EXAMPLE
+  #!/ usr / bin / make -f
+  %:
+  	dh $@
+  override_dh_auto_configure :
+  	dh_auto_configure -- -- with - kitchen - sink
+  override_dh_auto_build :
+  	make world
+#+END_EXAMPLE
+
+[[file:img/screenshot_2017-10-10_16-55-53.png]]
 
 * Links
 * Staging
