@@ -36,8 +36,8 @@
 - One source package can generate several binary packages
 - Two kinds of packages
   - Native Packages     :: normally for Debian specific software (~dpkg~, ~apt~)
-  - Non-native packages :: software developed outside Debian
-- Main file :: ~.dsc~ (meta-data)
+  - Non-native packages :: software developed outside Debian (*Mostly this is relevant*)
+- Main file: ~.dsc~ (meta-data)
 - Other files depending on the version of the source format(Here shows only ~3.0 (quilt)~
   - ~pkg_ver.orig.tar.gz~      :: Upstream source
   - ~pkg_debver.debian.tar.gz~ :: tarball with the Debian changes
