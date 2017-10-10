@@ -16,6 +16,9 @@
     - [[#debiancompat][debian/compat]]
     - [[#debhelper][debhelper]]
     - [[#dh][dh]]
+    - [[#patch-systems][Patch systems]]
+    - [[#doing-things-during-installation-and-removal][Doing things during installation and removal]]
+    - [[#packaging-with-a-vcs][Packaging with a VCS]]
 - [[#links][Links]]
 - [[#staging][Staging]]
 
@@ -123,6 +126,19 @@
 #+END_EXAMPLE
 
 [[file:img/screenshot_2017-10-10_16-55-53.png]]
+
+*** Patch systems 
+- http://pkg-perl.alioth.debian.org/howto/quilt.html
+- Recommended built-in patch system: ~3.0 (quilt)~
+
+*** Doing things during installation and removal
+- https://www.debian.org/doc/debian-policy/#maintainer-scripts
+- Create/remove system users, start/stop services, manage alternatives
+- Done in maintainer scripts, ~preinst~, ~postinst~, ~prerm~, ~postrm~
+
+*** Packaging with a VCS
+- http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.html
+- Use ~git-buildpackage~
 
 * Links
 * Staging
