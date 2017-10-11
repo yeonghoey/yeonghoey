@@ -4,6 +4,7 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#deb-files][.deb files]]
+  - [[#dpkg][dpkg]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
@@ -32,6 +33,16 @@
   - ~debian-binary~  :: version of the deb file format, ~"2.0\n"~
   - ~control.tar.gz~ :: metadata about the package
   - ~data.tar.gz~    :: data files of the package
+
+** dpkg
+- ~-i~, ~--install~ ~<package-file...>~ ::
+  1. Extract the control files of the new package.
+  2. If another version of the same package was installed before the new installation, execute ~prerm~ script of the old package.
+  3. Run ~preinst~ script, if provided by the package.
+  4. Unpack the new files, and at the same time back up the old files, so that if something goes wrong, they can be restored.
+  5. If another version of the same package was installed before the new installation, execute the ~postrm~ script of the old package.
+     Note that this script is executed after the ~preinst~ script of the new package, because new files are written at the same time old files are removed.
+  6. Configure the package. See ~--configure~ for detailed information about how this is done.
 
 * Terminology
 
