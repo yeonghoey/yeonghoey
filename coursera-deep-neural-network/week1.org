@@ -2,5 +2,32 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#setting-up-your-machine-learning-application][Setting up your Machine Learning Application]]
+  - [[#train--dev--test-sets][Train / Dev / Test sets]]
 
 * Setting up your Machine Learning Application
+** Train / Dev / Test sets
+
+- https://stackoverflow.com/questions/2976452/whats-is-the-difference-between-train-validation-and-test-set-in-neural-netwo
+
+[[file:img/screenshot_2017-10-14_09-22-34.png]]
+
+Traditionally, 7:3 (train:dev) or 6:2:2 (train:dev:test), is a rule of thumb for data set.
+But, in these days, big data came out, and there are a lot more data than past.
+We can decrease dev and test data portion ratio, because the size of data set would just be enough in absolute perspective
+with a big data set.
+
+- Training Set :: This data set is used to adjust the weights on the neural network.
+
+- Validation(Dev) Set ::
+  This data set is used to minimize overfitting.
+  If the accuracy over the training data set increases,
+  but the accuracy over then validation data set stays the same or decreases,
+  then you're overfitting your neural network and you should stop training.
+
+- Testing Set :: This data set is used *only for testing the final solution in order to confirm the actual predictive power* of the network.
+
+[[file:img/screenshot_2017-10-14_09-13-51.png]]
+
+#+BEGIN_QUOTE
+Make sure that the dev and test sets come from the same distribution. 
+#+END_QUOTE
