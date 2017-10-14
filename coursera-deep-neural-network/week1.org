@@ -5,6 +5,9 @@
   - [[#train--dev--test-sets][Train / Dev / Test sets]]
   - [[#bias--variance][Bias / Variance]]
   - [[#basic-recipe-for-machine-learning][Basic Recipe for Machine Learning]]
+- [[#regularizing-your-neural-network][Regularizing your neural network]]
+  - [[#regularization][Regularization]]
+  - [[#why-regularization-reduces-overfitting][Why regularization reduces overfitting?]]
 
 * Setting up your Machine Learning Application
 ** Train / Dev / Test sets
@@ -43,3 +46,16 @@ Make sure that the dev and test sets come from the same distribution.
 
 ** Basic Recipe for Machine Learning
 [[file:img/screenshot_2017-10-14_09-52-29.png]]
+
+* Regularizing your neural network
+** Regularization
+[[file:img/screenshot_2017-10-14_10-01-58.png]]
+
+** Why regularization reduces overfitting?
+[[file:img/screenshot_2017-10-14_10-08-39.png]]
+
+[[file:img/screenshot_2017-10-14_10-15-16.png]]
+
+- When we increase ~lambda~ to a huge number, ~W~ is going close to zero.
+- ~W~ close to zeon means that the nework is going to be simpler.
+- Which will alleviate the high variance problem.
