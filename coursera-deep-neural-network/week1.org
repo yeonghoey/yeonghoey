@@ -3,6 +3,8 @@
 * Table of Contents :TOC_3_gh:
 - [[#setting-up-your-machine-learning-application][Setting up your Machine Learning Application]]
   - [[#train--dev--test-sets][Train / Dev / Test sets]]
+  - [[#bias--variance][Bias / Variance]]
+  - [[#basic-recipe-for-machine-learning][Basic Recipe for Machine Learning]]
 
 * Setting up your Machine Learning Application
 ** Train / Dev / Test sets
@@ -31,3 +33,13 @@ with a big data set.
 #+BEGIN_QUOTE
 Make sure that the dev and test sets come from the same distribution. 
 #+END_QUOTE
+** Bias / Variance
+[[file:img/screenshot_2017-10-14_09-33-46.png]]
+
+- http://slideplayer.com/slide/8744653/
+- [[file:img/screenshot_2017-10-14_09-42-42.png]]
+
+[[file:img/screenshot_2017-10-14_09-44-20.png]]
+
+** Basic Recipe for Machine Learning
+[[file:img/screenshot_2017-10-14_09-52-29.png]]
