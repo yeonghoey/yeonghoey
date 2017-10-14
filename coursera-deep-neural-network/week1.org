@@ -8,6 +8,8 @@
 - [[#regularizing-your-neural-network][Regularizing your neural network]]
   - [[#regularization][Regularization]]
   - [[#why-regularization-reduces-overfitting][Why regularization reduces overfitting?]]
+  - [[#dropout-regularization][Dropout Regularization]]
+  - [[#understanding-dropout][Understanding Dropout]]
 
 * Setting up your Machine Learning Application
 ** Train / Dev / Test sets
@@ -59,3 +61,12 @@ Make sure that the dev and test sets come from the same distribution.
 - When we increase ~lambda~ to a huge number, ~W~ is going close to zero.
 - ~W~ close to zeon means that the nework is going to be simpler.
 - Which will alleviate the high variance problem.
+
+** Dropout Regularization
+[[file:img/screenshot_2017-10-14_10-20-53.png]]
+
+[[file:img/screenshot_2017-10-14_10-28-17.png]]
+
+[[file:img/screenshot_2017-10-14_10-30-31.png]]
+
+** Understanding Dropout
