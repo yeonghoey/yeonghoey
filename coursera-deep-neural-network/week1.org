@@ -10,6 +10,7 @@
   - [[#why-regularization-reduces-overfitting][Why regularization reduces overfitting?]]
   - [[#dropout-regularization][Dropout Regularization]]
   - [[#understanding-dropout][Understanding Dropout]]
+  - [[#other-regularization-methods][Other regularization methods]]
 
 * Setting up your Machine Learning Application
 ** Train / Dev / Test sets
@@ -70,3 +71,13 @@ Make sure that the dev and test sets come from the same distribution.
 [[file:img/screenshot_2017-10-14_10-30-31.png]]
 
 ** Understanding Dropout
+[[file:img/screenshot_2017-10-14_10-38-29.png]]
+
+** Other regularization methods
+[[file:img/screenshot_2017-10-14_10-43-27.png]]
+
+[[file:img/screenshot_2017-10-14_10-48-46.png]]
+
+#+BEGIN_QUOTE
+The main downside of early stopping is that this couples these two tasks.
+#+END_QUOTE
