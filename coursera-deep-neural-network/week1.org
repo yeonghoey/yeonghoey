@@ -11,6 +11,10 @@
   - [[#dropout-regularization][Dropout Regularization]]
   - [[#understanding-dropout][Understanding Dropout]]
   - [[#other-regularization-methods][Other regularization methods]]
+- [[#setting-up-your-optimization-problem][Setting up your optimization problem]]
+  - [[#normalizing-inputs][Normalizing inputs]]
+  - [[#vanishing--exploding-gradients][Vanishing / Exploding gradients]]
+  - [[#weight-initialization-for-deep-networks][Weight Initialization for Deep Networks]]
 
 * Setting up your Machine Learning Application
 ** Train / Dev / Test sets
@@ -81,3 +85,17 @@ Make sure that the dev and test sets come from the same distribution.
 #+BEGIN_QUOTE
 The main downside of early stopping is that this couples these two tasks.
 #+END_QUOTE
+* Setting up your optimization problem
+** Normalizing inputs
+[[file:img/screenshot_2017-10-15_07-19-10.png]]
+
+#+BEGIN_QUOTE
+Use the ~mu~ and ~sigma~ of training set when normalizing test set.
+#+END_QUOTE
+
+[[file:img/screenshot_2017-10-15_07-22-47.png]]
+** Vanishing / Exploding gradients
+[[file:img/screenshot_2017-10-15_07-27-40.png]]
+
+** Weight Initialization for Deep Networks
+[[file:img/screenshot_2017-10-15_07-33-01.png]]
