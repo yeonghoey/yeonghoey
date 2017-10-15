@@ -279,3 +279,16 @@ Use the ~mu~ and ~sigma~ of training set when normalizing test set.
 [[file:img/screenshot_2017-10-15_16-00-24.png]]
 
 ** Gradient Checking
+[[file:img/screenshot_2017-10-15_16-05-00.png]]
+
+[[file:img/screenshot_2017-10-15_16-05-29.png]]
+
+[[file:img/screenshot_2017-10-15_16-05-41.png]]
+
+[[file:img/screenshot_2017-10-15_16-10-33.png]]
+
+[[file:img/screenshot_2017-10-15_16-18-13.png]]
+
+[[file:img/screenshot_2017-10-15_16-18-39.png]]
+
+[[file:img/screenshot_2017-10-15_16-29-56.png]]
