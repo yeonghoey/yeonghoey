@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#centralization-vs-decentralization][Centralization vs. Decentralization]]
 - [[#distributed-consensus][Distributed Consensus]]
+- [[#consensus-without-identity-the-block-chain][Consensus without Identity: the Block Chain]]
 
 * Centralization vs. Decentralization
 [[file:img/screenshot_2017-10-15_17-17-51.png]]
@@ -38,3 +39,21 @@
 [[file:img/screenshot_2017-10-15_17-53-17.png]]
 
 [[file:img/screenshot_2017-10-15_17-53-33.png]]
+* Consensus without Identity: the Block Chain
+[[file:img/screenshot_2017-10-16_01-29-14.png]]
+
+[[file:img/screenshot_2017-10-16_01-29-27.png]]
+
+[[file:img/screenshot_2017-10-16_01-29-47.png]]
+
+[[file:img/screenshot_2017-10-16_01-30-33.png]]
+
+[[file:img/screenshot_2017-10-16_01-30-50.png]]
+
+[[file:img/screenshot_2017-10-16_01-31-56.png]]
+
+[[file:img/screenshot_2017-10-16_01-32-11.png]]
+
+[[file:img/screenshot_2017-10-16_01-32-34.png]]
+
+[[file:img/screenshot_2017-10-16_01-33-00.png]]
