@@ -1,3 +1,40 @@
 #+TITLE: How Bitcoin Achieves Decentralization
 
 * Table of Contents :TOC_3_gh:
+- [[#centralization-vs-decentralization][Centralization vs. Decentralization]]
+- [[#distributed-consensus][Distributed Consensus]]
+
+* Centralization vs. Decentralization
+[[file:img/screenshot_2017-10-15_17-17-51.png]]
+
+[[file:img/screenshot_2017-10-15_17-17-38.png]]
+
+[[file:img/screenshot_2017-10-15_17-20-31.png]]
+* Distributed Consensus
+[[file:img/screenshot_2017-10-15_17-44-30.png]]
+
+[[file:img/screenshot_2017-10-15_17-46-50.png]]
+
+[[file:img/screenshot_2017-10-15_17-47-28.png]]
+
+[[file:img/screenshot_2017-10-15_17-47-55.png]]
+
+[[file:img/screenshot_2017-10-15_17-48-27.png]]
+
+[[file:img/screenshot_2017-10-15_17-48-53.png]]
+
+[[file:img/screenshot_2017-10-15_17-49-01.png]]
+
+[[file:img/screenshot_2017-10-15_17-49-44.png]]
+
+[[file:img/screenshot_2017-10-15_17-51-52.png]]
+
+- Read more: https://angus.nyc/2012/paxos-by-example/
+[[file:img/screenshot_2017-10-15_17-52-07.png]]
+
+
+[[file:img/screenshot_2017-10-15_17-52-58.png]]
+
+[[file:img/screenshot_2017-10-15_17-53-17.png]]
+
+[[file:img/screenshot_2017-10-15_17-53-33.png]]
