@@ -4,6 +4,8 @@
 - [[#centralization-vs-decentralization][Centralization vs. Decentralization]]
 - [[#distributed-consensus][Distributed Consensus]]
 - [[#consensus-without-identity-the-block-chain][Consensus without Identity: the Block Chain]]
+- [[#incentives-and-proof-of-work][Incentives and Proof of Work]]
+- [[#putting-it-all-together][Putting It All Together]]
 
 * Centralization vs. Decentralization
 [[file:img/screenshot_2017-10-15_17-17-51.png]]
@@ -57,3 +59,5 @@
 [[file:img/screenshot_2017-10-16_01-32-34.png]]
 
 [[file:img/screenshot_2017-10-16_01-33-00.png]]
+* Incentives and Proof of Work
+* Putting It All Together
