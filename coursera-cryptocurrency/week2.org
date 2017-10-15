@@ -69,6 +69,7 @@
 [[file:img/screenshot_2017-10-16_08-22-50.png]]
 
 - Transaction fee is currently optional, but will be almost mandatory as block reward diminishes.
+- https://coinidol.com/what-happens-when-bitcoin-mining-rewards-diminish-to-zero/
 
 [[file:img/screenshot_2017-10-16_08-24-33.png]]
 
@@ -85,6 +86,8 @@
 [[file:img/screenshot_2017-10-16_08-29-17.png]]
 
 [[file:img/screenshot_2017-10-16_08-29-32.png]]
+
+- SEE ALSO :: https://en.bitcoin.it/wiki/Difficulty
 
 * Putting It All Together
 [[file:img/screenshot_2017-10-16_08-30-50.png]]
