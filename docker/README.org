@@ -32,6 +32,12 @@
 
 * Terminology
 * Topics
+** Dockerfile: ADD vs COPY
+- https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-copy-and-add-commands-in-a-dockerfile
+
+- ~ADD~ allows ~<src>~ to be an URL
+- If the ~<src>~ parameter of ~ADD~ is an archive in a recognised compression format, it will be unpacked
+
 * How-to
 ** Install docker with a single command
 - https://get.docker.com/
