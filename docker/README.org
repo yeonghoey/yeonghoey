@@ -12,6 +12,41 @@
 * Overview
 * Reference
 ** Dockerfile
+- https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+
+*** LABEL
+- https://docs.docker.com/engine/reference/builder/#label
+- https://docs.docker.com/engine/userguide/labels-custom-metadata/
+
+#+BEGIN_EXAMPLE
+  LABEL <key>=<value> <key>=<value> <key>=<value> ...
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  LABEL "com.example.vendor"="ACME Incorporated"
+  LABEL com.example.label-with-value="foo"
+  LABEL version="1.0"
+  LABEL description="This text illustrates \
+  that label-values can span multiple lines."
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  LABEL multi.label1="value1" multi.label2="value2" other="value3"
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  LABEL multi.label1="value1" \
+        multi.label2="value2" \
+        other="value3"
+#+END_EXAMPLE
+
+*** MAINTAINER (deprecated)
+- Use ~LABEL~
+
+#+BEGIN_EXAMPLE
+  LABEL maintainer="SvenDowideit@home.org.au"
+#+END_EXAMPLE
+
 *** RUN
 - https://docs.docker.com/engine/reference/builder/#run
 
@@ -23,6 +58,23 @@
   - This, exec form, makes it possible to avoid shell string munging,
     and to ~RUN~ commands using a base image that does not contain the specified shell executable.
 
+- Below is a well-formed RUN instruction that demonstrates all the apt-get recommendations.
+#+BEGIN_EXAMPLE
+  RUN apt-get update && apt-get install -y \
+      aufs-tools \
+      automake \
+      build-essential \
+      curl \
+      dpkg-sig \
+      libcap-dev \
+      libsqlite3-dev \ mercurial \
+      reprepro \
+      ruby1.9.1 \
+      ruby1.9.1-dev \
+      s3cmd=1.1.* \
+   && rm -rf /var/lib/apt/lists/*
+#+END_EXAMPLE
+
 *** CMD
 - https://docs.docker.com/engine/reference/builder/#cmd
 - ~CMD ["executable","param1","param2"]~ (exec form, this is the preferred form)
@@ -30,10 +82,25 @@
 - ~CMD command param1 param2~ (shell form)
 - The main purpose of a CMD is to provide defaults for an executing container
 
+*** COPY
+- https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy
+
+- If you have multiple ~Dockerfile~ steps that use different files from your context, ~COPY~ them individually, rather than all at once.
+  This will ensure that each step’s build cache is only invalidated (forcing the step to be re-run) if the specifically required files change.
+
+#+BEGIN_EXAMPLE
+  COPY requirements.txt /tmp/
+  RUN pip install --requirement /tmp/requirements.txt
+  COPY . /tmp/
+#+END_EXAMPLE
+
 * Terminology
 * Topics
 ** Dockerfile: ADD vs COPY
+- https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy
 - https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-copy-and-add-commands-in-a-dockerfile
+
+- Although ~ADD~ and ~COPY~ are functionally similar, generally speaking, ~COPY~ is preferred. 
 
 - ~ADD~ allows ~<src>~ to be an URL
 - If the ~<src>~ parameter of ~ADD~ is an archive in a recognised compression format, it will be unpacked
