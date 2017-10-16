@@ -1,14 +1,22 @@
 #+TITLE: apt-get
 
-* Table of Contents :TOC_2_gh:
- - [[#subcommands][Subcommands]]
-   - [[#update][update]]
- - [[#details][Details]]
-   - [[#apt-vs-apt-get][apt vs apt-get]]
- - [[#use-cases][Use Cases]]
-    - [[#install-java8][Install java8]]
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#update][update]]
+    - [[#when-needed][When needed]]
+    - [[#when-fails][When fails]]
+    - [[#varlibaptlists][/var/lib/apt/lists/*]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#apt-vs-apt-get][apt vs apt-get]]
+- [[#how-to][How-to]]
+  - [[#install-java8][Install java8]]
+- [[#links][Links]]
+- [[#staging][Staging]]
 
-* Subcommands
+* Overview
+* Reference
 ** update
 *** When needed
 #+BEGIN_EXAMPLE
@@ -23,7 +31,13 @@
     /etc/apt/sources.list.d/*.list
   #+END_EXAMPLE
 
-* Details
+*** /var/lib/apt/lists/*
+- https://askubuntu.com/questions/179955/var-lib-apt-lists-huge-in-12-04
+- Files for the list of packages, downloaded from Ubuntu servers.
+- The size of the files is over MBs, people generally delete these files when building a Docker image.
+
+* Terminology
+* Topics
 ** apt vs apt-get
 - https://askubuntu.com/questions/445384/what-is-the-difference-between-apt-and-apt-get
 
@@ -31,8 +45,8 @@
 The ~apt~ command is meant to be pleasant for end users and does not need to be backward compatible like apt-get(8).
 #+END_QUOTE
 
-* Use Cases
-**  Install java8
+* How-to
+** Install java8
 - http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/
 
 #+BEGIN_SRC shell
@@ -45,3 +59,6 @@ The ~apt~ command is meant to be pleasant for end users and does not need to be 
 
   sudo update-alternatives --config java
 #+END_SRC
+
+* Links
+* Staging
