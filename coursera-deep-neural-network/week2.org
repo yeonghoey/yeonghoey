@@ -3,7 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#optimization-alogrithms][Optimization alogrithms]]
   - [[#mini-batch-gradient-descent][Mini-batch gradient descent]]
-  - [[#][]]
+  - [[#understanding-mini-batch-gradient-descent][Understanding mini-batch gradient descent]]
 
 * Optimization alogrithms
 ** Mini-batch gradient descent
@@ -11,4 +11,9 @@
 
 [[file:img/screenshot_2017-10-18_07-56-43.png]]
 
-** 
+** Understanding mini-batch gradient descent
+[[file:img/screenshot_2017-10-18_08-00-20.png]]
+
+[[file:img/screenshot_2017-10-18_08-23-00.png]]
+
+[[file:img/screenshot_2017-10-18_08-25-46.png]]

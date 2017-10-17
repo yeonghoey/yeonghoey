@@ -1,0 +1,6 @@
+#+TITLE: Mechanics of Bitcoin
+
+* Table of Contents :TOC_3_gh:
+- [[#bitcoin-transactions][Bitcoin Transactions]]
+
+* Bitcoin Transactions
