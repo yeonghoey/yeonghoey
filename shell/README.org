@@ -4,6 +4,7 @@
 - [[#reference][Reference]]
   - [[#builtins][Builtins]]
     - [[#export][export]]
+    - [[#readonly][readonly]]
     - [[#set][set]]
   - [[#keywords][Keywords]]
     - [[#array][array]]
@@ -101,6 +102,28 @@
   #      otherwise the names refer to shell variables
   # -n   no longer mark each name for export
   # -p   Display output in a form that can be reused as input.
+#+END_SRC
+
+*** readonly
+- https://bash.cyberciti.biz/guide/Readonly_command
+- https://ss64.com/bash/readonly.html
+
+#+BEGIN_SRC shell
+  readonly var
+  readonly var=value
+  readonly p=/tmp/toi.txt
+  # error
+  p=/tmp/newvale
+
+  readonly -f function_name
+  readonly -a array_name
+
+  readonly -p # print all readonly names
+#+END_SRC
+
+#+BEGIN_SRC shell
+  readonly VAR=foo   # POSIX
+  declare -r VAR=foo # bash
 #+END_SRC
 
 *** set
