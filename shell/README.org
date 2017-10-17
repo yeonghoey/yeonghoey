@@ -25,6 +25,7 @@
     - [[#watch][watch]]
     - [[#xargs][xargs]]
   - [[#others][Others]]
+    - [[#special-parameters-----etc][Special Parameters ($#, $$, $*, $@, etc.)]]
     - [[#-or-][$@ or $*]]
     - [[#arithmetic-expansion][Arithmetic Expansion]]
     - [[#brace-expansion][Brace Expansion]]
@@ -167,7 +168,7 @@
 - https://www.cyberciti.biz/faq/bash-iterate-array/
 - https://unix.stackexchange.com/questions/252368/is-there-a-reason-why-the-first-element-of-a-zsh-array-is-indexed-by-1-instead-o
 
-- Declare an array variable :: 
+- Declare an array variable ::
 #+BEGIN_SRC shell
   name[subscript]=value
   declare -a nameo
@@ -853,6 +854,19 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 #+END_SRC
 
 ** Others
+*** Special Parameters ($#, $$, $*, $@, etc.)
+- https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html
+
+- ~$*~ :: positional parameters
+- ~$@~ :: positional parameters
+- ~$#~ :: number of positional parameters
+- ~$?~ :: exit status of the most recently executed foreground pipeline.
+- ~$-~ :: current option flags as specified upon invocation, by the ~set~
+- ~$$~ :: process ID of the shell
+- ~$!~ :: process ID of the job most recently placed into the background
+- ~$0~ :: name of the shell or shell script.
+- ~$_~ :: ?
+
 *** $@ or $*
 - http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
 - https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
@@ -1181,7 +1195,7 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 *** Shell Parameter Expansion
 - https://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion
 
-**** unset and null testing expansions  
+**** unset and null testing expansions
 - [[unset-null-examples.sh]]
 
 - ~${parameter:-word}~ ::
@@ -1211,7 +1225,7 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 - ~${parameter:+word}~ ::
 #+BEGIN_EXAMPLE
   if not parameter:
-    parameter 
+    parameter
   else:
     word
 #+END_EXAMPLE
@@ -1324,7 +1338,7 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 
 #+BEGIN_SRC shell
   ${parameter/pattern/string}  # the longest match of pattern against its value is replaced with string.
-  ${parameter//pattern/string} # all matches of pattern are replaced with string. 
+  ${parameter//pattern/string} # all matches of pattern are replaced with string.
   ${parameter/#pattern/string} # matches at the beginning of the expanded value of parameter.
   ${parameter/%pattern/string} # matches at the end of the expanded value of parameter.
   ${parameter/pattern/}        # deleted
@@ -1615,7 +1629,7 @@ This instructs the trap command to catch the listed SIGNALS, which may be signal
 - https://stackoverflow.com/questions/1167746/how-to-assign-a-heredoc-value-to-a-variable-in-bash
 - https://unix.stackexchange.com/questions/265149/why-is-set-o-errexit-breaking-this-read-heredoc-expression/265151#265151
 - https://unix.stackexchange.com/questions/68419/how-to-print-in-here-document
-  
+
 ** TODO <2017-07-03 Mon> IFS?
 ** TODO <2017-07-03 Mon> wc -l
 - https://stackoverflow.com/questions/6314679/in-bash-how-do-i-count-the-number-of-lines-in-a-variable
