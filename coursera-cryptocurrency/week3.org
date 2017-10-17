@@ -4,3 +4,4 @@
 - [[#bitcoin-transactions][Bitcoin Transactions]]
 
 * Bitcoin Transactions
+[[file:img/screenshot_2017-10-18_08-31-28.png]]
