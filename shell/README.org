@@ -3,6 +3,7 @@
 * Table of Contents                                                :TOC_3_gh:
 - [[#reference][Reference]]
   - [[#builtins][Builtins]]
+    - [[#command][command]]
     - [[#export][export]]
     - [[#readonly][readonly]]
     - [[#set][set]]
@@ -54,6 +55,7 @@
   - [[#prompt-a-user-for-yesno][Prompt a user for yes/no]]
   - [[#run-python-simple-web-server-for-sharing-files][Run python simple web server for sharing files]]
   - [[#temporarily-move-to-a-different-working-directory-via-subshell][Temporarily move to a different working directory via subshell]]
+  - [[#test-whether-a-command-exists][Test whether a command exists]]
   - [[#trim-a-variable][Trim a variable]]
   - [[#use-command-output-as-a-file][Use command output as a file]]
   - [[#useful-one-liners][Useful One-liners]]
@@ -63,7 +65,6 @@
   - [[#2017-06-29-thu-shift][<2017-06-29 Thu> shift]]
   - [[#2017-02-09-thu-how-do-i-copy-multiple-files-by-wildcard][<2017-02-09 Thu> How do I copy multiple files by wildcard?]]
   - [[#2017-02-01-wed-crond][<2017-02-01 Wed> cron.d]]
-  - [[#2017-03-01-wed-command-command][<2017-03-01 Wed> command command]]
   - [[#2017-03-01-wed-detect-ostype][<2017-03-01 Wed> Detect ostype]]
   - [[#2017-03-30-thu-trap][<2017-03-30 Thu> trap]]
   - [[#2017-07-02-sun-bash-curly-braces-in-variables][<2017-07-02 Sun> Bash curly braces in variables]]
@@ -92,6 +93,28 @@
 
 * Reference
 ** Builtins
+*** command
+- https://ss64.com/bash/command.html
+- https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+- https://askubuntu.com/questions/512770/what-is-use-of-command-command
+
+
+#+BEGIN_SRC shell
+  # If there is a shell function named `ls', running `command ls' within the function
+  # will execute the external `command ls' instead of calling the function `ls' recursively.
+  $ command ls
+
+  $ command -v 'curl'
+  #          └─ print the pathname or command that will be used by the shell
+  /usr/bin/curl
+
+  $ command -v 'curl' >/dev/null 2>&1; echo "$?"
+  0
+
+  $ command -v 'carl' >/dev/null 2>&1; echo "$?"
+  1
+#+END_SRC
+  
 *** export
 - https://ss64.com/bash/export.html
 - Mark each *name to be passed to child processes* in the environment.
@@ -1544,6 +1567,20 @@ There are some workarounds:
   # continue in original dir
 #+END_SRC
 
+** Test whether a command exists
+- https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+
+#+BEGIN_SRC shell
+  $ command -v 'curl'
+  /usr/bin/curl
+
+  $ command -v 'curl' >/dev/null 2>&1; echo "$?"
+  0
+
+  $ command -v 'carl' >/dev/null 2>&1; echo "$?"
+  1
+#+END_SRC
+
 ** Trim a variable
 - https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
 - See also [[#shell-parameter-expansion][Shell Parameter Expansion]]
@@ -1608,10 +1645,6 @@ http://unix.stackexchange.com/questions/122605/how-do-i-copy-multiple-files-by-w
 
 ** TODO <2017-02-01 Wed> cron.d
 - http://askubuntu.com/questions/56683/where-is-the-cron-crontab-log
-
-** TODO <2017-03-01 Wed> command command
-- http://askubuntu.com/questions/512770/what-is-use-of-command-command
-- http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script/677212#677212
 
 ** TODO <2017-03-01 Wed> Detect ostype
 - http://stackoverflow.com/questions/394230/detect-the-os-from-a-bash-script
