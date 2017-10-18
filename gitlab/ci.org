@@ -9,8 +9,18 @@
   - [[#types][types]]
   - [[#variables][variables]]
   - [[#cache][cache]]
+  - [[#jobs][Jobs]]
+    - [[#script][script]]
+    - [[#only-and-except][only and except]]
+    - [[#job-variables][Job variables]]
+    - [[#tags][tags]]
+    - [[#artifacts][artifacts]]
+    - [[#dependencies][dependencies]]
+  - [[#special-yaml-features][Special YAML features]]
+    - [[#anchors][Anchors]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
+  - [[#cache-vs-artifactsdependencies][cache vs artifacts,dependencies]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
@@ -108,8 +118,161 @@ Note: Integers (as well as strings) are legal both for variable's name and value
 By default caching is enabled and shared between pipelines and jobs, starting from GitLab 9.0
 #+END_QUOTE
 
+#+BEGIN_SRC yaml
+  cache:
+    paths:
+    - my/files
+
+  rspec:
+    script: test
+    cache:
+      key: rspec
+      paths:
+      - binaries/  # Locally defined cache overrides globally defined options.
+#+END_SRC 
+
+** Jobs
+
+- https://docs.gitlab.com/ee/ci/yaml/#jobs
+
+#+BEGIN_SRC yaml
+  job_name:
+    script:
+      - rake spec
+      - coverage
+    stage: test
+    only:
+      - master
+    except:
+      - develop
+    tags:
+      - ruby
+      - postgres
+    allow_failure: true
+#+END_SRC
+
+[[file:img/screenshot_2017-10-18_11-15-00.png]]
+
+*** script
+[[file:img/screenshot_2017-10-18_11-16-43.png]]
+
+*** only and except
+- https://docs.gitlab.com/ee/ci/yaml/#only-and-except-simplified
+
+
+[[file:img/screenshot_2017-10-18_11-18-02.png]]
+
+[[file:img/screenshot_2017-10-18_11-18-33.png]]
+
+- In the example below, job will run only for refs that start with ~issue-~, whereas all ~branches~ will be skipped:
+#+BEGIN_SRC yaml
+  job:
+    # use regexp
+    only:
+      - /^issue-.*$/
+    # use special keyword
+    except:
+      - branches
+#+END_SRC
+
+*** Job variables
+- it overrides the global YAML job variables and predefined ones
+
+#+BEGIN_SRC yaml
+  job_name:
+    variables: {}
+#+END_SRC
+
+*** tags
+- Used to select specific Runners from the list of all Runners that are allowed to run this project.
+
+#+BEGIN_SRC yaml
+  job:
+    tags:
+      - ruby
+      - postgres
+#+END_SRC
+
+*** artifacts
+- Used to specify a list of files and directories which should be attached to the job after success. 
+
+#+BEGIN_SRC yaml
+  artifacts:
+    paths:
+    - binaries/
+    - .config
+#+END_SRC
+
+[[file:img/screenshot_2017-10-18_11-26-47.png]]
+
+*** dependencies
+
+- Used in conjunction with ~artifacts~ and allows you to define the ~artifacts~ to pass between different jobs.
+
+#+BEGIN_QUOTE
+Note that artifacts from all previous stages are passed by default.
+#+END_QUOTE
+
+#+BEGIN_SRC yaml
+  build:osx:
+    stage: build
+    script: make build:osx
+    artifacts:
+      paths:
+      - binaries/
+
+  build:linux:
+    stage: build
+    script: make build:linux
+    artifacts:
+      paths:
+      - binaries/
+
+  test:osx:
+    stage: test
+    script: make test:osx
+    dependencies:
+    - build:osx  # only downloads artifacts from build:osx
+
+  test:linux:
+    stage: test
+    script: make test:linux
+    dependencies:
+    - build:linux  # only downloads artifacts from build:linux
+
+  # downloads both ~artifacts~ because of the stage precedence
+  deploy:
+    stage: deploy
+    script: make deploy
+#+END_SRC
+
+** Special YAML features
+*** Anchors
+#+BEGIN_SRC yaml
+  .job_template: &job_definition  # Hidden key that defines an anchor named 'job_definition'
+    image: ruby:2.1
+    services:
+      - postgres
+      - redis
+
+  test1:
+    <<: *job_definition           # Merge the contents of the 'job_definition' alias
+    script:
+      - test1 project
+
+  test2:
+    <<: *job_definition           # Merge the contents of the 'job_definition' alias
+    script:
+      - test2 project
+#+END_SRC
+
 * Terminology
 * Topics
+** cache vs artifacts,dependencies
+- https://gitlab.com/gitlab-org/gitlab-runner/issues/1232
+- ~artifacts~ are created during a run and *can be used by the following JOBS* of that very same currently active run.
+- ~caches~ *can be used by following RUNS* of that very same JOB (a script in a stage, like 'build' in my example).
+
 * How-to
 * Links
 * Staging
