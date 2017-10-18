@@ -1,0 +1,115 @@
+#+TITLE: GitLab CI
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#before_script][before_script]]
+  - [[#after_script][after_script]]
+  - [[#stages][stages]]
+  - [[#types][types]]
+  - [[#variables][variables]]
+  - [[#cache][cache]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+#+BEGIN_SRC yaml
+  image: ruby:2.1
+  services:
+    - postgres
+
+  before_script:
+    - bundle install
+
+  after_script:
+    - rm secrets
+
+  stages:
+    - build
+    - test
+    - deploy
+
+  job1:
+    stage: build
+    script:
+      - execute-script-for-job1
+    only:
+      - master
+    tags:
+      - docker
+#+END_SRC
+
+* Reference
+- https://docs.gitlab.com/ee/ci/yaml/
+- https://docs.gitlab.com/ee/ci/docker/README.html
+
+[[file:img/screenshot_2017-10-18_10-53-35.png]]
+
+** before_script
+- Used to define the command that should be run before all jobs.
+- This has to be an array or a multi-line string.
+
+** after_script
+- Used to define the command that should be run after all jobs.
+- This has to be an array or a multi-line string.
+
+** stages
+- Used to define stages that can be used by jobs.
+
+#+BEGIN_SRC yaml
+  stages:
+    - build
+    - test
+    - deploy
+#+END_SRC
+
+1. First, all jobs of ~build~ are executed in parallel.
+2. If all jobs of ~build~ succeed, the ~test~ jobs are executed in parallel.
+3. If all jobs of ~test~ succeed, the ~deploy~ jobs are executed in parallel.
+4. If all jobs of ~deploy~ succeed, the commit is marked as ~success~.
+5. If any of the previous jobs fails, the commit is marked as ~failed~ and no jobs of further stage are executed.
+
+[[file:img/screenshot_2017-10-18_10-59-19.png]]
+
+** types
+- Alias for [[#stages][stages]]
+
+** variables
+- https://docs.gitlab.com/ee/ci/variables/README.html
+
+- *All variables are set as environment variables* in the build environment
+- These variables can be later used in all executed commands and scripts.
+[[file:img/screenshot_2017-10-18_11-05-41.png]]
+
+#+BEGIN_SRC yaml
+  variables:
+    DATABASE_URL: "postgres://postgres@postgres/my_database"
+    LS_CMD: 'ls $FLAGS $$TMP_DIR'
+    FLAGS: '-al'
+  job_name:
+    script:
+      - echo $CI_JOB_ID     # Defined by CI
+      - echo $DATABASE_URL  # Defined in `variables`
+      - 'eval $LS_CMD'      # will execute 'ls -al $TMP_DIR'
+      
+#+END_SRC
+
+#+BEGIN_QUOTE
+Note: Integers (as well as strings) are legal both for variable's name and value. Floats are not legal and cannot be used.
+#+END_QUOTE
+
+[[file:img/screenshot_2017-10-18_11-03-25.png]]
+
+** cache
+#+BEGIN_QUOTE
+By default caching is enabled and shared between pipelines and jobs, starting from GitLab 9.0
+#+END_QUOTE
+
+* Terminology
+* Topics
+* How-to
+* Links
+* Staging
