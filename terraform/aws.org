@@ -242,6 +242,7 @@ EOF
 
 *** aws_security_group
 - https://www.terraform.io/docs/providers/aws/r/security_group.html
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html
 
 #+BEGIN_SRC terraform
   resource "aws_security_group" "default" {
@@ -251,7 +252,7 @@ EOF
     ingress {
       from_port       = 0
       to_port         = 0
-      protocol        = "-1"
+      protocol        = "-1" # all
       security_groups = []
       self            = true
     }
@@ -259,7 +260,7 @@ EOF
     egress {
       from_port   = 0
       to_port     = 0
-      protocol    = "-1"
+      protocol    = "-1" # all
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
@@ -269,7 +270,19 @@ EOF
     vpc_id = "${aws_vpc.main.id}"
 
     ingress {
-      from_port   = -1
+      from_port   = -1 # all
+      to_port     = -1
+      protocol    = "icmp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+
+  resource "aws_security_group" "ping" {
+    name   = "${var.project}-ping"
+    vpc_id = "${aws_vpc.main.id}"
+
+    ingress {
+      from_port   = 8 # echo
       to_port     = -1
       protocol    = "icmp"
       cidr_blocks = ["0.0.0.0/0"]
