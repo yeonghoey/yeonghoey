@@ -13,9 +13,10 @@
     - [[#aws_security_group][aws_security_group]]
   - [[#data-sources][Data Sources]]
     - [[#aws_ami][aws_ami]]
-- [[#use-cases][Use Cases]]
-  - [[#setting-up-vpc][Setting up VPC]]
-  - [[#creating-an-instance][Creating an instance]]
+- [[#how-to][How-to]]
+  - [[#set-up-a-vpc][Set up a VPC]]
+  - [[#create-an-instance][Create an instance]]
+  - [[#create-an-instance-profile][Create an instance profile]]
 
 * Reference
 ** Resources
@@ -343,8 +344,8 @@ EOF
   }
 #+END_SRC
 
-* Use Cases
-** Setting up VPC
+* How-to
+** Set up a VPC
 - ~terrafrom~ will hang when destroying subnets if there are running instances on them.
 
 #+BEGIN_SRC terraform
@@ -392,7 +393,7 @@ EOF
   }
 #+END_SRC
 
-** Creating an instance
+** Create an instance
 #+BEGIN_SRC terraform
   data "aws_ami" "ubuntu1404" {
     most_recent = true
@@ -422,5 +423,68 @@ EOF
 
   resource "aws_eip" "main" {
     instance = "${aws_instance.main.id}"
+  }
+#+END_SRC
+
+** Create an instance profile
+- https://github.com/yeonghoey/yeonghoey/blob/master/aws/iam.org#s3
+
+#+BEGIN_SRC terraform
+  resource "aws_iam_instance_profile" "main" {
+    name = "my-profile"
+    role = "${aws_iam_role.main.name}"
+  }
+
+  resource "aws_iam_role" "main" {
+    name = "my-role"
+
+    assume_role_policy = <<EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Action": "sts:AssumeRole",
+        "Principal": {
+          "Service": "ec2.amazonaws.com"
+        },
+        "Effect": "Allow",
+        "Sid": ""
+      }
+    ]
+  }
+  EOF
+  }
+
+  resource "aws_iam_role_policy" "main" {
+    name = "my-role-allow-s3"
+    role = "${aws_iam_role.main.id}"
+
+    policy = <<EOF
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "s3:ListBucket"
+        ],
+        "Resource": [
+          "${aws_s3_bucket.main.arn}"
+        ]
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "s3:PutObject",
+          "s3:GetObject",
+          "s3:DeleteObject"
+        ],
+        "Resource": [
+          "${aws_s3_bucket.main.arn}/*"
+        ]
+      }
+    ]
+  }
+  EOF
   }
 #+END_SRC
