@@ -366,7 +366,7 @@ you can reference existing security groups, VPCs, and the like by defining them 
 **** Update
 - https://github.com/hashicorp/terraform/pull/11482
 - Interpolations other than ~computing required~ can be used for ~count~.
-- Now ~count = "${length(var.other_List)}"~ is valid
+- Now ~count = "$${length(var.other_List)}"~ is valid
 
 **** Previous limitation
 For now, you can't use interpolation for referencing other resources
@@ -451,5 +451,3 @@ Because the actual schema is:
 This simple tool automatically generates markdown or json document based on ~variable~ and ~output~ blocks.
 * Links
 * Staging
-
-
