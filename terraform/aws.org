@@ -1,21 +1,16 @@
 #+TITLE: AWS
 
 * Table of Contents :TOC_2_gh:
- - [[#resources][Resources]]
-   - [[#aws_eip][aws_eip]]
-   - [[#aws_elasticsearch_domain][aws_elasticsearch_domain]]
-   - [[#aws_elb][aws_elb]]
-   - [[#aws_iam_role][aws_iam_role]]
-   - [[#aws_lambda_function][aws_lambda_function]]
-   - [[#aws_rds_cluster][aws_rds_cluster]]
-   - [[#aws_rds_cluster_instance][aws_rds_cluster_instance]]
-   - [[#aws_security_group][aws_security_group]]
- - [[#use-cases][Use Cases]]
-   - [[#setting-up-vpc][Setting up VPC]]
-   - [[#creating-an-instance][Creating an instance]]
+- [[#reference][Reference]]
+  - [[#resources][Resources]]
+  - [[#data-sources][Data Sources]]
+- [[#use-cases][Use Cases]]
+  - [[#setting-up-vpc][Setting up VPC]]
+  - [[#creating-an-instance][Creating an instance]]
 
-* Resources
-** aws_eip
+* Reference
+** Resources
+*** aws_eip
 - https://www.terraform.io/docs/providers/aws/r/eip.html
 - https://github.com/hashicorp/terraform/issues/4944#issuecomment-248884637
 
@@ -33,7 +28,7 @@
   }
 #+END_SRC
 
-** aws_elasticsearch_domain
+*** aws_elasticsearch_domain
 - https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain.html
 - https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html
 
@@ -55,7 +50,7 @@
   }
 #+END_SRC
 
-** aws_elb
+*** aws_elb
 - https://www.terraform.io/docs/providers/aws/r/elb.html
 
 #+BEGIN_SRC terraform
@@ -88,7 +83,7 @@
   }
 #+END_SRC
 
-** aws_iam_role
+*** aws_iam_role
 - https://www.terraform.io/docs/providers/aws/d/iam_role.html
 
 #+BEGIN_SRC terraform
@@ -172,7 +167,7 @@ EOF
   }
 #+END_SRC
 
-** aws_lambda_function
+*** aws_lambda_function
 - https://www.terraform.io/docs/providers/aws/r/lambda_function.html
 - https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping.html
 
@@ -207,8 +202,8 @@ EOF
     starting_position = "LATEST"
   }
 #+END_SRC
-** aws_rds_cluster
-** aws_rds_cluster_instance
+*** aws_rds_cluster
+*** aws_rds_cluster_instance
 #+BEGIN_SRC terraform
   resource "aws_rds_cluster" "cluster" {
     db_cluster_parameter_group_name = "default.aurora5.6"
@@ -235,7 +230,7 @@ EOF
   }
 #+END_SRC
 
-** aws_security_group
+*** aws_security_group
 - https://www.terraform.io/docs/providers/aws/r/security_group.html
 
 #+BEGIN_SRC terraform
@@ -280,6 +275,61 @@ EOF
       to_port     = 22
       protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+#+END_SRC
+
+** Data Sources
+*** aws_ami
+- https://www.terraform.io/docs/providers/aws/d/ami.html
+- http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
+
+#+BEGIN_SRC terraform
+  data "aws_ami" "ubuntu1604" {
+    most_recent = true
+
+    filter {
+      name   = "name"
+      values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+    }
+
+    filter {
+      name   = "virtualization-type"
+      values = ["hvm"]
+    }
+
+    owners = ["099720109477"] # Canonical
+  }
+#+END_SRC
+
+#+BEGIN_SRC terraform
+  data "aws_ami" "my_image1" {
+    most_recent = true
+
+    filter {
+      name   = "state"
+      values = ["available"]
+    }
+
+    filter {
+      name   = "tag:Name"
+      values = ["My Image"]
+    }
+  }
+#+END_SRC
+
+#+BEGIN_SRC terraform
+  data "aws_ami" "my_image2" {
+    most_recent = true
+
+    filter {
+      name   = "state"
+      values = ["available"]
+    }
+
+    filter {
+      name   = "name"
+      values = ["my-image-*"]
     }
   }
 #+END_SRC
