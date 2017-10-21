@@ -8,6 +8,10 @@
   - [[#understanding-exponentially-weighted-averages][Understanding exponentially weighted averages]]
   - [[#bias-correction-in-exponentially-weighted-averages][Bias correction in exponentially weighted averages]]
   - [[#gradient-descent-with-momentum][Gradient descent with momentum]]
+  - [[#rmsprop][RMSprop]]
+  - [[#adam-optimization-algorithm][Adam optimization algorithm]]
+  - [[#learning-rate-decay][Learning rate decay]]
+  - [[#the-problem-of-local-optima][The problem of local optima]]
 
 * Optimization alogrithms
 ** Mini-batch gradient descent
@@ -45,3 +49,32 @@
 - Some practitioners omit ~(1 - B)~.
   But it would change the sementic scale of ~Vdw~, ~Vdb~, which make the learning rate ~a~ have different meaning.
   So he recommends to keep ~(1 - B)~.
+** RMSprop
+[[file:img/screenshot_2017-10-22_00-27-14.png]]
+
+** Adam optimization algorithm
+[[file:img/screenshot_2017-10-22_00-27-46.png]]
+
+[[file:img/screenshot_2017-10-22_00-28-03.png]]
+
+** Learning rate decay
+[[file:img/screenshot_2017-10-22_00-28-33.png]]
+
+[[file:img/screenshot_2017-10-22_00-28-51.png]]
+
+[[file:img/screenshot_2017-10-22_00-29-11.png]]
+
+#+BEGIN_QUOTE
+For me, I would say that learning rate decay is usually lower down on the list of things I try.
+Setting alpha, just a fixed value of alpha, and getting that to be well tuned, has a huge impact.
+Learning rate decay does help.
+Sometimes it can really help speed up training, but it is a little bit lower down my list in terms of the things I would try.
+#+END_QUOTE
+
+** The problem of local optima
+[[file:img/screenshot_2017-10-22_00-30-00.png]]
+
+[[file:img/screenshot_2017-10-22_00-29-43.png]]
+
+Local optima is unlikely to happen because there are lots of dimensions in most of practical problems.
+The probability of the actual local optima for all the related dimensions are extremly low.
