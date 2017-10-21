@@ -2,6 +2,8 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#bitcoin-transactions][Bitcoin Transactions]]
+- [[#bitcoin-scripts][Bitcoin Scripts]]
+- [[#applications-of-bitcoin-scripts][Applications of Bitcoin Scripts]]
 
 * Bitcoin Transactions
 [[file:img/screenshot_2017-10-18_08-31-28.png]]
@@ -19,3 +21,66 @@
 [[file:img/screenshot_2017-10-20_08-28-08.png]]
 
 [[file:img/screenshot_2017-10-20_08-28-27.png]]
+* Bitcoin Scripts
+[[file:img/screenshot_2017-10-22_00-34-25.png]]
+
+[[file:img/screenshot_2017-10-22_00-34-58.png]]
+
+[[file:img/screenshot_2017-10-22_00-35-18.png]]
+
+[[file:img/screenshot_2017-10-22_00-35-37.png]]
+
+[[file:img/screenshot_2017-10-22_00-35-55.png]]
+
+[[file:img/screenshot_2017-10-22_00-36-30.png]]
+
+[[file:img/screenshot_2017-10-22_00-36-41.png]]
+
+[[file:img/screenshot_2017-10-22_00-37-12.png]]
+
+[[file:img/screenshot_2017-10-22_00-37-34.png]]
+
+[[file:img/screenshot_2017-10-22_00-39-46.png]]
+
+#+BEGIN_QUOTE
+The first is to write arbitrary data into the block chain if for some reason you want to write your name, or if you want to time stamp and prove that you knew some data at a specific time, you can create a very low value Bitcoin transaction that's proof-of-burn.
+So you can destroy a very small amount of currency, and in exchange you can write whatever you want into the block chain, which should be kept around forever. 
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+The other example of proof-of-burn we'll talk about in a later lecture on alternate currencies,
+that it can be way to bootstrap an alternative to Bitcoin by forcing people to destroy Bitcoin in order to gain coins in the new system. 
+#+END_QUOTE
+
+[[file:img/screenshot_2017-10-22_00-41-50.png]]
+
+[[file:img/screenshot_2017-10-22_00-46-06.png]]
+
+[[file:img/screenshot_2017-10-22_00-44-03.png]]
+
+[[file:img/screenshot_2017-10-22_00-44-26.png]]
+* Applications of Bitcoin Scripts
+[[file:img/screenshot_2017-10-22_00-48-20.png]]
+
+[[file:img/screenshot_2017-10-22_00-48-51.png]]
+
+[[file:img/screenshot_2017-10-22_00-49-05.png]]
+
+[[file:img/screenshot_2017-10-22_00-49-24.png]]
+
+[[file:img/screenshot_2017-10-22_00-49-55.png]]
+
+#+BEGIN_QUOTE
+Now people are actually quite nervous about this idea and they're worried that this puts too much trust in the bank.
+As a result, this isn't used that much in practice even though it's a cool protocol. 
+#+END_QUOTE
+
+[[file:img/screenshot_2017-10-22_00-50-48.png]]
+
+[[file:img/screenshot_2017-10-22_00-51-13.png]]
+
+[[file:img/screenshot_2017-10-22_00-51-37.png]]
+
+[[file:img/screenshot_2017-10-22_00-51-58.png]]
+
+[[file:img/screenshot_2017-10-22_00-52-11.png]]
