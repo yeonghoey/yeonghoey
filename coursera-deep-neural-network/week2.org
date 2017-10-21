@@ -4,6 +4,8 @@
 - [[#optimization-alogrithms][Optimization alogrithms]]
   - [[#mini-batch-gradient-descent][Mini-batch gradient descent]]
   - [[#understanding-mini-batch-gradient-descent][Understanding mini-batch gradient descent]]
+  - [[#exponentially-weighted-averages][Exponentially weighted averages]]
+  - [[#understanding-exponentially-weighted-averages][Understanding exponentially weighted averages]]
 
 * Optimization alogrithms
 ** Mini-batch gradient descent
@@ -17,3 +19,9 @@
 [[file:img/screenshot_2017-10-18_08-23-00.png]]
 
 [[file:img/screenshot_2017-10-18_08-25-46.png]]
+** Exponentially weighted averages
+[[file:img/screenshot_2017-10-21_17-25-56.png]]
+
+[[file:img/screenshot_2017-10-21_17-25-29.png]]
+
+** Understanding exponentially weighted averages
