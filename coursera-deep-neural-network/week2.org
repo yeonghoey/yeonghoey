@@ -30,6 +30,10 @@
 
 [[file:img/screenshot_2017-10-21_17-25-29.png]]
 
+- ~0.9~  :: red
+- ~0.98~ :: green, morer smooth, shifted right because it now averages over a larger window.
+- ~0.5~  :: yellow
+
 ** Understanding exponentially weighted averages
 [[file:img/screenshot_2017-10-21_17-33-22.png]]
 
