@@ -25,3 +25,6 @@
 [[file:img/screenshot_2017-10-21_17-25-29.png]]
 
 ** Understanding exponentially weighted averages
+[[file:img/screenshot_2017-10-21_17-33-22.png]]
+
+[[file:img/screenshot_2017-10-21_17-35-50.png]]
