@@ -6,6 +6,8 @@
   - [[#understanding-mini-batch-gradient-descent][Understanding mini-batch gradient descent]]
   - [[#exponentially-weighted-averages][Exponentially weighted averages]]
   - [[#understanding-exponentially-weighted-averages][Understanding exponentially weighted averages]]
+  - [[#bias-correction-in-exponentially-weighted-averages][Bias correction in exponentially weighted averages]]
+  - [[#gradient-descent-with-momentum][Gradient descent with momentum]]
 
 * Optimization alogrithms
 ** Mini-batch gradient descent
@@ -28,3 +30,18 @@
 [[file:img/screenshot_2017-10-21_17-33-22.png]]
 
 [[file:img/screenshot_2017-10-21_17-35-50.png]]
+
+** Bias correction in exponentially weighted averages
+[[file:img/screenshot_2017-10-21_17-40-11.png]]
+
+- During initial phases, the values are very smaller than the actual values.(the coefficients of ~0.0196~ and ~0.02~ are both small)
+- With ~Vt~ / ~(1 - B^t)~, only initial phases are affected, because as ~t~ becomes large, ~B^t~ goes ~0~.
+
+** Gradient descent with momentum
+[[file:img/screenshot_2017-10-21_17-52-09.png]]
+
+[[file:img/screenshot_2017-10-21_17-55-06.png]]
+
+- Some practitioners omit ~(1 - B)~.
+  But it would change the sementic scale of ~Vdw~, ~Vdb~, which make the learning rate ~a~ have different meaning.
+  So he recommends to keep ~(1 - B)~.
