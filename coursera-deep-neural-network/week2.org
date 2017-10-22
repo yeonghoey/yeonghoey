@@ -97,3 +97,28 @@ The probability of the actual local optima for all the related dimensions are ex
 [[file:img/screenshot_2017-10-22_16-04-24.png]]
 
 [[file:img/screenshot_2017-10-22_16-05-48.png]]
+
+#+BEGIN_SRC python
+  # Step 1: Shuffle (X, Y)
+  permutation = list(np.random.permutation(m))
+  shuffled_X = X[:, permutation]
+  shuffled_Y = Y[:, permutation].reshape((1,m))
+#+END_SRC
+
+[[file:img/screenshot_2017-10-22_16-20-37.png]]
+
+[[file:img/screenshot_2017-10-22_16-24-34.png]]
+
+[[file:img/screenshot_2017-10-22_16-29-29.png]]
+
+[[file:img/screenshot_2017-10-22_16-30-46.png]]
+
+- Mini-batch gradient descent with momentum
+[[file:img/screenshot_2017-10-22_16-47-14.png]]
+
+- Mini-batch with Adam mode
+[[file:img/screenshot_2017-10-22_16-48-42.png]]
+
+[[file:img/screenshot_2017-10-22_16-49-21.png]]
+
+- [[https://arxiv.org/pdf/1412.6980.pdf][Adam paper]]
