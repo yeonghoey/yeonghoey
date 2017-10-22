@@ -12,6 +12,8 @@
   - [[#adam-optimization-algorithm][Adam optimization algorithm]]
   - [[#learning-rate-decay][Learning rate decay]]
   - [[#the-problem-of-local-optima][The problem of local optima]]
+- [[#programming-assignment][Programming assignment]]
+  - [[#optimization][Optimization]]
 
 * Optimization alogrithms
 ** Mini-batch gradient descent
@@ -82,3 +84,16 @@ Sometimes it can really help speed up training, but it is a little bit lower dow
 
 Local optima is unlikely to happen because there are lots of dimensions in most of practical problems.
 The probability of the actual local optima for all the related dimensions are extremly low.
+* Programming assignment
+** Optimization
+[[file:img/screenshot_2017-10-22_16-01-57.png]]
+
+[[file:img/screenshot_2017-10-22_16-02-36.png]]
+
+[[file:img/screenshot_2017-10-22_16-03-02.png]]
+
+[[file:img/screenshot_2017-10-22_16-03-25.png]]
+
+[[file:img/screenshot_2017-10-22_16-04-24.png]]
+
+[[file:img/screenshot_2017-10-22_16-05-48.png]]

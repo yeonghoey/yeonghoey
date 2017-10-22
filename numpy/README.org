@@ -4,6 +4,7 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#zeros][zeros]]
+  - [[#slicing-and-indexing][Slicing and Indexing]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#dimensions][Dimensions]]
@@ -17,6 +18,35 @@
 - https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.zeros.html
 
 : numpy.zeros(shape, dtype=float, order='C')
+
+** Slicing and Indexing
+- https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html
+
+- ~i:j:k~ where ~i~ is the starting index, ~j~ is the stopping index, and ~k~ is the step (~k != 0~).
+
+#+BEGIN_SRC python
+  >>> x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+  >>> x[1:7:2]
+  array([1, 3, 5])
+#+END_SRC
+
+- if the number of objects in the selection tuple is less than N , then ~:~ is assumed for any subsequent dimensions.
+- ~Ellipsis~ expand to the number of ~:~ objects needed to make a selection tuple of the same length as ~x.ndim~.
+  There may only be a single ellipsis present.
+
+#+BEGIN_SRC python
+  >>> x = np.array([[[1],[2],[3]], [[4],[5],[6]]])
+  >>> x.shape
+  (2, 3, 1)
+  >>> x[1:2]
+  array([[[4],
+          [5],
+          [6]]])
+
+  >>> x[...,0]
+  array([[1, 2, 3],
+         [4, 5, 6]])
+#+END_SRC
 
 * Terminology
 * Topics
