@@ -5,6 +5,8 @@
 - [[#bitcoin-scripts][Bitcoin Scripts]]
 - [[#applications-of-bitcoin-scripts][Applications of Bitcoin Scripts]]
 - [[#bitcoin-blocks][Bitcoin Blocks]]
+- [[#the-bitcoin-network][The Bitcoin Network]]
+- [[#limitations--improvements][Limitations & Improvements]]
 
 * Bitcoin Transactions
 [[file:img/screenshot_2017-10-18_08-31-28.png]]
@@ -111,3 +113,59 @@ and serve as a commitment that Bitcoin, the first block was obviously mined afte
 #+END_QUOTE
 
 [[file:img/screenshot_2017-10-22_21-08-16.png]]
+* The Bitcoin Network
+[[file:img/screenshot_2017-10-22_21-10-28.png]]
+
+[[file:img/screenshot_2017-10-22_22-46-32.png]]
+
+[[file:img/screenshot_2017-10-22_22-46-49.png]]
+
+[[file:img/screenshot_2017-10-22_22-46-58.png]]
+
+[[file:img/screenshot_2017-10-22_22-47-11.png]]
+
+[[file:img/screenshot_2017-10-22_22-47-28.png]]
+
+[[file:img/screenshot_2017-10-22_22-47-52.png]]
+
+[[file:img/screenshot_2017-10-22_22-48-33.png]]
+
+[[file:img/screenshot_2017-10-22_22-48-55.png]]
+
+[[file:img/screenshot_2017-10-22_22-49-19.png]]
+
+[[file:img/screenshot_2017-10-22_22-49-45.png]]
+
+[[file:img/screenshot_2017-10-22_22-49-58.png]]
+
+[[file:img/screenshot_2017-10-22_22-50-22.png]]
+
+[[file:img/screenshot_2017-10-22_22-50-38.png]]
+
+[[file:img/screenshot_2017-10-22_22-50-56.png]]
+
+[[file:img/screenshot_2017-10-22_22-51-07.png]]
+
+[[file:img/screenshot_2017-10-22_22-51-31.png]]
+
+[[file:img/screenshot_2017-10-22_22-51-49.png]]
+
+[[file:img/screenshot_2017-10-22_22-52-09.png]]
+
+* Limitations & Improvements
+[[file:img/screenshot_2017-10-22_22-41-08.png]]
+
+[[file:img/screenshot_2017-10-22_22-41-34.png]]
+
+[[file:img/screenshot_2017-10-22_22-41-56.png]]
+
+[[file:img/screenshot_2017-10-22_22-42-32.png]]
+
+[[file:img/screenshot_2017-10-22_22-43-13.png]]
+
+[[file:img/screenshot_2017-10-22_22-43-29.png]]
+
+[[file:img/screenshot_2017-10-22_22-44-00.png]]
+
+[[file:img/screenshot_2017-10-22_22-44-23.png]]
+
