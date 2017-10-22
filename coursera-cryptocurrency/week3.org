@@ -4,6 +4,7 @@
 - [[#bitcoin-transactions][Bitcoin Transactions]]
 - [[#bitcoin-scripts][Bitcoin Scripts]]
 - [[#applications-of-bitcoin-scripts][Applications of Bitcoin Scripts]]
+- [[#bitcoin-blocks][Bitcoin Blocks]]
 
 * Bitcoin Transactions
 [[file:img/screenshot_2017-10-18_08-31-28.png]]
@@ -84,3 +85,29 @@ As a result, this isn't used that much in practice even though it's a cool proto
 [[file:img/screenshot_2017-10-22_00-51-58.png]]
 
 [[file:img/screenshot_2017-10-22_00-52-11.png]]
+* Bitcoin Blocks
+[[file:img/screenshot_2017-10-22_21-01-33.png]]
+
+[[file:img/screenshot_2017-10-22_21-01-59.png]]
+
+[[file:img/screenshot_2017-10-22_21-02-32.png]]
+
+[[file:img/screenshot_2017-10-22_21-02-53.png]]
+
+[[file:img/screenshot_2017-10-22_21-04-18.png]]
+
+#+BEGIN_QUOTE
+and this is the coinbase transaction. So this is where the creation of new coins and Bitcoin happens.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+And the coinbase parameter is completely arbitrary,
+the miners can put whatever they want in there.
+So famously, in the very first block ever mined in Bitcoin,
+the coinbase parameter had a quote from the newspaper.
+It had a quote from the Times of London describing a story involving the chancellor bailing out banks,
+which was both a political commentary on the motivation for starting Bitcoin,
+and serve as a commitment that Bitcoin, the first block was obviously mined after this newspaper came out. 
+#+END_QUOTE
+
+[[file:img/screenshot_2017-10-22_21-08-16.png]]
