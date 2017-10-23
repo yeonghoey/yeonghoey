@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#dch-debchange][dch (debchange)]]
   - [[#deb-files][.deb files]]
   - [[#dpkg][dpkg]]
 - [[#terminology][Terminology]]
@@ -27,6 +28,33 @@
 [[file:img/screenshot_2017-09-04_22-35-21.png]]
 
 * Reference
+** dch (debchange)
+- https://stackoverflow.com/questions/18957811/debian-packages-on-xubuntu-install-debchange-dch
+- https://askubuntu.com/questions/579323/dch-non-interactive-mode
+
+#+BEGIN_SRC shell
+  sudo apt-get install devscripts
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Create initial `debian/changelog`, content would look like following:
+  # -------------------------------------------------------------------------------
+  # my-package (2.11.2-b145b232a) unstable; urgency=low
+  #
+  #   * Built automatically
+  #
+  #  -- Yeongho Kim <yeonghoey@yhws>  Wed, 18 Oct 2017 17:09:58 +0900
+  # -------------------------------------------------------------------------------
+  debchange \
+    --create \
+    --package      "my-package" \
+    --newversion   "${VERSION}" \
+    --distribution "unstable" \
+    --urgency      "low" \
+    "Built automatically"
+
+#+END_SRC
+
 ** .deb files
 - https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
 - an [[https://en.wikipedia.org/wiki/Ar_(Unix)][ar]] archive, contains:
