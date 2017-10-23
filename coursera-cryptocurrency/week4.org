@@ -1,0 +1,33 @@
+#+TITLE: How to Store and Use Bitcoins
+
+* Table of Contents :TOC_3_gh:
+- [[#how-to-store-and-use-bitcoins][How to Store and Use Bitcoins]]
+- [[#hot-and-cold-storage][Hot and Cold Storage]]
+
+* How to Store and Use Bitcoins
+[[file:img/screenshot_2017-10-24_07-55-22.png]]
+
+[[file:img/screenshot_2017-10-24_07-55-38.png]]
+
+[[file:img/screenshot_2017-10-24_07-57-33.png]]
+
+[[file:img/screenshot_2017-10-24_07-58-43.png]]
+
+[[file:img/screenshot_2017-10-24_08-00-41.png]]
+
+* Hot and Cold Storage
+[[file:img/screenshot_2017-10-24_08-02-25.png]]
+
+[[file:img/screenshot_2017-10-24_08-03-08.png]]
+
+[[file:img/screenshot_2017-10-24_08-04-07.png]]
+
+[[file:img/screenshot_2017-10-24_08-05-28.png]]
+
+[[file:img/screenshot_2017-10-24_08-09-27.png]]
+
+[[file:img/screenshot_2017-10-24_08-10-39.png]]
+
+[[file:img/screenshot_2017-10-24_08-12-51.png]]
+
+[[file:img/screenshot_2017-10-24_08-13-05.png]]
