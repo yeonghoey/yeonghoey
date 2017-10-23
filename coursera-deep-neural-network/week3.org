@@ -1,0 +1,13 @@
+#+TITLE: Hyperparameter tuning, Batch Normalization and Programming Frameworks
+
+* Table of Contents :TOC_3_gh:
+- [[#hyperparameter-tuning][Hyperparameter tuning]]
+  - [[#tuning-process][Tuning process]]
+  - [[#using-an-appropriate-scale-to-pick-hyperparameters][Using an appropriate scale to pick hyperparameters]]
+  - [[#hyperparameters-tuning-in-practice-pandas-vs-caviar][Hyperparameters tuning in practice: Pandas vs. Caviar]]
+
+* Hyperparameter tuning
+** Tuning process
+** Using an appropriate scale to pick hyperparameters
+** Hyperparameters tuning in practice: Pandas vs. Caviar
+
