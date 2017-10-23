@@ -8,6 +8,23 @@
 
 * Hyperparameter tuning
 ** Tuning process
+[[file:img/screenshot_2017-10-24_07-04-16.png]]
+
+- Order of importance :: ~red~ > ~orange~ > ~purple~
+- Hyperparameters for Adam :: Use default values for most cases
+
+[[file:img/screenshot_2017-10-24_07-08-48.png]]
+
+- *Prefer random values to grid values*
+- It's hard to know which parameters are more important.
+- Using grid, there would be lots of meaningless tests.
+- These points go deep when there are more dimensions.
+
+[[file:img/screenshot_2017-10-24_07-13-47.png]]
+
+- At first, pick random values in wide range.
+- When you find some points work better, narrow the random ranges.
+
 ** Using an appropriate scale to pick hyperparameters
 ** Hyperparameters tuning in practice: Pandas vs. Caviar
 
