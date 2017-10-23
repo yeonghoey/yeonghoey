@@ -26,5 +26,13 @@
 - When you find some points work better, narrow the random ranges.
 
 ** Using an appropriate scale to pick hyperparameters
+[[file:img/screenshot_2017-10-24_07-17-49.png]]
+
+- It's not always effective to pick hyperparameters by sampling uniformly at random.
+
+[[file:img/screenshot_2017-10-24_07-22-27.png]]
+
+[[file:img/screenshot_2017-10-24_07-26-26.png]]
+
 ** Hyperparameters tuning in practice: Pandas vs. Caviar
 
