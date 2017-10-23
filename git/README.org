@@ -36,6 +36,7 @@
 - [[#how-to][How-to]]
   - [[#clone-the-latest-revision][Clone the latest revision]]
   - [[#commit-only-when-theres-something-staged][Commit only when there's something staged]]
+  - [[#get-the-short-hash][Get the short hash]]
   - [[#list-all-todos-written-by-a-specific-user][List all TODOs written by a specific user]]
   - [[#purge-files-including-their-histories][Purge files including their histories]]
   - [[#resolve-conflicts][Resolve conflicts]]
@@ -377,6 +378,13 @@ fi
 
 # or just
 git diff --quiet --cached || git commit
+#+END_SRC
+
+** Get the short hash
+- https://stackoverflow.com/questions/5694389/get-the-short-git-version-hash
+
+#+BEGIN_SRC shell
+  git rev-parse --short HEAD
 #+END_SRC
 
 ** List all TODOs written by a specific user
