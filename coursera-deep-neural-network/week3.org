@@ -62,3 +62,5 @@
 [[file:img/screenshot_2017-10-26_02-26-42.png]]
 
 - Using Batch Norm, there is no point to have ~b~ (bias terms), becausue they are cleaned off when calculating ~z_nrom~.
+
+[[file:img/screenshot_2017-10-26_02-31-08.png]]
