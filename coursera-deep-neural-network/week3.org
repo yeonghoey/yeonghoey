@@ -5,6 +5,9 @@
   - [[#tuning-process][Tuning process]]
   - [[#using-an-appropriate-scale-to-pick-hyperparameters][Using an appropriate scale to pick hyperparameters]]
   - [[#hyperparameters-tuning-in-practice-pandas-vs-caviar][Hyperparameters tuning in practice: Pandas vs. Caviar]]
+- [[#batch-normalization][Batch Normalization]]
+  - [[#normalizing-activations-in-a-network][Normalizing activations in a network]]
+  - [[#fitting-batch-norm-into-a-neural-network][Fitting Batch Norm into a neural network]]
 
 * Hyperparameter tuning
 ** Tuning process
@@ -40,3 +43,22 @@
 [[file:img/screenshot_2017-10-24_07-52-27.png]]
 
 - Depends on available computation resources.
+* Batch Normalization
+** Normalizing activations in a network
+[[file:img/screenshot_2017-10-26_02-01-03.png]]
+
+- People generally normalize ~z~ instead of ~a~
+
+[[file:img/screenshot_2017-10-26_02-06-30.png]]
+
+- ~r~ (gamma) and ~b~ (beta) are to control the distribution of ~z~,
+  because unlike ~x~, some ~z~ s will be inputs of the activation functions.
+  If the activation function is sigmoid and ~z~ follows ~(0, 1)~,
+  ~a~ s will be distributed just like a linear values.
+
+** Fitting Batch Norm into a neural network
+[[file:img/screenshot_2017-10-26_02-21-56.png]]
+
+[[file:img/screenshot_2017-10-26_02-26-42.png]]
+
+- Using Batch Norm, there is no point to have ~b~ (bias terms), becausue they are cleaned off when calculating ~z_nrom~.
