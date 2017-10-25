@@ -1,0 +1,26 @@
+#+TITLE: Healthchecks
+
+* Table of Contents :TOC_3_gh:
+- [[#login][Login]]
+- [[#setup][Setup]]
+- [[#slack-integration][Slack Integration]]
+
+* Login
+- https://healthchecks.io
+
+[[file:img/screenshot_2017-10-25_11-10-47.png]]
+
+* Setup
+[[file:img/screenshot_2017-10-25_11-12-14.png]]
+
+[[file:img/screenshot_2017-10-25_11-15-27.png]]
+
+#+BEGIN_SRC shell
+  # m h dom mon dow command
+    8 6 *   *   *   /home/user/backup.sh && curl -fsS --retry 3 https://hchk.io/784b38b4-cd50-4240-815e-a645636366c1 > /dev/null
+#+END_SRC
+
+* Slack Integration
+- https://healthchecks.io/integrations/add_slack/
+
+[[file:img/screenshot_2017-10-25_11-13-56.png]]
