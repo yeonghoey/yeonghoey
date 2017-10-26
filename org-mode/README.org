@@ -5,6 +5,7 @@
 - [[#markup][Markup]]
 - [[#easy-templates][Easy Templates]]
 - [[#babel][Babel]]
+- [[#latex][LaTeX]]
 - [[#export][Export]]
 - [[#image][Image]]
 - [[#agenda][Agenda]]
@@ -214,6 +215,28 @@ delimited by whitespace or punctuation.
 #+BEGIN_SRC org
   ,#+BEGIN_SRC dot :file img/small-graph.png :exports results
 #+END_SRC
+
+* LaTeX
+#+BEGIN_EXAMPLE
+  <l + <TAB>
+  ,#+BEGIN_EXPORT latex
+  ...
+  ,#+END_EXPORT
+#+END_EXAMPLE
+
+- LaTex fragments :: Just put latex code:
+
+\begin{equation}
+x=\sqrt{b}
+\end{equation}
+
+#+BEGIN_EXAMPLE
+  \begin{equation}
+  x=\sqrt{b}
+  \end{equation}
+#+END_EXAMPLE
+
+- Preview with ~org-toggle-latex-fragment~ :: ~, T x~ or ~C-c C-x C-l~
 
 * Export
 - http://orgmode.org/manual/Exporting.html
