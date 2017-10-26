@@ -36,6 +36,4 @@
 * Splitting and Sharing Keys
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
-\[
-X_1 \equiv S + R {\pmod {P}}
-\]
+$X_1 \equiv S + R {\pmod {P}}$
