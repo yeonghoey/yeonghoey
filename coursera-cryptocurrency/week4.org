@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#how-to-store-and-use-bitcoins][How to Store and Use Bitcoins]]
 - [[#hot-and-cold-storage][Hot and Cold Storage]]
+- [[#splitting-and-sharing-keys][Splitting and Sharing Keys]]
 
 * How to Store and Use Bitcoins
 [[file:img/screenshot_2017-10-24_07-55-22.png]]
@@ -31,3 +32,9 @@
 [[file:img/screenshot_2017-10-24_08-12-51.png]]
 
 [[file:img/screenshot_2017-10-24_08-13-05.png]]
+* Splitting and Sharing Keys
+[[file:img/screenshot_2017-10-26_20-39-38.png]]
+
+#+BEGIN_EXPORT latex
+X_1 \equiv S + R {\pmod {P}}
+#+END_EXPORT
