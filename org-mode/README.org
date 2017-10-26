@@ -217,10 +217,16 @@ delimited by whitespace or punctuation.
 #+END_SRC
 
 * LaTeX
+- http://orgmode.org/manual/LaTeX-export.html#LaTeX-export
+
 #+BEGIN_EXAMPLE
+  ,#+LATEX: any arbitrary LaTeX code
+  
+  ---
+
   <l + <TAB>
   ,#+BEGIN_EXPORT latex
-  ...
+  any arbitrary LaTeX code
   ,#+END_EXPORT
 #+END_EXAMPLE
 
