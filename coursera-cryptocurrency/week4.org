@@ -36,8 +36,13 @@
 * Splitting and Sharing Keys
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
-#+BEGIN_EXPORT latex exports: both
-\begin{equation}
-x=\sqrt{b}
-\end{equation}
+#+BEGIN_SRC latex :exports results :file img/604a5a46-ba52-11e7-a385-0242ade4b119.png
+  \begin{equation}
+  x=\sqrt{b}
+  \end{equation}
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_EXPORT latex
+[[file:img/604a5a46-ba52-11e7-a385-0242ade4b119.png]]
 #+END_EXPORT
