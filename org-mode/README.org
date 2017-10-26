@@ -224,19 +224,16 @@ delimited by whitespace or punctuation.
   ,#+END_EXPORT
 #+END_EXAMPLE
 
-- LaTex fragments :: Just put latex code:
-
-\begin{equation}
-x=\sqrt{b}
-\end{equation}
+- LaTex fragments :: Just put latex code
+  preview with ~org-toggle-latex-fragment~ 
+  ~​, T x~ or ~C-c C-x C-l~
+- This won't be exported.
 
 #+BEGIN_EXAMPLE
   \begin{equation}
   x=\sqrt{b}
   \end{equation}
 #+END_EXAMPLE
-
-- Preview with ~org-toggle-latex-fragment~ :: ~, T x~ or ~C-c C-x C-l~
 
 * Export
 - http://orgmode.org/manual/Exporting.html
