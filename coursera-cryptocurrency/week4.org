@@ -36,6 +36,4 @@
 * Splitting and Sharing Keys
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
-\begin{equation}
-X_1 \equiv S + R {\pmod {P}}
-\end{equation}
+\(X_1 \equiv S + R {\pmod {P}}\)
