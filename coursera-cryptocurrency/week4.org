@@ -36,7 +36,8 @@
 * Splitting and Sharing Keys
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
-
+#+BEGIN_EXPORT latex exports: both
 \begin{equation}
 x=\sqrt{b}
 \end{equation}
+#+END_EXPORT
