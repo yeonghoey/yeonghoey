@@ -36,8 +36,6 @@
 * Splitting and Sharing Keys
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
+#+BEGIN_SRC latex
 X_1 \equiv S + R {\pmod {P}}
-The formula \(a^2 + b^2 = c^2\) has been discovered by Pythagoras.
-
-Let \(a=\sin(x) + \cos(x)\). Then \(a^2 = 2\sin(x)\cos(x)\) because \(\sin^2x +
-\cos^2x = 1\).
+#+END_SRC
