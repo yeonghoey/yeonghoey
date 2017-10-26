@@ -36,6 +36,6 @@
 * Splitting and Sharing Keys
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
-#+BEGIN_SRC latex
+#+BEGIN_LaTeX
 X_1 \equiv S + R {\pmod {P}}
-#+END_SRC
+#+END_LaTeX
