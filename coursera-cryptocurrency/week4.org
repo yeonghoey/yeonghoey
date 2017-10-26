@@ -36,11 +36,11 @@
 * Splitting and Sharing Keys
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
-#+BEGIN_SRC latex :results raw :exports results :background White :file img/8975609a-ba53-11e7-b4d8-0242ade4b119.png
+#+BEGIN_SRC latex :results raw :exports results :background White :file img/d65525d0-ba58-11e7-ab13-0242ade4b119.png
   \begin{equation}
   x=\sqrt{b}
   \end{equation}
 #+END_SRC
 
 #+RESULTS:
-[[file:img/8975609a-ba53-11e7-b4d8-0242ade4b119.png]]
+[[file:img/d65525d0-ba58-11e7-ab13-0242ade4b119.png]]
