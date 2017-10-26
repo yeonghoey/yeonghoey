@@ -1,5 +1,4 @@
 #+TITLE: How to Store and Use Bitcoins
-#+OPTIONS: tex:t
 
 * Table of Contents :TOC_3_gh:
 - [[#how-to-store-and-use-bitcoins][How to Store and Use Bitcoins]]
@@ -36,4 +35,6 @@
 * Splitting and Sharing Keys
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
+\begin{equation}
 X_1 \equiv S + R {\pmod {P}}
+\end{equation}
