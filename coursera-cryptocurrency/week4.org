@@ -37,9 +37,13 @@
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
 #+BEGIN_SRC latex :results raw :exports results :background White :file img/d65525d0-ba58-11e7-ab13-0242ade4b119.png
-  \begin{equation}
-  x=\sqrt{b}
-  \end{equation}
+  \begin{gather}
+    \begin{align*}
+      X_1 &\equiv S+R {\pmod {P}}\\
+      X_2 &\equiv S+2R{\pmod {P}}\\
+      2X_1 - X_2 &\equiv S {\pmod {P}}
+    \end{align}
+  \end{gather}
 #+END_SRC
 
 #+RESULTS:
