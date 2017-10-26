@@ -1,4 +1,5 @@
 #+TITLE: How to Store and Use Bitcoins
+#+OPTIONS: tex:t
 
 * Table of Contents :TOC_3_gh:
 - [[#how-to-store-and-use-bitcoins][How to Store and Use Bitcoins]]
