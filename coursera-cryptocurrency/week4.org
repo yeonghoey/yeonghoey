@@ -37,8 +37,10 @@
 [[file:img/screenshot_2017-10-26_20-39-38.png]]
 
 #+BEGIN_SRC latex :results raw :exports results :file img/8975609a-ba53-11e7-b4d8-0242ade4b119.png
-  \large
+  \begin{equation}
+  \huge
   x=\sqrt{b}
+  \end{equation}
 #+END_SRC
 
 #+RESULTS:
