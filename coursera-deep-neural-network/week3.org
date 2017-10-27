@@ -13,6 +13,9 @@
 - [[#multi-class-classification][Multi-class classification]]
   - [[#softmax-regression][Softmax Regression]]
   - [[#training-a-softmax-classifier][Training a softmax classifier]]
+- [[#introduction-to-programming-frameworks][Introduction to programming frameworks]]
+  - [[#deep-learning-frameworks][Deep learning frameworks]]
+  - [[#tensorflow][TensorFlow]]
 
 * Hyperparameter tuning
 ** Tuning process
@@ -99,3 +102,20 @@ So, the way to do that is to estimate \mu and \sigma squared from your training 
 [[file:img/screenshot_2017-10-28_07-16-06.png]]
 
 ** Training a softmax classifier
+[[file:img/screenshot_2017-10-28_07-19-48.png]]
+
+[[file:img/screenshot_2017-10-28_07-24-36.png]]
+
+[[file:img/screenshot_2017-10-28_07-26-42.png]]
+* Introduction to programming frameworks
+** Deep learning frameworks
+[[file:img/screenshot_2017-10-28_07-34-59.png]]
+
+** TensorFlow
+[[file:img/screenshot_2017-10-28_07-37-12.png]]
+
+[[file:img/screenshot_2017-10-28_07-40-58.png]]
+
+[[file:img/screenshot_2017-10-28_07-45-17.png]]
+
+[[file:img/screenshot_2017-10-28_07-51-27.png]]
