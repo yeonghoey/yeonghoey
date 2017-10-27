@@ -5,6 +5,8 @@
 - [[#how-to-store-and-use-bitcoins][How to Store and Use Bitcoins]]
 - [[#hot-and-cold-storage][Hot and Cold Storage]]
 - [[#splitting-and-sharing-keys][Splitting and Sharing Keys]]
+- [[#online-wallets-and-exchanges][Online Wallets and Exchanges]]
+- [[#payment-services][Payment Services]]
 
 * How to Store and Use Bitcoins
 [[file:img/screenshot_2017-10-24_07-55-22.png]]
@@ -60,3 +62,33 @@
 [[file:img/screenshot_2017-10-28_08-02-40.png]]
 
 [[file:img/screenshot_2017-10-28_08-03-25.png]]
+* Online Wallets and Exchanges
+[[file:img/screenshot_2017-10-28_08-06-24.png]]
+
+[[file:img/screenshot_2017-10-28_08-07-42.png]]
+
+[[file:img/screenshot_2017-10-28_08-09-21.png]]
+
+[[file:img/screenshot_2017-10-28_08-10-07.png]]
+
+[[file:img/screenshot_2017-10-28_08-11-45.png]]
+
+[[file:img/screenshot_2017-10-28_08-12-56.png]]
+
+- 45 % of Bitcoin exchanges end up closing
+
+- 3 Risks ::
+  - Bank run
+  - The owner is a crook
+  - Cyber attack
+
+[[file:img/screenshot_2017-10-28_08-17-26.png]]
+
+[[file:img/screenshot_2017-10-28_08-19-04.png]]
+
+[[file:img/screenshot_2017-10-28_08-21-29.png]]
+
+[[file:img/screenshot_2017-10-28_08-24-16.png]]
+
+[[file:img/screenshot_2017-10-28_08-28-33.png]]
+* Payment Services
