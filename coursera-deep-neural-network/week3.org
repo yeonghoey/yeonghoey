@@ -10,6 +10,9 @@
   - [[#fitting-batch-norm-into-a-neural-network][Fitting Batch Norm into a neural network]]
   - [[#why-does-batch-norm-work][Why does Batch Norm work?]]
   - [[#batch-norm-at-test-time][Batch Norm at test time]]
+- [[#multi-class-classification][Multi-class classification]]
+  - [[#softmax-regression][Softmax Regression]]
+  - [[#training-a-softmax-classifier][Training a softmax classifier]]
 
 * Hyperparameter tuning
 ** Tuning process
@@ -45,6 +48,7 @@
 [[file:img/screenshot_2017-10-24_07-52-27.png]]
 
 - Depends on available computation resources.
+
 * Batch Normalization
 ** Normalizing activations in a network
 [[file:img/screenshot_2017-10-26_02-01-03.png]]
@@ -63,9 +67,10 @@
 
 [[file:img/screenshot_2017-10-26_02-26-42.png]]
 
-- Using Batch Norm, there is no point to have ~b~ (bias terms), becausue they are cleaned off when calculating ~z_nrom~.
+- Using Batch Norm, there is no point to have ~b~ (bias terms), becausue they are cleaned off when calculating ~z_norm~.
 
 [[file:img/screenshot_2017-10-26_02-31-08.png]]
+
 ** Why does Batch Norm work?
 [[file:img/screenshot_2017-10-27_23-56-49.png]]
 
@@ -84,3 +89,13 @@ But at test time, you might need to process a single example at a time.
 So, the way to do that is to estimate \mu and \sigma squared from your training set and there are many ways to do that.
 (...) what people usually do is (...) exponentially weighted averages (...)
 #+END_QUOTE
+
+* Multi-class classification
+** Softmax Regression
+[[file:img/screenshot_2017-10-28_07-07-24.png]]
+
+[[file:img/screenshot_2017-10-28_07-13-10.png]]
+
+[[file:img/screenshot_2017-10-28_07-16-06.png]]
+
+** Training a softmax classifier
