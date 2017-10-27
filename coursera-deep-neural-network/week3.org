@@ -9,6 +9,7 @@
   - [[#normalizing-activations-in-a-network][Normalizing activations in a network]]
   - [[#fitting-batch-norm-into-a-neural-network][Fitting Batch Norm into a neural network]]
   - [[#why-does-batch-norm-work][Why does Batch Norm work?]]
+  - [[#batch-norm-at-test-time][Batch Norm at test time]]
 
 * Hyperparameter tuning
 ** Tuning process
@@ -74,3 +75,12 @@
 - For the 3rd layer, for example, without Batch Norm, the input of the 3rd layer will be affected by the previous values
 
 [[file:img/screenshot_2017-10-28_00-05-06.png]]
+
+** Batch Norm at test time
+[[file:img/screenshot_2017-10-28_00-46-33.png]]
+
+#+BEGIN_QUOTE
+But at test time, you might need to process a single example at a time.
+So, the way to do that is to estimate \mu and \sigma squared from your training set and there are many ways to do that.
+(...) what people usually do is (...) exponentially weighted averages (...)
+#+END_QUOTE
