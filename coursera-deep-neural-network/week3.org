@@ -8,6 +8,7 @@
 - [[#batch-normalization][Batch Normalization]]
   - [[#normalizing-activations-in-a-network][Normalizing activations in a network]]
   - [[#fitting-batch-norm-into-a-neural-network][Fitting Batch Norm into a neural network]]
+  - [[#why-does-batch-norm-work][Why does Batch Norm work?]]
 
 * Hyperparameter tuning
 ** Tuning process
@@ -64,3 +65,8 @@
 - Using Batch Norm, there is no point to have ~b~ (bias terms), becausue they are cleaned off when calculating ~z_nrom~.
 
 [[file:img/screenshot_2017-10-26_02-31-08.png]]
+** Why does Batch Norm work?
+[[file:img/screenshot_2017-10-27_23-56-49.png]]
+
+[[file:img/screenshot_2017-10-27_23-59-05.png]]
+- For the third layer, 
