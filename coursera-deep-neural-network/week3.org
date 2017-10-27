@@ -69,4 +69,8 @@
 [[file:img/screenshot_2017-10-27_23-56-49.png]]
 
 [[file:img/screenshot_2017-10-27_23-59-05.png]]
-- For the third layer, 
+
+- Batch Norm prevents changing the input values of hidde layers
+- For the 3rd layer, for example, without Batch Norm, the input of the 3rd layer will be affected by the previous values
+
+[[file:img/screenshot_2017-10-28_00-05-06.png]]
