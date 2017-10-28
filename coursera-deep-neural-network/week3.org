@@ -16,6 +16,8 @@
 - [[#introduction-to-programming-frameworks][Introduction to programming frameworks]]
   - [[#deep-learning-frameworks][Deep learning frameworks]]
   - [[#tensorflow][TensorFlow]]
+- [[#programming-assignment][Programming assignment]]
+  - [[#tensorflow-1][Tensorflow]]
 
 * Hyperparameter tuning
 ** Tuning process
@@ -119,3 +121,56 @@ So, the way to do that is to estimate \mu and \sigma squared from your training 
 [[file:img/screenshot_2017-10-28_07-45-17.png]]
 
 [[file:img/screenshot_2017-10-28_07-51-27.png]]
+* Programming assignment
+** Tensorflow
+[[file:img/screenshot_2017-10-29_06-31-45.png]]
+
+[[file:img/screenshot_2017-10-29_06-33-55.png]]
+
+[[file:img/screenshot_2017-10-29_06-36-46.png]]
+
+[[file:img/screenshot_2017-10-29_06-40-05.png]]
+
+[[file:img/screenshot_2017-10-29_06-43-57.png]]
+
+[[file:img/screenshot_2017-10-29_06-49-44.png]]
+
+- https://www.tensorflow.org/api_docs/python/tf/one_hot
+
+[[file:img/screenshot_2017-10-29_07-03-48.png]]
+
+[[file:img/screenshot_2017-10-29_07-05-06.png]]
+
+#+BEGIN_SRC python
+  def create_placeholders(n_x, n_y):
+      return X, Y
+
+  def initialize_parameters():
+      return parameters
+
+  def forward_propagation(X, parameters):
+      return Z3
+
+  def compute_cost(Z3, Y):
+      return cost
+
+  def model(X_train, Y_train, X_test, Y_test, learning_rate = 0.0001,
+            num_epochs = 1500, minibatch_size = 32, print_cost = True):
+      return parameters
+#+END_SRC
+
+[[file:img/screenshot_2017-10-29_07-07-07.png]]
+
+[[file:img/screenshot_2017-10-29_07-07-31.png]]
+
+[[file:img/screenshot_2017-10-29_07-10-53.png]]
+
+[[file:img/screenshot_2017-10-29_07-13-21.png]]
+
+[[file:img/screenshot_2017-10-29_07-15-40.png]]
+
+[[file:img/screenshot_2017-10-29_07-18-08.png]]
+
+[[file:img/screenshot_2017-10-29_07-38-07.png]]
+
+[[file:img/screenshot_2017-10-29_07-36-11.png]]
