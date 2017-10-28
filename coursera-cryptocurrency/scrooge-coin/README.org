@@ -1,5 +1,6 @@
 * Programming Assignment: Scrooge Coin
 To run tests:
 #+BEGIN_SRC shell
-  javac ScroogeCoin.java; java -ea ScroogeCoin
+  javac ScroogeCoin.java && java -ea ScroogeCoin
+  #                                └─ -enableassertions
 #+END_SRC

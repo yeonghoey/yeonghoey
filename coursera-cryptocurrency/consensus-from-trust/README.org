@@ -1,0 +1,9 @@
+* Programming Assignment: Consensus from Trust
+Because I'm not familiar with Java and not eager to learn bitcoin seriously,
+I only wrote a simple solution just for passing the assignment.
+
+To run locally:
+#+BEGIN_SRC shell
+  javac Simulation.java && java -ea Simulation .3 .45 .10 10
+  #                               └─ -enableassertion
+#+END_SRC
