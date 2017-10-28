@@ -1,5 +1,4 @@
 #+TITLE: How to Store and Use Bitcoins
-#+OPTIONS: tex:dvipng
 
 * Table of Contents :TOC_3_gh:
 - [[#how-to-store-and-use-bitcoins][How to Store and Use Bitcoins]]
@@ -7,6 +6,8 @@
 - [[#splitting-and-sharing-keys][Splitting and Sharing Keys]]
 - [[#online-wallets-and-exchanges][Online Wallets and Exchanges]]
 - [[#payment-services][Payment Services]]
+- [[#transaction-fees][Transaction Fees]]
+- [[#currency-exchange-markets][Currency Exchange Markets]]
 
 * How to Store and Use Bitcoins
 [[file:img/screenshot_2017-10-24_07-55-22.png]]
@@ -92,3 +93,33 @@
 
 [[file:img/screenshot_2017-10-28_08-28-33.png]]
 * Payment Services
+[[file:img/screenshot_2017-10-28_09-57-23.png]]
+
+[[file:img/screenshot_2017-10-28_09-58-29.png]]
+
+[[file:img/screenshot_2017-10-28_10-01-16.png]]
+
+[[file:img/screenshot_2017-10-28_10-01-55.png]]
+
+* Transaction Fees
+[[file:img/screenshot_2017-10-28_10-07-04.png]]
+
+[[file:img/screenshot_2017-10-28_10-08-13.png]]
+
+[[file:img/screenshot_2017-10-28_10-09-57.png]]
+
+[[file:img/screenshot_2017-10-28_10-10-32.png]]
+* Currency Exchange Markets
+[[file:img/screenshot_2017-10-28_10-13-14.png]]
+
+[[file:img/screenshot_2017-10-28_10-14-18.png]]
+
+[[file:img/screenshot_2017-10-28_10-15-31.png]]
+
+[[file:img/screenshot_2017-10-28_10-17-34.png]]
+
+[[file:img/screenshot_2017-10-28_10-20-03.png]]
+
+[[file:img/screenshot_2017-10-28_10-26-11.png]]
+
+- ~P~ is a bitcoin price in ~$~.
