@@ -1,0 +1,12 @@
+#+TITLE: Structuring Machine Learning Projects
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+
+* Overview
+- https://www.coursera.org/learn/machine-learning-projects
+
+The third course of Deep Learning Specialization in Coursera.
+
+- Week 1 :: [[week1.org][ML Strategy (1)]]
+- Week 2 :: [[week2.org][ML Strategy (2)]]

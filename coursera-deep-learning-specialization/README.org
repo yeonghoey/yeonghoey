@@ -5,6 +5,6 @@
 
 - Course 1 :: [[http://yeonghoey.com/coursera-neural-networks-deep-learning][Neural Networks and Deep Learning]]
 - Course 2 :: [[http://yeonghoey.com/coursera-deep-neural-network][Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization]]
-- Course 3 :: [[course3.org][Structuring Machine Learning Projects]]
+- Course 3 :: [[http://yeonghoey.com/coursera-machine-learning-projects][Structuring Machine Learning Projects]]
 - Course 4 :: [[course4.org][Convolutional Neural Networks]]
 - Course 5 :: [[course5.org][Sequence Models]]
