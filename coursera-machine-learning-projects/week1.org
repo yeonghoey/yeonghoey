@@ -1,0 +1,15 @@
+#+TITLE: ML Strategy (1)
+
+* Table of Contents :TOC_3_gh:
+- [[#introduction-to-ml-strategy][Introduction to ML Strategy]]
+  - [[#why-ml-strategy][Why ML Strategy]]
+  - [[#orthogonalization][Orthogonalization]]
+
+* Introduction to ML Strategy
+** Why ML Strategy
+[[file:img/screenshot_2017-10-30_08-45-11.png]]
+
+** Orthogonalization
+[[file:img/screenshot_2017-10-30_08-50-48.png]]
+
+[[file:img/screenshot_2017-10-30_08-56-11.png]]
