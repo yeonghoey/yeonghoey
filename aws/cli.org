@@ -61,6 +61,8 @@
   aws ec2 describe-images --owners 099720109477 --filters 'Name=name,Values=*ubuntu-*-16.04*' --query 'Images[*].{NAME: Name, ID: ImageId}' --output text
 #+END_SRC
 
+[[file:img/screenshot_2017-10-30_13-02-10.png]]
+
 ** Retrieve availability zones
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#using-regions-availability-zones-describe
 
