@@ -1,9 +1,16 @@
 #+TITLE: AWS Command Line Interface
 
-* Table of Contents :TOC_1_gh:
+* Table of Contents :TOC_3_gh:
 - [[#reference][Reference]]
+  - [[#configure][configure]]
+  - [[#ec2][ec2]]
+    - [[#modify-instance-attribute][modify-instance-attribute]]
+  - [[#s3][s3]]
 - [[#how-to][How-to]]
+  - [[#list-amis][List AMIs]]
+  - [[#retrieve-availability-zones][Retrieve availability zones]]
 - [[#staging][Staging]]
+  - [[#2017-07-12-wed-aws-s3-wildcard][<2017-07-12 Wed> aws s3 wildcard]]
 
 * Reference
 ** configure
@@ -26,11 +33,33 @@
 ** ec2
 - http://docs.aws.amazon.com/cli/latest/reference/ec2/index.html#cli-aws-ec2
 
+*** modify-instance-attribute
 #+BEGIN_SRC shell
   # Make the instance terminable (Disable Termination Protection)
   aws ec2 modify-instance-attribute --instance-id <value> --no-disable-api-termination
 #+END_SRC
 
+** s3
+- http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#available-commands
+
+#+BEGIN_SRC shell
+  aws s3 mv test.txt s3://mybucket/test2.txt
+  aws s3 mv s3://mybucket/test.txt s3://mybucket/test2.txt
+  aws s3 mv s3://mybucket/test.txt test2.txt
+  aws s3 mv s3://mybucket . --recursive
+  aws s3 mv myDir s3://mybucket/ --recursive --exclude "*.jpg"
+  aws s3 mv s3://mybucket/ s3://mybucket2/ --recursive --exclude "mybucket/another/*"
+
+#+END_SRC
+* How-to
+** List AMIs
+- http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
+
+#+BEGIN_SRC shell
+  aws ec2 describe-images --owners 099720109477 --filters 'Name=name,Values=*ubuntu-*-16.04*' --query 'Images[*].{NAME: Name, ID: ImageId}' --output text
+#+END_SRC
+
+** Retrieve availability zones
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#using-regions-availability-zones-describe
 
 #+BEGIN_SRC shell
@@ -57,26 +86,6 @@ $ aws ec2 describe-availability-zones --region eu-west-1
         }
     ]
 }
-#+END_SRC
-
-** s3
-- http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#available-commands
-
-#+BEGIN_SRC shell
-  aws s3 mv test.txt s3://mybucket/test2.txt
-  aws s3 mv s3://mybucket/test.txt s3://mybucket/test2.txt
-  aws s3 mv s3://mybucket/test.txt test2.txt
-  aws s3 mv s3://mybucket . --recursive
-  aws s3 mv myDir s3://mybucket/ --recursive --exclude "*.jpg"
-  aws s3 mv s3://mybucket/ s3://mybucket2/ --recursive --exclude "mybucket/another/*"
-
-#+END_SRC
-* How-to
-** List AMIs
-- http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
-
-#+BEGIN_SRC shell
-  aws ec2 describe-images --owners 099720109477 --filters 'Name=name,Values=*ubuntu-*-16.04*' --query 'Images[*].{NAME: Name, ID: ImageId}' --output text
 #+END_SRC
 
 * Staging
