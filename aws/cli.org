@@ -4,9 +4,9 @@
 - [[#reference][Reference]]
   - [[#configure][configure]]
   - [[#ec2][ec2]]
-    - [[#modify-instance-attribute][modify-instance-attribute]]
   - [[#s3][s3]]
 - [[#how-to][How-to]]
+  - [[#disable-termination-protection][Disable Termination Protection]]
   - [[#list-amis][List AMIs]]
   - [[#retrieve-availability-zones][Retrieve availability zones]]
 - [[#staging][Staging]]
@@ -33,12 +33,6 @@
 ** ec2
 - http://docs.aws.amazon.com/cli/latest/reference/ec2/index.html#cli-aws-ec2
 
-*** modify-instance-attribute
-#+BEGIN_SRC shell
-  # Make the instance terminable (Disable Termination Protection)
-  aws ec2 modify-instance-attribute --instance-id <value> --no-disable-api-termination
-#+END_SRC
-
 ** s3
 - http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#available-commands
 
@@ -52,6 +46,14 @@
 
 #+END_SRC
 * How-to
+** Disable Termination Protection
+- http://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html
+
+#+BEGIN_SRC shell
+  # Make the instance terminable (Disable Termination Protection)
+  aws ec2 modify-instance-attribute --instance-id <value> --no-disable-api-termination
+#+END_SRC
+
 ** List AMIs
 - http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
 
