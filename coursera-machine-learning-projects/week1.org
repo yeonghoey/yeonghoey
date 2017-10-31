@@ -4,6 +4,8 @@
 - [[#introduction-to-ml-strategy][Introduction to ML Strategy]]
   - [[#why-ml-strategy][Why ML Strategy]]
   - [[#orthogonalization][Orthogonalization]]
+- [[#setting-up-your-goal][Setting up your goal]]
+  - [[#single-number-evaluation-metric][Single number evaluation metric]]
 
 * Introduction to ML Strategy
 ** Why ML Strategy
@@ -13,3 +15,16 @@
 [[file:img/screenshot_2017-10-30_08-50-48.png]]
 
 [[file:img/screenshot_2017-10-30_08-56-11.png]]
+* Setting up your goal
+** Single number evaluation metric
+[[file:img/screenshot_2017-10-31_23-27-35.png]]
+
+- Precision :: When the classifier says that something is a cat, the percentage that it's correct.
+- Recall    :: When there is a cat, the percentage that the classifier says it's a cat.
+- F1 Score  :: can be thought as the average of *precision* and *recall*.
+
+
+
+[[file:img/screenshot_2017-10-31_23-29-11.png]]
+
+- Average :: Make multiple metrics into single one.
