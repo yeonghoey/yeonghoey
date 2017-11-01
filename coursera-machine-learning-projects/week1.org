@@ -6,6 +6,8 @@
   - [[#orthogonalization][Orthogonalization]]
 - [[#setting-up-your-goal][Setting up your goal]]
   - [[#single-number-evaluation-metric][Single number evaluation metric]]
+  - [[#satisficing-and-optimizing-metric][Satisficing and Optimizing metric]]
+  - [[#traindevtest-distributions][Train/dev/test distributions]]
 
 * Introduction to ML Strategy
 ** Why ML Strategy
@@ -28,3 +30,12 @@
 [[file:img/screenshot_2017-10-31_23-29-11.png]]
 
 - Average :: Make multiple metrics into single one.
+** Satisficing and Optimizing metric
+[[file:img/screenshot_2017-11-02_08-32-21.png]]
+
+** Train/dev/test distributions
+[[file:img/screenshot_2017-11-02_08-37-21.png]]
+
+[[file:img/screenshot_2017-11-02_08-38-46.png]]
+
+[[file:img/screenshot_2017-11-02_08-40-03.png]]
