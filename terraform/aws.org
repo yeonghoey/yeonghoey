@@ -10,6 +10,7 @@
     - [[#aws_lambda_function][aws_lambda_function]]
     - [[#aws_rds_cluster][aws_rds_cluster]]
     - [[#aws_rds_cluster_instance][aws_rds_cluster_instance]]
+    - [[#aws_default_security_groups][aws_default_security_groups]]
     - [[#aws_security_group][aws_security_group]]
   - [[#data-sources][Data Sources]]
     - [[#aws_ami][aws_ami]]
@@ -237,6 +238,35 @@ EOF
 
     cluster_identifier   = "${aws_rds_cluster.cluster.id}"
     db_subnet_group_name = "default-vpc-abcd1234"
+  }
+#+END_SRC
+
+*** aws_default_security_groups
+- https://www.terraform.io/docs/providers/aws/r/default_security_group.html
+
+When creating a ~VPC~, AWS automatically creates a ~default~ security group that can not be deleted 
+To manage it with Terraform, Terraform provides a dedicated resource type.
+Before you make any changes, be sure to read the link below.
+
+#+BEGIN_SRC terraform
+  resource "aws_default_security_group" "default" {
+    vpc_id = "${aws_vpc.main.id}"
+
+    ingress {
+      from_port       = 0
+      to_port         = 0
+      protocol        = "-1"
+      security_groups = []
+      self            = true
+    }
+
+    egress {
+      from_port        = 0
+      to_port          = 0
+      protocol         = "-1"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = ["::/0"]
+    }
   }
 #+END_SRC
 
