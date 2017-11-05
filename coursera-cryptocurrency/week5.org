@@ -2,6 +2,10 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#the-task-of-bitcoin-miners][The Task of Bitcoin Miners]]
+- [[#mining-hardware][Mining Hardware]]
+- [[#energy-consumption--ecology][Energy Consumption & Ecology]]
+- [[#mining-pools][Mining Pools]]
+- [[#mining-incentives-and-strategies][Mining Incentives and Strategies]]
 
 * The Task of Bitcoin Miners
 [[file:img/screenshot_2017-10-31_22-48-46.png]]
@@ -19,3 +23,74 @@
 [[file:img/screenshot_2017-10-31_22-56-55.png]]
 
 [[file:img/screenshot_2017-10-31_22-58-25.png]]
+* Mining Hardware
+[[file:img/screenshot_2017-11-06_08-38-38.png]]
+
+[[file:img/screenshot_2017-11-06_08-38-54.png]]
+
+[[file:img/screenshot_2017-11-06_08-39-27.png]]
+
+[[file:img/screenshot_2017-11-06_08-40-46.png]]
+
+* Energy Consumption & Ecology
+[[file:img/screenshot_2017-11-06_08-41-38.png]]
+
+[[file:img/screenshot_2017-11-06_08-41-59.png]]
+
+[[file:img/screenshot_2017-11-06_08-42-17.png]]
+
+[[file:img/screenshot_2017-11-06_08-42-38.png]]
+
+[[file:img/screenshot_2017-11-06_08-45-03.png]]
+
+[[file:img/screenshot_2017-11-06_08-44-24.png]]
+* Mining Pools
+[[file:img/screenshot_2017-11-06_08-45-28.png]]
+
+[[file:img/screenshot_2017-11-06_08-45-41.png]]
+
+[[file:img/screenshot_2017-11-06_08-45-57.png]]
+
+[[file:img/screenshot_2017-11-06_08-46-08.png]]
+
+[[file:img/screenshot_2017-11-06_08-46-51.png]]
+
+[[file:img/screenshot_2017-11-06_08-47-15.png]]
+
+[[file:img/screenshot_2017-11-06_08-47-49.png]]
+* Mining Incentives and Strategies
+[[file:img/screenshot_2017-11-06_08-48-27.png]]
+
+[[file:img/screenshot_2017-11-06_08-48-39.png]]
+
+[[file:img/screenshot_2017-11-06_08-48-52.png]]
+
+[[file:img/screenshot_2017-11-06_08-49-13.png]]
+
+[[file:img/screenshot_2017-11-06_08-49-27.png]]
+
+[[file:img/screenshot_2017-11-06_08-49-50.png]]
+
+[[file:img/screenshot_2017-11-06_08-50-14.png]]
+
+[[file:img/screenshot_2017-11-06_08-50-28.png]]
+
+[[file:img/screenshot_2017-11-06_08-50-47.png]]
+
+[[file:img/screenshot_2017-11-06_08-51-08.png]]
+
+[[file:img/screenshot_2017-11-06_08-51-44.png]]
+
+[[file:img/screenshot_2017-11-06_08-52-28.png]]
+
+[[file:img/screenshot_2017-11-06_08-52-58.png]]
+
+[[file:img/screenshot_2017-11-06_08-53-31.png]]
+
+[[file:img/screenshot_2017-11-06_08-53-53.png]]
+
+[[file:img/screenshot_2017-11-06_08-54-17.png]]
+
+[[file:img/screenshot_2017-11-06_08-54-36.png]]
+
+[[file:img/screenshot_2017-11-06_08-54-54.png]]
