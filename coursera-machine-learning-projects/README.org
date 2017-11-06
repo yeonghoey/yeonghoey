@@ -1,8 +1,5 @@
 #+TITLE: Structuring Machine Learning Projects
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-
 * Overview
 - https://www.coursera.org/learn/machine-learning-projects
 

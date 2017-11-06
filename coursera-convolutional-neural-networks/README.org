@@ -1,0 +1,11 @@
+#+TITLE: Convolutional Neural Networks
+
+* Overview
+- https://www.coursera.org/learn/machine-learning-projects
+
+The third course of Deep Learning Specialization in Coursera.
+
+- Week 1 :: [[week1.org][Foundations of Convolutional Neural Networks]]
+- Week 2 :: [[week2.org][Deep convolutional models: case studies]]
+- Week 3 :: [[week3.org][Object detection]]
+- Week 4 :: [[week4.org][Special applications: Face recognition & Neural style transfer]]
