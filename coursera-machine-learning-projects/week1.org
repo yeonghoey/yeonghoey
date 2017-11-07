@@ -8,6 +8,14 @@
   - [[#single-number-evaluation-metric][Single number evaluation metric]]
   - [[#satisficing-and-optimizing-metric][Satisficing and Optimizing metric]]
   - [[#traindevtest-distributions][Train/dev/test distributions]]
+  - [[#size-of-the-dev-and-test-sets][Size of the dev and test sets]]
+  - [[#when-to-change-devtest-sets-and-metrics][When to change dev/test sets and metrics]]
+- [[#comparing-to-human-level-performance][Comparing to human-level performance]]
+  - [[#why-human-level-performance][Why human-level performance]]
+  - [[#avoidable-bias][Avoidable bias]]
+  - [[#understanding-human-level-performance][Understanding human-level performance]]
+  - [[#surpassing-human-level-performance][Surpassing human-level performance]]
+  - [[#improving-your-model-performance][Improving your model performance]]
 
 * Introduction to ML Strategy
 ** Why ML Strategy
@@ -39,3 +47,47 @@
 [[file:img/screenshot_2017-11-02_08-38-46.png]]
 
 [[file:img/screenshot_2017-11-02_08-40-03.png]]
+** Size of the dev and test sets
+[[file:img/screenshot_2017-11-08_08-35-33.png]]
+
+- The actual amount is more important thatn the ratio of data set
+- If you have large enough data set, having ~data~ / ~test~ set even 1% is okay because its actual amount is enough.
+
+[[file:img/screenshot_2017-11-08_08-35-57.png]]
+
+- ~dev~ set vs ~test~ set :: Whether evaluating during iteration or not
+- Not having ~test~ set may okay
+** When to change dev/test sets and metrics
+[[file:img/screenshot_2017-11-08_08-42-50.png]]
+
+[[file:img/screenshot_2017-11-08_08-43-16.png]]
+
+[[file:img/screenshot_2017-11-08_08-43-34.png]]
+
+* Comparing to human-level performance
+** Why human-level performance
+[[file:img/screenshot_2017-11-08_08-44-24.png]]
+
+- Bayes error :: Theoretical minimum error
+- Human error :: An approximation of *Bayes error*
+
+[[file:img/screenshot_2017-11-08_08-45-44.png]]
+
+** Avoidable bias
+[[file:img/screenshot_2017-11-08_08-46-19.png]]
+
+** Understanding human-level performance
+[[file:img/screenshot_2017-11-08_08-47-01.png]]
+
+- When considering human level error as an approximation of bayes error, the best performance which human can acquire would be relavent.
+- In other views, you can consider human level performance differently.
+
+[[file:img/screenshot_2017-11-08_08-48-46.png]]
+
+** Surpassing human-level performance
+[[file:img/screenshot_2017-11-08_08-50-06.png]]
+
+** Improving your model performance
+[[file:img/screenshot_2017-11-08_08-50-37.png]]
+
+[[file:img/screenshot_2017-11-08_08-51-09.png]]
