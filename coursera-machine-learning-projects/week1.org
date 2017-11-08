@@ -16,6 +16,8 @@
   - [[#understanding-human-level-performance][Understanding human-level performance]]
   - [[#surpassing-human-level-performance][Surpassing human-level performance]]
   - [[#improving-your-model-performance][Improving your model performance]]
+- [[#machine-learning-flight-simulator][Machine Learning flight simulator]]
+  - [[#quiz-bird-recognition-in-the-city-of-peacetopia][Quiz: Bird recognition in the city of Peacetopia]]
 
 * Introduction to ML Strategy
 ** Why ML Strategy
@@ -43,6 +45,8 @@
 
 ** Train/dev/test distributions
 [[file:img/screenshot_2017-11-02_08-37-21.png]]
+
+- ~dev~ / ~test~ data set should come from the same distribution
 
 [[file:img/screenshot_2017-11-02_08-38-46.png]]
 
@@ -91,3 +95,20 @@
 [[file:img/screenshot_2017-11-08_08-50-37.png]]
 
 [[file:img/screenshot_2017-11-08_08-51-09.png]]
+
+* Machine Learning flight simulator
+** Quiz: Bird recognition in the city of Peacetopia
+[[file:img/screenshot_2017-11-08_11-55-02.png]]
+
+[[file:img/screenshot_2017-11-08_11-57-44.png]]
+
+It would be hard to measure the running time and memory usage during iteration.
+So it will slow down the learning process.
+
+[[file:img/screenshot_2017-11-08_12-28-17.png]]
+
+It seems that the variety of training data set would be okay.
+
+[[file:img/screenshot_2017-11-08_12-36-02.png]]
+
+It seems that with only 1,000 images of 100,000,000 images, changing data set won't make notable changes.
