@@ -47,6 +47,7 @@
   - [[#journalctl][journalctl]]
 - [[#topics][Topics]]
   - [[#is-it-expected-for-systemd-to-start-disabled-services][Is it expected for systemd to start disabled services?]]
+  - [[#what-is-state-from-systemctl-list-unit-files][What is STATE from 'systemctl list-unit-files'?]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
@@ -239,6 +240,23 @@ The ~systemctl enable~ and ~systemctl disable~ operations *configure auto-starti
 #+END_QUOTE
 
 So, starting a unit without enabling it is valid.
+
+** What is STATE from 'systemctl list-unit-files'?
+- https://www.linux.com/learn/understanding-and-using-systemd
+
+#+BEGIN_SRC shell
+  $ systemctl list-unit-files --type=service
+  UNIT FILE              STATE
+  [...]
+  chronyd.service        enabled
+  clamd@.service         static
+  clamd@scan.service     disabled
+#+END_SRC
+
+- ~enabled~  :: it has a symlink in a .wants directory.
+- ~disabled~ :: it does not.
+- ~static~   :: the service is missing the ~[Install]~ section in its init script,
+   so you cannot enable or disable it. Static services are usually dependencies of other services, and are controlled automatically. 
 
 * How-to
 * Links
