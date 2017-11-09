@@ -1,14 +1,16 @@
 #+TITLE: systemd
 
-* Table of Contents :TOC_3_gh:
+* Table of Contents :TOC_4_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
-  - [[#unit-files][Unit files]]
-    - [[#types][types]]
-    - [[#syntax][syntax]]
-    - [[#unit][[Unit]]]
-    - [[#service][[Service]]]
-    - [[#install][[Install]]]
+  - [[#units][Units]]
+    - [[#syntax][Syntax]]
+    - [[#types][Types]]
+      - [[#target][Target]]
+    - [[#sections][Sections]]
+      - [[#unit][Unit]]
+      - [[#service][Service]]
+      - [[#install][Install]]
   - [[#commands][Commands]]
     - [[#systemctl][systemctl]]
     - [[#journalctl][journalctl]]
@@ -16,6 +18,7 @@
   - [[#unit-1][Unit]]
   - [[#service-1][Service]]
 - [[#topics][Topics]]
+  - [[#is-it-expected-for-systemd-to-start-disabled-services][Is it expected for systemd to start disabled services?]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
@@ -33,9 +36,20 @@
 - https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
 - https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal
 
-** Unit files
+** Units
+*** Syntax
+- case-sensitive
+- ~X-<name>~ for non-standard sections
+- ~1~, ~yes~, ~on~, ~true~, ~0~, ~no~, ~off~, ~false~ for booleans
 
-*** types
+#+BEGIN_EXAMPLE
+  [Section]
+  Directive1=value
+  Directive2=value
+  ...
+#+END_EXAMPLE
+
+*** Types
 | type of unit | description                                                               |
 |--------------+---------------------------------------------------------------------------|
 | ~.service~   | manage a service or application on the server                             |
@@ -51,19 +65,12 @@
 | ~.slice~     |                                                                           |
 | ~.scope~     |                                                                           |
 
-*** syntax
-- case-sensitive
-- ~X-<name>~ for non-standard sections
-- ~1~, ~yes~, ~on~, ~true~, ~0~, ~no~, ~off~, ~false~ for booleans
+**** Target
+- Target units do not offer any additional functionality on top of the generic functionality provided by units.
+- They exist merely to group units via dependencies
 
-#+BEGIN_EXAMPLE
-  [Section]
-  Directive1=value
-  Directive2=value
-  ...
-#+END_EXAMPLE
-
-*** [Unit]
+*** Sections
+**** Unit
 - The first section found in most unit files 
 - Defines metadata for the unit and configuring the relationship of the unit to other units.
 
@@ -80,7 +87,7 @@
 | ~Condition...=~  |             |
 | ~Assert...=~     |             |
 
-*** [Service]
+**** Service
 - https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options
 - Defines configuration that is only applicable for services
 
@@ -104,7 +111,7 @@
 | ~Restart=~       | ~always~, ~on-success~, ~on-failure~, ~on-abnormal~, ~on-abort~, ~on-watchdog~   |
 | ~TimeoutSec=~    | When stopping, after waiting ~n~ seconds, systemd kills the process              |
 
-*** [Install]
+**** Install
 - The last section is often
 - optional
 - Defines the behavior or a unit if it is /enabled/ or /disabled/
@@ -158,6 +165,11 @@
 ** Unit
 ** Service
 * Topics
+** Is it expected for systemd to start disabled services?
+#+BEGIN_QUOTE
+The ~systemctl enable~ and ~systemctl disable~ operations *configure auto-starting* of a unit.
+#+END_QUOTE
+
 * How-to
 * Links
 * Staging
