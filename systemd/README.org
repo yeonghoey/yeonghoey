@@ -110,6 +110,8 @@
 | ~default.target~ | Usually, this should be aliased (symlinked) to ~multi-user.target~ or ~graphical.target~. |
 
 * Sections
+- https://www.freedesktop.org/software/systemd/man/systemd.directives.html
+
 ** Unit
 - The first section found in most unit files
 - Defines metadata for the unit and configuring the relationship of the unit to other units.
