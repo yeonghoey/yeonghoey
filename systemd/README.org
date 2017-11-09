@@ -227,6 +227,7 @@ When enabling ~sshd.service~, systemd adds it to ~multi-user.target~ by followin
   journalctl -b                # current boot
   journalctl -k                # only kernel messages
   journalctl -u <name>.service # unit
+  journalctl -f                # follow, like tail -f
 #+END_SRC
 
 * Topics
