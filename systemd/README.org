@@ -1,0 +1,64 @@
+#+TITLE: systemd
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#commands][Commands]]
+    - [[#systemctl][systemctl]]
+    - [[#journalctl][journalctl]]
+- [[#terminology][Terminology]]
+  - [[#unit][Unit]]
+  - [[#service][Service]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+
+* Reference
+- https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal
+
+** Commands
+*** systemctl
+#+BEGIN_SRC shell
+  systemctl start <name>.service
+  systemctl stop <name>.service
+  systemctl restart <name>.service
+  systemctl reload <name>.service      # reload some configs while running
+  systemctl enable <name>.service      # make service start at boot
+  systemctl disable <name>.service
+
+  systemctl status <name>.service      # overview
+  systemctl show <name>.service        # low-level details
+  systemctl list-dependencies <name>.service
+
+  systemctl list-units                 # only active
+  systemctl list-units --all           # all loaded
+  systemctl list-unit-files            # all installed
+
+  systemctl cat <name>.service         # contents of unit file
+  systemctl edit <name>.service        # edit override for unit file
+  systemctl edit --full <name>.service # edit unit file
+
+  systemctl daemon-reload              # reload after edit
+
+  systemctl list-unit-files --type=target
+  systemctl get-default
+#+END_SRC
+
+*** journalctl
+#+BEGIN_SRC shell
+  journalctl                   # all
+  journalctl -b                # current boot
+  journalctl -k                # only kernel messages
+  journalctl -u <name>.service # unit
+#+END_SRC
+
+* Terminology
+** Unit
+** Service
+* Topics
+* How-to
+* Links
+* Staging
