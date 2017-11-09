@@ -3,21 +3,120 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#unit-files][Unit files]]
+    - [[#types][types]]
+    - [[#syntax][syntax]]
+    - [[#unit][[Unit]]]
+    - [[#service][[Service]]]
+    - [[#install][[Install]]]
   - [[#commands][Commands]]
     - [[#systemctl][systemctl]]
     - [[#journalctl][journalctl]]
 - [[#terminology][Terminology]]
-  - [[#unit][Unit]]
-  - [[#service][Service]]
+  - [[#unit-1][Unit]]
+  - [[#service-1][Service]]
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
 
 * Overview
+- https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+
+| path                  | description                                  |
+|-----------------------+----------------------------------------------|
+| ~/lib/systemd/system~ | unit files                                   |
+| ~/run/systemd/system~ | runt-ime unit definitions                    |
+| ~/etc/systemd/system~ | overrides (unit files which take precedence) |
 
 * Reference
+- https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
 - https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal
+
+** Unit files
+
+*** types
+| type of unit | description                                                               |
+|--------------+---------------------------------------------------------------------------|
+| ~.service~   | manage a service or application on the server                             |
+| ~.socket~    |                                                                           |
+| ~.device~    |                                                                           |
+| ~.mount~     |                                                                           |
+| ~.automount~ |                                                                           |
+| ~.swap~      |                                                                           |
+| ~.target~    | synchronization points for other units when booting up or changing states |
+| ~.path~      |                                                                           |
+| ~.timer~     |                                                                           |
+| ~.snapshot~  |                                                                           |
+| ~.slice~     |                                                                           |
+| ~.scope~     |                                                                           |
+
+*** syntax
+- case-sensitive
+- ~X-<name>~ for non-standard sections
+- ~1~, ~yes~, ~on~, ~true~, ~0~, ~no~, ~off~, ~false~ for booleans
+
+#+BEGIN_EXAMPLE
+  [Section]
+  Directive1=value
+  Directive2=value
+  ...
+#+END_EXAMPLE
+
+*** [Unit]
+- The first section found in most unit files 
+- Defines metadata for the unit and configuring the relationship of the unit to other units.
+
+| Directive        | description |
+|------------------+-------------+
+| ~Description=~   |             |
+| ~Documentation=~ |             |
+| ~Requires~       |             |
+| ~Wants=~         |             |
+| ~BindsTo=~       |             |
+| ~Before=~        |             |
+| ~After=~         |             |
+| ~Conflicts~      |             |
+| ~Condition...=~  |             |
+| ~Assert...=~     |             |
+
+*** [Service]
+- https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options
+- Defines configuration that is only applicable for services
+
+| Directive | description                                                                                                      |
+|------------------------+------------------------------------------------------------------------------------------------------------------|
+| ~Type=~                | how to manage services. ~simple~ is default, ~forking~ for services which fork, ~oneshot~ for shot-lived process |
+| ~RemainAfterExit=~     | with ~oneshot~ type. active after process exits                                                                  |
+| ~PIDFile=~             | with ~forking~ type                                                                                              |
+| ~BusName=~             | with ~dbus~ type                                                                                                 |
+| ~NotifyAccess=~        | with ~notify~ type                                                                                               |
+
+| Directive        | description                                                                      |
+|------------------+----------------------------------------------------------------------------------|
+| ~ExecStart=~     | if path to command starts with ~-~, systemd considers active even if it's failed |
+| ~ExecStartPre=~  |                                                                                  |
+| ~ExecStartPost=~ |                                                                                  |
+| ~ExecReload~     |                                                                                  |
+| ~ExecStop=~      | if not given, the process will be killed when stopped                            |
+| ~ExecStopPost=~  |                                                                                  |
+| ~RestartSec=~    |                                                                                  |
+| ~Restart=~       | ~always~, ~on-success~, ~on-failure~, ~on-abnormal~, ~on-abort~, ~on-watchdog~   |
+| ~TimeoutSec=~    | When stopping, after waiting ~n~ seconds, systemd kills the process              |
+
+*** [Install]
+- The last section is often
+- optional
+- Defines the behavior or a unit if it is /enabled/ or /disabled/
+- *Enabling a unit marks it to be automatically started at boot.*
+
+| Directive          | description |
+|--------------------+-------------+
+| ~WantedBy=~        |             |
+| ~RequiredBy=~      |             |
+| ~Alias~            |             |
+| ~Also=~            |             |
+| ~DefaultInstance=~ |             |
 
 ** Commands
 *** systemctl
