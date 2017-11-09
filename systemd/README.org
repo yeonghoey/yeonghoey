@@ -1,22 +1,50 @@
 #+TITLE: systemd
 
-* Table of Contents :TOC_4_gh:
+* Table of Contents :TOC_5_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
-  - [[#units][Units]]
-    - [[#syntax][Syntax]]
-    - [[#types][Types]]
-      - [[#target][Target]]
-    - [[#sections][Sections]]
-      - [[#unit][Unit]]
-      - [[#service][Service]]
-      - [[#install][Install]]
-  - [[#commands][Commands]]
-    - [[#systemctl][systemctl]]
-    - [[#journalctl][journalctl]]
-- [[#terminology][Terminology]]
-  - [[#unit-1][Unit]]
-  - [[#service-1][Service]]
+- [[#units][Units]]
+  - [[#syntax][Syntax]]
+  - [[#types][Types]]
+    - [[#target][Target]]
+  - [[#paths][Paths]]
+- [[#special-units][Special units]]
+- [[#sections][Sections]]
+  - [[#unit][Unit]]
+    - [[#description][Description]]
+    - [[#documentation][Documentation]]
+    - [[#requires][Requires]]
+    - [[#wants][Wants]]
+    - [[#requisite][Requisite]]
+    - [[#conflicts][Conflicts]]
+    - [[#before][Before]]
+    - [[#after][After]]
+    - [[#condition][Condition...]]
+    - [[#assert][Assert...]]
+  - [[#service][Service]]
+    - [[#type][Type]]
+    - [[#remainafterexit][RemainAfterExit]]
+    - [[#pidfile][PIDFile]]
+    - [[#busname][BusName]]
+    - [[#notifyaccess][NotifyAccess]]
+    - [[#execstart][ExecStart]]
+    - [[#execstartpre][ExecStartPre]]
+    - [[#execstartpost][ExecStartPost]]
+    - [[#execreload][ExecReload~]]
+    - [[#execstop][ExecStop=]]
+    - [[#execstoppost][ExecStopPost]]
+    - [[#restartsec][RestartSec]]
+    - [[#restart][Restart]]
+    - [[#timeoutsec][TimeoutSec]]
+  - [[#install][Install]]
+    - [[#wantedby][WantedBy]]
+    - [[#requiredby][RequiredBy]]
+    - [[#alias][Alias]]
+    - [[#also][Also]]
+    - [[#defaultinstance][DefaultInstance]]
+- [[#commands][Commands]]
+  - [[#systemctl][systemctl]]
+  - [[#journalctl][journalctl]]
 - [[#topics][Topics]]
   - [[#is-it-expected-for-systemd-to-start-disabled-services][Is it expected for systemd to start disabled services?]]
 - [[#how-to][How-to]]
@@ -24,20 +52,18 @@
 - [[#staging][Staging]]
 
 * Overview
+- https://en.wikipedia.org/wiki/Systemd
 - https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
 
-| path                  | description                                  |
-|-----------------------+----------------------------------------------|
-| ~/lib/systemd/system~ | unit files                                   |
-| ~/run/systemd/system~ | runt-ime unit definitions                    |
-| ~/etc/systemd/system~ | overrides (unit files which take precedence) |
+[[file:img/screenshot_2017-11-09_15-47-44.png]]
+
 
 * Reference
 - https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
 - https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal
 
-** Units
-*** Syntax
+* Units
+** Syntax
 - case-sensitive
 - ~X-<name>~ for non-standard sections
 - ~1~, ~yes~, ~on~, ~true~, ~0~, ~no~, ~off~, ~false~ for booleans
@@ -49,7 +75,7 @@
   ...
 #+END_EXAMPLE
 
-*** Types
+** Types
 | type of unit | description                                                               |
 |--------------+---------------------------------------------------------------------------|
 | ~.service~   | manage a service or application on the server                             |
@@ -65,68 +91,93 @@
 | ~.slice~     |                                                                           |
 | ~.scope~     |                                                                           |
 
-**** Target
+*** Target
 - Target units do not offer any additional functionality on top of the generic functionality provided by units.
 - They exist merely to group units via dependencies
 
-*** Sections
-**** Unit
-- The first section found in most unit files 
+** Paths
+| path                  | description                                  |
+|-----------------------+----------------------------------------------|
+| ~/lib/systemd/system~ | unit files                                   |
+| ~/run/systemd/system~ | runt-ime unit definitions                    |
+| ~/etc/systemd/system~ | overrides (unit files which take precedence) |
+
+* Special units
+- https://www.freedesktop.org/software/systemd/man/systemd.special.html
+
+| Target           | description                                                                               |
+|------------------+-------------------------------------------------------------------------------------------|
+| ~default.target~ | Usually, this should be aliased (symlinked) to ~multi-user.target~ or ~graphical.target~. |
+
+* Sections
+** Unit
+- The first section found in most unit files
 - Defines metadata for the unit and configuring the relationship of the unit to other units.
 
-| Directive        | description |
-|------------------+-------------+
-| ~Description=~   |             |
-| ~Documentation=~ |             |
-| ~Requires~       |             |
-| ~Wants=~         |             |
-| ~BindsTo=~       |             |
-| ~Before=~        |             |
-| ~After=~         |             |
-| ~Conflicts~      |             |
-| ~Condition...=~  |             |
-| ~Assert...=~     |             |
+*** Description
+*** Documentation
+*** Requires
+- activate dependenceis and fail if they fail
+*** Wants
+- activate dependencies but don't care whether they fail or not
+*** Requisite
+- fails if the dependency is not active
+*** Conflicts
+- deactivate the dependency if it is active
+*** Before
+*** After
+*** Condition...
+*** Assert...
 
-**** Service
+** Service
 - https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options
+- https://www.freedesktop.org/software/systemd/man/systemd.service.html#Command%20lines
+
 - Defines configuration that is only applicable for services
 
-| Directive | description                                                                                                      |
-|------------------------+------------------------------------------------------------------------------------------------------------------|
-| ~Type=~                | how to manage services. ~simple~ is default, ~forking~ for services which fork, ~oneshot~ for shot-lived process |
-| ~RemainAfterExit=~     | with ~oneshot~ type. active after process exits                                                                  |
-| ~PIDFile=~             | with ~forking~ type                                                                                              |
-| ~BusName=~             | with ~dbus~ type                                                                                                 |
-| ~NotifyAccess=~        | with ~notify~ type                                                                                               |
+*** Type
+- how to manage services. ~simple~ is default, ~forking~ for services which fork, ~oneshot~ for shot-lived process
+*** RemainAfterExit
+- with ~oneshot~ type. active after process exits                                                                  
+*** PIDFile
+- with ~forking~ type                                                                                              |
+*** BusName
+- with ~dbus~ type                                                                                                 |
+*** NotifyAccess
+- with ~notify~ type                                                                                               |
 
-| Directive        | description                                                                      |
-|------------------+----------------------------------------------------------------------------------|
-| ~ExecStart=~     | if path to command starts with ~-~, systemd considers active even if it's failed |
-| ~ExecStartPre=~  |                                                                                  |
-| ~ExecStartPost=~ |                                                                                  |
-| ~ExecReload~     |                                                                                  |
-| ~ExecStop=~      | if not given, the process will be killed when stopped                            |
-| ~ExecStopPost=~  |                                                                                  |
-| ~RestartSec=~    |                                                                                  |
-| ~Restart=~       | ~always~, ~on-success~, ~on-failure~, ~on-abnormal~, ~on-abort~, ~on-watchdog~   |
-| ~TimeoutSec=~    | When stopping, after waiting ~n~ seconds, systemd kills the process              |
+*** ExecStart
+- if path to command starts with ~-~, systemd considers active even if it's failed
+*** ExecStartPre
+*** ExecStartPost
+*** ExecReload~
+*** ExecStop=
+- if not given, the process will be killed when stopped
 
-**** Install
+*** ExecStopPost
+*** RestartSec
+*** Restart
+- ~always~, ~on-success~, ~on-failure~, ~on-abnormal~, ~on-abort~, ~on-watchdog~
+
+[[file:img/screenshot_2017-11-09_16-14-09.png]]
+
+*** TimeoutSec
+- When stopping, after waiting ~n~ seconds, systemd kills the process
+
+** Install
 - The last section is often
 - optional
 - Defines the behavior or a unit if it is /enabled/ or /disabled/
 - *Enabling a unit marks it to be automatically started at boot.*
 
-| Directive          | description |
-|--------------------+-------------+
-| ~WantedBy=~        |             |
-| ~RequiredBy=~      |             |
-| ~Alias~            |             |
-| ~Also=~            |             |
-| ~DefaultInstance=~ |             |
+*** WantedBy
+*** RequiredBy
+*** Alias
+*** Also
+*** DefaultInstance
 
-** Commands
-*** systemctl
+* Commands
+** systemctl
 #+BEGIN_SRC shell
   systemctl start <name>.service
   systemctl stop <name>.service
@@ -153,7 +204,7 @@
   systemctl get-default
 #+END_SRC
 
-*** journalctl
+** journalctl
 #+BEGIN_SRC shell
   journalctl                   # all
   journalctl -b                # current boot
@@ -161,9 +212,6 @@
   journalctl -u <name>.service # unit
 #+END_SRC
 
-* Terminology
-** Unit
-** Service
 * Topics
 ** Is it expected for systemd to start disabled services?
 #+BEGIN_QUOTE
