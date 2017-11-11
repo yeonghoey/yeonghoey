@@ -16,6 +16,7 @@
 - [[#practice-questions][Practice questions]]
 - [[#programming-assignments][Programming assignments]]
   - [[#convolutional-model-step-by-step][Convolutional Model: step by step]]
+  - [[#convolutional-model-application][Convolutional Model: application]]
 
 * Convolutional Neural Networks
 ** Computer Vision
@@ -126,4 +127,34 @@ I don't know if anyone knows that that's the real underlying reason that max poo
 
   def pool_forward(A_prev, hparameters, mode = "max"):
       return A, cache
+#+END_SRC
+
+[[file:img/screenshot_2017-11-11_23-50-37.png]]
+** Convolutional Model: application
+[[file:img/screenshot_2017-11-12_04-01-23.png]]
+
+[[file:img/screenshot_2017-11-12_04-12-44.png]]
+
+[[file:img/screenshot_2017-11-12_04-12-31.png]]
+
+[[file:img/screenshot_2017-11-12_04-13-05.png]]
+
+[[file:img/screenshot_2017-11-12_04-28-26.png]]
+
+[[file:img/screenshot_2017-11-12_04-31-32.png]]
+
+#+BEGIN_SRC python
+  def create_placeholders(n_H0, n_W0, n_C0, n_y):
+      return X, Y
+
+  def initialize_parameters():
+      parameters = {"W1": W1,
+                    "W2": W2}
+      return parameters
+
+  def forward_propagation(X, parameters):
+      return Z3
+
+  def compute_cost(Z3, Y):
+      return cost
 #+END_SRC
