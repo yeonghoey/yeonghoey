@@ -7,10 +7,94 @@
   - [[#more-edge-detection][More Edge Detection]]
   - [[#padding][Padding]]
   - [[#strided-convolutions][Strided Convolutions]]
+  - [[#convolutions-over-volume][Convolutions Over Volume]]
+  - [[#one-layer-of-a-convolutional-network][One Layer of a Convolutional Network]]
+  - [[#simple-convolutional-network-example][Simple Convolutional Network Example]]
+  - [[#pooling-layers][Pooling Layers]]
+  - [[#cnn-example][CNN Example]]
+  - [[#why-convolutions][Why Convolutions?]]
+- [[#practice-questions][Practice questions]]
+- [[#programming-assignments][Programming assignments]]
 
 * Convolutional Neural Networks
 ** Computer Vision
+[[file:img/screenshot_2017-11-11_11-50-50.png]]
+
 ** Edge Detection Example
+[[file:img/screenshot_2017-11-11_11-51-52.png]]
+
+[[file:img/screenshot_2017-11-11_11-52-38.png]]
+
+[[file:img/screenshot_2017-11-11_11-53-23.png]]
+
 ** More Edge Detection
+[[file:img/screenshot_2017-11-11_11-54-21.png]]
+
+[[file:img/screenshot_2017-11-11_11-54-45.png]]
+
+[[file:img/screenshot_2017-11-11_11-56-12.png]]
+
 ** Padding
+[[file:img/screenshot_2017-11-11_11-57-25.png]]
+
+[[file:img/screenshot_2017-11-11_11-57-58.png]]
+
 ** Strided Convolutions
+[[file:img/screenshot_2017-11-11_11-58-37.png]]
+
+[[file:img/screenshot_2017-11-11_11-58-52.png]]
+
+[[file:img/screenshot_2017-11-11_11-59-40.png]]
+
+- Actul convolution operation in math requires flipping the filter matrix
+- The same operation as convolution without flipping is called cross-correlation in math.
+- *But, in machine learning, by the convention, practitioners call the cross-correlation as convolution.*
+** Convolutions Over Volume
+[[file:img/screenshot_2017-11-11_12-05-22.png]]
+
+** One Layer of a Convolutional Network
+[[file:img/screenshot_2017-11-11_12-06-50.png]]
+
+[[file:img/screenshot_2017-11-11_12-07-32.png]]
+
+[[file:img/screenshot_2017-11-11_12-10-14.png]]
+
+** Simple Convolutional Network Example
+[[file:img/screenshot_2017-11-11_12-11-41.png]]
+
+** Pooling Layers
+[[file:img/screenshot_2017-11-11_12-12-20.png]]
+
+#+BEGIN_QUOTE
+But I have to admit, I think the main reason people use max pooling is because it's been found in a lot of experiments to work well.
+And the intuition I just described, despite it being often cited, I don't know if anyone fully knows if that's the real underlined reason.
+I don't know if anyone knows that that's the real underlying reason that max pooling works well in confidence.
+#+END_QUOTE
+
+[[file:img/screenshot_2017-11-11_12-15-47.png]]
+
+[[file:img/screenshot_2017-11-11_12-16-04.png]]
+
+- Max pooling is used in general. Average pooling is rarely used.
+
+[[file:img/screenshot_2017-11-11_12-17-20.png]]
+
+- Generally no padding for pooling layers
+
+** CNN Example
+[[file:img/screenshot_2017-11-11_12-18-17.png]]
+
+[[file:img/screenshot_2017-11-11_12-18-31.png]]
+
+** Why Convolutions?
+[[file:img/screenshot_2017-11-11_12-18-59.png]]
+
+- Conv layers have relatively small parameters.
+
+[[file:img/screenshot_2017-11-11_12-19-39.png]]
+
+[[file:img/screenshot_2017-11-11_12-19-53.png]]
+
+* Practice questions
+
+* Programming assignments
