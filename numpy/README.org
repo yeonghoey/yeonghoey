@@ -48,6 +48,10 @@
          [4, 5, 6]])
 #+END_SRC
 
+- Be careful that ~x[1:2][3:4]~ is not equivalent to ~x[1:2, 3:4]~
+  - For the first one, both slicing(~1:2~, ~3:4~) operates over the first dim, whereas
+    for the second one, both slicing works on the first and second dim respectively.
+
 * Terminology
 * Topics
 ** Dimensions
