@@ -15,6 +15,7 @@
   - [[#why-convolutions][Why Convolutions?]]
 - [[#practice-questions][Practice questions]]
 - [[#programming-assignments][Programming assignments]]
+  - [[#convolutional-model-step-by-step][Convolutional Model: step by step]]
 
 * Convolutional Neural Networks
 ** Computer Vision
@@ -98,3 +99,31 @@ I don't know if anyone knows that that's the real underlying reason that max poo
 * Practice questions
 
 * Programming assignments
+** Convolutional Model: step by step
+[[file:img/screenshot_2017-11-11_22-13-40.png]]
+
+[[file:img/screenshot_2017-11-11_22-17-08.png]]
+
+[[file:img/screenshot_2017-11-11_22-19-28.png]]
+
+[[file:img/screenshot_2017-11-11_22-23-07.png]]
+
+[[file:img/screenshot_2017-11-11_22-27-43.png]]
+
+[[file:img/screenshot_2017-11-11_23-27-30.png]]
+
+#+BEGIN_SRC python
+  def zero_pad(X, pad):
+      # padded image of shape (m, n_H + 2*pad, n_W + 2*pad, n_C)
+      return X_pad
+
+  def conv_single_step(a_slice_prev, W, b):
+      # a scalar value, result of convolving the sliding window (W, b) on a slice x of the input data
+      return Z
+
+  def conv_forward(A_prev, W, b, hparameters):
+      return Z, cache
+
+  def pool_forward(A_prev, hparameters, mode = "max"):
+      return A, cache
+#+END_SRC
