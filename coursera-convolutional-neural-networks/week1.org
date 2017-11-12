@@ -113,6 +113,16 @@ I don't know if anyone knows that that's the real underlying reason that max poo
 
 [[file:img/screenshot_2017-11-11_23-27-30.png]]
 
+[[file:img/screenshot_2017-11-11_23-50-37.png]]
+
+[[file:img/screenshot_2017-11-12_09-55-07.png]]
+
+[[file:img/screenshot_2017-11-12_10-15-19.png]]
+
+[[file:img/screenshot_2017-11-12_10-18-46.png]]
+
+[[file:img/screenshot_2017-11-12_10-19-52.png]]
+
 #+BEGIN_SRC python
   def zero_pad(X, pad):
       # padded image of shape (m, n_H + 2*pad, n_W + 2*pad, n_C)
@@ -127,9 +137,22 @@ I don't know if anyone knows that that's the real underlying reason that max poo
 
   def pool_forward(A_prev, hparameters, mode = "max"):
       return A, cache
+
+  def conv_backward(dZ, cache):
+      return dA_prev, dW, db
+
+  def create_mask_from_window(x):
+      # Array of the same shape as window, contains a True at the position corresponding to the max entry of x.
+      return mask
+
+  def distribute_value(dz, shape):
+      # Array of size (n_H, n_W) for which we distributed the value of dz
+      return a
+
+  def pool_backward(dA, cache, mode = "max"):
+      return dA_prev
 #+END_SRC
 
-[[file:img/screenshot_2017-11-11_23-50-37.png]]
 ** Convolutional Model: application
 [[file:img/screenshot_2017-11-12_04-01-23.png]]
 
