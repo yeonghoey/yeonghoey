@@ -1,0 +1,12 @@
+#+TITLE: ML Strategy (1)
+
+* Table of Contents :TOC_3_gh:
+- [[#error-analysis][Error Analysis]]
+  - [[#carrying-out-error-analysis][Carrying out error analysis]]
+  - [[#cleaning-up-incorrectly-labeled-data][Cleaning up incorrectly labeled data]]
+  - [[#build-your-first-system-quickly-then-iterate][Build your first system quickly, then iterate]]
+
+* Error Analysis
+** Carrying out error analysis
+** Cleaning up incorrectly labeled data
+** Build your first system quickly, then iterate
