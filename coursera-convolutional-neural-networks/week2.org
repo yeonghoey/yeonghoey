@@ -1,0 +1,10 @@
+#+TITLE: Deep convolutional models: case studies
+
+* Case studies
+** Why look at case studies?
+** Classic Networks
+** ResNets
+** Why ResNets Work
+** Networks in Networks and 1x1 Convolutions
+** Inception Network Motivation
+** Inception Network
