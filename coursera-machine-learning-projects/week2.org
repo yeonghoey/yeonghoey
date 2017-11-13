@@ -8,5 +8,15 @@
 
 * Error Analysis
 ** Carrying out error analysis
+[[file:img/screenshot_2017-11-14_01-08-03.png]]
+
+[[file:img/screenshot_2017-11-14_01-08-29.png]]
+
 ** Cleaning up incorrectly labeled data
+[[file:img/screenshot_2017-11-14_01-09-37.png]]
+
+[[file:img/screenshot_2017-11-14_01-10-10.png]]
+
+[[file:img/screenshot_2017-11-14_01-10-50.png]]
+
 ** Build your first system quickly, then iterate
