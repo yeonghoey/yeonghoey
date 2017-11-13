@@ -2,6 +2,8 @@
 
 * Case studies
 ** Why look at case studies?
+[[file:img/screenshot_2017-11-14_01-06-41.png]]
+
 ** Classic Networks
 ** ResNets
 ** Why ResNets Work
