@@ -18,7 +18,15 @@
 [[file:img/screenshot_2017-11-15_08-27-28.png]]
 
 ** ResNets
+[[file:img/screenshot_2017-11-15_08-29-27.png]]
+
+[[file:img/screenshot_2017-11-15_08-29-59.png]]
+
 ** Why ResNets Work
+[[file:img/screenshot_2017-11-15_08-30-46.png]]
+
+[[file:img/screenshot_2017-11-15_08-31-12.png]]
+
 ** Networks in Networks and 1x1 Convolutions
 ** Inception Network Motivation
 ** Inception Network
