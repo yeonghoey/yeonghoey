@@ -5,6 +5,18 @@
 [[file:img/screenshot_2017-11-14_01-06-41.png]]
 
 ** Classic Networks
+- http://yann.lecun.com/exdb/lenet/
+
+[[file:img/screenshot_2017-11-15_08-25-32.png]]
+
+- https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
+
+[[file:img/screenshot_2017-11-15_08-26-58.png]]
+
+- https://arxiv.org/pdf/1409.1556v6.pdf
+
+[[file:img/screenshot_2017-11-15_08-27-28.png]]
+
 ** ResNets
 ** Why ResNets Work
 ** Networks in Networks and 1x1 Convolutions

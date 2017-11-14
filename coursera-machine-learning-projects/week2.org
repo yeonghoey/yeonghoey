@@ -20,3 +20,4 @@
 [[file:img/screenshot_2017-11-14_01-10-50.png]]
 
 ** Build your first system quickly, then iterate
+[[file:img/screenshot_2017-11-15_08-23-48.png]]
