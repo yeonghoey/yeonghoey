@@ -1,0 +1,26 @@
+#+TITLE: httpbin
+
+* Table of Contents :TOC_3_gh:
+- [[#reference][Reference]]
+  - [[#get][/get]]
+
+* Reference
+** /get
+#+BEGIN_SRC shell
+  $ curl httpbin.org/get
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+    "args": {},
+    "headers": {
+      "Accept": "*/*",
+      "Cache-Control": "max-age=259200",
+      "Connection": "close",
+      "Host": "httpbin.org",
+      "User-Agent": "curl/7.47.0"
+    },
+    "origin": "10.60.26.204, 52.192.61.2",
+    "url": "http://httpbin.org/get"
+  }
+#+END_SRC
