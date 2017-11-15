@@ -8,9 +8,6 @@
 ** /get
 #+BEGIN_SRC shell
   $ curl httpbin.org/get
-#+END_SRC
-
-#+BEGIN_SRC json
   {
     "args": {},
     "headers": {
