@@ -3,6 +3,8 @@
 * Table of Contents :TOC_3_gh:
 - [[#reference][Reference]]
   - [[#get][/get]]
+  - [[#headers][/headers]]
+  - [[#headers-1][/headers]]
 - [[#links][Links]]
 
 * Reference
@@ -23,6 +25,32 @@
   }
 #+END_SRC
 
+** /headers
+#+BEGIN_SRC shell
+  $ curl httpbin.org/headers?show_env=1
+  {
+    "headers": {
+      "Accept": "*/*",
+      "Cache-Control": "max-age=259200",
+      "Connect-Time": "1",
+      "Connection": "close",
+      "Host": "httpbin.org",
+      "Total-Route-Time": "0",
+      "User-Agent": "curl/7.47.0",
+      "Via": "1.1 cbt-nxproxy-000 (squid/3.5.12), 1.1 vegur",
+      "X-Forwarded-For": "10.60.12.54, 52.192.61.2",
+      "X-Forwarded-Port": "80",
+      "X-Forwarded-Proto": "http",
+      "X-Request-Id": "c0cc61b1-3b45-46a7-ba3c-2a161c6e7890",
+      "X-Request-Start": "1510731143601"
+    }
+  }
+#+END_SRC
+
+** /headers
+
+
 * Links
 - https://github.com/kennethreitz/httpbin
 - https://httpbin.org/
+- https://requestb.in/
