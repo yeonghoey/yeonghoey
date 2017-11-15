@@ -4,7 +4,6 @@
 - [[#reference][Reference]]
   - [[#get][/get]]
   - [[#headers][/headers]]
-  - [[#headers-1][/headers]]
 - [[#links][Links]]
 
 * Reference
@@ -46,9 +45,6 @@
     }
   }
 #+END_SRC
-
-** /headers
-
 
 * Links
 - https://github.com/kennethreitz/httpbin
