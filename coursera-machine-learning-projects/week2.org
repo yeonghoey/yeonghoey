@@ -16,7 +16,7 @@
   - [[#what-is-end-to-end-deep-learning][What is end-to-end deep learning?]]
   - [[#whether-to-use-end-to-end-deep-learning][Whether to use end-to-end deep learning]]
 - [[#machine-learning-flight-simulator][Machine Learning flight simulator]]
-  - [[#][]]
+  - [[#autonomous-drivingcase-study][Autonomous driving(case study)]]
 
 * Error Analysis
 ** Carrying out error analysis
@@ -77,4 +77,13 @@
 
 [[file:img/screenshot_2017-11-18_23-29-15.png]]
 * Machine Learning flight simulator
-** 
+** Autonomous driving(case study)
+[[file:img/screenshot_2017-11-19_01-57-52.png]]
+
+[[file:img/screenshot_2017-11-19_02-11-06.png]]
+
+[[file:img/screenshot_2017-11-19_02-29-46.png]]
+
+[[file:img/screenshot_2017-11-19_02-30-53.png]]
+
+- Deep learning algorithms are quite robust to having slightly different train and dev distributions.
