@@ -28,5 +28,47 @@
 [[file:img/screenshot_2017-11-15_08-31-12.png]]
 
 ** Networks in Networks and 1x1 Convolutions
+[[file:img/screenshot_2017-11-19_02-42-10.png]]
+
+[[file:img/screenshot_2017-11-19_02-43-53.png]]
+
 ** Inception Network Motivation
+[[file:img/screenshot_2017-11-19_02-44-46.png]]
+
+[[file:img/screenshot_2017-11-19_02-45-19.png]]
+
+[[file:img/screenshot_2017-11-19_02-46-04.png]]
+
 ** Inception Network
+[[file:img/screenshot_2017-11-19_03-00-24.png]]
+
+[[file:img/screenshot_2017-11-19_03-01-00.png]]
+
+* Practical advices for using ConvNets
+** Using Open-Source Implementation
+[[file:img/screenshot_2017-11-19_03-02-46.png]]
+
+** Transfer Learning
+[[file:img/screenshot_2017-11-19_03-03-54.png]]
+
+- Take both the network architecture and *the weights learned*.
+- You can use the weights as the initial value for your network.
+
+** Data Augmentation
+[[file:img/screenshot_2017-11-19_03-07-28.png]]
+
+[[file:img/screenshot_2017-11-19_03-07-49.png]]
+
+[[file:img/screenshot_2017-11-19_03-08-03.png]]
+
+** State of Computer Vision
+[[file:img/screenshot_2017-11-19_03-09-03.png]]
+
+[[file:img/screenshot_2017-11-19_03-09-23.png]]
+
+- Not recommended for productions, research and learning because it complicates the algorithm for slightly better performance.
+
+[[file:img/screenshot_2017-11-19_03-11-00.png]]
+
+* Practice questions
+* Programming assignments
