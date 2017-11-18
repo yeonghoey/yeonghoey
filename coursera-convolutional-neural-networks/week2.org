@@ -70,5 +70,6 @@
 
 [[file:img/screenshot_2017-11-19_03-11-00.png]]
 
-* Practice questions
 * Programming assignments
+** Keras Tutorial - The Happy House
+** Residual Networks
