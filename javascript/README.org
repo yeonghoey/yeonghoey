@@ -1,14 +1,23 @@
 #+TITLE: Javascript
 
-* Table of Contents :TOC_2_gh:
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#global-functions][Global functions]]
+    - [[#encodeuri][encodeURI]]
+    - [[#encodeuricomponent][encodeURIComponent]]
+    - [[#decodeuri][decodeURI]]
+    - [[#decodeuricomponent][decodeURIComponent]]
   - [[#string][String]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
+- [[#links][Links]]
 - [[#staging][Staging]]
   - [[#redux-and-flux][redux and flux]]
 
+* Overview
 * Reference
 ** Global functions
 *** encodeURI
@@ -23,6 +32,8 @@
 ** String
 - https://www.w3schools.com/jsref/jsref_obj_string.asp
 
+* Terminology
+* Topics
 * How-to
 ** Parse URI
 - https://gist.github.com/jlong/2428561
@@ -39,6 +50,9 @@
   parser.hash;     // => "#hash"
   parser.host;     // => "example.com:3000"
 #+END_SRC
+
+* Links
+- https://javascript.info/ 
 
 * Staging
 ** redux and flux
