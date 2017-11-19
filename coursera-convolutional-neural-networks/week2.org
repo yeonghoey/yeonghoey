@@ -72,4 +72,51 @@
 
 * Programming assignments
 ** Keras Tutorial - The Happy House
+[[file:img/screenshot_2017-11-19_10-04-59.png]]
+
+[[file:img/screenshot_2017-11-19_10-05-58.png]]
+
+[[file:img/screenshot_2017-11-19_10-07-01.png]]
+
+[[file:img/screenshot_2017-11-19_10-07-59.png]]
+
+[[file:img/screenshot_2017-11-19_10-12-29.png]]
+
+[[file:img/screenshot_2017-11-19_10-34-04.png]]
+
+[[file:img/screenshot_2017-11-19_10-35-53.png]]
+
+[[file:img/screenshot_2017-11-19_10-37-47.png]]
+
+[[file:img/screenshot_2017-11-19_10-38-01.png]]
+
 ** Residual Networks
+[[file:img/screenshot_2017-11-19_10-04-22.png]]
+
+[[file:img/screenshot_2017-11-19_10-39-52.png]]
+
+[[file:img/screenshot_2017-11-19_10-41-21.png]]
+
+[[file:img/screenshot_2017-11-19_10-43-16.png]]
+
+[[file:img/screenshot_2017-11-19_10-44-03.png]]
+
+[[file:img/screenshot_2017-11-19_10-58-25.png]]
+
+For Batch Normalization and its ~axis~ parameter,
+SEE: https://github.com/fchollet/keras/blob/0daec53acbf4c3df6c054b36ece5c1ae2db55d86/keras/layers/normalization.py#L31
+
+[[file:img/screenshot_2017-11-19_11-20-31.png]]
+
+[[file:img/screenshot_2017-11-19_11-34-15.png]]
+
+#+BEGIN_SRC python
+  def identity_block(X, f, filters, stage, block):
+      return X
+
+  def convolutional_block(X, f, filters, stage, block, s = 2):
+      return X
+
+  def ResNet50(input_shape = (64, 64, 3), classes = 6):
+      return model
+#+END_SRC
