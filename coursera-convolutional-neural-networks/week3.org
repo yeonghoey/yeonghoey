@@ -1,0 +1,16 @@
+#+TITLE: Object Detection
+
+* Detection algorithms
+** Object Localization
+[[file:img/screenshot_2017-11-24_23-33-19.png]]
+
+[[file:img/screenshot_2017-11-24_23-33-47.png]]
+
+[[file:img/screenshot_2017-11-24_23-35-51.png]]
+** Landmark Detection
+[[file:img/screenshot_2017-11-24_23-37-23.png]]
+** Object Detection
+[[file:img/screenshot_2017-11-24_23-59-56.png]]
+
+** Convolutional Implementation of Sliding Windows
+[[file:img/screenshot_2017-11-25_00-23-41.png]]
