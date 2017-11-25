@@ -176,4 +176,7 @@
 - Use ~git-buildpackage~
 
 * Links
+- https://www.debian.org/doc/manuals/maint-guide/
+- https://www.debian.org/doc/devel-manuals
+
 * Staging

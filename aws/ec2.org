@@ -1,13 +1,15 @@
 #+TITLE: AWS EC2
 
 * Table of Contents :TOC_2_gh:
- - [[#how-to][How-to]]
-   - [[#modify-ebs-volume][Modify EBS Volume]]
-   - [[#enable-ena-on-ubuntu][Enable ENA on Ubuntu]]
- - [[#topics][Topics]]
-   - [[#key-pairs][Key Pairs]]
-   - [[#status-checks][Status Checks]]
-   - [[#enhanced-networking-on-linux][Enhanced Networking on Linux]]
+- [[#how-to][How-to]]
+  - [[#modify-ebs-volume][Modify EBS Volume]]
+  - [[#enable-ena-on-ubuntu][Enable ENA on Ubuntu]]
+- [[#topics][Topics]]
+  - [[#key-pairs][Key Pairs]]
+  - [[#status-checks][Status Checks]]
+  - [[#enhanced-networking-on-linux][Enhanced Networking on Linux]]
+- [[#staging][Staging]]
+  - [[#2017-11-06-mon-aws-ec2-user-data][<2017-11-06 Mon> AWS EC2 User Data]]
 
 * How-to
 ** Modify EBS Volume
@@ -67,3 +69,6 @@ require your involvement to repair. (...)
 - Increases throughput
 
 [[file:img/screenshot_2017-07-13_19-27-04.png]]
+* Staging
+** TODO <2017-11-06 Mon> AWS EC2 User Data
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html

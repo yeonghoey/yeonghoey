@@ -18,6 +18,7 @@
 - [[#how-to][How-to]]
   - [[#config-swap-spacesfiles][Config swap spaces/files]]
   - [[#mount-a-volume][Mount a Volume]]
+- [[#links][Links]]
 - [[#staging][Staging]]
   - [[#2017-07-16-sun-sudo-service---status-all][<2017-07-16 Sun> sudo service --status-all]]
   - [[#2017-02-01-wed-device-naming-on-linux-instances][<2017-02-01 Wed> Device Naming on Linux Instances]]
@@ -368,6 +369,10 @@ On many filesystems, the ~lost+found~ directory is a bit special
 because it preallocates a bit of space for ~fsck~ to deposit files there. (...)
 If you accidentally delete ~lost+found~, *don't re-create it with* ~mkdir~, *use* ~mklost+found~ *if available*.
 #+END_QUOTE
+
+* Links
+- https://www.gnu.org/prep/maintain/html_node/index.html
+- https://www.gnu.org/prep/standards/html_node/index.html
 
 * Staging
 ** TODO <2017-07-16 Sun> sudo service --status-all
