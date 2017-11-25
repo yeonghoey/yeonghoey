@@ -65,8 +65,28 @@
 
 [[file:img/screenshot_2017-11-25_10-29-42.png]]
 
+[[file:img/screenshot_2017-11-25_10-56-43.png]]
+
+[[file:img/screenshot_2017-11-25_11-05-09.png]]
+
+[[file:img/screenshot_2017-11-25_11-14-47.png]]
+
+[[file:img/screenshot_2017-11-25_11-20-43.png]]
+
+[[file:img/screenshot_2017-11-25_11-22-23.png]]
+
+[[file:img/screenshot_2017-11-25_11-22-57.png]]
+
+[[file:img/screenshot_2017-11-25_11-23-41.png]]
+
+[[file:img/screenshot_2017-11-25_11-33-18.png]]
+
+[[file:img/screenshot_2017-11-25_11-33-38.png]]
+
 - https://keras.io/backend/#argmax
 - https://www.tensorflow.org/api_docs/python/tf/boolean_mask
+- https://www.tensorflow.org/api_docs/python/tf/image/non_max_suppression
+- https://www.tensorflow.org/api_docs/python/tf/gather
 
 #+BEGIN_SRC python
   def yolo_filter_boxes(box_confidence, boxes, box_class_probs, threshold = .6):
@@ -85,6 +105,49 @@
 
       Note: "None" is here because you don't know the exact number of selected boxes, as it depends on the threshold.
       For example, the actual output size of scores would be (10,) if there are 10 boxes.
+      """
+      return scores, boxes, classes
+
+  def yolo_non_max_suppression(scores, boxes, classes, max_boxes = 10, iou_threshold = 0.5):
+      """
+      Applies Non-max suppression (NMS) to set of boxes
+
+      Arguments:
+      scores -- tensor of shape (None,), output of yolo_filter_boxes()
+      boxes -- tensor of shape (None, 4), output of yolo_filter_boxes() that have been scaled to the image size (see later)
+      classes -- tensor of shape (None,), output of yolo_filter_boxes()
+      max_boxes -- integer, maximum number of predicted boxes you'd like
+      iou_threshold -- real value, "intersection over union" threshold used for NMS filtering
+
+      Returns:
+      scores -- tensor of shape (, None), predicted score for each box
+      boxes -- tensor of shape (4, None), predicted box coordinates
+      classes -- tensor of shape (, None), predicted class for each box
+
+      Note: The "None" dimension of the output tensors has obviously to be less than max_boxes. Note also that this
+      function will transpose the shapes of scores, boxes, classes. This is made for convenience.
+      """
+      return scores, boxes, classes
+
+  def yolo_eval(yolo_outputs, image_shape = (720., 1280.), max_boxes=10, score_threshold=.6, iou_threshold=.5):
+      """
+      Converts the output of YOLO encoding (a lot of boxes) to your predicted boxes along with their scores, box coordinates and classes.
+
+      Arguments:
+      yolo_outputs -- output of the encoding model (for image_shape of (608, 608, 3)), contains 4 tensors:
+                      box_confidence: tensor of shape (None, 19, 19, 5, 1)
+                      box_xy: tensor of shape (None, 19, 19, 5, 2)
+                      box_wh: tensor of shape (None, 19, 19, 5, 2)
+                      box_class_probs: tensor of shape (None, 19, 19, 5, 80)
+      image_shape -- tensor of shape (2,) containing the input shape, in this notebook we use (608., 608.) (has to be float32 dtype)
+      max_boxes -- integer, maximum number of predicted boxes you'd like
+      score_threshold -- real value, if [ highest class probability score < threshold], then get rid of the corresponding box
+      iou_threshold -- real value, "intersection over union" threshold used for NMS filtering
+
+      Returns:
+      scores -- tensor of shape (None, ), predicted score for each box
+      boxes -- tensor of shape (None, 4), predicted box coordinates
+      classes -- tensor of shape (None,), predicted class for each box
       """
       return scores, boxes, classes
 #+END_SRC
