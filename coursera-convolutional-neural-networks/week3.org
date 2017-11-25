@@ -14,3 +14,43 @@
 
 ** Convolutional Implementation of Sliding Windows
 [[file:img/screenshot_2017-11-25_00-23-41.png]]
+
+[[file:img/screenshot_2017-11-25_10-00-09.png]]
+
+[[file:img/screenshot_2017-11-25_10-00-38.png]]
+** Bounding Box Predictions
+[[file:img/screenshot_2017-11-25_10-01-39.png]]
+
+[[file:img/screenshot_2017-11-25_10-01-57.png]]
+
+** Intersection Over Union
+[[file:img/screenshot_2017-11-25_10-02-34.png]]
+
+** Non-max Suppression
+[[file:img/screenshot_2017-11-25_10-03-03.png]]
+
+[[file:img/screenshot_2017-11-25_10-03-29.png]]
+
+** Anchor Boxes
+[[file:img/screenshot_2017-11-25_10-04-02.png]]
+
+[[file:img/screenshot_2017-11-25_10-04-20.png]]
+
+[[file:img/screenshot_2017-11-25_10-04-49.png]]
+
+- Anchor boxes are not only for dealing with multiple mid points in one grid.
+- Anchor boxes specialize each detecting object.
+
+** YOLO Algorithm
+[[file:img/screenshot_2017-11-25_10-08-01.png]]
+
+[[file:img/screenshot_2017-11-25_10-08-15.png]]
+
+[[file:img/screenshot_2017-11-25_10-08-37.png]]
+
+** (Optional) Region Proposals
+[[file:img/screenshot_2017-11-25_10-09-08.png]]
+
+[[file:img/screenshot_2017-11-25_10-09-27.png]]
+
+* Programming assignments
