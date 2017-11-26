@@ -91,6 +91,11 @@
   - [[#determine-current-shell][determine current shell]]
   - [[#hash--r][hash -r]]
   - [[#negative-offset-of-shell-parameter-expansion][negative offset of shell parameter expansion]]
+  - [[#2017-11-13-mon---in-shell][<2017-11-13 Mon> :, > in shell]]
+  - [[#2017-11-13-mon-2-at-head][<2017-11-13 Mon> >&2 at head]]
+  - [[#2017-11-06-mon-set-environment-variable-permenantly][<2017-11-06 Mon> set environment variable permenantly]]
+  - [[#linux-run-command-as-another-user][Linux Run Command As Another User]]
+  - [[#list-of-all-available-man-pages][List of all available man pages]]
 
 * Reference
 ** Builtins
@@ -1759,3 +1764,22 @@ This instructs the trap command to catch the listed SIGNALS, which may be signal
     #           └─  a negative offset must be separated from the colon by
     #               at least one space to avoid being confused with :- expansion
 #+END_SRC
+** TODO <2017-11-13 Mon> :, > in shell
+#+BEGIN_EXAMPLE
+     : > filename
+        # The > truncates file "filename" to zero length.
+        # If file not present, creates zero-length file (same effect as 'touch').
+        # The : serves as a dummy placeholder, producing no output.
+#+END_EXAMPLE
+** TODO <2017-11-13 Mon> >&2 at head
+- https://stackoverflow.com/questions/27918149/difference-between-position-of-redirection-in-echo2-message-echo-message
+
+** TODO <2017-11-06 Mon> set environment variable permenantly
+- https://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables
+
+** Linux Run Command As Another User
+- https://superuser.com/questions/1062576/difference-between-su-c-and-runuser-l-c
+- https://www.cyberciti.biz/open-source/command-line-hacks/linux-run-command-as-different-user/
+
+** List of all available man pages
+- https://superuser.com/questions/207450/list-of-all-available-man-pages

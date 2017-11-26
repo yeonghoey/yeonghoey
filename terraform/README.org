@@ -41,6 +41,7 @@
   - [[#generate-documents-automatically][Generate documents automatically]]
 - [[#links][Links]]
 - [[#staging][Staging]]
+  - [[#2017-10-23-mon-using-concat-its-ok-to-use-multiline-in-interpolation][<2017-10-23 Mon> Using ~concat~, it's ok to use multiline in interpolation]]
 
 * Overview
 * Reference
@@ -453,3 +454,4 @@ Because the actual schema is:
 This simple tool automatically generates markdown or json document based on ~variable~ and ~output~ blocks.
 * Links
 * Staging
+** TODO <2017-10-23 Mon> Using ~concat~, it's ok to use multiline in interpolation

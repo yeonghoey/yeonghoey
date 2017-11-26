@@ -6,6 +6,7 @@
   - [[#dch-debchange][dch (debchange)]]
   - [[#deb-files][.deb files]]
   - [[#dpkg][dpkg]]
+  - [[#postinst][postinst]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
@@ -71,6 +72,9 @@
   5. If another version of the same package was installed before the new installation, execute the ~postrm~ script of the old package.
      Note that this script is executed after the ~preinst~ script of the new package, because new files are written at the same time old files are removed.
   6. Configure the package. See ~--configure~ for detailed information about how this is done.
+
+** postinst
+- https://askubuntu.com/questions/101962/script-to-only-execute-during-first-install-of-a-package
 
 * Terminology
 
@@ -178,5 +182,6 @@
 * Links
 - https://www.debian.org/doc/manuals/maint-guide/
 - https://www.debian.org/doc/devel-manuals
+- 
 
 * Staging

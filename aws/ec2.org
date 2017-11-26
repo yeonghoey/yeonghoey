@@ -10,6 +10,7 @@
   - [[#enhanced-networking-on-linux][Enhanced Networking on Linux]]
 - [[#staging][Staging]]
   - [[#2017-11-06-mon-aws-ec2-user-data][<2017-11-06 Mon> AWS EC2 User Data]]
+  - [[#instance-metadata][Instance Metadata]]
 
 * How-to
 ** Modify EBS Volume
@@ -72,3 +73,7 @@ require your involvement to repair. (...)
 * Staging
 ** TODO <2017-11-06 Mon> AWS EC2 User Data
 - http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
+
+** Instance Metadata
+- http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html
+- https://aws.amazon.com/ko/code/ec2-instance-metadata-query-tool/

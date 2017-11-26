@@ -12,6 +12,8 @@
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
+  - [[#sqeeze][sqeeze]]
+  - [[#ndarrayitem][ndarray.item]]
 
 * Overview
 * Reference
@@ -98,3 +100,8 @@
 * Links
 
 * Staging
+** sqeeze
+- https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.squeeze.html
+
+** ndarray.item
+- https://docs.scipy.org/doc/numpy-1.10.1/reference/generated/numpy.ndarray.item.html

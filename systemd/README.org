@@ -110,6 +110,8 @@
 |------------------+-------------------------------------------------------------------------------------------|
 | ~default.target~ | Usually, this should be aliased (symlinked) to ~multi-user.target~ or ~graphical.target~. |
 
+[[file:img/screenshot_2017-11-26_09-40-34.png]]
+
 * Sections
 - https://www.freedesktop.org/software/systemd/man/systemd.directives.html
 

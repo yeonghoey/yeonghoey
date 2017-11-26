@@ -1,31 +1,32 @@
 #+TITLE: Spacemacs
 
 * Table of Contents :TOC_2_gh:
- - [[#emacs][Emacs]]
-   - [[#indirect-buffers][Indirect Buffers]]
-   - [[#regex][Regex]]
- - [[#tips][Tips]]
-   - [[#searching][Searching]]
- - [[#layers][Layers]]
-   - [[#auto-completion][auto-completion]]
-   - [[#csharp][csharp]]
-   - [[#restclient][restclient]]
- - [[#customization][Customization]]
-   - [[#visual-pastes][Visual Pastes]]
- - [[#use-cases][Use Cases]]
-   - [[#how-to-fix-evaluation-of-code-disabled][How to Fix 'Evaluation of code disabled']]
- - [[#staging][Staging]]
-   - [[#2017-02-18-sat-spacemacs-search-with-evil-register][<2017-02-18 Sat> Spacemacs search with evil register]]
-   - [[#2017-02-07-tue-require-final-newline][<2017-02-07 Tue> require-final-newline]]
-   - [[#2017-02-07-tue-full-path][<2017-02-07 Tue> Full Path?]]
-   - [[#2017-03-01-wed-spacemacs-font-options][<2017-03-01 Wed> spacemacs font options]]
-   - [[#2017-03-14-tue-no-module-named-jedi][<2017-03-14 Tue> no module named jedi]]
-   - [[#2017-03-19-sun-quotation-marks][<2017-03-19 Sun> Quotation Marks]]
-   - [[#2017-04-07-fri-my-default-ag-ignore-gitignore][<2017-04-07 Fri> My default ag ignore .gitignore]]
-   - [[#2017-04-07-fri-plantuml-mode][<2017-04-07 Fri> plantuml-mode]]
-   - [[#2017-05-08-mon-vc-find-file-hook][<2017-05-08 Mon> vc-find-file-hook]]
-   - [[#2017-05-08-mon-emacs-on-windows][<2017-05-08 Mon> Emacs on Windows]]
-   - [[#2017-05-04-thu-zero-width-character][<2017-05-04 Thu> ZERO-WIDTH CHARACTER]]
+- [[#emacs][Emacs]]
+  - [[#indirect-buffers][Indirect Buffers]]
+  - [[#regex][Regex]]
+- [[#tips][Tips]]
+  - [[#searching][Searching]]
+- [[#layers][Layers]]
+  - [[#auto-completion][auto-completion]]
+  - [[#csharp][csharp]]
+  - [[#restclient][restclient]]
+- [[#customization][Customization]]
+  - [[#visual-pastes][Visual Pastes]]
+- [[#use-cases][Use Cases]]
+  - [[#how-to-fix-evaluation-of-code-disabled][How to Fix 'Evaluation of code disabled']]
+- [[#staging][Staging]]
+  - [[#2017-02-18-sat-spacemacs-search-with-evil-register][<2017-02-18 Sat> Spacemacs search with evil register]]
+  - [[#2017-02-07-tue-require-final-newline][<2017-02-07 Tue> require-final-newline]]
+  - [[#2017-02-07-tue-full-path][<2017-02-07 Tue> Full Path?]]
+  - [[#2017-03-01-wed-spacemacs-font-options][<2017-03-01 Wed> spacemacs font options]]
+  - [[#2017-03-14-tue-no-module-named-jedi][<2017-03-14 Tue> no module named jedi]]
+  - [[#2017-03-19-sun-quotation-marks][<2017-03-19 Sun> Quotation Marks]]
+  - [[#2017-04-07-fri-my-default-ag-ignore-gitignore][<2017-04-07 Fri> My default ag ignore .gitignore]]
+  - [[#2017-04-07-fri-plantuml-mode][<2017-04-07 Fri> plantuml-mode]]
+  - [[#2017-05-08-mon-vc-find-file-hook][<2017-05-08 Mon> vc-find-file-hook]]
+  - [[#2017-05-08-mon-emacs-on-windows][<2017-05-08 Mon> Emacs on Windows]]
+  - [[#2017-05-04-thu-zero-width-character][<2017-05-04 Thu> ZERO-WIDTH CHARACTER]]
+  - [[#batch-rename-files][Batch Rename Files]]
 
 * Emacs
 ** Indirect Buffers
@@ -239,3 +240,5 @@ By  default,  ag  will  ignore files matched by patterns in .gitignore,
 
 ** TODO <2017-05-04 Thu> ZERO-WIDTH CHARACTER
 - https://emacs.stackexchange.com/questions/16688/how-can-i-escape-the-in-org-mode-to-prevent-bold-fontification
+** Batch Rename Files
+- http://ergoemacs.org/emacs/rename_file_pattern.html
