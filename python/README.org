@@ -42,6 +42,8 @@
   - [[#2017-06-28-wed-msgpack-python][<2017-06-28 Wed> msgpack python]]
   - [[#2017-06-28-wed-gevent---threadpool][<2017-06-28 Wed> gevent - threadpool]]
   - [[#2017-07-03-mon-mypy-mypy_cache][<2017-07-03 Mon> mypy .mypy_cache]]
+  - [[#2017-10-22-sun-python-slice-syntax][<2017-10-22 Sun> python slice syntax]]
+  - [[#2017-09-30-sat-python3-utf8-block][<2017-09-30 Sat> python3 utf8 block]]
 
 * Reference
 ** decorator
@@ -1195,3 +1197,8 @@ This issue can be solved with locks or by using the *EAFP* approach.
 - ~_threading.py~, ~threading.py~ 차이를 잘 구분해서 볼 것.
 ** TODO <2017-07-03 Mon> mypy .mypy_cache
 - https://github.com/python/mypy/issues/3336
+
+** TODO <2017-10-22 Sun> python slice syntax
+- https://stackoverflow.com/questions/509211/understanding-pythons-slice-notation
+** TODO <2017-09-30 Sat> python3 utf8 block
+- https://stackoverflow.com/questions/14083111/should-i-use-encoding-declaration-in-python3

@@ -50,6 +50,7 @@
   - [[#2017-02-14-tue-git-hooks][<2017-02-14 Tue> git hooks]]
   - [[#2017-07-25-tue-git-rebase---onto-something][<2017-07-25 Tue> git rebase --onto something]]
   - [[#how-to-show-first-commit-by-git-log][How to show first commit by 'git log'?]]
+  - [[#2017-10-24-tue-git---range-and-revert][<2017-10-24 Tue> git - range and revert]]
 
 * Reference
 ** add
@@ -497,3 +498,4 @@ git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 #+END_SRC
 
  
+** TODO <2017-10-24 Tue> git - range and revert

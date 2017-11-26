@@ -28,6 +28,7 @@
   - [[#read-free-command][Read 'free' command]]
   - [[#where-in--should-extra-disks-be-mounted][Where in “/” should extra disks be mounted?]]
   - [[#diskcache][diskcache]]
+  - [[#2017-10-25-wed-linux-user-group][<2017-10-25 Wed> linux user group]]
 
 * Overview
 - http://www.brendangregg.com/linuxperf.html
@@ -400,4 +401,7 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
 
 ** diskcache
 - http://www.linuxatemyram.com/play.html
+
+** TODO <2017-10-25 Wed> linux user group
+- https://www.howtogeek.com/howto/ubuntu/see-which-groups-your-linux-user-belongs-to/
 

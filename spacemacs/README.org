@@ -27,6 +27,7 @@
   - [[#2017-05-08-mon-emacs-on-windows][<2017-05-08 Mon> Emacs on Windows]]
   - [[#2017-05-04-thu-zero-width-character][<2017-05-04 Thu> ZERO-WIDTH CHARACTER]]
   - [[#batch-rename-files][Batch Rename Files]]
+  - [[#2017-10-26-thu-colors-available-to-emacs][<2017-10-26 Thu> Colors available to Emacs]]
 
 * Emacs
 ** Indirect Buffers
@@ -242,3 +243,6 @@ By  default,  ag  will  ignore files matched by patterns in .gitignore,
 - https://emacs.stackexchange.com/questions/16688/how-can-i-escape-the-in-org-mode-to-prevent-bold-fontification
 ** Batch Rename Files
 - http://ergoemacs.org/emacs/rename_file_pattern.html
+** TODO <2017-10-26 Thu> Colors available to Emacs
+- http://raebear.net/comp/emacscolors.html
+

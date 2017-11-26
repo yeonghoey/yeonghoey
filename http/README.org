@@ -1,14 +1,15 @@
 #+TITLE: HTTP
 
 * Table of Contents :TOC_2_gh:
- - [[#how-to][How-to]]
- - [[#reference][Reference]]
-   - [[#cache-control][Cache Control]]
- - [[#topics][Topics]]
- - [[#terminology][Terminology]]
-   - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
-   - [[#endpoint][Endpoint]]
- - [[#staging][Staging]]
+- [[#how-to][How-to]]
+- [[#reference][Reference]]
+  - [[#cache-control][Cache Control]]
+- [[#topics][Topics]]
+- [[#terminology][Terminology]]
+  - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
+  - [[#endpoint][Endpoint]]
+- [[#staging][Staging]]
+  - [[#2017-11-01-wed-trailing-dots-in-domain-names][<2017-11-01 Wed> Trailing Dots in Domain Names]]
 
 * How-to
 * Reference
@@ -57,3 +58,10 @@
 - A web ~endpoint~ is ~URL~ that another program would use to communicate with your program.
 
 * Staging
+** TODO <2017-11-01 Wed> Trailing Dots in Domain Names
+- http://www.dns-sd.org/trailingdotsindomainnames.html
+
+- www.example.com.  Absolute domain name
+- www.example.com  Relative domain name, which, after applying the "." that's always implicitly in everyone's DNS searchlist, becomes www.example.com.
+- www with "example.com" in DNS searchlist  user types "www" and gets www.example.com.
+

@@ -11,6 +11,7 @@
   - [[#retrieve-availability-zones][Retrieve availability zones]]
 - [[#staging][Staging]]
   - [[#2017-07-12-wed-aws-s3-wildcard][<2017-07-12 Wed> aws s3 wildcard]]
+  - [[#create-db-cluster-snapshot][create-db-cluster-snapshot]]
 
 * Reference
 ** configure
@@ -96,3 +97,15 @@ $ aws ec2 describe-availability-zones --region eu-west-1
 ** TODO <2017-07-12 Wed> aws s3 wildcard
 http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#use-of-exclude-and-include-filters
 aws s3 sync s3://examplebucket/ . --exclude "*" --include "*/latest.json"
+** create-db-cluster-snapshot
+#+BEGIN_SRC shell
+  aws rds create-db-cluster-snapshot \
+      --region ap-northeast-1 \
+      --db-cluster-identifier          "test" \
+      --db-cluster-snapshot-identifier "test-$(date '+%Y%m%d-%H%M%S')"
+
+  aws elasticache create-snapshot \
+      --region ap-northeast-1 \
+      --cache-cluster-id "test-001" \
+      --snapshot-name    "test-$(date '+%Y%m%d-%H%M%S')"
+#+END_SRC

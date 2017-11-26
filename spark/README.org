@@ -19,6 +19,7 @@
   - [[#2017-08-21-mon-required-iam-role-for-using-s3-with-spark][<2017-08-21 Mon> Required IAM Role for using S3 with Spark]]
   - [[#2017-07-21-fri-hiveql-window-function][<2017-07-21 Fri> HiveQL, Window Function]]
   - [[#2017-07-21-fri-retention-query][<2017-07-21 Fri> Retention Query]]
+  - [[#2017-08-23-wed-schema-json-load][<2017-08-23 Wed> schema json load]]
 
 * Overview
 * Reference
@@ -551,3 +552,24 @@ The conclusion is following:
   from RetentionByCount
   order by 1
 #+END_SRC
+** TODO <2017-08-23 Wed> schema json load
+#+BEGIN_SRC scala
+  import org.apache.spark.sql.types.{DataType,StructType}
+
+  def loadSchema(schema: String): StructType = {
+    val path = s"s3://test-bucket/$schema/latest.json"
+    val Array((_, json)) = sc.wholeTextFiles(path).collect()
+    DataType.fromJson(json).asInstanceOf[StructType]
+  }
+
+  def load(schema: String): Unit = {
+    val path = s"s3://test-bucket/$schema/$range"
+    val st = loadSchema(schema)
+    val df = spark.read.schema(st).json(path)
+    df.createOrReplaceTempView(schema.toString)
+    print(s"$schema: ")
+    df.printSchema()
+    println("")
+  }
+#+END_SRC
+
