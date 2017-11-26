@@ -1,0 +1,34 @@
+#+TITLE: Special applications: Face recognition & Neural style transfer
+
+* Face Recognition
+** What is face recognition?
+[[file:img/screenshot_2017-11-26_08-31-57.png]]
+
+[[file:img/screenshot_2017-11-26_08-32-25.png]]
+
+[[file:img/screenshot_2017-11-26_08-35-08.png]]
+** One Shot Learning
+[[file:img/screenshot_2017-11-26_08-39-41.png]]
+
+[[file:img/screenshot_2017-11-26_08-42-10.png]]
+** Siamese Network
+[[file:img/screenshot_2017-11-26_08-49-49.png]]
+
+[[file:img/screenshot_2017-11-26_08-51-45.png]]
+
+** Triplet Loss
+[[file:img/screenshot_2017-11-26_08-59-06.png]]
+
+[[file:img/screenshot_2017-11-26_09-03-04.png]]
+
+[[file:img/screenshot_2017-11-26_09-06-28.png]]
+
+[[file:img/screenshot_2017-11-26_09-08-18.png]]
+** Face Verification and Binary Classification
+[[file:img/screenshot_2017-11-26_09-17-56.png]]
+
+[[file:img/screenshot_2017-11-26_09-18-34.png]]
+
+* Neural Style Transfer
+** What is neural style transfer?
+[[file:img/screenshot_2017-11-26_09-35-52.png]]
