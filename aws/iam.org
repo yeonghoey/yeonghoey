@@ -14,6 +14,7 @@
   - [[#share-resources-with-an-external-aws-account-via-iam-role][Share resources with an external AWS account via IAM Role]]
 - [[#links][Links]]
 - [[#staging][Staging]]
+  - [[#2017-11-15-wed-aws-iam-policies-element-condition][<2017-11-15 Wed> aws iam policies element condition]]
 
 * Reference
 ** assume-role-policy
@@ -349,3 +350,6 @@ An easy way to work around this is just delete that yellow line.
 This allows all users belong to target AWS Account to switch to the role.
 * Links
 * Staging
+** TODO <2017-11-15 Wed> aws iam policies element condition
+- http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html
+  
