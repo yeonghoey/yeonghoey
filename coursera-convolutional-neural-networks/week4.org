@@ -32,3 +32,32 @@
 * Neural Style Transfer
 ** What is neural style transfer?
 [[file:img/screenshot_2017-11-26_09-35-52.png]]
+** What are deep ConvNets learning?
+[[file:img/screenshot_2017-11-27_11-36-35.png]]
+
+[[file:img/screenshot_2017-11-27_11-36-53.png]]
+** Cost Function
+[[file:img/screenshot_2017-11-27_11-39-46.png]]
+
+[[file:img/screenshot_2017-11-27_11-41-10.png]]
+
+** Content Cost Function
+[[file:img/screenshot_2017-11-27_11-48-54.png]]
+
+** Style Cost Function
+[[file:img/screenshot_2017-11-27_11-52-05.png]]
+
+[[file:img/screenshot_2017-11-27_11-54-36.png]]
+
+[[file:img/screenshot_2017-11-27_12-03-42.png]]
+
+[[file:img/screenshot_2017-11-27_12-04-05.png]]
+** 1D and 3D Generalizations
+[[file:img/screenshot_2017-11-27_12-09-44.png]]
+
+[[file:img/screenshot_2017-11-27_12-11-36.png]]
+
+[[file:img/screenshot_2017-11-27_12-14-13.png]]
+* Programming assignments
+** Art generation with Neural Style Transfer
+** Face Recognition for the Happy House
