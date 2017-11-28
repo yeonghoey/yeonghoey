@@ -1,10 +1,19 @@
 #+TITLE: click
 
 * Table of Contents :TOC_2_gh:
- - [[#details][Details]]
-   - [[#param_decls][param_decls]]
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#param_decls][param_decls]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
 
-* Details
+* Overview
+* Reference
+* Terminology
+* Topics
 ** param_decls
 - http://click.pocoo.org/5/parameters/#parameter-names
 - http://click.pocoo.org/5/api/#parameters
@@ -24,3 +33,7 @@
   @click.option('vvv', '-v', '--verbose', count=True)
   def foo(vvv):
 #+END_SRC
+
+* How-to
+* Links
+* Staging
