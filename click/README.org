@@ -3,6 +3,7 @@
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#option][option]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#param_decls][param_decls]]
@@ -35,6 +36,21 @@
 #+END_SRC
 
 * Reference
+** option
+- http://click.pocoo.org/5/options/
+
+#+BEGIN_SRC python
+  @click.option('--n', default=1)
+  @click.option('--pos', nargs=2, type=float)
+  @click.option('--item', type=(unicode, int))
+  @click.option('--message', '-m', multiple=True)  #  -m foo -m bar
+  @click.option('--shout/--no-shout', default=False)
+  @click.option('--shout', is_flag=True)
+  @click.option('--hash-type', type=click.Choice(['md5', 'sha1']))
+  @click.option('--name', prompt='Your name please')
+  @click.option('--username', envvar='USERNAME')
+#+END_SRC
+
 * Terminology
 * Topics
 ** param_decls
