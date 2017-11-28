@@ -4,9 +4,9 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#option][option]]
+  - [[#param_decls][param_decls]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
-  - [[#param_decls][param_decls]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
@@ -51,8 +51,6 @@
   @click.option('--username', envvar='USERNAME')
 #+END_SRC
 
-* Terminology
-* Topics
 ** param_decls
 - http://click.pocoo.org/5/parameters/#parameter-names
 - http://click.pocoo.org/5/api/#parameters
@@ -73,6 +71,8 @@
   def foo(vvv):
 #+END_SRC
 
+* Terminology
+* Topics
 * How-to
 * Links
 * Staging
