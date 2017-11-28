@@ -11,6 +11,29 @@
 - [[#staging][Staging]]
 
 * Overview
+#+BEGIN_SRC python
+  @click.command()
+  @click.option('--count', default=1, help='number of greetings')
+  @click.argument('name')
+  def hello(count, name):
+      for x in range(count):
+          click.echo('Hello %s!' % name)
+#+END_SRC
+
+#+BEGIN_SRC python
+  @click.group()
+  def cli():
+      pass
+
+  @cli.command()
+  def initdb():
+      click.echo('Initialized the database')
+
+  @cli.command()
+  def dropdb():
+      click.echo('Dropped the database')
+#+END_SRC
+
 * Reference
 * Terminology
 * Topics
