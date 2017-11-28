@@ -60,4 +60,114 @@
 [[file:img/screenshot_2017-11-27_12-14-13.png]]
 * Programming assignments
 ** Art generation with Neural Style Transfer
+[[file:img/screenshot_2017-11-28_10-02-25.png]]
+
+[[file:img/screenshot_2017-11-28_10-05-44.png]]
+
+[[file:img/screenshot_2017-11-28_10-07-12.png]]
+
+[[file:img/screenshot_2017-11-28_10-07-59.png]]
+
+[[file:img/screenshot_2017-11-28_10-10-14.png]]
+
+[[file:img/screenshot_2017-11-28_10-22-01.png]]
+
+[[file:img/screenshot_2017-11-28_10-22-34.png]]
+
+[[file:img/screenshot_2017-11-28_10-36-04.png]]
+
+[[file:img/screenshot_2017-11-28_10-44-41.png]]
+
+[[file:img/screenshot_2017-11-28_10-45-51.png]]
+
+[[file:img/screenshot_2017-11-28_10-46-11.png]]
+
+[[file:img/screenshot_2017-11-28_10-48-33.png]]
+
+[[file:img/screenshot_2017-11-28_10-48-50.png]]
+
+[[file:img/screenshot_2017-11-28_11-04-19.png]]
+
+[[file:img/screenshot_2017-11-28_11-13-21.png]]
+
+[[file:img/screenshot_2017-11-28_11-14-38.png]]
+
+[[file:img/screenshot_2017-11-28_11-42-32.png]]
+
+- https://www.tensorflow.org/versions/r1.3/api_docs/python/tf/transpose
+- https://www.tensorflow.org/versions/r1.2/api_docs/python/tf/reshape
+- https://www.tensorflow.org/api_docs/python/tf/reduce_sum
+- https://www.tensorflow.org/api_docs/python/tf/matmul
+- https://www.tensorflow.org/api_docs/python/tf/tensordot
+
+#+BEGIN_SRC python
+  def compute_content_cost(a_C, a_G):
+      """
+      Computes the content cost
+
+      Arguments:
+      a_C -- tensor of dimension (1, n_H, n_W, n_C), hidden layer activations representing content of the image C
+      a_G -- tensor of dimension (1, n_H, n_W, n_C), hidden layer activations representing content of the image G
+
+      Returns:
+      J_content -- scalar that you compute using equation 1 above.
+      """
+      return J_content
+
+  def gram_matrix(A):
+      """
+      Argument:
+      A -- matrix of shape (n_C, n_H*n_W)
+
+      Returns:
+      GA -- Gram matrix of A, of shape (n_C, n_C)
+      """
+      return GA
+
+  def compute_layer_style_cost(a_S, a_G):
+      """
+      Arguments:
+      a_S -- tensor of dimension (1, n_H, n_W, n_C), hidden layer activations representing style of the image S
+      a_G -- tensor of dimension (1, n_H, n_W, n_C), hidden layer activations representing style of the image G
+
+      Returns:
+      J_style_layer -- tensor representing a scalar value, style cost defined above by equation (2)
+      """
+      return J_style_layer
+
+  def compute_style_cost(model, STYLE_LAYERS):
+      """
+      Computes the overall style cost from several chosen layers
+
+      Arguments:
+      model -- our tensorflow model
+      STYLE_LAYERS -- A python list containing:
+                          - the names of the layers we would like to extract style from
+                          - a coefficient for each of them
+
+      Returns:
+      J_style -- tensor representing a scalar value, style cost defined above by equation (2)
+      """
+      return J_style
+
+  def total_cost(J_content, J_style, alpha = 10, beta = 40):
+      """
+      Computes the total cost function
+
+      Arguments:
+      J_content -- content cost coded above
+      J_style -- style cost coded above
+      alpha -- hyperparameter weighting the importance of the content cost
+      beta -- hyperparameter weighting the importance of the style cost
+
+      Returns:
+      J -- total cost as defined by the formula above.
+      """
+      return J
+
+  def model_nn(sess, input_image, num_iterations = 200):
+      return generated_image
+#+END_SRC
+
+
 ** Face Recognition for the Happy House
