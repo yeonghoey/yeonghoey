@@ -1,0 +1,9 @@
+#+TITLE: Learning How to Learn: Powerful mental tools to help you master tough subjects
+
+* Overview
+- https://www.coursera.org/learn/learning-how-to-learn
+
+- Week 1 :: [[week1.org][What is Learning?]]
+- Week 2 :: [[week2.org][Chunking]]
+- Week 3 :: [[week3.org][Procrastination and Memory]]
+- Week 4 :: [[week4.org][Renaissance Learning and Unlocking Your Potential]]
