@@ -17,6 +17,7 @@
   - [[#str][str]]
   - [[#string][string]]
   - [[#subprocesses][subprocesses]]
+  - [[#webbrowser][webbrowser]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#__new__-vs-__init__][__new__ vs __init__]]
@@ -708,6 +709,20 @@ to avoid deadlocks due to any of the other OS pipe buffersfilling up and blockin
   - The string for the first argument is like the command you put into the shell prompt.
   - The command can use environment variables, globs, pipes.
   - It's very dangerous, not recommended.
+
+** webbrowser
+- https://docs.python.org/2/library/webbrowser.html
+
+#+BEGIN_SRC shell
+  # Open an url in a new tab(-t)
+  $ python -m webbrowser -t "http://www.python.org"
+#+END_SRC
+
+#+BEGIN_SRC python
+  # With python code:
+  import webbrowser
+  webbrowser.open_new_tab('http://yeonghoey.com')
+#+END_SRC
 
 * Terminology
 * Topics
