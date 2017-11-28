@@ -1,7 +1,6 @@
 #+TITLE: Chrome
 * Table of Contents                                                :TOC_2_gh:
 - [[#plugins][Plugins]]
-  - [[#vimium][Vimium]]
 - [[#developer-tools][Developer Tools]]
   - [[#storages-and-cookies][Storages and Cookies]]
   - [[#view-http-headers][View HTTP headers]]
@@ -11,33 +10,6 @@
   - [[#server-dns-address-could-not-be-found][Server DNS address could not be found]]
 
 * Plugins
-** Vimium
-- Custom key mappings
-#+BEGIN_EXAMPLE
-  map M closeOtherTabs
-#+END_EXAMPLE
-
-- Custom search engines
-#+BEGIN_EXAMPLE
-  b: chrome://bookmarks/#q=%s Chrome Bookmarks
-  e: http://endic.naver.com/search.nhn?query=%s Naver endic
-  g: http://www.google.com/search?q=%s Google
-  gh: https://github.com/search?q=%s Github
-  h: chrome://history/?#q=%s Chrome History
-  i: http://www.google.com/search?tbm=isch&q=%s Google Image
-  k: http://krdic.naver.com/search.nhn?query=%s Naver krdic
-  n: https://search.naver.com/search.naver?query=%s Naver
-  w: http://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
-  y: http://www.youtube.com/results?search_query=%s Youtube
-  s: http://symbolhound.com/?q=%s SymbolHound
-  t: http://www.thesaurus.com/browse/%s Thesaurus
-#+END_EXAMPLE
-
-- Checkboxes:
-  - Use smooth scrolling
-  - Don't let pages steal the focus on the load
-  - Ignore keyboard layout
-
 * Developer Tools
 ** Storages and Cookies
 [[file:img/screenshot_2017-06-03_18-01-12.png]]
