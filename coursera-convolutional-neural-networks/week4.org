@@ -169,5 +169,4 @@
       return generated_image
 #+END_SRC
 
-
 ** Face Recognition for the Happy House
