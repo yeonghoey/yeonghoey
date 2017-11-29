@@ -170,3 +170,73 @@
 #+END_SRC
 
 ** Face Recognition for the Happy House
+[[file:img/screenshot_2017-11-29_09-00-41.png]]
+
+[[file:img/screenshot_2017-11-29_09-03-14.png]]
+
+[[file:img/screenshot_2017-11-29_09-03-36.png]]
+
+[[file:img/screenshot_2017-11-29_09-05-42.png]]
+
+[[file:img/screenshot_2017-11-29_09-06-52.png]]
+
+[[file:img/screenshot_2017-11-29_09-23-00.png]]
+
+[[file:img/screenshot_2017-11-29_09-23-14.png]]
+
+[[file:img/screenshot_2017-11-29_09-23-32.png]]
+
+[[file:img/screenshot_2017-11-29_09-30-08.png]]
+
+[[file:img/screenshot_2017-11-29_09-38-37.png]]
+
+- https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.norm.html 
+
+#+BEGIN_SRC python
+  def triplet_loss(y_true, y_pred, alpha = 0.2):
+      """
+      Implementation of the triplet loss as defined by formula (3)
+
+      Arguments:
+      y_true -- true labels, required when you define a loss in Keras, you don't need it in this function.
+      y_pred -- python list containing three objects:
+              anchor -- the encodings for the anchor images, of shape (None, 128)
+              positive -- the encodings for the positive images, of shape (None, 128)
+              negative -- the encodings for the negative images, of shape (None, 128)
+
+      Returns:
+      loss -- real number, value of the loss
+      """
+      return loss
+
+  def verify(image_path, identity, database, model):
+      """
+      Function that verifies if the person on the "image_path" image is "identity".
+
+      Arguments:
+      image_path -- path to an image
+      identity -- string, name of the person you'd like to verify the identity. Has to be a resident of the Happy house.
+      database -- python dictionary mapping names of allowed people's names (strings) to their encodings (vectors).
+      model -- your Inception model instance in Keras
+
+      Returns:
+      dist -- distance between the image_path and the image of "identity" in the database.
+      door_open -- True, if the door should open. False otherwise.
+      """
+      return dist, door_open
+
+  def who_is_it(image_path, database, model):
+      """
+      Implements face recognition for the happy house by finding who is the person on the image_path image.
+
+      Arguments:
+      image_path -- path to an image
+      database -- database containing image encodings along with the name of the person on the image
+      model -- your Inception model instance in Keras
+
+      Returns:
+      min_dist -- the minimum distance between image_path encoding and the encodings from the database
+      identity -- string, the name prediction for the person on image_path
+      """
+      return min_dist, identity
+#+END_SRC
