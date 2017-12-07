@@ -2,8 +2,7 @@
 
 * For English Listening
 - Make jumping around easy
-
-[[file:img/screenshot_2017-12-07_21-14-56.png]]
+[[file:img/screenshot_2017-12-07_23-06-52.png]]
 
 - Customize the jump sizes
 [[file:img/screenshot_2017-12-07_21-15-38.png]]
