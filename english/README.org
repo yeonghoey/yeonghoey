@@ -1,0 +1,31 @@
+#+TITLE: English
+
+* Table of Contents :TOC_3_gh:
+- [[#expressions][Expressions]]
+  - [[#pull-an-all-nighter][pull an all-nighter]]
+  - [[#make-up-for][make up for]]
+  - [[#it-was-fortunate][It was fortunate]]
+  - [[#make-for][make for]]
+  - [[#responsible][responsible]]
+  - [[#if][if]]
+
+* Expressions
+** pull an all-nighter
+** make up for
+** It was fortunate
+Last night, I realized that I made a lot of mistakes in my paper.
+To make up for it, I had to pull an all-nighter.
+It was fortunate that it was not two all-nighters.
+
+** make for
+Puzzle games make for brain development.
+Also, A desktop with multiple GPUs would make for deep learning research.
+
+** responsible
+I'm responsible for my project.
+I'm responsible to take a shower before I go to bed.
+It would cultivate your responsibility of driving.
+I was able to cultivate my responsibility of driving.
+
+** if
+If I had been able to start driving earlier, it would have been easier.
