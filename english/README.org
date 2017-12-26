@@ -1,31 +1,91 @@
 #+TITLE: English
 
 * Table of Contents :TOC_3_gh:
-- [[#expressions][Expressions]]
-  - [[#pull-an-all-nighter][pull an all-nighter]]
-  - [[#make-up-for][make up for]]
-  - [[#it-was-fortunate][It was fortunate]]
-  - [[#make-for][make for]]
-  - [[#responsible][responsible]]
-  - [[#if][if]]
+- [[#pull-an-all-nighter][pull an all-nighter]]
+- [[#make-up-for][make up for]]
+- [[#it-was-fortunate][It was fortunate]]
+- [[#make-for][make for]]
+- [[#good-thing][good thing]]
+- [[#responsible][responsible]]
+- [[#if][if]]
+- [[#eligible][eligible]]
+- [[#hard-code][hard-code]]
+- [[#so-that][so that]]
+- [[#make-sure][make sure]]
+- [[#ask][ask]]
+- [[#advice][advice]]
+- [[#endanger][endanger]]
+- [[#relieve][relieve]]
+- [[#government-citizens][government, citizens]]
 
-* Expressions
-** pull an all-nighter
-** make up for
-** It was fortunate
+* pull an all-nighter
+* make up for
+* It was fortunate
 Last night, I realized that I made a lot of mistakes in my paper.
 To make up for it, I had to pull an all-nighter.
 It was fortunate that it was not two all-nighters.
 
-** make for
+* make for
 Puzzle games make for brain development.
 Also, A desktop with multiple GPUs would make for deep learning research.
+Regular exercise makes for your health.
+I have to exercise regularly.
 
-** responsible
+* good thing
+Regular exercise is a good thing.
+
+* responsible
 I'm responsible for my project.
-I'm responsible to take a shower before I go to bed.
+I'm responsible for taking a shower before I go to bed.
+I took responsibility to write code.
+I took responsibility for my faimily.
 It would cultivate your responsibility of driving.
 I was able to cultivate my responsibility of driving.
 
-** if
+* if
 If I had been able to start driving earlier, it would have been easier.
+* eligible
+In Korea, only those over 20 are eligible to drive.
+I'm eligible for a severance pay.
+
+
+* hard-code
+I had to hard-code a workaround subroutine to make up for the bug I had made.
+
+* so that
+- when purpose is negative
+- or with can or could
+
+I hurried so that I wouldn't be late.
+I practice english speaking so that I won't be depressed.
+Eat something now so that you don't get hungry later.
+She's learning English so that she can work in New York.
+I moved to Seoul so that I could go to English academies.
+
+* make sure
+Please make sure to bring your laptop.
+Make sure that your child keep away from them.
+You should make sure of the test date.
+
+* ask
+She asked me to fix her computer.
+Her mother asked about my family.
+I asked for her number.
+He asked for a drink.
+
+* advice
+- ~advice on~, ~advice about~ are both possible
+
+I asked my English listening teacher for some advice on shadowing.
+I asked my English listening teacher for some advice on shadowing.
+
+* endanger
+A single mistake could endanger the company.
+I could be endangered if I walk on the street at night.
+
+* relieve
+My alcohol problem is being relieved.
+
+* government, citizens
+The government exists for the citizens.
+The US government created a regulation of chemicals
