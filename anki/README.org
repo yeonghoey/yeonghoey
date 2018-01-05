@@ -1,0 +1,34 @@
+#+TITLE: Anki
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#conditional-replacement][Conditional Replacement]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+** Conditional Replacement
+- https://apps.ankiweb.net/docs/manual.html#conditional-replacement
+
+#+BEGIN_EXAMPLE
+  This text is always shown.
+
+  {{#FieldName}}
+  This text is only shown if FieldName has text in it
+  {{/FieldName}}
+
+  {{^FieldName}}
+  This text is only shown if FieldName is empty
+  {{/FieldName}}
+#+END_EXAMPLE
+
+* Terminology
+* Topics
+* How-to
+* Links
+* Staging
