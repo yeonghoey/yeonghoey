@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#progressbar][ProgressBar]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#display-attributes][Display Attributes]]
@@ -14,11 +15,42 @@
 
 * Overview
 * Reference
+** ProgressBar
+- http://urwid.org/reference/widget.html#progressbar
+
+#+BEGIN_SRC python
+  PALETTE = [
+      ('normal', 'black', 'light gray'),
+      ('complete', 'black', 'dark red'),
+  ]
+
+  p = urwid.ProgressBar('normal', 'complete')
+
+  # Put the following line somewhere else
+  p.current += 1
+#+END_SRC
+
+[[file:img/screenshot_2018-01-07_17-30-58.png]]
+
 * Terminology
 * Topics
 ** Display Attributes
 - http://urwid.org/manual/displayattributes.html
+- http://urwid.org/reference/display_modules.html#urwid.BaseScreen.register_palette
+
 - When a display attribute is ~None~, it's considered as ~default~
+- ~palette~ is a list of ~(name, like_other_name)~ or ~(name, foreground, background, mono, foreground_high, background_high)~
+- ~mono~ and ~foreground/background_high~ values are optional
+
+#+BEGIN_SRC python
+  palette = [
+      ('banner', 'black', 'light gray'),
+      ('streak', 'black', 'dark red'),
+      ('bg', 'black', 'dark blue'),
+  ]
+
+  urwid.MainLoop(fill, palette)
+#+END_SRC
 
 - ~AttrMap~
 [[file:img/screenshot_2018-01-07_17-18-12.png]]
