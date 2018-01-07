@@ -1,0 +1,24 @@
+#+TITLE: Google Cloud Platform
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+#+BEGIN_SRC shell
+  gcloud auth application-default login
+#+END_SRC
+
+* Reference
+* Terminology
+* Topics
+* How-to
+* Links
+- https://googlecloudplatform.github.io/google-cloud-python/latest/core/auth.html
+
+* Staging
