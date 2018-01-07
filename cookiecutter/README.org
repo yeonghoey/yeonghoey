@@ -1,0 +1,16 @@
+#+TITLE: Cookiecutter
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+
+* Overview
+- https://github.com/audreyr/cookiecutter#a-pantry-full-of-cookiecutters
+
+#+BEGIN_SRC shell
+  # You'll be prompted to enter values.
+  # Create your Python package in the current working directory.
+  cookiecutter https://github.com/audreyr/cookiecutter-pypackage
+
+  # Can just use the 'gh' prefix
+  cookiecutter gh:audreyr/cookiecutter-pypackage
+#+END_SRC

@@ -1,0 +1,78 @@
+#+TITLE: Urwid
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#display-attributes][Display Attributes]]
+  - [[#widgets][Widgets]]
+- [[#how-to][How-to]]
+  - [[#handle-signals][Handle signals]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+** Display Attributes
+- http://urwid.org/manual/displayattributes.html
+- When a display attribute is ~None~, it's considered as ~default~
+
+- ~AttrMap~
+[[file:img/screenshot_2018-01-07_17-18-12.png]]
+
+#+BEGIN_SRC python
+  # While u"hello" text will appear with display attribute 'attr1',
+  # all surrounding whitespace will appear with display attribute 'attr2'.
+  # (gray area is 'attr1', red area is 'attr2')
+  AttrMap(Text(('attr1', u"Hello World")), 'attr2')
+#+END_SRC
+
+** Widgets
+- http://urwid.org/manual/widgets.html
+
+[[file:img/screenshot_2018-01-07_16-43-14.png]]
+
+- The topmost widget is always a box widget.
+
+[[file:img/screenshot_2018-01-07_16-43-50.png]]
+
+[[file:img/screenshot_2018-01-07_16-44-25.png]]
+
+- ~Pile~ and ~ListBox~ are both for stacking widgets vertically.
+- Only ~ListBox~ can scroll widgets.
+
+
+* How-to
+** Handle signals
+- http://urwid.org/tutorial/index.html#signal-handlers
+
+[[file:img/screenshot_2018-01-07_16-36-19.png]]
+
+#+BEGIN_SRC python
+  import urwid
+
+  palette = [('I say', 'default,bold', 'default', 'bold'),]
+  ask = urwid.Edit(('I say', u"What is your name?\n"))
+  reply = urwid.Text(u"")
+  button = urwid.Button(u'Exit')
+  div = urwid.Divider()
+  pile = urwid.Pile([ask, div, reply, div, button])
+  top = urwid.Filler(pile, valign='top')
+
+  def on_ask_change(edit, new_edit_text):
+      reply.set_text(('I say', u"Nice to meet you, %s" % new_edit_text))
+
+  def on_exit_clicked(button):
+      raise urwid.ExitMainLoop()
+
+  urwid.connect_signal(ask, 'change', on_ask_change)
+  urwid.connect_signal(button, 'click', on_exit_clicked)
+
+  urwid.MainLoop(top, palette).run()
+#+END_SRC
+
+* Links
+* Staging
