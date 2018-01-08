@@ -14,6 +14,10 @@
   gcloud auth application-default login
 #+END_SRC
 
+#+BEGIN_EXAMPLE
+  ~/.config/gcloud/
+#+END_EXAMPLE
+
 * Reference
 * Terminology
 * Topics
