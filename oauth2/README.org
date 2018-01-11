@@ -1,0 +1,22 @@
+#+TITLE: OAuth 2.0
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+- https://www.ibuildings.nl/blog/2013/07/secure-your-rest-api-oauth2-implicit-grant
+
+[[file:img/screenshot_2018-01-11_15-50-31.png]]
+
+* Reference
+* Terminology
+* Topics
+* How-to
+* Links
+* Staging
