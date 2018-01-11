@@ -5,7 +5,12 @@
 - [[#reference][Reference]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
+  - [[#oauth-20][OAuth 2.0]]
 - [[#how-to][How-to]]
+  - [[#authenticate-access][Authenticate access]]
+    - [[#api-access-in-services][API access in services]]
+    - [[#api-access-in-local][API access in local]]
+    - [[#cli][CLI]]
 - [[#links][Links]]
 - [[#staging][Staging]]
 
@@ -14,14 +19,47 @@
   gcloud auth application-default login
 #+END_SRC
 
-#+BEGIN_EXAMPLE
-  ~/.config/gcloud/
-#+END_EXAMPLE
-
 * Reference
 * Terminology
 * Topics
+** OAuth 2.0
+- https://developers.google.com/identity/protocols/OAuth2
+
+[[file:img/screenshot_2018-01-11_16-09-28.png]]
+
 * How-to
+** Authenticate access
+- http://google-cloud-python.readthedocs.io/en/latest/core/auth.html
+- https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login
+
+*** API access in services
+- Create service account credentials
+#+BEGIN_SRC shell
+  export GOOGLE_APPLICATION_CREDENTIALS="/path/to/keyfile.json"
+#+END_SRC
+
+*** API access in local
+#+BEGIN_SRC shell
+  # By default, API enablement and quotas are managed
+  # by the master Application Default Credentials project,
+  # which means that a small number of API calls may exceed quota.
+  gcloud auth application-default login
+
+  # When this happens, you need to create a client id and specify it as follows,
+  # which means now the API calls consume your project's quota.
+  gcloud auth application-default login --client-id-file=CLIENT_ID_FILE
+#+END_SRC
+
+- The default credentials will be placed as:
+#+BEGIN_EXAMPLE
+  ~/.config/gcloud/application_default_credentials.json
+#+END_EXAMPLE
+
+*** CLI
+#+BEGIN_SRC shell
+  gcloud auth login
+#+END_SRC
+
 * Links
 - https://googlecloudplatform.github.io/google-cloud-python/latest/core/auth.html
 
