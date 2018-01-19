@@ -9,6 +9,7 @@
   - [[#display-attributes][Display Attributes]]
   - [[#widgets][Widgets]]
 - [[#how-to][How-to]]
+  - [[#implement-tick-loop][Implement tick loop]]
   - [[#handle-signals][Handle signals]]
 - [[#links][Links]]
 - [[#staging][Staging]]
@@ -78,6 +79,13 @@
 
 
 * How-to
+** Implement tick loop
+#+BEGIN_SRC python
+  def tick(loop, user_data):
+      # TODO: Implement timed actions
+      loop.set_alarm_in(0.1, tick, user_data)
+#+END_SRC
+
 ** Handle signals
 - http://urwid.org/tutorial/index.html#signal-handlers
 
