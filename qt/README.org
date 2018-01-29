@@ -1,0 +1,27 @@
+#+TITLE: Qt
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#parenting-system][Parenting System]]
+  - [[#signals-and-slots][Signals and slots]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+[[file:img/screenshot_2018-01-29_08-37-24.png]]
+
+* Reference
+* Terminology
+* Topics
+** Parenting System
+** Signals and slots
+* How-to
+* Links
+- https://wiki.qt.io/Qt_for_Beginners
+- http://pyqt.sourceforge.net/Docs/PyQt5/sip-classes.html
+
+* Staging
