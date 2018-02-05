@@ -170,7 +170,7 @@ So in conclusion, out of all these options, I would recommend Setuptools, unless
 #+BEGIN_SRC shell
   python setup.py sdist
   python setup.py bdist_wheel
-  twine upload sit/*
+  twine upload dist/*
 #+END_SRC
 
 ** including data files
