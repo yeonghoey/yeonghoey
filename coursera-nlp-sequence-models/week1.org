@@ -85,5 +85,128 @@
 [[file:img/screenshot_2018-02-06_18-45-48.png]]
 * Programming assignments
 ** Building a recurrent neural network - step by step
+[[file:img/screenshot_2018-02-07_06-40-18.png]]
+
+[[file:img/screenshot_2018-02-07_06-42-11.png]]
+
+
+[[file:img/screenshot_2018-02-07_06-42-56.png]]
+
+#+BEGIN_SRC python
+  def rnn_cell_forward(xt, a_prev, parameters):
+      """
+      Implements a single forward step of the RNN-cell as described in Figure (2)
+
+      Arguments:
+      xt -- your input data at timestep "t", numpy array of shape (n_x, m).
+      a_prev -- Hidden state at timestep "t-1", numpy array of shape (n_a, m)
+      parameters -- python dictionary containing:
+                          Wax -- Weight matrix multiplying the input, numpy array of shape (n_a, n_x)
+                          Waa -- Weight matrix multiplying the hidden state, numpy array of shape (n_a, n_a)
+                          Wya -- Weight matrix relating the hidden-state to the output, numpy array of shape (n_y, n_a)
+                          ba --  Bias, numpy array of shape (n_a, 1)
+                          by -- Bias relating the hidden-state to the output, numpy array of shape (n_y, 1)
+      Returns:
+      a_next -- next hidden state, of shape (n_a, m)
+      yt_pred -- prediction at timestep "t", numpy array of shape (n_y, m)
+      cache -- tuple of values needed for the backward pass, contains (a_next, a_prev, xt, parameters)
+      """
+      return a_next, yt_pred, cache
+#+END_SRC
+
+[[file:img/screenshot_2018-02-07_06-53-24.png]]
+
+#+BEGIN_SRC python
+  def rnn_forward(x, a0, parameters):
+      """
+      Implement the forward propagation of the recurrent neural network described in Figure (3).
+
+      Arguments:
+      x -- Input data for every time-step, of shape (n_x, m, T_x).
+      a0 -- Initial hidden state, of shape (n_a, m)
+      parameters -- python dictionary containing:
+                          Waa -- Weight matrix multiplying the hidden state, numpy array of shape (n_a, n_a)
+                          Wax -- Weight matrix multiplying the input, numpy array of shape (n_a, n_x)
+                          Wya -- Weight matrix relating the hidden-state to the output, numpy array of shape (n_y, n_a)
+                          ba --  Bias numpy array of shape (n_a, 1)
+                          by -- Bias relating the hidden-state to the output, numpy array of shape (n_y, 1)
+
+      Returns:
+      a -- Hidden states for every time-step, numpy array of shape (n_a, m, T_x)
+      y_pred -- Predictions for every time-step, numpy array of shape (n_y, m, T_x)
+      caches -- tuple of values needed for the backward pass, contains (list of caches, x)
+      """
+      return a, y_pred, caches
+#+END_SRC
+
+[[file:img/screenshot_2018-02-07_07-01-53.png]]
+
+[[file:img/screenshot_2018-02-07_07-02-08.png]]
+
+[[file:img/screenshot_2018-02-07_07-02-24.png]]
+
+#+BEGIN_SRC python
+  def lstm_cell_forward(xt, a_prev, c_prev, parameters):
+      """
+      Implement a single forward step of the LSTM-cell as described in Figure (4)
+
+      Arguments:
+      xt -- your input data at timestep "t", numpy array of shape (n_x, m).
+      a_prev -- Hidden state at timestep "t-1", numpy array of shape (n_a, m)
+      c_prev -- Memory state at timestep "t-1", numpy array of shape (n_a, m)
+      parameters -- python dictionary containing:
+                          Wf -- Weight matrix of the forget gate, numpy array of shape (n_a, n_a + n_x)
+                          bf -- Bias of the forget gate, numpy array of shape (n_a, 1)
+                          Wi -- Weight matrix of the update gate, numpy array of shape (n_a, n_a + n_x)
+                          bi -- Bias of the update gate, numpy array of shape (n_a, 1)
+                          Wc -- Weight matrix of the first "tanh", numpy array of shape (n_a, n_a + n_x)
+                          bc --  Bias of the first "tanh", numpy array of shape (n_a, 1)
+                          Wo -- Weight matrix of the output gate, numpy array of shape (n_a, n_a + n_x)
+                          bo --  Bias of the output gate, numpy array of shape (n_a, 1)
+                          Wy -- Weight matrix relating the hidden-state to the output, numpy array of shape (n_y, n_a)
+                          by -- Bias relating the hidden-state to the output, numpy array of shape (n_y, 1)
+
+      Returns:
+      a_next -- next hidden state, of shape (n_a, m)
+      c_next -- next memory state, of shape (n_a, m)
+      yt_pred -- prediction at timestep "t", numpy array of shape (n_y, m)
+      cache -- tuple of values needed for the Backward pass, contains (a_next, c_next, a_prev, c_prev, xt, parameters)
+
+      Note: ft/it/ot stand for the forget/update/output gates, cct stands for the candidate value (c tilde),
+            c stands for the memory value
+      """
+      return a_next, c_next, yt_pred, cache
+#+END_SRC
+
+[[file:img/screenshot_2018-02-07_07-21-24.png]]
+
+#+BEGIN_SRC python
+  def lstm_forward(x, a0, parameters):
+      """
+      Implement the forward propagation of the recurrent neural network using an LSTM-cell described in Figure (3).
+
+      Arguments:
+      x -- Input data for every time-step, of shape (n_x, m, T_x).
+      a0 -- Initial hidden state, of shape (n_a, m)
+      parameters -- python dictionary containing:
+                          Wf -- Weight matrix of the forget gate, numpy array of shape (n_a, n_a + n_x)
+                          bf -- Bias of the forget gate, numpy array of shape (n_a, 1)
+                          Wi -- Weight matrix of the update gate, numpy array of shape (n_a, n_a + n_x)
+                          bi -- Bias of the update gate, numpy array of shape (n_a, 1)
+                          Wc -- Weight matrix of the first "tanh", numpy array of shape (n_a, n_a + n_x)
+                          bc -- Bias of the first "tanh", numpy array of shape (n_a, 1)
+                          Wo -- Weight matrix of the output gate, numpy array of shape (n_a, n_a + n_x)
+                          bo -- Bias of the output gate, numpy array of shape (n_a, 1)
+                          Wy -- Weight matrix relating the hidden-state to the output, numpy array of shape (n_y, n_a)
+                          by -- Bias relating the hidden-state to the output, numpy array of shape (n_y, 1)
+
+      Returns:
+      a -- Hidden states for every time-step, numpy array of shape (n_a, m, T_x)
+      y -- Predictions for every time-step, numpy array of shape (n_y, m, T_x)
+      caches -- tuple of values needed for the backward pass, contains (list of all the caches, x)
+      """
+      return a, y, c, caches
+#+END_SRC
+
 ** Dinosaur Island - Character-Level Language Modeling
 ** Jazz improvisation with LSTM
