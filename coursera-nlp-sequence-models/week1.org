@@ -8,6 +8,7 @@
   - [[#backpropagation-through-time][Backpropagation through time]]
   - [[#different-types-of-rnns][Different types of RNNs]]
   - [[#language-model-and-sequence-generation][Language model and sequence generation]]
+  - [[#sampling-novel-sequences][Sampling novel sequences]]
 
 * Recurrent Neural Networks
 ** Why sequence models
@@ -42,3 +43,13 @@
 [[file:img/screenshot_2018-02-06_17-18-43.png]]
 
 [[file:img/screenshot_2018-02-06_17-24-33.png]]
+** Sampling novel sequences
+[[file:img/screenshot_2018-02-06_17-37-57.png]]
+
+[[file:img/screenshot_2018-02-06_17-41-05.png]]
+
+- Character-level language model needs longer sequences,
+  which means that it's computationally expensive.
+- So it is used in more specialized cases.
+
+[[file:img/screenshot_2018-02-06_17-43-12.png]]
