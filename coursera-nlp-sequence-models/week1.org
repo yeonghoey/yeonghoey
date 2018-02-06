@@ -4,6 +4,10 @@
 - [[#recurrent-neural-networks][Recurrent Neural Networks]]
   - [[#why-sequence-models][Why sequence models]]
   - [[#notation][Notation]]
+  - [[#recurrent-neural-network-model][Recurrent Neural Network Model]]
+  - [[#backpropagation-through-time][Backpropagation through time]]
+  - [[#different-types-of-rnns][Different types of RNNs]]
+  - [[#language-model-and-sequence-generation][Language model and sequence generation]]
 
 * Recurrent Neural Networks
 ** Why sequence models
@@ -13,3 +17,28 @@
 [[file:img/screenshot_2018-02-06_14-14-07.png]]
 
 [[file:img/screenshot_2018-02-06_14-13-41.png]]
+
+** Recurrent Neural Network Model
+[[file:img/screenshot_2018-02-06_15-52-01.png]]
+
+[[file:img/screenshot_2018-02-06_16-45-24.png]]
+
+[[file:img/screenshot_2018-02-06_16-49-19.png]]
+
+[[file:img/screenshot_2018-02-06_16-53-06.png]]
+
+** Backpropagation through time
+[[file:img/screenshot_2018-02-06_17-00-58.png]]
+
+** Different types of RNNs
+[[file:img/screenshot_2018-02-06_17-06-16.png]]
+
+[[file:img/screenshot_2018-02-06_17-10-05.png]]
+
+[[file:img/screenshot_2018-02-06_17-11-20.png]]
+** Language model and sequence generation
+[[file:img/screenshot_2018-02-06_17-15-34.png]]
+
+[[file:img/screenshot_2018-02-06_17-18-43.png]]
+
+[[file:img/screenshot_2018-02-06_17-24-33.png]]
