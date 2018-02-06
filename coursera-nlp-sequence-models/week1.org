@@ -9,6 +9,11 @@
   - [[#different-types-of-rnns][Different types of RNNs]]
   - [[#language-model-and-sequence-generation][Language model and sequence generation]]
   - [[#sampling-novel-sequences][Sampling novel sequences]]
+  - [[#vanishing-gradients-with-rnns][Vanishing gradients with RNNs]]
+  - [[#gated-recurrent-unit-gru][Gated Recurrent Unit (GRU)]]
+  - [[#long-short-term-memory-lstm][Long Short Term Memory (LSTM)]]
+  - [[#bidirectional-rnn][Bidirectional RNN]]
+  - [[#deep-rnns][Deep RNNs]]
 
 * Recurrent Neural Networks
 ** Why sequence models
@@ -53,3 +58,24 @@
 - So it is used in more specialized cases.
 
 [[file:img/screenshot_2018-02-06_17-43-12.png]]
+** Vanishing gradients with RNNs
+[[file:img/screenshot_2018-02-06_17-50-15.png]]
+** Gated Recurrent Unit (GRU)
+[[file:img/screenshot_2018-02-06_17-53-28.png]]
+
+[[file:img/screenshot_2018-02-06_18-06-17.png]]
+
+[[file:img/screenshot_2018-02-06_18-08-57.png]]
+** Long Short Term Memory (LSTM)
+[[file:img/screenshot_2018-02-06_18-26-55.png]]
+
+- GRU is simpler, LSTM is more powerful
+- GRU or LSTM: There is no generally better algorithm between these.
+- But historically, LSTM has been more commonly used.
+
+** Bidirectional RNN
+[[file:img/screenshot_2018-02-06_18-38-33.png]]
+- BRNN has a disadvantage that it need the entire sequence to make predictions.
+
+** Deep RNNs
+[[file:img/screenshot_2018-02-06_18-45-48.png]]
