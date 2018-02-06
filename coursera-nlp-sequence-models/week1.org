@@ -14,6 +14,10 @@
   - [[#long-short-term-memory-lstm][Long Short Term Memory (LSTM)]]
   - [[#bidirectional-rnn][Bidirectional RNN]]
   - [[#deep-rnns][Deep RNNs]]
+- [[#programming-assignments][Programming assignments]]
+  - [[#building-a-recurrent-neural-network---step-by-step][Building a recurrent neural network - step by step]]
+  - [[#dinosaur-island---character-level-language-modeling][Dinosaur Island - Character-Level Language Modeling]]
+  - [[#jazz-improvisation-with-lstm][Jazz improvisation with LSTM]]
 
 * Recurrent Neural Networks
 ** Why sequence models
@@ -79,3 +83,7 @@
 
 ** Deep RNNs
 [[file:img/screenshot_2018-02-06_18-45-48.png]]
+* Programming assignments
+** Building a recurrent neural network - step by step
+** Dinosaur Island - Character-Level Language Modeling
+** Jazz improvisation with LSTM
