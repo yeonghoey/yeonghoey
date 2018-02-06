@@ -1,0 +1,15 @@
+#+TITLE: Recurrent Neural Networks
+
+* Table of Contents :TOC_3_gh:
+- [[#recurrent-neural-networks][Recurrent Neural Networks]]
+  - [[#why-sequence-models][Why sequence models]]
+  - [[#notation][Notation]]
+
+* Recurrent Neural Networks
+** Why sequence models
+[[file:img/screenshot_2018-02-06_13-59-38.png]]
+
+** Notation
+[[file:img/screenshot_2018-02-06_14-14-07.png]]
+
+[[file:img/screenshot_2018-02-06_14-13-41.png]]
