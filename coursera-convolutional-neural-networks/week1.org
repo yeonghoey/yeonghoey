@@ -91,6 +91,10 @@ I don't know if anyone knows that that's the real underlying reason that max poo
 ** Why Convolutions?
 [[file:img/screenshot_2017-11-11_12-18-59.png]]
 
+(The calcuation above is wrong. the number of channels in the previous layer must be multiplied)
+
+[[file:img/screenshot_2018-02-06_16-36-32.png]]
+
 - Conv layers have relatively small parameters.
 
 [[file:img/screenshot_2017-11-11_12-19-39.png]]
