@@ -209,8 +209,29 @@
 #+END_SRC
 
 [[file:img/screenshot_2018-02-07_07-39-25.png]]
+#+BEGIN_SRC python
+  def rnn_cell_backward(da_next, cache):
+      """
+      Implements the backward pass for the RNN-cell (single time-step).
 
+      Arguments:
+      da_next -- Gradient of loss with respect to next hidden state
+      cache -- python dictionary containing useful values (output of rnn_cell_forward())
 
+      Returns:
+      gradients -- python dictionary containing:
+                          dx -- Gradients of input data, of shape (n_x, m)
+                          da_prev -- Gradients of previous hidden state, of shape (n_a, m)
+                          dWax -- Gradients of input-to-hidden weights, of shape (n_a, n_x)
+                          dWaa -- Gradients of hidden-to-hidden weights, of shape (n_a, n_a)
+                          dba -- Gradients of bias vector, of shape (n_a, 1)
+      """
+      return gradients
+#+END_SRC
+
+- ~da_next~ is ~dJ/da~, and partial derivatives like ~da/dx~ must be multiplied to this.
+- However, this derivatives may have different dimensions.
+- So, ~dJ/da~ must be multiplied to ~da~ part, before completely calculate ~da/d<input>~.
 
 ** Dinosaur Island - Character-Level Language Modeling
 [[file:img/screenshot_2018-02-07_07-34-36.png]]
