@@ -4,6 +4,10 @@
 - [[#introduction-to-word-embeddings][Introduction to Word Embeddings]]
   - [[#word-representation][Word Representation]]
   - [[#using-word-embeddings][Using word embeddings]]
+  - [[#properties-of-word-embeddings][Properties of word embeddings]]
+  - [[#embedding-matrix][Embedding matrix]]
+- [[#learning-word-embeddings-word2vec--glove][Learning Word Embeddings: Word2vec & GloVe]]
+  - [[#learning-word-embeddings][Learning word embeddings]]
 
 * Introduction to Word Embeddings
 ** Word Representation
@@ -19,6 +23,20 @@
 [[file:img/screenshot_2018-02-11_22-49-04.png]]
 
 [[file:img/screenshot_2018-02-11_22-51-45.png]]
-- Word embeddings funciton like face encoding.
-- The difference is that word embeddings have a fixed number of inputs(the vocabulary),
-  while face encoding can have an infinite number of inputs(face images) and their representations.
+- The word embeddings of nlp funciton in a similar way as face encoding of face recognition.
+- While word embeddings have a fixed number of inputs(vocabulary),
+  face encoding differs in that it can have an infinite number of inputs(face images).
+
+** Properties of word embeddings
+[[file:img/screenshot_2018-02-11_23-11-50.png]]
+
+[[file:img/screenshot_2018-02-11_23-16-24.png]]
+
+[[file:img/screenshot_2018-02-11_23-19-10.png]]
+
+** Embedding matrix
+[[file:img/screenshot_2018-02-11_23-25-37.png]]
+
+
+* Learning Word Embeddings: Word2vec & GloVe
+** Learning word embeddings
