@@ -1,0 +1,6 @@
+#+TITLE: Natural Language Processing & Word Embeddings
+
+* Table of Contents :TOC_3_gh:
+- [[#introduction-to-word-embeddings][Introduction to Word Embeddings]]
+
+* Introduction to Word Embeddings
