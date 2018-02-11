@@ -2,5 +2,23 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#introduction-to-word-embeddings][Introduction to Word Embeddings]]
+  - [[#word-representation][Word Representation]]
+  - [[#using-word-embeddings][Using word embeddings]]
 
 * Introduction to Word Embeddings
+** Word Representation
+[[file:img/screenshot_2018-02-11_22-32-17.png]]
+
+[[file:img/screenshot_2018-02-11_22-37-17.png]]
+
+[[file:img/screenshot_2018-02-11_22-40-11.png]]
+
+** Using word embeddings
+[[file:img/screenshot_2018-02-11_22-44-37.png]]
+
+[[file:img/screenshot_2018-02-11_22-49-04.png]]
+
+[[file:img/screenshot_2018-02-11_22-51-45.png]]
+- Word embeddings funciton like face encoding.
+- The difference is that word embeddings have a fixed number of inputs(the vocabulary),
+  while face encoding can have an infinite number of inputs(face images) and their representations.
