@@ -1,0 +1,11 @@
+#+TITLE: Sequence Models
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+
+* Overview
+- https://www.coursera.org/learn/nlp-sequence-models
+
+- Week 1 :: [[recurrent-neural-networks][Recurrent Neural Networks]]
+- Week 2 :: [[natural-language-Processing-word-embeddings][Natural Language Processing & Word Embeddings]]
+- Week 3 :: [[sequence-models-attention-mechanism][Sequence models & Attention mechanism]]
