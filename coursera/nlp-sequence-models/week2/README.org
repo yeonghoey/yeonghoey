@@ -94,3 +94,7 @@
 
 ** Debiasing word embeddings
 - the term ~bias~ in this lecture is NOT the ~bias~ as a parameter, but the bias in learned feature.
+
+[[file:img/screenshot_2018-02-12_16-16-08.png]]
+
+[[file:img/screenshot_2018-02-12_16-23-06.png]]
