@@ -115,4 +115,93 @@
 
 * Programming assignments
 ** Operations on word vectors - Debiasing
+[[file:img/screenshot_2018-02-12_23-23-31.png]]
+
+[[file:img/screenshot_2018-02-12_23-24-13.png]]
+
+#+BEGIN_SRC python
+  # GRADED FUNCTION: cosine_similarity
+
+  def cosine_similarity(u, v):
+      """
+      Cosine similarity reflects the degree of similariy between u and v
+
+      Arguments:
+          u -- a word vector of shape (n,)
+          v -- a word vector of shape (n,)
+
+      Returns:
+          cosine_similarity -- the cosine similarity between u and v defined by the formula above.
+      """
+
+      distance = 0.0
+
+      ### START CODE HERE ###
+      # Compute the dot product between u and v (≈1 line)
+      dot = None
+      # Compute the L2 norm of u (≈1 line)
+      norm_u = None
+
+      # Compute the L2 norm of v (≈1 line)
+      norm_v = None
+      # Compute the cosine similarity defined by formula (1) (≈1 line)
+      cosine_similarity = None
+      ### END CODE HERE ###
+
+      return cosine_similarity
+#+END_SRC
+
+[[file:img/screenshot_2018-02-12_23-28-58.png]]
+
+#+BEGIN_SRC python
+  # GRADED FUNCTION: complete_analogy
+
+  def complete_analogy(word_a, word_b, word_c, word_to_vec_map):
+      """
+      Performs the word analogy task as explained above: a is to b as c is to ____.
+
+      Arguments:
+      word_a -- a word, string
+      word_b -- a word, string
+      word_c -- a word, string
+      word_to_vec_map -- dictionary that maps words to their corresponding vectors.
+
+      Returns:
+      best_word --  the word such that v_b - v_a is close to v_best_word - v_c, as measured by cosine similarity
+      """
+
+      # convert words to lower case
+      word_a, word_b, word_c = word_a.lower(), word_b.lower(), word_c.lower()
+
+      ### START CODE HERE ###
+      # Get the word embeddings v_a, v_b and v_c (≈1-3 lines)
+      e_a, e_b, e_c = None
+      ### END CODE HERE ###
+
+      words = word_to_vec_map.keys()
+      max_cosine_sim = -100              # Initialize max_cosine_sim to a large negative number
+      best_word = None                   # Initialize best_word with None, it will help keep track of the word to output
+
+      # loop over the whole word vector set
+      for w in words:
+          # to avoid best_word being one of the input words, pass on them.
+          if w in [word_a, word_b, word_c] :
+              continue
+
+          ### START CODE HERE ###
+          # Compute cosine similarity between the vector (e_b - e_a) and the vector ((w's vector representation) - e_c)  (≈1 line)
+          cosine_sim = None
+
+          # If the cosine_sim is more than the max_cosine_sim seen so far,
+              # then: set the new max_cosine_sim to the current cosine_sim and the best_word to the current word (≈3 lines)
+          if None > None:
+              max_cosine_sim = None
+              best_word = None
+          ### END CODE HERE ###
+
+      return best_word
+#+END_SRC
+
+[[file:img/screenshot_2018-02-12_23-33-08.png]]
+
 ** Emojify
