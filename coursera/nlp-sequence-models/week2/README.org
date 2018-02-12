@@ -14,6 +14,11 @@
 - [[#applications-using-word-embeddings][Applications using Word Embeddings]]
   - [[#sentiment-classification][Sentiment Classification]]
   - [[#debiasing-word-embeddings][Debiasing word embeddings]]
+- [[#practice-questions][Practice questions]]
+  - [[#quiz-natural-language-porcessing--word-embeddings][Quiz: Natural Language Porcessing & Word Embeddings]]
+- [[#programming-assignments][Programming assignments]]
+  - [[#operations-on-word-vectors---debiasing][Operations on word vectors - Debiasing]]
+  - [[#emojify][Emojify]]
 
 * Introduction to Word Embeddings
 ** Word Representation
@@ -98,3 +103,16 @@
 [[file:img/screenshot_2018-02-12_16-16-08.png]]
 
 [[file:img/screenshot_2018-02-12_16-23-06.png]]
+
+* Practice questions
+** Quiz: Natural Language Porcessing & Word Embeddings
+
+[[file:img/screenshot_2018-02-12_16-26-15.png]]
+
+[[file:img/screenshot_2018-02-12_16-42-34.png]]
+
+[[file:img/screenshot_2018-02-12_16-43-09.png]]
+
+* Programming assignments
+** Operations on word vectors - Debiasing
+** Emojify
