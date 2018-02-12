@@ -204,6 +204,96 @@
 
 [[file:img/screenshot_2018-02-12_23-33-08.png]]
 
+[[file:img/screenshot_2018-02-13_00-37-02.png]]
+
+[[file:img/screenshot_2018-02-13_00-39-35.png]]
+
+[[file:img/screenshot_2018-02-13_00-39-53.png]]
+
+#+BEGIN_SRC python
+  def neutralize(word, g, word_to_vec_map):
+      """
+      Removes the bias of "word" by projecting it on the space orthogonal to the bias axis.
+      This function ensures that gender neutral words are zero in the gender subspace.
+
+      Arguments:
+          word -- string indicating the word to debias
+          g -- numpy-array of shape (50,), corresponding to the bias axis (such as gender)
+          word_to_vec_map -- dictionary mapping words to their corresponding vectors.
+
+      Returns:
+          e_debiased -- neutralized word vector representation of the input "word"
+      """
+
+      ### START CODE HERE ###
+      # Select word vector representation of "word". Use word_to_vec_map. (≈ 1 line)
+      e = None
+
+      # Compute e_biascomponent using the formula give above. (≈ 1 line)
+      e_biascomponent = None
+
+      # Neutralize e by substracting e_biascomponent from it
+      # e_debiased should be equal to its orthogonal projection. (≈ 1 line)
+      e_debiased = None
+      ### END CODE HERE ###
+
+      return e_debiased
+#+END_SRC
+
+- ~g~ part of ~e^bias_component~ is L2 norm squared.
+
+[[file:img/screenshot_2018-02-13_00-50-41.png]]
+
+- There is a typo in the denominators of equation (9), (10). Fix it as follows:
+[[file:img/screenshot_2018-02-13_01-15-48.png]]
+
+
+#+BEGIN_SRC python
+  def equalize(pair, bias_axis, word_to_vec_map):
+      """
+      Debias gender specific words by following the equalize method described in the figure above.
+
+      Arguments:
+      pair -- pair of strings of gender specific words to debias, e.g. ("actress", "actor")
+      bias_axis -- numpy-array of shape (50,), vector corresponding to the bias axis, e.g. gender
+      word_to_vec_map -- dictionary mapping words to their corresponding vectors
+
+      Returns
+      e_1 -- word vector corresponding to the first word
+      e_2 -- word vector corresponding to the second word
+      """
+
+      ### START CODE HERE ###
+      # Step 1: Select word vector representation of "word". Use word_to_vec_map. (≈ 2 lines)
+      w1, w2 = None
+      e_w1, e_w2 = None
+
+      # Step 2: Compute the mean of e_w1 and e_w2 (≈ 1 line)
+      mu = None
+
+      # Step 3: Compute the projections of mu over the bias axis and the orthogonal axis (≈ 2 lines)
+      mu_B = None
+      mu_orth = None
+
+      # Step 4: Use equations (7) and (8) to compute e_w1B and e_w2B (≈2 lines)
+      e_w1B = None
+      e_w2B = None
+
+      # Step 5: Adjust the Bias part of e_w1B and e_w2B using the formulas (9) and (10) given above (≈2 lines)
+      corrected_e_w1B = None
+      corrected_e_w2B = None
+
+      # Step 6: Debias by equalizing e1 and e2 to the sum of their corrected projections (≈2 lines)
+      e1 = None
+      e2 = None
+
+      ### END CODE HERE ###
+
+      return e1, e2
+#+END_SRC
+
+[[file:img/screenshot_2018-02-13_01-09-43.png]]
+
 ** Emojify
 [[file:img/screenshot_2018-02-12_23-36-06.png]]
 
