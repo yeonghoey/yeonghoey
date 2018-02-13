@@ -1,0 +1,35 @@
+#+TITLE: Sequence models & Attention mechanism
+
+* Table of Contents :TOC_3_gh:
+- [[#various-sequence-to-sequence-architectures][Various sequence to sequence architectures]]
+  - [[#basic-models][Basic Models]]
+  - [[#picking-the-most-likely-sentence][Picking the most likely sentence]]
+  - [[#beam-search][Beam Search]]
+
+* Various sequence to sequence architectures
+** Basic Models
+[[file:img/screenshot_2018-02-13_10-12-12.png]]
+
+[[file:img/screenshot_2018-02-13_10-14-44.png]]
+
+** Picking the most likely sentence
+[[file:img/screenshot_2018-02-13_10-18-37.png]]
+
+[[file:img/screenshot_2018-02-13_10-20-21.png]]
+
+Unlike the language model previously introduced, in machine translation,
+pick most likely ~y~ instead of sampling for consistent results.
+
+[[file:img/screenshot_2018-02-13_10-26-51.png]]
+
+Don't use greedy approach, otherwise ~Jane is going~, which is less succinct in the above example, will always be chosen.
+
+** Beam Search
+[[file:img/screenshot_2018-02-13_10-33-49.png]]
+
+[[file:img/screenshot_2018-02-13_10-41-03.png]]
+
+In the second step, pick the top 3 again among 30,000 possibilities.
+Because Beam width is 3, every step needs 3 models.
+
+[[file:img/screenshot_2018-02-13_10-44-05.png]]
