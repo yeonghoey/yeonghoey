@@ -8,6 +8,14 @@
   - [[#refinements-to-beam-search][Refinements to Beam Search]]
   - [[#error-analysis-in-beam-search][Error analysis in beam search]]
   - [[#bleu-score-optional][Bleu Score (optional)]]
+  - [[#attention-model-intuition][Attention Model Intuition]]
+  - [[#attention-model][Attention Model]]
+- [[#speech-recognition---audio-data][Speech recognition - Audio data]]
+  - [[#speech-recognition][Speech recognition]]
+  - [[#trigger-word-detection][Trigger Word Detection]]
+- [[#conclusion][Conclusion]]
+  - [[#conclusion-and-thank-you][Conclusion and thank you]]
+- [[#practice-questions][Practice questions]]
 
 * Various sequence to sequence architectures
 ** Basic Models
@@ -60,3 +68,23 @@ So take log to the probabilities
 [[file:img/screenshot_2018-02-14_09-15-12.png]]
 
 [[file:img/screenshot_2018-02-14_09-17-49.png]]
+** Attention Model Intuition
+[[file:img/screenshot_2018-02-14_09-25-35.png]]
+
+[[file:img/screenshot_2018-02-14_09-37-13.png]]
+
+** Attention Model
+[[file:img/screenshot_2018-02-14_09-43-51.png]]
+
+[[file:img/screenshot_2018-02-14_09-50-54.png]]
+
+- Essentially, ~a^<t, t'>~ is a softmax function
+
+[[file:img/screenshot_2018-02-14_09-52-26.png]]
+
+* Speech recognition - Audio data
+** Speech recognition
+** Trigger Word Detection
+* Conclusion
+** Conclusion and thank you
+* Practice questions
