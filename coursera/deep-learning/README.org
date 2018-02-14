@@ -1,0 +1,10 @@
+* Deep Learning Specialization
+
+- https://www.coursera.org/specializations/deep-learning
+- https://deeplearning.ai
+
+- Course 1 :: [[neural-networks-deep-learning][Neural Networks and Deep Learning]]
+- Course 2 :: [[deep-neural-network][Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization]]
+- Course 3 :: [[machine-learning-projects][Structuring Machine Learning Projects]]
+- Course 4 :: [[convolutional-neural-networks][Convolutional Neural Networks]]
+- Course 5 :: [[nlp-sequence-models][Sequence Models]]
