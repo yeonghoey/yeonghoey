@@ -16,6 +16,10 @@
 - [[#conclusion][Conclusion]]
   - [[#conclusion-and-thank-you][Conclusion and thank you]]
 - [[#practice-questions][Practice questions]]
+  - [[#quiz-sequence-models--attention-mechanism][Quiz: Sequence models & Attention mechanism]]
+- [[#programming-assignments][Programming assignments]]
+  - [[#neural-machine-translation][Neural Machine Translation]]
+  - [[#trigger-word-detection-1][Trigger word detection]]
 
 * Various sequence to sequence architectures
 ** Basic Models
@@ -84,7 +88,26 @@ So take log to the probabilities
 
 * Speech recognition - Audio data
 ** Speech recognition
+[[file:img/screenshot_2018-02-14_19-59-57.png]]
+
+[[file:img/screenshot_2018-02-14_20-32-30.png]]
+
+[[file:img/screenshot_2018-02-14_20-36-03.png]]
+
 ** Trigger Word Detection
+[[file:img/screenshot_2018-02-14_20-53-46.png]]
+
 * Conclusion
 ** Conclusion and thank you
+[[file:img/screenshot_2018-02-14_20-55-38.png]]
+
+[[file:img/screenshot_2018-02-14_20-57-36.png]]
+
 * Practice questions
+** Quiz: Sequence models & Attention mechanism
+
+[[file:img/screenshot_2018-02-14_21-16-26.png]]
+
+* Programming assignments
+** Neural Machine Translation
+** Trigger word detection
