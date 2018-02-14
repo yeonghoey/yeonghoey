@@ -110,4 +110,145 @@ So take log to the probabilities
 
 * Programming assignments
 ** Neural Machine Translation
+[[file:img/screenshot_2018-02-14_21-26-34.png]]
+
+[[file:img/screenshot_2018-02-14_21-27-10.png]]
+
+[[file:img/screenshot_2018-02-14_21-29-44.png]]
+
+[[file:img/screenshot_2018-02-14_21-30-24.png]]
+
+[[file:img/screenshot_2018-02-14_21-31-05.png]]
+
+[[file:img/screenshot_2018-02-14_21-31-39.png]]
+
+[[file:img/screenshot_2018-02-14_21-37-20.png]]
+
+- https://keras.io/layers/core/#repeatvector
+- https://keras.io/layers/merge/#concatenate
+
+#+BEGIN_SRC python
+  # GRADED FUNCTION: one_step_attention
+
+  def one_step_attention(a, s_prev):
+      """
+      Performs one step of attention: Outputs a context vector computed as a dot product of the attention weights
+      "alphas" and the hidden states "a" of the Bi-LSTM.
+
+      Arguments:
+      a -- hidden state output of the Bi-LSTM, numpy-array of shape (m, Tx, 2*n_a)
+      s_prev -- previous hidden state of the (post-attention) LSTM, numpy-array of shape (m, n_s)
+
+      Returns:
+      context -- context vector, input of the next (post-attetion) LSTM cell
+      """
+
+      ### START CODE HERE ###
+      # Use repeator to repeat s_prev to be of shape (m, Tx, n_s) so that you can concatenate it with all hidden states "a" (≈ 1 line)
+      s_prev = None
+      # Use concatenator to concatenate a and s_prev on the last axis (≈ 1 line)
+      concat = None
+      # Use densor1 to propagate concat through a small fully-connected neural network to compute the "intermediate energies" variable e. (≈1 lines)
+      e = None
+      # Use densor2 to propagate e through a small fully-connected neural network to compute the "energies" variable energies. (≈1 lines)
+      energies = None
+      # Use "activator" on "energies" to compute the attention weights "alphas" (≈ 1 line)
+      alphas = None
+      # Use dotor together with "alphas" and "a" to compute the context vector to be given to the next (post-attention) LSTM-cell (≈ 1 line)
+      context = None
+      ### END CODE HERE ###
+
+      return context
+#+END_SRC
+
+[[file:img/screenshot_2018-02-14_21-45-46.png]]
+
+- https://keras.io/layers/wrappers/#bidirectional
+- https://keras.io/layers/recurrent/#lstm
+- The first parameter of ~LSTM~ is the output size
+
+To produce expected output, modify the cell above as follows:
+
+[[file:img/screenshot_2018-02-14_22-19-03.png]]
+
+#+BEGIN_SRC python
+  # GRADED FUNCTION: model
+
+  def model(Tx, Ty, n_a, n_s, human_vocab_size, machine_vocab_size):
+      """
+      Arguments:
+      Tx -- length of the input sequence
+      Ty -- length of the output sequence
+      n_a -- hidden state size of the Bi-LSTM
+      n_s -- hidden state size of the post-attention LSTM
+      human_vocab_size -- size of the python dictionary "human_vocab"
+      machine_vocab_size -- size of the python dictionary "machine_vocab"
+
+      Returns:
+      model -- Keras model instance
+      """
+
+      # Define the inputs of your model with a shape (Tx,)
+      # Define s0 and c0, initial hidden state for the decoder LSTM of shape (n_s,)
+      X = Input(shape=(Tx, human_vocab_size))
+      s0 = Input(shape=(n_s,), name='s0')
+      c0 = Input(shape=(n_s,), name='c0')
+      s = s0
+      c = c0
+
+      # Initialize empty list of outputs
+      outputs = []
+
+      ### START CODE HERE ###
+
+      # Step 1: Define your pre-attention Bi-LSTM. Remember to use return_sequences=True. (≈ 1 line)
+      a = None
+
+      # Step 2: Iterate for Ty steps
+      for t in range(None):
+
+          # Step 2.A: Perform one step of the attention mechanism to get back the context vector at step t (≈ 1 line)
+          context = None
+
+          # Step 2.B: Apply the post-attention LSTM cell to the "context" vector.
+          # Don't forget to pass: initial_state = [hidden state, cell state] (≈ 1 line)
+          s, _, c = None
+
+          # Step 2.C: Apply Dense layer to the hidden state output of the post-attention LSTM (≈ 1 line)
+          out = None
+
+          # Step 2.D: Append "out" to the "outputs" list (≈ 1 line)
+          None
+
+      # Step 3: Create model instance taking three inputs and returning the list of outputs. (≈ 1 line)
+      model = None
+
+      ### END CODE HERE ###
+
+      return model
+#+END_SRC
+
+[[file:img/screenshot_2018-02-14_22-32-59.png]]
+
+- https://keras.io/optimizers/#adam
+- https://keras.io/optimizers/#usage-of-optimizers
+- https://keras.io/models/model/#compile
+
+#+BEGIN_SRC python
+  ### START CODE HERE ### (≈2 lines)
+  opt = None
+  None
+  ### END CODE HERE ###
+#+END_SRC
+
+[[file:img/screenshot_2018-02-14_22-37-55.png]]
+
+[[file:img/screenshot_2018-02-14_22-40-58.png]]
+
+[[file:img/screenshot_2018-02-14_22-42-56.png]]
+
+[[file:img/screenshot_2018-02-14_22-48-19.png]]
+
+[[file:img/screenshot_2018-02-14_22-49-22.png]]
+
 ** Trigger word detection
