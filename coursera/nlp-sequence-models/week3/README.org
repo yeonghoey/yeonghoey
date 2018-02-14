@@ -5,6 +5,9 @@
   - [[#basic-models][Basic Models]]
   - [[#picking-the-most-likely-sentence][Picking the most likely sentence]]
   - [[#beam-search][Beam Search]]
+  - [[#refinements-to-beam-search][Refinements to Beam Search]]
+  - [[#error-analysis-in-beam-search][Error analysis in beam search]]
+  - [[#bleu-score-optional][Bleu Score (optional)]]
 
 * Various sequence to sequence architectures
 ** Basic Models
@@ -33,3 +36,27 @@ In the second step, pick the top 3 again among 30,000 possibilities.
 Because Beam width is 3, every step needs 3 models.
 
 [[file:img/screenshot_2018-02-13_10-44-05.png]]
+
+** Refinements to Beam Search
+[[file:img/screenshot_2018-02-14_08-47-01.png]]
+
+The actual probability is too small to practically calculate.
+So take log to the probabilities
+
+[[file:img/screenshot_2018-02-14_08-50-10.png]]
+
+** Error analysis in beam search
+[[file:img/screenshot_2018-02-14_08-56-15.png]]
+
+[[file:img/screenshot_2018-02-14_08-59-11.png]]
+
+[[file:img/screenshot_2018-02-14_09-01-28.png]]
+
+** Bleu Score (optional)
+[[file:img/screenshot_2018-02-14_09-08-08.png]]
+
+[[file:img/screenshot_2018-02-14_09-11-13.png]]
+
+[[file:img/screenshot_2018-02-14_09-15-12.png]]
+
+[[file:img/screenshot_2018-02-14_09-17-49.png]]
