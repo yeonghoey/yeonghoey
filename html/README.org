@@ -1,4 +1,4 @@
-#+TITLE: HTML/CSS
+#+TITLE: HTML
 
 * Table of Contents :TOC_2_gh:
 - [[#template][Template]]
