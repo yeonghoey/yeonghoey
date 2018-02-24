@@ -35,6 +35,7 @@
     - [[#overflow][Overflow]]
     - [[#resetting-defaults][Resetting Defaults]]
     - [[#visibility][Visibility]]
+  - [[#changing-the-box-model][Changing the Box Model]]
 
 * Selectors and Visual Rules
 ** CSS Setup and Selectors
@@ -159,3 +160,4 @@ The default border is ~medium none color~
 [[file:img/screenshot_2018-02-24_16-27-05.png]]
 
 [[file:img/screenshot_2018-02-24_16-26-54.png]]
+** Changing the Box Model

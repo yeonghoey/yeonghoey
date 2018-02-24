@@ -1,25 +1,44 @@
 #+TITLE: Learn HTML
 
 * HTML Elements and Structure
-** DOCTYPE
+** Introduction to HTML
+*** DOCTYPE
 [[file:img/screenshot_2018-02-21_21-42-02.png]]
 
-** The Head
+*** The Head
 [[file:img/screenshot_2018-02-21_21-43-56.png]]
 
-** The Body
+*** The Body
 [[file:img/screenshot_2018-02-21_21-45-41.png]]
 
-** HTML Structure
+*** HTML Structure
 [[file:img/screenshot_2018-02-21_21-47-26.png]]
 
 [[file:img/screenshot_2018-02-21_21-47-40.png]]
 
-** Indentation
+*** Indentation
 [[file:img/screenshot_2018-02-21_21-52-29.png]]
 
-** Comments
+*** Comments
 [[file:img/screenshot_2018-02-21_21-53-35.png]]
+** Common Elements
+*** Text Content Tags
+[[file:img/screenshot_2018-02-24_16-45-59.png]]
+
+*** Text Style Tags
+[[file:img/screenshot_2018-02-24_16-50-14.png]]
+
+*** Line Breaks
+[[file:img/screenshot_2018-02-24_16-51-45.png]]
+
+*** Unordered Lists
+[[file:img/screenshot_2018-02-24_16-52-47.png]]
+
+** Images
+[[file:img/screenshot_2018-02-24_17-34-06.png]]
+
+It is a good thing to keep closing slash for compatability with ~XHTML~ and ~XML~
+
 * HTML Tables
 ** Table Rows
 [[file:img/screenshot_2018-02-21_22-12-15.png]]
