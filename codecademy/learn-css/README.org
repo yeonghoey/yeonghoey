@@ -1,50 +1,70 @@
 #+TITLE: Learn CSS
 
 * Table of Contents :TOC_3_gh:
-- [[#css-setup-and-selectors][CSS Setup and Selectors]]
-  - [[#intro-to-css][Intro to CSS]]
-  - [[#inline-styles][Inline Styles]]
-  - [[#the-style-tag][The <style> Tag]]
-  - [[#linking-the-css-file][Linking the CSS File]]
-  - [[#class-name][Class Name]]
-  - [[#multiple-classes][Multiple Classes]]
-  - [[#id-name][ID Name]]
-  - [[#classes-and-ids][Classes and IDs]]
-  - [[#specificity][Specificity]]
-  - [[#chaining-selectors][Chaining Selectors]]
-  - [[#nested-elements][Nested Elements]]
-  - [[#chaining-and-specificity][Chaining and Specificity]]
-  - [[#important][Important]]
-  - [[#multiple-selectors][Multiple Selectors]]
+- [[#selectors-and-visual-rules][Selectors and Visual Rules]]
+  - [[#css-setup-and-selectors][CSS Setup and Selectors]]
+    - [[#intro-to-css][Intro to CSS]]
+    - [[#inline-styles][Inline Styles]]
+    - [[#the-style-tag][The <style> Tag]]
+    - [[#linking-the-css-file][Linking the CSS File]]
+    - [[#class-name][Class Name]]
+    - [[#multiple-classes][Multiple Classes]]
+    - [[#id-name][ID Name]]
+    - [[#classes-and-ids][Classes and IDs]]
+    - [[#specificity][Specificity]]
+    - [[#chaining-selectors][Chaining Selectors]]
+    - [[#nested-elements][Nested Elements]]
+    - [[#chaining-and-specificity][Chaining and Specificity]]
+    - [[#important][Important]]
+    - [[#multiple-selectors][Multiple Selectors]]
+  - [[#css-visual-rules][CSS Visual Rules]]
+    - [[#font-family][Font Family]]
+    - [[#font-weight][Font Weight]]
+    - [[#color][Color]]
+    - [[#opacity][Opacity]]
+    - [[#background-image][Background Image]]
+- [[#the-box-model][The Box Model]]
+  - [[#the-box-model-1][The Box Model]]
+    - [[#the-box-model-2][The Box Model]]
+    - [[#borders][Borders]]
+    - [[#border-radius][Border Radius]]
+    - [[#padding-ii][Padding II]]
+    - [[#auto][Auto]]
+    - [[#margin-collapse][Margin Collapse]]
+    - [[#minimum-and-maximum-height-and-width][Minimum and Maximum Height and Width]]
+    - [[#overflow][Overflow]]
+    - [[#resetting-defaults][Resetting Defaults]]
+    - [[#visibility][Visibility]]
 
-* CSS Setup and Selectors
-** Intro to CSS
+* Selectors and Visual Rules
+** CSS Setup and Selectors
+*** Intro to CSS
 [[file:img/screenshot_2018-02-22_08-00-10.png]]
 
-** Inline Styles
+*** Inline Styles
 [[file:img/screenshot_2018-02-22_08-01-29.png]]
 
-** The <style> Tag
+*** The <style> Tag
 [[file:img/screenshot_2018-02-22_08-02-59.png]]
 
-** Linking the CSS File
+*** Linking the CSS File
 [[file:img/screenshot_2018-02-22_08-05-57.png]]
 
 [[file:img/screenshot_2018-02-22_08-07-13.png]]
 
-** Class Name
+*** Class Name
 [[file:img/screenshot_2018-02-22_08-10-47.png]]
 
-** Multiple Classes
+*** Multiple Classes
 [[file:img/screenshot_2018-02-22_08-12-36.png]]
 
-** ID Name
+*** ID Name
 [[file:img/screenshot_2018-02-22_08-14-04.png]]
 
-** Classes and IDs
+*** Classes and IDs
 [[file:img/screenshot_2018-02-22_08-16-43.png]]
 
-** Specificity
+*** Specificity
 [[file:img/screenshot_2018-02-22_08-18-39.png]]
 
 [[file:img/screenshot_2018-02-22_08-18-50.png]]
@@ -53,21 +73,89 @@
 
 [[file:img/screenshot_2018-02-22_08-19-47.png]]
 
-** Chaining Selectors
+*** Chaining Selectors
 [[file:img/screenshot_2018-02-22_08-22-01.png]]
 
-** Nested Elements
+*** Nested Elements
 [[file:img/screenshot_2018-02-22_08-24-59.png]]
 
-** Chaining and Specificity
+*** Chaining and Specificity
 [[file:img/screenshot_2018-02-22_08-50-31.png]]
 
-** Important
+*** Important
 [[file:img/screenshot_2018-02-22_08-51-58.png]]
 
 [[file:img/screenshot_2018-02-22_08-52-52.png]]
 
 [[file:img/screenshot_2018-02-22_08-53-29.png]]
 
-** Multiple Selectors
+*** Multiple Selectors
 [[file:img/screenshot_2018-02-22_08-54-31.png]]
+** CSS Visual Rules
+*** Font Family
+- https://www.cssfontstack.com/
+
+[[file:img/screenshot_2018-02-24_15-07-30.png]]
+
+*** Font Weight
+[[file:img/screenshot_2018-02-24_15-09-40.png]]
+
+*** Color
+[[file:img/screenshot_2018-02-24_15-14-03.png]]
+
+*** Opacity
+[[file:img/screenshot_2018-02-24_15-15-26.png]]
+
+*** Background Image
+[[file:img/screenshot_2018-02-24_15-16-35.png]]
+
+* The Box Model
+** The Box Model
+*** The Box Model
+[[file:img/screenshot_2018-02-24_15-20-18.png]]
+
+[[file:img/screenshot_2018-02-24_15-20-59.png]]
+
+*** Borders
+- https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+
+[[file:img/screenshot_2018-02-24_15-23-09.png]]
+
+The default border is ~medium none color~
+
+*** Border Radius
+[[file:img/screenshot_2018-02-24_15-26-02.png]]
+
+*** Padding II
+[[file:img/screenshot_2018-02-24_15-30-51.png]]
+
+[[file:img/screenshot_2018-02-24_15-31-36.png]]
+
+*** Auto
+[[file:img/screenshot_2018-02-24_15-35-06.png]]
+
+[[file:img/screenshot_2018-02-24_15-35-35.png]]
+
+*** Margin Collapse
+[[file:img/screenshot_2018-02-24_15-37-33.png]]
+
+[[file:img/screenshot_2018-02-24_15-39-16.png]]
+
+*** Minimum and Maximum Height and Width
+[[file:img/screenshot_2018-02-24_16-18-11.png]]
+
+
+*** Overflow
+[[file:img/screenshot_2018-02-24_16-21-31.png]]
+
+[[file:img/screenshot_2018-02-24_16-22-17.png]]
+
+*** Resetting Defaults
+[[file:img/screenshot_2018-02-24_16-23-55.png]]
+
+[[file:img/screenshot_2018-02-24_16-24-59.png]]
+
+*** Visibility
+[[file:img/screenshot_2018-02-24_16-27-05.png]]
+
+[[file:img/screenshot_2018-02-24_16-26-54.png]]
