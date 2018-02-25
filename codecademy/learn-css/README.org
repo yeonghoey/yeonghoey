@@ -48,6 +48,15 @@
     - [[#inline-block-display][Inline-Block Display]]
     - [[#float][Float]]
     - [[#clear][Clear]]
+- [[#color-1][Color]]
+  - [[#css-color][CSS Color]]
+    - [[#hexademical][Hexademical]]
+    - [[#rgb-colors][RGB Colors]]
+- [[#typography][Typography]]
+  - [[#css-typography][CSS Typography]]
+- [[#css-grid][CSS Grid]]
+  - [[#css-grid-essentials][CSS Grid Essentials]]
+  - [[#advanced-css-grid][Advanced CSS Grid]]
 
 * Selectors and Visual Rules
 ** CSS Setup and Selectors
@@ -221,3 +230,16 @@ The default border is ~medium none color~
 
 *** Clear
 [[file:img/screenshot_2018-02-25_23-34-23.png]]
+* Color
+** CSS Color
+*** Hexademical
+- https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+
+*** RGB Colors
+[[file:img/screenshot_2018-02-25_23-43-17.png]]
+
+* Typography
+** CSS Typography
+* CSS Grid
+** CSS Grid Essentials
+** Advanced CSS Grid
