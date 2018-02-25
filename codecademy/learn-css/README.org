@@ -45,6 +45,9 @@
     - [[#position-fixed][Position: Fixed]]
     - [[#z-index][Z-Index]]
     - [[#inline-display][Inline Display]]
+    - [[#inline-block-display][Inline-Block Display]]
+    - [[#float][Float]]
+    - [[#clear][Clear]]
 
 * Selectors and Visual Rules
 ** CSS Setup and Selectors
@@ -154,7 +157,6 @@ The default border is ~medium none color~
 *** Minimum and Maximum Height and Width
 [[file:img/screenshot_2018-02-24_16-18-11.png]]
 
-
 *** Overflow
 [[file:img/screenshot_2018-02-24_16-21-31.png]]
 
@@ -202,3 +204,20 @@ The default border is ~medium none color~
 
 *** Inline Display
 [[file:img/screenshot_2018-02-25_12-07-47.png]]
+
+*** Inline-Block Display
+[[file:img/screenshot_2018-02-25_16-27-55.png]]
+
+[[file:img/screenshot_2018-02-25_16-28-38.png]]
+
+[[file:img/screenshot_2018-02-25_16-32-40.png]]
+
+*** Float
+[[file:img/screenshot_2018-02-25_23-32-18.png]]
+
+[[file:img/screenshot_2018-02-25_23-32-50.png]]
+
+[[file:img/screenshot_2018-02-25_23-33-23.png]]
+
+*** Clear
+[[file:img/screenshot_2018-02-25_23-34-23.png]]
