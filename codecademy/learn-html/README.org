@@ -39,6 +39,24 @@
 
 It is a good thing to keep closing slash for compatability with ~XHTML~ and ~XML~
 
+** Image Alts
+[[file:img/screenshot_2018-02-25_10-17-29.png]]
+
+** Videos
+[[file:img/screenshot_2018-02-25_10-18-28.png]]
+
+** New Page
+[[file:img/screenshot_2018-02-25_11-20-17.png]]
+
+** Relative
+[[file:img/screenshot_2018-02-25_11-21-42.png]]
+
+** Same Page
+[[file:img/screenshot_2018-02-25_11-24-53.png]]
+
+** Navigation
+[[file:img/screenshot_2018-02-25_11-27-11.png]]
+
 * HTML Tables
 ** Table Rows
 [[file:img/screenshot_2018-02-21_22-12-15.png]]
