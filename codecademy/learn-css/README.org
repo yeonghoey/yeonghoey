@@ -36,6 +36,15 @@
     - [[#resetting-defaults][Resetting Defaults]]
     - [[#visibility][Visibility]]
   - [[#changing-the-box-model][Changing the Box Model]]
+    - [[#box-model-content-box][Box Model: Content-Box]]
+    - [[#box-model-border-box][Box Model: Border-Box]]
+- [[#css-display-and-positioning][CSS Display and Positioning]]
+  - [[#css-display-and-positioning-1][CSS Display and Positioning]]
+    - [[#position][Position]]
+    - [[#position-relative][Position: Relative]]
+    - [[#position-fixed][Position: Fixed]]
+    - [[#z-index][Z-Index]]
+    - [[#inline-display][Inline Display]]
 
 * Selectors and Visual Rules
 ** CSS Setup and Selectors
@@ -161,3 +170,35 @@ The default border is ~medium none color~
 
 [[file:img/screenshot_2018-02-24_16-26-54.png]]
 ** Changing the Box Model
+*** Box Model: Content-Box
+
+[[file:img/screenshot_2018-02-25_11-53-17.png]]
+
+(Default)
+
+*** Box Model: Border-Box
+[[file:img/screenshot_2018-02-25_11-54-32.png]]
+
+[[file:img/screenshot_2018-02-25_11-54-54.png]]
+
+[[file:img/screenshot_2018-02-25_11-55-20.png]]
+
+[[file:img/screenshot_2018-02-25_11-55-46.png]]
+* CSS Display and Positioning
+** CSS Display and Positioning
+*** Position
+[[file:img/screenshot_2018-02-25_11-58-53.png]]
+
+*** Position: Relative
+[[file:img/screenshot_2018-02-25_12-00-08.png]]
+
+*** Position: Fixed
+[[file:img/screenshot_2018-02-25_12-03-45.png]]
+
+*** Z-Index
+[[file:img/screenshot_2018-02-25_12-05-44.png]]
+
+[[file:img/screenshot_2018-02-25_12-06-20.png]]
+
+*** Inline Display
+[[file:img/screenshot_2018-02-25_12-07-47.png]]
