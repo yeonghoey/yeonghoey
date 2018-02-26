@@ -62,6 +62,9 @@
     - [[#letter-spacing][Letter Spacing]]
     - [[#text-transformation][Text Transformation]]
     - [[#text-alignment][Text Alignment]]
+    - [[#line-height-anatomy][Line Height Anatomy]]
+    - [[#line-height][Line Height]]
+    - [[#serif-and-sans-serif][Serif and Sans Serif]]
 - [[#css-grid][CSS Grid]]
   - [[#css-grid-essentials][CSS Grid Essentials]]
   - [[#advanced-css-grid][Advanced CSS Grid]]
@@ -281,6 +284,15 @@ The default border is ~medium none color~
 
 *** Text Alignment
 [[file:img/screenshot_2018-02-26_11-21-06.png]]
+
+*** Line Height Anatomy
+[[file:img/screenshot_2018-02-26_11-35-10.png]]
+
+*** Line Height
+[[file:img/screenshot_2018-02-26_11-36-42.png]]
+
+*** Serif and Sans Serif
+[[file:img/screenshot_2018-02-26_11-37-41.png]]
 
 * CSS Grid
 ** CSS Grid Essentials
