@@ -79,6 +79,13 @@
     - [[#grid-template][Grid Template]]
     - [[#fraction][Fraction]]
     - [[#repeat][Repeat]]
+    - [[#minmax][minmax]]
+    - [[#grid-gap][Grid Gap]]
+    - [[#grid-items][Grid Items]]
+    - [[#multiple-row-items][Multiple Row Items]]
+    - [[#grid-row][Grid Row]]
+    - [[#grid-column][Grid Column]]
+    - [[#grid-area][Grid Area]]
   - [[#advanced-css-grid][Advanced CSS Grid]]
 
 * Selectors and Visual Rules
@@ -359,5 +366,34 @@ The default border is ~medium none color~
 [[file:img/screenshot_2018-02-26_14-19-52.png]]
 
 [[file:img/screenshot_2018-02-26_14-20-32.png]]
+
+*** minmax
+[[file:img/screenshot_2018-02-26_14-38-25.png]]
+
+*** Grid Gap
+[[file:img/screenshot_2018-02-26_14-40-48.png]]
+
+[[file:img/screenshot_2018-02-26_14-42-47.png]]
+
+*** Grid Items
+[[file:img/screenshot_2018-02-26_14-44-12.png]]
+
+*** Multiple Row Items
+- https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start
+
+[[file:img/screenshot_2018-02-26_14-45-57.png]]
+
+*** Grid Row
+[[file:img/screenshot_2018-02-26_14-47-59.png]]
+
+[[file:img/screenshot_2018-02-26_14-48-25.png]]
+
+*** Grid Column
+[[file:img/screenshot_2018-02-26_14-49-20.png]]
+
+[[file:img/screenshot_2018-02-26_14-49-39.png]]
+
+*** Grid Area
+[[file:img/screenshot_2018-02-26_14-52-13.png]]
 
 ** Advanced CSS Grid
