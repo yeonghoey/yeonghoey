@@ -56,6 +56,12 @@
     - [[#opacity-and-alpha][Opacity and Alpha]]
 - [[#typography][Typography]]
   - [[#css-typography][CSS Typography]]
+    - [[#font-family-1][Font Family]]
+    - [[#font-weight-ii][Font Weight II]]
+    - [[#word-spacing][Word Spacing]]
+    - [[#letter-spacing][Letter Spacing]]
+    - [[#text-transformation][Text Transformation]]
+    - [[#text-alignment][Text Alignment]]
 - [[#css-grid][CSS Grid]]
   - [[#css-grid-essentials][CSS Grid Essentials]]
   - [[#advanced-css-grid][Advanced CSS Grid]]
@@ -256,6 +262,26 @@ The default border is ~medium none color~
 
 * Typography
 ** CSS Typography
+*** Font Family
+[[file:img/screenshot_2018-02-26_11-08-41.png]]
+
+*** Font Weight II
+[[file:img/screenshot_2018-02-26_11-11-08.png]]
+
+*** Word Spacing
+[[file:img/screenshot_2018-02-26_11-13-30.png]]
+
+[[file:img/screenshot_2018-02-26_11-15-19.png]]
+
+*** Letter Spacing
+[[file:img/screenshot_2018-02-26_11-16-48.png]]
+
+*** Text Transformation
+[[file:img/screenshot_2018-02-26_11-18-43.png]]
+
+*** Text Alignment
+[[file:img/screenshot_2018-02-26_11-21-06.png]]
+
 * CSS Grid
 ** CSS Grid Essentials
 ** Advanced CSS Grid
