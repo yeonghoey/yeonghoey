@@ -1,4 +1,4 @@
-#+TITLE: Book Review: The Design of Everyday Things
+#+TITLE: The Design of Everyday Things
 
 * Book review
 [[file:img/screenshot_2016-12-26_18-10-21.png]]
