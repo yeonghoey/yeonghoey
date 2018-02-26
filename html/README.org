@@ -5,13 +5,7 @@
 - [[#staging][Staging]]
   - [[#the-best-place-to-put-script-tags-in-html][The best place to put <script> tags in HTML]]
   - [[#style-guides][Style Guides]]
-  - [[#2017-03-03-fri-css-combined][<2017-03-03 Fri> css combined]]
-  - [[#2017-03-03-fri-css-twice][<2017-03-03 Fri> css twice]]
-  - [[#2017-03-03-fri-css-property-order][<2017-03-03 Fri> css property order]]
-  - [[#2017-03-26-sun-idiomatic-css][<2017-03-26 Sun> idiomatic-css]]
-  - [[#2017-03-26-sun-css-import][<2017-03-26 Sun> CSS import]]
   - [[#2017-02-26-sun-the-definitive-guide-to-form-based-website-auth][<2017-02-26 Sun> The definitive guide to form based website auth]]
-  - [[#2017-02-26-sun-front-end-developer-handbook-2017][<2017-02-26 Sun> Front-End Developer Handbook 2017]]
   - [[#2017-06-02-fri-session-storage-vs-local-storage-vs-cookies][<2017-06-02 Fri> session storage vs local storage vs cookies]]
   - [[#seo-checkup][SEO checkup]]
   - [[#facebook-share-debugger][facebook share debugger]]
@@ -44,28 +38,8 @@
 - http://www.w3schools.com/html/html5_syntax.asp
 - https://google.github.io/styleguide/htmlcssguide.xml
 
-** TODO <2017-03-03 Fri> css combined
-- http://stackoverflow.com/questions/2417287/two-css-files-defining-same-class
-
-** TODO <2017-03-03 Fri> css twice
-- http://stackoverflow.com/questions/6065958/defining-css-properties-twice
-
-** TODO <2017-03-03 Fri> css property order
-- http://markdotto.com/2011/11/29/css-property-order/
-
-** TODO <2017-03-26 Sun> idiomatic-css
-https://github.com/necolas/idiomatic-css
-
-** TODO <2017-03-26 Sun> CSS import
-http://stackoverflow.com/questions/14676613/how-to-import-google-web-font-in-css-file
-https://developer.mozilla.org/en-US/docs/Web/CSS/@import
-https://google.github.io/styleguide/htmlcssguide.html#Protocol
-https://google.github.io/styleguide/htmlcssguide.html#CSS_Quotation_Marks
 ** TODO <2017-02-26 Sun> The definitive guide to form based website auth
 - http://stackoverflow.com/questions/549/the-definitive-guide-to-form-based-website-authentication
-
-** TODO <2017-02-26 Sun> Front-End Developer Handbook 2017
-- https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/
 
 ** TODO <2017-06-02 Fri> session storage vs local storage vs cookies
 - https://stackoverflow.com/questions/19867599/what-is-the-difference-between-localstorage-sessionstorage-session-and-cookies
