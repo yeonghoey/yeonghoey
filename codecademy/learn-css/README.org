@@ -87,6 +87,16 @@
     - [[#grid-column][Grid Column]]
     - [[#grid-area][Grid Area]]
   - [[#advanced-css-grid][Advanced CSS Grid]]
+    - [[#grid-template-areas][Grid Template Areas]]
+    - [[#overlapping-elements][Overlapping Elements]]
+    - [[#justify-items][Justify Items]]
+    - [[#justify-content][Justify Content]]
+    - [[#align-items][Align Items]]
+    - [[#align-content][Align Content]]
+    - [[#justify-self-and-align-self][Justify Self and Align Self]]
+    - [[#implicit-vs-explicit-grid][Implicit vs. Explicit Grid]]
+    - [[#grid-auto-rows-and-grid-auto-columns][Grid Auto Rows and Grid Auto Columns]]
+    - [[#grid-auto-flow][Grid Auto Flow]]
 
 * Selectors and Visual Rules
 ** CSS Setup and Selectors
@@ -397,3 +407,59 @@ The default border is ~medium none color~
 [[file:img/screenshot_2018-02-26_14-52-13.png]]
 
 ** Advanced CSS Grid
+*** Grid Template Areas
+[[file:img/screenshot_2018-02-26_15-04-15.png]]
+
+[[file:img/screenshot_2018-02-26_15-04-03.png]]
+
+[[file:img/screenshot_2018-02-26_15-04-39.png]]
+*** Overlapping Elements
+[[file:img/screenshot_2018-02-26_15-10-43.png]]
+
+[[file:img/screenshot_2018-02-26_15-10-55.png]]
+
+*** Justify Items
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout#Justifying_Items_on_the_Inline_or_Row_Axis
+
+[[file:img/screenshot_2018-02-26_15-14-57.png]]
+
+[[file:img/screenshot_2018-02-26_15-15-45.png]]
+
+[[file:img/screenshot_2018-02-26_15-17-34.png]]
+
+*** Justify Content
+[[file:img/screenshot_2018-02-26_15-19-58.png]]
+
+[[file:img/screenshot_2018-02-26_15-21-21.png]]
+
+[[file:img/screenshot_2018-02-26_15-22-01.png]]
+
+With ~justify-content: center;~:
+[[file:img/screenshot_2018-02-26_15-23-10.png]]
+*** Align Items
+[[file:img/screenshot_2018-02-26_15-51-08.png]]
+
+[[file:img/screenshot_2018-02-26_15-52-21.png]]
+
+[[file:img/screenshot_2018-02-26_15-53-19.png]]
+
+With ~align-items: center;~:
+[[file:img/screenshot_2018-02-26_15-53-58.png]]
+*** Align Content
+[[file:img/screenshot_2018-02-26_15-54-53.png]]
+
+*** Justify Self and Align Self
+[[file:img/screenshot_2018-02-26_15-56-51.png]]
+
+*** Implicit vs. Explicit Grid
+[[file:img/screenshot_2018-02-26_15-59-20.png]]
+
+*** Grid Auto Rows and Grid Auto Columns
+[[file:img/screenshot_2018-02-26_15-59-48.png]]
+
+[[file:img/screenshot_2018-02-26_16-00-01.png]]
+
+[[file:img/screenshot_2018-02-26_16-00-51.png]]
+
+*** Grid Auto Flow
+[[file:img/screenshot_2018-02-26_16-02-27.png]]
