@@ -72,6 +72,13 @@
     - [[#font-face-iii][Font-Face III]]
 - [[#css-grid][CSS Grid]]
   - [[#css-grid-essentials][CSS Grid Essentials]]
+    - [[#introduction-to-grids][Introduction to Grids]]
+    - [[#creating-a-grid][Creating a Grid]]
+    - [[#creating-columns][Creating Columns]]
+    - [[#creating-rows][Creating Rows]]
+    - [[#grid-template][Grid Template]]
+    - [[#fraction][Fraction]]
+    - [[#repeat][Repeat]]
   - [[#advanced-css-grid][Advanced CSS Grid]]
 
 * Selectors and Visual Rules
@@ -320,4 +327,37 @@ The default border is ~medium none color~
 
 * CSS Grid
 ** CSS Grid Essentials
+*** Introduction to Grids
+- https://www.whatsmybrowser.org/
+- https://caniuse.com/#feat=css-grid
+
+*** Creating a Grid
+[[file:img/screenshot_2018-02-26_14-03-40.png]]
+
+*** Creating Columns
+[[file:img/screenshot_2018-02-26_14-09-12.png]]
+
+[[file:img/screenshot_2018-02-26_14-10-45.png]]
+
+
+[[file:img/screenshot_2018-02-26_14-11-06.png]]
+
+*** Creating Rows
+[[file:img/screenshot_2018-02-26_14-12-49.png]]
+
+[[file:img/screenshot_2018-02-26_14-13-23.png]]
+
+*** Grid Template
+[[file:img/screenshot_2018-02-26_14-14-36.png]]
+
+*** Fraction
+[[file:img/screenshot_2018-02-26_14-16-11.png]]
+
+[[file:img/screenshot_2018-02-26_14-16-53.png]]
+
+*** Repeat
+[[file:img/screenshot_2018-02-26_14-19-52.png]]
+
+[[file:img/screenshot_2018-02-26_14-20-32.png]]
+
 ** Advanced CSS Grid
