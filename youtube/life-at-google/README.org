@@ -1,13 +1,13 @@
 #+TITLE: Life at Google
 
 * Table of Contents :TOC_2_gh:
- - [[#how-to-work-at-google--example-codingengineering-interview][How to: Work at Google — Example Coding/Engineering Interview]]
+- [[#how-to-work-at-google--example-codingengineering-interview][How to: Work at Google — Example Coding/Engineering Interview]]
 
 * How to: Work at Google — Example Coding/Engineering Interview
 - [2017-01-22 Sun]
 - https://youtu.be/XKu_SEDAykw
 
-[[file:img/screenshot_2017-01-22_09-47-51.png]]
+[[file:_img/screenshot_2017-01-22_09-47-51.png]]
 
 1. Clarification
 2. Think out loud

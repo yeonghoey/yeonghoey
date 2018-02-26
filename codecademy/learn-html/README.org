@@ -35,82 +35,82 @@
 * HTML Elements and Structure
 ** Introduction to HTML
 *** DOCTYPE
-[[file:img/screenshot_2018-02-21_21-42-02.png]]
+[[file:_img/screenshot_2018-02-21_21-42-02.png]]
 
 *** The Head
-[[file:img/screenshot_2018-02-21_21-43-56.png]]
+[[file:_img/screenshot_2018-02-21_21-43-56.png]]
 
 *** The Body
-[[file:img/screenshot_2018-02-21_21-45-41.png]]
+[[file:_img/screenshot_2018-02-21_21-45-41.png]]
 
 *** HTML Structure
-[[file:img/screenshot_2018-02-21_21-47-26.png]]
+[[file:_img/screenshot_2018-02-21_21-47-26.png]]
 
-[[file:img/screenshot_2018-02-21_21-47-40.png]]
+[[file:_img/screenshot_2018-02-21_21-47-40.png]]
 
 *** Indentation
-[[file:img/screenshot_2018-02-21_21-52-29.png]]
+[[file:_img/screenshot_2018-02-21_21-52-29.png]]
 
 *** Comments
-[[file:img/screenshot_2018-02-21_21-53-35.png]]
+[[file:_img/screenshot_2018-02-21_21-53-35.png]]
 ** Common Elements
 *** Text Content Tags
-[[file:img/screenshot_2018-02-24_16-45-59.png]]
+[[file:_img/screenshot_2018-02-24_16-45-59.png]]
 
 *** Text Style Tags
-[[file:img/screenshot_2018-02-24_16-50-14.png]]
+[[file:_img/screenshot_2018-02-24_16-50-14.png]]
 
 *** Line Breaks
-[[file:img/screenshot_2018-02-24_16-51-45.png]]
+[[file:_img/screenshot_2018-02-24_16-51-45.png]]
 
 *** Unordered Lists
-[[file:img/screenshot_2018-02-24_16-52-47.png]]
+[[file:_img/screenshot_2018-02-24_16-52-47.png]]
 
 ** Images
-[[file:img/screenshot_2018-02-24_17-34-06.png]]
+[[file:_img/screenshot_2018-02-24_17-34-06.png]]
 
 It is a good thing to keep closing slash for compatability with ~XHTML~ and ~XML~
 
 ** Image Alts
-[[file:img/screenshot_2018-02-25_10-17-29.png]]
+[[file:_img/screenshot_2018-02-25_10-17-29.png]]
 
 ** Videos
-[[file:img/screenshot_2018-02-25_10-18-28.png]]
+[[file:_img/screenshot_2018-02-25_10-18-28.png]]
 
 ** New Page
-[[file:img/screenshot_2018-02-25_11-20-17.png]]
+[[file:_img/screenshot_2018-02-25_11-20-17.png]]
 
 ** Relative
-[[file:img/screenshot_2018-02-25_11-21-42.png]]
+[[file:_img/screenshot_2018-02-25_11-21-42.png]]
 
 ** Same Page
-[[file:img/screenshot_2018-02-25_11-24-53.png]]
+[[file:_img/screenshot_2018-02-25_11-24-53.png]]
 
 ** Navigation
-[[file:img/screenshot_2018-02-25_11-27-11.png]]
+[[file:_img/screenshot_2018-02-25_11-27-11.png]]
 
 * HTML Tables
 ** Table Rows
-[[file:img/screenshot_2018-02-21_22-12-15.png]]
+[[file:_img/screenshot_2018-02-21_22-12-15.png]]
 
 ** Table Data
-[[file:img/screenshot_2018-02-21_22-12-57.png]]
+[[file:_img/screenshot_2018-02-21_22-12-57.png]]
 
 ** Table Headings
-[[file:img/screenshot_2018-02-21_22-17-02.png]]
+[[file:_img/screenshot_2018-02-21_22-17-02.png]]
 
-[[file:img/screenshot_2018-02-21_22-18-02.png]]
+[[file:_img/screenshot_2018-02-21_22-18-02.png]]
 
 ** Table Borders
-[[file:img/screenshot_2018-02-21_23-00-30.png]]
+[[file:_img/screenshot_2018-02-21_23-00-30.png]]
 
-[[file:img/screenshot_2018-02-21_23-01-00.png]]
+[[file:_img/screenshot_2018-02-21_23-01-00.png]]
 
 ** Spanning Columns
-[[file:img/screenshot_2018-02-21_23-02-37.png]]
+[[file:_img/screenshot_2018-02-21_23-02-37.png]]
 
 ** Spanning Rows
-[[file:img/screenshot_2018-02-21_23-04-56.png]]
+[[file:_img/screenshot_2018-02-21_23-04-56.png]]
 
 #+BEGIN_SRC html
   <table>
@@ -134,20 +134,20 @@ It is a good thing to keep closing slash for compatability with ~XHTML~ and ~XML
   </table>
 #+END_SRC
 
-[[file:img/screenshot_2018-02-21_23-07-21.png]]
+[[file:_img/screenshot_2018-02-21_23-07-21.png]]
 
 ** Table Body
-[[file:img/screenshot_2018-02-21_23-09-59.png]]
+[[file:_img/screenshot_2018-02-21_23-09-59.png]]
 
 ** Table Head
-[[file:img/screenshot_2018-02-21_23-11-06.png]]
+[[file:_img/screenshot_2018-02-21_23-11-06.png]]
 
 - https://www.codecademy.com/en/forum_questions/55619ce4e39efe96b4000658
 ~<thead>~ seems always to be placed at the very front of the table.
 In other words, when ~<th>~ is used for row headings,
 it should be placed along with ~<td>~, within ~<tbody>~
 
-[[file:img/screenshot_2018-02-21_23-24-15.png]]
+[[file:_img/screenshot_2018-02-21_23-24-15.png]]
 
 ** Table Footer
-[[file:img/screenshot_2018-02-21_23-13-33.png]]
+[[file:_img/screenshot_2018-02-21_23-13-33.png]]

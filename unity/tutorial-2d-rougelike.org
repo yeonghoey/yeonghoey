@@ -1,56 +1,56 @@
 #+TITLE: 2D Rougelike tutorial
 
 * Table of Contents :TOC_1_gh:
- - [[#project-introduction][Project Introduction]]
- - [[#player-and-enemy-animations][Player and Enemy Animations]]
- - [[#creating-the-tile-prefabs][Creating the Tile Prefabs]]
- - [[#writing-the-board-manager][Writing the Board Manager]]
- - [[#writing-the-game-manager][Writing the Game Manager]]
- - [[#moving-object-script][Moving Object Script]]
- - [[#creating-destructible-walls][Creating Destructible Walls]]
- - [[#player-animator-controller][Player Animator Controller]]
- - [[#writing-the-player-script][Writing the Player Script]]
- - [[#writing-the-enemy-script][Writing the Enemy Script]]
- - [[#enemy-animator-controller][Enemy Animator Controller]]
- - [[#adding-ui--level-transitions][Adding UI & Level Transitions]]
- - [[#audio-and-sound-manager][Audio and Sound Manager]]
- - [[#adding-mobile-controls][Adding Mobile Controls]]
+- [[#project-introduction][Project Introduction]]
+- [[#player-and-enemy-animations][Player and Enemy Animations]]
+- [[#creating-the-tile-prefabs][Creating the Tile Prefabs]]
+- [[#writing-the-board-manager][Writing the Board Manager]]
+- [[#writing-the-game-manager][Writing the Game Manager]]
+- [[#moving-object-script][Moving Object Script]]
+- [[#creating-destructible-walls][Creating Destructible Walls]]
+- [[#player-animator-controller][Player Animator Controller]]
+- [[#writing-the-player-script][Writing the Player Script]]
+- [[#writing-the-enemy-script][Writing the Enemy Script]]
+- [[#enemy-animator-controller][Enemy Animator Controller]]
+- [[#adding-ui--level-transitions][Adding UI & Level Transitions]]
+- [[#audio-and-sound-manager][Audio and Sound Manager]]
+- [[#adding-mobile-controls][Adding Mobile Controls]]
 
 * Project Introduction
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150
 
-[[file:img/screenshot_2017-04-30_19-16-38.png]]
+[[file:_img/screenshot_2017-04-30_19-16-38.png]]
 
 * Player and Enemy Animations
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-and-enemy-animations?playlist=17150
 
-[[file:img/screenshot_2017-04-30_19-19-04.png]]
+[[file:_img/screenshot_2017-04-30_19-19-04.png]]
 
-[[file:img/screenshot_2017-04-30_19-24-35.png]]
+[[file:_img/screenshot_2017-04-30_19-24-35.png]]
 
-[[file:img/screenshot_2017-04-30_19-24-43.png]]
+[[file:_img/screenshot_2017-04-30_19-24-43.png]]
 
-[[file:img/screenshot_2017-04-30_19-24-52.png]]
+[[file:_img/screenshot_2017-04-30_19-24-52.png]]
 
-[[file:img/screenshot_2017-04-30_19-25-29.png]]
+[[file:_img/screenshot_2017-04-30_19-25-29.png]]
 
-[[file:img/screenshot_2017-04-30_19-25-41.png]]
+[[file:_img/screenshot_2017-04-30_19-25-41.png]]
 
-[[file:img/screenshot_2017-04-30_19-27-05.png]]
+[[file:_img/screenshot_2017-04-30_19-27-05.png]]
 
-[[file:img/screenshot_2017-04-30_20-31-20.png]]
+[[file:_img/screenshot_2017-04-30_20-31-20.png]]
 
-[[file:img/screenshot_2017-04-30_20-32-41.png]]
+[[file:_img/screenshot_2017-04-30_20-32-41.png]]
 * Creating the Tile Prefabs
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-tile-prefabs?playlist=17150
 
-[[file:img/screenshot_2017-04-30_20-41-58.png]]
+[[file:_img/screenshot_2017-04-30_20-41-58.png]]
 
-[[file:img/screenshot_2017-04-30_20-42-09.png]]
+[[file:_img/screenshot_2017-04-30_20-42-09.png]]
 
-[[file:img/screenshot_2017-04-30_20-43-41.png]]
+[[file:_img/screenshot_2017-04-30_20-43-41.png]]
 
-[[file:img/screenshot_2017-04-30_20-50-38.png]]
+[[file:_img/screenshot_2017-04-30_20-50-38.png]]
 
 * Writing the Board Manager
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-board-manager?playlist=17150
@@ -188,7 +188,7 @@
   }
 #+END_SRC
 
-[[file:img/screenshot_2017-04-30_21-11-05.png]]
+[[file:_img/screenshot_2017-04-30_21-11-05.png]]
 
 #+BEGIN_SRC csharp
   using UnityEngine;
@@ -327,16 +327,16 @@
 * Player Animator Controller
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-animator-controller?playlist=17150
 
-[[file:img/screenshot_2017-04-30_21-26-44.png]]
+[[file:_img/screenshot_2017-04-30_21-26-44.png]]
 
-[[file:img/screenshot_2017-04-30_21-28-00.png]]
+[[file:_img/screenshot_2017-04-30_21-28-00.png]]
 
-[[file:img/screenshot_2017-04-30_21-29-15.png]]
+[[file:_img/screenshot_2017-04-30_21-29-15.png]]
 
-[[file:img/screenshot_2017-04-30_21-30-19.png]]
+[[file:_img/screenshot_2017-04-30_21-30-19.png]]
 
 
-[[file:img/screenshot_2017-04-30_21-31-09.png]]
+[[file:_img/screenshot_2017-04-30_21-31-09.png]]
 
 * Writing the Player Script
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-player-script?playlist=17150
@@ -511,9 +511,9 @@
 * Enemy Animator Controller
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/enemy-animator-controller?playlist=17150
 
-[[file:img/screenshot_2017-04-30_21-54-23.png]]
+[[file:_img/screenshot_2017-04-30_21-54-23.png]]
 
-[[file:img/screenshot_2017-04-30_21-54-36.png]]
+[[file:_img/screenshot_2017-04-30_21-54-36.png]]
 
 #+BEGIN_SRC csharp
   using UnityEngine;
@@ -605,7 +605,7 @@ But It worked after restarting it.
 * Adding UI & Level Transitions
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-ui-level-transitions?playlist=17150
 
-[[file:img/screenshot_2017-04-30_22-37-29.png]]
+[[file:_img/screenshot_2017-04-30_22-37-29.png]]
 
 
 #+BEGIN_SRC csharp
@@ -734,7 +734,7 @@ But It worked after restarting it.
 	  }
 #+END_SRC
 
-[[file:img/screenshot_2017-04-30_23-03-13.png]]
+[[file:_img/screenshot_2017-04-30_23-03-13.png]]
 
 * Audio and Sound Manager
 - https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/audio-and-sound-manager?playlist=17150
@@ -777,7 +777,7 @@ But It worked after restarting it.
   }
 #+END_SRC
 
-[[file:img/screenshot_2017-04-30_23-08-37.png]]
+[[file:_img/screenshot_2017-04-30_23-08-37.png]]
 
 #+BEGIN_SRC csharp
   public AudioClip moveSound1;

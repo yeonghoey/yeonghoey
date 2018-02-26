@@ -1,7 +1,7 @@
 #+TITLE: The Design of Everyday Things
 
 * Book review
-[[file:img/screenshot_2016-12-26_18-10-21.png]]
+[[file:_img/screenshot_2016-12-26_18-10-21.png]]
 
 * Why read?
 I had lots of recommendations of this book from programming books and blog posts,
@@ -64,7 +64,7 @@ some of them on and off at exact moments.  The problem is
 that most traditional stage lighting controls simply place many buttons in a row on a panel.
 You have to memorize which button controls which light.  This poses a challenge and is error-prone.
 
-[[file:img/screenshot_2016-12-26_18-16-42.png]]
+[[file:_img/screenshot_2016-12-26_18-16-42.png]]
 
 What if the buttons were arranged in the same way the lights were arranged?
 Perhaps the shape of the controller wouldn't be a flat panel.
@@ -134,7 +134,7 @@ The net result is to avoid using those features.
 I recently tried to use a pebble watch.
 I noticed that it has a nice *conceptual model* with proper *mappings*.
 
-[[file:img/screenshot_2016-12-26_18-19-59.png]]
+[[file:_img/screenshot_2016-12-26_18-19-59.png]]
 
 Based on the preceding simple *mappings*, every application follows the *conceptual model*
 of scrolling up and down with ~Up~ and ~Down~, pushing and popping contexts with ~Select~ and ~Back~.

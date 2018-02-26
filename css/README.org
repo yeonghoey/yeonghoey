@@ -23,23 +23,23 @@
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Relationship_of_Flexbox_to_Other_Layout_Methods
 
-[[file:img/screenshot_2018-02-26_16-16-14.png]]
+[[file:_img/screenshot_2018-02-26_16-16-14.png]]
 
-[[file:img/screenshot_2018-02-26_16-15-47.png]]
+[[file:_img/screenshot_2018-02-26_16-15-47.png]]
 
-[[file:img/screenshot_2018-02-26_16-15-57.png]]
+[[file:_img/screenshot_2018-02-26_16-15-57.png]]
 
-[[file:img/screenshot_2018-02-26_16-17-34.png]]
+[[file:_img/screenshot_2018-02-26_16-17-34.png]]
 
-[[file:img/screenshot_2018-02-26_16-17-43.png]]
+[[file:_img/screenshot_2018-02-26_16-17-43.png]]
 
-[[file:img/screenshot_2018-02-26_16-20-00.png]]
+[[file:_img/screenshot_2018-02-26_16-20-00.png]]
 
-[[file:img/screenshot_2018-02-26_16-20-37.png]]
+[[file:_img/screenshot_2018-02-26_16-20-37.png]]
 
 ~flex-flow~ = ~flex-direction~ + ~flex-wrap~
 
-[[file:img/screenshot_2018-02-26_16-21-05.png]]
+[[file:_img/screenshot_2018-02-26_16-21-05.png]]
 
 - ~flex~ ::  ~flex-grow~ ~flex-shrink~ ~flex-basis~
 
@@ -53,17 +53,17 @@
 - ~flex-basis~ ::
   The default size of the item.
 
-[[file:img/screenshot_2018-02-26_16-22-58.png]]
+[[file:_img/screenshot_2018-02-26_16-22-58.png]]
 
-[[file:img/screenshot_2018-02-26_16-33-39.png]]
+[[file:_img/screenshot_2018-02-26_16-33-39.png]]
 
-[[file:img/screenshot_2018-02-26_16-32-41.png]]
+[[file:_img/screenshot_2018-02-26_16-32-41.png]]
 
-[[file:img/screenshot_2018-02-26_16-40-48.png]]
+[[file:_img/screenshot_2018-02-26_16-40-48.png]]
 
-[[file:img/screenshot_2018-02-26_16-40-30.png]]
+[[file:_img/screenshot_2018-02-26_16-40-30.png]]
 
-[[file:img/screenshot_2018-02-26_16-41-17.png]]
+[[file:_img/screenshot_2018-02-26_16-41-17.png]]
 
 * How-to
 * Links

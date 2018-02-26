@@ -22,102 +22,102 @@
 
 * Introduction to Word Embeddings
 ** Word Representation
-[[file:img/screenshot_2018-02-11_22-32-17.png]]
+[[file:_img/screenshot_2018-02-11_22-32-17.png]]
 
-[[file:img/screenshot_2018-02-11_22-37-17.png]]
+[[file:_img/screenshot_2018-02-11_22-37-17.png]]
 
-[[file:img/screenshot_2018-02-11_22-40-11.png]]
+[[file:_img/screenshot_2018-02-11_22-40-11.png]]
 
 ** Using word embeddings
-[[file:img/screenshot_2018-02-11_22-44-37.png]]
+[[file:_img/screenshot_2018-02-11_22-44-37.png]]
 
-[[file:img/screenshot_2018-02-11_22-49-04.png]]
+[[file:_img/screenshot_2018-02-11_22-49-04.png]]
 
-[[file:img/screenshot_2018-02-11_22-51-45.png]]
+[[file:_img/screenshot_2018-02-11_22-51-45.png]]
 - The word embeddings of nlp funciton in a similar way as face encoding of face recognition.
 - While word embeddings have a fixed number of inputs(vocabulary),
   face encoding differs in that it can have an infinite number of inputs(face images).
 
 ** Properties of word embeddings
-[[file:img/screenshot_2018-02-11_23-11-50.png]]
+[[file:_img/screenshot_2018-02-11_23-11-50.png]]
 
-[[file:img/screenshot_2018-02-11_23-16-24.png]]
+[[file:_img/screenshot_2018-02-11_23-16-24.png]]
 
-[[file:img/screenshot_2018-02-11_23-19-10.png]]
+[[file:_img/screenshot_2018-02-11_23-19-10.png]]
 
 ** Embedding matrix
-[[file:img/screenshot_2018-02-11_23-25-37.png]]
+[[file:_img/screenshot_2018-02-11_23-25-37.png]]
 
 * Learning Word Embeddings: Word2vec & GloVe
 ** Learning word embeddings
-[[file:img/screenshot_2018-02-12_10-33-46.png]]
+[[file:_img/screenshot_2018-02-12_10-33-46.png]]
 
-[[file:img/screenshot_2018-02-12_10-37-12.png]]
+[[file:_img/screenshot_2018-02-12_10-37-12.png]]
 
 ** Word2Vec
-[[file:img/screenshot_2018-02-12_10-40-40.png]]
+[[file:_img/screenshot_2018-02-12_10-40-40.png]]
 
-[[file:img/screenshot_2018-02-12_10-45-31.png]]
+[[file:_img/screenshot_2018-02-12_10-45-31.png]]
 
 - ~theta t~ is the parameter associated with the output ~t~.
 
-[[file:img/screenshot_2018-02-12_10-50-30.png]]
+[[file:_img/screenshot_2018-02-12_10-50-30.png]]
 
 - If you sample the context uniformly at radom, words like ~the~, ~of~, ~a~ , ~and~ will dominate the context.
 - So there is some other heuristic method to sample the context.
 
 ** Negative Sampling
-[[file:img/screenshot_2018-02-12_11-06-52.png]]
+[[file:_img/screenshot_2018-02-12_11-06-52.png]]
 
-[[file:img/screenshot_2018-02-12_11-13-43.png]]
+[[file:_img/screenshot_2018-02-12_11-13-43.png]]
 
 - Each target word(10k) has their binary classification model.
 - Each model takes word embeddings as inputs, in previous examples, 300 features.
 - Each model predicts probability of the word in charge.
 
-[[file:img/screenshot_2018-02-12_15-38-08.png]]
+[[file:_img/screenshot_2018-02-12_15-38-08.png]]
 
 - ~f(wi)^3/4~ is heuristic value, which is in between ~frequency distribution~ and ~uniform distribution~.
 
 ** GloVe word vectors
-[[file:img/screenshot_2018-02-12_15-44-28.png]]
+[[file:_img/screenshot_2018-02-12_15-44-28.png]]
 
-[[file:img/screenshot_2018-02-12_15-53-17.png]]
+[[file:_img/screenshot_2018-02-12_15-53-17.png]]
 
-[[file:img/screenshot_2018-02-12_15-56-58.png]]
+[[file:_img/screenshot_2018-02-12_15-56-58.png]]
 
 - Each feature can't be completely orgthogonal.
 - But it still makes sense when it comes to word similarity.
 
 * Applications using Word Embeddings
 ** Sentiment Classification
-[[file:img/screenshot_2018-02-12_16-04-45.png]]
+[[file:_img/screenshot_2018-02-12_16-04-45.png]]
 
-[[file:img/screenshot_2018-02-12_16-08-03.png]]
+[[file:_img/screenshot_2018-02-12_16-08-03.png]]
 
-[[file:img/screenshot_2018-02-12_16-10-09.png]]
+[[file:_img/screenshot_2018-02-12_16-10-09.png]]
 
 ** Debiasing word embeddings
 - the term ~bias~ in this lecture is NOT the ~bias~ as a parameter, but the bias in learned feature.
 
-[[file:img/screenshot_2018-02-12_16-16-08.png]]
+[[file:_img/screenshot_2018-02-12_16-16-08.png]]
 
-[[file:img/screenshot_2018-02-12_16-23-06.png]]
+[[file:_img/screenshot_2018-02-12_16-23-06.png]]
 
 * Practice questions
 ** Quiz: Natural Language Porcessing & Word Embeddings
 
-[[file:img/screenshot_2018-02-12_16-26-15.png]]
+[[file:_img/screenshot_2018-02-12_16-26-15.png]]
 
-[[file:img/screenshot_2018-02-12_16-42-34.png]]
+[[file:_img/screenshot_2018-02-12_16-42-34.png]]
 
-[[file:img/screenshot_2018-02-12_16-43-09.png]]
+[[file:_img/screenshot_2018-02-12_16-43-09.png]]
 
 * Programming assignments
 ** Operations on word vectors - Debiasing
-[[file:img/screenshot_2018-02-12_23-23-31.png]]
+[[file:_img/screenshot_2018-02-12_23-23-31.png]]
 
-[[file:img/screenshot_2018-02-12_23-24-13.png]]
+[[file:_img/screenshot_2018-02-12_23-24-13.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: cosine_similarity
@@ -151,7 +151,7 @@
       return cosine_similarity
 #+END_SRC
 
-[[file:img/screenshot_2018-02-12_23-28-58.png]]
+[[file:_img/screenshot_2018-02-12_23-28-58.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: complete_analogy
@@ -202,13 +202,13 @@
       return best_word
 #+END_SRC
 
-[[file:img/screenshot_2018-02-12_23-33-08.png]]
+[[file:_img/screenshot_2018-02-12_23-33-08.png]]
 
-[[file:img/screenshot_2018-02-13_00-37-02.png]]
+[[file:_img/screenshot_2018-02-13_00-37-02.png]]
 
-[[file:img/screenshot_2018-02-13_00-39-35.png]]
+[[file:_img/screenshot_2018-02-13_00-39-35.png]]
 
-[[file:img/screenshot_2018-02-13_00-39-53.png]]
+[[file:_img/screenshot_2018-02-13_00-39-53.png]]
 
 #+BEGIN_SRC python
   def neutralize(word, g, word_to_vec_map):
@@ -242,10 +242,10 @@
 
 - ~g~ part of ~e^bias_component~ is L2 norm squared.
 
-[[file:img/screenshot_2018-02-13_00-50-41.png]]
+[[file:_img/screenshot_2018-02-13_00-50-41.png]]
 
 - There is a typo in the denominators of equation (9), (10). Fix it as follows:
-[[file:img/screenshot_2018-02-13_01-15-48.png]]
+[[file:_img/screenshot_2018-02-13_01-15-48.png]]
 
 
 #+BEGIN_SRC python
@@ -292,7 +292,7 @@
       return e1, e2
 #+END_SRC
 
-[[file:img/screenshot_2018-02-13_01-09-43.png]]
+[[file:_img/screenshot_2018-02-13_01-09-43.png]]
 
 ** Emojify
 [[file:img/screenshot_2018-02-12_23-36-06.png]]

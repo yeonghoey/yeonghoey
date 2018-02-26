@@ -8,12 +8,12 @@
 * Login
 - https://healthchecks.io
 
-[[file:img/screenshot_2017-10-25_11-10-47.png]]
+[[file:_img/screenshot_2017-10-25_11-10-47.png]]
 
 * Setup
-[[file:img/screenshot_2017-10-25_11-12-14.png]]
+[[file:_img/screenshot_2017-10-25_11-12-14.png]]
 
-[[file:img/screenshot_2017-10-25_11-15-27.png]]
+[[file:_img/screenshot_2017-10-25_11-15-27.png]]
 
 #+BEGIN_SRC shell
   # m h dom mon dow command
@@ -23,4 +23,4 @@
 * Slack Integration
 - https://healthchecks.io/integrations/add_slack/
 
-[[file:img/screenshot_2017-10-25_11-13-56.png]]
+[[file:_img/screenshot_2017-10-25_11-13-56.png]]

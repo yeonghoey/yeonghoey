@@ -348,7 +348,7 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
 - https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
 - https://docs.python.org/2/howto/logging-cookbook.html#logging-cookbook
 
-[[file:img/screenshot_2017-06-30_22-28-31.png]]
+[[file:_img/screenshot_2017-06-30_22-28-31.png]]
 ** multiprocessing
 - https://docs.python.org/2/library/multiprocessing.html
 
@@ -1054,9 +1054,9 @@ This issue can be solved with locks or by using the *EAFP* approach.
           return obj
 #+END_SRC
 
-[[file:img/screenshot_2017-06-30_22-02-51.png]]
+[[file:_img/screenshot_2017-06-30_22-02-51.png]]
 
-[[file:img/screenshot_2017-06-30_22-02-40.png]]
+[[file:_img/screenshot_2017-06-30_22-02-40.png]]
 
 ** Descriptor
 - https://docs.python.org/2/howto/descriptor.html

@@ -1,19 +1,19 @@
 #+TITLE: The Non-Designer's Design Book
 
 * Table of Contents :TOC_2_gh:
- - [[#proximity][Proximity]]
- - [[#alignment][Alignment]]
- - [[#repetition][Repetition]]
- - [[#contrast][Contrast]]
- - [[#color][Color]]
- - [[#type-basics][Type Basics]]
- - [[#type-categories][Type Categories]]
- - [[#type-contrasts][Type Contrasts]]
- - [[#typography][Typography]]
- - [[#print-works][Print Works]]
+- [[#proximity][Proximity]]
+- [[#alignment][Alignment]]
+- [[#repetition][Repetition]]
+- [[#contrast][Contrast]]
+- [[#color][Color]]
+- [[#type-basics][Type Basics]]
+- [[#type-categories][Type Categories]]
+- [[#type-contrasts][Type Contrasts]]
+- [[#typography][Typography]]
+- [[#print-works][Print Works]]
 
 * Proximity
-[[file:img/screenshot_2017-03-15_08-55-08.png]]
+[[file:_img/screenshot_2017-03-15_08-55-08.png]]
 
 If there are more than three to five items on the page(of course it depends on the piece),
 *see which of the separate elements can be grouped together* into close proximity
@@ -30,11 +30,11 @@ to become one visual unit
 -----
 
 * Alignment
-[[file:img/screenshot_2017-03-15_09-00-23.png]]
+[[file:_img/screenshot_2017-03-15_09-00-23.png]]
 
-[[file:img/screenshot_2017-03-15_09-04-29.png]]
+[[file:_img/screenshot_2017-03-15_09-04-29.png]]
 
-[[file:img/screenshot_2017-03-15_09-04-53.png]]
+[[file:_img/screenshot_2017-03-15_09-04-53.png]]
 
 When items are aligned on the page, the result is *a stronger cohesive unit* (...)
 Get in *the habit of drawing lines* between elements to determine where the connections are lacking
@@ -47,13 +47,13 @@ This give *left- and right-aligned text a cleaner and more dramatic look.*
 
 -----
 
-[[file:img/screenshot_2017-03-15_09-05-21.png]]
+[[file:_img/screenshot_2017-03-15_09-05-21.png]]
 
 The author's name is far from the title, but *that invisible line connects the two text blocks*.
 
 -----
 
-[[file:img/screenshot_2017-03-16_08-05-43.png]]
+[[file:_img/screenshot_2017-03-16_08-05-43.png]]
 
 If you're going to center text, then *at least make it obvious that it is centered!*
 
@@ -62,7 +62,7 @@ That is, choose one text alignment on the page.
 
 -----
 
-[[file:img/screenshot_2017-03-16_08-10-08.png]]
+[[file:_img/screenshot_2017-03-16_08-10-08.png]]
 
 *Never center headlines over flush left body copy or text that has an indent*
 because if the text does not have clear left and right edges, you cannot tell
@@ -74,7 +74,7 @@ to tell you there is a new paragraph, but you already know the first paragraph i
 
 -----
 
-[[file:img/screenshot_2017-03-16_08-17-06.png]]
+[[file:_img/screenshot_2017-03-16_08-17-06.png]]
 
 *Find a strong line and use it.* If you have a photo or a graphic with a strong flush side,
 align the side of the text along the straight edge of the photo, (...)
@@ -90,7 +90,7 @@ however, there is "trapped" white space, and the white space is an awkward shape
 -----
 
 * Repetition
-[[file:img/screenshot_2017-03-16_08-24-22.png]]
+[[file:_img/screenshot_2017-03-16_08-24-22.png]]
 
 -----
 
@@ -104,7 +104,7 @@ repetitions to enhance the design and the clarity of the information.
 -----
 
 * Contrast
-[[file:img/screenshot_2017-03-16_08-36-15.png]]
+[[file:_img/screenshot_2017-03-16_08-36-15.png]]
 
 Contrast various elements of the piece *to draw a reader's eye* into the page. (...)
 *Contrast not only serves to draw in the eye, but you can use it to organize information*,
@@ -114,7 +114,7 @@ If two elements are sort of different *but not really, then you don't have contr
 
 -----
 
-[[file:img/screenshot_2017-03-16_08-49-26.png]]
+[[file:_img/screenshot_2017-03-16_08-49-26.png]]
 
 *Find the most interesting or most important item on the page, and emphasize it!*
 
@@ -129,23 +129,23 @@ If two elements are sort of different *but not really, then you don't have contr
 
 * Color
 
-[[file:img/screenshot_2017-04-02_14-00-46.png]]
+[[file:_img/screenshot_2017-04-02_14-00-46.png]]
 
-| Primary colors   | [[file:img/screenshot_2017-04-02_10-45-36.png]] |
-| Secondary colors | [[file:img/screenshot_2017-04-02_10-46-38.png]] |
-| Tertiary colors  | [[file:img/screenshot_2017-04-02_10-48-56.png]] |
+| Primary colors   | [[file:_img/screenshot_2017-04-02_10-45-36.png]] |
+| Secondary colors | [[file:_img/screenshot_2017-04-02_10-46-38.png]] |
+| Tertiary colors  | [[file:_img/screenshot_2017-04-02_10-48-56.png]] |
 
 -----
 
 
 
-[[file:img/screenshot_2017-04-02_14-25-35.png]]
+[[file:_img/screenshot_2017-04-02_14-25-35.png]]
 
 *Complementary*: often works best when one is the *main color and the other is an accent*.
 
 -----
 
-[[file:img/screenshot_2017-04-02_14-27-11.png]]
+[[file:_img/screenshot_2017-04-02_14-27-11.png]]
 
 The *primary triad* of R, G, B is an extremely popular combination for *children's products*.
 
@@ -154,19 +154,19 @@ which make them harmonize well.
 
 -----
 
-[[file:img/screenshot_2017-04-02_14-41-57.png]]
+[[file:_img/screenshot_2017-04-02_14-41-57.png]]
 
 *Split complement triads* create a little more sophisticated edge to it.
 
 -----
 
-[[file:img/screenshot_2017-04-02_14-37-48.png]]
+[[file:_img/screenshot_2017-04-02_14-37-48.png]]
 
 Analogous colors create *harmonious combination*.
 
 -----
 
-[[file:img/screenshot_2017-04-02_14-43-40.png]]
+[[file:_img/screenshot_2017-04-02_14-43-40.png]]
 
 The pure color is the *hue*.
 Add black to a hue to create a *shade*.
@@ -177,20 +177,20 @@ but you can still feel safe that the colors work together.
 
 -----
 
-[[file:img/screenshot_2017-04-02_10-41-16.png]]
+[[file:_img/screenshot_2017-04-02_10-41-16.png]]
 
 *Cool colors recede into the background*, and *warm colors come forward*.
 
 -----
 
-[[file:img/screenshot_2017-04-02_10-35-32.png]]
+[[file:_img/screenshot_2017-04-02_10-35-32.png]]
 
 Does your project include a photograph or other image?
 Pick up a color in the photograph and choose a range of other colors based on that.
 
 -----
 
-[[file:img/screenshot_2017-04-02_10-37-19.png]]
+[[file:_img/screenshot_2017-04-02_10-37-19.png]]
 
 #+BEGIN_QUOTE
 In the world, the spectrum of visible light hits objects.
@@ -208,14 +208,14 @@ that are going to be printed by a printing press onto something physical.
 
 * Type Basics
 
-[[file:img/screenshot_2017-04-02_16-34-38.png]]
+[[file:_img/screenshot_2017-04-02_16-34-38.png]]
 
 *Concordant*: use only one type family without much variety in style, size, weight, and so on.
 Most concordant designs tend to be rather calm and formal.
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-34-58.png]]
+[[file:_img/screenshot_2017-04-02_16-34-58.png]]
 
 *Conflicting*: combine typefaces that are similar
 
@@ -226,7 +226,7 @@ Most of the time it looks like a mistake. *Conflict should be avoided.*
 
 
 
-[[file:img/screenshot_2017-04-02_16-38-18.png]]
+[[file:_img/screenshot_2017-04-02_16-38-18.png]]
 
 *Contrasting*: combine separate typefaces and elements that are clearly distinct from each other.
 
@@ -241,17 +241,17 @@ Most often you will *strengthen the effect by combining and emphasizing the diff
 
 * Type Categories
 
-[[file:img/screenshot_2017-04-02_16-39-27.png]]
+[[file:_img/screenshot_2017-04-02_16-39-27.png]]
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-41-10.png]]
+[[file:_img/screenshot_2017-04-02_16-41-10.png]]
 
 If you're setting lots of type that *you want people to actually read*, choose an oldstyle.
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-43-03.png]]
+[[file:_img/screenshot_2017-04-02_16-43-03.png]]
 Moderns tend to have *a cold, elegant look.*
 Have *a striking appearance, especially when set very large.*
 Most moderns are *not good choices for extended amounts of body copy.*
@@ -259,7 +259,7 @@ Most moderns are *not good choices for extended amounts of body copy.*
 -----
 
 
-[[file:img/screenshot_2017-04-02_16-44-39.png]]
+[[file:_img/screenshot_2017-04-02_16-44-39.png]]
 
 At first, advertiers took modern typefaces and made the thicks thicker.
 Slab serifs *have little or no thick/thin transition.*
@@ -267,19 +267,19 @@ Slab serifs are *often used in children's books because of their clean, straight
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-45-05.png]]
+[[file:_img/screenshot_2017-04-02_16-45-05.png]]
 *Invest in a sans serif family that includes a strong, heavy, black face.*
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-48-14.png]]
+[[file:_img/screenshot_2017-04-02_16-48-14.png]]
 
 *should never be set as long blocks of text and never as all caps.*
 But scripts *can be particularly stunning when set very large* — don’t be a wimp!
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-48-41.png]]
+[[file:_img/screenshot_2017-04-02_16-48-41.png]]
 
 They’re *fun, distinctive, easy to use, oftentimes cheaper,*
 and there is a font for any whim you wish to express.
@@ -288,17 +288,17 @@ and there is a font for any whim you wish to express.
 
 * Type Contrasts
 
-[[file:img/screenshot_2017-04-02_17-16-18.png]]
+[[file:_img/screenshot_2017-04-02_17-16-18.png]]
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-54-14.png]]
+[[file:_img/screenshot_2017-04-02_16-54-14.png]]
 
 An important part of what compels you is *the contrast of very small type on that large page.*
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-56-02.png]]
+[[file:_img/screenshot_2017-04-02_16-56-02.png]]
 
 Use *a contrast of size in unusual and provocative ways.*
 
@@ -306,9 +306,9 @@ If you use an item in an unusual size, see if you can repeat that concept elsewh
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-57-36.png]]
+[[file:_img/screenshot_2017-04-02_16-57-36.png]]
 
-[[file:img/screenshot_2017-04-02_16-57-48.png]]
+[[file:_img/screenshot_2017-04-02_16-57-48.png]]
 
 When combining weights, remember the rule: *Don’t be a wimp.*
 
@@ -322,25 +322,25 @@ You are well on your way to a type solution if you choose two or more faces from
 
 -----
 
-[[file:img/screenshot_2017-04-02_17-07-10.png]]
+[[file:_img/screenshot_2017-04-02_17-07-10.png]]
 
 -----
 
-[[file:img/screenshot_2017-04-02_17-08-56.png]]
+[[file:_img/screenshot_2017-04-02_17-08-56.png]]
 
 We recognize words not only by their letters, but by their forms, the shapes of the entire words.
 All words that are set *in capital letters have a similar rectangular form*, and *we are forced to read the words letter by letter.*
 
 -----
 
-[[file:img/screenshot_2017-04-02_17-09-55.png]]
+[[file:_img/screenshot_2017-04-02_17-09-55.png]]
 
 Type slanting upward to the right creates a positive energy.
 Type slanting downward creates a negative energy.
 
 -----
 
-[[file:img/screenshot_2017-04-02_17-13-57.png]]
+[[file:_img/screenshot_2017-04-02_17-13-57.png]]
 
 But there is another form of "direction".
 Every element of type has a direction, even though it may run straight across the page.
@@ -370,7 +370,7 @@ Following the logic of the above, *first paragraph following a heading or subhea
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-03-31.png]]
+[[file:_img/screenshot_2017-04-02_16-03-31.png]]
 
 When the last line of a paragraph has fewer than seven (more or less, depending on the length of the line) characters,
 that last line is a *widow*.
@@ -382,13 +382,13 @@ To avoid widows and orphans, you might need to *rewrite copy, or at least add or
 
 -----
 
-[[file:img/screenshot_2017-04-02_15-57-08.png]]
+[[file:_img/screenshot_2017-04-02_15-57-08.png]]
 
 *Kerning*: if you are aspiring to a professional level, you need to learn to manually adjust the spacing.
 
 -----
 
-[[file:img/screenshot_2017-04-02_16-05-21.png]]
+[[file:_img/screenshot_2017-04-02_16-05-21.png]]
 
 Setting text in a frame or box:
 *Leave plenty of room on all sides*.
@@ -400,7 +400,7 @@ Generally create the visual impression that there is *the same amount of space o
 
 (This chapter are written roughly because I'm not directly releated to this sorts of works)
 
-[[file:img/screenshot_2017-04-02_15-12-31.png]]
+[[file:_img/screenshot_2017-04-02_15-12-31.png]]
 
 Because each booklet is completely redesigned, it was critical that there be something
 to tie them all together
@@ -410,7 +410,7 @@ One of the most important features of an identity package or branding follows
 
 -----
 
-[[file:img/screenshot_2017-04-02_15-14-12.png]]
+[[file:_img/screenshot_2017-04-02_15-14-12.png]]
 
 One element should be dominant(the pencil-legged gentleman logo in this case),
 and it should be dominant in the same way on the letterhead, the envelope, and the business card.

@@ -1,21 +1,21 @@
 #+TITLE: DNS 
 
 * Table of Contents :TOC_2_gh:
- - [[#outline][Outline]]
- - [[#records][Records]]
-   - [[#soa][SOA]]
-   - [[#a-and-aaaa][A and AAAA]]
-   - [[#cname][CNAME]]
-   - [[#alias][ALIAS]]
-   - [[#mx][MX]]
-   - [[#ns][NS]]
-   - [[#ptr][PTR]]
- - [[#references][References]]
+- [[#outline][Outline]]
+- [[#records][Records]]
+  - [[#soa][SOA]]
+  - [[#a-and-aaaa][A and AAAA]]
+  - [[#cname][CNAME]]
+  - [[#alias][ALIAS]]
+  - [[#mx][MX]]
+  - [[#ns][NS]]
+  - [[#ptr][PTR]]
+- [[#references][References]]
 
 * Outline
-[[file:img/screenshot_2017-04-21_07-48-53.png]]
+[[file:_img/screenshot_2017-04-21_07-48-53.png]]
 
-[[file:img/screenshot_2017-04-21_07-52-32.png]]
+[[file:_img/screenshot_2017-04-21_07-52-32.png]]
 
 * Records
 ** SOA

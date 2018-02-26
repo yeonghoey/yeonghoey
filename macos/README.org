@@ -11,19 +11,19 @@
 - *This is not recommened. Many applications will break because of hard coded HOME path.*
 
 - Create a temporary admin account and login as it.
-[[file:img/screenshot_2017-07-08_09-28-19.png]]
+[[file:_img/screenshot_2017-07-08_09-28-19.png]]
 
 
 - Rename ~/Users/<oldname>~ to ~/Users/<newname>~
 - ~Ctrl~ + ~click~ and open ~Advanced Options~
-[[file:img/screenshot_2017-07-08_09-29-21.png]]
+[[file:_img/screenshot_2017-07-08_09-29-21.png]]
 
 - Change them as you desire
-[[file:img/screenshot_2017-07-08_09-30-21.png]]
+[[file:_img/screenshot_2017-07-08_09-30-21.png]]
 
 - Done. login as the modified user.
 - Many things would be broken.
 - All symbolic links within your home directory should be re-linked.
 - If you use ~Dropbox~, remove =~/.dropbox= to reset your dropbox settings.
 ** Disable space auto switching
-[[file:img/screenshot_2018-01-03_09-23-32.png]]
+[[file:_img/screenshot_2018-01-03_09-23-32.png]]

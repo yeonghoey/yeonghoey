@@ -18,13 +18,13 @@
 ** Mathematical Symbols
 - http://reu.dimacs.rutgers.edu/Symbols.pdf
 
-[[file:img/screenshot_2017-10-26_20-46-57.png]]
+[[file:_img/screenshot_2017-10-26_20-46-57.png]]
 
-[[file:img/screenshot_2017-10-26_20-47-18.png]]
+[[file:_img/screenshot_2017-10-26_20-47-18.png]]
 
-[[file:img/screenshot_2017-10-26_20-47-35.png]]
+[[file:_img/screenshot_2017-10-26_20-47-35.png]]
 
-[[file:img/screenshot_2017-10-26_20-47-50.png]]
+[[file:_img/screenshot_2017-10-26_20-47-50.png]]
 
 
 * Terminology

@@ -12,12 +12,12 @@
 * Plugins
 * Developer Tools
 ** Storages and Cookies
-[[file:img/screenshot_2017-06-03_18-01-12.png]]
+[[file:_img/screenshot_2017-06-03_18-01-12.png]]
 
 ** View HTTP headers
 - http://stackoverflow.com/questions/4423061/view-http-headers-in-google-chrome
 
-[[file:img/screenshot_2017-02-04_12-28-25.png]]
+[[file:_img/screenshot_2017-02-04_12-28-25.png]]
 
 * Use Cases
 ** Allow file access from local files

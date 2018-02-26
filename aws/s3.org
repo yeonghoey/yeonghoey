@@ -28,7 +28,7 @@ Wait a minute? What are we protecting against? Someone gaining access to Amazon'
 Or worse, a disgruntled Amazon employee (do such people exist?) plugging in a USB stick and sucking out your precious data.
 #+END_QUOTE
 
-[[file:img/screenshot_2017-02-25_09-48-12.png]]
+[[file:_img/screenshot_2017-02-25_09-48-12.png]]
 
 * How-to
 * Links

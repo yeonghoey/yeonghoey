@@ -21,76 +21,76 @@
 
 * Recurrent Neural Networks
 ** Why sequence models
-[[file:img/screenshot_2018-02-06_13-59-38.png]]
+[[file:_img/screenshot_2018-02-06_13-59-38.png]]
 
 ** Notation
-[[file:img/screenshot_2018-02-06_14-14-07.png]]
+[[file:_img/screenshot_2018-02-06_14-14-07.png]]
 
-[[file:img/screenshot_2018-02-06_14-13-41.png]]
+[[file:_img/screenshot_2018-02-06_14-13-41.png]]
 
 ** Recurrent Neural Network Model
-[[file:img/screenshot_2018-02-06_15-52-01.png]]
+[[file:_img/screenshot_2018-02-06_15-52-01.png]]
 
-[[file:img/screenshot_2018-02-06_16-45-24.png]]
+[[file:_img/screenshot_2018-02-06_16-45-24.png]]
 
-[[file:img/screenshot_2018-02-06_16-49-19.png]]
+[[file:_img/screenshot_2018-02-06_16-49-19.png]]
 
-[[file:img/screenshot_2018-02-06_16-53-06.png]]
+[[file:_img/screenshot_2018-02-06_16-53-06.png]]
 
 ** Backpropagation through time
-[[file:img/screenshot_2018-02-06_17-00-58.png]]
+[[file:_img/screenshot_2018-02-06_17-00-58.png]]
 
 ** Different types of RNNs
-[[file:img/screenshot_2018-02-06_17-06-16.png]]
+[[file:_img/screenshot_2018-02-06_17-06-16.png]]
 
-[[file:img/screenshot_2018-02-06_17-10-05.png]]
+[[file:_img/screenshot_2018-02-06_17-10-05.png]]
 
-[[file:img/screenshot_2018-02-06_17-11-20.png]]
+[[file:_img/screenshot_2018-02-06_17-11-20.png]]
 ** Language model and sequence generation
-[[file:img/screenshot_2018-02-06_17-15-34.png]]
+[[file:_img/screenshot_2018-02-06_17-15-34.png]]
 
-[[file:img/screenshot_2018-02-06_17-18-43.png]]
+[[file:_img/screenshot_2018-02-06_17-18-43.png]]
 
-[[file:img/screenshot_2018-02-06_17-24-33.png]]
+[[file:_img/screenshot_2018-02-06_17-24-33.png]]
 ** Sampling novel sequences
-[[file:img/screenshot_2018-02-06_17-37-57.png]]
+[[file:_img/screenshot_2018-02-06_17-37-57.png]]
 
-[[file:img/screenshot_2018-02-06_17-41-05.png]]
+[[file:_img/screenshot_2018-02-06_17-41-05.png]]
 
 - Character-level language model needs longer sequences,
   which means that it's computationally expensive.
 - So it is used in more specialized cases.
 
-[[file:img/screenshot_2018-02-06_17-43-12.png]]
+[[file:_img/screenshot_2018-02-06_17-43-12.png]]
 ** Vanishing gradients with RNNs
-[[file:img/screenshot_2018-02-06_17-50-15.png]]
+[[file:_img/screenshot_2018-02-06_17-50-15.png]]
 ** Gated Recurrent Unit (GRU)
-[[file:img/screenshot_2018-02-06_17-53-28.png]]
+[[file:_img/screenshot_2018-02-06_17-53-28.png]]
 
-[[file:img/screenshot_2018-02-06_18-06-17.png]]
+[[file:_img/screenshot_2018-02-06_18-06-17.png]]
 
-[[file:img/screenshot_2018-02-06_18-08-57.png]]
+[[file:_img/screenshot_2018-02-06_18-08-57.png]]
 ** Long Short Term Memory (LSTM)
-[[file:img/screenshot_2018-02-06_18-26-55.png]]
+[[file:_img/screenshot_2018-02-06_18-26-55.png]]
 
 - GRU is simpler, LSTM is more powerful
 - GRU or LSTM: There is no generally better algorithm between these.
 - But historically, LSTM has been more commonly used.
 
 ** Bidirectional RNN
-[[file:img/screenshot_2018-02-06_18-38-33.png]]
+[[file:_img/screenshot_2018-02-06_18-38-33.png]]
 - BRNN has a disadvantage that it need the entire sequence to make predictions.
 
 ** Deep RNNs
-[[file:img/screenshot_2018-02-06_18-45-48.png]]
+[[file:_img/screenshot_2018-02-06_18-45-48.png]]
 * Programming assignments
 ** Building a recurrent neural network - step by step
-[[file:img/screenshot_2018-02-07_06-40-18.png]]
+[[file:_img/screenshot_2018-02-07_06-40-18.png]]
 
-[[file:img/screenshot_2018-02-07_06-42-11.png]]
+[[file:_img/screenshot_2018-02-07_06-42-11.png]]
 
 
-[[file:img/screenshot_2018-02-07_06-42-56.png]]
+[[file:_img/screenshot_2018-02-07_06-42-56.png]]
 
 #+BEGIN_SRC python
   def rnn_cell_forward(xt, a_prev, parameters):
@@ -114,7 +114,7 @@
       return a_next, yt_pred, cache
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_06-53-24.png]]
+[[file:_img/screenshot_2018-02-07_06-53-24.png]]
 
 #+BEGIN_SRC python
   def rnn_forward(x, a0, parameters):
@@ -139,11 +139,11 @@
       return a, y_pred, caches
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_07-01-53.png]]
+[[file:_img/screenshot_2018-02-07_07-01-53.png]]
 
-[[file:img/screenshot_2018-02-07_07-02-08.png]]
+[[file:_img/screenshot_2018-02-07_07-02-08.png]]
 
-[[file:img/screenshot_2018-02-07_07-02-24.png]]
+[[file:_img/screenshot_2018-02-07_07-02-24.png]]
 
 #+BEGIN_SRC python
   def lstm_cell_forward(xt, a_prev, c_prev, parameters):
@@ -178,7 +178,7 @@
       return a_next, c_next, yt_pred, cache
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_07-21-24.png]]
+[[file:_img/screenshot_2018-02-07_07-21-24.png]]
 
 #+BEGIN_SRC python
   def lstm_forward(x, a0, parameters):
@@ -208,7 +208,7 @@
       return a, y, c, caches
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_07-39-25.png]]
+[[file:_img/screenshot_2018-02-07_07-39-25.png]]
 #+BEGIN_SRC python
   def rnn_cell_backward(da_next, cache):
       """
@@ -233,7 +233,7 @@
 - However, this derivatives may have different dimensions.
 - So, ~dJ/da~ must be multiplied to ~da~ part, before completely calculate ~da/d<input>~.
 
-[[file:img/screenshot_2018-02-07_15-26-25.png]]
+[[file:_img/screenshot_2018-02-07_15-26-25.png]]
 
 #+BEGIN_SRC python
   def rnn_backward(da, caches):
@@ -258,13 +258,13 @@
 - ~da~ provides upstream gradients, which stem from ~y_t~
 - So ~da~ is added by ~da_prev~ gradients from ~da_next~
 
-[[file:img/screenshot_2018-02-07_16-04-14.png]]
+[[file:_img/screenshot_2018-02-07_16-04-14.png]]
 
 - The equations above are incorrect; Following equations are correct:
 
-[[file:img/screenshot_2018-02-07_17-40-23.png]]
+[[file:_img/screenshot_2018-02-07_17-40-23.png]]
 
-[[file:img/screenshot_2018-02-07_16-04-32.png]]
+[[file:_img/screenshot_2018-02-07_16-04-32.png]]
 
 
 #+BEGIN_SRC python
@@ -294,7 +294,7 @@
       return gradients
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_17-45-59.png]]
+[[file:_img/screenshot_2018-02-07_17-45-59.png]]
 
 #+BEGIN_SRC python
   def lstm_backward(da, caches):
@@ -326,11 +326,11 @@
 - According There must be some errors in this problem. So I just passed this.
 
 ** Dinosaur Island - Character-Level Language Modeling
-[[file:img/screenshot_2018-02-07_07-34-36.png]]
+[[file:_img/screenshot_2018-02-07_07-34-36.png]]
 
-[[file:img/screenshot_2018-02-07_07-37-26.png]]
+[[file:_img/screenshot_2018-02-07_07-37-26.png]]
 
-[[file:img/screenshot_2018-02-07_07-37-49.png]]
+[[file:_img/screenshot_2018-02-07_07-37-49.png]]
 
 : Use numpy.clip()
 
@@ -349,7 +349,7 @@
       return gardients
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_07-45-33.png]]
+[[file:_img/screenshot_2018-02-07_07-45-33.png]]
 
 #+BEGIN_SRC python
   def sample(parameters, char_to_ix, seed):
@@ -367,7 +367,7 @@
       return indices
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_07-59-48.png]]
+[[file:_img/screenshot_2018-02-07_07-59-48.png]]
 
 #+BEGIN_SRC python
   def optimize(X, Y, a_prev, parameters, learning_rate = 0.01):
@@ -399,7 +399,7 @@
       return loss, gradients, a[len(X)-1]
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_08-14-43.png]]
+[[file:_img/screenshot_2018-02-07_08-14-43.png]]
 
 #+BEGIN_SRC python
   def model(data, ix_to_char, char_to_ix, num_iterations = 35000, n_a = 50, dino_names = 7, vocab_size = 27):
@@ -421,22 +421,22 @@
       return parameters
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_08-20-14.png]]
+[[file:_img/screenshot_2018-02-07_08-20-14.png]]
 
-[[file:img/screenshot_2018-02-07_08-21-18.png]]
+[[file:_img/screenshot_2018-02-07_08-21-18.png]]
 
-[[file:img/screenshot_2018-02-07_08-22-35.png]]
+[[file:_img/screenshot_2018-02-07_08-22-35.png]]
 
 ** Jazz improvisation with LSTM
-[[file:img/screenshot_2018-02-07_08-31-17.png]]
+[[file:_img/screenshot_2018-02-07_08-31-17.png]]
 
-[[file:img/screenshot_2018-02-07_08-32-05.png]]
+[[file:_img/screenshot_2018-02-07_08-32-05.png]]
 
-[[file:img/screenshot_2018-02-07_08-32-29.png]]
+[[file:_img/screenshot_2018-02-07_08-32-29.png]]
 
-[[file:img/screenshot_2018-02-07_08-35-18.png]]
+[[file:_img/screenshot_2018-02-07_08-35-18.png]]
 
-[[file:img/screenshot_2018-02-07_08-36-37.png]]
+[[file:_img/screenshot_2018-02-07_08-36-37.png]]
 
 #+BEGIN_SRC python
   def djmodel(Tx, n_a, n_values):
@@ -454,9 +454,9 @@
       return model
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_08-50-45.png]]
+[[file:_img/screenshot_2018-02-07_08-50-45.png]]
 
-[[file:img/screenshot_2018-02-07_08-51-43.png]]
+[[file:_img/screenshot_2018-02-07_08-51-43.png]]
 
 #+BEGIN_SRC python
   def music_inference_model(LSTM_cell, densor, n_values = 78, n_a = 64, Ty = 100):
@@ -476,7 +476,7 @@
       return inference_model
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_08-56-01.png]]
+[[file:_img/screenshot_2018-02-07_08-56-01.png]]
 
 - https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html
 - https://keras.io/utils/#to_categorical
@@ -512,4 +512,4 @@
       return results, indices
 #+END_SRC
 
-[[file:img/screenshot_2018-02-07_09-20-49.png]]
+[[file:_img/screenshot_2018-02-07_09-20-49.png]]

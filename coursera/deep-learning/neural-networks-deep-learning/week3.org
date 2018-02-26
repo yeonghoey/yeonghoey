@@ -18,27 +18,27 @@
 
 * Shallow Neural Network
 ** Neural Networks Overview
-[[file:img/screenshot_2017-09-23_09-52-42.png]]
+[[file:_img/screenshot_2017-09-23_09-52-42.png]]
 
 ** Neural Network Representation
-[[file:img/screenshot_2017-09-23_09-58-03.png]]
+[[file:_img/screenshot_2017-09-23_09-58-03.png]]
 
 ** Computing a Neural Network's Output
-[[file:img/screenshot_2017-09-24_15-51-31.png]]
+[[file:_img/screenshot_2017-09-24_15-51-31.png]]
 
-[[file:img/screenshot_2017-09-24_15-52-25.png]]
+[[file:_img/screenshot_2017-09-24_15-52-25.png]]
 
-[[file:img/screenshot_2017-09-24_15-53-08.png]]
+[[file:_img/screenshot_2017-09-24_15-53-08.png]]
 
 ** Vectorizing across multiple examples
-[[file:img/screenshot_2017-09-24_15-53-58.png]]
+[[file:_img/screenshot_2017-09-24_15-53-58.png]]
 
-[[file:img/screenshot_2017-09-24_15-54-36.png]]
+[[file:_img/screenshot_2017-09-24_15-54-36.png]]
 
 ** Explanation for Vectorized Implementation
-[[file:img/screenshot_2017-09-24_15-55-39.png]]
+[[file:_img/screenshot_2017-09-24_15-55-39.png]]
 
-[[file:img/screenshot_2017-09-24_15-56-39.png]]
+[[file:_img/screenshot_2017-09-24_15-56-39.png]]
 
 ** Activation functions
 - For hidden units, ~tanh~ is almost alway superior to ~sigmoid~
@@ -46,43 +46,43 @@
 - ~sigmoid~ is preferred mostly for the output layer which expects values of ~[0, 1]~
 - There days, ~ReLU~ is the default and generally most preferred.
 
-[[file:img/screenshot_2017-09-24_15-58-26.png]]
+[[file:_img/screenshot_2017-09-24_15-58-26.png]]
 
-[[file:img/screenshot_2017-09-24_15-58-53.png]]
+[[file:_img/screenshot_2017-09-24_15-58-53.png]]
 
 ** Why do you need non-linear activation functions?
 - If all activation functions are linear, *the calculation of hidden layers can be boiled down to a single linear layer.*
 - When *the output value can have all the real number*, then the activation function for the output layer can be a linear one.
 
-[[file:img/screenshot_2017-09-24_16-09-21.png]]
+[[file:_img/screenshot_2017-09-24_16-09-21.png]]
 
 ** Derivatives of activation functions
-[[file:img/screenshot_2017-09-24_18-05-32.png]]
+[[file:_img/screenshot_2017-09-24_18-05-32.png]]
 
-[[file:img/screenshot_2017-09-24_18-06-05.png]]
+[[file:_img/screenshot_2017-09-24_18-06-05.png]]
 
 - Theoretically the derivative of ~z=0~ is undefined, but it doesn't matter technically.
 
-[[file:img/screenshot_2017-09-24_18-06-30.png]]
+[[file:_img/screenshot_2017-09-24_18-06-30.png]]
 
 ** Gradient descent for Neural Networks
-[[file:img/screenshot_2017-09-24_18-08-44.png]]
+[[file:_img/screenshot_2017-09-24_18-08-44.png]]
 
 ** Backpropagation intuition (optional)
-[[file:img/screenshot_2017-09-24_18-09-23.png]]
+[[file:_img/screenshot_2017-09-24_18-09-23.png]]
 
-[[file:img/screenshot_2017-09-24_18-09-52.png]]
+[[file:_img/screenshot_2017-09-24_18-09-52.png]]
 
-[[file:img/screenshot_2017-09-24_18-10-13.png]]
+[[file:_img/screenshot_2017-09-24_18-10-13.png]]
 
 ** Random Initialization
 if initial ~W~ values are all zeros, all hidden units become completly identical, zero, which make the hidden layer meaningless.
 
-[[file:img/screenshot_2017-09-24_18-10-55.png]]
+[[file:_img/screenshot_2017-09-24_18-10-55.png]]
 
 By multipling ~0.01~, it can be avoided to have very large values of ~a~ which have very small derivatives slowing down the learning.
 
-[[file:img/screenshot_2017-09-24_18-11-26.png]]
+[[file:_img/screenshot_2017-09-24_18-11-26.png]]
 
 * Programming Assignment
 ** Planar data classification
@@ -122,22 +122,22 @@ By multipling ~0.01~, it can be avoided to have very large values of ~a~ which h
       return predictions
 #+END_SRC
 
-[[file:img/screenshot_2017-09-28_06-28-11.png]]
+[[file:_img/screenshot_2017-09-28_06-28-11.png]]
 
-[[file:img/screenshot_2017-09-28_06-30-57.png]]
+[[file:_img/screenshot_2017-09-28_06-30-57.png]]
 
-[[file:img/screenshot_2017-09-28_06-31-43.png]]
+[[file:_img/screenshot_2017-09-28_06-31-43.png]]
 
-[[file:img/screenshot_2017-09-28_06-32-28.png]]
+[[file:_img/screenshot_2017-09-28_06-32-28.png]]
 
-[[file:img/screenshot_2017-09-28_06-47-36.png]]
+[[file:_img/screenshot_2017-09-28_06-47-36.png]]
 
-[[file:img/screenshot_2017-09-28_07-09-33.png]]
+[[file:_img/screenshot_2017-09-28_07-09-33.png]]
 
-[[file:img/screenshot_2017-09-28_07-23-53.png]]
+[[file:_img/screenshot_2017-09-28_07-23-53.png]]
 
-[[file:img/screenshot_2017-09-28_07-25-41.png]]
+[[file:_img/screenshot_2017-09-28_07-25-41.png]]
 
-[[file:img/screenshot_2017-09-28_07-26-05.png]]
+[[file:_img/screenshot_2017-09-28_07-26-05.png]]
 
-[[file:img/screenshot_2017-09-28_07-26-36.png]]
+[[file:_img/screenshot_2017-09-28_07-26-36.png]]

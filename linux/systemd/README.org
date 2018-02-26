@@ -60,7 +60,7 @@
 - https://en.wikipedia.org/wiki/Systemd
 - https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
 
-[[file:img/screenshot_2017-11-09_15-47-44.png]]
+[[file:_img/screenshot_2017-11-09_15-47-44.png]]
 
 
 * Reference
@@ -114,7 +114,7 @@
 |------------------+-------------------------------------------------------------------------------------------|
 | ~default.target~ | Usually, this should be aliased (symlinked) to ~multi-user.target~ or ~graphical.target~. |
 
-[[file:img/screenshot_2017-11-26_09-40-34.png]]
+[[file:_img/screenshot_2017-11-26_09-40-34.png]]
 
 * Sections
 - https://www.freedesktop.org/software/systemd/man/systemd.directives.html
@@ -168,7 +168,7 @@
 *** Restart
 - ~always~, ~on-success~, ~on-failure~, ~on-abnormal~, ~on-abort~, ~on-watchdog~
 
-[[file:img/screenshot_2017-11-09_16-14-09.png]]
+[[file:_img/screenshot_2017-11-09_16-14-09.png]]
 
 *** TimeoutSec
 - When stopping, after waiting ~n~ seconds, systemd kills the process
@@ -310,7 +310,7 @@ So, starting a unit without enabling it is valid.
 #+END_SRC
 
 ** TODO <2017-11-09 Thu> dpkg remove vs purge
-[[file:img/screenshot_2017-11-09_21-48-41.png]]
+[[file:_img/screenshot_2017-11-09_21-48-41.png]]
 
 ** TODO <2017-11-10 Fri> deb-systemd-invoke
 - https://dev.parrotsec.org/parrot/init-system-helpers/blob/master/script/deb-systemd-invoke#L80

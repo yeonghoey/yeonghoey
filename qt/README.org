@@ -12,7 +12,7 @@
 - [[#staging][Staging]]
 
 * Overview
-[[file:img/screenshot_2018-01-29_08-37-24.png]]
+[[file:_img/screenshot_2018-01-29_08-37-24.png]]
 
 * Reference
 * Terminology

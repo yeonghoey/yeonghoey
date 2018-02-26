@@ -33,4 +33,4 @@
 #+END_EXAMPLE
 
 * Options
-[[file:img/screenshot_2017-11-28_17-26-07.png]]
+[[file:_img/screenshot_2017-11-28_17-26-07.png]]

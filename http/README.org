@@ -51,7 +51,7 @@
 | ~URL~ (Locator)           | ~https://www.google.co.kr/search~       | Subset of ~URI~, contains only about location                                                                |
 | ~URN~ (Name)              | ~urn:google:search:uri~                 | Subset of ~URI~, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with ~urn:~ |
 
-[[file:img/screenshot_2017-06-03_15-46-11.png]]
+[[file:_img/screenshot_2017-06-03_15-46-11.png]]
 
 ** Endpoint
 - https://stackoverflow.com/questions/9807382/what-is-a-web-service-endpoint

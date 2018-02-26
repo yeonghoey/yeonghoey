@@ -1,8 +1,8 @@
 #+TITLE: GitHub
 
 * Table of Contents                                                :TOC_1_gh:
- - [[#github-markup][GitHub Markup]]
- - [[#github-pages][GitHub Pages]]
+- [[#github-markup][GitHub Markup]]
+- [[#github-pages][GitHub Pages]]
 
 * GitHub Markup
 - https://github.com/github/markup
@@ -13,26 +13,26 @@
 ** Types
 - https://help.github.com/articles/user-organization-and-project-pages/
   
-[[file:img/screenshot_2017-01-27_14-44-36.png]]
+[[file:_img/screenshot_2017-01-27_14-44-36.png]]
 
 ** Setting up a custom domain of AWS Route 53
 - https://help.github.com/articles/setting-up-an-apex-domain/
   
 *** Set a custom domain on your repo settings 
-[[file:img/screenshot_2017-01-08_18-24-19.png]]
+[[file:_img/screenshot_2017-01-08_18-24-19.png]]
 
 *** For APEX domain and ~wwww~
 **** Create A record (Only for APEX domain)
-[[file:img/screenshot_2017-01-08_18-23-13.png]]
+[[file:_img/screenshot_2017-01-08_18-23-13.png]]
 
-[[file:img/screenshot_2017-01-08_18-22-53.png]]
+[[file:_img/screenshot_2017-01-08_18-22-53.png]]
 
 **** Create CNAME record for ~www~
 - https://help.github.com/articles/about-supported-custom-domains/#www-subdomains
 
-[[file:img/screenshot_2017-01-08_18-30-36.png]]
+[[file:_img/screenshot_2017-01-08_18-30-36.png]]
 
 *** For Custom Subdomain
 - https://help.github.com/articles/setting-up-a-custom-subdomain/
 
-[[file:img/screenshot_2017-02-15_07-49-08.png]]
+[[file:_img/screenshot_2017-02-15_07-49-08.png]]

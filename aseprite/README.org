@@ -1,21 +1,21 @@
 #+TITLE: Aseprite
 
 * Table of Contents :TOC_1_gh:
- - [[#reference][Reference]]
- - [[#details][Details]]
+- [[#reference][Reference]]
+- [[#details][Details]]
 
 * Reference
 - https://www.aseprite.org/quickref/
 
-[[file:img/screenshot_2017-05-02_07-17-55.png]]
+[[file:_img/screenshot_2017-05-02_07-17-55.png]]
 * Details
 ** Linked Cels
 - https://www.aseprite.org/docs/linked-cels/
 - When you modify one of these cels, all linked cels are modified. In this way you can propagate the same change into several frames. 
 
-[[file:img/screenshot_2017-05-02_07-27-22.png]]
+[[file:_img/screenshot_2017-05-02_07-27-22.png]]
 
 ** Onion skinning
 - https://www.aseprite.org/docs/animation/
 
-[[file:img/screenshot_2017-05-02_07-16-29.png]]
+[[file:_img/screenshot_2017-05-02_07-16-29.png]]

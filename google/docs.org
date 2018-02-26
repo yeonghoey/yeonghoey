@@ -17,10 +17,10 @@
 * Topics
 * How-to
 ** Suggest editing
-[[file:img/screenshot_2018-01-11_10-12-35.png]]
+[[file:_img/screenshot_2018-01-11_10-12-35.png]]
 
 ** Disable spell check
-[[file:img/screenshot_2018-01-11_10-14-38.png]]
+[[file:_img/screenshot_2018-01-11_10-14-38.png]]
 
 * Links
 * Staging

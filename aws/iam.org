@@ -213,7 +213,7 @@ To attach the role to EC2 instances, an *instance profile* must be created.
 - With some AWS SDKs, can use temporary credentials transparently.
 - Alternatively, can get the temporary credentials directly from the EC2 instance metadata
 
-[[file:img/screenshot_2017-04-22_22-38-40.png]]
+[[file:_img/screenshot_2017-04-22_22-38-40.png]]
 
 *** Assume Role Policy
 - http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html
@@ -254,7 +254,7 @@ if you use the AWS CLI or API to create and manage the role and EC2 instance,
 then *you must create the instance profile and assign the role to it as separate steps.*
 Then, when you launch the instance, *you must specify the instance profile name* instead of the role name.
 
-[[file:img/screenshot_2017-08-17_19-33-27.png]]
+[[file:_img/screenshot_2017-08-17_19-33-27.png]]
 
 ** Policy Elements
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
@@ -297,7 +297,7 @@ To specify the user (IAM user, federated user, or assumed-role user), AWS accoun
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#AvailableKeys
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html
 
-[[file:img/screenshot_2017-04-22_23-50-50.png]]
+[[file:_img/screenshot_2017-04-22_23-50-50.png]]
 
 #+BEGIN_SRC json
   "Condition" :  {
@@ -318,26 +318,26 @@ The three separate condition operators are evaluated using *AND*.
 ** Policies Evaluation Logic
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html
 
-[[file:img/screenshot_2017-02-19_14-05-01.png]]
+[[file:_img/screenshot_2017-02-19_14-05-01.png]]
 
 The enforcement code evaluates all user-based and resource-based policies
 that are applicable to the request(based on the resource, principal, action, and conditions).
 *The order in which the enforcement code evaluates the policies is not important*.
 
-[[file:img/screenshot_2017-02-19_14-06-20.png]]
+[[file:_img/screenshot_2017-02-19_14-06-20.png]]
 
 * How-to
 ** Share resources with an external AWS account via IAM Role
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html
 - http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
 
-[[file:img/screenshot_2017-05-29_18-30-17.png]]
+[[file:_img/screenshot_2017-05-29_18-30-17.png]]
 
-[[file:img/screenshot_2017-05-29_18-30-28.png]]
+[[file:_img/screenshot_2017-05-29_18-30-28.png]]
 
 This creates an assume role policy like this:
 
-[[file:img/screenshot_2017-05-29_18-32-21.png]]
+[[file:_img/screenshot_2017-05-29_18-32-21.png]]
 
 ~Principal~ is 3rd party's AWS account id. For example:
 #+BEGIN_EXAMPLE

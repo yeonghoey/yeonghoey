@@ -33,7 +33,7 @@
 * Overview
 - http://www.brendangregg.com/linuxperf.html
 
-[[file:img/screenshot_2017-08-16_20-34-39.png]]
+[[file:_img/screenshot_2017-08-16_20-34-39.png]]
 * Reference
 ** du
 #+BEGIN_SRC shell
@@ -238,7 +238,7 @@
 ** Inode Structure
 - http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file
 
-[[file:img/screenshot_2017-03-02_22-48-52.png]]
+[[file:_img/screenshot_2017-03-02_22-48-52.png]]
 
 #+BEGIN_QUOTE
 inodes starts at number 2 (root)
@@ -282,7 +282,7 @@ NUMA attempts to address this problem by providing separate memory for each proc
 avoiding the performance hit when several processors attempt to address the same memory.
 #+END_QUOTE
 
-[[file:img/screenshot_2017-08-20_01-26-42.png]]
+[[file:_img/screenshot_2017-08-20_01-26-42.png]]
 
 * How-to
 ** Config swap spaces/files

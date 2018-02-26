@@ -12,7 +12,7 @@
 * Overview
 - https://www.ibuildings.nl/blog/2013/07/secure-your-rest-api-oauth2-implicit-grant
 
-[[file:img/screenshot_2018-01-11_15-50-31.png]]
+[[file:_img/screenshot_2018-01-11_15-50-31.png]]
 
 * Reference
 * Terminology

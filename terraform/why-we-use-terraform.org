@@ -2,7 +2,7 @@
 - [2016-12-29 Thu]
 - https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.7fsvtvl2v
 
-[[file:img/screenshot_2016-12-29_09-31-51.png]]
+[[file:_img/screenshot_2016-12-29_09-31-51.png]]
 
 ** Configuration Management, Orchestration, Mutable, Immutable
 The main use case of *Orchestration*-typed tools is provisioning servers.

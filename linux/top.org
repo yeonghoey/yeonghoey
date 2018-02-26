@@ -113,7 +113,7 @@
 #+END_QUOTE
 
 - ~f~ or ~F~ :: Fields menu
-[[file:img/screenshot_2017-08-20_00-36-51.png]]
+[[file:_img/screenshot_2017-08-20_00-36-51.png]]
 
 - ~X~ :: Increase fix-width
 #+BEGIN_EXAMPLE
@@ -129,20 +129,20 @@
 
 - ~L~, ~&~ :: Locate and find again
 
-[[file:img/screenshot_2017-08-20_00-42-05.png]]
+[[file:_img/screenshot_2017-08-20_00-42-05.png]]
 
-[[file:img/screenshot_2017-08-20_00-42-34.png]]
+[[file:_img/screenshot_2017-08-20_00-42-34.png]]
 
 - ~<~, ~>~ :: Move sort column
-[[file:img/screenshot_2017-08-20_00-43-26.png]]
+[[file:_img/screenshot_2017-08-20_00-43-26.png]]
 
-[[file:img/screenshot_2017-08-20_00-43-37.png]]
+[[file:_img/screenshot_2017-08-20_00-43-37.png]]
 
 - ~R~ :: Reverse sort
 - ~H~ :: Threads
-[[file:img/screenshot_2017-08-20_00-45-24.png]]
+[[file:_img/screenshot_2017-08-20_00-45-24.png]]
 
-[[file:img/screenshot_2017-08-20_00-45-37.png]]
+[[file:_img/screenshot_2017-08-20_00-45-37.png]]
 
 - ~V~ :: Forest view
 #+BEGIN_EXAMPLE
@@ -197,22 +197,22 @@
 #+END_EXAMPLE
 
 - ~x~ :: Toggle highlight of sort field
-[[file:img/screenshot_2017-08-19_22-21-02.png]]
+[[file:_img/screenshot_2017-08-19_22-21-02.png]]
 
-[[file:img/screenshot_2017-08-19_22-21-22.png]]
+[[file:_img/screenshot_2017-08-19_22-21-22.png]]
 
 - ~y~ :: Toggle highlight of running tasks
-[[file:img/screenshot_2017-08-19_22-33-18.png]]
+[[file:_img/screenshot_2017-08-19_22-33-18.png]]
 
 - ~z~ :: Toggle color/mono
-[[file:img/screenshot_2017-08-19_22-33-58.png]]
+[[file:_img/screenshot_2017-08-19_22-33-58.png]]
 
-[[file:img/screenshot_2017-08-19_22-34-12.png]]
+[[file:_img/screenshot_2017-08-19_22-34-12.png]]
 
 - ~b~ :: Toggle bold/reverse
-[[file:img/screenshot_2017-08-19_22-35-04.png]]
+[[file:_img/screenshot_2017-08-19_22-35-04.png]]
 
-[[file:img/screenshot_2017-08-19_22-35-21.png]]
+[[file:_img/screenshot_2017-08-19_22-35-21.png]]
 
 - ~u~ :: Filter by effective user
 - ~U~ :: Filter by any user
@@ -312,7 +312,7 @@
 #+END_EXAMPLE
 
 - ~A~ :: Toggle Single / Multiple windows
-[[file:img/screenshot_2017-08-19_22-49-30.png]]
+[[file:_img/screenshot_2017-08-19_22-49-30.png]]
 
 - ~a~, ~w~ :: Cycle through all four windows
 - ~-~ :: Show/Hide current window

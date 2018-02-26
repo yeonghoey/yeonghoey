@@ -1,16 +1,16 @@
 #+TITLE: Plastic SCM
 
 * Table of Contents :TOC_1_gh:
- - [[#repository-and-workspace][Repository and Workspace]]
- - [[#checkout-modify-checkin][Checkout-Modify-Checkin]]
- - [[#change-checkin][Change-Checkin]]
- - [[#writableconf-readonlyconf][writable.conf readonly.conf]]
- - [[#ignoreconf][ignore.conf]]
+- [[#repository-and-workspace][Repository and Workspace]]
+- [[#checkout-modify-checkin][Checkout-Modify-Checkin]]
+- [[#change-checkin][Change-Checkin]]
+- [[#writableconf-readonlyconf][writable.conf readonly.conf]]
+- [[#ignoreconf][ignore.conf]]
 
 * Repository and Workspace
-[[file:img/screenshot_2017-04-05_15-08-24.png]]
+[[file:_img/screenshot_2017-04-05_15-08-24.png]]
 
-[[file:img/screenshot_2017-04-05_15-11-13.png]]
+[[file:_img/screenshot_2017-04-05_15-11-13.png]]
 
 * Checkout-Modify-Checkin
 The *checkout* in Plastic SCM means:
@@ -18,7 +18,7 @@ The *checkout* in Plastic SCM means:
 + Plastic SCM knows that the file has been modified (which is good for quickly locating changes).
  
 ** Exclusive Checkout
-[[file:img/screenshot_2017-04-05_15-50-28.png]]
+[[file:_img/screenshot_2017-04-05_15-50-28.png]]
 
 Set ~lock.conf~ on the server for specifying files to make exclusive
 #+BEGIN_EXAMPLE
@@ -36,7 +36,7 @@ Take into account that *by default Plastic will write all the files as read-only
 #+END_QUOTE
 
 Enusre following checkbox unchecked:
-[[file:img/screenshot_2017-04-05_16-18-46.png]]
+[[file:_img/screenshot_2017-04-05_16-18-46.png]]
 
 * writable.conf readonly.conf
 To override the user preference of ~Update and Checkin operations set files as read-only~,

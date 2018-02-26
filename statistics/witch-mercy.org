@@ -1,7 +1,7 @@
 #+TITLE: Winning Mercy's Halloween Witch skin
 
 * Overwatch Witch Mercy Skin
-[[file:img/screenshot_2016-12-26_22-42-20.png]]
+[[file:_img/screenshot_2016-12-26_22-42-20.png]]
 
 * Problem
 Winning *Overwatch Mercy's Halloween Witch skin* at the minimum cost.

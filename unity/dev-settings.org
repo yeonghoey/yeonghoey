@@ -1,9 +1,9 @@
 #+TITLE: DevSettings Pattern
 
 * Table of Contents :TOC_1_gh:
- - [[#about][About]]
- - [[#devsettingscs][DevSettings.cs]]
- - [[#devsettingswindowcs][DevSettingsWindow.cs]]
+- [[#about][About]]
+- [[#devsettingscs][DevSettings.cs]]
+- [[#devsettingswindowcs][DevSettingsWindow.cs]]
 
 * About
 A (maybe) useful template for development settings.
@@ -12,7 +12,7 @@ keep its values with ~PlayerPrefs~, and referencing it at runtime while developi
 
 Make less duplicating by using C# Reflection.
 
-[[file:img/screenshot_2017-05-14_14-42-19.png]]
+[[file:_img/screenshot_2017-05-14_14-42-19.png]]
 
 * DevSettings.cs
 #+BEGIN_SRC csharp

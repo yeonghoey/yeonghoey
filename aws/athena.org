@@ -11,15 +11,15 @@
 - [[#staging][Staging]]
 
 * Overview
-[[file:img/screenshot_2017-10-19_15-32-12.png]]
+[[file:_img/screenshot_2017-10-19_15-32-12.png]]
 
-[[file:img/screenshot_2017-10-19_15-35-32.png]]
+[[file:_img/screenshot_2017-10-19_15-35-32.png]]
 
-[[file:img/screenshot_2017-10-19_15-35-08.png]]
+[[file:_img/screenshot_2017-10-19_15-35-08.png]]
 
-[[file:img/screenshot_2017-10-19_15-36-17.png]]
+[[file:_img/screenshot_2017-10-19_15-36-17.png]]
 
-[[file:img/screenshot_2017-10-19_15-41-34.png]]
+[[file:_img/screenshot_2017-10-19_15-41-34.png]]
 
 #+BEGIN_SRC sql
   CREATE EXTERNAL TABLE IF NOT EXISTS mydb.mytable (

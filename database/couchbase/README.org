@@ -24,7 +24,7 @@
   - [[#deployment][deployment]]
 
 * Overview
-[[file:img/screenshot_2017-08-22_23-47-26.png]]
+[[file:_img/screenshot_2017-08-22_23-47-26.png]]
 
 * Reference
 ** internalSettings
@@ -63,7 +63,7 @@
 - Failover    :: To divert traffic away from failing nodes to the remaining healthy nodes.
 
 - Node lifecycle ::
-[[file:img/screenshot_2017-08-22_23-54-23.png]]
+[[file:_img/screenshot_2017-08-22_23-54-23.png]]
 
 * Topics
 ** Document Expiration
@@ -80,13 +80,13 @@
 - Click ~Fail Over~ button next to the failing over node
 - Select ~Fail Over~ strategy
 
-[[file:img/screenshot_2017-08-22_23-26-22.png]]
+[[file:_img/screenshot_2017-08-22_23-26-22.png]]
 
 - After failing over process, the node becomes pending.
-[[file:img/screenshot_2017-08-22_23-27-58.png]]
+[[file:_img/screenshot_2017-08-22_23-27-58.png]]
 
 - After shutting down the node
-[[file:img/screenshot_2017-08-22_23-32-37.png]]
+[[file:_img/screenshot_2017-08-22_23-32-37.png]]
 
 - After putting back the node, select one of recovery strategy and click ~Rebalance~.
 

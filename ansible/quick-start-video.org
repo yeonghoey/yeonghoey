@@ -2,26 +2,26 @@
 - https://www.ansible.com/quick-start-video
 - http://docs.ansible.com/ansible/modules_by_category.html
 
-[[file:img/screenshot_2017-05-08_14-53-11.png]]
+[[file:_img/screenshot_2017-05-08_14-53-11.png]]
 
-[[file:img/screenshot_2017-05-08_14-53-51.png]]
+[[file:_img/screenshot_2017-05-08_14-53-51.png]]
 
-[[file:img/screenshot_2017-05-08_14-54-18.png]]
+[[file:_img/screenshot_2017-05-08_14-54-18.png]]
 
-[[file:img/screenshot_2017-05-08_14-54-30.png]]
+[[file:_img/screenshot_2017-05-08_14-54-30.png]]
 
-[[file:img/screenshot_2017-05-08_14-54-44.png]]
+[[file:_img/screenshot_2017-05-08_14-54-44.png]]
 
-[[file:img/screenshot_2017-05-08_14-55-01.png]]
+[[file:_img/screenshot_2017-05-08_14-55-01.png]]
 
-[[file:img/screenshot_2017-05-08_14-55-21.png]]
+[[file:_img/screenshot_2017-05-08_14-55-21.png]]
 
-[[file:img/screenshot_2017-05-08_14-56-39.png]]
+[[file:_img/screenshot_2017-05-08_14-56-39.png]]
 
-[[file:img/screenshot_2017-05-08_14-57-52.png]]
+[[file:_img/screenshot_2017-05-08_14-57-52.png]]
 
-[[file:img/screenshot_2017-05-08_14-58-13.png]]
+[[file:_img/screenshot_2017-05-08_14-58-13.png]]
 
-[[file:img/screenshot_2017-05-08_14-58-46.png]]
+[[file:_img/screenshot_2017-05-08_14-58-46.png]]
 
-[[file:img/screenshot_2017-05-08_14-59-37.png]]
+[[file:_img/screenshot_2017-05-08_14-59-37.png]]

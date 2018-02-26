@@ -1,8 +1,8 @@
 #+TITLE: Rust
 
 * Table of Contents :TOC_2_gh:
- - [[#concepts][Concepts]]
-   - [[#ownership][Ownership]]
+- [[#concepts][Concepts]]
+  - [[#ownership][Ownership]]
 
 * Concepts
 ** Ownership
@@ -28,7 +28,7 @@
   which does not implement the `Copy` trait
 #+END_EXAMPLE
 
-[[file:img/screenshot_2017-06-22_22-51-15.png]]
+[[file:_img/screenshot_2017-06-22_22-51-15.png]]
 
 - Rust invalidates the first variable, instead of calling this a shallow copy, it’s known as a *move*
 

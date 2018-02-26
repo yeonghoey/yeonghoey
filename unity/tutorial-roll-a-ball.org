@@ -1,118 +1,118 @@
 #+TITLE: Roll-a-ball
 
 * Table of Contents :TOC_1_gh:
- - [[#setting-up-the-game][Setting up the Game]]
- - [[#moving-the-player][Moving the Player]]
- - [[#moving-the-camera][Moving the Camera]]
- - [[#setting-up-the-play-area][Setting up the Play Area]]
- - [[#creating-collectable-objects][Creating Collectable Objects]]
- - [[#collecting-the-pick-up-objects][Collecting the Pick Up Objects]]
- - [[#displaying-the-score-and-text][Displaying the Score and Text]]
- - [[#building-the-game][Building the Game]]
+- [[#setting-up-the-game][Setting up the Game]]
+- [[#moving-the-player][Moving the Player]]
+- [[#moving-the-camera][Moving the Camera]]
+- [[#setting-up-the-play-area][Setting up the Play Area]]
+- [[#creating-collectable-objects][Creating Collectable Objects]]
+- [[#collecting-the-pick-up-objects][Collecting the Pick Up Objects]]
+- [[#displaying-the-score-and-text][Displaying the Score and Text]]
+- [[#building-the-game][Building the Game]]
 
 * Setting up the Game
-[[file:img/screenshot_2017-04-23_14-41-23.png]]
+[[file:_img/screenshot_2017-04-23_14-41-23.png]]
 
-[[file:img/screenshot_2017-04-23_14-44-06.png]]
+[[file:_img/screenshot_2017-04-23_14-44-06.png]]
 
-[[file:img/screenshot_2017-04-23_14-45-10.png]]
+[[file:_img/screenshot_2017-04-23_14-45-10.png]]
 
-[[file:img/screenshot_2017-04-23_14-45-44.png]]
+[[file:_img/screenshot_2017-04-23_14-45-44.png]]
 * Moving the Player
-[[file:img/screenshot_2017-04-23_14-48-05.png]]
+[[file:_img/screenshot_2017-04-23_14-48-05.png]]
 
-[[file:img/screenshot_2017-04-23_14-49-23.png]]
+[[file:_img/screenshot_2017-04-23_14-49-23.png]]
 
 
-[[file:img/screenshot_2017-04-23_15-04-00.png]]
+[[file:_img/screenshot_2017-04-23_15-04-00.png]]
 
-[[file:img/screenshot_2017-04-23_15-03-51.png]]
+[[file:_img/screenshot_2017-04-23_15-03-51.png]]
 * Moving the Camera
-[[file:img/screenshot_2017-04-23_15-05-39.png]]
+[[file:_img/screenshot_2017-04-23_15-05-39.png]]
 
-[[file:img/screenshot_2017-04-23_15-09-58.png]]
+[[file:_img/screenshot_2017-04-23_15-09-58.png]]
 
 * Setting up the Play Area
-[[file:img/screenshot_2017-04-23_15-13-19.png]]
+[[file:_img/screenshot_2017-04-23_15-13-19.png]]
 
-[[file:img/screenshot_2017-04-23_15-16-53.png]]
+[[file:_img/screenshot_2017-04-23_15-16-53.png]]
 
-[[file:img/screenshot_2017-04-23_15-18-04.png]]
+[[file:_img/screenshot_2017-04-23_15-18-04.png]]
 
-[[file:img/screenshot_2017-04-23_15-19-42.png]]
+[[file:_img/screenshot_2017-04-23_15-19-42.png]]
 
 * Creating Collectable Objects
-[[file:img/screenshot_2017-04-23_15-21-03.png]]
+[[file:_img/screenshot_2017-04-23_15-21-03.png]]
 
-[[file:img/screenshot_2017-04-23_15-24-42.png]]
+[[file:_img/screenshot_2017-04-23_15-24-42.png]]
 
-[[file:img/screenshot_2017-04-23_15-26-11.png]]
+[[file:_img/screenshot_2017-04-23_15-26-11.png]]
 
-[[file:img/screenshot_2017-04-23_15-27-13.png]]
+[[file:_img/screenshot_2017-04-23_15-27-13.png]]
 
-[[file:img/screenshot_2017-04-23_15-27-56.png]]
+[[file:_img/screenshot_2017-04-23_15-27-56.png]]
 
-[[file:img/screenshot_2017-04-23_15-28-05.png]]
+[[file:_img/screenshot_2017-04-23_15-28-05.png]]
 
-[[file:img/screenshot_2017-04-23_15-31-44.png]]
+[[file:_img/screenshot_2017-04-23_15-31-44.png]]
 
 Drag greenbox to keep parallel with XZ plane
 
-[[file:img/screenshot_2017-04-23_15-39-11.png]]
+[[file:_img/screenshot_2017-04-23_15-39-11.png]]
 
 * Collecting the Pick Up Objects
-[[file:img/screenshot_2017-04-23_15-42-11.png]]
+[[file:_img/screenshot_2017-04-23_15-42-11.png]]
 
-[[file:img/screenshot_2017-04-23_15-49-01.png]]
+[[file:_img/screenshot_2017-04-23_15-49-01.png]]
 
-[[file:img/screenshot_2017-04-23_15-49-47.png]]
+[[file:_img/screenshot_2017-04-23_15-49-47.png]]
 
-[[file:img/screenshot_2017-04-23_15-50-19.png]]
+[[file:_img/screenshot_2017-04-23_15-50-19.png]]
 
 Tags are case sensitive.
 
-[[file:img/screenshot_2017-04-23_15-51-02.png]]
+[[file:_img/screenshot_2017-04-23_15-51-02.png]]
 
 
-[[file:img/screenshot_2017-04-23_15-54-04.png]]
+[[file:_img/screenshot_2017-04-23_15-54-04.png]]
 
 There are two types of collider, static and dynamic.
 
-[[file:img/screenshot_2017-04-23_15-56-18.png]]
+[[file:_img/screenshot_2017-04-23_15-56-18.png]]
 
 Without Rigidbody, Objects are considered as static.
 Static objects are cached. But our Pick ups are rotating,
 so every frame, the cache will be updated. It's inefficient.
 So we need to add Rigidbody to our Pick Ups to prevent from caching. 
 
-[[file:img/screenshot_2017-04-23_15-58-52.png]]
+[[file:_img/screenshot_2017-04-23_15-58-52.png]]
 
 If Is Kinematic checked, Will not react to physics.
 
-[[file:img/screenshot_2017-04-23_15-59-10.png]]
+[[file:_img/screenshot_2017-04-23_15-59-10.png]]
 * Displaying the Score and Text
-[[file:img/screenshot_2017-04-23_16-07-41.png]]
+[[file:_img/screenshot_2017-04-23_16-07-41.png]]
 
-[[file:img/screenshot_2017-04-23_16-08-39.png]]
+[[file:_img/screenshot_2017-04-23_16-08-39.png]]
 
 All UI elements must be the child of a canvas object to behave correctly.
 
-[[file:img/screenshot_2017-04-23_16-11-52.png]]
+[[file:_img/screenshot_2017-04-23_16-11-52.png]]
 
-[[file:img/screenshot_2017-04-23_16-12-23.png]]
+[[file:_img/screenshot_2017-04-23_16-12-23.png]]
 
 
-[[file:img/screenshot_2017-04-23_16-15-51.png]]
+[[file:_img/screenshot_2017-04-23_16-15-51.png]]
 
-[[file:img/screenshot_2017-04-23_16-16-40.png]]
+[[file:_img/screenshot_2017-04-23_16-16-40.png]]
 
-[[file:img/screenshot_2017-04-23_16-16-52.png]]
+[[file:_img/screenshot_2017-04-23_16-16-52.png]]
 
-[[file:img/screenshot_2017-04-23_16-17-34.png]]
+[[file:_img/screenshot_2017-04-23_16-17-34.png]]
 
-[[file:img/screenshot_2017-04-23_16-21-53.png]]
+[[file:_img/screenshot_2017-04-23_16-21-53.png]]
 
 * Building the Game
-[[file:img/screenshot_2017-04-23_16-24-38.png]]
+[[file:_img/screenshot_2017-04-23_16-24-38.png]]
 
-[[file:img/screenshot_2017-04-23_16-26-03.png]]
+[[file:_img/screenshot_2017-04-23_16-26-03.png]]

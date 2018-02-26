@@ -101,246 +101,246 @@
 * Selectors and Visual Rules
 ** CSS Setup and Selectors
 *** Intro to CSS
-[[file:img/screenshot_2018-02-22_08-00-10.png]]
+[[file:_img/screenshot_2018-02-22_08-00-10.png]]
 
 *** Inline Styles
-[[file:img/screenshot_2018-02-22_08-01-29.png]]
+[[file:_img/screenshot_2018-02-22_08-01-29.png]]
 
 *** The <style> Tag
-[[file:img/screenshot_2018-02-22_08-02-59.png]]
+[[file:_img/screenshot_2018-02-22_08-02-59.png]]
 
 *** Linking the CSS File
-[[file:img/screenshot_2018-02-22_08-05-57.png]]
+[[file:_img/screenshot_2018-02-22_08-05-57.png]]
 
-[[file:img/screenshot_2018-02-22_08-07-13.png]]
+[[file:_img/screenshot_2018-02-22_08-07-13.png]]
 
 *** Class Name
-[[file:img/screenshot_2018-02-22_08-10-47.png]]
+[[file:_img/screenshot_2018-02-22_08-10-47.png]]
 
 *** Multiple Classes
-[[file:img/screenshot_2018-02-22_08-12-36.png]]
+[[file:_img/screenshot_2018-02-22_08-12-36.png]]
 
 *** ID Name
-[[file:img/screenshot_2018-02-22_08-14-04.png]]
+[[file:_img/screenshot_2018-02-22_08-14-04.png]]
 
 *** Classes and IDs
-[[file:img/screenshot_2018-02-22_08-16-43.png]]
+[[file:_img/screenshot_2018-02-22_08-16-43.png]]
 
 *** Specificity
-[[file:img/screenshot_2018-02-22_08-18-39.png]]
+[[file:_img/screenshot_2018-02-22_08-18-39.png]]
 
-[[file:img/screenshot_2018-02-22_08-18-50.png]]
+[[file:_img/screenshot_2018-02-22_08-18-50.png]]
 
-[[file:img/screenshot_2018-02-22_08-19-17.png]]
+[[file:_img/screenshot_2018-02-22_08-19-17.png]]
 
-[[file:img/screenshot_2018-02-22_08-19-47.png]]
+[[file:_img/screenshot_2018-02-22_08-19-47.png]]
 
 *** Chaining Selectors
-[[file:img/screenshot_2018-02-22_08-22-01.png]]
+[[file:_img/screenshot_2018-02-22_08-22-01.png]]
 
 *** Nested Elements
-[[file:img/screenshot_2018-02-22_08-24-59.png]]
+[[file:_img/screenshot_2018-02-22_08-24-59.png]]
 
 *** Chaining and Specificity
-[[file:img/screenshot_2018-02-22_08-50-31.png]]
+[[file:_img/screenshot_2018-02-22_08-50-31.png]]
 
 *** Important
-[[file:img/screenshot_2018-02-22_08-51-58.png]]
+[[file:_img/screenshot_2018-02-22_08-51-58.png]]
 
-[[file:img/screenshot_2018-02-22_08-52-52.png]]
+[[file:_img/screenshot_2018-02-22_08-52-52.png]]
 
-[[file:img/screenshot_2018-02-22_08-53-29.png]]
+[[file:_img/screenshot_2018-02-22_08-53-29.png]]
 
 *** Multiple Selectors
-[[file:img/screenshot_2018-02-22_08-54-31.png]]
+[[file:_img/screenshot_2018-02-22_08-54-31.png]]
 ** CSS Visual Rules
 *** Font Family
 - https://www.cssfontstack.com/
 
-[[file:img/screenshot_2018-02-24_15-07-30.png]]
+[[file:_img/screenshot_2018-02-24_15-07-30.png]]
 
 *** Font Weight
-[[file:img/screenshot_2018-02-24_15-09-40.png]]
+[[file:_img/screenshot_2018-02-24_15-09-40.png]]
 
 *** Color
-[[file:img/screenshot_2018-02-24_15-14-03.png]]
+[[file:_img/screenshot_2018-02-24_15-14-03.png]]
 
 *** Opacity
-[[file:img/screenshot_2018-02-24_15-15-26.png]]
+[[file:_img/screenshot_2018-02-24_15-15-26.png]]
 
 *** Background Image
-[[file:img/screenshot_2018-02-24_15-16-35.png]]
+[[file:_img/screenshot_2018-02-24_15-16-35.png]]
 
 * The Box Model
 ** The Box Model
 *** The Box Model
-[[file:img/screenshot_2018-02-24_15-20-18.png]]
+[[file:_img/screenshot_2018-02-24_15-20-18.png]]
 
-[[file:img/screenshot_2018-02-24_15-20-59.png]]
+[[file:_img/screenshot_2018-02-24_15-20-59.png]]
 
 *** Borders
 - https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 
-[[file:img/screenshot_2018-02-24_15-23-09.png]]
+[[file:_img/screenshot_2018-02-24_15-23-09.png]]
 
 The default border is ~medium none color~
 
 *** Border Radius
-[[file:img/screenshot_2018-02-24_15-26-02.png]]
+[[file:_img/screenshot_2018-02-24_15-26-02.png]]
 
 *** Padding II
-[[file:img/screenshot_2018-02-24_15-30-51.png]]
+[[file:_img/screenshot_2018-02-24_15-30-51.png]]
 
-[[file:img/screenshot_2018-02-24_15-31-36.png]]
+[[file:_img/screenshot_2018-02-24_15-31-36.png]]
 
 *** Auto
-[[file:img/screenshot_2018-02-24_15-35-06.png]]
+[[file:_img/screenshot_2018-02-24_15-35-06.png]]
 
-[[file:img/screenshot_2018-02-24_15-35-35.png]]
+[[file:_img/screenshot_2018-02-24_15-35-35.png]]
 
 *** Margin Collapse
-[[file:img/screenshot_2018-02-24_15-37-33.png]]
+[[file:_img/screenshot_2018-02-24_15-37-33.png]]
 
-[[file:img/screenshot_2018-02-24_15-39-16.png]]
+[[file:_img/screenshot_2018-02-24_15-39-16.png]]
 
 *** Minimum and Maximum Height and Width
-[[file:img/screenshot_2018-02-24_16-18-11.png]]
+[[file:_img/screenshot_2018-02-24_16-18-11.png]]
 
 *** Overflow
-[[file:img/screenshot_2018-02-24_16-21-31.png]]
+[[file:_img/screenshot_2018-02-24_16-21-31.png]]
 
-[[file:img/screenshot_2018-02-24_16-22-17.png]]
+[[file:_img/screenshot_2018-02-24_16-22-17.png]]
 
 *** Resetting Defaults
-[[file:img/screenshot_2018-02-24_16-23-55.png]]
+[[file:_img/screenshot_2018-02-24_16-23-55.png]]
 
-[[file:img/screenshot_2018-02-24_16-24-59.png]]
+[[file:_img/screenshot_2018-02-24_16-24-59.png]]
 
 *** Visibility
-[[file:img/screenshot_2018-02-24_16-27-05.png]]
+[[file:_img/screenshot_2018-02-24_16-27-05.png]]
 
-[[file:img/screenshot_2018-02-24_16-26-54.png]]
+[[file:_img/screenshot_2018-02-24_16-26-54.png]]
 ** Changing the Box Model
 *** Box Model: Content-Box
 
-[[file:img/screenshot_2018-02-25_11-53-17.png]]
+[[file:_img/screenshot_2018-02-25_11-53-17.png]]
 
 (Default)
 
 *** Box Model: Border-Box
-[[file:img/screenshot_2018-02-25_11-54-32.png]]
+[[file:_img/screenshot_2018-02-25_11-54-32.png]]
 
-[[file:img/screenshot_2018-02-25_11-54-54.png]]
+[[file:_img/screenshot_2018-02-25_11-54-54.png]]
 
-[[file:img/screenshot_2018-02-25_11-55-20.png]]
+[[file:_img/screenshot_2018-02-25_11-55-20.png]]
 
-[[file:img/screenshot_2018-02-25_11-55-46.png]]
+[[file:_img/screenshot_2018-02-25_11-55-46.png]]
 * CSS Display and Positioning
 ** CSS Display and Positioning
 *** Position
-[[file:img/screenshot_2018-02-25_11-58-53.png]]
+[[file:_img/screenshot_2018-02-25_11-58-53.png]]
 
 *** Position: Relative
-[[file:img/screenshot_2018-02-25_12-00-08.png]]
+[[file:_img/screenshot_2018-02-25_12-00-08.png]]
 
 *** Position: Fixed
-[[file:img/screenshot_2018-02-25_12-03-45.png]]
+[[file:_img/screenshot_2018-02-25_12-03-45.png]]
 
 *** Z-Index
-[[file:img/screenshot_2018-02-25_12-05-44.png]]
+[[file:_img/screenshot_2018-02-25_12-05-44.png]]
 
-[[file:img/screenshot_2018-02-25_12-06-20.png]]
+[[file:_img/screenshot_2018-02-25_12-06-20.png]]
 
 *** Inline Display
-[[file:img/screenshot_2018-02-25_12-07-47.png]]
+[[file:_img/screenshot_2018-02-25_12-07-47.png]]
 
 *** Inline-Block Display
-[[file:img/screenshot_2018-02-25_16-27-55.png]]
+[[file:_img/screenshot_2018-02-25_16-27-55.png]]
 
-[[file:img/screenshot_2018-02-25_16-28-38.png]]
+[[file:_img/screenshot_2018-02-25_16-28-38.png]]
 
-[[file:img/screenshot_2018-02-25_16-32-40.png]]
+[[file:_img/screenshot_2018-02-25_16-32-40.png]]
 
 *** Float
-[[file:img/screenshot_2018-02-25_23-32-18.png]]
+[[file:_img/screenshot_2018-02-25_23-32-18.png]]
 
-[[file:img/screenshot_2018-02-25_23-32-50.png]]
+[[file:_img/screenshot_2018-02-25_23-32-50.png]]
 
-[[file:img/screenshot_2018-02-25_23-33-23.png]]
+[[file:_img/screenshot_2018-02-25_23-33-23.png]]
 
 *** Clear
-[[file:img/screenshot_2018-02-25_23-34-23.png]]
+[[file:_img/screenshot_2018-02-25_23-34-23.png]]
 * Color
 ** CSS Color
 *** Hexademical
 - https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 
 *** RGB Colors
-[[file:img/screenshot_2018-02-25_23-43-17.png]]
+[[file:_img/screenshot_2018-02-25_23-43-17.png]]
 
 *** Hue, Saturation, and Lightness
 - http://dba.med.sc.edu/price/irf/Adobe_tg/models/images/hsl_top.JPG
 
-[[file:img/screenshot_2018-02-26_11-01-06.png]]
+[[file:_img/screenshot_2018-02-26_11-01-06.png]]
 
 *** Opacity and Alpha
-[[file:img/screenshot_2018-02-26_11-04-45.png]]
+[[file:_img/screenshot_2018-02-26_11-04-45.png]]
 
-[[file:img/screenshot_2018-02-26_11-05-21.png]]
+[[file:_img/screenshot_2018-02-26_11-05-21.png]]
 
-[[file:img/screenshot_2018-02-26_11-04-59.png]]
+[[file:_img/screenshot_2018-02-26_11-04-59.png]]
 
-[[file:img/screenshot_2018-02-26_11-05-39.png]]
+[[file:_img/screenshot_2018-02-26_11-05-39.png]]
 
 * Typography
 ** CSS Typography
 *** Font Family
-[[file:img/screenshot_2018-02-26_11-08-41.png]]
+[[file:_img/screenshot_2018-02-26_11-08-41.png]]
 
 *** Font Weight II
-[[file:img/screenshot_2018-02-26_11-11-08.png]]
+[[file:_img/screenshot_2018-02-26_11-11-08.png]]
 
 *** Word Spacing
-[[file:img/screenshot_2018-02-26_11-13-30.png]]
+[[file:_img/screenshot_2018-02-26_11-13-30.png]]
 
-[[file:img/screenshot_2018-02-26_11-15-19.png]]
+[[file:_img/screenshot_2018-02-26_11-15-19.png]]
 
 *** Letter Spacing
-[[file:img/screenshot_2018-02-26_11-16-48.png]]
+[[file:_img/screenshot_2018-02-26_11-16-48.png]]
 
 *** Text Transformation
-[[file:img/screenshot_2018-02-26_11-18-43.png]]
+[[file:_img/screenshot_2018-02-26_11-18-43.png]]
 
 *** Text Alignment
-[[file:img/screenshot_2018-02-26_11-21-06.png]]
+[[file:_img/screenshot_2018-02-26_11-21-06.png]]
 
 *** Line Height Anatomy
-[[file:img/screenshot_2018-02-26_11-35-10.png]]
+[[file:_img/screenshot_2018-02-26_11-35-10.png]]
 
 *** Line Height
-[[file:img/screenshot_2018-02-26_11-36-42.png]]
+[[file:_img/screenshot_2018-02-26_11-36-42.png]]
 
 *** Serif and Sans Serif
-[[file:img/screenshot_2018-02-26_11-37-41.png]]
+[[file:_img/screenshot_2018-02-26_11-37-41.png]]
 
 *** Fallback Fonts
-[[file:img/screenshot_2018-02-26_11-40-15.png]]
+[[file:_img/screenshot_2018-02-26_11-40-15.png]]
 
 *** Linking Fonts I
 - https://fonts.google.com/
 
-[[file:img/screenshot_2018-02-26_11-44-52.png]]
+[[file:_img/screenshot_2018-02-26_11-44-52.png]]
 
 *** Linking Fonts II
-[[file:img/screenshot_2018-02-26_11-45-36.png]]
+[[file:_img/screenshot_2018-02-26_11-45-36.png]]
 
 *** Font-Face I
-[[file:img/screenshot_2018-02-26_11-50-24.png]]
+[[file:_img/screenshot_2018-02-26_11-50-24.png]]
 
 *** Font-Face III
 - https://www.fontsquirrel.com/
 
-[[file:img/screenshot_2018-02-26_11-53-25.png]]
+[[file:_img/screenshot_2018-02-26_11-53-25.png]]
 
 * CSS Grid
 ** CSS Grid Essentials
@@ -349,117 +349,117 @@ The default border is ~medium none color~
 - https://caniuse.com/#feat=css-grid
 
 *** Creating a Grid
-[[file:img/screenshot_2018-02-26_14-03-40.png]]
+[[file:_img/screenshot_2018-02-26_14-03-40.png]]
 
 *** Creating Columns
-[[file:img/screenshot_2018-02-26_14-09-12.png]]
+[[file:_img/screenshot_2018-02-26_14-09-12.png]]
 
-[[file:img/screenshot_2018-02-26_14-10-45.png]]
+[[file:_img/screenshot_2018-02-26_14-10-45.png]]
 
 
-[[file:img/screenshot_2018-02-26_14-11-06.png]]
+[[file:_img/screenshot_2018-02-26_14-11-06.png]]
 
 *** Creating Rows
-[[file:img/screenshot_2018-02-26_14-12-49.png]]
+[[file:_img/screenshot_2018-02-26_14-12-49.png]]
 
-[[file:img/screenshot_2018-02-26_14-13-23.png]]
+[[file:_img/screenshot_2018-02-26_14-13-23.png]]
 
 *** Grid Template
-[[file:img/screenshot_2018-02-26_14-14-36.png]]
+[[file:_img/screenshot_2018-02-26_14-14-36.png]]
 
 *** Fraction
-[[file:img/screenshot_2018-02-26_14-16-11.png]]
+[[file:_img/screenshot_2018-02-26_14-16-11.png]]
 
-[[file:img/screenshot_2018-02-26_14-16-53.png]]
+[[file:_img/screenshot_2018-02-26_14-16-53.png]]
 
 *** Repeat
-[[file:img/screenshot_2018-02-26_14-19-52.png]]
+[[file:_img/screenshot_2018-02-26_14-19-52.png]]
 
-[[file:img/screenshot_2018-02-26_14-20-32.png]]
+[[file:_img/screenshot_2018-02-26_14-20-32.png]]
 
 *** minmax
-[[file:img/screenshot_2018-02-26_14-38-25.png]]
+[[file:_img/screenshot_2018-02-26_14-38-25.png]]
 
 *** Grid Gap
-[[file:img/screenshot_2018-02-26_14-40-48.png]]
+[[file:_img/screenshot_2018-02-26_14-40-48.png]]
 
-[[file:img/screenshot_2018-02-26_14-42-47.png]]
+[[file:_img/screenshot_2018-02-26_14-42-47.png]]
 
 *** Grid Items
-[[file:img/screenshot_2018-02-26_14-44-12.png]]
+[[file:_img/screenshot_2018-02-26_14-44-12.png]]
 
 *** Multiple Row Items
 - https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start
 
-[[file:img/screenshot_2018-02-26_14-45-57.png]]
+[[file:_img/screenshot_2018-02-26_14-45-57.png]]
 
 *** Grid Row
-[[file:img/screenshot_2018-02-26_14-47-59.png]]
+[[file:_img/screenshot_2018-02-26_14-47-59.png]]
 
-[[file:img/screenshot_2018-02-26_14-48-25.png]]
+[[file:_img/screenshot_2018-02-26_14-48-25.png]]
 
 *** Grid Column
-[[file:img/screenshot_2018-02-26_14-49-20.png]]
+[[file:_img/screenshot_2018-02-26_14-49-20.png]]
 
-[[file:img/screenshot_2018-02-26_14-49-39.png]]
+[[file:_img/screenshot_2018-02-26_14-49-39.png]]
 
 *** Grid Area
-[[file:img/screenshot_2018-02-26_14-52-13.png]]
+[[file:_img/screenshot_2018-02-26_14-52-13.png]]
 
 ** Advanced CSS Grid
 *** Grid Template Areas
-[[file:img/screenshot_2018-02-26_15-04-15.png]]
+[[file:_img/screenshot_2018-02-26_15-04-15.png]]
 
-[[file:img/screenshot_2018-02-26_15-04-03.png]]
+[[file:_img/screenshot_2018-02-26_15-04-03.png]]
 
-[[file:img/screenshot_2018-02-26_15-04-39.png]]
+[[file:_img/screenshot_2018-02-26_15-04-39.png]]
 *** Overlapping Elements
-[[file:img/screenshot_2018-02-26_15-10-43.png]]
+[[file:_img/screenshot_2018-02-26_15-10-43.png]]
 
-[[file:img/screenshot_2018-02-26_15-10-55.png]]
+[[file:_img/screenshot_2018-02-26_15-10-55.png]]
 
 *** Justify Items
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout#Justifying_Items_on_the_Inline_or_Row_Axis
 
-[[file:img/screenshot_2018-02-26_15-14-57.png]]
+[[file:_img/screenshot_2018-02-26_15-14-57.png]]
 
-[[file:img/screenshot_2018-02-26_15-15-45.png]]
+[[file:_img/screenshot_2018-02-26_15-15-45.png]]
 
-[[file:img/screenshot_2018-02-26_15-17-34.png]]
+[[file:_img/screenshot_2018-02-26_15-17-34.png]]
 
 *** Justify Content
-[[file:img/screenshot_2018-02-26_15-19-58.png]]
+[[file:_img/screenshot_2018-02-26_15-19-58.png]]
 
-[[file:img/screenshot_2018-02-26_15-21-21.png]]
+[[file:_img/screenshot_2018-02-26_15-21-21.png]]
 
-[[file:img/screenshot_2018-02-26_15-22-01.png]]
+[[file:_img/screenshot_2018-02-26_15-22-01.png]]
 
 With ~justify-content: center;~:
-[[file:img/screenshot_2018-02-26_15-23-10.png]]
+[[file:_img/screenshot_2018-02-26_15-23-10.png]]
 *** Align Items
-[[file:img/screenshot_2018-02-26_15-51-08.png]]
+[[file:_img/screenshot_2018-02-26_15-51-08.png]]
 
-[[file:img/screenshot_2018-02-26_15-52-21.png]]
+[[file:_img/screenshot_2018-02-26_15-52-21.png]]
 
-[[file:img/screenshot_2018-02-26_15-53-19.png]]
+[[file:_img/screenshot_2018-02-26_15-53-19.png]]
 
 With ~align-items: center;~:
-[[file:img/screenshot_2018-02-26_15-53-58.png]]
+[[file:_img/screenshot_2018-02-26_15-53-58.png]]
 *** Align Content
-[[file:img/screenshot_2018-02-26_15-54-53.png]]
+[[file:_img/screenshot_2018-02-26_15-54-53.png]]
 
 *** Justify Self and Align Self
-[[file:img/screenshot_2018-02-26_15-56-51.png]]
+[[file:_img/screenshot_2018-02-26_15-56-51.png]]
 
 *** Implicit vs. Explicit Grid
-[[file:img/screenshot_2018-02-26_15-59-20.png]]
+[[file:_img/screenshot_2018-02-26_15-59-20.png]]
 
 *** Grid Auto Rows and Grid Auto Columns
-[[file:img/screenshot_2018-02-26_15-59-48.png]]
+[[file:_img/screenshot_2018-02-26_15-59-48.png]]
 
-[[file:img/screenshot_2018-02-26_16-00-01.png]]
+[[file:_img/screenshot_2018-02-26_16-00-01.png]]
 
-[[file:img/screenshot_2018-02-26_16-00-51.png]]
+[[file:_img/screenshot_2018-02-26_16-00-51.png]]
 
 *** Grid Auto Flow
-[[file:img/screenshot_2018-02-26_16-02-27.png]]
+[[file:_img/screenshot_2018-02-26_16-02-27.png]]

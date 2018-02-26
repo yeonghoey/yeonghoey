@@ -18,11 +18,11 @@
 - https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange
 - Used to encrypt the entire session
 
-[[file:img/screenshot_2017-06-18_10-24-59.png]]
+[[file:_img/screenshot_2017-06-18_10-24-59.png]]
 
 *** Authenticates the User's Access
 - https://en.wikipedia.org/wiki/RSA_(cryptosystem)
-[[file:img/screenshot_2017-06-18_10-28-42.png]]
+[[file:_img/screenshot_2017-06-18_10-28-42.png]]
 
 - This process is mostly by RSA algorithm
   - (m^{e})^{d}\equiv m (mod n) 

@@ -31,7 +31,7 @@
   p.current += 1
 #+END_SRC
 
-[[file:img/screenshot_2018-01-07_17-30-58.png]]
+[[file:_img/screenshot_2018-01-07_17-30-58.png]]
 
 * Terminology
 * Topics
@@ -54,7 +54,7 @@
 #+END_SRC
 
 - ~AttrMap~
-[[file:img/screenshot_2018-01-07_17-18-12.png]]
+[[file:_img/screenshot_2018-01-07_17-18-12.png]]
 
 #+BEGIN_SRC python
   # While u"hello" text will appear with display attribute 'attr1',
@@ -66,13 +66,13 @@
 ** Widgets
 - http://urwid.org/manual/widgets.html
 
-[[file:img/screenshot_2018-01-07_16-43-14.png]]
+[[file:_img/screenshot_2018-01-07_16-43-14.png]]
 
 - The topmost widget is always a box widget.
 
-[[file:img/screenshot_2018-01-07_16-43-50.png]]
+[[file:_img/screenshot_2018-01-07_16-43-50.png]]
 
-[[file:img/screenshot_2018-01-07_16-44-25.png]]
+[[file:_img/screenshot_2018-01-07_16-44-25.png]]
 
 - ~Pile~ and ~ListBox~ are both for stacking widgets vertically.
 - Only ~ListBox~ can scroll widgets.
@@ -89,7 +89,7 @@
 ** Handle signals
 - http://urwid.org/tutorial/index.html#signal-handlers
 
-[[file:img/screenshot_2018-01-07_16-36-19.png]]
+[[file:_img/screenshot_2018-01-07_16-36-19.png]]
 
 #+BEGIN_SRC python
   import urwid

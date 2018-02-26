@@ -14,43 +14,43 @@
 ** ngrok
 - https://ngrok.com/
 
-[[file:img/screenshot_2017-07-06_07-59-54.png]]
+[[file:_img/screenshot_2017-07-06_07-59-54.png]]
 
-[[file:img/screenshot_2017-07-06_08-00-17.png]]
+[[file:_img/screenshot_2017-07-06_08-00-17.png]]
 
-[[file:img/screenshot_2017-07-06_08-00-46.png]]
+[[file:_img/screenshot_2017-07-06_08-00-46.png]]
 
 ** Heroku
 - https://www.heroku.com/
 
-[[file:img/screenshot_2017-07-06_08-01-22.png]]
+[[file:_img/screenshot_2017-07-06_08-01-22.png]]
 
-[[file:img/screenshot_2017-07-06_08-01-50.png]]
+[[file:_img/screenshot_2017-07-06_08-01-50.png]]
 
-[[file:img/screenshot_2017-07-06_08-02-05.png]]
+[[file:_img/screenshot_2017-07-06_08-02-05.png]]
 
-[[file:img/screenshot_2017-07-06_08-02-35.png]]
+[[file:_img/screenshot_2017-07-06_08-02-35.png]]
 
 ** Serverless(Zappa)
 - https://github.com/Miserlou/Zappa
 
-[[file:img/screenshot_2017-07-06_08-03-11.png]]
+[[file:_img/screenshot_2017-07-06_08-03-11.png]]
 
-[[file:img/screenshot_2017-07-06_08-03-31.png]]
+[[file:_img/screenshot_2017-07-06_08-03-31.png]]
 
 ** Virtual Machines
 - https://cloud.google.com/compute/
 
-[[file:img/screenshot_2017-07-06_08-04-00.png]]
+[[file:_img/screenshot_2017-07-06_08-04-00.png]]
 
-[[file:img/screenshot_2017-07-06_08-04-31.png]]
+[[file:_img/screenshot_2017-07-06_08-04-31.png]]
 
 ** Docker
 - https://www.docker.com/
 
-[[file:img/screenshot_2017-07-06_08-05-20.png]]
+[[file:_img/screenshot_2017-07-06_08-05-20.png]]
 
-[[file:img/screenshot_2017-07-06_08-05-54.png]]
+[[file:_img/screenshot_2017-07-06_08-05-54.png]]
 
 * Awesome Command Line Tools - Amjith Ramanujam
 - https://youtu.be/hJhZhLg3obk
@@ -60,142 +60,142 @@
 - https://github.com/jonathanslenders/python-prompt-toolkit
 - http://mycli.net/
 
-[[file:img/screenshot_2017-07-03_12-53-58.png]]
+[[file:_img/screenshot_2017-07-03_12-53-58.png]]
 
-[[file:img/screenshot_2017-07-03_12-54-20.png]]
+[[file:_img/screenshot_2017-07-03_12-54-20.png]]
 
-[[file:img/screenshot_2017-07-03_12-54-41.png]]
+[[file:_img/screenshot_2017-07-03_12-54-41.png]]
 
-[[file:img/screenshot_2017-07-03_12-55-06.png]]
+[[file:_img/screenshot_2017-07-03_12-55-06.png]]
 
-[[file:img/screenshot_2017-07-03_12-56-17.png]]
+[[file:_img/screenshot_2017-07-03_12-56-17.png]]
 
 * Cython as a Game Changer for Efficiency - Alex Orlov
 - https://youtu.be/_1MSX7V28Po
 
 - For performance problem:
 
-[[file:img/screenshot_2017-07-06_07-51-02.png]]
+[[file:_img/screenshot_2017-07-06_07-51-02.png]]
 
-[[file:img/screenshot_2017-07-06_07-52-44.png]]
+[[file:_img/screenshot_2017-07-06_07-52-44.png]]
 
 - *Cython* is a superset of the Python programming language, designed to give C-like performance with code which is mostly written in Python.
 
-[[file:img/screenshot_2017-07-06_07-53-07.png]]
+[[file:_img/screenshot_2017-07-06_07-53-07.png]]
 
-[[file:img/screenshot_2017-07-06_07-53-51.png]]
+[[file:_img/screenshot_2017-07-06_07-53-51.png]]
 
-[[file:img/screenshot_2017-07-06_07-54-39.png]]
+[[file:_img/screenshot_2017-07-06_07-54-39.png]]
 
-[[file:img/screenshot_2017-07-06_07-54-55.png]]
+[[file:_img/screenshot_2017-07-06_07-54-55.png]]
 
-[[file:img/screenshot_2017-07-06_07-55-45.png]]
+[[file:_img/screenshot_2017-07-06_07-55-45.png]]
 
 * How documentation works, and how to make it work for your project - Daniele Procida
 - https://youtu.be/azf6yzuJt54
 - https://www.divio.com/en/blog/documentation/
 
-[[file:img/screenshot_2017-07-04_12-59-41.png]]
+[[file:_img/screenshot_2017-07-04_12-59-41.png]]
 
-[[file:img/screenshot_2017-07-04_12-59-58.png]]
+[[file:_img/screenshot_2017-07-04_12-59-58.png]]
 
 * Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger
 - https://youtu.be/npw4s1QTmPg
 - https://dl.dropboxusercontent.com/u/3967849/sfmu2/_build/html/recipe.html
 
 ** Intro
-[[file:img/screenshot_2017-06-25_18-53-21.png]]
+[[file:_img/screenshot_2017-06-25_18-53-21.png]]
 
-[[file:img/screenshot_2017-06-25_18-53-53.png]]
+[[file:_img/screenshot_2017-06-25_18-53-53.png]]
 
 ** Separate Chaining
 - Basical concept of hashing
 
-[[file:img/screenshot_2017-06-25_18-54-28.png]]
+[[file:_img/screenshot_2017-06-25_18-54-28.png]]
 
-[[file:img/screenshot_2017-06-25_18-54-37.png]]
+[[file:_img/screenshot_2017-06-25_18-54-37.png]]
 
-[[file:img/screenshot_2017-06-25_18-55-04.png]]
+[[file:_img/screenshot_2017-06-25_18-55-04.png]]
 
 ** Dynamic Resizing
 - More entries, more buckets, which incurs resizing
 - When resizing, hash values of all entries requied
 - Make resizing faster by caching the hash value,
 
-[[file:img/screenshot_2017-06-25_18-56-02.png]]
+[[file:_img/screenshot_2017-06-25_18-56-02.png]]
 
-[[file:img/screenshot_2017-06-25_18-56-28.png]]
+[[file:_img/screenshot_2017-06-25_18-56-28.png]]
 
-[[file:img/screenshot_2017-06-25_18-56-43.png]]
+[[file:_img/screenshot_2017-06-25_18-56-43.png]]
 
 ** Faster Matching
 - Do cheap equality tests first
 
-[[file:img/screenshot_2017-06-25_18-57-02.png]]
+[[file:_img/screenshot_2017-06-25_18-57-02.png]]
 
 ** Open Addressing
 - Flatten entries from the separate chaining
 
-[[file:img/screenshot_2017-06-25_18-57-33.png]]
+[[file:_img/screenshot_2017-06-25_18-57-33.png]]
 
-[[file:img/screenshot_2017-06-25_18-57-56.png]]
+[[file:_img/screenshot_2017-06-25_18-57-56.png]]
 
 ** Deleted Entries
-[[file:img/screenshot_2017-06-25_18-58-16.png]]
+[[file:_img/screenshot_2017-06-25_18-58-16.png]]
 
 ** Multiple Hashing
 - Linear probing will end up with catastrophic linear pile-up
 - Re-hash to other locations based on the hash value and the number of probes
 
-[[file:img/screenshot_2017-06-25_18-58-54.png]]
+[[file:_img/screenshot_2017-06-25_18-58-54.png]]
 
-[[file:img/screenshot_2017-06-25_18-59-11.png]]
+[[file:_img/screenshot_2017-06-25_18-59-11.png]]
 
 ** Early-Out For Lookups
 - versioning for dict
 
-[[file:img/screenshot_2017-06-25_18-59-32.png]]
+[[file:_img/screenshot_2017-06-25_18-59-32.png]]
 
 ** Compact Dict
-[[file:img/screenshot_2017-06-25_18-59-55.png]]
+[[file:_img/screenshot_2017-06-25_18-59-55.png]]
 
-[[file:img/screenshot_2017-06-25_19-00-44.png]]
+[[file:_img/screenshot_2017-06-25_19-00-44.png]]
 
 ** Key Sharing Dictionary
 - Share hash values and keys
 
-[[file:img/screenshot_2017-06-25_19-01-42.png]]
+[[file:_img/screenshot_2017-06-25_19-01-42.png]]
 
-[[file:img/screenshot_2017-06-25_19-02-11.png]]
+[[file:_img/screenshot_2017-06-25_19-02-11.png]]
 
-[[file:img/screenshot_2017-06-25_19-01-51.png]]
+[[file:_img/screenshot_2017-06-25_19-01-51.png]]
 
 * Static Types for Python - Jukka Lehtosalo, David Fisher
 - https://www.youtube.com/watch?v=7ZbwZgrXnwY
 
 ** Motivation
-[[file:img/screenshot_2017-06-30_10-23-57.png]]
+[[file:_img/screenshot_2017-06-30_10-23-57.png]]
 
-[[file:img/screenshot_2017-06-30_10-24-26.png]]
+[[file:_img/screenshot_2017-06-30_10-24-26.png]]
 
-[[file:img/screenshot_2017-06-30_10-24-41.png]]
+[[file:_img/screenshot_2017-06-30_10-24-41.png]]
 
-[[file:img/screenshot_2017-06-30_10-24-55.png]]
+[[file:_img/screenshot_2017-06-30_10-24-55.png]]
 
 ** Demo
-[[file:img/screenshot_2017-06-30_10-25-31.png]]
+[[file:_img/screenshot_2017-06-30_10-25-31.png]]
 
 ** How mypy works
-[[file:img/screenshot_2017-06-30_10-27-52.png]]
+[[file:_img/screenshot_2017-06-30_10-27-52.png]]
 
 ** Annotating a codebase
-[[file:img/screenshot_2017-06-30_10-29-02.png]]
+[[file:_img/screenshot_2017-06-30_10-29-02.png]]
 
 - Instead, use bottom-up approach:
 
-[[file:img/screenshot_2017-06-30_10-29-33.png]]
+[[file:_img/screenshot_2017-06-30_10-29-33.png]]
 
-[[file:img/screenshot_2017-06-30_10-29-58.png]]
+[[file:_img/screenshot_2017-06-30_10-29-58.png]]
 
 #+BEGIN_SRC shell
   $ mypy util.py
@@ -204,19 +204,19 @@
 #+END_SRC
 
 - Even though, there are some cases that need ignore imports
-[[file:img/screenshot_2017-06-30_10-31-42.png]]
+[[file:_img/screenshot_2017-06-30_10-31-42.png]]
 
 ** Keep your code mypy clean
-[[file:img/screenshot_2017-06-30_10-32-12.png]]
+[[file:_img/screenshot_2017-06-30_10-32-12.png]]
 
-[[file:img/screenshot_2017-06-30_10-32-31.png]]
+[[file:_img/screenshot_2017-06-30_10-32-31.png]]
 
 ** mypy at Dropbox
-[[file:img/screenshot_2017-06-30_10-32-54.png]]
+[[file:_img/screenshot_2017-06-30_10-32-54.png]]
 
-[[file:img/screenshot_2017-06-30_10-33-04.png]]
+[[file:_img/screenshot_2017-06-30_10-33-04.png]]
 
-[[file:img/screenshot_2017-06-30_10-33-20.png]]
+[[file:_img/screenshot_2017-06-30_10-33-20.png]]
 
 * The Gilectomy How's It Going - Larry Hastings
 - https://www.youtube.com/watch?v=pLqv11ScGsQ
@@ -224,40 +224,40 @@
 * The Python Visualization Landscape - Jake VanderPlas 
 - https://youtu.be/FytuB8nFHPQ
 
-[[file:img/screenshot_2017-08-23_23-07-05.png]]
+[[file:_img/screenshot_2017-08-23_23-07-05.png]]
 
-[[file:img/screenshot_2017-08-23_23-07-37.png]]
+[[file:_img/screenshot_2017-08-23_23-07-37.png]]
 
-[[file:img/screenshot_2017-08-23_23-07-58.png]]
+[[file:_img/screenshot_2017-08-23_23-07-58.png]]
 
-[[file:img/screenshot_2017-08-23_23-08-23.png]]
+[[file:_img/screenshot_2017-08-23_23-08-23.png]]
 
-[[file:img/screenshot_2017-08-23_23-08-55.png]]
+[[file:_img/screenshot_2017-08-23_23-08-55.png]]
 
-[[file:img/screenshot_2017-08-23_23-09-13.png]]
+[[file:_img/screenshot_2017-08-23_23-09-13.png]]
 
-[[file:img/screenshot_2017-08-23_23-09-29.png]]
+[[file:_img/screenshot_2017-08-23_23-09-29.png]]
 
-[[file:img/screenshot_2017-08-23_23-09-54.png]]
+[[file:_img/screenshot_2017-08-23_23-09-54.png]]
 
-[[file:img/screenshot_2017-08-23_23-11-16.png]]
+[[file:_img/screenshot_2017-08-23_23-11-16.png]]
 
-[[file:img/screenshot_2017-08-23_23-11-44.png]]
+[[file:_img/screenshot_2017-08-23_23-11-44.png]]
 
-[[file:img/screenshot_2017-08-23_23-12-01.png]]
+[[file:_img/screenshot_2017-08-23_23-12-01.png]]
 
-[[file:img/screenshot_2017-08-23_23-12-12.png]]
+[[file:_img/screenshot_2017-08-23_23-12-12.png]]
 
-[[file:img/screenshot_2017-08-23_23-13-10.png]]
+[[file:_img/screenshot_2017-08-23_23-13-10.png]]
 
-[[file:img/screenshot_2017-08-23_23-13-26.png]]
+[[file:_img/screenshot_2017-08-23_23-13-26.png]]
 
-[[file:img/screenshot_2017-08-23_23-13-59.png]]
+[[file:_img/screenshot_2017-08-23_23-13-59.png]]
 
-[[file:img/screenshot_2017-08-23_23-14-12.png]]
+[[file:_img/screenshot_2017-08-23_23-14-12.png]]
 
-[[file:img/screenshot_2017-08-23_23-14-23.png]]
+[[file:_img/screenshot_2017-08-23_23-14-23.png]]
 
-[[file:img/screenshot_2017-08-23_23-14-32.png]]
+[[file:_img/screenshot_2017-08-23_23-14-32.png]]
 
-[[file:img/screenshot_2017-08-23_23-14-53.png]]
+[[file:_img/screenshot_2017-08-23_23-14-53.png]]

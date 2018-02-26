@@ -17,39 +17,39 @@
 
 * Deep Neural Network
 ** Deep L-layer neural network
-[[file:img/screenshot_2017-09-28_07-50-15.png]]
+[[file:_img/screenshot_2017-09-28_07-50-15.png]]
 
-[[file:img/screenshot_2017-09-28_07-49-33.png]]
+[[file:_img/screenshot_2017-09-28_07-49-33.png]]
 
 ** Forward Propagation in a Deep Network
-[[file:img/screenshot_2017-09-29_07-11-09.png]]
+[[file:_img/screenshot_2017-09-29_07-11-09.png]]
 
 ** Getting your matrix dimensions right
-[[file:img/screenshot_2017-10-02_22-02-34.png]]
+[[file:_img/screenshot_2017-10-02_22-02-34.png]]
 
-[[file:img/screenshot_2017-10-02_22-06-47.png]]
+[[file:_img/screenshot_2017-10-02_22-06-47.png]]
 
 ** Why deep representations?
-[[file:img/screenshot_2017-10-02_22-13-12.png]]
+[[file:_img/screenshot_2017-10-02_22-13-12.png]]
 
-[[file:img/screenshot_2017-10-02_22-25-13.png]]
+[[file:_img/screenshot_2017-10-02_22-25-13.png]]
 
 ** Building blocks of deep neural networks
-[[file:img/screenshot_2017-10-04_07-16-05.png]]
+[[file:_img/screenshot_2017-10-04_07-16-05.png]]
 
-[[file:img/screenshot_2017-10-04_07-21-20.png]]
+[[file:_img/screenshot_2017-10-04_07-21-20.png]]
 
 ** Forward and Backward Propagation
-[[file:img/screenshot_2017-10-04_07-24-12.png]]
+[[file:_img/screenshot_2017-10-04_07-24-12.png]]
 
-[[file:img/screenshot_2017-10-04_07-37-12.png]]
+[[file:_img/screenshot_2017-10-04_07-37-12.png]]
 
-[[file:img/screenshot_2017-10-04_07-40-19.png]]
+[[file:_img/screenshot_2017-10-04_07-40-19.png]]
 
 ** Parameters vs Hyperparameters
-[[file:img/screenshot_2017-10-04_08-14-19.png]]
+[[file:_img/screenshot_2017-10-04_08-14-19.png]]
 
-[[file:img/screenshot_2017-10-04_08-18-29.png]]
+[[file:_img/screenshot_2017-10-04_08-18-29.png]]
 
 #+BEGIN_QUOTE
 So maybe one rule of thumb is (..)
@@ -58,25 +58,25 @@ and as you do so you slowly gain intuition as well about the hyper parameters th
 #+END_QUOTE
 
 ** What does this have to do with the brain?
-[[file:img/screenshot_2017-10-04_08-24-10.png]]
+[[file:_img/screenshot_2017-10-04_08-24-10.png]]
 * Programming Assignments
 ** Building your Deep Neural Network: Step by Step
 
-[[file:img/screenshot_2017-10-06_05-46-31.png]]
+[[file:_img/screenshot_2017-10-06_05-46-31.png]]
 
-[[file:img/screenshot_2017-10-06_05-47-48.png]]
+[[file:_img/screenshot_2017-10-06_05-47-48.png]]
 
-[[file:img/screenshot_2017-10-06_05-54-53.png]]
+[[file:_img/screenshot_2017-10-06_05-54-53.png]]
 
-[[file:img/screenshot_2017-10-06_06-15-46.png]]
+[[file:_img/screenshot_2017-10-06_06-15-46.png]]
 
-[[file:img/screenshot_2017-10-06_06-17-01.png]]
+[[file:_img/screenshot_2017-10-06_06-17-01.png]]
 
-[[file:img/screenshot_2017-10-06_06-17-26.png]]
+[[file:_img/screenshot_2017-10-06_06-17-26.png]]
 
-[[file:img/screenshot_2017-10-06_06-25-09.png]]
+[[file:_img/screenshot_2017-10-06_06-25-09.png]]
 
-[[file:img/screenshot_2017-10-06_06-29-59.png]]
+[[file:_img/screenshot_2017-10-06_06-29-59.png]]
 
 *** Signatures of subroutines
 #+BEGIN_SRC python
@@ -120,6 +120,6 @@ and as you do so you slowly gain intuition as well about the hyper parameters th
 #+END_SRC
 
 ** Deep Neural Network - Application
-[[file:img/screenshot_2017-10-07_07-48-52.png]]
+[[file:_img/screenshot_2017-10-07_07-48-52.png]]
 
-[[file:img/screenshot_2017-10-07_07-49-58.png]]
+[[file:_img/screenshot_2017-10-07_07-49-58.png]]

@@ -1,63 +1,63 @@
 #+TITLE: C#
 
 * Table of Contents :TOC_2_gh:
- - [[#c-net-and-mono][C#, .Net and Mono]]
- - [[#reference][Reference]]
-   - [[#accessibility-levels][Accessibility Levels]]
-   - [[#array][Array]]
-   - [[#arraylist][ArrayList]]
-   - [[#as][as]]
-   - [[#attributes][Attributes]]
-   - [[#const][const]]
-   - [[#delegate][delegate]]
-   - [[#event][event]]
-   - [[#foreach][foreach]]
-   - [[#int32-int64][Int32, Int64]]
-   - [[#lambda-expressions][Lambda Expressions]]
-   - [[#listt][List<T>]]
-   - [[#method-parameter-keywords][Method Parameter Keywords]]
-   - [[#named-and-optional-arguments][Named and Optional Arguments]]
-   - [[#null][null]]
-   - [[#nullablet][Nullable<T>]]
-   - [[#properties][Properties]]
-   - [[#propertyinfo][PropertyInfo]]
-   - [[#readonly][readonly]]
-   - [[#static-class-and-static-class-members][Static Class and Static Class Members]]
-   - [[#string][string]]
-   - [[#this][this]]
-   - [[#tostring][ToString]]
-   - [[#typeof][typeof]]
-   - [[#using][using]]
- - [[#compiler-options][Compiler Options]]
-   - [[#define][define]]
- - [[#details][Details]]
-   - [[#value-types-and-reference-types][Value Types and Reference Types]]
-   - [[#abstract-virtual-override-sealed][abstract, virtual, override, sealed]]
-   - [[#c-coding-conventions][C# Coding Conventions]]
-   - [[#creating-delegates-manually-vs-using-actionfunc-delegates][Creating delegates manually vs using Action/Func delegates]]
- - [[#use-cases][Use Cases]]
-   - [[#can-i-make-local-vairalbes-constant][Can I make local vairalbes constant?]]
-   - [[#can-i-handle-inputs-in-fixedupdate][Can I handle inputs in FixedUpdate?]]
-   - [[#gaussian-random][Gaussian Random]]
-   - [[#general-structure-of-a-c-program][General Structure of a C# Program]]
-   - [[#increment-operator-post-vs-pre][Increment operator: Post vs Pre?]]
-   - [[#main-method][Main Method]]
-   - [[#get-property-name-inside-setter][Get property name inside setter]]
-   - [[#invoke-a-method-with-reflection][Invoke a method with Reflection]]
+- [[#c-net-and-mono][C#, .Net and Mono]]
+- [[#reference][Reference]]
+  - [[#accessibility-levels][Accessibility Levels]]
+  - [[#array][Array]]
+  - [[#arraylist][ArrayList]]
+  - [[#as][as]]
+  - [[#attributes][Attributes]]
+  - [[#const][const]]
+  - [[#delegate][delegate]]
+  - [[#event][event]]
+  - [[#foreach][foreach]]
+  - [[#int32-int64][Int32, Int64]]
+  - [[#lambda-expressions][Lambda Expressions]]
+  - [[#listt][List<T>]]
+  - [[#method-parameter-keywords][Method Parameter Keywords]]
+  - [[#named-and-optional-arguments][Named and Optional Arguments]]
+  - [[#null][null]]
+  - [[#nullablet][Nullable<T>]]
+  - [[#properties][Properties]]
+  - [[#propertyinfo][PropertyInfo]]
+  - [[#readonly][readonly]]
+  - [[#static-class-and-static-class-members][Static Class and Static Class Members]]
+  - [[#string][string]]
+  - [[#this][this]]
+  - [[#tostring][ToString]]
+  - [[#typeof][typeof]]
+  - [[#using][using]]
+- [[#compiler-options][Compiler Options]]
+  - [[#define][define]]
+- [[#details][Details]]
+  - [[#value-types-and-reference-types][Value Types and Reference Types]]
+  - [[#abstract-virtual-override-sealed][abstract, virtual, override, sealed]]
+  - [[#c-coding-conventions][C# Coding Conventions]]
+  - [[#creating-delegates-manually-vs-using-actionfunc-delegates][Creating delegates manually vs using Action/Func delegates]]
+- [[#use-cases][Use Cases]]
+  - [[#can-i-make-local-vairalbes-constant][Can I make local vairalbes constant?]]
+  - [[#can-i-handle-inputs-in-fixedupdate][Can I handle inputs in FixedUpdate?]]
+  - [[#gaussian-random][Gaussian Random]]
+  - [[#general-structure-of-a-c-program][General Structure of a C# Program]]
+  - [[#increment-operator-post-vs-pre][Increment operator: Post vs Pre?]]
+  - [[#main-method][Main Method]]
+  - [[#get-property-name-inside-setter][Get property name inside setter]]
+  - [[#invoke-a-method-with-reflection][Invoke a method with Reflection]]
 
 * C#, .Net and Mono
 - https://en.wikipedia.org/wiki/C_Sharp_(programming_language)
 - http://www.mono-project.com/docs/about-mono/compatibility/
 
-[[file:img/screenshot_2017-05-02_22-07-04.png]]
+[[file:_img/screenshot_2017-05-02_22-07-04.png]]
 
 * Reference
 ** Accessibility Levels
 - https://msdn.microsoft.com/en-us/library/ba0a1yw2.aspx
 
-[[file:img/screenshot_2017-05-03_11-10-34.png]]
+[[file:_img/screenshot_2017-05-03_11-10-34.png]]
 
-[[file:img/screenshot_2017-05-03_11-12-35.png]]
+[[file:_img/screenshot_2017-05-03_11-12-35.png]]
 
 ** Array
 - http://csharp.net-informations.com/collection/csharp-array.htm
@@ -709,7 +709,7 @@ it's inherently static while a readonly field can be either static or instance.
 ~string~ is an alias in C# for ~System.String~.
 So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
 
-[[file:img/screenshot_2017-05-21_17-49-27.png]]
+[[file:_img/screenshot_2017-05-21_17-49-27.png]]
 
 ** this
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/this
@@ -801,7 +801,7 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/types/index
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/reference-tables-for-types 
 
-[[file:img/screenshot_2017-05-06_11-00-02.png]]
+[[file:_img/screenshot_2017-05-06_11-00-02.png]]
 
 - There are two categories of value types: ~struct~ and ~enum~.
 - Assigning one value type variable to another *copies the contained value*.
@@ -820,7 +820,7 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
 - The ~override~ modifier is required to extend or modify the ~abstract~ or ~virtual~ implementation of an inherited method, property, indexer, or event.
 - You can use ~sealed~ to prevent them from overriding specific ~virtual~ methods or properties.
 
-[[file:img/screenshot_2017-05-05_16-52-37.png]]
+[[file:_img/screenshot_2017-05-05_16-52-37.png]]
 
 ** C# Coding Conventions
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/inside-a-program/coding-conventions
@@ -1038,7 +1038,7 @@ In short, No. Because:
 
 Use ~string.Substring(4)~ to remoe ~get_~ or ~set_~:
 
-[[file:img/screenshot_2017-05-14_14-25-09.png]]
+[[file:_img/screenshot_2017-05-14_14-25-09.png]]
 ** Invoke a method with Reflection
 - https://msdn.microsoft.com/en-us/library/8zz808e6
 - https://www.dotnetperls.com/getmethod

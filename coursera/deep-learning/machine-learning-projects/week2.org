@@ -20,70 +20,70 @@
 
 * Error Analysis
 ** Carrying out error analysis
-[[file:img/screenshot_2017-11-14_01-08-03.png]]
+[[file:_img/screenshot_2017-11-14_01-08-03.png]]
 
-[[file:img/screenshot_2017-11-14_01-08-29.png]]
+[[file:_img/screenshot_2017-11-14_01-08-29.png]]
 
 ** Cleaning up incorrectly labeled data
-[[file:img/screenshot_2017-11-14_01-09-37.png]]
+[[file:_img/screenshot_2017-11-14_01-09-37.png]]
 
-[[file:img/screenshot_2017-11-14_01-10-10.png]]
+[[file:_img/screenshot_2017-11-14_01-10-10.png]]
 
-[[file:img/screenshot_2017-11-14_01-10-50.png]]
+[[file:_img/screenshot_2017-11-14_01-10-50.png]]
 
 ** Build your first system quickly, then iterate
-[[file:img/screenshot_2017-11-15_08-23-48.png]]
+[[file:_img/screenshot_2017-11-15_08-23-48.png]]
 
 * Mismatched training and dev/test set
 ** Training and testing on different distributions
-[[file:img/screenshot_2017-11-18_23-14-57.png]]
+[[file:_img/screenshot_2017-11-18_23-14-57.png]]
 
-[[file:img/screenshot_2017-11-18_23-15-46.png]]
+[[file:_img/screenshot_2017-11-18_23-15-46.png]]
 
 ** Bias and Variance with mismatched data distributions
-[[file:img/screenshot_2017-11-18_23-17-12.png]]
+[[file:_img/screenshot_2017-11-18_23-17-12.png]]
 
-[[file:img/screenshot_2017-11-18_23-18-04.png]]
+[[file:_img/screenshot_2017-11-18_23-18-04.png]]
 
 ** Addressing data mismatch
-[[file:img/screenshot_2017-11-18_23-19-29.png]]
+[[file:_img/screenshot_2017-11-18_23-19-29.png]]
 
-[[file:img/screenshot_2017-11-18_23-19-54.png]]
+[[file:_img/screenshot_2017-11-18_23-19-54.png]]
 
-[[file:img/screenshot_2017-11-18_23-20-24.png]]
+[[file:_img/screenshot_2017-11-18_23-20-24.png]]
 
 * Learning from multi tasks
 ** Transfer learning
-[[file:img/screenshot_2017-11-18_23-22-18.png]]
+[[file:_img/screenshot_2017-11-18_23-22-18.png]]
 
-[[file:img/screenshot_2017-11-18_23-22-41.png]]
+[[file:_img/screenshot_2017-11-18_23-22-41.png]]
 ** Multi-task learning
-[[file:img/screenshot_2017-11-18_23-24-28.png]]
+[[file:_img/screenshot_2017-11-18_23-24-28.png]]
 
-[[file:img/screenshot_2017-11-18_23-24-46.png]]
+[[file:_img/screenshot_2017-11-18_23-24-46.png]]
 
 - In practical use, ~Transfer learning~ is more generally used these days than ~Multi-task learning~.
 
 * End-to-end deep learning
 ** What is end-to-end deep learning?
-[[file:img/screenshot_2017-11-18_23-27-27.png]]
+[[file:_img/screenshot_2017-11-18_23-27-27.png]]
 
-[[file:img/screenshot_2017-11-18_23-27-51.png]]
+[[file:_img/screenshot_2017-11-18_23-27-51.png]]
 
-[[file:img/screenshot_2017-11-18_23-28-12.png]]
+[[file:_img/screenshot_2017-11-18_23-28-12.png]]
 
 ** Whether to use end-to-end deep learning
-[[file:img/screenshot_2017-11-18_23-28-52.png]]
+[[file:_img/screenshot_2017-11-18_23-28-52.png]]
 
-[[file:img/screenshot_2017-11-18_23-29-15.png]]
+[[file:_img/screenshot_2017-11-18_23-29-15.png]]
 * Machine Learning flight simulator
 ** Autonomous driving(case study)
-[[file:img/screenshot_2017-11-19_01-57-52.png]]
+[[file:_img/screenshot_2017-11-19_01-57-52.png]]
 
-[[file:img/screenshot_2017-11-19_02-11-06.png]]
+[[file:_img/screenshot_2017-11-19_02-11-06.png]]
 
-[[file:img/screenshot_2017-11-19_02-29-46.png]]
+[[file:_img/screenshot_2017-11-19_02-29-46.png]]
 
-[[file:img/screenshot_2017-11-19_02-30-53.png]]
+[[file:_img/screenshot_2017-11-19_02-30-53.png]]
 
 - Deep learning algorithms are quite robust to having slightly different train and dev distributions.

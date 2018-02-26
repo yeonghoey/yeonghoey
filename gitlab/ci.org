@@ -56,7 +56,7 @@
 - https://docs.gitlab.com/ee/ci/yaml/
 - https://docs.gitlab.com/ee/ci/docker/README.html
 
-[[file:img/screenshot_2017-10-18_10-53-35.png]]
+[[file:_img/screenshot_2017-10-18_10-53-35.png]]
 
 ** before_script
 - Used to define the command that should be run before all jobs.
@@ -82,7 +82,7 @@
 4. If all jobs of ~deploy~ succeed, the commit is marked as ~success~.
 5. If any of the previous jobs fails, the commit is marked as ~failed~ and no jobs of further stage are executed.
 
-[[file:img/screenshot_2017-10-18_10-59-19.png]]
+[[file:_img/screenshot_2017-10-18_10-59-19.png]]
 
 ** types
 - Alias for [[#stages][stages]]
@@ -92,7 +92,7 @@
 
 - *All variables are set as environment variables* in the build environment
 - These variables can be later used in all executed commands and scripts.
-[[file:img/screenshot_2017-10-18_11-05-41.png]]
+[[file:_img/screenshot_2017-10-18_11-05-41.png]]
 
 #+BEGIN_SRC yaml
   variables:
@@ -111,7 +111,7 @@
 Note: Integers (as well as strings) are legal both for variable's name and value. Floats are not legal and cannot be used.
 #+END_QUOTE
 
-[[file:img/screenshot_2017-10-18_11-03-25.png]]
+[[file:_img/screenshot_2017-10-18_11-03-25.png]]
 
 ** cache
 #+BEGIN_QUOTE
@@ -151,18 +151,18 @@ By default caching is enabled and shared between pipelines and jobs, starting fr
     allow_failure: true
 #+END_SRC
 
-[[file:img/screenshot_2017-10-18_11-15-00.png]]
+[[file:_img/screenshot_2017-10-18_11-15-00.png]]
 
 *** script
-[[file:img/screenshot_2017-10-18_11-16-43.png]]
+[[file:_img/screenshot_2017-10-18_11-16-43.png]]
 
 *** only and except
 - https://docs.gitlab.com/ee/ci/yaml/#only-and-except-simplified
 
 
-[[file:img/screenshot_2017-10-18_11-18-02.png]]
+[[file:_img/screenshot_2017-10-18_11-18-02.png]]
 
-[[file:img/screenshot_2017-10-18_11-18-33.png]]
+[[file:_img/screenshot_2017-10-18_11-18-33.png]]
 
 - In the example below, job will run only for refs that start with ~issue-~, whereas all ~branches~ will be skipped:
 #+BEGIN_SRC yaml
@@ -203,7 +203,7 @@ By default caching is enabled and shared between pipelines and jobs, starting fr
     - .config
 #+END_SRC
 
-[[file:img/screenshot_2017-10-18_11-26-47.png]]
+[[file:_img/screenshot_2017-10-18_11-26-47.png]]
 
 *** dependencies
 

@@ -468,7 +468,7 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 
 - http://mywiki.wooledge.org/BashFAQ/031
 
-[[file:img/screenshot_2017-08-26_11-35-09.png]]
+[[file:_img/screenshot_2017-08-26_11-35-09.png]]
 
 ** Commands
 *** curl

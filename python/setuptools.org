@@ -119,7 +119,7 @@ So in conclusion, out of all these options, I would recommend Setuptools, unless
 ** install_requires vs requirements.txt
 - https://packaging.python.org/requirements/#requirements-files
 
-[[file:img/screenshot_2017-01-29_09-46-07.png]]
+[[file:_img/screenshot_2017-01-29_09-46-07.png]]
 
 ** scripts vs console_scripts
 - http://python-packaging.readthedocs.io/en/latest/command-line-scripts.html

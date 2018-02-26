@@ -1,8 +1,8 @@
 #+TITLE: Standard
 
 * Table of Contents :TOC_1_gh:
- - [[#list-of-locales][List of Locales]]
- - [[#private-ipv4-address-spaces][Private IPv4 address spaces]]
+- [[#list-of-locales][List of Locales]]
+- [[#private-ipv4-address-spaces][Private IPv4 address spaces]]
 
 * List of Locales
 - https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
@@ -166,4 +166,4 @@
 - https://en.wikipedia.org/wiki/Private_network
 
 
-[[file:img/screenshot_2017-06-12_19-04-42.png]]
+[[file:_img/screenshot_2017-06-12_19-04-42.png]]

@@ -29,16 +29,16 @@
 
 - On ~master~ branch, do merge by pressing ~m~, ~m~::
 
-[[file:img/screenshot_2017-08-28_12-58-28.png]]
+[[file:_img/screenshot_2017-08-28_12-58-28.png]]
 
 - Select ~bar~ branch
-[[file:img/screenshot_2017-08-28_12-59-09.png]]
+[[file:_img/screenshot_2017-08-28_12-59-09.png]]
 
 - On the conflicted file, press ~e~ (Ediff dwimming)
-[[file:img/screenshot_2017-08-28_13-00-13.png]]
+[[file:_img/screenshot_2017-08-28_13-00-13.png]]
 
 
-[[file:img/screenshot_2017-08-29_16-47-43.png]]
+[[file:_img/screenshot_2017-08-29_16-47-43.png]]
 
 - Buffer ~A~, on the left    :: Contains the content of ~MINE~, ~ours~, etc.
 - Buffer ~B~, on the right   :: Contains the content of ~OTHER~, ~theirs~, etc.

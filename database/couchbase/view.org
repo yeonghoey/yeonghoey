@@ -15,9 +15,9 @@
 - https://developer.couchbase.com/documentation/server/4.6/views/views-intro.html
 - https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html
 
-[[file:img/screenshot_2017-08-16_18-54-27.png]]
+[[file:_img/screenshot_2017-08-16_18-54-27.png]]
 
-[[file:img/screenshot_2017-08-16_19-25-50.png]]
+[[file:_img/screenshot_2017-08-16_19-25-50.png]]
 
 - ~Views~ belong to a ~design document~. ~Design documents~ belong to a ~bucket~.
 - ~View~ names must be specified using *one or more* ~UTF-8~ characters.
@@ -66,18 +66,18 @@ Couchbase makes no recommendations for tuning beyond the default settings.
 *** stale=ok
 - The current index is used as the basis for the query and the results are returned accordingly.
 
-[[file:img/screenshot_2017-08-16_19-12-57.png]]
+[[file:_img/screenshot_2017-08-16_19-12-57.png]]
 
 *** stale=false
 - The index is updated before you execute the query
 - The response will be delayed until the updated index is available.
 
-[[file:img/screenshot_2017-08-16_19-13-44.png]]
+[[file:_img/screenshot_2017-08-16_19-13-44.png]]
 
 *** stale=update_after
 - ~Index~ is marked for updating once the results have been returned to the client
 
-[[file:img/screenshot_2017-08-16_19-14-05.png]]
+[[file:_img/screenshot_2017-08-16_19-14-05.png]]
 
 *** Automated index updates
 - At every ~updateInterval~ (default: ~5000ms~), the ~views~ engine checks if the number of document mutations on disk is greater than 
@@ -86,7 +86,7 @@ Couchbase makes no recommendations for tuning beyond the default settings.
 - There are also options for replica(like ~replicaUpdateMinChanges~).
 
 *** Examples
-[[file:img/screenshot_2017-08-16_19-16-43.png]]
+[[file:_img/screenshot_2017-08-16_19-16-43.png]]
 
 * Terminology
 * Links

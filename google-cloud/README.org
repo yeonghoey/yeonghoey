@@ -25,7 +25,7 @@
 ** OAuth 2.0
 - https://developers.google.com/identity/protocols/OAuth2
 
-[[file:img/screenshot_2018-01-11_16-09-28.png]]
+[[file:_img/screenshot_2018-01-11_16-09-28.png]]
 
 * How-to
 ** Authenticate access

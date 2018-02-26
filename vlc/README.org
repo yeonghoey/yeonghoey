@@ -2,15 +2,15 @@
 
 * For English Listening
 - Make jumping around easy
-[[file:img/screenshot_2018-01-08_21-34-23.png]] 
+[[file:_img/screenshot_2018-01-08_21-34-23.png]] 
 
-[[file:img/screenshot_2017-12-16_10-35-24.png]]
+[[file:_img/screenshot_2017-12-16_10-35-24.png]]
 
 - Customize the jump sizes
-[[file:img/screenshot_2017-12-07_21-15-38.png]]
+[[file:_img/screenshot_2017-12-07_21-15-38.png]]
 
 - It doesn't seem that there is a way to customize the ~A->B Loop~ hotkey.
 - It doesn't seem that there is any indicator for ~A->B Loop~ functionality.
 - When I press the hotkey, it puts ~A~, ~B~, removes ~A~ and ~B~, respectively.
 
-[[file:img/screenshot_2017-12-07_21-16-59.png]]
+[[file:_img/screenshot_2017-12-07_21-16-59.png]]

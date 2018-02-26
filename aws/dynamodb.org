@@ -1,12 +1,12 @@
 #+TITLE: AWS DynamoDB
 
 * Table of Contents :TOC_1_gh:
- - [[#concepts][Concepts]]
+- [[#concepts][Concepts]]
 
 * Concepts
 - http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html
 
-[[file:img/screenshot_2017-04-21_12-12-59.png]]
+[[file:_img/screenshot_2017-04-21_12-12-59.png]]
 
 - Tables like ~People~, ~Music~
 - Items like each ~{..}~ in Tables

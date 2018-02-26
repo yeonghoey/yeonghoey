@@ -1,18 +1,18 @@
 #+TITLE: Linear Algebra
 
 * Table of Contents :TOC_1_gh:
- - [[#cross-product][Cross Product]]
+- [[#cross-product][Cross Product]]
 
 * Cross Product
 - https://en.wikipedia.org/wiki/Cross_product
 - Only in three-dimensional space
 - The cross product ~a × b~ is defined as a vector ~c~ that is perpendicular to both ~a~ and ~b~
 
-[[file:img/screenshot_2017-05-14_10-51-58.png]]
+[[file:_img/screenshot_2017-05-14_10-51-58.png]]
 
-[[file:img/screenshot_2017-05-14_10-50-18.png]]
+[[file:_img/screenshot_2017-05-14_10-50-18.png]]
 
-[[file:img/screenshot_2017-05-14_10-49-33.png]]
+[[file:_img/screenshot_2017-05-14_10-49-33.png]]
 
 *** 2D Game Use Case
 - http://allenchou.net/2013/07/cross-product-of-2d-vectors/

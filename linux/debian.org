@@ -29,7 +29,7 @@
   - [[#2017-11-09-thu-dh-systemd][<2017-11-09 Thu> dh-systemd]]
 
 * Overview
-[[file:img/screenshot_2017-09-04_22-35-21.png]]
+[[file:_img/screenshot_2017-09-04_22-35-21.png]]
 
 * Reference
 ** dch (debchange)
@@ -86,7 +86,7 @@
 ** Create a debian pacakge
 - https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
 
-[[file:img/screenshot_2017-10-10_16-27-53.png]]
+[[file:_img/screenshot_2017-10-10_16-27-53.png]]
 
 *** Source package
 - One source package can generate several binary packages
@@ -110,7 +110,7 @@
 
 - Lists the Debian pacakging changes
 - Gives the current version of the package
-- [[file:img/screenshot_2017-10-10_16-39-43.png]]
+- [[file:_img/screenshot_2017-10-10_16-39-43.png]]
 - Edited manually or with ~dch~, for new release: ~dch -i~
 
 #+BEGIN_EXAMPLE
@@ -167,7 +167,7 @@
   	make world
 #+END_EXAMPLE
 
-[[file:img/screenshot_2017-10-10_16-55-53.png]]
+[[file:_img/screenshot_2017-10-10_16-55-53.png]]
 
 *** Patch systems 
 - http://pkg-perl.alioth.debian.org/howto/quilt.html
@@ -198,5 +198,5 @@
 ** TODO <2017-11-09 Thu> dh-systemd
 - https://wiki.debian.org/Teams/pkg-systemd/Packaging
 
-[[file:img/screenshot_2017-11-09_18-15-13.png]]
+[[file:_img/screenshot_2017-11-09_18-15-13.png]]
 
