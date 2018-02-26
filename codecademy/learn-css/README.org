@@ -65,6 +65,11 @@
     - [[#line-height-anatomy][Line Height Anatomy]]
     - [[#line-height][Line Height]]
     - [[#serif-and-sans-serif][Serif and Sans Serif]]
+    - [[#fallback-fonts][Fallback Fonts]]
+    - [[#linking-fonts-i][Linking Fonts I]]
+    - [[#linking-fonts-ii][Linking Fonts II]]
+    - [[#font-face-i][Font-Face I]]
+    - [[#font-face-iii][Font-Face III]]
 - [[#css-grid][CSS Grid]]
   - [[#css-grid-essentials][CSS Grid Essentials]]
   - [[#advanced-css-grid][Advanced CSS Grid]]
@@ -293,6 +298,25 @@ The default border is ~medium none color~
 
 *** Serif and Sans Serif
 [[file:img/screenshot_2018-02-26_11-37-41.png]]
+
+*** Fallback Fonts
+[[file:img/screenshot_2018-02-26_11-40-15.png]]
+
+*** Linking Fonts I
+- https://fonts.google.com/
+
+[[file:img/screenshot_2018-02-26_11-44-52.png]]
+
+*** Linking Fonts II
+[[file:img/screenshot_2018-02-26_11-45-36.png]]
+
+*** Font-Face I
+[[file:img/screenshot_2018-02-26_11-50-24.png]]
+
+*** Font-Face III
+- https://www.fontsquirrel.com/
+
+[[file:img/screenshot_2018-02-26_11-53-25.png]]
 
 * CSS Grid
 ** CSS Grid Essentials
