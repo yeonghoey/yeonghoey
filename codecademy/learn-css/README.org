@@ -52,6 +52,8 @@
   - [[#css-color][CSS Color]]
     - [[#hexademical][Hexademical]]
     - [[#rgb-colors][RGB Colors]]
+    - [[#hue-saturation-and-lightness][Hue, Saturation, and Lightness]]
+    - [[#opacity-and-alpha][Opacity and Alpha]]
 - [[#typography][Typography]]
   - [[#css-typography][CSS Typography]]
 - [[#css-grid][CSS Grid]]
@@ -237,6 +239,20 @@ The default border is ~medium none color~
 
 *** RGB Colors
 [[file:img/screenshot_2018-02-25_23-43-17.png]]
+
+*** Hue, Saturation, and Lightness
+- http://dba.med.sc.edu/price/irf/Adobe_tg/models/images/hsl_top.JPG
+
+[[file:img/screenshot_2018-02-26_11-01-06.png]]
+
+*** Opacity and Alpha
+[[file:img/screenshot_2018-02-26_11-04-45.png]]
+
+[[file:img/screenshot_2018-02-26_11-05-21.png]]
+
+[[file:img/screenshot_2018-02-26_11-04-59.png]]
+
+[[file:img/screenshot_2018-02-26_11-05-39.png]]
 
 * Typography
 ** CSS Typography
