@@ -3,16 +3,100 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#front-matter][Front Matter]]
+  - [[#shortcodes][Shortcodes]]
+  - [[#templating][Templating]]
+    - [[#syntax][Syntax]]
+    - [[#functions][Functions]]
+    - [[#variables][Variables]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#directory-structure][Directory Structure]]
   - [[#themes][Themes]]
+  - [[#path][Path]]
+  - [[#taxonomies][Taxonomies]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
 
 * Overview
 * Reference
+** Front Matter
+- https://gohugo.io/content-management/front-matter/#front-matter-variables
+
+** Shortcodes
+- https://gohugo.io/content-management/shortcodes/
+
+** Templating
+*** Syntax
+- https://gohugo.io/templates/lookup-order/
+
+Hugo uses Go’s ~html/template~ and ~text/template~ libraries as the basis for the templating.
+
+~{{ . }}~ stands for the context variable.
+~{{ $. }}~ stands for the global context variable.
+
+#+BEGIN_SRC go
+  // Front matter
+  {{ .Title }}      // built-in
+  {{ .Params.foo }} // user defined
+
+  // Site configuration
+  {{ .Site.bar }}
+#+END_SRC
+
+#+BEGIN_SRC go
+  // Methods and Fields are Accessed via dot Notation
+  {{ .Params.bar }}
+
+
+  //Parentheses Can be Used to Group Items Together
+  {{ if or (isset .Params "alt") (isset .Params "caption") }} Caption {{ end }}
+
+
+  // Variables
+  {{ $address := "123 Main St."}}
+  {{ $address }}
+
+
+  // Includes
+  {{ template "partials/header.html" . }}
+  {{ partial "header.html" . }}
+
+
+  // Range
+  {{ range array }}
+      {{ . }}
+  {{ end }}
+
+  {{range $element := array}}
+      {{ $element }}
+  {{ end }}
+
+  {{range $index, $element := array}}
+     {{ $index }}
+     {{ $element }}
+  {{ end }}
+
+
+  // Conditionals
+  {{ if isset .Params "alt" }}
+      {{ index .Params "alt" }}
+  {{else}}
+      {{ index .Params "caption" }}
+  {{ end }}
+
+
+  // With (changes the context '{{ . }}')
+  {{ with .Params.title }}<h4>{{ . }}</h4>{{ end }}
+#+END_SRC
+
+*** Functions
+- https://gohugo.io/functions
+
+*** Variables
+- https://gohugo.io/variables
+
 * Terminology
 * Topics
 ** Directory Structure
@@ -47,6 +131,44 @@ When you want to customize the file above which is provided by the theme, you ca
 #+BEGIN_EXAMPLE
   /static/js/jquery.min.js
 #+END_EXAMPLE
+
+** Path
+- https://gohugo.io/content-management/organization/#path-breakdown-in-hugo
+
+** Taxonomies
+- https://gohugo.io/content-management/taxonomies/
+
+#+BEGIN_EXAMPLE
+  Actor                    <- Taxonomy
+      Bruce Willis         <- Term
+          The Sixth Sense  <- Value
+          Unbreakable      <- Value
+          Moonrise Kingdom <- Value
+      Samuel L. Jackson    <- Term
+          Unbreakable      <- Value
+          The Avengers     <- Value
+          xXx              <- Value
+#+END_EXAMPLE
+
+Define taxonomies in ~config.toml~ as ~singular_key = "plural_value"~ form:
+#+BEGIN_SRC toml
+  [taxonomies]
+    tag = "tags"
+    category = "categories"
+    series = "series"
+#+END_SRC
+
+Add taxonomies to content with front matter:
+#+BEGIN_SRC toml
+  +++
+  title = "Hugo: A fast and flexible static site generator"
+  tags = [ "Development", "Go", "fast", "Blogging" ]
+  categories = [ "Development" ]
+  series = [ "Go Web Dev" ]
+  slug = "hugo"
+  project_url = "https://github.com/gohugoio/hugo"
+  +++
+#+END_SRC
 
 * How-to
 * Links
