@@ -1,0 +1,123 @@
+* tar
+- http://www.tecmint.com/18-tar-command-examples-in-linux/
+- http://askubuntu.com/questions/122141/whats-the-difference-between-tar-gz-and-gz-or-tar-7z-and-7z
+
+| flag      | mnemonic         |
+|-----------+------------------|
+| ~-c~      | create           |
+| ~-x~      | extract          |
+| ~-t~      | list             |
+| ~-v~      | verbose          |
+| ~-z~      | gzip             |
+| ~-C DIR~  | change directory |
+| ~-f FILE~ | target file      |
+
+-----
+#+BEGIN_SRC shell
+  $ cd /tmp
+  $ tree target
+#+END_SRC
+#+BEGIN_EXAMPLE
+  target
+  ├── a.txt
+  └── path
+      └── b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  $ tar -cvf target1.tar /tmp/target
+#+END_SRC
+#+BEGIN_EXAMPLE
+  tar: Removing leading '/' from member names
+  a tmp/target
+  a tmp/target/a.txt
+  a tmp/target/path
+  a tmp/target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  $ tar -xvf target1.tar
+  $ tree tmp
+#+END_SRC
+#+BEGIN_EXAMPLE
+  tmp
+  └── target
+      ├── a.txt
+      └── path
+          └── b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # Change directory
+  $ tar -C /tmp/target -cvf target2.tar .
+#+END_SRC
+#+BEGIN_EXAMPLE
+  a .
+  a ./a.txt
+  a ./path
+  a ./path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  $ mkdir out
+  $ tar -C out -xvf target2.tar
+  $ tree out
+#+END_SRC
+#+BEGIN_EXAMPLE
+  out
+  ├── a.txt
+  └── path
+      └── b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # Exclude
+  $ tar -cvf target3.tar --exclude a.txt target
+#+END_SRC
+#+BEGIN_EXAMPLE
+  a target
+  a target/path
+  a target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+#+BEGIN_SRC shell
+  # Compression
+  $ tar -cvzf target.tar.gz target
+#+END_SRC
+#+BEGIN_EXAMPLE
+  a target
+  a target/a.txt
+  a target/path
+  a target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # Don't need any option for extracting compressed tar
+  $ tar -xvf target.tar.gz
+#+END_SRC
+#+BEGIN_EXAMPLE
+  x target/
+  x target/a.txt
+  x target/path/
+  x target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # List
+  $ tar -tvf target.tar.gz
+#+END_SRC
+#+BEGIN_EXAMPLE
+  drwxr-xr-x  0 hoey   staff       0 Jan 30 10:26 target/
+  -rw-r--r--  0 hoey   staff       0 Jan 30 10:23 target/a.txt
+  drwxr-xr-x  0 hoey   staff       0 Jan 30 10:26 target/path/
+  -rw-r--r--  0 hoey   staff       0 Jan 30 10:23 target/path/b.txt
+#+END_EXAMPLE
+-----
+#+BEGIN_SRC shell
+  # Untar a single file
+  $ tar -xvf target.tar.gz target/a.txt
+#+END_SRC
+#+BEGIN_EXAMPLE
+  x target/a.txt
+#+END_EXAMPLE

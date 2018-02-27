@@ -1,0 +1,24 @@
+* mktemp
+#+BEGIN_SRC shell
+  $ mktemp
+  /tmp/tmp.rBNuGr7Glt
+
+  $ mktemp -d
+  #         └─ --directory, create temporary directory
+  /tmp/tmp.e3mvea6YBv
+
+  $ mktemp yeonghoey.XXX
+  #                    └─ at least 3 trailing Xs
+  yeonghoey.vnM
+
+  $ mktemp yeonghoey.XXXXXXXX
+  yeonghoey.CvSbQIKV
+
+  $ mktemp --tmpdir yeonghoey.XXX
+  #            └─ put '/tmp' (or use $TEMPDIR)
+  /tmp/yeonghoey.wN5
+
+  $ mktemp -p ~ yeonghoey.XXX
+  #        └─ specify base directory
+  /home/ubuntu/yeonghoey.qRA
+#+END_SRC

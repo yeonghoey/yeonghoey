@@ -1,0 +1,76 @@
+* grep
+- https://www.gnu.org/software/grep/manual/grep.html#Usage
+
+#+BEGIN_SRC shell
+  $ tail *.txt
+  ==> foo.txt <==
+  foo
+  FOO
+
+  ==> foobar.txt <==
+  foo
+  bar
+  foobar
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ grep foo foo.txt
+  foo
+
+  $ grep -i foo foo.txt  # -i, --ignore-case
+  foo
+  FOO
+
+  $ grep -n foo foobar.txt  # -n, --line-number
+  1:foo
+  3:foobar
+
+  $ grep -o foo foobar.txt  # -o, --only-matching
+  foo
+  foo
+
+  $ grep -v foo foobar.txt  # -v, --invert-match
+  bar
+
+  $ grep -l foo *  # -l, --files-with-matches
+  foo.txt
+  foobar.txt
+
+  $ grep -H foo *  # -H, Always print filename headers
+  foo.txt:foo
+  foobar.txt:foo
+  foobar.txt:foobar
+
+  $ grep -r foo .  # -R, -r, --recursive, Prints filename headers by default
+  ./foo.txt:foo
+  ./foobar.txt:foo
+  ./foobar.txt:foobar
+
+  $ grep -rh foo .  # -h, --no-filename
+  foo
+  foo
+  foobar
+
+  $ grep -w foo foobar.txt  # -w, --word-regexp
+  foo
+
+  $ grep -C2 bar foobar.txt  # -C[num, --context=num], num=2 by default, See also -A(after), -B(before)
+  foo
+  bar
+  foobar
+
+  $ grep -F foo.* foobar.txt  # -F, --fixed-strings, literal match
+
+  $ grep -q foo foo.txt; echo $?  # -q, --quiet, --silent
+  0
+  $ grep -q bar foo.txt; echo $?
+  1
+
+  $ grep -e '--foo' foo.txt  # -e [pattern], --regexp=pattern, Indicate following argument as regexp explicitly
+
+  $ grep -Z foo foobar.tar.gz; echo $?  # -Z, -z, --decompress, Behave as zgrep
+  Binary file foobar.tar.gz matches
+  0
+  $ grep -Z baz foobar.tar.gz; echo $?
+  1
+#+END_SRC

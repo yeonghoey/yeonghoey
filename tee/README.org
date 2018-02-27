@@ -1,0 +1,28 @@
+* tee
+- https://shapeshed.com/unix-tee/
+
+#+BEGIN_SRC shell
+  $ echo 'foo' | tee foo.txt
+  foo
+  $ cat foo.txt
+  foo
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ cat foo.txt
+  foo
+  $ echo 'bar' | tee -a foo.txt  # append
+  bar
+  $ cat foo.txt
+  foo
+  bar
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Redirecting stdout is not affected by 'sudo'
+  $ echo 'foo' >> file
+  zsh: permission denied: file
+
+  # 'tee' can be used to work around this
+  $ echo "foo" | sudo tee -a file
+#+END_SRC
