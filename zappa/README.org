@@ -1,0 +1,31 @@
+#+TITLE: Zappa
+
+* Table of Contents :TOC_3_gh:
+- [[#reference][Reference]]
+  - [[#settings][Settings]]
+- [[#how-to][How-to]]
+  - [[#configure-https-using-aws-certificate-manager][Configure HTTPS using AWS Certificate Manager]]
+
+* Reference
+** Settings
+- https://github.com/Miserlou/Zappa#advanced-settings
+
+* How-to
+** Configure HTTPS using AWS Certificate Manager
+- https://github.com/Miserlou/Zappa#ssl-certification
+
+I don't know why, but Zappa only supports ACM in ~us-east-1~.
+So, make sure to use the proper region when registering ACM.
+
+#+BEGIN_SRC json
+    "dev": {
+      "certificate_arn": "arn:aws:acm:us-east-1:1234:certificate/abcd",
+      "domain": "dev.galpi.io",
+    }
+#+END_SRC
+
+I'm not sure whether it is safe to publish aws arn in a public git repository.
+
+#+BEGIN_SRC shell
+  $ zappa certify
+#+END_SRC
