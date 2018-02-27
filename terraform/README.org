@@ -39,6 +39,7 @@
   - [[#make-manual-modifications-on-remote-backeded-tfstates][Make manual modifications on remote backeded tfstates]]
   - [[#migrate-existing-aws-infra-with-terraforming][Migrate existing AWS Infra with terraforming]]
   - [[#generate-documents-automatically][Generate documents automatically]]
+  - [[#use-multiple-providers-or-aws-regions][Use multiple providers (or AWS regions)]]
 - [[#links][Links]]
 
 * Overview
@@ -450,4 +451,26 @@ Because the actual schema is:
 - https://github.com/segmentio/terraform-docs
 
 This simple tool automatically generates markdown or json document based on ~variable~ and ~output~ blocks.
+** Use multiple providers (or AWS regions)
+- https://www.terraform.io/docs/configuration/providers.html#multiple-provider-instances
+
+#+BEGIN_SRC terraform
+
+  provider "aws" {
+    region = "ap-northeast-1"
+  }
+
+  provider "aws" {
+    alias  = "test"
+    region = "us-east-1"
+  }
+
+  # Set provider with alias
+  resource "aws_instance" "foo" {
+    provider = "aws.test"
+
+    # ...
+  }
+#+END_SRC
+
 * Links
