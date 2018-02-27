@@ -1,9 +1,14 @@
 #+TITLE: AWS
 
 * Table of Contents :TOC_1_gh:
-- [[#best-practices][Best Practices]]
+- [[#topic][Topic]]
 
-* Best Practices
+* Topic
+** Is it safe to expose ARN in a public git repo?
+- https://www.reddit.com/r/aws/comments/70hqby/is_it_safe_to_expose_aws_arns_in_a_public_git_repo/
+- ARNs by themselves generally are fine to publish
+- But, it smells bad.
+
 ** Tagging
 - https://aws.amazon.com/ko/answers/account-management/aws-tagging-strategies/
 
