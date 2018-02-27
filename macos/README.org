@@ -4,6 +4,10 @@
 - [[#how-to][How-to]]
   - [[#change-an-user-name-and-its-home-folder][Change an user name and its home folder]]
   - [[#disable-space-auto-switching][Disable space auto switching]]
+- [[#staging][Staging]]
+  - [[#2017-12-07-thu-macos-approximately-sign][<2017-12-07 Thu> macOS, approximately sign]]
+  - [[#2017-12-11-mon-safari-open-safe-download][<2017-12-11 Mon> safari open safe download]]
+  - [[#2018-01-17-wed-macos-shortcuts][<2018-01-17 Wed> macOS shortcuts]]
 
 * How-to
 ** Change an user name and its home folder
@@ -27,3 +31,20 @@
 - If you use ~Dropbox~, remove =~/.dropbox= to reset your dropbox settings.
 ** Disable space auto switching
 [[file:_img/screenshot_2018-01-03_09-23-32.png]]
+* Staging
+** TODO <2017-12-07 Thu> macOS, approximately sign
+M-x
+
+** TODO <2017-12-11 Mon> safari open safe download
+https://apple.stackexchange.com/questions/57039/how-make-safari-download-pdf-files-instead-of-opening-them-in-page
+
+[[file:img/screenshot_2017-12-11_15-29-21.png]]
+
+** TODO <2018-01-17 Wed> macOS shortcuts
+Command-M :Minimize the active window to the Dock
+Command-Option-M :Minimize all windows of the active application to the Dock
+(Setup is required) :Maximize the active window
+
+http://osxdaily.com/2009/11/17/secrets-of-the-command-tab-mac-application-switcher/
+
+10 Command+Tab Application Switcher Tricks for Mac OS X

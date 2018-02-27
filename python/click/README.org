@@ -10,6 +10,8 @@
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
+  - [[#2018-01-15-mon-click][<2018-01-15 Mon> click]]
+  - [[#2018-01-15-mon-click-requiredfalse][<2018-01-15 Mon> click required=False]]
 
 * Overview
 #+BEGIN_SRC python
@@ -76,3 +78,28 @@
 * How-to
 * Links
 * Staging
+** TODO <2018-01-15 Mon> click
+- https://github.com/pallets/click/issues/94
+
+#+BEGIN_SRC python
+  @cli.command()
+  @click.argument('names', nargs=-1, required=False)
+  def greet(names):
+      if len(names) == 0:
+          print "hello all"
+      else:
+         print "hello {}".format(" and ".join(names))
+#+END_SRC
+
+** TODO <2018-01-15 Mon> click required=False
+#+BEGIN_SRC python
+
+  @click.command()
+  @click.option('--itag', default=22)
+  @click.argument('url')
+  @click.argument('name', default=None, required=False)
+  def main(itag, url, name):
+      yt = YouTube(url)
+      stream = yt.streams.get_by_itag(itag)
+      stream.download(filename=name)
+#+END_SRC

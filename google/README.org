@@ -1,0 +1,21 @@
+#+TITLE: Google
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+  - [[#2017-12-20-wed-google-search][<2017-12-20 Wed> google search]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+* How-to
+* Links
+* Staging
+** TODO <2017-12-20 Wed> google search
+- https://www.gnu.org/software/libc/manual/html_node/Job-Control-Signals.html

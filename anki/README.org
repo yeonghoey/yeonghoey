@@ -9,6 +9,8 @@
 - [[#how-to][How-to]]
 - [[#links][Links]]
 - [[#staging][Staging]]
+  - [[#2017-12-13-wed-anki-deck-options][<2017-12-13 Wed> Anki deck options]]
+  - [[#2018-01-17-wed-anki-hr-idanswer][<2018-01-17 Wed> Anki hr id=answer]]
 
 * Overview
 * Reference
@@ -32,3 +34,8 @@
 * How-to
 * Links
 * Staging
+** TODO <2017-12-13 Wed> Anki deck options
+- https://apps.ankiweb.net/docs/manual.html#deck-options
+
+** TODO <2018-01-17 Wed> Anki hr id=answer
+[[file:_img/screenshot_2018-02-27_09-05-53.png]]

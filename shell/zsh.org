@@ -10,6 +10,7 @@
 - [[#staging][Staging]]
   - [[#zsh-completions][zsh-completions]]
   - [[#autoload][autoload]]
+  - [[#2018-01-29-mon-zsh-auto_cd][<2018-01-29 Mon> ZSH AUTO_CD]]
 
 * Overview
 * Reference
@@ -25,3 +26,6 @@
 
 ** autoload
 - https://stackoverflow.com/questions/12570749/zsh-completion-difference
+** TODO <2018-01-29 Mon> ZSH AUTO_CD
+off
+

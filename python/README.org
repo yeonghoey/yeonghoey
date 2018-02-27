@@ -45,6 +45,9 @@
   - [[#2017-07-03-mon-mypy-mypy_cache][<2017-07-03 Mon> mypy .mypy_cache]]
   - [[#2017-10-22-sun-python-slice-syntax][<2017-10-22 Sun> python slice syntax]]
   - [[#2017-09-30-sat-python3-utf8-block][<2017-09-30 Sat> python3 utf8 block]]
+  - [[#2017-12-06-wed-filternone-iterable][<2017-12-06 Wed> filter(None, iterable)]]
+  - [[#2018-01-29-mon-python-exit-vs-sysexit][<2018-01-29 Mon> python exit vs. sys.exit]]
+  - [[#2018-01-31-wed-python-패키지-배포][<2018-01-31 Wed> Python 패키지 배포]]
 
 * Reference
 ** decorator
@@ -1217,3 +1220,22 @@ This issue can be solved with locks or by using the *EAFP* approach.
 - https://stackoverflow.com/questions/509211/understanding-pythons-slice-notation
 ** TODO <2017-09-30 Sat> python3 utf8 block
 - https://stackoverflow.com/questions/14083111/should-i-use-encoding-declaration-in-python3
+** TODO <2017-12-06 Wed> filter(None, iterable)
+- https://docs.python.org/3/library/functions.html#filter
+
+** TODO <2018-01-29 Mon> python exit vs. sys.exit
+- https://stackoverflow.com/questions/6501121/difference-between-exit-and-sys-exit-in-python
+
+함수를 가지고 코딩할 땐, 가비지 콜렉팅이 되어버리니 주의해야 한다.
+
+** TODO <2018-01-31 Wed> Python 패키지 배포
+twine, wheel 설치해야 함.
+--universal은 setup.cfg에 적어놓기 도함
+
+python setup.py sdist  # source dist
+python setup.py bdist_wheel # binary dist
+twine upload sit/* # upload
+
+https://packaging.python.org/tutorials/distributing-packages/
+$HOME/.pipyrc 설정해야 함
+
