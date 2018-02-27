@@ -1,0 +1,49 @@
+* xargs
+- http://www.thegeekstuff.com/2013/12/xargs-examples
+- http://www.unixmantra.com/2013/12/xargs-all-in-one-tutorial-guide.html
+- https://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/
+
+#+BEGIN_SRC shell
+  $ echo 1 2 3 4 | xargs echo
+
+  # equivalent to:
+  echo 1 2 3 4
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ echo 1 2 3 4 | xargs -n 1 echo
+
+  # equivalent to:
+  echo 1
+  echo 2
+  echo 3
+  echo 4
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ echo 1 2 3 4 | xargs -n 2 echo
+
+  # equivalent to:
+  echo 1 2
+  echo 3 4
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # Specify replace-str
+  $ echo 1 2 3 4 | xargs -I {} echo '{} numbers'
+
+  # equivalent to
+  echo '1 2 3 4 numbers'
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ echo 1 2 3 4 | xargs -p echo   # Prompt
+  $ echo 1,2,3,4 | xargs -d, echo  # Set delimiter to ','
+
+  # Use null character as input terminator, useful when input contains white space.
+  # For example, 'find -print0' supports this
+  $ echo 1 2 3 4 | xargs -0 echo
+
+  # Delete files whose names contain 'conflicted'
+  $ find . -name '*conflicted*' -print0 | xargs -0 rm
+#+END_SRC

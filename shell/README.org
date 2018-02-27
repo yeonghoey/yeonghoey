@@ -19,13 +19,11 @@
     - [[#find][find]]
     - [[#grep][grep]]
     - [[#head][head]]
-    - [[#jq][jq]]
     - [[#mktemp][mktemp]]
     - [[#sort][sort]]
     - [[#tar][tar]]
     - [[#tee][tee]]
     - [[#watch][watch]]
-    - [[#xargs][xargs]]
   - [[#others][Others]]
     - [[#special-parameters-----etc][Special Parameters ($#, $$, $*, $@, etc.)]]
     - [[#-or-][$@ or $*]]
@@ -616,26 +614,6 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
   head -c 20 foo.txt    # first 20 bytes
 #+END_SRC
 
-*** jq
-- https://stedolan.github.io/jq/manual/
-- https://jqplay.org/
-
-#+BEGIN_SRC json
-  [{"name": "apple", "price": 10}, {"name": "orange", "price": 20}]
-#+END_SRC
-
-#+BEGIN_SRC shell
-  jq '.[] | select(.["name"] | test("oran.*")) | {(.["name"]): .["price"]}'
-  #              │                │             │          └─ object construction
-  #              │                │             └─ expression keys need to be parenthesized
-  #              │                └─ regex match returns boolean
-  #              └─ select values where conditional is true
-#+END_SRC
-
-#+BEGIN_SRC json
-  {"orange": 20}
-#+END_SRC
-
 *** mktemp
 #+BEGIN_SRC shell
   $ mktemp
@@ -846,56 +824,6 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
   watch ls        # run 'ls' every 2 seconds (default)
   watch -d ls     # highlight differences
   watch -n 60 ls  # every 60 seconds
-#+END_SRC
-
-*** xargs
-- http://www.thegeekstuff.com/2013/12/xargs-examples
-- http://www.unixmantra.com/2013/12/xargs-all-in-one-tutorial-guide.html
-- https://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/
-
-#+BEGIN_SRC shell
-  $ echo 1 2 3 4 | xargs echo
-
-  # equivalent to:
-  echo 1 2 3 4
-#+END_SRC
-
-#+BEGIN_SRC shell
-  $ echo 1 2 3 4 | xargs -n 1 echo
-
-  # equivalent to:
-  echo 1
-  echo 2
-  echo 3
-  echo 4
-#+END_SRC
-
-#+BEGIN_SRC shell
-  $ echo 1 2 3 4 | xargs -n 2 echo
-
-  # equivalent to:
-  echo 1 2
-  echo 3 4
-#+END_SRC
-
-#+BEGIN_SRC shell
-  # Specify replace-str
-  $ echo 1 2 3 4 | xargs -I {} echo '{} numbers'
-
-  # equivalent to
-  echo '1 2 3 4 numbers'
-#+END_SRC
-
-#+BEGIN_SRC shell
-  $ echo 1 2 3 4 | xargs -p echo   # Prompt
-  $ echo 1,2,3,4 | xargs -d, echo  # Set delimiter to ','
-
-  # Use null character as input terminator, useful when input contains white space.
-  # For example, 'find -print0' supports this
-  $ echo 1 2 3 4 | xargs -0 echo
-
-  # Delete files whose names contain 'conflicted'
-  $ find . -name '*conflicted*' -print0 | xargs -0 rm
 #+END_SRC
 
 ** Others

@@ -1,0 +1,20 @@
+* jq
+- https://stedolan.github.io/jq/manual/
+- https://jqplay.org/
+
+#+BEGIN_SRC json
+  [{"name": "apple", "price": 10}, {"name": "orange", "price": 20}]
+#+END_SRC
+
+#+BEGIN_SRC shell
+  jq '.[] | select(.["name"] | test("oran.*")) | {(.["name"]): .["price"]}'
+  #              │                │             │          └─ object construction
+  #              │                │             └─ expression keys need to be parenthesized
+  #              │                └─ regex match returns boolean
+  #              └─ select values where conditional is true
+#+END_SRC
+
+#+BEGIN_SRC json
+  {"orange": 20}
+#+END_SRC
+
