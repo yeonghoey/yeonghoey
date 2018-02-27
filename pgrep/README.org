@@ -1,0 +1,25 @@
+* pgrep
+- https://www.poftut.com/pgrep-pkill-command-tutorial-examples-linux/
+
+#+BEGIN_SRC shell
+  pgrep pytho
+  pgrep -u root ssh  # root user's ssh
+  pgrep -f script.py # match against full arugment lists
+  pgrep -l pytho     # Print pids along with their process names
+  pgrep -x python    # requires exact match, substr is default
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ pgrep nginx
+  2165
+  2166
+
+  $ pgrep nginx -l
+  2165 nginx
+  2166 nginx
+
+  $ pgrep nginx -a
+  2165 nginx: master process nginx
+  2166 nginx: worker process
+#+END_SRC
+

@@ -1,0 +1,6 @@
+* pkill
+- Same as [[../pgrep][pgrep]], but kills matching processes
+
+#+BEGIN_SRC shell
+  pkill -9 pytho     # You can also specify singal
+#+END_SRC
