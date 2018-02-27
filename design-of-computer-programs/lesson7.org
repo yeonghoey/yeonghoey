@@ -1,55 +1,55 @@
 #+TITLE: Lesson 7
 
 * Table of Contents :TOC_2_gh:
- - [[#lesson-7][Lesson 7]]
-   - [[#intro][Intro]]
-   - [[#josh-bloch][Josh Bloch]]
- - [[#practice-exam][Practice Exam]]
-   - [[#quiz-bowling][Quiz: Bowling]]
-   - [[#quiz-logic-puzzle][Quiz: Logic Puzzle]]
-   - [[#quiz-polynomials][Quiz: Polynomials]]
-   - [[#quiz-parking-lot-search][Quiz: Parking Lot Search]]
-   - [[#quiz-darts-probability][Quiz: Darts Probability]]
-   - [[#quiz-portmanteau][Quiz: Portmanteau]]
+- [[#lesson-7][Lesson 7]]
+  - [[#intro][Intro]]
+  - [[#josh-bloch][Josh Bloch]]
+- [[#practice-exam][Practice Exam]]
+  - [[#quiz-bowling][Quiz: Bowling]]
+  - [[#quiz-logic-puzzle][Quiz: Logic Puzzle]]
+  - [[#quiz-polynomials][Quiz: Polynomials]]
+  - [[#quiz-parking-lot-search][Quiz: Parking Lot Search]]
+  - [[#quiz-darts-probability][Quiz: Darts Probability]]
+  - [[#quiz-portmanteau][Quiz: Portmanteau]]
 
 * Lesson 7
 ** Intro
-[[file:img/screenshot_2017-01-04_22-09-26.png]]
+[[file:_img/screenshot_2017-01-04_22-09-26.png]]
 
-[[file:img/screenshot_2017-01-04_22-09-42.png]]
+[[file:_img/screenshot_2017-01-04_22-09-42.png]]
 
-[[file:img/screenshot_2017-01-04_22-09-59.png]]
+[[file:_img/screenshot_2017-01-04_22-09-59.png]]
 
-[[file:img/screenshot_2017-01-04_22-10-51.png]]
+[[file:_img/screenshot_2017-01-04_22-10-51.png]]
 
-[[file:img/screenshot_2017-01-04_22-11-17.png]]
+[[file:_img/screenshot_2017-01-04_22-11-17.png]]
 
-[[file:img/screenshot_2017-01-04_22-11-29.png]]
+[[file:_img/screenshot_2017-01-04_22-11-29.png]]
 
-[[file:img/screenshot_2017-01-04_22-42-44.png]]
+[[file:_img/screenshot_2017-01-04_22-42-44.png]]
 
-[[file:img/screenshot_2017-01-04_22-14-43.png]]
+[[file:_img/screenshot_2017-01-04_22-14-43.png]]
 
-[[file:img/screenshot_2017-01-04_22-15-05.png]]
+[[file:_img/screenshot_2017-01-04_22-15-05.png]]
 
-[[file:img/screenshot_2017-01-04_22-15-18.png]]
+[[file:_img/screenshot_2017-01-04_22-15-18.png]]
 
 ** Josh Bloch
-[[file:img/screenshot_2017-01-04_22-26-53.png]]
+[[file:_img/screenshot_2017-01-04_22-26-53.png]]
 
-[[file:img/screenshot_2017-01-04_22-27-11.png]]
+[[file:_img/screenshot_2017-01-04_22-27-11.png]]
 
-[[file:img/screenshot_2017-01-04_22-25-18.png]]
+[[file:_img/screenshot_2017-01-04_22-25-18.png]]
 
-[[file:img/screenshot_2017-01-04_22-25-34.png]]
+[[file:_img/screenshot_2017-01-04_22-25-34.png]]
 
-[[file:img/screenshot_2017-01-04_22-25-44.png]]
+[[file:_img/screenshot_2017-01-04_22-25-44.png]]
 
-[[file:img/screenshot_2017-01-04_22-29-25.png]]
+[[file:_img/screenshot_2017-01-04_22-29-25.png]]
 
-[[file:img/screenshot_2017-01-04_22-31-08.png]]
+[[file:_img/screenshot_2017-01-04_22-31-08.png]]
 
-[[file:img/screenshot_2017-01-04_22-31-26.png]]
+[[file:_img/screenshot_2017-01-04_22-31-26.png]]
 
 * Practice Exam
 ** Quiz: Bowling

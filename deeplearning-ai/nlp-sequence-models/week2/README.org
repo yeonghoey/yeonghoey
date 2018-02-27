@@ -295,13 +295,13 @@
 [[file:_img/screenshot_2018-02-13_01-09-43.png]]
 
 ** Emojify
-[[file:img/screenshot_2018-02-12_23-36-06.png]]
+[[file:_img/screenshot_2018-02-12_23-36-06.png]]
 
-[[file:img/screenshot_2018-02-12_23-39-59.png]]
+[[file:_img/screenshot_2018-02-12_23-39-59.png]]
 
-[[file:img/screenshot_2018-02-12_23-40-44.png]]
+[[file:_img/screenshot_2018-02-12_23-40-44.png]]
 
-[[file:img/screenshot_2018-02-12_23-43-12.png]]
+[[file:_img/screenshot_2018-02-12_23-43-12.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: sentence_to_avg
@@ -336,7 +336,7 @@
       return avg
 #+END_SRC
 
-[[file:img/screenshot_2018-02-12_23-49-55.png]]
+[[file:_img/screenshot_2018-02-12_23-49-55.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: model
@@ -404,13 +404,13 @@
       return pred, W, b
 #+END_SRC
 
-[[file:img/screenshot_2018-02-12_23-59-58.png]]
+[[file:_img/screenshot_2018-02-12_23-59-58.png]]
 
-[[file:img/screenshot_2018-02-13_00-00-13.png]]
+[[file:_img/screenshot_2018-02-13_00-00-13.png]]
 
-[[file:img/screenshot_2018-02-13_00-00-42.png]]
+[[file:_img/screenshot_2018-02-13_00-00-42.png]]
 
-[[file:img/screenshot_2018-02-13_00-01-02.png]]
+[[file:_img/screenshot_2018-02-13_00-01-02.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: sentences_to_indices
@@ -455,7 +455,7 @@
       return X_indices
 #+END_SRC
 
-[[file:img/screenshot_2018-02-13_00-07-02.png]]
+[[file:_img/screenshot_2018-02-13_00-07-02.png]]
 
 - https://keras.io/layers/embeddings/
 
@@ -498,7 +498,7 @@
       return embedding_layer
 #+END_SRC
 
-[[file:img/screenshot_2018-02-13_00-10-26.png]]
+[[file:_img/screenshot_2018-02-13_00-10-26.png]]
 
 - https://keras.io/layers/core/#input
 - https://keras.io/layers/core/#dropout
@@ -555,10 +555,10 @@
       return model
 #+END_SRC
 
-[[file:img/screenshot_2018-02-13_00-27-23.png]]
+[[file:_img/screenshot_2018-02-13_00-27-23.png]]
 
-[[file:img/screenshot_2018-02-13_00-29-34.png]]
+[[file:_img/screenshot_2018-02-13_00-29-34.png]]
 
-[[file:img/screenshot_2018-02-13_00-30-08.png]]
+[[file:_img/screenshot_2018-02-13_00-30-08.png]]
 
-[[file:img/screenshot_2018-02-13_00-30-56.png]]
+[[file:_img/screenshot_2018-02-13_00-30-56.png]]

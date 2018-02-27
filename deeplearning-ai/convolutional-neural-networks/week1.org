@@ -20,52 +20,52 @@
 
 * Convolutional Neural Networks
 ** Computer Vision
-[[file:img/screenshot_2017-11-11_11-50-50.png]]
+[[file:_img/screenshot_2017-11-11_11-50-50.png]]
 
 ** Edge Detection Example
-[[file:img/screenshot_2017-11-11_11-51-52.png]]
+[[file:_img/screenshot_2017-11-11_11-51-52.png]]
 
-[[file:img/screenshot_2017-11-11_11-52-38.png]]
+[[file:_img/screenshot_2017-11-11_11-52-38.png]]
 
-[[file:img/screenshot_2017-11-11_11-53-23.png]]
+[[file:_img/screenshot_2017-11-11_11-53-23.png]]
 
 ** More Edge Detection
-[[file:img/screenshot_2017-11-11_11-54-21.png]]
+[[file:_img/screenshot_2017-11-11_11-54-21.png]]
 
-[[file:img/screenshot_2017-11-11_11-54-45.png]]
+[[file:_img/screenshot_2017-11-11_11-54-45.png]]
 
-[[file:img/screenshot_2017-11-11_11-56-12.png]]
+[[file:_img/screenshot_2017-11-11_11-56-12.png]]
 
 ** Padding
-[[file:img/screenshot_2017-11-11_11-57-25.png]]
+[[file:_img/screenshot_2017-11-11_11-57-25.png]]
 
-[[file:img/screenshot_2017-11-11_11-57-58.png]]
+[[file:_img/screenshot_2017-11-11_11-57-58.png]]
 
 ** Strided Convolutions
-[[file:img/screenshot_2017-11-11_11-58-37.png]]
+[[file:_img/screenshot_2017-11-11_11-58-37.png]]
 
-[[file:img/screenshot_2017-11-11_11-58-52.png]]
+[[file:_img/screenshot_2017-11-11_11-58-52.png]]
 
-[[file:img/screenshot_2017-11-11_11-59-40.png]]
+[[file:_img/screenshot_2017-11-11_11-59-40.png]]
 
 - Actul convolution operation in math requires flipping the filter matrix
 - The same operation as convolution without flipping is called cross-correlation in math.
 - *But, in machine learning, by the convention, practitioners call the cross-correlation as convolution.*
 ** Convolutions Over Volume
-[[file:img/screenshot_2017-11-11_12-05-22.png]]
+[[file:_img/screenshot_2017-11-11_12-05-22.png]]
 
 ** One Layer of a Convolutional Network
-[[file:img/screenshot_2017-11-11_12-06-50.png]]
+[[file:_img/screenshot_2017-11-11_12-06-50.png]]
 
-[[file:img/screenshot_2017-11-11_12-07-32.png]]
+[[file:_img/screenshot_2017-11-11_12-07-32.png]]
 
-[[file:img/screenshot_2017-11-11_12-10-14.png]]
+[[file:_img/screenshot_2017-11-11_12-10-14.png]]
 
 ** Simple Convolutional Network Example
-[[file:img/screenshot_2017-11-11_12-11-41.png]]
+[[file:_img/screenshot_2017-11-11_12-11-41.png]]
 
 ** Pooling Layers
-[[file:img/screenshot_2017-11-11_12-12-20.png]]
+[[file:_img/screenshot_2017-11-11_12-12-20.png]]
 
 #+BEGIN_QUOTE
 But I have to admit, I think the main reason people use max pooling is because it's been found in a lot of experiments to work well.
@@ -73,59 +73,59 @@ And the intuition I just described, despite it being often cited, I don't know i
 I don't know if anyone knows that that's the real underlying reason that max pooling works well in confidence.
 #+END_QUOTE
 
-[[file:img/screenshot_2017-11-11_12-15-47.png]]
+[[file:_img/screenshot_2017-11-11_12-15-47.png]]
 
-[[file:img/screenshot_2017-11-11_12-16-04.png]]
+[[file:_img/screenshot_2017-11-11_12-16-04.png]]
 
 - Max pooling is used in general. Average pooling is rarely used.
 
-[[file:img/screenshot_2017-11-11_12-17-20.png]]
+[[file:_img/screenshot_2017-11-11_12-17-20.png]]
 
 - Generally no padding for pooling layers
 
 ** CNN Example
-[[file:img/screenshot_2017-11-11_12-18-17.png]]
+[[file:_img/screenshot_2017-11-11_12-18-17.png]]
 
-[[file:img/screenshot_2017-11-11_12-18-31.png]]
+[[file:_img/screenshot_2017-11-11_12-18-31.png]]
 
 ** Why Convolutions?
-[[file:img/screenshot_2017-11-11_12-18-59.png]]
+[[file:_img/screenshot_2017-11-11_12-18-59.png]]
 
 (The calcuation above is wrong. the number of channels in the previous layer must be multiplied)
 
-[[file:img/screenshot_2018-02-06_16-36-32.png]]
+[[file:_img/screenshot_2018-02-06_16-36-32.png]]
 
 - Conv layers have relatively small parameters.
 
-[[file:img/screenshot_2017-11-11_12-19-39.png]]
+[[file:_img/screenshot_2017-11-11_12-19-39.png]]
 
-[[file:img/screenshot_2017-11-11_12-19-53.png]]
+[[file:_img/screenshot_2017-11-11_12-19-53.png]]
 
 * Practice questions
 
 * Programming assignments
 ** Convolutional Model: step by step
-[[file:img/screenshot_2017-11-11_22-13-40.png]]
+[[file:_img/screenshot_2017-11-11_22-13-40.png]]
 
-[[file:img/screenshot_2017-11-11_22-17-08.png]]
+[[file:_img/screenshot_2017-11-11_22-17-08.png]]
 
-[[file:img/screenshot_2017-11-11_22-19-28.png]]
+[[file:_img/screenshot_2017-11-11_22-19-28.png]]
 
-[[file:img/screenshot_2017-11-11_22-23-07.png]]
+[[file:_img/screenshot_2017-11-11_22-23-07.png]]
 
-[[file:img/screenshot_2017-11-11_22-27-43.png]]
+[[file:_img/screenshot_2017-11-11_22-27-43.png]]
 
-[[file:img/screenshot_2017-11-11_23-27-30.png]]
+[[file:_img/screenshot_2017-11-11_23-27-30.png]]
 
-[[file:img/screenshot_2017-11-11_23-50-37.png]]
+[[file:_img/screenshot_2017-11-11_23-50-37.png]]
 
-[[file:img/screenshot_2017-11-12_09-55-07.png]]
+[[file:_img/screenshot_2017-11-12_09-55-07.png]]
 
-[[file:img/screenshot_2017-11-12_10-15-19.png]]
+[[file:_img/screenshot_2017-11-12_10-15-19.png]]
 
-[[file:img/screenshot_2017-11-12_10-18-46.png]]
+[[file:_img/screenshot_2017-11-12_10-18-46.png]]
 
-[[file:img/screenshot_2017-11-12_10-19-52.png]]
+[[file:_img/screenshot_2017-11-12_10-19-52.png]]
 
 #+BEGIN_SRC python
   def zero_pad(X, pad):
@@ -158,17 +158,17 @@ I don't know if anyone knows that that's the real underlying reason that max poo
 #+END_SRC
 
 ** Convolutional Model: application
-[[file:img/screenshot_2017-11-12_04-01-23.png]]
+[[file:_img/screenshot_2017-11-12_04-01-23.png]]
 
-[[file:img/screenshot_2017-11-12_04-12-44.png]]
+[[file:_img/screenshot_2017-11-12_04-12-44.png]]
 
-[[file:img/screenshot_2017-11-12_04-12-31.png]]
+[[file:_img/screenshot_2017-11-12_04-12-31.png]]
 
-[[file:img/screenshot_2017-11-12_04-13-05.png]]
+[[file:_img/screenshot_2017-11-12_04-13-05.png]]
 
-[[file:img/screenshot_2017-11-12_04-28-26.png]]
+[[file:_img/screenshot_2017-11-12_04-28-26.png]]
 
-[[file:img/screenshot_2017-11-12_04-31-32.png]]
+[[file:_img/screenshot_2017-11-12_04-31-32.png]]
 
 #+BEGIN_SRC python
   def create_placeholders(n_H0, n_W0, n_C0, n_y):

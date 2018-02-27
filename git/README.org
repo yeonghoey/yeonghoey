@@ -343,9 +343,9 @@ To remove a submodule from the project, following steps required:
 
 *Git Attributes* is a customization interface which tools like *Git LFS* implemented on.
 
-[[file:img/screenshot_2017-05-04_11-48-09.png]]
+[[file:_img/screenshot_2017-05-04_11-48-09.png]]
 
-[[file:img/screenshot_2017-05-04_11-49-47.png]]
+[[file:_img/screenshot_2017-05-04_11-49-47.png]]
 
 In ~.gitattributes~:
 #+BEGIN_EXAMPLE

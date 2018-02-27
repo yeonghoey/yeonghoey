@@ -2,97 +2,97 @@
 
 * Face Recognition
 ** What is face recognition?
-[[file:img/screenshot_2017-11-26_08-31-57.png]]
+[[file:_img/screenshot_2017-11-26_08-31-57.png]]
 
-[[file:img/screenshot_2017-11-26_08-32-25.png]]
+[[file:_img/screenshot_2017-11-26_08-32-25.png]]
 
-[[file:img/screenshot_2017-11-26_08-35-08.png]]
+[[file:_img/screenshot_2017-11-26_08-35-08.png]]
 ** One Shot Learning
-[[file:img/screenshot_2017-11-26_08-39-41.png]]
+[[file:_img/screenshot_2017-11-26_08-39-41.png]]
 
-[[file:img/screenshot_2017-11-26_08-42-10.png]]
+[[file:_img/screenshot_2017-11-26_08-42-10.png]]
 ** Siamese Network
-[[file:img/screenshot_2017-11-26_08-49-49.png]]
+[[file:_img/screenshot_2017-11-26_08-49-49.png]]
 
-[[file:img/screenshot_2017-11-26_08-51-45.png]]
+[[file:_img/screenshot_2017-11-26_08-51-45.png]]
 
 ** Triplet Loss
-[[file:img/screenshot_2017-11-26_08-59-06.png]]
+[[file:_img/screenshot_2017-11-26_08-59-06.png]]
 
-[[file:img/screenshot_2017-11-26_09-03-04.png]]
+[[file:_img/screenshot_2017-11-26_09-03-04.png]]
 
-[[file:img/screenshot_2017-11-26_09-06-28.png]]
+[[file:_img/screenshot_2017-11-26_09-06-28.png]]
 
-[[file:img/screenshot_2017-11-26_09-08-18.png]]
+[[file:_img/screenshot_2017-11-26_09-08-18.png]]
 ** Face Verification and Binary Classification
-[[file:img/screenshot_2017-11-26_09-17-56.png]]
+[[file:_img/screenshot_2017-11-26_09-17-56.png]]
 
-[[file:img/screenshot_2017-11-26_09-18-34.png]]
+[[file:_img/screenshot_2017-11-26_09-18-34.png]]
 
 * Neural Style Transfer
 ** What is neural style transfer?
-[[file:img/screenshot_2017-11-26_09-35-52.png]]
+[[file:_img/screenshot_2017-11-26_09-35-52.png]]
 ** What are deep ConvNets learning?
-[[file:img/screenshot_2017-11-27_11-36-35.png]]
+[[file:_img/screenshot_2017-11-27_11-36-35.png]]
 
-[[file:img/screenshot_2017-11-27_11-36-53.png]]
+[[file:_img/screenshot_2017-11-27_11-36-53.png]]
 ** Cost Function
-[[file:img/screenshot_2017-11-27_11-39-46.png]]
+[[file:_img/screenshot_2017-11-27_11-39-46.png]]
 
-[[file:img/screenshot_2017-11-27_11-41-10.png]]
+[[file:_img/screenshot_2017-11-27_11-41-10.png]]
 
 ** Content Cost Function
-[[file:img/screenshot_2017-11-27_11-48-54.png]]
+[[file:_img/screenshot_2017-11-27_11-48-54.png]]
 
 ** Style Cost Function
-[[file:img/screenshot_2017-11-27_11-52-05.png]]
+[[file:_img/screenshot_2017-11-27_11-52-05.png]]
 
-[[file:img/screenshot_2017-11-27_11-54-36.png]]
+[[file:_img/screenshot_2017-11-27_11-54-36.png]]
 
-[[file:img/screenshot_2017-11-27_12-03-42.png]]
+[[file:_img/screenshot_2017-11-27_12-03-42.png]]
 
-[[file:img/screenshot_2017-11-27_12-04-05.png]]
+[[file:_img/screenshot_2017-11-27_12-04-05.png]]
 ** 1D and 3D Generalizations
-[[file:img/screenshot_2017-11-27_12-09-44.png]]
+[[file:_img/screenshot_2017-11-27_12-09-44.png]]
 
-[[file:img/screenshot_2017-11-27_12-11-36.png]]
+[[file:_img/screenshot_2017-11-27_12-11-36.png]]
 
-[[file:img/screenshot_2017-11-27_12-14-13.png]]
+[[file:_img/screenshot_2017-11-27_12-14-13.png]]
 * Programming assignments
 ** Art generation with Neural Style Transfer
-[[file:img/screenshot_2017-11-28_10-02-25.png]]
+[[file:_img/screenshot_2017-11-28_10-02-25.png]]
 
-[[file:img/screenshot_2017-11-28_10-05-44.png]]
+[[file:_img/screenshot_2017-11-28_10-05-44.png]]
 
-[[file:img/screenshot_2017-11-28_10-07-12.png]]
+[[file:_img/screenshot_2017-11-28_10-07-12.png]]
 
-[[file:img/screenshot_2017-11-28_10-07-59.png]]
+[[file:_img/screenshot_2017-11-28_10-07-59.png]]
 
-[[file:img/screenshot_2017-11-28_10-10-14.png]]
+[[file:_img/screenshot_2017-11-28_10-10-14.png]]
 
-[[file:img/screenshot_2017-11-28_10-22-01.png]]
+[[file:_img/screenshot_2017-11-28_10-22-01.png]]
 
-[[file:img/screenshot_2017-11-28_10-22-34.png]]
+[[file:_img/screenshot_2017-11-28_10-22-34.png]]
 
-[[file:img/screenshot_2017-11-28_10-36-04.png]]
+[[file:_img/screenshot_2017-11-28_10-36-04.png]]
 
-[[file:img/screenshot_2017-11-28_10-44-41.png]]
+[[file:_img/screenshot_2017-11-28_10-44-41.png]]
 
-[[file:img/screenshot_2017-11-28_10-45-51.png]]
+[[file:_img/screenshot_2017-11-28_10-45-51.png]]
 
-[[file:img/screenshot_2017-11-28_10-46-11.png]]
+[[file:_img/screenshot_2017-11-28_10-46-11.png]]
 
-[[file:img/screenshot_2017-11-28_10-48-33.png]]
+[[file:_img/screenshot_2017-11-28_10-48-33.png]]
 
-[[file:img/screenshot_2017-11-28_10-48-50.png]]
+[[file:_img/screenshot_2017-11-28_10-48-50.png]]
 
-[[file:img/screenshot_2017-11-28_11-04-19.png]]
+[[file:_img/screenshot_2017-11-28_11-04-19.png]]
 
-[[file:img/screenshot_2017-11-28_11-13-21.png]]
+[[file:_img/screenshot_2017-11-28_11-13-21.png]]
 
-[[file:img/screenshot_2017-11-28_11-14-38.png]]
+[[file:_img/screenshot_2017-11-28_11-14-38.png]]
 
-[[file:img/screenshot_2017-11-28_11-42-32.png]]
+[[file:_img/screenshot_2017-11-28_11-42-32.png]]
 
 - https://www.tensorflow.org/versions/r1.3/api_docs/python/tf/transpose
 - https://www.tensorflow.org/versions/r1.2/api_docs/python/tf/reshape
@@ -170,25 +170,25 @@
 #+END_SRC
 
 ** Face Recognition for the Happy House
-[[file:img/screenshot_2017-11-29_09-00-41.png]]
+[[file:_img/screenshot_2017-11-29_09-00-41.png]]
 
-[[file:img/screenshot_2017-11-29_09-03-14.png]]
+[[file:_img/screenshot_2017-11-29_09-03-14.png]]
 
-[[file:img/screenshot_2017-11-29_09-03-36.png]]
+[[file:_img/screenshot_2017-11-29_09-03-36.png]]
 
-[[file:img/screenshot_2017-11-29_09-05-42.png]]
+[[file:_img/screenshot_2017-11-29_09-05-42.png]]
 
-[[file:img/screenshot_2017-11-29_09-06-52.png]]
+[[file:_img/screenshot_2017-11-29_09-06-52.png]]
 
-[[file:img/screenshot_2017-11-29_09-23-00.png]]
+[[file:_img/screenshot_2017-11-29_09-23-00.png]]
 
-[[file:img/screenshot_2017-11-29_09-23-14.png]]
+[[file:_img/screenshot_2017-11-29_09-23-14.png]]
 
-[[file:img/screenshot_2017-11-29_09-23-32.png]]
+[[file:_img/screenshot_2017-11-29_09-23-32.png]]
 
-[[file:img/screenshot_2017-11-29_09-30-08.png]]
+[[file:_img/screenshot_2017-11-29_09-30-08.png]]
 
-[[file:img/screenshot_2017-11-29_09-38-37.png]]
+[[file:_img/screenshot_2017-11-29_09-38-37.png]]
 
 - https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.norm.html 
 

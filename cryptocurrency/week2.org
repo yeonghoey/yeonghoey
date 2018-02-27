@@ -8,100 +8,100 @@
 - [[#putting-it-all-together][Putting It All Together]]
 
 * Centralization vs. Decentralization
-[[file:img/screenshot_2017-10-15_17-17-51.png]]
+[[file:_img/screenshot_2017-10-15_17-17-51.png]]
 
-[[file:img/screenshot_2017-10-15_17-17-38.png]]
+[[file:_img/screenshot_2017-10-15_17-17-38.png]]
 
-[[file:img/screenshot_2017-10-15_17-20-31.png]]
+[[file:_img/screenshot_2017-10-15_17-20-31.png]]
 * Distributed Consensus
-[[file:img/screenshot_2017-10-15_17-44-30.png]]
+[[file:_img/screenshot_2017-10-15_17-44-30.png]]
 
-[[file:img/screenshot_2017-10-15_17-46-50.png]]
+[[file:_img/screenshot_2017-10-15_17-46-50.png]]
 
-[[file:img/screenshot_2017-10-15_17-47-28.png]]
+[[file:_img/screenshot_2017-10-15_17-47-28.png]]
 
-[[file:img/screenshot_2017-10-15_17-47-55.png]]
+[[file:_img/screenshot_2017-10-15_17-47-55.png]]
 
-[[file:img/screenshot_2017-10-15_17-48-27.png]]
+[[file:_img/screenshot_2017-10-15_17-48-27.png]]
 
-[[file:img/screenshot_2017-10-15_17-48-53.png]]
+[[file:_img/screenshot_2017-10-15_17-48-53.png]]
 
-[[file:img/screenshot_2017-10-15_17-49-01.png]]
+[[file:_img/screenshot_2017-10-15_17-49-01.png]]
 
-[[file:img/screenshot_2017-10-15_17-49-44.png]]
+[[file:_img/screenshot_2017-10-15_17-49-44.png]]
 
-[[file:img/screenshot_2017-10-15_17-51-52.png]]
+[[file:_img/screenshot_2017-10-15_17-51-52.png]]
 
 - Read more: https://angus.nyc/2012/paxos-by-example/
-[[file:img/screenshot_2017-10-15_17-52-07.png]]
+[[file:_img/screenshot_2017-10-15_17-52-07.png]]
 
 
-[[file:img/screenshot_2017-10-15_17-52-58.png]]
+[[file:_img/screenshot_2017-10-15_17-52-58.png]]
 
-[[file:img/screenshot_2017-10-15_17-53-17.png]]
+[[file:_img/screenshot_2017-10-15_17-53-17.png]]
 
-[[file:img/screenshot_2017-10-15_17-53-33.png]]
+[[file:_img/screenshot_2017-10-15_17-53-33.png]]
 * Consensus without Identity: the Block Chain
-[[file:img/screenshot_2017-10-16_01-29-14.png]]
+[[file:_img/screenshot_2017-10-16_01-29-14.png]]
 
-[[file:img/screenshot_2017-10-16_01-29-27.png]]
+[[file:_img/screenshot_2017-10-16_01-29-27.png]]
 
-[[file:img/screenshot_2017-10-16_01-29-47.png]]
+[[file:_img/screenshot_2017-10-16_01-29-47.png]]
 
-[[file:img/screenshot_2017-10-16_01-30-33.png]]
+[[file:_img/screenshot_2017-10-16_01-30-33.png]]
 
-[[file:img/screenshot_2017-10-16_01-30-50.png]]
+[[file:_img/screenshot_2017-10-16_01-30-50.png]]
 
-[[file:img/screenshot_2017-10-16_01-31-56.png]]
+[[file:_img/screenshot_2017-10-16_01-31-56.png]]
 
-[[file:img/screenshot_2017-10-16_01-32-11.png]]
+[[file:_img/screenshot_2017-10-16_01-32-11.png]]
 
-[[file:img/screenshot_2017-10-16_01-32-34.png]]
+[[file:_img/screenshot_2017-10-16_01-32-34.png]]
 
-[[file:img/screenshot_2017-10-16_01-33-00.png]]
+[[file:_img/screenshot_2017-10-16_01-33-00.png]]
 * Incentives and Proof of Work
-[[file:img/screenshot_2017-10-16_08-17-45.png]]
+[[file:_img/screenshot_2017-10-16_08-17-45.png]]
 
-[[file:img/screenshot_2017-10-16_08-18-16.png]]
+[[file:_img/screenshot_2017-10-16_08-18-16.png]]
 
-[[file:img/screenshot_2017-10-16_08-18-34.png]]
+[[file:_img/screenshot_2017-10-16_08-18-34.png]]
 
-[[file:img/screenshot_2017-10-16_08-22-50.png]]
+[[file:_img/screenshot_2017-10-16_08-22-50.png]]
 
 - Transaction fee is currently optional, but will be almost mandatory as block reward diminishes.
 - https://coinidol.com/what-happens-when-bitcoin-mining-rewards-diminish-to-zero/
 
-[[file:img/screenshot_2017-10-16_08-24-33.png]]
+[[file:_img/screenshot_2017-10-16_08-24-33.png]]
 
-[[file:img/screenshot_2017-10-16_08-24-50.png]]
+[[file:_img/screenshot_2017-10-16_08-24-50.png]]
 
-[[file:img/screenshot_2017-10-16_08-25-44.png]]
+[[file:_img/screenshot_2017-10-16_08-25-44.png]]
 
-[[file:img/screenshot_2017-10-16_08-26-55.png]]
+[[file:_img/screenshot_2017-10-16_08-26-55.png]]
 
-[[file:img/screenshot_2017-10-16_08-26-33.png]]
+[[file:_img/screenshot_2017-10-16_08-26-33.png]]
 
-[[file:img/screenshot_2017-10-16_08-28-54.png]]
+[[file:_img/screenshot_2017-10-16_08-28-54.png]]
 
-[[file:img/screenshot_2017-10-16_08-29-17.png]]
+[[file:_img/screenshot_2017-10-16_08-29-17.png]]
 
-[[file:img/screenshot_2017-10-16_08-29-32.png]]
+[[file:_img/screenshot_2017-10-16_08-29-32.png]]
 
 - SEE ALSO :: https://en.bitcoin.it/wiki/Difficulty
 
 * Putting It All Together
-[[file:img/screenshot_2017-10-16_08-30-50.png]]
+[[file:_img/screenshot_2017-10-16_08-30-50.png]]
 
-[[file:img/screenshot_2017-10-16_08-31-16.png]]
+[[file:_img/screenshot_2017-10-16_08-31-16.png]]
 
-[[file:img/screenshot_2017-10-16_08-31-38.png]]
+[[file:_img/screenshot_2017-10-16_08-31-38.png]]
 
 - Value :: How valuable the currency is
 - State :: Which transactions are valid
 - Rules :: How the system goes on
 
-[[file:img/screenshot_2017-10-16_08-33-40.png]]
+[[file:_img/screenshot_2017-10-16_08-33-40.png]]
 
-[[file:img/screenshot_2017-10-16_08-34-29.png]]
+[[file:_img/screenshot_2017-10-16_08-34-29.png]]
 
-[[file:img/screenshot_2017-10-16_08-35-37.png]]
+[[file:_img/screenshot_2017-10-16_08-35-37.png]]

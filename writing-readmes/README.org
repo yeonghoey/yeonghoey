@@ -1,10 +1,10 @@
 #+TITLE: Udacity: Writing READMEs
 
 * Table of Contents :TOC_2_gh:
- - [[#udacity][Udacity]]
- - [[#writing-readmes][Writing READMES]]
-   - [[#anatomy-of-a-readme][Anatomy of a README]]
-   - [[#quiz-documenting-a-growing-codebase][Quiz: Documenting A Growing Codebase]]
+- [[#udacity][Udacity]]
+- [[#writing-readmes][Writing READMES]]
+  - [[#anatomy-of-a-readme][Anatomy of a README]]
+  - [[#quiz-documenting-a-growing-codebase][Quiz: Documenting A Growing Codebase]]
 
 * Udacity
 - https://www.udacity.com/course/writing-readmes--ud777
@@ -13,13 +13,13 @@
 
 * Writing READMES
 ** Anatomy of a README
-[[file:img/screenshot_2017-01-27_14-20-23.png]]
+[[file:_img/screenshot_2017-01-27_14-20-23.png]]
 
-[[file:img/screenshot_2017-01-27_14-21-24.png]]
+[[file:_img/screenshot_2017-01-27_14-21-24.png]]
 
-[[file:img/screenshot_2017-01-27_14-22-02.png]]
+[[file:_img/screenshot_2017-01-27_14-22-02.png]]
 
 ** Quiz: Documenting A Growing Codebase
 - https://choosealicense.com/
  
-[[file:img/screenshot_2017-01-27_14-23-31.png]]
+[[file:_img/screenshot_2017-01-27_14-23-31.png]]

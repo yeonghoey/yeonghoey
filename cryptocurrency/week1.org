@@ -15,53 +15,53 @@
   - [[#scrooge-coin][Scrooge Coin]]
 
 * Cryptographic Hash Functions
-[[file:img/screenshot_2017-09-29_07-45-44.png]]
+[[file:_img/screenshot_2017-09-29_07-45-44.png]]
 
 ** Collision-free
-[[file:img/screenshot_2017-09-29_07-46-06.png]]
+[[file:_img/screenshot_2017-09-29_07-46-06.png]]
 
-[[file:img/screenshot_2017-09-29_07-46-27.png]]
+[[file:_img/screenshot_2017-09-29_07-46-27.png]]
 
-[[file:img/screenshot_2017-09-29_07-46-45.png]]
+[[file:_img/screenshot_2017-09-29_07-46-45.png]]
 
-[[file:img/screenshot_2017-09-29_07-47-03.png]]
+[[file:_img/screenshot_2017-09-29_07-47-03.png]]
 ** Hiding
-[[file:img/screenshot_2017-09-29_07-47-39.png]]
+[[file:_img/screenshot_2017-09-29_07-47-39.png]]
 
 - ~r | x~ means concatenating string ~r~ and ~x~
 
-[[file:img/screenshot_2017-09-29_07-48-18.png]]
+[[file:_img/screenshot_2017-09-29_07-48-18.png]]
 
-[[file:img/screenshot_2017-09-29_07-48-29.png]]
+[[file:_img/screenshot_2017-09-29_07-48-29.png]]
 
-[[file:img/screenshot_2017-09-29_07-48-48.png]]
+[[file:_img/screenshot_2017-09-29_07-48-48.png]]
 
-[[file:img/screenshot_2017-09-29_07-49-26.png]]
+[[file:_img/screenshot_2017-09-29_07-49-26.png]]
 ** Puzzle-friendly
-[[file:img/screenshot_2017-09-29_07-50-21.png]]
+[[file:_img/screenshot_2017-09-29_07-50-21.png]]
 
-[[file:img/screenshot_2017-09-29_07-50-35.png]]
+[[file:_img/screenshot_2017-09-29_07-50-35.png]]
 
 ** SHA-256
-[[file:img/screenshot_2017-09-29_07-50-47.png]]
+[[file:_img/screenshot_2017-09-29_07-50-47.png]]
 * Hash Pointers and Data Structures
-[[file:img/screenshot_2017-10-06_13-44-57.png]]
+[[file:_img/screenshot_2017-10-06_13-44-57.png]]
 
-[[file:img/screenshot_2017-10-06_13-45-23.png]]
+[[file:_img/screenshot_2017-10-06_13-45-23.png]]
 
-[[file:img/screenshot_2017-10-06_13-45-45.png]]
+[[file:_img/screenshot_2017-10-06_13-45-45.png]]
 
-[[file:img/screenshot_2017-10-06_13-50-57.png]]
+[[file:_img/screenshot_2017-10-06_13-50-57.png]]
 
 - Because the header for the list is the list itself, the adversary can't falsify the whole data.
 
-[[file:img/screenshot_2017-10-06_13-53-02.png]]
+[[file:_img/screenshot_2017-10-06_13-53-02.png]]
 
-[[file:img/screenshot_2017-10-06_13-53-44.png]]
+[[file:_img/screenshot_2017-10-06_13-53-44.png]]
 
-[[file:img/screenshot_2017-10-06_14-41-42.png]]
+[[file:_img/screenshot_2017-10-06_14-41-42.png]]
 
-[[file:img/screenshot_2017-10-06_14-42-50.png]]
+[[file:_img/screenshot_2017-10-06_14-42-50.png]]
 
 ** Self study to understand more
 - http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#merkle_trees
@@ -73,44 +73,44 @@
 - I've waded through lots of implementations on GitHub, and *most implementations keep the original data blocks as an array*
   and indexing it to calculate hashes.
 
-[[file:img/screenshot_2017-10-06_16-12-52.png]]
+[[file:_img/screenshot_2017-10-06_16-12-52.png]]
 * Digital Signatures
-[[file:img/screenshot_2017-10-08_09-42-38.png]]
+[[file:_img/screenshot_2017-10-08_09-42-38.png]]
 
-[[file:img/screenshot_2017-10-08_09-42-48.png]]
+[[file:_img/screenshot_2017-10-08_09-42-48.png]]
 
-[[file:img/screenshot_2017-10-08_09-43-18.png]]
+[[file:_img/screenshot_2017-10-08_09-43-18.png]]
 
-[[file:img/screenshot_2017-10-08_09-43-41.png]]
+[[file:_img/screenshot_2017-10-08_09-43-41.png]]
 
-[[file:img/screenshot_2017-10-08_09-43-56.png]]
+[[file:_img/screenshot_2017-10-08_09-43-56.png]]
 
-[[file:img/screenshot_2017-10-08_09-44-16.png]]
+[[file:_img/screenshot_2017-10-08_09-44-16.png]]
 * Public Keys as Identities
-[[file:img/screenshot_2017-10-08_09-47-20.png]]
+[[file:_img/screenshot_2017-10-08_09-47-20.png]]
 
-[[file:img/screenshot_2017-10-08_09-50-28.png]]
+[[file:_img/screenshot_2017-10-08_09-50-28.png]]
 
-[[file:img/screenshot_2017-10-08_09-51-51.png]]
+[[file:_img/screenshot_2017-10-08_09-51-51.png]]
 
-[[file:img/screenshot_2017-10-08_09-52-36.png]]
+[[file:_img/screenshot_2017-10-08_09-52-36.png]]
 
 * A Simple Cryptocurrency
 ** Goofy Coin
-[[file:img/screenshot_2017-10-08_10-11-21.png]]
+[[file:_img/screenshot_2017-10-08_10-11-21.png]]
 
-[[file:img/screenshot_2017-10-08_10-11-47.png]]
+[[file:_img/screenshot_2017-10-08_10-11-47.png]]
 
-[[file:img/screenshot_2017-10-08_10-12-34.png]]
+[[file:_img/screenshot_2017-10-08_10-12-34.png]]
 
-[[file:img/screenshot_2017-10-08_10-13-00.png]]
+[[file:_img/screenshot_2017-10-08_10-13-00.png]]
 ** Scrooge Coin
-[[file:img/screenshot_2017-10-08_10-13-27.png]]
+[[file:_img/screenshot_2017-10-08_10-13-27.png]]
 
-[[file:img/screenshot_2017-10-08_10-13-58.png]]
+[[file:_img/screenshot_2017-10-08_10-13-58.png]]
 
-[[file:img/screenshot_2017-10-08_10-14-15.png]]
+[[file:_img/screenshot_2017-10-08_10-14-15.png]]
 
-[[file:img/screenshot_2017-10-08_10-14-30.png]]
+[[file:_img/screenshot_2017-10-08_10-14-30.png]]
 
-[[file:img/screenshot_2017-10-08_10-15-03.png]]
+[[file:_img/screenshot_2017-10-08_10-15-03.png]]

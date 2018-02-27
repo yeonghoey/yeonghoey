@@ -2,86 +2,86 @@
 
 * Detection algorithms
 ** Object Localization
-[[file:img/screenshot_2017-11-24_23-33-19.png]]
+[[file:_img/screenshot_2017-11-24_23-33-19.png]]
 
-[[file:img/screenshot_2017-11-24_23-33-47.png]]
+[[file:_img/screenshot_2017-11-24_23-33-47.png]]
 
-[[file:img/screenshot_2017-11-24_23-35-51.png]]
+[[file:_img/screenshot_2017-11-24_23-35-51.png]]
 ** Landmark Detection
-[[file:img/screenshot_2017-11-24_23-37-23.png]]
+[[file:_img/screenshot_2017-11-24_23-37-23.png]]
 ** Object Detection
-[[file:img/screenshot_2017-11-24_23-59-56.png]]
+[[file:_img/screenshot_2017-11-24_23-59-56.png]]
 
 ** Convolutional Implementation of Sliding Windows
-[[file:img/screenshot_2017-11-25_00-23-41.png]]
+[[file:_img/screenshot_2017-11-25_00-23-41.png]]
 
-[[file:img/screenshot_2017-11-25_10-00-09.png]]
+[[file:_img/screenshot_2017-11-25_10-00-09.png]]
 
-[[file:img/screenshot_2017-11-25_10-00-38.png]]
+[[file:_img/screenshot_2017-11-25_10-00-38.png]]
 ** Bounding Box Predictions
-[[file:img/screenshot_2017-11-25_10-01-39.png]]
+[[file:_img/screenshot_2017-11-25_10-01-39.png]]
 
-[[file:img/screenshot_2017-11-25_10-01-57.png]]
+[[file:_img/screenshot_2017-11-25_10-01-57.png]]
 
 ** Intersection Over Union
-[[file:img/screenshot_2017-11-25_10-02-34.png]]
+[[file:_img/screenshot_2017-11-25_10-02-34.png]]
 
 ** Non-max Suppression
-[[file:img/screenshot_2017-11-25_10-03-03.png]]
+[[file:_img/screenshot_2017-11-25_10-03-03.png]]
 
-[[file:img/screenshot_2017-11-25_10-03-29.png]]
+[[file:_img/screenshot_2017-11-25_10-03-29.png]]
 
 ** Anchor Boxes
-[[file:img/screenshot_2017-11-25_10-04-02.png]]
+[[file:_img/screenshot_2017-11-25_10-04-02.png]]
 
-[[file:img/screenshot_2017-11-25_10-04-20.png]]
+[[file:_img/screenshot_2017-11-25_10-04-20.png]]
 
-[[file:img/screenshot_2017-11-25_10-04-49.png]]
+[[file:_img/screenshot_2017-11-25_10-04-49.png]]
 
 - Anchor boxes are not only for dealing with multiple mid points in one grid.
 - Anchor boxes specialize each detecting object.
 
 ** YOLO Algorithm
-[[file:img/screenshot_2017-11-25_10-08-01.png]]
+[[file:_img/screenshot_2017-11-25_10-08-01.png]]
 
-[[file:img/screenshot_2017-11-25_10-08-15.png]]
+[[file:_img/screenshot_2017-11-25_10-08-15.png]]
 
-[[file:img/screenshot_2017-11-25_10-08-37.png]]
+[[file:_img/screenshot_2017-11-25_10-08-37.png]]
 
 ** (Optional) Region Proposals
-[[file:img/screenshot_2017-11-25_10-09-08.png]]
+[[file:_img/screenshot_2017-11-25_10-09-08.png]]
 
-[[file:img/screenshot_2017-11-25_10-09-27.png]]
+[[file:_img/screenshot_2017-11-25_10-09-27.png]]
 
 * Programming assignments
 ** Car detection with YOLOv2
-[[file:img/screenshot_2017-11-25_10-23-48.png]]
+[[file:_img/screenshot_2017-11-25_10-23-48.png]]
 
-[[file:img/screenshot_2017-11-25_10-25-44.png]]
+[[file:_img/screenshot_2017-11-25_10-25-44.png]]
 
-[[file:img/screenshot_2017-11-25_10-27-20.png]]
+[[file:_img/screenshot_2017-11-25_10-27-20.png]]
 
-[[file:img/screenshot_2017-11-25_10-28-40.png]]
+[[file:_img/screenshot_2017-11-25_10-28-40.png]]
 
-[[file:img/screenshot_2017-11-25_10-29-42.png]]
+[[file:_img/screenshot_2017-11-25_10-29-42.png]]
 
-[[file:img/screenshot_2017-11-25_10-56-43.png]]
+[[file:_img/screenshot_2017-11-25_10-56-43.png]]
 
-[[file:img/screenshot_2017-11-25_11-05-09.png]]
+[[file:_img/screenshot_2017-11-25_11-05-09.png]]
 
-[[file:img/screenshot_2017-11-25_11-14-47.png]]
+[[file:_img/screenshot_2017-11-25_11-14-47.png]]
 
-[[file:img/screenshot_2017-11-25_11-20-43.png]]
+[[file:_img/screenshot_2017-11-25_11-20-43.png]]
 
-[[file:img/screenshot_2017-11-25_11-22-23.png]]
+[[file:_img/screenshot_2017-11-25_11-22-23.png]]
 
-[[file:img/screenshot_2017-11-25_11-22-57.png]]
+[[file:_img/screenshot_2017-11-25_11-22-57.png]]
 
-[[file:img/screenshot_2017-11-25_11-23-41.png]]
+[[file:_img/screenshot_2017-11-25_11-23-41.png]]
 
-[[file:img/screenshot_2017-11-25_11-33-18.png]]
+[[file:_img/screenshot_2017-11-25_11-33-18.png]]
 
-[[file:img/screenshot_2017-11-25_11-33-38.png]]
+[[file:_img/screenshot_2017-11-25_11-33-38.png]]
 
 - https://keras.io/backend/#argmax
 - https://www.tensorflow.org/api_docs/python/tf/boolean_mask

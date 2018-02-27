@@ -38,7 +38,7 @@ M-x
 ** TODO <2017-12-11 Mon> safari open safe download
 https://apple.stackexchange.com/questions/57039/how-make-safari-download-pdf-files-instead-of-opening-them-in-page
 
-[[file:img/screenshot_2017-12-11_15-29-21.png]]
+[[file:_img/screenshot_2017-12-11_15-29-21.png]]
 
 ** TODO <2018-01-17 Wed> macOS shortcuts
 Command-M :Minimize the active window to the Dock

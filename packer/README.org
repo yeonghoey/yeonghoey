@@ -63,7 +63,7 @@
 - ~{{.Variable}}~ :: Template variable named ~Variable~
   - These variables are defined by ~Packer~.
   - They are specified for each option like following:
-[[file:img/screenshot_2017-09-11_21-31-52.png]] 
+[[file:_img/screenshot_2017-09-11_21-31-52.png]] 
 
 * Terminology
 * Topics

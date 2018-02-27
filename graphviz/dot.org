@@ -41,7 +41,7 @@
 #+END_SRC
 
 #+RESULTS:
-[[file:img/overview-example.png]]
+[[file:_img/overview-example.png]]
 
 * Reference
 * Terminology

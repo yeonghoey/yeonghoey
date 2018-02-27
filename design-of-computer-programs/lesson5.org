@@ -1,39 +1,39 @@
 #+TITLE: Lesson 5
 
 * Table of Contents :TOC_2_gh:
- - [[#lesson-5][Lesson 5]]
-   - [[#porcine-probability][Porcine Probability]]
-   - [[#concept-inventory][Concept Inventory]]
-   - [[#quiz-hold-and-roll][Quiz: Hold And Roll]]
-   - [[#named-tuples][Named Tuples]]
-   - [[#quiz-hold-at-strategy][Quiz: Hold At Strategy]]
-   - [[#quiz-play-pig][Quiz: Play Pig]]
-   - [[#dependency-injection][Dependency Injection]]
-   - [[#utility][Utility]]
-   - [[#quiz-game-theory][Quiz: Game Theory]]
-   - [[#optimal-pig][Optimal Pig]]
-   - [[#pwin][Pwin]]
-   - [[#quiz-maxwins][Quiz: Maxwins]]
-   - [[#impressing-pig-scouts][Impressing Pig Scouts]]
-   - [[#quiz-maximizing-differential][Quiz: Maximizing Differential]]
-   - [[#being-careful][Being Careful]]
-   - [[#quiz-legal-actions][Quiz: Legal Actions]]
-   - [[#using-tools][Using Tools]]
-   - [[#telling-a-story][Telling A Story]]
-   - [[#conditional-probability][Conditional Probability]]
-   - [[#quiz-tuesday][Quiz: Tuesday]]
-   - [[#summary][Summary]]
- - [[#problem-set-5][Problem Set 5]]
-   - [[#quiz-improving-optimal][Quiz: Improving Optimal]]
-   - [[#quiz-doubling-pigs][Quiz: Doubling Pigs]]
-   - [[#quiz-foxes-and-hens][Quiz: Foxes and Hens]]
+- [[#lesson-5][Lesson 5]]
+  - [[#porcine-probability][Porcine Probability]]
+  - [[#concept-inventory][Concept Inventory]]
+  - [[#quiz-hold-and-roll][Quiz: Hold And Roll]]
+  - [[#named-tuples][Named Tuples]]
+  - [[#quiz-hold-at-strategy][Quiz: Hold At Strategy]]
+  - [[#quiz-play-pig][Quiz: Play Pig]]
+  - [[#dependency-injection][Dependency Injection]]
+  - [[#utility][Utility]]
+  - [[#quiz-game-theory][Quiz: Game Theory]]
+  - [[#optimal-pig][Optimal Pig]]
+  - [[#pwin][Pwin]]
+  - [[#quiz-maxwins][Quiz: Maxwins]]
+  - [[#impressing-pig-scouts][Impressing Pig Scouts]]
+  - [[#quiz-maximizing-differential][Quiz: Maximizing Differential]]
+  - [[#being-careful][Being Careful]]
+  - [[#quiz-legal-actions][Quiz: Legal Actions]]
+  - [[#using-tools][Using Tools]]
+  - [[#telling-a-story][Telling A Story]]
+  - [[#conditional-probability][Conditional Probability]]
+  - [[#quiz-tuesday][Quiz: Tuesday]]
+  - [[#summary][Summary]]
+- [[#problem-set-5][Problem Set 5]]
+  - [[#quiz-improving-optimal][Quiz: Improving Optimal]]
+  - [[#quiz-doubling-pigs][Quiz: Doubling Pigs]]
+  - [[#quiz-foxes-and-hens][Quiz: Foxes and Hens]]
 
 * Lesson 5
 ** Porcine Probability
-[[file:img/screenshot_2016-12-26_10-21-02.png]]
+[[file:_img/screenshot_2016-12-26_10-21-02.png]]
 
 ** Concept Inventory
-[[file:img/screenshot_2016-12-26_10-31-01.png]]
+[[file:_img/screenshot_2016-12-26_10-31-01.png]]
 
 ** Quiz: Hold And Roll
 *** My Solution
@@ -55,7 +55,7 @@
           return (p, me, you, pending + d)
 #+END_SRC
 *** His Solution
-[[file:img/screenshot_2016-12-26_10-41-29.png]]
+[[file:_img/screenshot_2016-12-26_10-41-29.png]]
 
 *** Feedback
 I gave unnecessary names for parts of the next state (~p2~, ~me2~, ...).
@@ -65,7 +65,7 @@ His way of turning over the next player is great. (~other = {1:0, 0:1}~).  It's 
 By this way, he could write the next state as one-liner, without losing readability.
 
 ** Named Tuples
-[[file:img/screenshot_2016-12-26_10-51-13.png]]
+[[file:_img/screenshot_2016-12-26_10-51-13.png]]
 
 ** Quiz: Hold At Strategy
 *** My Solution
@@ -81,14 +81,14 @@ By this way, he could write the next state as one-liner, without losing readabil
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2016-12-26_11-02-01.png]]
+[[file:_img/screenshot_2016-12-26_11-02-01.png]]
 
 *** Feedback
 Even though his solution is a simple one-liner, I think my solution is more readable.
 
 ** Quiz: Play Pig
 
-[[file:img/screenshot_2016-12-26_11-05-43.png]]
+[[file:_img/screenshot_2016-12-26_11-05-43.png]]
 
 *** My Solution
 #+BEGIN_SRC python
@@ -110,16 +110,16 @@ Even though his solution is a simple one-liner, I think my solution is more read
 #+END_SRC
 
 *** His solution
-[[file:img/screenshot_2016-12-26_11-17-16.png]]
+[[file:_img/screenshot_2016-12-26_11-17-16.png]]
 
 *** Feedback
 The name ~strategies~ is better than ~turn~.
 Additionally, it needn't have to be a ~dict~.  Just ~list~ is okay.
 
 ** Dependency Injection
-[[file:img/screenshot_2016-12-26_11-22-44.png]]
+[[file:_img/screenshot_2016-12-26_11-22-44.png]]
 
-[[file:img/screenshot_2016-12-26_11-23-02.png]]
+[[file:_img/screenshot_2016-12-26_11-23-02.png]]
 
 *** Feedback
 The interface of injecting ~dierolls~ is great.  He made it not just a function, but an iterable.
@@ -127,21 +127,21 @@ This makes easier for testing.  Also, he used a generator for keeping the same l
 
 ** Utility
 Concepts from Game Theory
-[[file:img/screenshot_2016-12-26_11-38-23.png]]
+[[file:_img/screenshot_2016-12-26_11-38-23.png]]
 
 ** Quiz: Game Theory
-[[file:img/screenshot_2016-12-28_11-59-53.png]]
+[[file:_img/screenshot_2016-12-28_11-59-53.png]]
 
-[[file:img/screenshot_2016-12-28_12-02-29.png]]
+[[file:_img/screenshot_2016-12-28_12-02-29.png]]
 
 For most people, the utility functions of money is not linear but logarithmic.
 It's amazing how the code expresses this naturally.
 
 ** Optimal Pig
-[[file:img/screenshot_2016-12-28_12-12-37.png]]
+[[file:_img/screenshot_2016-12-28_12-12-37.png]]
 
 ** Pwin
-[[file:img/screenshot_2016-12-28_12-15-51.png]]
+[[file:_img/screenshot_2016-12-28_12-15-51.png]]
 
 ** Quiz: Maxwins
 *** My Solution
@@ -152,70 +152,70 @@ It's amazing how the code expresses this naturally.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2016-12-28_12-20-31.png]]
+[[file:_img/screenshot_2016-12-28_12-20-31.png]]
 
 *** Feedback
 I forgot to use ~best_action~.
 
 ** Impressing Pig Scouts
-[[file:img/screenshot_2016-12-28_12-25-14.png]]
+[[file:_img/screenshot_2016-12-28_12-25-14.png]]
 I wonder how he implemented ~play_tournament~
 
 ** Quiz: Maximizing Differential
-[[file:img/screenshot_2016-12-28_12-27-57.png]]
+[[file:_img/screenshot_2016-12-28_12-27-57.png]]
 
 ** Being Careful
-[[file:img/screenshot_2016-12-28_12-30-58.png]]
+[[file:_img/screenshot_2016-12-28_12-30-58.png]]
 
 He mentioned about these function names are prone to error.
 It's hard to differentiate between ~utility function~ and ~strategy function~.
 
-[[file:img/screenshot_2016-12-28_12-32-45.png]]
+[[file:_img/screenshot_2016-12-28_12-32-45.png]]
 
 Here is the code uses ~strategy function~.  It will silently pass when ~A~ or ~B~ were a ~utility function~.
 
 ** Quiz: Legal Actions
-[[file:img/screenshot_2016-12-28_12-37-36.png]]
+[[file:_img/screenshot_2016-12-28_12-37-36.png]]
 
 ** Using Tools
-[[file:img/screenshot_2016-12-30_13-25-35.png]]
+[[file:_img/screenshot_2016-12-30_13-25-35.png]]
 
 He expected that ~max_diffs~ would be more aggressive, but it didn't.  Why is that?
 
 ** Telling A Story
-[[file:img/screenshot_2016-12-30_13-27-55.png]]
+[[file:_img/screenshot_2016-12-30_13-27-55.png]]
 
 For various ~pendings~, counts only ~rolls~ when the action of strategies diverged
 
-[[file:img/screenshot_2016-12-30_13-30-11.png]]
+[[file:_img/screenshot_2016-12-30_13-30-11.png]]
 
-[[file:img/screenshot_2016-12-30_13-32-28.png]]
+[[file:_img/screenshot_2016-12-30_13-32-28.png]]
 
 ** Conditional Probability
-[[file:img/screenshot_2016-12-30_13-39-36.png]]
-[[file:img/screenshot_2016-12-30_13-39-54.png]]
+[[file:_img/screenshot_2016-12-30_13-39-36.png]]
+[[file:_img/screenshot_2016-12-30_13-39-54.png]]
 
 Good to know about ~fractions~ module
 
 ** Quiz: Tuesday
-[[file:img/screenshot_2016-12-30_13-43-04.png]]
+[[file:_img/screenshot_2016-12-30_13-43-04.png]]
 
-[[file:img/screenshot_2016-12-30_13-43-46.png]]
+[[file:_img/screenshot_2016-12-30_13-43-46.png]]
 
-[[file:img/screenshot_2016-12-30_13-59-54.png]]
+[[file:_img/screenshot_2016-12-30_13-59-54.png]]
 
-[[file:img/screenshot_2016-12-30_13-58-57.png]]
+[[file:_img/screenshot_2016-12-30_13-58-57.png]]
 
 The fact that the weekday of a boy's birthday matters the probability is counterintuitive.
 And he explains the reason why is that the problem wants to count the pair of boys, and a single boy,
 which breaks our intuition.
 
 ** Summary
-[[file:img/screenshot_2016-12-30_14-06-16.png]]
+[[file:_img/screenshot_2016-12-30_14-06-16.png]]
 
 * Problem Set 5
 ** Quiz: Improving Optimal
-[[file:img/screenshot_2016-12-31_05-26-58.png]]
+[[file:_img/screenshot_2016-12-31_05-26-58.png]]
 
 *** My Solution
 #+BEGIN_SRC python
@@ -264,7 +264,7 @@ which breaks our intuition.
       _f.cache = cache
       return _f
 #+END_SRC
-[[file:img/screenshot_2016-12-31_05-24-08.png]]
+[[file:_img/screenshot_2016-12-31_05-24-08.png]]
 *** Feedback
 I solved this without looking up the previous ~Pwin~ implementation.
 I found it hard because where was no quiz on implementing ~Pwin~.
@@ -272,7 +272,7 @@ But based on the understanding, I finally figured out how,
 and solved it with somewhat equivalent to his solution.
 
 ** Quiz: Doubling Pigs
-[[file:img/screenshot_2016-12-31_05-32-11.png]]
+[[file:_img/screenshot_2016-12-31_05-32-11.png]]
 
 *** My Solution
 #+BEGIN_SRC python
@@ -298,7 +298,7 @@ and solved it with somewhat equivalent to his solution.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2016-12-31_05-55-53.png]]
+[[file:_img/screenshot_2016-12-31_05-55-53.png]]
 
 *** Feedback
 His way of using ~if expression~ makes code concise and readable.
@@ -308,7 +308,7 @@ By using the fact that ~hold_20_d~ always accepts double request,
 I implemented the strategy to make double request when I convince to win.
 
 ** Quiz: Foxes and Hens
-[[file:img/screenshot_2016-12-31_07-18-19.png]]
+[[file:_img/screenshot_2016-12-31_07-18-19.png]]
 
 *** My Solution
 #+BEGIN_SRC python
@@ -357,9 +357,9 @@ I implemented the strategy to make double request when I convince to win.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2016-12-31_07-16-57.png]]
+[[file:_img/screenshot_2016-12-31_07-16-57.png]]
 
-[[file:img/screenshot_2016-12-31_07-17-34.png]]
+[[file:_img/screenshot_2016-12-31_07-17-34.png]]
 
 *** Feedback
 His way of implementing ~cards_left~ is way better than mine(~cards[1:]~).
@@ -370,4 +370,4 @@ The name ~cards_left~ is better than ~remains~.
 My implementation of ~strategy~ is a optimal one.  I tried to implement it for practicing.
 The average score is almost same as his simple strategy:
 
-[[file:img/screenshot_2016-12-31_07-22-34.png]]
+[[file:_img/screenshot_2016-12-31_07-22-34.png]]

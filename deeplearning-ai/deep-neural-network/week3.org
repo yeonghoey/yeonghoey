@@ -21,46 +21,46 @@
 
 * Hyperparameter tuning
 ** Tuning process
-[[file:img/screenshot_2017-10-24_07-04-16.png]]
+[[file:_img/screenshot_2017-10-24_07-04-16.png]]
 
 - Order of importance :: ~red~ > ~orange~ > ~purple~
 - Hyperparameters for Adam :: Use default values for most cases
 
-[[file:img/screenshot_2017-10-24_07-08-48.png]]
+[[file:_img/screenshot_2017-10-24_07-08-48.png]]
 
 - *Prefer random values to grid values*
 - It's hard to know which parameters are more important.
 - Using grid, there would be lots of meaningless tests.
 - These points go deep when there are more dimensions.
 
-[[file:img/screenshot_2017-10-24_07-13-47.png]]
+[[file:_img/screenshot_2017-10-24_07-13-47.png]]
 
 - At first, pick random values in wide range.
 - When you find some points work better, narrow the random ranges.
 
 ** Using an appropriate scale to pick hyperparameters
-[[file:img/screenshot_2017-10-24_07-17-49.png]]
+[[file:_img/screenshot_2017-10-24_07-17-49.png]]
 
 - It's not always effective to pick hyperparameters by sampling uniformly at random.
 
-[[file:img/screenshot_2017-10-24_07-22-27.png]]
+[[file:_img/screenshot_2017-10-24_07-22-27.png]]
 
-[[file:img/screenshot_2017-10-24_07-26-26.png]]
+[[file:_img/screenshot_2017-10-24_07-26-26.png]]
 
 ** Hyperparameters tuning in practice: Pandas vs. Caviar
-[[file:img/screenshot_2017-10-24_07-47-41.png]]
+[[file:_img/screenshot_2017-10-24_07-47-41.png]]
 
-[[file:img/screenshot_2017-10-24_07-52-27.png]]
+[[file:_img/screenshot_2017-10-24_07-52-27.png]]
 
 - Depends on available computation resources.
 
 * Batch Normalization
 ** Normalizing activations in a network
-[[file:img/screenshot_2017-10-26_02-01-03.png]]
+[[file:_img/screenshot_2017-10-26_02-01-03.png]]
 
 - People generally normalize ~z~ instead of ~a~
 
-[[file:img/screenshot_2017-10-26_02-06-30.png]]
+[[file:_img/screenshot_2017-10-26_02-06-30.png]]
 
 - ~r~ (gamma) and ~b~ (beta) are to control the distribution of ~z~,
   because unlike ~x~, some ~z~ s will be inputs of the activation functions.
@@ -68,26 +68,26 @@
   ~a~ s will be distributed just like a linear values.
 
 ** Fitting Batch Norm into a neural network
-[[file:img/screenshot_2017-10-26_02-21-56.png]]
+[[file:_img/screenshot_2017-10-26_02-21-56.png]]
 
-[[file:img/screenshot_2017-10-26_02-26-42.png]]
+[[file:_img/screenshot_2017-10-26_02-26-42.png]]
 
 - Using Batch Norm, there is no point to have ~b~ (bias terms), becausue they are cleaned off when calculating ~z_norm~.
 
-[[file:img/screenshot_2017-10-26_02-31-08.png]]
+[[file:_img/screenshot_2017-10-26_02-31-08.png]]
 
 ** Why does Batch Norm work?
-[[file:img/screenshot_2017-10-27_23-56-49.png]]
+[[file:_img/screenshot_2017-10-27_23-56-49.png]]
 
-[[file:img/screenshot_2017-10-27_23-59-05.png]]
+[[file:_img/screenshot_2017-10-27_23-59-05.png]]
 
 - Batch Norm prevents changing the input values of hidde layers
 - For the 3rd layer, for example, without Batch Norm, the input of the 3rd layer will be affected by the previous values
 
-[[file:img/screenshot_2017-10-28_00-05-06.png]]
+[[file:_img/screenshot_2017-10-28_00-05-06.png]]
 
 ** Batch Norm at test time
-[[file:img/screenshot_2017-10-28_00-46-33.png]]
+[[file:_img/screenshot_2017-10-28_00-46-33.png]]
 
 #+BEGIN_QUOTE
 But at test time, you might need to process a single example at a time.
@@ -97,49 +97,49 @@ So, the way to do that is to estimate \mu and \sigma squared from your training 
 
 * Multi-class classification
 ** Softmax Regression
-[[file:img/screenshot_2017-10-28_07-07-24.png]]
+[[file:_img/screenshot_2017-10-28_07-07-24.png]]
 
-[[file:img/screenshot_2017-10-28_07-13-10.png]]
+[[file:_img/screenshot_2017-10-28_07-13-10.png]]
 
-[[file:img/screenshot_2017-10-28_07-16-06.png]]
+[[file:_img/screenshot_2017-10-28_07-16-06.png]]
 
 ** Training a softmax classifier
-[[file:img/screenshot_2017-10-28_07-19-48.png]]
+[[file:_img/screenshot_2017-10-28_07-19-48.png]]
 
-[[file:img/screenshot_2017-10-28_07-24-36.png]]
+[[file:_img/screenshot_2017-10-28_07-24-36.png]]
 
-[[file:img/screenshot_2017-10-28_07-26-42.png]]
+[[file:_img/screenshot_2017-10-28_07-26-42.png]]
 * Introduction to programming frameworks
 ** Deep learning frameworks
-[[file:img/screenshot_2017-10-28_07-34-59.png]]
+[[file:_img/screenshot_2017-10-28_07-34-59.png]]
 
 ** TensorFlow
-[[file:img/screenshot_2017-10-28_07-37-12.png]]
+[[file:_img/screenshot_2017-10-28_07-37-12.png]]
 
-[[file:img/screenshot_2017-10-28_07-40-58.png]]
+[[file:_img/screenshot_2017-10-28_07-40-58.png]]
 
-[[file:img/screenshot_2017-10-28_07-45-17.png]]
+[[file:_img/screenshot_2017-10-28_07-45-17.png]]
 
-[[file:img/screenshot_2017-10-28_07-51-27.png]]
+[[file:_img/screenshot_2017-10-28_07-51-27.png]]
 * Programming assignment
 ** Tensorflow
-[[file:img/screenshot_2017-10-29_06-31-45.png]]
+[[file:_img/screenshot_2017-10-29_06-31-45.png]]
 
-[[file:img/screenshot_2017-10-29_06-33-55.png]]
+[[file:_img/screenshot_2017-10-29_06-33-55.png]]
 
-[[file:img/screenshot_2017-10-29_06-36-46.png]]
+[[file:_img/screenshot_2017-10-29_06-36-46.png]]
 
-[[file:img/screenshot_2017-10-29_06-40-05.png]]
+[[file:_img/screenshot_2017-10-29_06-40-05.png]]
 
-[[file:img/screenshot_2017-10-29_06-43-57.png]]
+[[file:_img/screenshot_2017-10-29_06-43-57.png]]
 
-[[file:img/screenshot_2017-10-29_06-49-44.png]]
+[[file:_img/screenshot_2017-10-29_06-49-44.png]]
 
 - https://www.tensorflow.org/api_docs/python/tf/one_hot
 
-[[file:img/screenshot_2017-10-29_07-03-48.png]]
+[[file:_img/screenshot_2017-10-29_07-03-48.png]]
 
-[[file:img/screenshot_2017-10-29_07-05-06.png]]
+[[file:_img/screenshot_2017-10-29_07-05-06.png]]
 
 #+BEGIN_SRC python
   def create_placeholders(n_x, n_y):
@@ -159,18 +159,18 @@ So, the way to do that is to estimate \mu and \sigma squared from your training 
       return parameters
 #+END_SRC
 
-[[file:img/screenshot_2017-10-29_07-07-07.png]]
+[[file:_img/screenshot_2017-10-29_07-07-07.png]]
 
-[[file:img/screenshot_2017-10-29_07-07-31.png]]
+[[file:_img/screenshot_2017-10-29_07-07-31.png]]
 
-[[file:img/screenshot_2017-10-29_07-10-53.png]]
+[[file:_img/screenshot_2017-10-29_07-10-53.png]]
 
-[[file:img/screenshot_2017-10-29_07-13-21.png]]
+[[file:_img/screenshot_2017-10-29_07-13-21.png]]
 
-[[file:img/screenshot_2017-10-29_07-15-40.png]]
+[[file:_img/screenshot_2017-10-29_07-15-40.png]]
 
-[[file:img/screenshot_2017-10-29_07-18-08.png]]
+[[file:_img/screenshot_2017-10-29_07-18-08.png]]
 
-[[file:img/screenshot_2017-10-29_07-38-07.png]]
+[[file:_img/screenshot_2017-10-29_07-38-07.png]]
 
-[[file:img/screenshot_2017-10-29_07-36-11.png]]
+[[file:_img/screenshot_2017-10-29_07-36-11.png]]

@@ -16,7 +16,7 @@
 * Topics
 * How-to
 ** Delete all emails with a label
-[[file:img/screenshot_2018-02-12_23-17-19.png]]
+[[file:_img/screenshot_2018-02-12_23-17-19.png]]
 
 1. Click the top left checkbox to select all emails on the page.
 2. Click the ~Select all~ above the first email.

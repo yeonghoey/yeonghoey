@@ -4,25 +4,25 @@
 - https://www.coursera.org/learn/learning-how-to-learn
 
 * What is Learning?
-[[file:img/screenshot_2017-11-28_22-28-02.png]]
+[[file:_img/screenshot_2017-11-28_22-28-02.png]]
 
-[[file:img/screenshot_2017-11-28_22-36-21.png]]
+[[file:_img/screenshot_2017-11-28_22-36-21.png]]
 
-[[file:img/screenshot_2017-11-28_22-47-09.png]]
+[[file:_img/screenshot_2017-11-28_22-47-09.png]]
 
-[[file:img/screenshot_2017-11-28_22-46-54.png]]
+[[file:_img/screenshot_2017-11-28_22-46-54.png]]
 
-[[file:img/screenshot_2017-11-28_22-49-15.png]]
+[[file:_img/screenshot_2017-11-28_22-49-15.png]]
 * Chunking
 #+BEGIN_QUOTE
 Chunking is the mental leap that helps you unite bits of information together through meaning.
 #+END_QUOTE
 
-[[file:img/screenshot_2017-11-28_22-55-09.png]]
+[[file:_img/screenshot_2017-11-28_22-55-09.png]]
 
-[[file:img/screenshot_2017-11-28_23-04-28.png]]
+[[file:_img/screenshot_2017-11-28_23-04-28.png]]
 
-[[file:img/screenshot_2017-11-28_23-05-39.png]]
+[[file:_img/screenshot_2017-11-28_23-05-39.png]]
 
 #+BEGIN_QUOTE
 When you interleave within one subject or one discipline, you begin to develop your creative power within that discipline.
@@ -30,17 +30,17 @@ When you interleave between several subjects or disciplines, you can more easily
 which can enhance your creativity even further.
 #+END_QUOTE
 
-[[file:img/screenshot_2017-11-28_23-10-39.png]]
+[[file:_img/screenshot_2017-11-28_23-10-39.png]]
 
 * Procrastination and Memory
-[[file:img/screenshot_2017-11-28_23-20-38.png]]
+[[file:_img/screenshot_2017-11-28_23-20-38.png]]
 
-[[file:img/screenshot_2017-11-28_23-21-40.png]]
+[[file:_img/screenshot_2017-11-28_23-21-40.png]]
 
-[[file:img/screenshot_2017-11-28_23-23-17.png]]
+[[file:_img/screenshot_2017-11-28_23-23-17.png]]
 
 - Memory Palace
-[[file:img/screenshot_2017-11-28_23-24-26.png]]
+[[file:_img/screenshot_2017-11-28_23-24-26.png]]
 
 * Renaissance Learning and Unlocking Your Potential
-[[file:img/screenshot_2017-11-28_23-28-42.png]]
+[[file:_img/screenshot_2017-11-28_23-28-42.png]]

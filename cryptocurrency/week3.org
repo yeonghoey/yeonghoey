@@ -9,41 +9,41 @@
 - [[#limitations--improvements][Limitations & Improvements]]
 
 * Bitcoin Transactions
-[[file:img/screenshot_2017-10-18_08-31-28.png]]
+[[file:_img/screenshot_2017-10-18_08-31-28.png]]
 
-[[file:img/screenshot_2017-10-20_08-24-41.png]]
+[[file:_img/screenshot_2017-10-20_08-24-41.png]]
 
-[[file:img/screenshot_2017-10-20_08-25-15.png]]
+[[file:_img/screenshot_2017-10-20_08-25-15.png]]
 
-[[file:img/screenshot_2017-10-20_08-26-22.png]]
+[[file:_img/screenshot_2017-10-20_08-26-22.png]]
 
-[[file:img/screenshot_2017-10-20_08-26-45.png]]
+[[file:_img/screenshot_2017-10-20_08-26-45.png]]
 
-[[file:img/screenshot_2017-10-20_08-27-19.png]]
+[[file:_img/screenshot_2017-10-20_08-27-19.png]]
 
-[[file:img/screenshot_2017-10-20_08-28-08.png]]
+[[file:_img/screenshot_2017-10-20_08-28-08.png]]
 
-[[file:img/screenshot_2017-10-20_08-28-27.png]]
+[[file:_img/screenshot_2017-10-20_08-28-27.png]]
 * Bitcoin Scripts
-[[file:img/screenshot_2017-10-22_00-34-25.png]]
+[[file:_img/screenshot_2017-10-22_00-34-25.png]]
 
-[[file:img/screenshot_2017-10-22_00-34-58.png]]
+[[file:_img/screenshot_2017-10-22_00-34-58.png]]
 
-[[file:img/screenshot_2017-10-22_00-35-18.png]]
+[[file:_img/screenshot_2017-10-22_00-35-18.png]]
 
-[[file:img/screenshot_2017-10-22_00-35-37.png]]
+[[file:_img/screenshot_2017-10-22_00-35-37.png]]
 
-[[file:img/screenshot_2017-10-22_00-35-55.png]]
+[[file:_img/screenshot_2017-10-22_00-35-55.png]]
 
-[[file:img/screenshot_2017-10-22_00-36-30.png]]
+[[file:_img/screenshot_2017-10-22_00-36-30.png]]
 
-[[file:img/screenshot_2017-10-22_00-36-41.png]]
+[[file:_img/screenshot_2017-10-22_00-36-41.png]]
 
-[[file:img/screenshot_2017-10-22_00-37-12.png]]
+[[file:_img/screenshot_2017-10-22_00-37-12.png]]
 
-[[file:img/screenshot_2017-10-22_00-37-34.png]]
+[[file:_img/screenshot_2017-10-22_00-37-34.png]]
 
-[[file:img/screenshot_2017-10-22_00-39-46.png]]
+[[file:_img/screenshot_2017-10-22_00-39-46.png]]
 
 #+BEGIN_QUOTE
 The first is to write arbitrary data into the block chain if for some reason you want to write your name, or if you want to time stamp and prove that you knew some data at a specific time, you can create a very low value Bitcoin transaction that's proof-of-burn.
@@ -55,48 +55,48 @@ The other example of proof-of-burn we'll talk about in a later lecture on altern
 that it can be way to bootstrap an alternative to Bitcoin by forcing people to destroy Bitcoin in order to gain coins in the new system. 
 #+END_QUOTE
 
-[[file:img/screenshot_2017-10-22_00-41-50.png]]
+[[file:_img/screenshot_2017-10-22_00-41-50.png]]
 
-[[file:img/screenshot_2017-10-22_00-46-06.png]]
+[[file:_img/screenshot_2017-10-22_00-46-06.png]]
 
-[[file:img/screenshot_2017-10-22_00-44-03.png]]
+[[file:_img/screenshot_2017-10-22_00-44-03.png]]
 
-[[file:img/screenshot_2017-10-22_00-44-26.png]]
+[[file:_img/screenshot_2017-10-22_00-44-26.png]]
 * Applications of Bitcoin Scripts
-[[file:img/screenshot_2017-10-22_00-48-20.png]]
+[[file:_img/screenshot_2017-10-22_00-48-20.png]]
 
-[[file:img/screenshot_2017-10-22_00-48-51.png]]
+[[file:_img/screenshot_2017-10-22_00-48-51.png]]
 
-[[file:img/screenshot_2017-10-22_00-49-05.png]]
+[[file:_img/screenshot_2017-10-22_00-49-05.png]]
 
-[[file:img/screenshot_2017-10-22_00-49-24.png]]
+[[file:_img/screenshot_2017-10-22_00-49-24.png]]
 
-[[file:img/screenshot_2017-10-22_00-49-55.png]]
+[[file:_img/screenshot_2017-10-22_00-49-55.png]]
 
 #+BEGIN_QUOTE
 Now people are actually quite nervous about this idea and they're worried that this puts too much trust in the bank.
 As a result, this isn't used that much in practice even though it's a cool protocol. 
 #+END_QUOTE
 
-[[file:img/screenshot_2017-10-22_00-50-48.png]]
+[[file:_img/screenshot_2017-10-22_00-50-48.png]]
 
-[[file:img/screenshot_2017-10-22_00-51-13.png]]
+[[file:_img/screenshot_2017-10-22_00-51-13.png]]
 
-[[file:img/screenshot_2017-10-22_00-51-37.png]]
+[[file:_img/screenshot_2017-10-22_00-51-37.png]]
 
-[[file:img/screenshot_2017-10-22_00-51-58.png]]
+[[file:_img/screenshot_2017-10-22_00-51-58.png]]
 
-[[file:img/screenshot_2017-10-22_00-52-11.png]]
+[[file:_img/screenshot_2017-10-22_00-52-11.png]]
 * Bitcoin Blocks
-[[file:img/screenshot_2017-10-22_21-01-33.png]]
+[[file:_img/screenshot_2017-10-22_21-01-33.png]]
 
-[[file:img/screenshot_2017-10-22_21-01-59.png]]
+[[file:_img/screenshot_2017-10-22_21-01-59.png]]
 
-[[file:img/screenshot_2017-10-22_21-02-32.png]]
+[[file:_img/screenshot_2017-10-22_21-02-32.png]]
 
-[[file:img/screenshot_2017-10-22_21-02-53.png]]
+[[file:_img/screenshot_2017-10-22_21-02-53.png]]
 
-[[file:img/screenshot_2017-10-22_21-04-18.png]]
+[[file:_img/screenshot_2017-10-22_21-04-18.png]]
 
 #+BEGIN_QUOTE
 and this is the coinbase transaction. So this is where the creation of new coins and Bitcoin happens.
@@ -112,60 +112,60 @@ which was both a political commentary on the motivation for starting Bitcoin,
 and serve as a commitment that Bitcoin, the first block was obviously mined after this newspaper came out. 
 #+END_QUOTE
 
-[[file:img/screenshot_2017-10-22_21-08-16.png]]
+[[file:_img/screenshot_2017-10-22_21-08-16.png]]
 * The Bitcoin Network
-[[file:img/screenshot_2017-10-22_21-10-28.png]]
+[[file:_img/screenshot_2017-10-22_21-10-28.png]]
 
-[[file:img/screenshot_2017-10-22_22-46-32.png]]
+[[file:_img/screenshot_2017-10-22_22-46-32.png]]
 
-[[file:img/screenshot_2017-10-22_22-46-49.png]]
+[[file:_img/screenshot_2017-10-22_22-46-49.png]]
 
-[[file:img/screenshot_2017-10-22_22-46-58.png]]
+[[file:_img/screenshot_2017-10-22_22-46-58.png]]
 
-[[file:img/screenshot_2017-10-22_22-47-11.png]]
+[[file:_img/screenshot_2017-10-22_22-47-11.png]]
 
-[[file:img/screenshot_2017-10-22_22-47-28.png]]
+[[file:_img/screenshot_2017-10-22_22-47-28.png]]
 
-[[file:img/screenshot_2017-10-22_22-47-52.png]]
+[[file:_img/screenshot_2017-10-22_22-47-52.png]]
 
-[[file:img/screenshot_2017-10-22_22-48-33.png]]
+[[file:_img/screenshot_2017-10-22_22-48-33.png]]
 
-[[file:img/screenshot_2017-10-22_22-48-55.png]]
+[[file:_img/screenshot_2017-10-22_22-48-55.png]]
 
-[[file:img/screenshot_2017-10-22_22-49-19.png]]
+[[file:_img/screenshot_2017-10-22_22-49-19.png]]
 
-[[file:img/screenshot_2017-10-22_22-49-45.png]]
+[[file:_img/screenshot_2017-10-22_22-49-45.png]]
 
-[[file:img/screenshot_2017-10-22_22-49-58.png]]
+[[file:_img/screenshot_2017-10-22_22-49-58.png]]
 
-[[file:img/screenshot_2017-10-22_22-50-22.png]]
+[[file:_img/screenshot_2017-10-22_22-50-22.png]]
 
-[[file:img/screenshot_2017-10-22_22-50-38.png]]
+[[file:_img/screenshot_2017-10-22_22-50-38.png]]
 
-[[file:img/screenshot_2017-10-22_22-50-56.png]]
+[[file:_img/screenshot_2017-10-22_22-50-56.png]]
 
-[[file:img/screenshot_2017-10-22_22-51-07.png]]
+[[file:_img/screenshot_2017-10-22_22-51-07.png]]
 
-[[file:img/screenshot_2017-10-22_22-51-31.png]]
+[[file:_img/screenshot_2017-10-22_22-51-31.png]]
 
-[[file:img/screenshot_2017-10-22_22-51-49.png]]
+[[file:_img/screenshot_2017-10-22_22-51-49.png]]
 
-[[file:img/screenshot_2017-10-22_22-52-09.png]]
+[[file:_img/screenshot_2017-10-22_22-52-09.png]]
 
 * Limitations & Improvements
-[[file:img/screenshot_2017-10-22_22-41-08.png]]
+[[file:_img/screenshot_2017-10-22_22-41-08.png]]
 
-[[file:img/screenshot_2017-10-22_22-41-34.png]]
+[[file:_img/screenshot_2017-10-22_22-41-34.png]]
 
-[[file:img/screenshot_2017-10-22_22-41-56.png]]
+[[file:_img/screenshot_2017-10-22_22-41-56.png]]
 
-[[file:img/screenshot_2017-10-22_22-42-32.png]]
+[[file:_img/screenshot_2017-10-22_22-42-32.png]]
 
-[[file:img/screenshot_2017-10-22_22-43-13.png]]
+[[file:_img/screenshot_2017-10-22_22-43-13.png]]
 
-[[file:img/screenshot_2017-10-22_22-43-29.png]]
+[[file:_img/screenshot_2017-10-22_22-43-29.png]]
 
-[[file:img/screenshot_2017-10-22_22-44-00.png]]
+[[file:_img/screenshot_2017-10-22_22-44-00.png]]
 
-[[file:img/screenshot_2017-10-22_22-44-23.png]]
+[[file:_img/screenshot_2017-10-22_22-44-23.png]]
 

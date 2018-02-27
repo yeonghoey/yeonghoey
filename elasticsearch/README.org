@@ -217,7 +217,7 @@ Any node can become the master. Our example cluster has only one node, so it per
 #+END_QUOTE
 
 *** Inside a Shard
-[[file:img/screenshot_2017-01-12_14-44-43.png]]
+[[file:_img/screenshot_2017-01-12_14-44-43.png]]
 
 - A shard is a low-level worker unit that holds just a slice of all the data in the index. 
 - a single instance of Lucene, and is a complete search engine in its own right.
@@ -357,9 +357,9 @@ In this way, the relation between ~age~ and ~name~ is lost.
 To work around this, set the type of ~followers~ to [[https://www.elastic.co/guide/en/elasticsearch/guide/current/nested-objects.html][nested]].
 
 ** How Queries Work
-[[file:img/screenshot_2017-01-12_18-32-46.png]]
+[[file:_img/screenshot_2017-01-12_18-32-46.png]]
 
-[[file:img/screenshot_2017-01-12_18-33-17.png]]
+[[file:_img/screenshot_2017-01-12_18-33-17.png]]
 
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_query_phase.html
 - https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html

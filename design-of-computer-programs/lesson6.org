@@ -1,51 +1,51 @@
 #+TITLE: Lesson 6
 
 * Table of Contents :TOC_2_gh:
- - [[#lesson-6][Lesson 6]]
-   - [[#concept-inventory][Concept Inventory]]
-   - [[#finding-words][Finding Words]]
-   - [[#regression-tests][Regression Tests]]
-   - [[#quiz-readwordlist][Quiz: Readwordlist]]
-   - [[#quiz-extend-prefix][Quiz: Extend Prefix]]
-   - [[#quiz-adding-suffixes][Quiz: Adding Suffixes]]
-   - [[#quiz-longest-words][Quiz: Longest words]]
-   - [[#quiz-top-n-hands][Quiz: Top N Hands]]
-   - [[#crosswords][Crosswords]]
-   - [[#quiz-anchors][Quiz: Anchors]]
-   - [[#anchor-class][Anchor Class]]
-   - [[#row-plays][Row Plays]]
-   - [[#quiz-legal-prefixes][Quiz: Legal Prefixes]]
-   - [[#life-is-good][Life is Good]]
-   - [[#quiz-increasing-efficiency][Quiz: Increasing Efficiency]]
-   - [[#quiz-show-and-spell][Quiz: Show And Spell]]
-   - [[#quiz-horizontal-plays][Quiz: Horizontal Plays]]
-   - [[#quiz-all-plays][Quiz: All Plays]]
-   - [[#the-final-birds][The Final Birds]]
-   - [[#scoring-2][Scoring 2]]
-   - [[#quiz-making-plays][Quiz: Making Plays]]
-   - [[#quiz-best-play][Quiz: Best Play]]
- - [[#problem-set-6][Problem Set 6]]
-   - [[#quiz-anagrams][Quiz: Anagrams]]
-   - [[#quiz-blank-tiles][Quiz: Blank Tiles]]
-   - [[#quiz-boggle][Quiz: Boggle]]
- - [[#office-hours-6][Office Hours 6]]
+- [[#lesson-6][Lesson 6]]
+  - [[#concept-inventory][Concept Inventory]]
+  - [[#finding-words][Finding Words]]
+  - [[#regression-tests][Regression Tests]]
+  - [[#quiz-readwordlist][Quiz: Readwordlist]]
+  - [[#quiz-extend-prefix][Quiz: Extend Prefix]]
+  - [[#quiz-adding-suffixes][Quiz: Adding Suffixes]]
+  - [[#quiz-longest-words][Quiz: Longest words]]
+  - [[#quiz-top-n-hands][Quiz: Top N Hands]]
+  - [[#crosswords][Crosswords]]
+  - [[#quiz-anchors][Quiz: Anchors]]
+  - [[#anchor-class][Anchor Class]]
+  - [[#row-plays][Row Plays]]
+  - [[#quiz-legal-prefixes][Quiz: Legal Prefixes]]
+  - [[#life-is-good][Life is Good]]
+  - [[#quiz-increasing-efficiency][Quiz: Increasing Efficiency]]
+  - [[#quiz-show-and-spell][Quiz: Show And Spell]]
+  - [[#quiz-horizontal-plays][Quiz: Horizontal Plays]]
+  - [[#quiz-all-plays][Quiz: All Plays]]
+  - [[#the-final-birds][The Final Birds]]
+  - [[#scoring-2][Scoring 2]]
+  - [[#quiz-making-plays][Quiz: Making Plays]]
+  - [[#quiz-best-play][Quiz: Best Play]]
+- [[#problem-set-6][Problem Set 6]]
+  - [[#quiz-anagrams][Quiz: Anagrams]]
+  - [[#quiz-blank-tiles][Quiz: Blank Tiles]]
+  - [[#quiz-boggle][Quiz: Boggle]]
+- [[#office-hours-6][Office Hours 6]]
 
 * Lesson 6
 ** Concept Inventory
-[[file:img/screenshot_2017-01-01_15-37-15.png]]
+[[file:_img/screenshot_2017-01-01_15-37-15.png]]
 He emphasized the importance of *pacing*.  It's about focusing on small pieces of the large problem, not all at once.
 
 ** Finding Words
 The simplest implementation
 
-[[file:img/screenshot_2017-01-01_15-42-20.png]]
+[[file:_img/screenshot_2017-01-01_15-42-20.png]]
 
-[[file:img/screenshot_2017-01-01_15-42-35.png]]
+[[file:_img/screenshot_2017-01-01_15-42-35.png]]
 
 ** Regression Tests
-[[file:img/screenshot_2017-01-01_15-45-48.png]]
+[[file:_img/screenshot_2017-01-01_15-45-48.png]]
 
-[[file:img/screenshot_2017-01-01_15-46-03.png]]
+[[file:_img/screenshot_2017-01-01_15-46-03.png]]
 
 ** Quiz: Readwordlist
 *** My Solution
@@ -65,26 +65,26 @@ The simplest implementation
 Exactly same as mine
 
 *** Using ~PREFIXES~
-[[file:img/screenshot_2017-01-01_15-52-10.png]]
+[[file:_img/screenshot_2017-01-01_15-52-10.png]]
 
-[[file:img/screenshot_2017-01-01_15-52-25.png]]
+[[file:_img/screenshot_2017-01-01_15-52-25.png]]
 
 ** Quiz: Extend Prefix
 Three versions of implementing ~extend_prefix~
 
-[[file:img/screenshot_2017-01-01_16-12-09.png]]
+[[file:_img/screenshot_2017-01-01_16-12-09.png]]
 
-[[file:img/screenshot_2017-01-01_16-12-29.png]]
+[[file:_img/screenshot_2017-01-01_16-12-29.png]]
 
 Make the shared state(~results~ in this case) as an argument to make it flat.
 
 
-[[file:img/screenshot_2017-01-01_16-13-17.png]]
+[[file:_img/screenshot_2017-01-01_16-13-17.png]]
 
 By giving default values for initial states(~pre~, ~results~), it was able to make two functions into one.
 
 ** Quiz: Adding Suffixes
-[[file:img/screenshot_2017-01-01_16-22-02.png]]
+[[file:_img/screenshot_2017-01-01_16-22-02.png]]
 
 ** Quiz: Longest words
 *** My Solution
@@ -95,7 +95,7 @@ By giving default values for initial states(~pre~, ~results~), it was able to ma
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-01_16-35-33.png]]
+[[file:_img/screenshot_2017-01-01_16-35-33.png]]
 
 *** Feedback
 I didn't need to make the set into a list.
@@ -103,42 +103,42 @@ I didn't need to make a lambda.  Just putting ~len~ is enough.
 Moreover, give an explicit name(~words~) is more clear.
 
 ** Quiz: Top N Hands
-[[file:img/screenshot_2017-01-02_12-55-25.png]]
+[[file:_img/screenshot_2017-01-02_12-55-25.png]]
 
 ** Crosswords
-[[file:img/screenshot_2017-01-02_12-56-58.png]]
+[[file:_img/screenshot_2017-01-02_12-56-58.png]]
 
 ** Quiz: Anchors
-[[file:img/screenshot_2017-01-02_13-01-53.png]]
-[[file:img/screenshot_2017-01-02_13-02-07.png]]
+[[file:_img/screenshot_2017-01-02_13-01-53.png]]
+[[file:_img/screenshot_2017-01-02_13-02-07.png]]
 
-[[file:img/screenshot_2017-01-02_13-06-27.png]]
+[[file:_img/screenshot_2017-01-02_13-06-27.png]]
 
-[[file:img/screenshot_2017-01-02_13-08-15.png]]
+[[file:_img/screenshot_2017-01-02_13-08-15.png]]
 
-[[file:img/screenshot_2017-01-02_13-10-47.png]]
+[[file:_img/screenshot_2017-01-02_13-10-47.png]]
 
 ** Anchor Class
-[[file:img/screenshot_2017-01-03_07-56-49.png]]
+[[file:_img/screenshot_2017-01-03_07-56-49.png]]
 
-[[file:img/screenshot_2017-01-03_07-57-24.png]]
+[[file:_img/screenshot_2017-01-03_07-57-24.png]]
 
 ** Row Plays
 
-[[file:img/screenshot_2017-01-03_08-01-10.png]]
+[[file:_img/screenshot_2017-01-03_08-01-10.png]]
 
-[[file:img/screenshot_2017-01-03_08-03-38.png]]
+[[file:_img/screenshot_2017-01-03_08-03-38.png]]
 
 ** Quiz: Legal Prefixes
-[[file:img/screenshot_2017-01-03_12-03-18.png]]
+[[file:_img/screenshot_2017-01-03_12-03-18.png]]
 
 ** Life is Good
-[[file:img/screenshot_2017-01-03_12-11-53.png]]
+[[file:_img/screenshot_2017-01-03_12-11-53.png]]
 
-[[file:img/screenshot_2017-01-03_12-12-19.png]]
+[[file:_img/screenshot_2017-01-03_12-12-19.png]]
 
 ** Quiz: Increasing Efficiency
-[[file:img/screenshot_2017-01-03_12-17-55.png]]
+[[file:_img/screenshot_2017-01-03_12-17-55.png]]
 
 His cares on complicating the interface is great.
 
@@ -147,10 +147,10 @@ I always get incorrect results.
 And I found out that even the exact copy of his solution causes an incorrect result.
 
 *** His Solution
-[[file:img/screenshot_2017-01-03_12-58-42.png]]
+[[file:_img/screenshot_2017-01-03_12-58-42.png]]
 
 ** Quiz: Show And Spell
-[[file:img/screenshot_2017-01-04_16-54-49.png]]
+[[file:_img/screenshot_2017-01-04_16-54-49.png]]
 
 Great way to define 2d array
 
@@ -212,16 +212,16 @@ It seems that he skipped to explain this code because it's rather too complicate
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-04_17-15-50.png]]
+[[file:_img/screenshot_2017-01-04_17-15-50.png]]
 
 *** Feedback
 His solution is an immutable one which is generally better for readability and correctness.
 
 ** The Final Birds
-[[file:img/screenshot_2017-01-04_17-26-29.png]]
+[[file:_img/screenshot_2017-01-04_17-26-29.png]]
 
 ** Scoring 2
-[[file:img/screenshot_2017-01-04_17-33-15.png]]
+[[file:_img/screenshot_2017-01-04_17-33-15.png]]
 
 ** Quiz: Making Plays
 *** My Solution
@@ -236,7 +236,7 @@ His solution is an immutable one which is generally better for readability and c
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-04_17-46-04.png]]
+[[file:_img/screenshot_2017-01-04_17-46-04.png]]
 
 *** Feedback
 ~n~ is better than ~wi~
@@ -254,7 +254,7 @@ His solution is an immutable one which is generally better for readability and c
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-04_17-49-58.png]]
+[[file:_img/screenshot_2017-01-04_17-49-58.png]]
 
 * Problem Set 6
 ** Quiz: Anagrams
@@ -291,7 +291,7 @@ His solution is an immutable one which is generally better for readability and c
 It's ugly.
 
 *** His Solution
-[[file:img/screenshot_2017-01-04_18-33-00.png]]
+[[file:_img/screenshot_2017-01-04_18-33-00.png]]
 
 *** Feedback
 To avoid duplications, I sorted ~words~ and kept current index to pick only bigger words.
@@ -329,9 +329,9 @@ Using ~str.replace(' ', '')~ to remove blanks is better than ~\''.join(str.split
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-04_20-58-59.png]]
+[[file:_img/screenshot_2017-01-04_20-58-59.png]]
 
-[[file:img/screenshot_2017-01-04_20-59-14.png]]
+[[file:_img/screenshot_2017-01-04_20-59-14.png]]
 
 *** Feedback
 I solved it almost same as his solution.
@@ -342,9 +342,9 @@ I thought that using mixed case representation would lead to more complicated lo
 But it lead to more complicated logic on scoring.
 
 ** Quiz: Boggle
-[[file:img/screenshot_2017-01-04_21-14-03.png]]
+[[file:_img/screenshot_2017-01-04_21-14-03.png]]
 
-[[file:img/screenshot_2017-01-04_21-15-31.png]]
+[[file:_img/screenshot_2017-01-04_21-15-31.png]]
 
 I didn't think about 1d representation.  But it sounds not so weird.
 
@@ -379,7 +379,7 @@ I didn't think about 1d representation.  But it sounds not so weird.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-04_21-37-35.png]]
+[[file:_img/screenshot_2017-01-04_21-37-35.png]]
 
 *** Feedback
 There are some design decisions.  One of them is nesting the recursion function.  As he mentioned about it,
@@ -392,14 +392,14 @@ It just simplifies the logic and improves the readability.
 
 * Office Hours 6
 
-[[file:img/screenshot_2017-01-04_22-02-11.png]]
+[[file:_img/screenshot_2017-01-04_22-02-11.png]]
 
-[[file:img/screenshot_2017-01-04_22-04-37.png]]
+[[file:_img/screenshot_2017-01-04_22-04-37.png]]
 
-[[file:img/screenshot_2017-01-04_22-04-52.png]]
+[[file:_img/screenshot_2017-01-04_22-04-52.png]]
 
-[[file:img/screenshot_2017-01-04_22-05-52.png]]
+[[file:_img/screenshot_2017-01-04_22-05-52.png]]
 
-[[file:img/screenshot_2017-01-04_22-06-03.png]]
+[[file:_img/screenshot_2017-01-04_22-06-03.png]]
 
-[[file:img/screenshot_2017-01-04_22-06-18.png]]
+[[file:_img/screenshot_2017-01-04_22-06-18.png]]

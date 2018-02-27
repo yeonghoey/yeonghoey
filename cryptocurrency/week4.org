@@ -10,34 +10,34 @@
 - [[#currency-exchange-markets][Currency Exchange Markets]]
 
 * How to Store and Use Bitcoins
-[[file:img/screenshot_2017-10-24_07-55-22.png]]
+[[file:_img/screenshot_2017-10-24_07-55-22.png]]
 
-[[file:img/screenshot_2017-10-24_07-55-38.png]]
+[[file:_img/screenshot_2017-10-24_07-55-38.png]]
 
-[[file:img/screenshot_2017-10-24_07-57-33.png]]
+[[file:_img/screenshot_2017-10-24_07-57-33.png]]
 
-[[file:img/screenshot_2017-10-24_07-58-43.png]]
+[[file:_img/screenshot_2017-10-24_07-58-43.png]]
 
-[[file:img/screenshot_2017-10-24_08-00-41.png]]
+[[file:_img/screenshot_2017-10-24_08-00-41.png]]
 
 * Hot and Cold Storage
-[[file:img/screenshot_2017-10-24_08-02-25.png]]
+[[file:_img/screenshot_2017-10-24_08-02-25.png]]
 
-[[file:img/screenshot_2017-10-24_08-03-08.png]]
+[[file:_img/screenshot_2017-10-24_08-03-08.png]]
 
-[[file:img/screenshot_2017-10-24_08-04-07.png]]
+[[file:_img/screenshot_2017-10-24_08-04-07.png]]
 
-[[file:img/screenshot_2017-10-24_08-05-28.png]]
+[[file:_img/screenshot_2017-10-24_08-05-28.png]]
 
-[[file:img/screenshot_2017-10-24_08-09-27.png]]
+[[file:_img/screenshot_2017-10-24_08-09-27.png]]
 
-[[file:img/screenshot_2017-10-24_08-10-39.png]]
+[[file:_img/screenshot_2017-10-24_08-10-39.png]]
 
-[[file:img/screenshot_2017-10-24_08-12-51.png]]
+[[file:_img/screenshot_2017-10-24_08-12-51.png]]
 
-[[file:img/screenshot_2017-10-24_08-13-05.png]]
+[[file:_img/screenshot_2017-10-24_08-13-05.png]]
 * Splitting and Sharing Keys
-[[file:img/screenshot_2017-10-26_20-39-38.png]]
+[[file:_img/screenshot_2017-10-26_20-39-38.png]]
 
 - By https://en.wikipedia.org/wiki/Modular_arithmetic#Properties, the equation of reconstruction is true.
 
@@ -52,29 +52,29 @@
 #+END_SRC
 
 #+RESULTS:
-[[file:img/d65525d0-ba58-11e7-ab13-0242ade4b119.png]]
+[[file:_img/d65525d0-ba58-11e7-ab13-0242ade4b119.png]]
 
-[[file:img/screenshot_2017-10-28_07-58-48.png]]
+[[file:_img/screenshot_2017-10-28_07-58-48.png]]
 
-[[file:img/screenshot_2017-10-28_08-00-21.png]]
+[[file:_img/screenshot_2017-10-28_08-00-21.png]]
 
-[[file:img/screenshot_2017-10-28_08-02-04.png]]
+[[file:_img/screenshot_2017-10-28_08-02-04.png]]
 
-[[file:img/screenshot_2017-10-28_08-02-40.png]]
+[[file:_img/screenshot_2017-10-28_08-02-40.png]]
 
-[[file:img/screenshot_2017-10-28_08-03-25.png]]
+[[file:_img/screenshot_2017-10-28_08-03-25.png]]
 * Online Wallets and Exchanges
-[[file:img/screenshot_2017-10-28_08-06-24.png]]
+[[file:_img/screenshot_2017-10-28_08-06-24.png]]
 
-[[file:img/screenshot_2017-10-28_08-07-42.png]]
+[[file:_img/screenshot_2017-10-28_08-07-42.png]]
 
-[[file:img/screenshot_2017-10-28_08-09-21.png]]
+[[file:_img/screenshot_2017-10-28_08-09-21.png]]
 
-[[file:img/screenshot_2017-10-28_08-10-07.png]]
+[[file:_img/screenshot_2017-10-28_08-10-07.png]]
 
-[[file:img/screenshot_2017-10-28_08-11-45.png]]
+[[file:_img/screenshot_2017-10-28_08-11-45.png]]
 
-[[file:img/screenshot_2017-10-28_08-12-56.png]]
+[[file:_img/screenshot_2017-10-28_08-12-56.png]]
 
 - 45 % of Bitcoin exchanges end up closing
 
@@ -83,43 +83,43 @@
   - The owner is a crook
   - Cyber attack
 
-[[file:img/screenshot_2017-10-28_08-17-26.png]]
+[[file:_img/screenshot_2017-10-28_08-17-26.png]]
 
-[[file:img/screenshot_2017-10-28_08-19-04.png]]
+[[file:_img/screenshot_2017-10-28_08-19-04.png]]
 
-[[file:img/screenshot_2017-10-28_08-21-29.png]]
+[[file:_img/screenshot_2017-10-28_08-21-29.png]]
 
-[[file:img/screenshot_2017-10-28_08-24-16.png]]
+[[file:_img/screenshot_2017-10-28_08-24-16.png]]
 
-[[file:img/screenshot_2017-10-28_08-28-33.png]]
+[[file:_img/screenshot_2017-10-28_08-28-33.png]]
 * Payment Services
-[[file:img/screenshot_2017-10-28_09-57-23.png]]
+[[file:_img/screenshot_2017-10-28_09-57-23.png]]
 
-[[file:img/screenshot_2017-10-28_09-58-29.png]]
+[[file:_img/screenshot_2017-10-28_09-58-29.png]]
 
-[[file:img/screenshot_2017-10-28_10-01-16.png]]
+[[file:_img/screenshot_2017-10-28_10-01-16.png]]
 
-[[file:img/screenshot_2017-10-28_10-01-55.png]]
+[[file:_img/screenshot_2017-10-28_10-01-55.png]]
 
 * Transaction Fees
-[[file:img/screenshot_2017-10-28_10-07-04.png]]
+[[file:_img/screenshot_2017-10-28_10-07-04.png]]
 
-[[file:img/screenshot_2017-10-28_10-08-13.png]]
+[[file:_img/screenshot_2017-10-28_10-08-13.png]]
 
-[[file:img/screenshot_2017-10-28_10-09-57.png]]
+[[file:_img/screenshot_2017-10-28_10-09-57.png]]
 
-[[file:img/screenshot_2017-10-28_10-10-32.png]]
+[[file:_img/screenshot_2017-10-28_10-10-32.png]]
 * Currency Exchange Markets
-[[file:img/screenshot_2017-10-28_10-13-14.png]]
+[[file:_img/screenshot_2017-10-28_10-13-14.png]]
 
-[[file:img/screenshot_2017-10-28_10-14-18.png]]
+[[file:_img/screenshot_2017-10-28_10-14-18.png]]
 
-[[file:img/screenshot_2017-10-28_10-15-31.png]]
+[[file:_img/screenshot_2017-10-28_10-15-31.png]]
 
-[[file:img/screenshot_2017-10-28_10-17-34.png]]
+[[file:_img/screenshot_2017-10-28_10-17-34.png]]
 
-[[file:img/screenshot_2017-10-28_10-20-03.png]]
+[[file:_img/screenshot_2017-10-28_10-20-03.png]]
 
-[[file:img/screenshot_2017-10-28_10-26-11.png]]
+[[file:_img/screenshot_2017-10-28_10-26-11.png]]
 
 - ~P~ is a bitcoin price in ~$~.

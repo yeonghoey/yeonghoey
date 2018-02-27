@@ -23,106 +23,106 @@
 
 * Various sequence to sequence architectures
 ** Basic Models
-[[file:img/screenshot_2018-02-13_10-12-12.png]]
+[[file:_img/screenshot_2018-02-13_10-12-12.png]]
 
-[[file:img/screenshot_2018-02-13_10-14-44.png]]
+[[file:_img/screenshot_2018-02-13_10-14-44.png]]
 
 ** Picking the most likely sentence
-[[file:img/screenshot_2018-02-13_10-18-37.png]]
+[[file:_img/screenshot_2018-02-13_10-18-37.png]]
 
-[[file:img/screenshot_2018-02-13_10-20-21.png]]
+[[file:_img/screenshot_2018-02-13_10-20-21.png]]
 
 Unlike the language model previously introduced, in machine translation,
 pick most likely ~y~ instead of sampling for consistent results.
 
-[[file:img/screenshot_2018-02-13_10-26-51.png]]
+[[file:_img/screenshot_2018-02-13_10-26-51.png]]
 
 Don't use greedy approach, otherwise ~Jane is going~, which is less succinct in the above example, will always be chosen.
 
 ** Beam Search
-[[file:img/screenshot_2018-02-13_10-33-49.png]]
+[[file:_img/screenshot_2018-02-13_10-33-49.png]]
 
-[[file:img/screenshot_2018-02-13_10-41-03.png]]
+[[file:_img/screenshot_2018-02-13_10-41-03.png]]
 
 In the second step, pick the top 3 again among 30,000 possibilities.
 Because Beam width is 3, every step needs 3 models.
 
-[[file:img/screenshot_2018-02-13_10-44-05.png]]
+[[file:_img/screenshot_2018-02-13_10-44-05.png]]
 
 ** Refinements to Beam Search
-[[file:img/screenshot_2018-02-14_08-47-01.png]]
+[[file:_img/screenshot_2018-02-14_08-47-01.png]]
 
 The actual probability is too small to practically calculate.
 So take log to the probabilities
 
-[[file:img/screenshot_2018-02-14_08-50-10.png]]
+[[file:_img/screenshot_2018-02-14_08-50-10.png]]
 
 ** Error analysis in beam search
-[[file:img/screenshot_2018-02-14_08-56-15.png]]
+[[file:_img/screenshot_2018-02-14_08-56-15.png]]
 
-[[file:img/screenshot_2018-02-14_08-59-11.png]]
+[[file:_img/screenshot_2018-02-14_08-59-11.png]]
 
-[[file:img/screenshot_2018-02-14_09-01-28.png]]
+[[file:_img/screenshot_2018-02-14_09-01-28.png]]
 
 ** Bleu Score (optional)
-[[file:img/screenshot_2018-02-14_09-08-08.png]]
+[[file:_img/screenshot_2018-02-14_09-08-08.png]]
 
-[[file:img/screenshot_2018-02-14_09-11-13.png]]
+[[file:_img/screenshot_2018-02-14_09-11-13.png]]
 
-[[file:img/screenshot_2018-02-14_09-15-12.png]]
+[[file:_img/screenshot_2018-02-14_09-15-12.png]]
 
-[[file:img/screenshot_2018-02-14_09-17-49.png]]
+[[file:_img/screenshot_2018-02-14_09-17-49.png]]
 ** Attention Model Intuition
-[[file:img/screenshot_2018-02-14_09-25-35.png]]
+[[file:_img/screenshot_2018-02-14_09-25-35.png]]
 
-[[file:img/screenshot_2018-02-14_09-37-13.png]]
+[[file:_img/screenshot_2018-02-14_09-37-13.png]]
 
 ** Attention Model
-[[file:img/screenshot_2018-02-14_09-43-51.png]]
+[[file:_img/screenshot_2018-02-14_09-43-51.png]]
 
-[[file:img/screenshot_2018-02-14_09-50-54.png]]
+[[file:_img/screenshot_2018-02-14_09-50-54.png]]
 
 - Essentially, ~a^<t, t'>~ is a softmax function
 
-[[file:img/screenshot_2018-02-14_09-52-26.png]]
+[[file:_img/screenshot_2018-02-14_09-52-26.png]]
 
 * Speech recognition - Audio data
 ** Speech recognition
-[[file:img/screenshot_2018-02-14_19-59-57.png]]
+[[file:_img/screenshot_2018-02-14_19-59-57.png]]
 
-[[file:img/screenshot_2018-02-14_20-32-30.png]]
+[[file:_img/screenshot_2018-02-14_20-32-30.png]]
 
-[[file:img/screenshot_2018-02-14_20-36-03.png]]
+[[file:_img/screenshot_2018-02-14_20-36-03.png]]
 
 ** Trigger Word Detection
-[[file:img/screenshot_2018-02-14_20-53-46.png]]
+[[file:_img/screenshot_2018-02-14_20-53-46.png]]
 
 * Conclusion
 ** Conclusion and thank you
-[[file:img/screenshot_2018-02-14_20-55-38.png]]
+[[file:_img/screenshot_2018-02-14_20-55-38.png]]
 
-[[file:img/screenshot_2018-02-14_20-57-36.png]]
+[[file:_img/screenshot_2018-02-14_20-57-36.png]]
 
 * Practice questions
 ** Quiz: Sequence models & Attention mechanism
 
-[[file:img/screenshot_2018-02-14_21-16-26.png]]
+[[file:_img/screenshot_2018-02-14_21-16-26.png]]
 
 * Programming assignments
 ** Neural Machine Translation
-[[file:img/screenshot_2018-02-14_21-26-34.png]]
+[[file:_img/screenshot_2018-02-14_21-26-34.png]]
 
-[[file:img/screenshot_2018-02-14_21-27-10.png]]
+[[file:_img/screenshot_2018-02-14_21-27-10.png]]
 
-[[file:img/screenshot_2018-02-14_21-29-44.png]]
+[[file:_img/screenshot_2018-02-14_21-29-44.png]]
 
-[[file:img/screenshot_2018-02-14_21-30-24.png]]
+[[file:_img/screenshot_2018-02-14_21-30-24.png]]
 
-[[file:img/screenshot_2018-02-14_21-31-05.png]]
+[[file:_img/screenshot_2018-02-14_21-31-05.png]]
 
-[[file:img/screenshot_2018-02-14_21-31-39.png]]
+[[file:_img/screenshot_2018-02-14_21-31-39.png]]
 
-[[file:img/screenshot_2018-02-14_21-37-20.png]]
+[[file:_img/screenshot_2018-02-14_21-37-20.png]]
 
 - https://keras.io/layers/core/#repeatvector
 - https://keras.io/layers/merge/#concatenate
@@ -161,7 +161,7 @@ So take log to the probabilities
       return context
 #+END_SRC
 
-[[file:img/screenshot_2018-02-14_21-45-46.png]]
+[[file:_img/screenshot_2018-02-14_21-45-46.png]]
 
 - https://keras.io/layers/wrappers/#bidirectional
 - https://keras.io/layers/recurrent/#lstm
@@ -169,7 +169,7 @@ So take log to the probabilities
 
 To produce expected output, modify the cell above as follows:
 
-[[file:img/screenshot_2018-02-14_22-19-03.png]]
+[[file:_img/screenshot_2018-02-14_22-19-03.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: model
@@ -228,7 +228,7 @@ To produce expected output, modify the cell above as follows:
       return model
 #+END_SRC
 
-[[file:img/screenshot_2018-02-14_22-32-59.png]]
+[[file:_img/screenshot_2018-02-14_22-32-59.png]]
 
 - https://keras.io/optimizers/#adam
 - https://keras.io/optimizers/#usage-of-optimizers
@@ -241,32 +241,32 @@ To produce expected output, modify the cell above as follows:
   ### END CODE HERE ###
 #+END_SRC
 
-[[file:img/screenshot_2018-02-14_22-37-55.png]]
+[[file:_img/screenshot_2018-02-14_22-37-55.png]]
 
-[[file:img/screenshot_2018-02-14_22-40-58.png]]
+[[file:_img/screenshot_2018-02-14_22-40-58.png]]
 
-[[file:img/screenshot_2018-02-14_22-42-56.png]]
+[[file:_img/screenshot_2018-02-14_22-42-56.png]]
 
-[[file:img/screenshot_2018-02-14_22-48-19.png]]
+[[file:_img/screenshot_2018-02-14_22-48-19.png]]
 
-[[file:img/screenshot_2018-02-14_22-49-22.png]]
+[[file:_img/screenshot_2018-02-14_22-49-22.png]]
 
 ** Trigger word detection
-[[file:img/screenshot_2018-02-14_22-51-28.png]]
+[[file:_img/screenshot_2018-02-14_22-51-28.png]]
 
-[[file:img/screenshot_2018-02-14_22-53-44.png]]
+[[file:_img/screenshot_2018-02-14_22-53-44.png]]
 
-[[file:img/screenshot_2018-02-14_22-55-14.png]]
+[[file:_img/screenshot_2018-02-14_22-55-14.png]]
 
-[[file:img/screenshot_2018-02-14_22-56-08.png]]
+[[file:_img/screenshot_2018-02-14_22-56-08.png]]
 
-[[file:img/screenshot_2018-02-14_22-58-16.png]]
+[[file:_img/screenshot_2018-02-14_22-58-16.png]]
 
-[[file:img/screenshot_2018-02-14_23-00-56.png]]
+[[file:_img/screenshot_2018-02-14_23-00-56.png]]
 
-[[file:img/screenshot_2018-02-14_23-01-12.png]]
+[[file:_img/screenshot_2018-02-14_23-01-12.png]]
 
-[[file:img/screenshot_2018-02-14_23-04-42.png]]
+[[file:_img/screenshot_2018-02-14_23-04-42.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: is_overlapping
@@ -299,7 +299,7 @@ To produce expected output, modify the cell above as follows:
       return overlap
 #+END_SRC
 
-[[file:img/screenshot_2018-02-14_23-07-34.png]]
+[[file:_img/screenshot_2018-02-14_23-07-34.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: insert_audio_clip
@@ -341,7 +341,7 @@ To produce expected output, modify the cell above as follows:
       return new_background, segment_time
 #+END_SRC
 
-[[file:img/screenshot_2018-02-14_23-10-37.png]]
+[[file:_img/screenshot_2018-02-14_23-10-37.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: insert_ones
@@ -374,9 +374,9 @@ To produce expected output, modify the cell above as follows:
       return y
 #+END_SRC
 
-[[file:img/screenshot_2018-02-14_23-15-35.png]]
+[[file:_img/screenshot_2018-02-14_23-15-35.png]]
 
-[[file:img/screenshot_2018-02-14_23-37-15.png]]
+[[file:_img/screenshot_2018-02-14_23-37-15.png]]
 
 #+BEGIN_SRC python
   # GRADED FUNCTION: create_training_example
@@ -450,13 +450,13 @@ To produce expected output, modify the cell above as follows:
       return x, y
 #+END_SRC
 
-[[file:img/screenshot_2018-02-14_23-43-37.png]]
+[[file:_img/screenshot_2018-02-14_23-43-37.png]]
 
-[[file:img/screenshot_2018-02-14_23-45-29.png]]
+[[file:_img/screenshot_2018-02-14_23-45-29.png]]
 
-[[file:img/screenshot_2018-02-14_23-45-44.png]]
+[[file:_img/screenshot_2018-02-14_23-45-44.png]]
 
-[[file:img/screenshot_2018-02-14_23-46-43.png]]
+[[file:_img/screenshot_2018-02-14_23-46-43.png]]
 
 - https://keras.io/layers/convolutional/#conv1d
 - https://keras.io/layers/normalization/
@@ -509,12 +509,12 @@ To produce expected output, modify the cell above as follows:
       return model
 #+END_SRC
 
-[[file:img/screenshot_2018-02-14_23-54-28.png]]
+[[file:_img/screenshot_2018-02-14_23-54-28.png]]
 
-[[file:img/screenshot_2018-02-14_23-55-08.png]]
+[[file:_img/screenshot_2018-02-14_23-55-08.png]]
 
-[[file:img/screenshot_2018-02-14_23-56-15.png]]
+[[file:_img/screenshot_2018-02-14_23-56-15.png]]
 
-[[file:img/screenshot_2018-02-14_23-59-05.png]]
+[[file:_img/screenshot_2018-02-14_23-59-05.png]]
 
-[[file:img/screenshot_2018-02-14_23-59-41.png]]
+[[file:_img/screenshot_2018-02-14_23-59-41.png]]

@@ -2,113 +2,113 @@
 
 * Case studies
 ** Why look at case studies?
-[[file:img/screenshot_2017-11-14_01-06-41.png]]
+[[file:_img/screenshot_2017-11-14_01-06-41.png]]
 
 ** Classic Networks
 - http://yann.lecun.com/exdb/lenet/
 
-[[file:img/screenshot_2017-11-15_08-25-32.png]]
+[[file:_img/screenshot_2017-11-15_08-25-32.png]]
 
 - https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf
 
-[[file:img/screenshot_2017-11-15_08-26-58.png]]
+[[file:_img/screenshot_2017-11-15_08-26-58.png]]
 
 - https://arxiv.org/pdf/1409.1556v6.pdf
 
-[[file:img/screenshot_2017-11-15_08-27-28.png]]
+[[file:_img/screenshot_2017-11-15_08-27-28.png]]
 
 ** ResNets
-[[file:img/screenshot_2017-11-15_08-29-27.png]]
+[[file:_img/screenshot_2017-11-15_08-29-27.png]]
 
-[[file:img/screenshot_2017-11-15_08-29-59.png]]
+[[file:_img/screenshot_2017-11-15_08-29-59.png]]
 
 ** Why ResNets Work
-[[file:img/screenshot_2017-11-15_08-30-46.png]]
+[[file:_img/screenshot_2017-11-15_08-30-46.png]]
 
-[[file:img/screenshot_2017-11-15_08-31-12.png]]
+[[file:_img/screenshot_2017-11-15_08-31-12.png]]
 
 ** Networks in Networks and 1x1 Convolutions
-[[file:img/screenshot_2017-11-19_02-42-10.png]]
+[[file:_img/screenshot_2017-11-19_02-42-10.png]]
 
-[[file:img/screenshot_2017-11-19_02-43-53.png]]
+[[file:_img/screenshot_2017-11-19_02-43-53.png]]
 
 ** Inception Network Motivation
-[[file:img/screenshot_2017-11-19_02-44-46.png]]
+[[file:_img/screenshot_2017-11-19_02-44-46.png]]
 
-[[file:img/screenshot_2017-11-19_02-45-19.png]]
+[[file:_img/screenshot_2017-11-19_02-45-19.png]]
 
-[[file:img/screenshot_2017-11-19_02-46-04.png]]
+[[file:_img/screenshot_2017-11-19_02-46-04.png]]
 
 ** Inception Network
-[[file:img/screenshot_2017-11-19_03-00-24.png]]
+[[file:_img/screenshot_2017-11-19_03-00-24.png]]
 
-[[file:img/screenshot_2017-11-19_03-01-00.png]]
+[[file:_img/screenshot_2017-11-19_03-01-00.png]]
 
 * Practical advices for using ConvNets
 ** Using Open-Source Implementation
-[[file:img/screenshot_2017-11-19_03-02-46.png]]
+[[file:_img/screenshot_2017-11-19_03-02-46.png]]
 
 ** Transfer Learning
-[[file:img/screenshot_2017-11-19_03-03-54.png]]
+[[file:_img/screenshot_2017-11-19_03-03-54.png]]
 
 - Take both the network architecture and *the weights learned*.
 - You can use the weights as the initial value for your network.
 
 ** Data Augmentation
-[[file:img/screenshot_2017-11-19_03-07-28.png]]
+[[file:_img/screenshot_2017-11-19_03-07-28.png]]
 
-[[file:img/screenshot_2017-11-19_03-07-49.png]]
+[[file:_img/screenshot_2017-11-19_03-07-49.png]]
 
-[[file:img/screenshot_2017-11-19_03-08-03.png]]
+[[file:_img/screenshot_2017-11-19_03-08-03.png]]
 
 ** State of Computer Vision
-[[file:img/screenshot_2017-11-19_03-09-03.png]]
+[[file:_img/screenshot_2017-11-19_03-09-03.png]]
 
-[[file:img/screenshot_2017-11-19_03-09-23.png]]
+[[file:_img/screenshot_2017-11-19_03-09-23.png]]
 
 - Not recommended for productions, research and learning because it complicates the algorithm for slightly better performance.
 
-[[file:img/screenshot_2017-11-19_03-11-00.png]]
+[[file:_img/screenshot_2017-11-19_03-11-00.png]]
 
 * Programming assignments
 ** Keras Tutorial - The Happy House
-[[file:img/screenshot_2017-11-19_10-04-59.png]]
+[[file:_img/screenshot_2017-11-19_10-04-59.png]]
 
-[[file:img/screenshot_2017-11-19_10-05-58.png]]
+[[file:_img/screenshot_2017-11-19_10-05-58.png]]
 
-[[file:img/screenshot_2017-11-19_10-07-01.png]]
+[[file:_img/screenshot_2017-11-19_10-07-01.png]]
 
-[[file:img/screenshot_2017-11-19_10-07-59.png]]
+[[file:_img/screenshot_2017-11-19_10-07-59.png]]
 
-[[file:img/screenshot_2017-11-19_10-12-29.png]]
+[[file:_img/screenshot_2017-11-19_10-12-29.png]]
 
-[[file:img/screenshot_2017-11-19_10-34-04.png]]
+[[file:_img/screenshot_2017-11-19_10-34-04.png]]
 
-[[file:img/screenshot_2017-11-19_10-35-53.png]]
+[[file:_img/screenshot_2017-11-19_10-35-53.png]]
 
-[[file:img/screenshot_2017-11-19_10-37-47.png]]
+[[file:_img/screenshot_2017-11-19_10-37-47.png]]
 
-[[file:img/screenshot_2017-11-19_10-38-01.png]]
+[[file:_img/screenshot_2017-11-19_10-38-01.png]]
 
 ** Residual Networks
-[[file:img/screenshot_2017-11-19_10-04-22.png]]
+[[file:_img/screenshot_2017-11-19_10-04-22.png]]
 
-[[file:img/screenshot_2017-11-19_10-39-52.png]]
+[[file:_img/screenshot_2017-11-19_10-39-52.png]]
 
-[[file:img/screenshot_2017-11-19_10-41-21.png]]
+[[file:_img/screenshot_2017-11-19_10-41-21.png]]
 
-[[file:img/screenshot_2017-11-19_10-43-16.png]]
+[[file:_img/screenshot_2017-11-19_10-43-16.png]]
 
-[[file:img/screenshot_2017-11-19_10-44-03.png]]
+[[file:_img/screenshot_2017-11-19_10-44-03.png]]
 
-[[file:img/screenshot_2017-11-19_10-58-25.png]]
+[[file:_img/screenshot_2017-11-19_10-58-25.png]]
 
 For Batch Normalization and its ~axis~ parameter,
 SEE: https://github.com/fchollet/keras/blob/0daec53acbf4c3df6c054b36ece5c1ae2db55d86/keras/layers/normalization.py#L31
 
-[[file:img/screenshot_2017-11-19_11-20-31.png]]
+[[file:_img/screenshot_2017-11-19_11-20-31.png]]
 
-[[file:img/screenshot_2017-11-19_11-34-15.png]]
+[[file:_img/screenshot_2017-11-19_11-34-15.png]]
 
 #+BEGIN_SRC python
   def identity_block(X, f, filters, stage, block):

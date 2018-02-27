@@ -1,67 +1,67 @@
 #+TITLE: Lesson 3
 
 * Table of Contents :TOC_2_gh:
- - [[#lesson-3][Lesson 3]]
-   - [[#quiz-regular-expressions-review---quiz-1][Quiz: Regular Expressions Review - Quiz 1]]
-   - [[#regular-expressions-review---part-3][Regular Expressions Review - Part 3]]
-   - [[#language][Language]]
-   - [[#regular-expressions][Regular Expressions]]
-   - [[#specifications][Specifications]]
-   - [[#concept-inventory][Concept Inventory]]
-   - [[#quiz-matchset][Quiz: Matchset]]
-   - [[#quiz-filling-out-the-api][Quiz: Filling Out The Api]]
-   - [[#quiz-search-and-match][Quiz: Search and Match]]
-   - [[#compiling][Compiling]]
-   - [[#lower-level-compilers][Lower Level Compilers]]
-   - [[#quiz-alt][Quiz: Alt]]
-   - [[#quiz-simple-compilers][Quiz: Simple Compilers]]
-   - [[#recognizers-and-generators][Recognizers And Generators]]
-   - [[#quiz-oneof-and-alt][Quiz: Oneof And Alt]]
-   - [[#avoiding-repetition][Avoiding Repetition]]
-   - [[#quiz-genseq][Quiz: Genseq]]
-   - [[#testing-genseq][Testing Genseq]]
-   - [[#theory-and-practice][Theory And Practice]]
-   - [[#quiz-changing-seq][Quiz: Changing Seq]]
-   - [[#changing-functions][Changing Functions]]
-   - [[#quiz-n-ary-function][Quiz: N Ary Function]]
-   - [[#decorated-wrappers][Decorated Wrappers]]
-   - [[#quiz-decorated-decorators][Quiz: Decorated Decorators]]
-   - [[#quiz-cache-management][Quiz: Cache Management]]
-   - [[#quiz-save-time-now][Quiz: Save Time Now]]
-   - [[#quiz-trace-tool][Quiz: Trace Tool]]
-   - [[#descriptionary][Descriptionary]]
-   - [[#white-space][White Space]]
-   - [[#parsing][Parsing]]
-   - [[#parse-function][Parse Function]]
-   - [[#quiz-speedy-parsing][Quiz: Speedy Parsing]]
-   - [[#catching-typos][Catching Typos]]
-   - [[#summary][Summary]]
- - [[#problem-set-3][Problem Set 3]]
-   - [[#quiz-json-parser][Quiz: Json Parser]]
-   - [[#quiz-inverse-function][Quiz: Inverse Function]]
-   - [[#quiz-find-html-tags][Quiz: Find Html Tags]]
-   - [[#challenge-problem][Challenge Problem]]
- - [[#office-hours-3][Office Hours 3]]
-   - [[#question-four][Question Four]]
+- [[#lesson-3][Lesson 3]]
+  - [[#quiz-regular-expressions-review---quiz-1][Quiz: Regular Expressions Review - Quiz 1]]
+  - [[#regular-expressions-review---part-3][Regular Expressions Review - Part 3]]
+  - [[#language][Language]]
+  - [[#regular-expressions][Regular Expressions]]
+  - [[#specifications][Specifications]]
+  - [[#concept-inventory][Concept Inventory]]
+  - [[#quiz-matchset][Quiz: Matchset]]
+  - [[#quiz-filling-out-the-api][Quiz: Filling Out The Api]]
+  - [[#quiz-search-and-match][Quiz: Search and Match]]
+  - [[#compiling][Compiling]]
+  - [[#lower-level-compilers][Lower Level Compilers]]
+  - [[#quiz-alt][Quiz: Alt]]
+  - [[#quiz-simple-compilers][Quiz: Simple Compilers]]
+  - [[#recognizers-and-generators][Recognizers And Generators]]
+  - [[#quiz-oneof-and-alt][Quiz: Oneof And Alt]]
+  - [[#avoiding-repetition][Avoiding Repetition]]
+  - [[#quiz-genseq][Quiz: Genseq]]
+  - [[#testing-genseq][Testing Genseq]]
+  - [[#theory-and-practice][Theory And Practice]]
+  - [[#quiz-changing-seq][Quiz: Changing Seq]]
+  - [[#changing-functions][Changing Functions]]
+  - [[#quiz-n-ary-function][Quiz: N Ary Function]]
+  - [[#decorated-wrappers][Decorated Wrappers]]
+  - [[#quiz-decorated-decorators][Quiz: Decorated Decorators]]
+  - [[#quiz-cache-management][Quiz: Cache Management]]
+  - [[#quiz-save-time-now][Quiz: Save Time Now]]
+  - [[#quiz-trace-tool][Quiz: Trace Tool]]
+  - [[#descriptionary][Descriptionary]]
+  - [[#white-space][White Space]]
+  - [[#parsing][Parsing]]
+  - [[#parse-function][Parse Function]]
+  - [[#quiz-speedy-parsing][Quiz: Speedy Parsing]]
+  - [[#catching-typos][Catching Typos]]
+  - [[#summary][Summary]]
+- [[#problem-set-3][Problem Set 3]]
+  - [[#quiz-json-parser][Quiz: Json Parser]]
+  - [[#quiz-inverse-function][Quiz: Inverse Function]]
+  - [[#quiz-find-html-tags][Quiz: Find Html Tags]]
+  - [[#challenge-problem][Challenge Problem]]
+- [[#office-hours-3][Office Hours 3]]
+  - [[#question-four][Question Four]]
 
 * Lesson 3
 ** Quiz: Regular Expressions Review - Quiz 1
-[[file:img/screenshot_2017-01-22_16-18-18.png]]
+[[file:_img/screenshot_2017-01-22_16-18-18.png]]
 ** Regular Expressions Review - Part 3
 - http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html
-[[file:img/screenshot_2017-01-22_16-23-11.png]]
+[[file:_img/screenshot_2017-01-22_16-23-11.png]]
 
-[[file:img/screenshot_2017-01-22_16-26-12.png]]
+[[file:_img/screenshot_2017-01-22_16-26-12.png]]
 ** Language
-[[file:img/screenshot_2017-01-22_16-28-46.png]]
+[[file:_img/screenshot_2017-01-22_16-28-46.png]]
 ** Regular Expressions
-[[file:img/screenshot_2017-01-22_16-32-34.png]]
+[[file:_img/screenshot_2017-01-22_16-32-34.png]]
 ** Specifications
-[[file:img/screenshot_2017-01-22_16-34-03.png]]
+[[file:_img/screenshot_2017-01-22_16-34-03.png]]
 ** Concept Inventory
-[[file:img/screenshot_2017-01-22_16-37-16.png]]
+[[file:_img/screenshot_2017-01-22_16-37-16.png]]
 ** Quiz: Matchset
-[[file:img/screenshot_2017-01-22_16-39-40.png]]
+[[file:_img/screenshot_2017-01-22_16-39-40.png]]
 *** My Solution
 #+BEGIN_SRC python 
   elif 'dot' == op:
@@ -70,23 +70,23 @@
       return set([text[1:]]) if text[0] in x else null
 #+END_SRC
 *** His Solution
-[[file:img/screenshot_2017-01-22_16-45-20.png]]
+[[file:_img/screenshot_2017-01-22_16-45-20.png]]
 
-[[file:img/screenshot_2017-01-22_16-47-13.png]]
+[[file:_img/screenshot_2017-01-22_16-47-13.png]]
 
 (if x is a tuple of characters. Otherwise:)
-[[file:img/screenshot_2017-01-22_16-47-55.png]]
+[[file:_img/screenshot_2017-01-22_16-47-55.png]]
 *** Feedback
 - I failed to consider boundary cases.
 - Good to know the fact that ~str.startswith~ accepts tuples.
 ** Quiz: Filling Out The Api
-[[file:img/screenshot_2017-01-22_16-51-24.png]]
+[[file:_img/screenshot_2017-01-22_16-51-24.png]]
 
 Even though this breaks the standard convention style,
 it really is more readable.
 
 ** Quiz: Search and Match
-[[file:img/screenshot_2017-01-22_16-53-38.png]]
+[[file:_img/screenshot_2017-01-22_16-53-38.png]]
 
 *** My Solution
 #+BEGIN_SRC python
@@ -101,35 +101,35 @@ My solution is obviously worse.
 I tried to solve this somewhat clever which made me fail to write it in an easy way.
 
 ** Compiling
-[[file:img/screenshot_2017-01-22_17-04-47.png]]
+[[file:_img/screenshot_2017-01-22_17-04-47.png]]
 
-[[file:img/screenshot_2017-01-22_17-04-29.png]]
+[[file:_img/screenshot_2017-01-22_17-04-29.png]]
 
 This is the most interesting part of the entire lecture.
 By just making all thing into functions, an interpreter changes into an compiler.
 
 ** Lower Level Compilers
-[[file:img/screenshot_2017-01-22_17-09-09.png]]
+[[file:_img/screenshot_2017-01-22_17-09-09.png]]
 
 Good to know about ~dis~ module
 
 ** Quiz: Alt
-[[file:img/screenshot_2017-01-22_17-10-42.png]]
+[[file:_img/screenshot_2017-01-22_17-10-42.png]]
 
 #+BEGIN_SRC python
   lambda text: x(text) | y(text)
 #+END_SRC
 
 ** Quiz: Simple Compilers
-[[file:img/screenshot_2017-01-22_17-12-16.png]]
+[[file:_img/screenshot_2017-01-22_17-12-16.png]]
 
 Note that the use of names ~t~, ~t1~, ~t2~ which is generally discouraged, but is proper in this case.
 
 ** Recognizers And Generators
-[[file:img/screenshot_2017-01-22_17-16-29.png]]
+[[file:_img/screenshot_2017-01-22_17-16-29.png]]
 
 ** Quiz: Oneof And Alt
-[[file:img/screenshot_2017-01-22_17-17-26.png]]
+[[file:_img/screenshot_2017-01-22_17-17-26.png]]
 
 *** My Old Solution
 #+BEGIN_SRC python
@@ -151,23 +151,23 @@ But it's actually more readable because ~Ns~ feels more like a multiple elements
 Should I use ~ns~ instead of it?  The jury is still out.
 
 ** Avoiding Repetition
-[[file:img/screenshot_2017-01-24_22-08-50.png]]
+[[file:_img/screenshot_2017-01-24_22-08-50.png]]
 Keeps ~set_s~ to avoid repetition.  It's a kind of compiler optimization.
 
 ** Quiz: Genseq
-[[file:img/screenshot_2017-01-24_22-16-41.png]]
+[[file:_img/screenshot_2017-01-24_22-16-41.png]]
 
-[[file:img/screenshot_2017-01-24_22-18-09.png]]
+[[file:_img/screenshot_2017-01-24_22-18-09.png]]
 ** Testing Genseq
-[[file:img/screenshot_2017-01-24_22-22-31.png]]
+[[file:_img/screenshot_2017-01-24_22-22-31.png]]
 
-[[file:img/screenshot_2017-01-24_22-23-20.png]]
+[[file:_img/screenshot_2017-01-24_22-23-20.png]]
 ** Theory And Practice
-[[file:img/screenshot_2017-01-24_22-47-14.png]]
+[[file:_img/screenshot_2017-01-24_22-47-14.png]]
 ** Quiz: Changing Seq
-[[file:img/screenshot_2017-01-24_22-50-13.png]]* Problem Set 4
+[[file:_img/screenshot_2017-01-24_22-50-13.png]]* Problem Set 4
 ** Changing Functions
-[[file:img/screenshot_2017-01-24_22-51-42.png]]
+[[file:_img/screenshot_2017-01-24_22-51-42.png]]
 ** Quiz: N Ary Function
 *** My Old Solution
 #+BEGIN_SRC python
@@ -193,19 +193,19 @@ Keeps ~set_s~ to avoid repetition.  It's a kind of compiler optimization.
       return n_ary_f
 #+END_SRC
 *** His Solution
-[[file:img/screenshot_2017-01-24_22-58-56.png]]
+[[file:_img/screenshot_2017-01-24_22-58-56.png]]
 
 *** Feedback
 My Old Solution is overly complicated.  My New Solution is way better than that.
 But, the best one is his.  I didn't need to separate ~args~ explicitly on ~else~ case.
 
 ** Decorated Wrappers
-[[file:img/screenshot_2017-01-28_21-32-45.png]]
+[[file:_img/screenshot_2017-01-28_21-32-45.png]]
 
-[[file:img/screenshot_2017-01-28_21-33-16.png]]
+[[file:_img/screenshot_2017-01-28_21-33-16.png]]
 
 ** Quiz: Decorated Decorators
-[[file:img/screenshot_2017-01-28_21-34-06.png]]
+[[file:_img/screenshot_2017-01-28_21-34-06.png]]
 
 *** My Expansion
 #+BEGIN_SRC python
@@ -226,15 +226,15 @@ And it may be kept away from its user.  In this case, The clever one-liner code
 can be accepted.
 
 ** Quiz: Cache Management
-[[file:img/screenshot_2017-01-28_21-52-25.png]]
+[[file:_img/screenshot_2017-01-28_21-52-25.png]]
 
 ** Quiz: Save Time Now
-[[file:img/screenshot_2017-01-28_21-56-30.png]]
+[[file:_img/screenshot_2017-01-28_21-56-30.png]]
 
 ** Quiz: Trace Tool
-[[file:img/screenshot_2017-01-28_21-59-11.png]]
+[[file:_img/screenshot_2017-01-28_21-59-11.png]]
 
-[[file:img/screenshot_2017-01-28_21-59-43.png]]
+[[file:_img/screenshot_2017-01-28_21-59-43.png]]
 
 *** My Solution
 #+BEGIN_SRC python
@@ -256,14 +256,14 @@ can be accepted.
       return _f
 #+END_SRC
 ** Descriptionary
-[[file:img/screenshot_2017-01-28_22-09-50.png]]
+[[file:_img/screenshot_2017-01-28_22-09-50.png]]
 
 He emphasizes the *wishful thinking* which means,
 'I wish I had a function that accepts the input I just wrote.'
 
-[[file:img/screenshot_2017-01-28_22-15-37.png]]
+[[file:_img/screenshot_2017-01-28_22-15-37.png]]
 
-[[file:img/screenshot_2017-01-28_22-16-03.png]]
+[[file:_img/screenshot_2017-01-28_22-16-03.png]]
 
 Even though there is no quiz,
 I think it would be a good practice for me to solve this problem on my own.
@@ -281,7 +281,7 @@ so I just did it and got feedback from his code.
 
 The naming of ~lhs~, ~rhs~ is better than mine.
 
-[[file:img/screenshot_2017-01-28_22-16-41.png]]
+[[file:_img/screenshot_2017-01-28_22-16-41.png]]
 
 #+BEGIN_SRC python
   def split(s, pattern):
@@ -291,19 +291,19 @@ The naming of ~lhs~, ~rhs~ is better than mine.
 ~if t~ is a good way for ensuring boundary cases.
 
 ** White Space
-[[file:img/screenshot_2017-01-28_22-18-05.png]]
+[[file:_img/screenshot_2017-01-28_22-18-05.png]]
 
 ** Parsing
-[[file:img/screenshot_2017-02-05_12-06-02.png]]
+[[file:_img/screenshot_2017-02-05_12-06-02.png]]
 
-[[file:img/screenshot_2017-01-28_22-20-20.png]]
+[[file:_img/screenshot_2017-01-28_22-20-20.png]]
 
-[[file:img/screenshot_2017-01-28_22-21-40.png]]
+[[file:_img/screenshot_2017-01-28_22-21-40.png]]
 
 ** Parse Function
-[[file:img/screenshot_2017-02-05_13-05-15.png]]
+[[file:_img/screenshot_2017-02-05_13-05-15.png]]
 
-[[file:img/screenshot_2017-02-05_13-05-32.png]]
+[[file:_img/screenshot_2017-02-05_13-05-32.png]]
 
 *** I wrote the function by myself
 I wrote the function by myself(~parser.py~).
@@ -319,15 +319,15 @@ I could solve the problem thanks to his clear definitions of input and output.
 I'm surprised at how the clear input and output make the problem easy to solve.
 
 ** Quiz: Speedy Parsing
-[[file:img/screenshot_2017-02-05_14-58-11.png]]
+[[file:_img/screenshot_2017-02-05_14-58-11.png]]
 
 A Simple design leads to the simple solution.
 
 ** Catching Typos
-[[file:img/screenshot_2017-02-05_15-00-48.png]]
+[[file:_img/screenshot_2017-02-05_15-00-48.png]]
 
 ** Summary
-[[file:img/screenshot_2017-02-05_15-02-54.png]]
+[[file:_img/screenshot_2017-02-05_15-02-54.png]]
 
 * Problem Set 3
 ** Quiz: Json Parser
@@ -370,10 +370,10 @@ A Simple design leads to the simple solution.
 I wrote it only to pass the tests.  It's way simpler than the old one.
 
 *** His Solution
-[[file:img/screenshot_2017-02-05_15-27-35.png]]
+[[file:_img/screenshot_2017-02-05_15-27-35.png]]
 
 ** Quiz: Inverse Function
-[[file:img/screenshot_2017-02-05_15-30-35.png]]
+[[file:_img/screenshot_2017-02-05_15-30-35.png]]
 
 *** My Old Solution
 #+BEGIN_SRC python
@@ -416,19 +416,19 @@ I wrote it only to pass the tests.  It's way simpler than the old one.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-02-05_17-47-57.png]]
+[[file:_img/screenshot_2017-02-05_17-47-57.png]]
 
 Almost same approach.  Here is code:
-[[file:img/screenshot_2017-02-05_17-48-31.png]]
+[[file:_img/screenshot_2017-02-05_17-48-31.png]]
 
-[[file:img/screenshot_2017-02-05_17-48-43.png]]
+[[file:_img/screenshot_2017-02-05_17-48-43.png]]
 
 *** Feedback
 His way of splitting tasks into small functions looks great.
 It clarifies the algorithm.
 
 ** Quiz: Find Html Tags
-[[file:img/screenshot_2017-02-12_09-07-49.png]]
+[[file:_img/screenshot_2017-02-12_09-07-49.png]]
 
 *** My Old Solution
 #+BEGIN_SRC python
@@ -477,16 +477,16 @@ I noticed that I could use this technique for other elements:
 It can be read naturally now.
 
 *** His Solution
-[[file:img/screenshot_2017-02-12_10-06-22.png]]
+[[file:_img/screenshot_2017-02-12_10-06-22.png]]
 
 He solution is just more concise.
 
 ** Challenge Problem
-[[file:img/screenshot_2017-02-12_10-10-17.png]]
+[[file:_img/screenshot_2017-02-12_10-10-17.png]]
 
 It' a little bit frustrating work.  I picked the parser functions from Json Parser problem.
 I will use the specification previously presented from this lesson:
-[[file:img/screenshot_2017-02-12_10-20-43.png]]
+[[file:_img/screenshot_2017-02-12_10-20-43.png]]
 
 #+BEGIN_SRC python
   REGRAMMER = grammar(r"""
@@ -593,9 +593,9 @@ designing representations between them.
 
 * Office Hours 3
 ** Question Four
-[[file:img/screenshot_2017-02-12_19-52-23.png]]
+[[file:_img/screenshot_2017-02-12_19-52-23.png]]
 
-[[file:img/screenshot_2017-02-12_19-52-40.png]]
+[[file:_img/screenshot_2017-02-12_19-52-40.png]]
 
 #+BEGIN_QUOTE
 I guess I try to think of things as how can I get as close to the problem as possible?

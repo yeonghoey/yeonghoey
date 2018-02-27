@@ -1,54 +1,54 @@
 #+TITLE: Lesson 4
 
 * Table of Contents :TOC_2_gh:
- - [[#lesson-4][Lesson 4]]
-   - [[#water-pouring-problem][Water Pouring Problem]]
-   - [[#quiz-combinatorial-complexity][Quiz: Combinatorial Complexity]]
-   - [[#quiz-exploring-the-space][Quiz: Exploring The Space]]
-   - [[#pouring-solution][Pouring Solution]]
-   - [[#doctest][Doctest]]
-   - [[#bridge-problem][Bridge Problem]]
-   - [[#quiz-bridge-successors][Quiz: Bridge Successors]]
-   - [[#quiz-paths-actions-states][Quiz: Paths Actions States]]
-   - [[#quiz-improving-the-solution][Quiz: Improving The Solution]]
-   - [[#quiz-modify-code][Quiz: Modify Code]]
-   - [[#quiz-refactoring-paths][Quiz: Refactoring Paths]]
-   - [[#quiz-calculating-costs][Quiz: Calculating Costs]]
-   - [[#putting-it-together][Putting It Together]]
-   - [[#generalizing][Generalizing]]
-   - [[#quiz-missionaries-and-cannibals][Quiz: Missionaries And Cannibals]]
-   - [[#quiz-csuccessors][Quiz: Csuccessors]]
-   - [[#mc-problem][Mc Problem]]
-   - [[#quiz-shortest-path-search][Quiz: Shortest Path Search]]
-   - [[#quiz-lowest-cost-search][Quiz: Lowest Cost Search]]
-   - [[#summary][Summary]]
- - [[#problem-set-4][Problem Set 4]]
-   - [[#quiz-refactoring-bsuccessors][Quiz: Refactoring Bsuccessors]]
-   - [[#quiz-more-pour-problem][Quiz: More Pour Problem]]
-   - [[#quiz-subway-planning][Quiz: Subway Planning]]
+- [[#lesson-4][Lesson 4]]
+  - [[#water-pouring-problem][Water Pouring Problem]]
+  - [[#quiz-combinatorial-complexity][Quiz: Combinatorial Complexity]]
+  - [[#quiz-exploring-the-space][Quiz: Exploring The Space]]
+  - [[#pouring-solution][Pouring Solution]]
+  - [[#doctest][Doctest]]
+  - [[#bridge-problem][Bridge Problem]]
+  - [[#quiz-bridge-successors][Quiz: Bridge Successors]]
+  - [[#quiz-paths-actions-states][Quiz: Paths Actions States]]
+  - [[#quiz-improving-the-solution][Quiz: Improving The Solution]]
+  - [[#quiz-modify-code][Quiz: Modify Code]]
+  - [[#quiz-refactoring-paths][Quiz: Refactoring Paths]]
+  - [[#quiz-calculating-costs][Quiz: Calculating Costs]]
+  - [[#putting-it-together][Putting It Together]]
+  - [[#generalizing][Generalizing]]
+  - [[#quiz-missionaries-and-cannibals][Quiz: Missionaries And Cannibals]]
+  - [[#quiz-csuccessors][Quiz: Csuccessors]]
+  - [[#mc-problem][Mc Problem]]
+  - [[#quiz-shortest-path-search][Quiz: Shortest Path Search]]
+  - [[#quiz-lowest-cost-search][Quiz: Lowest Cost Search]]
+  - [[#summary][Summary]]
+- [[#problem-set-4][Problem Set 4]]
+  - [[#quiz-refactoring-bsuccessors][Quiz: Refactoring Bsuccessors]]
+  - [[#quiz-more-pour-problem][Quiz: More Pour Problem]]
+  - [[#quiz-subway-planning][Quiz: Subway Planning]]
 
 * Lesson 4
 ** Water Pouring Problem
-[[file:img/screenshot_2017-02-12_20-03-31.png]]
+[[file:_img/screenshot_2017-02-12_20-03-31.png]]
 
 ** Quiz: Combinatorial Complexity
-[[file:img/screenshot_2017-02-12_20-04-51.png]]
+[[file:_img/screenshot_2017-02-12_20-04-51.png]]
 
 Can't tell the number of cases -> *SEARCH* problem
 
 ** Quiz: Exploring The Space
-[[file:img/screenshot_2017-02-12_23-37-56.png]]
+[[file:_img/screenshot_2017-02-12_23-37-56.png]]
 
 ** Pouring Solution
-[[file:img/screenshot_2017-02-21_08-51-44.png]]
+[[file:_img/screenshot_2017-02-21_08-51-44.png]]
 
-[[file:img/screenshot_2017-02-21_08-52-34.png]]
+[[file:_img/screenshot_2017-02-21_08-52-34.png]]
 
 ** Doctest
-[[file:img/screenshot_2017-02-21_08-54-48.png]]
+[[file:_img/screenshot_2017-02-21_08-54-48.png]]
 
 ** Bridge Problem
-[[file:img/screenshot_2017-02-24_07-57-15.png]]
+[[file:_img/screenshot_2017-02-24_07-57-15.png]]
 
 ** Quiz: Bridge Successors
 *** My Old Solution
@@ -116,7 +116,7 @@ Can't tell the number of cases -> *SEARCH* problem
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-02-24_08-40-48.png]]
+[[file:_img/screenshot_2017-02-24_08-40-48.png]]
 
 *** Feedback
 I could mix ~for expressions~ and ~if expressions~ within a comprehension.
@@ -134,7 +134,7 @@ If you think they're contained, then it's okay to have some uncertainty and be a
 
 
 ** Quiz: Paths Actions States
-[[file:img/screenshot_2017-02-25_11-15-01.png]]
+[[file:_img/screenshot_2017-02-25_11-15-01.png]]
 
 *** My Old Solution
 #+BEGIN_SRC python
@@ -155,33 +155,33 @@ If you think they're contained, then it's okay to have some uncertainty and be a
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-02-25_11-17-05.png]]
+[[file:_img/screenshot_2017-02-25_11-17-05.png]]
 
 *** Feedback
 I should think of the problem in easy ways.
 
 ** Quiz: Improving The Solution
-[[file:img/screenshot_2017-02-25_11-28-09.png]]
+[[file:_img/screenshot_2017-02-25_11-28-09.png]]
 
 ** Quiz: Modify Code
-[[file:img/screenshot_2017-02-25_11-34-56.png]]
+[[file:_img/screenshot_2017-02-25_11-34-56.png]]
 
 ** Quiz: Refactoring Paths
-[[file:img/screenshot_2017-02-25_11-39-18.png]]
+[[file:_img/screenshot_2017-02-25_11-39-18.png]]
 
 ** Quiz: Calculating Costs
-[[file:img/screenshot_2017-02-25_11-45-14.png]]
+[[file:_img/screenshot_2017-02-25_11-45-14.png]]
 
 ** Putting It Together
-[[file:img/screenshot_2017-02-25_11-46-30.png]]
+[[file:_img/screenshot_2017-02-25_11-46-30.png]]
 
-[[file:img/screenshot_2017-02-25_11-46-52.png]]
+[[file:_img/screenshot_2017-02-25_11-46-52.png]]
 
 ** Generalizing
-[[file:img/screenshot_2017-02-25_18-22-37.png]]
+[[file:_img/screenshot_2017-02-25_18-22-37.png]]
 
 ** Quiz: Missionaries And Cannibals
-[[file:img/screenshot_2017-02-25_18-28-06.png]]
+[[file:_img/screenshot_2017-02-25_18-28-06.png]]
 
 ** Quiz: Csuccessors
 *** My Old Solution
@@ -235,7 +235,7 @@ I should think of the problem in easy ways.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-02-25_19-30-08.png]]
+[[file:_img/screenshot_2017-02-25_19-30-08.png]]
 
 *** Feedback
 - My new solution is better than old one, which uses constants, making the logic simple.
@@ -245,21 +245,21 @@ I should think of the problem in easy ways.
 ** Mc Problem
 I solved on my own: [[exercises/mc_problem.py][exercises/mc_problem.py]] 
 
-[[file:img/screenshot_2017-02-25_20-02-52.png]]
+[[file:_img/screenshot_2017-02-25_20-02-52.png]]
 
 ** Quiz: Shortest Path Search
-[[file:img/screenshot_2017-02-25_20-19-00.png]]
+[[file:_img/screenshot_2017-02-25_20-19-00.png]]
 
 ** Quiz: Lowest Cost Search
 *** His Solution
-[[file:img/screenshot_2017-02-25_20-32-14.png]]
+[[file:_img/screenshot_2017-02-25_20-32-14.png]]
 
 ** Summary
-[[file:img/screenshot_2017-02-25_20-37-16.png]]
+[[file:_img/screenshot_2017-02-25_20-37-16.png]]
 
 * Problem Set 4
 ** Quiz: Refactoring Bsuccessors
-[[file:img/screenshot_2016-12-22_16-23-11.png]]
+[[file:_img/screenshot_2016-12-22_16-23-11.png]]
 *** My Solution
 #+BEGIN_SRC python
   HERE = 0
@@ -285,7 +285,7 @@ I solved on my own: [[exercises/mc_problem.py][exercises/mc_problem.py]]
       return ret
 #+END_SRC
 *** His Solution
-[[file:img/screenshot_2016-12-22_16-26-10.png]]
+[[file:_img/screenshot_2016-12-22_16-26-10.png]]
 
 *** Feedback
 I blindly solved the problem as before, even though the concept changed.
@@ -293,7 +293,7 @@ I thought that the interface forces me to keep the parameter orders of ~here~ an
 which causes to make duplications or to make the logic overly complicated.
 The answer make a smaller function(~bsuccessor3(state, travelers)~) to isolate this restriction. it's cleaner than mine.
 ** Quiz: More Pour Problem
-[[file:img/screenshot_2016-12-22_16-33-24.png]]
+[[file:_img/screenshot_2016-12-22_16-33-24.png]]
 
 *** My Solution
 #+BEGIN_SRC python
@@ -332,9 +332,9 @@ The answer make a smaller function(~bsuccessor3(state, travelers)~) to isolate t
       return shortest_path_search(start, successors, is_goal)
 #+END_SRC
 *** His Solution
-[[file:img/screenshot_2016-12-22_17-16-01.png]]
+[[file:_img/screenshot_2016-12-22_17-16-01.png]]
 
-[[file:img/screenshot_2016-12-22_17-18-27.png]]
+[[file:_img/screenshot_2016-12-22_17-18-27.png]]
 *** Feedback
 His and mine are almost same barring some tricky parts.
 **** Naming
@@ -348,7 +348,7 @@ While My way focuses on *how*, his way focuses on *what*.  I think his way is mo
 - ~tuple(0 for _ in capacities)~ vs ~(0,) * len(capacities)~
 - This ~replace~ is more general.  Mine premises ~state~ is always a tuple.
 ** Quiz: Subway Planning
-[[file:img/screenshot_2016-12-22_17-41-44.png]]
+[[file:_img/screenshot_2016-12-22_17-41-44.png]]
 *** My Solution
 #+BEGIN_SRC python
   from collections import defaultdict
@@ -389,9 +389,9 @@ While My way focuses on *how*, his way focuses on *what*.  I think his way is mo
       return longest
 #+END_SRC
 *** His Solution
-[[file:img/screenshot_2016-12-22_18-14-33.png]]
+[[file:_img/screenshot_2016-12-22_18-14-33.png]]
 
-[[file:img/screenshot_2016-12-22_18-15-09.png]]
+[[file:_img/screenshot_2016-12-22_18-15-09.png]]
 *** Feedback
 I'm happy with the fact that my solution is almost same as his one.
 

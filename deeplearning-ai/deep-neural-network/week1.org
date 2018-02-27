@@ -28,7 +28,7 @@
 
 - https://stackoverflow.com/questions/2976452/whats-is-the-difference-between-train-validation-and-test-set-in-neural-netwo
 
-[[file:img/screenshot_2017-10-14_09-22-34.png]]
+[[file:_img/screenshot_2017-10-14_09-22-34.png]]
 
 Traditionally, 7:3 (train:dev) or 6:2:2 (train:dev:test), is a rule of thumb for data set.
 But, in these days, big data came out, and there are a lot more data than past.
@@ -45,80 +45,80 @@ with a big data set.
 
 - Testing Set :: This data set is used *only for testing the final solution in order to confirm the actual predictive power* of the network.
 
-[[file:img/screenshot_2017-10-14_09-13-51.png]]
+[[file:_img/screenshot_2017-10-14_09-13-51.png]]
 
 #+BEGIN_QUOTE
 Make sure that the dev and test sets come from the same distribution. 
 #+END_QUOTE
 ** Bias / Variance
-[[file:img/screenshot_2017-10-14_09-33-46.png]]
+[[file:_img/screenshot_2017-10-14_09-33-46.png]]
 
 - http://slideplayer.com/slide/8744653/
-- [[file:img/screenshot_2017-10-14_09-42-42.png]]
+- [[file:_img/screenshot_2017-10-14_09-42-42.png]]
 
-[[file:img/screenshot_2017-10-14_09-44-20.png]]
+[[file:_img/screenshot_2017-10-14_09-44-20.png]]
 
 ** Basic Recipe for Machine Learning
-[[file:img/screenshot_2017-10-14_09-52-29.png]]
+[[file:_img/screenshot_2017-10-14_09-52-29.png]]
 
 * Regularizing your neural network
 ** Regularization
-[[file:img/screenshot_2017-10-14_10-01-58.png]]
+[[file:_img/screenshot_2017-10-14_10-01-58.png]]
 
 ** Why regularization reduces overfitting?
-[[file:img/screenshot_2017-10-14_10-08-39.png]]
+[[file:_img/screenshot_2017-10-14_10-08-39.png]]
 
-[[file:img/screenshot_2017-10-14_10-15-16.png]]
+[[file:_img/screenshot_2017-10-14_10-15-16.png]]
 
 - When we increase ~lambda~ to a huge number, ~W~ is going close to zero.
 - ~W~ close to zeon means that the nework is going to be simpler.
 - Which will alleviate the high variance problem.
 
 ** Dropout Regularization
-[[file:img/screenshot_2017-10-14_10-20-53.png]]
+[[file:_img/screenshot_2017-10-14_10-20-53.png]]
 
-[[file:img/screenshot_2017-10-14_10-28-17.png]]
+[[file:_img/screenshot_2017-10-14_10-28-17.png]]
 
-[[file:img/screenshot_2017-10-14_10-30-31.png]]
+[[file:_img/screenshot_2017-10-14_10-30-31.png]]
 
 ** Understanding Dropout
-[[file:img/screenshot_2017-10-14_10-38-29.png]]
+[[file:_img/screenshot_2017-10-14_10-38-29.png]]
 
 ** Other regularization methods
-[[file:img/screenshot_2017-10-14_10-43-27.png]]
+[[file:_img/screenshot_2017-10-14_10-43-27.png]]
 
-[[file:img/screenshot_2017-10-14_10-48-46.png]]
+[[file:_img/screenshot_2017-10-14_10-48-46.png]]
 
 #+BEGIN_QUOTE
 The main downside of early stopping is that this couples these two tasks.
 #+END_QUOTE
 * Setting up your optimization problem
 ** Normalizing inputs
-[[file:img/screenshot_2017-10-15_07-19-10.png]]
+[[file:_img/screenshot_2017-10-15_07-19-10.png]]
 
 #+BEGIN_QUOTE
 Use the ~mu~ and ~sigma~ of training set when normalizing test set.
 #+END_QUOTE
 
-[[file:img/screenshot_2017-10-15_07-22-47.png]]
+[[file:_img/screenshot_2017-10-15_07-22-47.png]]
 ** Vanishing / Exploding gradients
-[[file:img/screenshot_2017-10-15_07-27-40.png]]
+[[file:_img/screenshot_2017-10-15_07-27-40.png]]
 
 ** Weight Initialization for Deep Networks
-[[file:img/screenshot_2017-10-15_07-33-01.png]]
+[[file:_img/screenshot_2017-10-15_07-33-01.png]]
 ** Numerical approximation of gradients
-[[file:img/screenshot_2017-10-15_14-32-21.png]]
+[[file:_img/screenshot_2017-10-15_14-32-21.png]]
 
 ** Gradient checking
-[[file:img/screenshot_2017-10-15_14-42-30.png]]
+[[file:_img/screenshot_2017-10-15_14-42-30.png]]
 
-[[file:img/screenshot_2017-10-15_14-47-13.png]]
+[[file:_img/screenshot_2017-10-15_14-47-13.png]]
 
 ** Gradient Checking Implementation Notes
-[[file:img/screenshot_2017-10-15_14-53-42.png]]
+[[file:_img/screenshot_2017-10-15_14-53-42.png]]
 * Programming assignments
 ** Initialization
-[[file:img/screenshot_2017-10-15_15-06-59.png]]
+[[file:_img/screenshot_2017-10-15_15-06-59.png]]
 
 #+BEGIN_SRC python
   def model(X, Y, learning_rate = 0.01, num_iterations = 15000, print_cost = True, initialization = "he"):
@@ -181,17 +181,17 @@ Use the ~mu~ and ~sigma~ of training set when normalizing test set.
       return parameters
 #+END_SRC
 
-[[file:img/screenshot_2017-10-15_15-24-15.png]]
+[[file:_img/screenshot_2017-10-15_15-24-15.png]]
 
-[[file:img/screenshot_2017-10-15_15-27-52.png]]
+[[file:_img/screenshot_2017-10-15_15-27-52.png]]
 
-[[file:img/screenshot_2017-10-15_15-28-19.png]]
+[[file:_img/screenshot_2017-10-15_15-28-19.png]]
 
-[[file:img/screenshot_2017-10-15_15-31-42.png]]
+[[file:_img/screenshot_2017-10-15_15-31-42.png]]
 ** Regularization
-[[file:img/screenshot_2017-10-15_15-33-24.png]]
+[[file:_img/screenshot_2017-10-15_15-33-24.png]]
 
-[[file:img/screenshot_2017-10-15_15-41-53.png]]
+[[file:_img/screenshot_2017-10-15_15-41-53.png]]
 
 #+BEGIN_SRC python
   def model(X, Y, learning_rate = 0.3, num_iterations = 30000, print_cost = True, lambd = 0, keep_prob = 1):
@@ -264,31 +264,31 @@ Use the ~mu~ and ~sigma~ of training set when normalizing test set.
       return parameters
 #+END_SRC
 
-[[file:img/screenshot_2017-10-15_15-42-46.png]]
+[[file:_img/screenshot_2017-10-15_15-42-46.png]]
 
-[[file:img/screenshot_2017-10-15_15-43-08.png]]
+[[file:_img/screenshot_2017-10-15_15-43-08.png]]
 
-[[file:img/screenshot_2017-10-15_15-46-48.png]]
+[[file:_img/screenshot_2017-10-15_15-46-48.png]]
 
-[[file:img/screenshot_2017-10-15_15-50-41.png]]
+[[file:_img/screenshot_2017-10-15_15-50-41.png]]
 
-[[file:img/screenshot_2017-10-15_15-51-45.png]]
+[[file:_img/screenshot_2017-10-15_15-51-45.png]]
 
-[[file:img/screenshot_2017-10-15_15-56-56.png]]
+[[file:_img/screenshot_2017-10-15_15-56-56.png]]
 
-[[file:img/screenshot_2017-10-15_16-00-24.png]]
+[[file:_img/screenshot_2017-10-15_16-00-24.png]]
 
 ** Gradient Checking
-[[file:img/screenshot_2017-10-15_16-05-00.png]]
+[[file:_img/screenshot_2017-10-15_16-05-00.png]]
 
-[[file:img/screenshot_2017-10-15_16-05-29.png]]
+[[file:_img/screenshot_2017-10-15_16-05-29.png]]
 
-[[file:img/screenshot_2017-10-15_16-05-41.png]]
+[[file:_img/screenshot_2017-10-15_16-05-41.png]]
 
-[[file:img/screenshot_2017-10-15_16-10-33.png]]
+[[file:_img/screenshot_2017-10-15_16-10-33.png]]
 
-[[file:img/screenshot_2017-10-15_16-18-13.png]]
+[[file:_img/screenshot_2017-10-15_16-18-13.png]]
 
-[[file:img/screenshot_2017-10-15_16-18-39.png]]
+[[file:_img/screenshot_2017-10-15_16-18-39.png]]
 
-[[file:img/screenshot_2017-10-15_16-29-56.png]]
+[[file:_img/screenshot_2017-10-15_16-29-56.png]]

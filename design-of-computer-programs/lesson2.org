@@ -1,31 +1,31 @@
 #+TITLE: Lesson 2
 
 * Table of Contents :TOC_2_gh:
- - [[#lesson-2][Lesson 2]]
-   - [[#quiz-zebra-puzzle][Quiz: Zebra Puzzle]]
-    - [[#quiz-leaving-happy-valley][Quiz: Leaving Happy Valley]]
-   - [[#quiz-estimating-runtime][Quiz: Estimating Runtime]]
-   - [[#slow-solution][Slow Solution]]
-   - [[#winning-the-race][Winning The Race]]
-   - [[#quiz-timed-calls][Quiz: Timed Calls]]
-   - [[#cleaning-up-functions][Cleaning Up Functions]]
-   - [[#zebra-summary][Zebra Summary]]
-   - [[#quiz-cryptarithmetic][Quiz: Cryptarithmetic]]
-   - [[#brute-force-solution][Brute Force Solution]]
-   - [[#translation-tables][Translation Tables]]
-   - [[#quiz-solving-cryptarithmetic][Quiz: Solving Cryptarithmetic]]
-   - [[#quiz-filling-in-fill-in][Quiz: Filling in Fill In]]
-   - [[#testing][Testing]]
-   - [[#tracking-time][Tracking Time]]
-   - [[#lambda][Lambda]]
-   - [[#quiz-compile-word][Quiz: Compile Word]]
-   - [[#speeding-up][Speeding Up]]
-   - [[#recap][Recap]]
- - [[#problem-set-2][Problem Set 2]]
-   - [[#quiz-no-leading-zeros][Quiz: No Leading Zeros]]
-   - [[#quiz-floor-puzzle][Quiz: Floor Puzzle]]
-   - [[#quiz-subpalindrome][Quiz: Subpalindrome]]
- - [[#office-hours-2][Office Hours 2]]
+- [[#lesson-2][Lesson 2]]
+  - [[#quiz-zebra-puzzle][Quiz: Zebra Puzzle]]
+  -  [[#quiz-leaving-happy-valley][Quiz: Leaving Happy Valley]]
+  - [[#quiz-estimating-runtime][Quiz: Estimating Runtime]]
+  - [[#slow-solution][Slow Solution]]
+  - [[#winning-the-race][Winning The Race]]
+  - [[#quiz-timed-calls][Quiz: Timed Calls]]
+  - [[#cleaning-up-functions][Cleaning Up Functions]]
+  - [[#zebra-summary][Zebra Summary]]
+  - [[#quiz-cryptarithmetic][Quiz: Cryptarithmetic]]
+  - [[#brute-force-solution][Brute Force Solution]]
+  - [[#translation-tables][Translation Tables]]
+  - [[#quiz-solving-cryptarithmetic][Quiz: Solving Cryptarithmetic]]
+  - [[#quiz-filling-in-fill-in][Quiz: Filling in Fill In]]
+  - [[#testing][Testing]]
+  - [[#tracking-time][Tracking Time]]
+  - [[#lambda][Lambda]]
+  - [[#quiz-compile-word][Quiz: Compile Word]]
+  - [[#speeding-up][Speeding Up]]
+  - [[#recap][Recap]]
+- [[#problem-set-2][Problem Set 2]]
+  - [[#quiz-no-leading-zeros][Quiz: No Leading Zeros]]
+  - [[#quiz-floor-puzzle][Quiz: Floor Puzzle]]
+  - [[#quiz-subpalindrome][Quiz: Subpalindrome]]
+- [[#office-hours-2][Office Hours 2]]
 
 * Lesson 2
 ** Quiz: Zebra Puzzle
@@ -48,12 +48,12 @@
   Who drinks water? Who owns the zebra?
 #+END_EXAMPLE
 
-[[file:img/screenshot_2017-01-18_11-54-14.png]]
+[[file:_img/screenshot_2017-01-18_11-54-14.png]]
 
 **  Quiz: Leaving Happy Valley
-[[file:img/screenshot_2017-01-18_11-59-09.png]]
+[[file:_img/screenshot_2017-01-18_11-59-09.png]]
 
-[[file:img/screenshot_2017-01-18_12-00-49.png]]
+[[file:_img/screenshot_2017-01-18_12-00-49.png]]
 
 He picked the last one because of its simplicity.
 He claimed that he picked it just for its simplicity and
@@ -71,7 +71,7 @@ The problem is only interested in the relations between properties.
 I think I should try this way when I'm faced with situations like this
 
 ** Quiz: Estimating Runtime
-[[file:img/screenshot_2017-01-18_12-06-00.png]]
+[[file:_img/screenshot_2017-01-18_12-06-00.png]]
 
 I couldn't consider the CPU clock rate.
 Even if I had considerted that, I wouldnt have associated it
@@ -79,16 +79,16 @@ with the instrcutions.
 
 ** Slow Solution
 
-[[file:img/screenshot_2017-01-18_12-42-32.png]]
+[[file:_img/screenshot_2017-01-18_12-42-32.png]]
 
 His code is read naturally.  He doesn't seem to care about the implementation constraints.
 I think it's a great way of writing readable code.
 
 ** Winning The Race
-[[file:img/screenshot_2017-01-19_12-15-57.png]]
+[[file:_img/screenshot_2017-01-19_12-15-57.png]]
 
 ** Quiz: Timed Calls
-[[file:img/screenshot_2017-01-19_12-19-31.png]]
+[[file:_img/screenshot_2017-01-19_12-19-31.png]]
 
 *** My Solution
 #+BEGIN_SRC python
@@ -102,25 +102,25 @@ I think it's a great way of writing readable code.
       return min(times), average(times), max(times)
 #+END_SRC
 *** His Solution
-[[file:img/screenshot_2017-01-19_12-22-28.png]]
+[[file:_img/screenshot_2017-01-19_12-22-28.png]]
 
 *** Feedback
 They are exactly same.
 ** Cleaning Up Functions
-[[file:img/screenshot_2017-01-19_12-24-21.png]]
+[[file:_img/screenshot_2017-01-19_12-24-21.png]]
 
-[[file:img/screenshot_2017-01-19_12-26-58.png]]
+[[file:_img/screenshot_2017-01-19_12-26-58.png]]
 
 ** Zebra Summary
-[[file:img/screenshot_2017-01-20_12-32-43.png]]
+[[file:_img/screenshot_2017-01-20_12-32-43.png]]
 
 ** Quiz: Cryptarithmetic
-[[file:img/screenshot_2017-01-20_12-33-26.png]]
+[[file:_img/screenshot_2017-01-20_12-33-26.png]]
 
 ** Brute Force Solution
-[[file:img/screenshot_2017-01-20_12-36-02.png]]
+[[file:_img/screenshot_2017-01-20_12-36-02.png]]
 
-[[file:img/screenshot_2017-01-20_12-37-48.png]]
+[[file:_img/screenshot_2017-01-20_12-37-48.png]]
 
 ** Translation Tables
 *** My Solution
@@ -135,14 +135,14 @@ They are exactly same.
           return False
 #+END_SRC
 *** His Solution
-[[file:img/screenshot_2017-01-20_13-56-56.png]]
+[[file:_img/screenshot_2017-01-20_13-56-56.png]]
 
 *** Feedback
 - Using ~re.search~ is way better than using ~re.split()~.
 - ~ArithmeticError~ is more general and proper than ~ZeroDivisionError~
 
 ** Quiz: Solving Cryptarithmetic
-[[file:img/screenshot_2017-01-21_15-00-27.png]]
+[[file:_img/screenshot_2017-01-21_15-00-27.png]]
 
 ** Quiz: Filling in Fill In
 *** My Old Solution
@@ -161,7 +161,7 @@ They are exactly same.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-21_15-14-06.png]]
+[[file:_img/screenshot_2017-01-21_15-14-06.png]]
 
 *** Feedback
 I need to become more frinedly with ~re~ module.
@@ -169,23 +169,23 @@ I need to become more frinedly with ~re~ module.
 ** Testing
 
 
-[[file:img/screenshot_2017-01-21_15-16-15.png]]
+[[file:_img/screenshot_2017-01-21_15-16-15.png]]
 
 *** Feedback
 - ~splitlines()~
 - ~time.clock()~
 
 ** Tracking Time
-[[file:img/screenshot_2017-01-21_15-20-14.png]]
+[[file:_img/screenshot_2017-01-21_15-20-14.png]]
 
-[[file:img/screenshot_2017-01-21_15-19-59.png]]
+[[file:_img/screenshot_2017-01-21_15-19-59.png]]
 
 ** Lambda
-[[file:img/screenshot_2017-01-21_20-04-38.png]]
+[[file:_img/screenshot_2017-01-21_20-04-38.png]]
 
 ** Quiz: Compile Word
 
-[[file:img/screenshot_2017-01-21_20-06-50.png]]
+[[file:_img/screenshot_2017-01-21_20-06-50.png]]
 
 *** My Old Solution
 #+BEGIN_SRC python
@@ -214,24 +214,24 @@ I need to become more frinedly with ~re~ module.
 I wrote this code with splitting logic into smaller pieces in mind.
 
 *** His Solution
-[[file:img/screenshot_2017-01-21_20-22-59.png]]
+[[file:_img/screenshot_2017-01-21_20-22-59.png]]
 
 *** Feedback
 - Using ~10**i~ seems more fancy than ~pow~
 - Using ~l[::-1]~ seems more fancy than ~reversed(l)~
 
 *** Remaining parts
-[[file:img/screenshot_2017-01-21_20-26-40.png]]
+[[file:_img/screenshot_2017-01-21_20-26-40.png]]
 
-[[file:img/screenshot_2017-01-21_20-27-15.png]]
+[[file:_img/screenshot_2017-01-21_20-27-15.png]]
 
 ** Speeding Up
-[[file:img/screenshot_2017-01-21_20-29-37.png]]
+[[file:_img/screenshot_2017-01-21_20-29-37.png]]
 
-[[file:img/screenshot_2017-01-21_20-29-52.png]]
+[[file:_img/screenshot_2017-01-21_20-29-52.png]]
 
 ** Recap
-[[file:img/screenshot_2017-01-21_20-31-36.png]]
+[[file:_img/screenshot_2017-01-21_20-31-36.png]]
 
 * Problem Set 2
 ** Quiz: No Leading Zeros
@@ -252,7 +252,7 @@ I wrote this code with splitting logic into smaller pieces in mind.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-21_22-06-11.png]]
+[[file:_img/screenshot_2017-01-21_22-06-11.png]]
 
 *** Feedback
 Here is the docstring of ~re.findall~
@@ -311,10 +311,10 @@ If I had known this before, I would have used this.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-21_22-17-51.png]]
+[[file:_img/screenshot_2017-01-21_22-17-51.png]]
 
 ** Quiz: Subpalindrome
-[[file:img/screenshot_2017-01-21_22-22-21.png]]
+[[file:_img/screenshot_2017-01-21_22-22-21.png]]
 
 *** My Old Solution
 #+BEGIN_SRC python
@@ -365,7 +365,7 @@ If I had known this before, I would have used this.
 #+END_SRC
 
 *** His Solution
-[[file:img/screenshot_2017-01-21_23-09-26.png]]
+[[file:_img/screenshot_2017-01-21_23-09-26.png]]
 
 *** Feedback
 It was hard to write ~subpalindrome~ function to be read naturally.
