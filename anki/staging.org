@@ -1,0 +1,5 @@
+** TODO <2017-12-13 Wed> Anki deck options
+- https://apps.ankiweb.net/docs/manual.html#deck-options
+
+** TODO <2018-01-17 Wed> Anki hr id=answer
+[[file:_img/screenshot_2018-02-27_09-05-53.png]]

@@ -6,8 +6,6 @@
   - [[#fingerprints][Fingerprints]]
 - [[#how-to][How-to]]
   - [[#get-the-public-key-from-a-private-key][Get the public key from a private key]]
-- [[#staging][Staging]]
-  - [[#2017-07-21-fri-gpg-usage][<2017-07-21 Fri> GPG Usage]]
 
 * Topics
 ** How SSH works
@@ -48,6 +46,3 @@ If the *fingerprint changes*:
   ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 #+END_SRC
 
-* Staging
-** TODO <2017-07-21 Fri> GPG Usage
-https://futureboy.us/pgp.html

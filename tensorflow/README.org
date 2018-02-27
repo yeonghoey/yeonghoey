@@ -13,8 +13,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
-  - [[#initialize-global-variables][initialize global variables]]
 
 * Overview
 * Reference
@@ -76,10 +74,3 @@
 * Topics
 * How-to
 * Links
-* Staging
-** initialize global variables
-- https://www.tensorflow.org/programmers_guide/variables
-
-#+BEGIN_SRC python
-  session.run(tf.global_variables_initializer())
-#+END_SRC

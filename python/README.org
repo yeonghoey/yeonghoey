@@ -33,21 +33,6 @@
 - [[#how-to][How-to]]
   - [[#read-a-file-except-the-first-line][Read a file except the first line]]
 - [[#links][Links]]
-- [[#staging][Staging]]
-  - [[#2017-03-24-fri-python-defining-bound-method][<2017-03-24 Fri> Python, defining bound method]]
-  - [[#2017-02-13-mon-isinstance-vs-issubclass][<2017-02-13 Mon> isinstance vs issubclass?]]
-  - [[#2017-03-21-tue-generator-and-throw][<2017-03-21 Tue> generator and throw]]
-  - [[#2017-05-18-thu-python-int-long-int64][<2017-05-18 Thu> python int, long, int64]]
-  - [[#2017-06-09-fri-python-textwrap][<2017-06-09 Fri> python textwrap]]
-  - [[#2017-07-11-tue-python27-re-raise-nonetype][<2017-07-11 Tue> python2.7 re-raise, NoneType]]
-  - [[#2017-06-28-wed-msgpack-python][<2017-06-28 Wed> msgpack python]]
-  - [[#2017-06-28-wed-gevent---threadpool][<2017-06-28 Wed> gevent - threadpool]]
-  - [[#2017-07-03-mon-mypy-mypy_cache][<2017-07-03 Mon> mypy .mypy_cache]]
-  - [[#2017-10-22-sun-python-slice-syntax][<2017-10-22 Sun> python slice syntax]]
-  - [[#2017-09-30-sat-python3-utf8-block][<2017-09-30 Sat> python3 utf8 block]]
-  - [[#2017-12-06-wed-filternone-iterable][<2017-12-06 Wed> filter(None, iterable)]]
-  - [[#2018-01-29-mon-python-exit-vs-sysexit][<2018-01-29 Mon> python exit vs. sys.exit]]
-  - [[#2018-01-31-wed-python-패키지-배포][<2018-01-31 Wed> Python 패키지 배포]]
 
 * Reference
 ** decorator
@@ -1196,46 +1181,3 @@ This issue can be solved with locks or by using the *EAFP* approach.
 #+END_SRC
 
 * Links
-* Staging
-** TODO <2017-03-24 Fri> Python, defining bound method
-** TODO <2017-02-13 Mon> isinstance vs issubclass?
-- https://bugs.python.org/issue25537
-** TODO <2017-03-21 Tue> generator and throw
-+ http://git.k.nexon.com/k/bronto/merge_requests/222/diffs
-** TODO <2017-05-18 Thu> python int, long, int64
-** TODO <2017-06-09 Fri> python textwrap
-** TODO <2017-07-11 Tue> python2.7 re-raise, NoneType 
-- https://stackoverflow.com/questions/25189545/why-doesnt-python-2-7-let-me-implicitly-re-raise-an-exception-after-yield
-** TODO <2017-06-28 Wed> msgpack python
-- https://pypi.python.org/pypi/msgpack-python
-- ~encoding~, ~is_list~
-** TODO <2017-06-28 Wed> gevent - threadpool
-- System Call 같은건 GIL 영향 안 받으니까 스레드를 돌림
-- 요걸 처리하기 위해 gevent도 자체 threadpool을 가지고 있는 듯
-- ~_threading.py~, ~threading.py~ 차이를 잘 구분해서 볼 것.
-** TODO <2017-07-03 Mon> mypy .mypy_cache
-- https://github.com/python/mypy/issues/3336
-
-** TODO <2017-10-22 Sun> python slice syntax
-- https://stackoverflow.com/questions/509211/understanding-pythons-slice-notation
-** TODO <2017-09-30 Sat> python3 utf8 block
-- https://stackoverflow.com/questions/14083111/should-i-use-encoding-declaration-in-python3
-** TODO <2017-12-06 Wed> filter(None, iterable)
-- https://docs.python.org/3/library/functions.html#filter
-
-** TODO <2018-01-29 Mon> python exit vs. sys.exit
-- https://stackoverflow.com/questions/6501121/difference-between-exit-and-sys-exit-in-python
-
-함수를 가지고 코딩할 땐, 가비지 콜렉팅이 되어버리니 주의해야 한다.
-
-** TODO <2018-01-31 Wed> Python 패키지 배포
-twine, wheel 설치해야 함.
---universal은 setup.cfg에 적어놓기 도함
-
-python setup.py sdist  # source dist
-python setup.py bdist_wheel # binary dist
-twine upload sit/* # upload
-
-https://packaging.python.org/tutorials/distributing-packages/
-$HOME/.pipyrc 설정해야 함
-

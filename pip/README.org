@@ -7,8 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
-  - [[#2017-11-08-wed-pip-environment-variables][<2017-11-08 Wed> pip Environment variables]]
 
 * Overview
 * Reference
@@ -16,7 +14,3 @@
 * Topics
 * How-to
 * Links
-* Staging
-** TODO <2017-11-08 Wed> pip Environment variables
-- https://pip.pypa.io/en/stable/user_guide/#environment-variables
-

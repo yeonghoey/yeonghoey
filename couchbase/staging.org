@@ -1,0 +1,38 @@
+** Tunable Memory and Ejection Policy
+- https://developer.couchbase.com/documentation/server/4.6/architecture/db-engine-architecture.html#concept_b5n_bwn_vs__full-ejection
+
+** TODO <2017-07-21 Fri> couchbase-cli group-add
+./couchbase-cli group-manage -c localhost:8091 -u Administrator -p password --create --group-name=subnet-abcd1234
+./couchbase-cli group-manage -c localhost:8091 -u Administrator -p password --from-group='Group 1' --to-group=subnet-abcd1234 --move-servers="10.42.42.10:8091"
+
+** TODO <2017-07-15 Sat> couchbase-cli flush
+/opt/couchbase/bin/couchbase-cli bucket-flush -c localhost:8091 -u Administrator -p password --bucket=default --force
+curl -X POST -u Administrator:password http://10.42.42.10:8091/pools/default/buckets/default/controller/doFlush
+
+** TODO <2017-07-15 Sat> cbbackupmgr
+- cbbackupmgr config --archive /data/backup --repo cluster 
+- cbbackupmgr list --archive /data/backup
+- ./cbbackupmgr backup --archive /data/backup --repo default --host couchbase://10.42.42.10 --username Administrator --password password
+- ./cbbackupmgr restore -a /data/backup -r cluster -c 10.42.131.69 -u Administrator -p password --start 2017-07-15T09_59_58.451600859Z --end 2017-07-15T09_59_58.451600859Z
+
+** Production
+- https://developer.couchbase.com/documentation/server/4.6/install/plan-for-production.html
+
+** multi-dimensional-scalability
+- https://www.couchbase.com/multi-dimensional-scalability-overview
+- https://www.couchbase.com/binaries/content/assets/website/docs/datasheets/couchbase-multi-dimensional-scaling-isolate-and-optimize-query.pdf
+
+** sizing guidelines
+- https://developer.couchbase.com/documentation/server/current/install/sizing-general.html
+- https://www.slideshare.net/Couchbase/sizing-your-couchbase-cluster-couchbase-connect-2015
+- https://www.youtube.com/watch?v=kDZwjLW_GEo
+
+** querying data with views
+- https://developer.couchbase.com/documentation/server/4.6/architecture/querying-data-with-views.html
+
+
+** graceful failover
+- https://developer.couchbase.com/documentation/server/current/clustersetup/setup-failover-graceful.html
+
+** deployment
+- https://www.slideshare.net/Couchbase/managing-a-healthy-couchbase-server-deployment

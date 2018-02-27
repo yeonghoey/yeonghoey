@@ -23,7 +23,6 @@
   - [[#cache-vs-artifactsdependencies][cache vs artifacts,dependencies]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 #+BEGIN_SRC yaml
@@ -275,4 +274,3 @@ Note that artifacts from all previous stages are passed by default.
 
 * How-to
 * Links
-* Staging

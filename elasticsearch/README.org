@@ -26,7 +26,6 @@
   - [[#configure-settings-and-deployment][Configure Settings and Deployment]]
   - [[#manage-the-change-of-mappings][Manage the change of mappings]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Reference
 ** APIs
@@ -416,4 +415,3 @@ In this way, you can query for common fields across indexes
 even if the mapping has been changed through index wildcard queries.
 
 * Links
-* Staging

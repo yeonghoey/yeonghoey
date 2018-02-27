@@ -6,10 +6,6 @@
 - [[#setuppy][setup.py]]
   - [[#install_requires-vs-requirementstxt][install_requires vs requirements.txt]]
   - [[#scripts-vs-console_scripts][scripts vs console_scripts]]
-- [[#staging][Staging]]
-  - [[#twine][twine]]
-  - [[#2017-10-01-sun-sdist-bdist_wheel-twine][<2017-10-01 Sun> sdist, bdist_wheel, twine]]
-  - [[#including-data-files][including data files]]
 
 * Which tool should use?
 - http://stackoverflow.com/questions/6344076/differences-between-distribute-distutils-setuptools-and-distutils2
@@ -160,19 +156,3 @@ So in conclusion, out of all these options, I would recommend Setuptools, unless
       ...
   )
 #+END_SRC
-* Staging
-** TODO twine
-#+BEGIN_SRC shell
-  twine upload --repository testpypi dist/*
-#+END_SRC
-
-** TODO <2017-10-01 Sun> sdist, bdist_wheel, twine
-#+BEGIN_SRC shell
-  python setup.py sdist
-  python setup.py bdist_wheel
-  twine upload dist/*
-#+END_SRC
-
-** including data files
-- http://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files
-- MANIFEST.in + include_package_data, setuptools

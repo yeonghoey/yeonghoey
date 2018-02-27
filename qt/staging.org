@@ -1,0 +1,7 @@
+** TODO <2018-01-29 Mon> qt setLayout, vs parent
+https://stackoverflow.com/questions/35927311/qt5-what-is-the-significance-of-a-layouts-parent
+
+** TODO <2018-01-29 Mon> activatedAbi~
+키가 겹치면 발생
+j, J는 다른거고, J, Shift+J로 해야할 듯
+

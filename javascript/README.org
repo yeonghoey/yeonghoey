@@ -14,8 +14,6 @@
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
 - [[#links][Links]]
-- [[#staging][Staging]]
-  - [[#redux-and-flux][redux and flux]]
 
 * Overview
 * Reference
@@ -54,7 +52,3 @@
 * Links
 - https://javascript.info/ 
 
-* Staging
-** redux and flux
-- https://code-cartoons.com/a-cartoon-intro-to-redux-3afb775501a6
-- https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207

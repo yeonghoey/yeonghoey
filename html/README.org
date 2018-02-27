@@ -2,15 +2,6 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#template][Template]]
-- [[#staging][Staging]]
-  - [[#the-best-place-to-put-script-tags-in-html][The best place to put <script> tags in HTML]]
-  - [[#style-guides][Style Guides]]
-  - [[#2017-02-26-sun-the-definitive-guide-to-form-based-website-auth][<2017-02-26 Sun> The definitive guide to form based website auth]]
-  - [[#2017-06-02-fri-session-storage-vs-local-storage-vs-cookies][<2017-06-02 Fri> session storage vs local storage vs cookies]]
-  - [[#seo-checkup][SEO checkup]]
-  - [[#facebook-share-debugger][facebook share debugger]]
-  - [[#beautiful-open][Beautiful Open]]
-  - [[#2018-01-17-wed-html-nbsp][<2018-01-17 Wed> HTML nbsp;]]
 
 * Template
 #+BEGIN_SRC html
@@ -30,31 +21,4 @@
 
   </html>
 #+END_SRC
-
-* Staging
-** TODO The best place to put <script> tags in HTML
-- http://stackoverflow.com/questions/436411/where-is-the-best-place-to-put-script-tags-in-html-markup
-
-** TODO Style Guides
-- http://www.w3schools.com/html/html5_syntax.asp
-- https://google.github.io/styleguide/htmlcssguide.xml
-
-** TODO <2017-02-26 Sun> The definitive guide to form based website auth
-- http://stackoverflow.com/questions/549/the-definitive-guide-to-form-based-website-authentication
-
-** TODO <2017-06-02 Fri> session storage vs local storage vs cookies
-- https://stackoverflow.com/questions/19867599/what-is-the-difference-between-localstorage-sessionstorage-session-and-cookies
-- https://stackoverflow.com/questions/3220660/local-storage-vs-cookies
-- https://stormpath.com/blog/where-to-store-your-jwts-cookies-vs-html5-web-storage
-
-** SEO checkup
-- https://seositecheckup.com/
-
-** facebook share debugger
-- https://developers.facebook.com/tools/debug/sharing/
-
-** Beautiful Open
-- http://beautifulopen.com/
-** TODO <2018-01-17 Wed> HTML nbsp;
-https://www.w3schools.com/html/html_entities.asp
 

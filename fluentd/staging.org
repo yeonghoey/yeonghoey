@@ -1,0 +1,4 @@
+** forward Output Plugin
+- http://docs.fluentd.org/articles/out_forward
+** TODO <2017-11-06 Mon> fluentd, td-agent
+- https://www.fluentd.org/faqs

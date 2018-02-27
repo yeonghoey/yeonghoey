@@ -8,7 +8,6 @@
 - [[#how-to][How-to]]
   - [[#resolve-a-conflict][Resolve a conflict]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -48,4 +47,3 @@
 * Links
 - https://magit.vc/manual/magit/#Top
 
-* Staging

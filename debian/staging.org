@@ -1,0 +1,13 @@
+** dh-virtualenv
+- https://github.com/spotify/dh-virtualenv/issues/85
+- https://github.com/1and1/debianized-sentry/blob/master/debian/rules
+- https://github.com/spotify/dh-virtualenv/issues/150
+
+** TODO <2017-11-08 Wed> debian/package default, upstart service
+- https://manpages.debian.org/jessie/debhelper/dh_installinit.1.en.html
+
+** TODO <2017-11-09 Thu> dh-systemd
+- https://wiki.debian.org/Teams/pkg-systemd/Packaging
+
+[[file:_img/screenshot_2017-11-09_18-15-13.png]]
+

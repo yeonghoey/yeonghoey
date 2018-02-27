@@ -1,0 +1,2 @@
+** TODO <2017-07-05 Wed> pytest
+autofixture? session scope?

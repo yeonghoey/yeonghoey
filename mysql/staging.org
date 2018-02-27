@@ -1,0 +1,14 @@
+** CHAR vs VARCHAR
+- https://dba.stackexchange.com/questions/2640/what-is-the-performance-impact-of-using-char-vs-varchar-on-a-fixed-size-field
+
+** VARCHAR vs TEXT
+- https://stackoverflow.com/questions/2023481/mysql-large-varchar-vs-text
+
+** Importance of VARCHAR length
+- https://stackoverflow.com/questions/1962310/importance-of-varchar-length-in-mysql-table
+
+** TODO <2017-07-26 Wed> Transaction Isolation Levels
+ - https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html
+
+** TODO <2017-07-26 Wed> MySQL FOR UPDATE
+- https://dev.mysql.com/doc/refman/5.7/en/innodb-locking-reads.html

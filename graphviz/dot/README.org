@@ -9,7 +9,6 @@
   - [[#subgraphs-and-clusters][Subgraphs and Clusters]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 
@@ -117,4 +116,3 @@ is equivalent to
 - http://www.graphviz.org/doc/info/attrs.html
 - http://www.graphviz.org/doc/info/shapes.html
   
-* Staging

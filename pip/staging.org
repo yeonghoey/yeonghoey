@@ -1,0 +1,2 @@
+** TODO <2017-11-08 Wed> pip Environment variables
+- https://pip.pypa.io/en/stable/user_guide/#environment-variables

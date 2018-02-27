@@ -1,0 +1,13 @@
+** TODO <2017-02-14 Tue> git hooks
+- https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks
+- http://stackoverflow.com/questions/19041220/how-to-run-post-receive-hook-on-github
+** TODO <2017-07-25 Tue> git rebase --onto something
+** TODO How to show first commit by 'git log'?
+- https://stackoverflow.com/questions/5188914/how-to-show-first-commit-by-git-log
+
+#+BEGIN_SRC shell
+  git rev-list --max-parents=0 HEAD
+#+END_SRC
+
+ 
+** TODO <2017-10-24 Tue> git - range and revert

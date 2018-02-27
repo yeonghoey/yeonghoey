@@ -9,9 +9,6 @@
   - [[#signals-and-slots][Signals and slots]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
-  - [[#2018-01-29-mon-qt-setlayout-vs-parent][<2018-01-29 Mon> qt setLayout, vs parent]]
-  - [[#2018-01-29-mon-activatedabi][<2018-01-29 Mon> activatedAbi~]]
 
 * Overview
 [[file:_img/screenshot_2018-01-29_08-37-24.png]]
@@ -25,12 +22,4 @@
 * Links
 - https://wiki.qt.io/Qt_for_Beginners
 - http://pyqt.sourceforge.net/Docs/PyQt5/sip-classes.html
-
-* Staging
-** TODO <2018-01-29 Mon> qt setLayout, vs parent
-https://stackoverflow.com/questions/35927311/qt5-what-is-the-significance-of-a-layouts-parent
-
-** TODO <2018-01-29 Mon> activatedAbi~
-키가 겹치면 발생
-j, J는 다른거고, J, Shift+J로 해야할 듯
 

@@ -7,8 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
-  - [[#rollups-and-sampling][Rollups and Sampling]]
 
 * Overview
 * Reference
@@ -16,6 +14,3 @@
 * Topics
 * How-to
 * Links
-* Staging
-** Rollups and Sampling
-- https://docs.sentry.io/learn/rollups/

@@ -10,11 +10,6 @@
   - [[#hybrid_property][hybrid_property]]
 - [[#how-to][How-to]]
   - [[#prefix-all-tables-under-a-declarative_base][Prefix all tables under a declarative_base]]
-- [[#staging][Staging]]
-  - [[#2017-04-11-tue-sqlalchemy-stringify][<2017-04-11 Tue> SQLAlchemy Stringify]]
-  - [[#2017-06-16-fri-mysql-unicode-charset-support][<2017-06-16 Fri> MySQL Unicode, Charset support]]
-  - [[#2017-07-26-wed-sqlalchemywith_for_update][<2017-07-26 Wed> SQLAlchemy.with_for_update]]
-  - [[#2017-07-26-wed-sqlalchemy-filter-and_-][<2017-07-26 Wed> sqlalchemy filter, and_, &]]
 
 * Reference
 ** Column
@@ -224,19 +219,3 @@ Can use ~fullname~ like other columns:
       ...
 #+END_SRC
 
-* Staging
-** TODO <2017-04-11 Tue> SQLAlchemy Stringify
-http://docs.sqlalchemy.org/en/latest/faq/sqlexpressions.html#faq-sql-expression-string
-#+BEGIN_EXAMPLE
-  (Pdb++) str(query.statement.compile(compile_kwargs={"literal_binds": True}))
-  "SELECT product_attributes.product_id, product_attributes.kind, product_attributes.value \nFROM product_attributes \nWHERE product_attributes.value = 'stone'"
-#+END_EXAMPLE
-
-** TODO <2017-06-16 Fri> MySQL Unicode, Charset support
-- http://docs.sqlalchemy.org/en/latest/dialects/mysql.html#unicode
-- PyMySQL uses ~lain1~ by [[https://github.com/PyMySQL/PyMySQL/blob/master/pymysql/connections.py#L105][default]].
-** TODO <2017-07-26 Wed> SQLAlchemy.with_for_update
-- http://docs.sqlalchemy.org/en/latest/core/selectable.html#sqlalchemy.sql.expression.CompoundSelect.with_for_update
-
-** TODO <2017-07-26 Wed> sqlalchemy filter, and_, &
-- http://docs.sqlalchemy.org/en/latest/core/sqlelement.html#sqlalchemy.sql.expression.and_

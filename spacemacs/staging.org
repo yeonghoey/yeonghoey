@@ -1,0 +1,43 @@
+** TODO <2017-02-18 Sat> Spacemacs search with evil register
+- https://github.com/syl20bnr/spacemacs/issues/5101
+
+** TODO <2017-02-07 Tue> require-final-newline
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Customize-Save.html
+
+** TODO <2017-02-07 Tue> Full Path?
+http://emacsredux.com/blog/2013/04/07/display-visited-files-path-in-the-frame-title/
+
+** TODO <2017-03-01 Wed> spacemacs font options
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Fonts.html
+
+** TODO <2017-03-14 Tue> no module named jedi
+https://github.com/syl20bnr/spacemacs/issues/8412
+
+** TODO <2017-03-19 Sun> Quotation Marks
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Quotation-Marks.html#Quotation-Marks
+-
+
+** TODO <2017-04-07 Fri> My default ag ignore .gitignore
+By  default,  ag  will  ignore files matched by patterns in .gitignore,
+       .hgignore, or .agignore. These files can be anywhere in the directories
+       being  searched.  Ag  also  ignores  files  matched  by  the svn:ignore
+       property   in   subversion   repositories.   Finally,   ag   looks   in
+       $HOME/.agignore  for  ignore  patterns.  Binary  files  are  ignored by
+       default as well.
+
+~--all-text~ 를 켜고 끄는게 있으면 좋겠네
+
+** TODO <2017-04-07 Fri> plantuml-mode
+** TODO <2017-05-08 Mon> vc-find-file-hook
+- http://stackoverflow.com/questions/6724471/git-slows-down-emacs-to-death-how-to-fix-this
+
+** TODO <2017-05-08 Mon> Emacs on Windows
+- http://gregorygrubbs.com/emacs/10-tips-emacs-windows/
+
+** TODO <2017-05-04 Thu> ZERO-WIDTH CHARACTER
+- https://emacs.stackexchange.com/questions/16688/how-can-i-escape-the-in-org-mode-to-prevent-bold-fontification
+** Batch Rename Files
+- http://ergoemacs.org/emacs/rename_file_pattern.html
+** TODO <2017-10-26 Thu> Colors available to Emacs
+- http://raebear.net/comp/emacscolors.html
+

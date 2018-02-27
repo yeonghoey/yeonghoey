@@ -1,11 +1,10 @@
 #+TITLE: go
 
 * Table of Contents :TOC_1_gh:
- - [[#error][error]]
- - [[#log][log]]
- - [[#range][range]]
- - [[#documenting-packages][Documenting Packages]]
- - [[#staging][Staging]]
+- [[#error][error]]
+- [[#log][log]]
+- [[#range][range]]
+- [[#documenting-packages][Documenting Packages]]
 
 * error
 #+BEGIN_SRC go
@@ -50,47 +49,3 @@ gopl book says:
 Go doc comments are always complete sentences, and the first sentence is
 usually a summary that starts with the name being declared.
 #+END_QUOTE
-* Staging
-** TODO <2017-03-13 Mon> go build vs go install
-https://www.quora.com/What-is-the-difference-between-build-and-install-in-Go
-
-#+BEGIN_QUOTE
-Go install do a little more. It move the executable file to $GOPATH/bin and cache all non-main packages which imported to $GOPATH/pkg. the cache will be use in the next compile if it not changed yet. 
-#+END_QUOTE
-
-#+BEGIN_EXAMPLE
-  When compiling a single main package, build writes
-  the resulting executable to an output file named after
-  the first source file ('go build ed.go rx.go' writes 'ed' or 'ed.exe')
-  or the source code directory ('go build unix/sam' writes 'sam' or 'sam.exe').
-  The '.exe' suffix is added when writing a Windows executable.
-#+END_EXAMPLE
-
-** TODO <2017-03-19 Sun> gobyexample
-- https://gobyexample.com/
-
-** TODO <2017-03-19 Sun> go formatting
-- https://gobyexample.com/string-formatting
-
-** TODO <2017-03-19 Sun> go re2
-- https://github.com/google/re2/wiki/Syntax
-
-** TODO <2017-03-15 Wed> go new
-- https://golang.org/doc/effective_go.html#allocation_new
- 
-#+BEGIN_SRC go
-  p := new(SyncedBuffer)  // type *SyncedBuffer
-  var v SyncedBuffer      // type  SyncedBuffer
-#+END_SRC
-
-** TODO <2017-03-18 Sat> go project structure
-- https://github.com/tj/mmake
-
-** TODO <2017-03-13 Mon> go dependency management
-- https://github.com/golang/go/wiki/PackageManagementTools
-- vendor concept: http://engineeredweb.com/blog/2015/go-1.5-vendor-handling/
-- godep, glide: make easy to manage vendor folder
-- https://nathany.com/go-packages/
-
-** TODO <2017-03-19 Sun> Go at Google
-https://talks.golang.org/2012/splash.article

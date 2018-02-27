@@ -1,0 +1,1 @@
+- http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ec2-instances.html

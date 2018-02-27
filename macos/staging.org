@@ -1,0 +1,16 @@
+** TODO <2017-12-07 Thu> macOS, approximately sign
+M-x
+
+** TODO <2017-12-11 Mon> safari open safe download
+https://apple.stackexchange.com/questions/57039/how-make-safari-download-pdf-files-instead-of-opening-them-in-page
+
+[[file:_img/screenshot_2017-12-11_15-29-21.png]]
+
+** TODO <2018-01-17 Wed> macOS shortcuts
+Command-M :Minimize the active window to the Dock
+Command-Option-M :Minimize all windows of the active application to the Dock
+(Setup is required) :Maximize the active window
+
+http://osxdaily.com/2009/11/17/secrets-of-the-command-tab-mac-application-switcher/
+
+10 Command+Tab Application Switcher Tricks for Mac OS X

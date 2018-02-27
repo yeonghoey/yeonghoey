@@ -1,13 +1,10 @@
 #+TITLE: etcd
 
 * Table of Contents :TOC_2_gh:
- - [[#how-to][How-to]]
-   - [[#test-a-cluster-correctly-configured][Test a cluster correctly configured]]
- - [[#reference][Reference]]
- - [[#topics][Topics]]
- - [[#staging][Staging]]
-   - [[#setting-up-etcd2-static-cluster-under-docker][setting up etcd2 static cluster under docker]]
-   - [[#etcd2-curl-usage][etcd2 curl usage]]
+- [[#how-to][How-to]]
+  - [[#test-a-cluster-correctly-configured][Test a cluster correctly configured]]
+- [[#reference][Reference]]
+- [[#topics][Topics]]
 
 * How-to
 ** Test a cluster correctly configured
@@ -79,14 +76,3 @@
 
 * Reference
 * Topics
-* Staging
-** setting up etcd2 static cluster under docker
-- https://coreos.com/etcd/docs/latest/v2/docker_guide.html
-
-** etcd2 curl usage
-- https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html
-
-#+BEGIN_SRC shell
-  $ curl http://127.0.0.1:2379/v2/keys/message
-  {"action":"get","node":{"key":"/message","value":"Hello","modifiedIndex":4,"createdIndex":4}}
-#+END_SRC

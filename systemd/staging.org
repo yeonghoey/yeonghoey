@@ -1,0 +1,49 @@
+** TODO <2017-11-09 Thu> systemd User=, journalctl
+- https://superuser.com/questions/1169906/systemd-bug-stdout-not-tagged-as-belonging-to-unit-when-non-root-user-specifie
+- https://github.com/systemd/systemd/issues/1347#issuecomment-142438353 
+
+** TODO <2017-11-09 Thu> postinst
+- /var/lib/dpkg/info/foo.postinst
+
+#+BEGIN_SRC shell
+  # End automatically added section
+  # Automatically added by dh_systemd_enable
+  # This will only remove masks created by d-s-h on package removal.
+  deb-systemd-helper unmask foo.service >/dev/null || true
+
+  # was-enabled defaults to true, so new installations run enable.
+  if deb-systemd-helper --quiet was-enabled foo.service; then
+    # Enables the unit on first installation, creates new
+    # symlinks on upgrades if the unit file has changed.
+    deb-systemd-helper enable foo.service >/dev/null || true
+  else
+    # Update the statefile to add new symlinks (if any), which need to be
+    # cleaned up on purge. Also remove old symlinks.
+    deb-systemd-helper update-state foo.service >/dev/null || true
+  fi
+  # End automatically added section
+  # Automatically added by dh_installinit
+  if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ]; then
+    if [ -x "/etc/init.d/foo" ]; then
+      update-rc.d foo defaults >/dev/null
+    fi
+    if [ -x "/etc/init.d/foo" ] || [ -e "/etc/init/foo.conf" ]; then
+      invoke-rc.d foo start || exit $?
+    fi
+  fi
+  # End automatically added section
+  # Automatically added by dh_systemd_start
+  if [ -d /run/systemd/system ]; then
+    systemctl --system daemon-reload >/dev/null || true
+    deb-systemd-invoke start foo.service >/dev/null || true
+  fi
+  # End automatically added sectio
+#+END_SRC
+
+** TODO <2017-11-09 Thu> dpkg remove vs purge
+[[file:_img/screenshot_2017-11-09_21-48-41.png]]
+
+** TODO <2017-11-10 Fri> deb-systemd-invoke
+- https://dev.parrotsec.org/parrot/init-system-helpers/blob/master/script/deb-systemd-invoke#L80
+- https://major.io/2016/05/05/preventing-ubuntu-16-04-starting-daemons-package-installed/
+- policy-rc.d

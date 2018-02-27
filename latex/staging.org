@@ -1,0 +1,7 @@
+** TODO <2017-10-02 Mon> latex units
+- https://tex.stackexchange.com/questions/4239/which-measurement-units-should-one-use-in-latex
+
+** TODO <2017-10-26 Thu> LaTeX local font
+- https://texblog.org/2012/08/29/changing-the-font-size-in-latex/
+** TODO <2017-10-26 Thu> latex cookbook
+- http://www.personal.ceu.hu/tex/cookbook.html

@@ -1,0 +1,13 @@
+** Multiple Region Multi-VPC Connectivity
+- https://aws.amazon.com/ko/answers/networking/aws-multiple-region-multi-vpc-connectivity/
+
+Routing Over AWS Networks;
+#+BEGIN_QUOTE
+However, use of AWS private network infrastructure is provided on a best effort basis and network connectivity will failover to AWS ISP networks in the unlikely event that private network connectivity between AWS Regions is not available.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+This design uses Elastic IP addresses and VPC Internet gateways to facilitate communication between the software VPN appliances. 
+Although EC2 instances are configured with public IP addresses, network traffic between AWS Regions traverse the AWS global network backbone by default
+AWS Marketplace provides multiple third-party and open source options
+#+END_QUOTE

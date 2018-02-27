@@ -1,0 +1,22 @@
+** terraform aws security group
+#+BEGIN_SRC terraform
+  resource "aws_security_group" "base" {
+    name   = "base"
+    vpc_id = "${aws_vpc.main.id}"
+
+    ingress {
+      from_port       = 0
+      to_port         = 0
+      protocol        = "-1"
+      security_groups = []
+      self            = true
+    }
+
+    egress {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  }
+#+END_SRC

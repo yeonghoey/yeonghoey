@@ -1,0 +1,138 @@
+** TODO <2017-08-21 Mon> Required IAM Role for using S3 with Spark
+- https://docs.databricks.com/user-guide/cloud-configurations/aws/iam-roles.html
+  For using spark with data in s3, just s3 Programmatic Access policy required
+
+** TODO <2017-07-21 Fri> HiveQL, Window Function
+- https://cwiki.apache.org/confluence/display/Hive/LanguageManual+WindowingAndAnalytics
+
+** TODO <2017-07-21 Fri> Retention Query
+- https://blog.treasuredata.com/blog/2016/07/22/rolling-retention-done-right-in-sql/
+
+#+BEGIN_SRC sql
+  %sql
+  create or replace temporary view
+    RetentionByCount
+  as with
+
+  daily as (
+    select distinct
+      user_id,
+      to_date(from_utc_timestamp(`@time`, "JST")) as day
+    from UserLogins
+  ),
+
+  by_first_day as (
+    select
+      user_id,
+      day,
+      first_value(day) over (partition by user_id order by day) as first_day
+    from daily
+  ),
+
+  by_diff as (
+    select
+      first_day,
+      datediff(day, first_day) as diff
+    from by_first_day
+  )
+
+  select
+    first_day,
+    sum(case when diff = 0 then 1 else 0 end) as day00,
+    sum(case when diff = 1 then 1 else 0 end) as day01,
+    sum(case when diff = 2 then 1 else 0 end) as day02,
+    sum(case when diff = 3 then 1 else 0 end) as day03,
+    sum(case when diff = 4 then 1 else 0 end) as day04,
+    sum(case when diff = 5 then 1 else 0 end) as day05,
+    sum(case when diff = 6 then 1 else 0 end) as day06,
+    sum(case when diff = 7 then 1 else 0 end) as day07,
+    sum(case when diff = 8 then 1 else 0 end) as day08,
+    sum(case when diff = 9 then 1 else 0 end) as day09,
+    sum(case when diff = 10 then 1 else 0 end) as day10,
+    sum(case when diff = 11 then 1 else 0 end) as day11,
+    sum(case when diff = 12 then 1 else 0 end) as day12,
+    sum(case when diff = 13 then 1 else 0 end) as day13,
+    sum(case when diff = 14 then 1 else 0 end) as day14,
+    sum(case when diff = 15 then 1 else 0 end) as day15,
+    sum(case when diff = 16 then 1 else 0 end) as day16,
+    sum(case when diff = 17 then 1 else 0 end) as day17,
+    sum(case when diff = 18 then 1 else 0 end) as day18,
+    sum(case when diff = 19 then 1 else 0 end) as day19,
+    sum(case when diff = 20 then 1 else 0 end) as day20,
+    sum(case when diff = 21 then 1 else 0 end) as day21,
+    sum(case when diff = 22 then 1 else 0 end) as day22,
+    sum(case when diff = 23 then 1 else 0 end) as day23,
+    sum(case when diff = 24 then 1 else 0 end) as day24,
+    sum(case when diff = 25 then 1 else 0 end) as day25,
+    sum(case when diff = 26 then 1 else 0 end) as day26,
+    sum(case when diff = 27 then 1 else 0 end) as day27,
+    sum(case when diff = 28 then 1 else 0 end) as day28,
+    sum(case when diff = 29 then 1 else 0 end) as day29,
+    sum(case when diff = 30 then 1 else 0 end) as day30
+  from by_diff
+  group by 1
+  order by 1
+#+END_SRC
+
+#+BEGIN_SRC sql
+  %sql
+  create or replace temporary view 
+    RetentionByPercentage
+  as
+  select
+    first_day,
+    day00 as `new`,
+    round(day01 / day00 * 100, 2) as `d+1`,
+    round(day02 / day00 * 100, 2) as `d+2`,
+    round(day03 / day00 * 100, 2) as `d+3`,
+    round(day04 / day00 * 100, 2) as `d+4`,
+    round(day05 / day00 * 100, 2) as `d+5`,
+    round(day06 / day00 * 100, 2) as `d+6`,
+    round(day07 / day00 * 100, 2) as `d+7`,
+    round(day08 / day00 * 100, 2) as `d+8`,
+    round(day09 / day00 * 100, 2) as `d+9`,
+    round(day10 / day00 * 100, 2) as `d+10`,
+    round(day11 / day00 * 100, 2) as `d+11`,
+    round(day12 / day00 * 100, 2) as `d+12`,
+    round(day13 / day00 * 100, 2) as `d+13`,
+    round(day14 / day00 * 100, 2) as `d+14`,
+    round(day15 / day00 * 100, 2) as `d+15`,
+    round(day16 / day00 * 100, 2) as `d+16`,
+    round(day17 / day00 * 100, 2) as `d+17`,
+    round(day18 / day00 * 100, 2) as `d+18`,
+    round(day19 / day00 * 100, 2) as `d+19`,
+    round(day20 / day00 * 100, 2) as `d+20`,
+    round(day21 / day00 * 100, 2) as `d+21`,
+    round(day22 / day00 * 100, 2) as `d+22`,
+    round(day23 / day00 * 100, 2) as `d+23`,
+    round(day24 / day00 * 100, 2) as `d+24`,
+    round(day25 / day00 * 100, 2) as `d+25`,
+    round(day26 / day00 * 100, 2) as `d+26`,
+    round(day27 / day00 * 100, 2) as `d+27`,
+    round(day28 / day00 * 100, 2) as `d+28`,
+    round(day29 / day00 * 100, 2) as `d+29`,
+    round(day30 / day00 * 100, 2) as `d+30`
+  from RetentionByCount
+  order by 1
+#+END_SRC
+** TODO <2017-08-23 Wed> schema json load
+#+BEGIN_SRC scala
+  import org.apache.spark.sql.types.{DataType,StructType}
+
+  def loadSchema(schema: String): StructType = {
+    val path = s"s3://test-bucket/$schema/latest.json"
+    val Array((_, json)) = sc.wholeTextFiles(path).collect()
+    DataType.fromJson(json).asInstanceOf[StructType]
+  }
+
+  def load(schema: String): Unit = {
+    val path = s"s3://test-bucket/$schema/$range"
+    val st = loadSchema(schema)
+    val df = spark.read.schema(st).json(path)
+    df.createOrReplaceTempView(schema.toString)
+    print(s"$schema: ")
+    df.printSchema()
+    println("")
+  }
+#+END_SRC
+

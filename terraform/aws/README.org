@@ -18,8 +18,6 @@
   - [[#set-up-a-vpc][Set up a VPC]]
   - [[#create-an-instance][Create an instance]]
   - [[#create-an-instance-profile][Create an instance profile]]
-- [[#staging][Staging]]
-  - [[#terraform-aws-security-group][terraform aws security group]]
 
 * Reference
 ** Resources
@@ -531,28 +529,5 @@ Before you make any changes, be sure to read the link below.
     ]
   }
   EOF
-  }
-#+END_SRC
-* Staging
-** terraform aws security group
-#+BEGIN_SRC terraform
-  resource "aws_security_group" "base" {
-    name   = "base"
-    vpc_id = "${aws_vpc.main.id}"
-
-    ingress {
-      from_port       = 0
-      to_port         = 0
-      protocol        = "-1"
-      security_groups = []
-      self            = true
-    }
-
-    egress {
-      from_port   = 0
-      to_port     = 0
-      protocol    = "-1"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
   }
 #+END_SRC

@@ -7,7 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -15,4 +14,3 @@
 * Topics
 * How-to
 * Links
-* Staging

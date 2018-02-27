@@ -1,0 +1,15 @@
+** TODO twine
+#+BEGIN_SRC shell
+  twine upload --repository testpypi dist/*
+#+END_SRC
+
+** TODO <2017-10-01 Sun> sdist, bdist_wheel, twine
+#+BEGIN_SRC shell
+  python setup.py sdist
+  python setup.py bdist_wheel
+  twine upload dist/*
+#+END_SRC
+
+** including data files
+- http://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files
+- MANIFEST.in + include_package_data, setuptools

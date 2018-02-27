@@ -1,0 +1,6 @@
+** TODO <2017-11-01 Wed> Trailing Dots in Domain Names
+- http://www.dns-sd.org/trailingdotsindomainnames.html
+
+- www.example.com.  Absolute domain name
+- www.example.com  Relative domain name, which, after applying the "." that's always implicitly in everyone's DNS searchlist, becomes www.example.com.
+- www with "example.com" in DNS searchlist  user types "www" and gets www.example.com.

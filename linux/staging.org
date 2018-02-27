@@ -1,0 +1,29 @@
+** TODO <2017-07-16 Sun> sudo service --status-all
+- https://askubuntu.com/questions/407075/how-to-read-service-status-all-results
+
+** TODO <2017-02-01 Wed> Device Naming on Linux Instances
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html
+
+** TODO <2017-07-13 Thu> Linux kernel parameters
+- http://meetup.toast.com/posts/54
+
+** TODO <2017-07-14 Fri> linux user/group
+- https://www.linode.com/docs/tools-reference/linux-users-and-groups
+- https://stackoverflow.com/questions/14059916/is-there-a-command-to-list-all-unix-group-names
+
+** TODO <2017-03-24 Fri> resolvconf
+- http://askubuntu.com/questions/157154/how-do-i-include-lines-in-resolv-conf-that-wont-get-lost-on-reboot
+- sudo vim /etc/resolvconf/resolv.conf.d/head --> ~nameserver 10.43.0.1~
+
+** Read 'free' command
+- http://www.linuxnix.com/find-ram-size-in-linuxunix/
+
+** Where in “/” should extra disks be mounted?
+- https://unix.stackexchange.com/questions/29134/where-in-should-extra-disks-be-mounted
+
+** diskcache
+- http://www.linuxatemyram.com/play.html
+
+** TODO <2017-10-25 Wed> linux user group
+- https://www.howtogeek.com/howto/ubuntu/see-which-groups-your-linux-user-belongs-to/
+

@@ -8,7 +8,6 @@
   - [[#server-side-encryption][Server Side Encryption]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -32,6 +31,3 @@ Or worse, a disgruntled Amazon employee (do such people exist?) plugging in a US
 
 * How-to
 * Links
-* Staging
-
-

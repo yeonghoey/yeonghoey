@@ -1,0 +1,10 @@
+** setting up etcd2 static cluster under docker
+- https://coreos.com/etcd/docs/latest/v2/docker_guide.html
+
+** etcd2 curl usage
+- https://coreos.com/etcd/docs/latest/getting-started-with-etcd.html
+
+#+BEGIN_SRC shell
+  $ curl http://127.0.0.1:2379/v2/keys/message
+  {"action":"get","node":{"key":"/message","value":"Hello","modifiedIndex":4,"createdIndex":4}}
+#+END_SRC

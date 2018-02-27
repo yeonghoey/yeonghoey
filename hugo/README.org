@@ -17,7 +17,6 @@
   - [[#taxonomies][Taxonomies]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -172,4 +171,3 @@ Add taxonomies to content with front matter:
 
 * How-to
 * Links
-* Staging

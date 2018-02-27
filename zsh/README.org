@@ -7,10 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
-  - [[#zsh-completions][zsh-completions]]
-  - [[#autoload][autoload]]
-  - [[#2018-01-29-mon-zsh-auto_cd][<2018-01-29 Mon> ZSH AUTO_CD]]
 
 * Overview
 * Reference
@@ -19,13 +15,4 @@
 * How-to
 * Links
 - http://zsh.sourceforge.net/Guide/zshguide06.html
-
-* Staging
-** zsh-completions
-- https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
-
-** autoload
-- https://stackoverflow.com/questions/12570749/zsh-completion-difference
-** TODO <2018-01-29 Mon> ZSH AUTO_CD
-off
 

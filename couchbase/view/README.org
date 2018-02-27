@@ -9,7 +9,6 @@
   - [[#index-updates][Index updates]]
 - [[#terminology][Terminology]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 - https://developer.couchbase.com/documentation/server/4.6/views/views-intro.html
@@ -93,6 +92,3 @@ Couchbase makes no recommendations for tuning beyond the default settings.
 - https://developer.couchbase.com/documentation/server/4.6/architecture/incremental-map-reduce-views.html
 - https://developer.couchbase.com/documentation/server/4.6/views/views-writing-views.html
 
-* Staging
-- http://blog.leanote.com/post/mouto/couchbase
-- https://developer.couchbase.com/documentation/server/4.1/developer-guide/views-operation.html

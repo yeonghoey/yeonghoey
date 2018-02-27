@@ -1,0 +1,17 @@
+** TODO <2017-03-03 Fri> css combined
+- http://stackoverflow.com/questions/2417287/two-css-files-defining-same-class
+
+** TODO <2017-03-03 Fri> css twice
+- http://stackoverflow.com/questions/6065958/defining-css-properties-twice
+
+** TODO <2017-03-03 Fri> css property order
+- http://markdotto.com/2011/11/29/css-property-order/
+
+** TODO <2017-03-26 Sun> idiomatic-css
+https://github.com/necolas/idiomatic-css
+
+** TODO <2017-03-26 Sun> CSS import
+http://stackoverflow.com/questions/14676613/how-to-import-google-web-font-in-css-file
+https://developer.mozilla.org/en-US/docs/Web/CSS/@import
+https://google.github.io/styleguide/htmlcssguide.html#Protocol
+https://google.github.io/styleguide/htmlcssguide.html#CSS_Quotation_Marks

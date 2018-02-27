@@ -7,7 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -16,5 +15,3 @@
 * How-to
 * Links
 - https://developers.google.com/machine-learning/glossary/
-
-* Staging

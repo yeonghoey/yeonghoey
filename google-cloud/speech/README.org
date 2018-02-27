@@ -7,7 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -18,4 +17,3 @@
 - https://googlecloudplatform.github.io/google-cloud-python/latest/speech/
 - https://cloud.google.com/speech/docs/
 
-* Staging

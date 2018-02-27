@@ -9,7 +9,6 @@
 - [[#how-to][How-to]]
   - [[#restart-gitlab][Restart GitLab]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -32,4 +31,3 @@
 #+END_SRC
 
 * Links
-* Staging

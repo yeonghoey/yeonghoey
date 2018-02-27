@@ -8,7 +8,6 @@
   - [[#cardinality][Cardinality]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -32,4 +31,3 @@ This is said to be the *cardinality* of a given table in relation to another.
 
 * How-to
 * Links
-* Staging

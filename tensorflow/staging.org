@@ -1,0 +1,6 @@
+** initialize global variables
+- https://www.tensorflow.org/programmers_guide/variables
+
+#+BEGIN_SRC python
+  session.run(tf.global_variables_initializer())
+#+END_SRC

@@ -8,7 +8,6 @@
   - [[#interpreter-mode][Interpreter mode]]
 - [[#how-to][How-to]]
   - [[#install-interpreters][Install Interpreters]]
-- [[#staging][Staging]]
 
 * Reference
 ** zeppelin-env.sh
@@ -104,5 +103,3 @@
   ./bin/install-interpreter.sh --list
 #+END_SRC
 
-* Staging
-- https://github.com/hortonworks-gallery/zeppelin-notebooks

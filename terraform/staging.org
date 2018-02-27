@@ -1,0 +1,11 @@
+** TODO <2017-10-23 Mon> Using ~concat~, it's ok to use multiline in interpolation
+** TODO <2017-11-13 Mon> Multiple AWS regions
+- https://www.terraform.io/docs/configuration/providers.html#multiple-provider-instances
+
+** TODO <2017-11-13 Mon> format
+- https://golang.org/pkg/fmt/
+#+BEGIN_EXAMPLE
+  %% a literal percent sign
+#+END_EXAMPLE
+** TODO <2017-11-09 Thu> It's okay to run concurrent plan apply on a local machine if they're on different root modules
+** TODO <2017-11-13 Mon> It's okay to change module's ~source~ if its content remains same

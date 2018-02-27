@@ -9,7 +9,6 @@
   - [[#suggest-editing][Suggest editing]]
   - [[#disable-spell-check][Disable spell check]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -23,4 +22,3 @@
 [[file:_img/screenshot_2018-01-11_10-14-38.png]]
 
 * Links
-* Staging

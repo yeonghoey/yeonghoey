@@ -7,8 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
-  - [[#matchers][Matchers]]
 
 * Overview
 * Reference
@@ -16,6 +14,3 @@
 * Topics
 * How-to
 * Links
-* Staging
-** Matchers
-- https://etorreborre.github.io/specs2/guide/SPECS2-3.8.5/org.specs2.guide.Matchers.html

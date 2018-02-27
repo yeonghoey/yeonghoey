@@ -8,7 +8,6 @@
 - [[#how-to][How-to]]
   - [[#delete-all-emails-with-a-label][Delete all emails with a label]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -23,4 +22,3 @@
 3. Delete
 
 * Links
-* Staging

@@ -13,7 +13,6 @@
 - [[#how-to][How-to]]
   - [[#install-java8][Install java8]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -61,4 +60,3 @@ The ~apt~ command is meant to be pleasant for end users and does not need to be 
 #+END_SRC
 
 * Links
-* Staging

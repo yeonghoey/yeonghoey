@@ -7,7 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -18,4 +17,3 @@
 - https://github.com/koalaman/shellcheck/wiki/Ignore
 - https://github.com/koalaman/shellcheck/wiki/SC2155
 
-* Staging

@@ -1,0 +1,8 @@
+** Makefile
+- https://stackoverflow.com/questions/1341145/is-it-worth-learning-gnu-make
+- https://stackoverflow.com/questions/559216/what-is-your-experience-with-non-recursive-make
+- https://www.gnu.org/software/make/manual/make.html
+- https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Portable-Make.html#Portable-Make
+- https://www.gnu.org/prep/standards/html_node/Makefile-Conventions.html#Makefile-Conventions
+- https://www.gnu.org/prep/standards/html_node/Makefile-Basics.html#Makefile-Basics
+- https://www.gnu.org/prep/standards/html_node/Utilities-in-Makefiles.html#Utilities-in-Makefiles

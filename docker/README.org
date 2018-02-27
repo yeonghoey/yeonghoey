@@ -7,7 +7,6 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
-- [[#staging][Staging]]
 
 * Overview
 * Reference
@@ -148,5 +147,3 @@ To fix it, add following lines to ~/lib/systemd/system/docker.service~:
 
 * Links
 - [[https://github.com/wsargent/docker-cheat-sheet#table-of-contents][docker-cheat-sheet]]
-
-* Staging
