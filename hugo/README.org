@@ -1,0 +1,53 @@
+#+TITLE: Hugo
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+- [[#terminology][Terminology]]
+- [[#topics][Topics]]
+  - [[#directory-structure][Directory Structure]]
+  - [[#themes][Themes]]
+- [[#how-to][How-to]]
+- [[#links][Links]]
+- [[#staging][Staging]]
+
+* Overview
+* Reference
+* Terminology
+* Topics
+** Directory Structure
+#+BEGIN_EXAMPLE
+  .
+  ├── archetypes
+  ├── config.toml
+  ├── content
+  ├── data
+  ├── layouts
+  ├── static
+  │   ├─ css
+  │   ├─ js
+  │   └─ img
+  └── themes
+#+END_EXAMPLE
+
+- ~archetypes~  :: Templetes for new content files
+- ~config.toml~ :: [[https://gohugo.io/getting-started/configuration/#all-variables-toml][All Variables, TOML]]
+- ~content~     :: Each top-level folder in Hugo is considered a [[https://gohugo.io/content-management/sections/][content section]].
+- ~data~        :: Configuration files
+- ~layouts~     :: Templetes in the form of ~.html~
+- ~static~      :: Static content like images, CSS, Javascript, etc.
+
+** Themes
+#+BEGIN_EXAMPLE
+  /themes/<THEME>/static/js/jquery.min.js
+#+END_EXAMPLE
+
+When you want to customize the file above which is provided by the theme, you can override it with:
+
+#+BEGIN_EXAMPLE
+  /static/js/jquery.min.js
+#+END_EXAMPLE
+
+* How-to
+* Links
+* Staging
