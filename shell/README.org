@@ -15,8 +15,6 @@
     - [[#if][if]]
   - [[#commands][Commands]]
     - [[#date][date]]
-    - [[#find][find]]
-    - [[#head][head]]
     - [[#sort][sort]]
     - [[#watch][watch]]
   - [[#others][Others]]
@@ -500,27 +498,6 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 
   date --utc --iso-8601=seconds
   # 2017-08-18T08:12:49+00:00
-#+END_SRC
-
-*** find
-- https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find
-
-- ~-L~ causes ~find~ to follow symlinks for all properties *except the name* ::
-  Because the name cannot be ignored when doing directory search
-- ~-o~ , ~-a~ ::
-  Corresponds to ~-or~ and ~-and~
-
-*** head
-- https://www.computerhope.com/unix/uhead.htm
-- ~-<N>~ is an old style, concise.
-- ~-n <N>~ is a new style, explicit and more functional.
-
-#+BEGIN_SRC shell
-  head foo.txt          # first 10 lines by default
-  head -15 foo.txt      # first 15 lines
-  head -n -15 foo.txt   # all lines *except* last 15 lines
-  head foo.txt foo2.txt # firts 10 lines for both files
-  head -c 20 foo.txt    # first 20 bytes
 #+END_SRC
 
 *** sort

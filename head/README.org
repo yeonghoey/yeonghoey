@@ -1,0 +1,12 @@
+* head
+- https://www.computerhope.com/unix/uhead.htm
+- ~-<N>~ is an old style, concise.
+- ~-n <N>~ is a new style, explicit and more functional.
+
+#+BEGIN_SRC shell
+  head foo.txt          # first 10 lines by default
+  head -15 foo.txt      # first 15 lines
+  head -n -15 foo.txt   # all lines *except* last 15 lines
+  head foo.txt foo2.txt # firts 10 lines for both files
+  head -c 20 foo.txt    # first 20 bytes
+#+END_SRC

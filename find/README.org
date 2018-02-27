@@ -1,0 +1,7 @@
+* find
+- https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find
+
+- ~-L~ causes ~find~ to follow symlinks for all properties *except the name* ::
+  Because the name cannot be ignored when doing directory search
+- ~-o~ , ~-a~ ::
+  Corresponds to ~-or~ and ~-and~
