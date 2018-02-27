@@ -47,6 +47,7 @@
 - [[#how-to][How-to]]
   - [[#change-hostname][Change hostname]]
   - [[#delete-all-broken-symbolic-links][Delete all broken symbolic links]]
+  - [[#delete-empty-directories-recursively][Delete empty directories recursively]]
   - [[#empty-the-contents-of-a-file][Empty the contents of a file]]
   - [[#force-exit-code-0-in-spite-of-error][Force exit code 0 in spite of error]]
   - [[#get-the-source-directory][Get the source directory]]
@@ -1492,6 +1493,14 @@ If you want to use a file named as ~-~, you should pass the argument like ~./-~.
   #     │              + descend at most n directory levels
   #     │                in other words, just find in current directory
   #     └─ follow symlinks, the link itself if the link target doens't exist
+#+END_SRC
+
+** Delete empty directories recursively
+- https://unix.stackexchange.com/questions/46322/how-can-i-recursively-delete-empty-directories-in-my-home-directory
+
+#+BEGIN_SRC shell
+  find . -type d -empty -print
+  find . -type d -empty -delete
 #+END_SRC
 
 ** Empty the contents of a file
