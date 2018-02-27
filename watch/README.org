@@ -1,0 +1,6 @@
+* watch
+#+BEGIN_SRC shell
+  watch ls        # run 'ls' every 2 seconds (default)
+  watch -d ls     # highlight differences
+  watch -n 60 ls  # every 60 seconds
+#+END_SRC
