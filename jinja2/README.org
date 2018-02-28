@@ -13,9 +13,10 @@
   - [[#block-nesting-and-scope][Block Nesting and Scope]]
   - [[#for][For]]
   - [[#macros][Macros]]
+  - [[#filters-section][Filters (section)]]
+  - [[#assignments][Assignments]]
   - [[#include][Include]]
   - [[#import][Import]]
-  - [[#other-blocks][Other blocks]]
 - [[#topics][Topics]]
   - [[#environment][Environment]]
   - [[#sandbox][Sandbox]]
@@ -231,6 +232,33 @@
 
 - an argumented version
 
+** Filters (section)
+#+BEGIN_EXAMPLE
+  {% filter upper %}
+      This text becomes uppercase
+  {% endfilter %}
+#+END_EXAMPLE
+
+** Assignments
+#+BEGIN_EXAMPLE
+  {% set navigation = [('index.html', 'Index'), ('about.html', 'About')] %}
+  {% set key, value = call_something() %}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  {% set navigation %}
+      <li><a href="/">Index</a>
+      <li><a href="/downloads">Downloads</a>
+  {% endset %}
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  {% set reply | wordwrap %}
+      You wrote:
+      {{ message }}
+  {% endset %}
+#+END_EXAMPLE
+
 ** Include
 #+BEGIN_EXAMPLE
   {% include 'header.html' %}
@@ -285,32 +313,6 @@
 #+END_EXAMPLE
 
 - Macros and variables starting with one or more underscores are private and cannot be imported.
-
-** Other blocks
-#+BEGIN_EXAMPLE
-  {% filter upper %}
-      This text becomes uppercase
-  {% endfilter %}
-#+END_EXAMPLE
-
-#+BEGIN_EXAMPLE
-  {% set navigation = [('index.html', 'Index'), ('about.html', 'About')] %}
-  {% set key, value = call_something() %}
-#+END_EXAMPLE
-
-#+BEGIN_EXAMPLE
-  {% set navigation %}
-      <li><a href="/">Index</a>
-      <li><a href="/downloads">Downloads</a>
-  {% endset %}
-#+END_EXAMPLE
-
-#+BEGIN_EXAMPLE
-  {% set reply | wordwrap %}
-      You wrote:
-      {{ message }}
-  {% endset %}
-#+END_EXAMPLE
 
 
 * Topics
