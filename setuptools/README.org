@@ -114,6 +114,10 @@ So in conclusion, out of all these options, I would recommend Setuptools, unless
 
 ** install_requires vs requirements.txt
 - https://packaging.python.org/requirements/#requirements-files
+- https://caremad.io/posts/2013/07/setup-vs-requirement/
+
+~install_requires~ is mostly required when the project is a python library.
+For just a python application, it seems okay to just have ~requirements.txt~.
 
 [[file:_img/screenshot_2017-01-29_09-46-07.png]]
 
