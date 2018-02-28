@@ -20,6 +20,8 @@
   pipenv run python            # run a command with venv activated
 #+END_SRC
 
+- When executing ~pipenv shell or pipenv run~, ~.env~ is loaded
+
 * Pipfile
 #+BEGIN_SRC toml
   [[source]]
