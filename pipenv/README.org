@@ -10,6 +10,7 @@
   pipenv --py                  # output python path
   pipenv --rm                  # remove existing venv
   pipenv graph                 # show dependency graph
+  pipenv install -e .          # for dev
   pipenv install requests      # add dependency
   pipenv install pytest --dev  # add dev dependency
   pipenv install --dev         # install all dependencies including dev
