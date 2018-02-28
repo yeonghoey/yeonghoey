@@ -3,14 +3,16 @@
 
 #+BEGIN_SRC shell
   pipenv --python 3.6          # specify python version for venv
-  pipenv --where               # print project path
-  pipenv --venv                # print venv path
-  pipenv --py                  # print python path
+  pipenv --where               # output project path
+  pipenv --venv                # output venv path
+  pipenv --py                  # output python path
+  pipenv --rm                  # remove existing venv
   pipenv graph                 # show dependency graph
   pipenv install requests      # add dependency
   pipenv install pytest --dev  # add dev dependency
   pipenv install --dev         # install all dependencies including dev
-  pipenv sync                  # Sync venv with Pipfile.lock
+  pipenv sync                  # install dependencies specified in Pipfile.lock
+  pipenv clean                 # remove packages not specified in Pipfile.lock
   pipenv uninstall --all       # Clear
   pipenv shell                 # run a shell activated venv
   pipenv run python            # run a command with venv activated
