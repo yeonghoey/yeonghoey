@@ -1,0 +1,18 @@
+* WSGI
+- http://wsgi.readthedocs.io/en/latest/
+- https://www.python.org/dev/peps/pep-3333/
+- https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface
+
+
+- Server(gateway) executes application(framework) code.
+- Middleware exists to relay messages between the server and the application.
+
+- [[http://gunicorn.org/][Gunicorn]] is a WSGI server.
+- [[http://werkzeug.pocoo.org/][Werkzeug]] is a WSGI middleware
+- [[http://flask.pocoo.org/][Flask]] is a WSGI application,
+
+#+BEGIN_SRC python
+  def application(environ, start_response):
+      start_response('200 OK', [('Content-Type', 'text/plain')])
+      yield 'Hello, World\n'
+#+END_SRC
