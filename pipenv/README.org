@@ -1,21 +1,17 @@
 * Pipenv
-- https://github.com/pypa/pipenv/blob/master/README.rst#-usage
+- https://github.com/pypa/pipenv#-usage
 
 #+BEGIN_SRC shell
-  pipenv --python 3.6
-  pipenv --where
-  pipenv --venv
-  pipenv --py
-
-  pipenv graph
-
-  pipenv install pytest --dev
-  pipenv install --dev
-
-  pipenv sync
-  pipenv clean
-
-  pipenv uninstall --all
-  pipenv shell
-  pipenv run python
+  pipenv --python 3.6          # specify python version for venv
+  pipenv --where               # print project path
+  pipenv --venv                # print venv path
+  pipenv --py                  # print python path
+  pipenv graph                 # show dependency graph
+  pipenv install requests      # add dependency
+  pipenv install pytest --dev  # add dev dependency
+  pipenv install --dev         # install all dependencies including dev
+  pipenv sync                  # Sync venv with Pipfile.lock
+  pipenv uninstall --all       # Clear
+  pipenv shell                 # run a shell activated venv
+  pipenv run python            # run a command with venv activated
 #+END_SRC
