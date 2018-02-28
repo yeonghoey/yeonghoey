@@ -1,7 +1,17 @@
 #+TITLE: AWS
 
 * Table of Contents :TOC_1_gh:
+- [[#environment-variables][Environment Variables]]
 - [[#topic][Topic]]
+
+* Environment Variables
+- https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html
+
+#+BEGIN_SRC shell
+  export AWS_ACCESS_KEY_ID=''
+  export AWS_SECRET_ACCESS_KEY=''
+  export AWS_DEFAULT_REGION=''
+#+END_SRC
 
 * Topic
 ** Is it safe to expose ARN in a public git repo?
