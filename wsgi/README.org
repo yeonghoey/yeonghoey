@@ -9,7 +9,7 @@
 
 - [[http://gunicorn.org/][Gunicorn]] is a WSGI server.
 - [[http://werkzeug.pocoo.org/][Werkzeug]] is a WSGI middleware
-- [[http://flask.pocoo.org/][Flask]] is a WSGI application,
+- [[http://flask.pocoo.org/][Flask]] is a WSGI application (embedding [[http://werkzeug.pocoo.org/][Werkzeug]])
 
 #+BEGIN_SRC python
   def application(environ, start_response):
