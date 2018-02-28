@@ -3,12 +3,22 @@
 * Table of Contents :TOC_3_gh:
 - [[#reference][Reference]]
   - [[#settings][Settings]]
+- [[#topics][Topics]]
+  - [[#packaging-by-zappa][Packaging by Zappa]]
 - [[#how-to][How-to]]
   - [[#configure-https-using-aws-certificate-manager][Configure HTTPS using AWS Certificate Manager]]
 
 * Reference
 ** Settings
 - https://github.com/Miserlou/Zappa#advanced-settings
+
+
+* Topics
+** Packaging by Zappa
+- https://github.com/Miserlou/Zappa/blob/cf8d09f7f286048e66c1f4da505876e2ea19c903/zappa/core.py#L507
+
+It seems that Zappa packages all files in the current working directory.
+So, it doesn't need to ~pip install .~ to include the project code.
 
 * How-to
 ** Configure HTTPS using AWS Certificate Manager
