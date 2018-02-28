@@ -1,0 +1,21 @@
+* Pipenv
+- https://github.com/pypa/pipenv/blob/master/README.rst#-usage
+
+#+BEGIN_SRC shell
+  pipenv --python 3.6
+  pipenv --where
+  pipenv --venv
+  pipenv --py
+
+  pipenv graph
+
+  pipenv install pytest --dev
+  pipenv install --dev
+
+  pipenv sync
+  pipenv clean
+
+  pipenv uninstall --all
+  pipenv shell
+  pipenv run python
+#+END_SRC
