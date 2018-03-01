@@ -1,6 +1,8 @@
 #+TITLE: CSS
 
 * Table of Contents :TOC_3_gh:
+- [[#attributes][Attributes]]
+  - [[#margin][margin]]
 - [[#topics][Topics]]
   - [[#cascade-order][Cascade Order]]
   - [[#viewport][Viewport]]
@@ -12,6 +14,15 @@
     - [[#cm-mm-in-pt-pc][cm, mm, in, pt, pc]]
 - [[#layouts][Layouts]]
   - [[#flexbox][flexbox]]
+
+* Attributes
+** margin
+#+BEGIN_SRC css
+  margin: <top> <right> <bottom> <left>;
+  margin: <top,bottom> <right,left>;
+  margin: <all>;
+  margin: auto; /* set the margin to horizontally center the element */
+#+END_SRC
 
 * Topics
 ** Cascade Order
