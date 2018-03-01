@@ -1,9 +1,23 @@
 #+TITLE: flask
 
 * Table of Contents :TOC_1_gh:
- - [[#reference][Reference]]
+- [[#reference][Reference]]
+- [[#patterns][Patterns]]
 
 * Reference
+** Flask
+- http://flask.pocoo.org/docs/0.12/api/#application-object
+
+#+BEGIN_SRC python
+  app = Flask('yourapplication')
+  app = Flask(__name__.split('.')[0])
+#+END_SRC
+
+#+BEGIN_QUOTE
+If you are using a single module, ~name~ is always the correct value.
+If you however are using a package, it’s usually recommended to *hardcode the name of your package* there.
+#+END_QUOTE
+
 ** request
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request.args
@@ -30,4 +44,25 @@
   42
   >>> d.get('bar', -1, type=int)
   -1
+#+END_SRC
+
+* Patterns
+** Application Factories
+- http://flask.pocoo.org/docs/0.12/patterns/appfactories/
+- More flexible, more organized, but more complicated
+
+#+BEGIN_SRC python
+  def create_app(config_filename):
+      app = Flask(__name__)
+      app.config.from_pyfile(config_filename)
+
+      from yourapplication.model import db
+      db.init_app(app)
+
+      from yourapplication.views.admin import admin
+      from yourapplication.views.frontend import frontend
+      app.register_blueprint(admin)
+      app.register_blueprint(frontend)
+
+      return app
 #+END_SRC

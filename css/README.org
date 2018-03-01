@@ -1,18 +1,21 @@
 #+TITLE: CSS
 
 * Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
 - [[#topics][Topics]]
+  - [[#cascade][Cascade]]
   - [[#flexbox][flexbox]]
-- [[#how-to][How-to]]
 - [[#links][Links]]
 
-* Overview
-* Reference
-* Terminology
 * Topics
+** Cascade
+- https://www.w3.org/TR/CSS21/cascade.html#cascade
+- https://stackoverflow.com/questions/9459062/in-which-order-do-css-stylesheets-override
+
+- More specific rules override more general ones ::
+  Specificity is defined based on how many IDs, classes, and element names are involved,
+  as well as whether the ~!important~ declaration was used.
+- When multiple rules of the same "specificity level" exist, *whichever one appears last wins*.
+
 ** flexbox
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Relationship_of_Flexbox_to_Other_Layout_Methods
@@ -59,7 +62,6 @@
 
 [[file:_img/screenshot_2018-02-26_16-41-17.png]]
 
-* How-to
 * Links
 - http://learnlayout.com/
 
