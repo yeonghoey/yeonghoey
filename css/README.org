@@ -2,12 +2,19 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#topics][Topics]]
-  - [[#cascade][Cascade]]
+  - [[#cascade-order][Cascade Order]]
+  - [[#viewport][Viewport]]
+  - [[#units][Units]]
+    - [[#px-][px, %]]
+    - [[#em-ex-ch][em, ex, ch]]
+    - [[#rem][rem]]
+    - [[#vw-vh-vmin-vmax][vw, vh, vmin, vmax]]
+    - [[#cm-mm-in-pt-pc][cm, mm, in, pt, pc]]
+- [[#layouts][Layouts]]
   - [[#flexbox][flexbox]]
-- [[#links][Links]]
 
 * Topics
-** Cascade
+** Cascade Order
 - https://www.w3.org/TR/CSS21/cascade.html#cascade
 - https://stackoverflow.com/questions/9459062/in-which-order-do-css-stylesheets-override
 
@@ -17,6 +24,98 @@
 
 - When multiple rules of the same "specificity level" exist ::
   Whichever one appears last wins.
+
+** Viewport
+- https://www.w3schools.com/css/css_rwd_viewport.asp
+- https://developers.google.com/web/fundamentals/design-and-ux/responsive/
+
+User's visible area of a web page.
+
+#+BEGIN_QUOTE
+when we started surfing the internet using tablets and mobile phones, fixed size web pages were too large to fit the viewport.
+To fix this, browsers on those devices scaled down the entire web page to fit the screen.
+#+END_QUOTE
+
+#+BEGIN_SRC html
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+#+END_SRC
+
+- Based on the viewport, always use relative units for sizing
+
+** Units
+- https://www.w3schools.com/cssref/css_units.asp
+- https://www.w3.org/Style/Examples/007/units.en.html
+- https://webdesign.tutsplus.com/articles/7-css-units-you-might-not-know-about--cms-22573?ec_unit=translation-info-language
+
+[[file:_img/screenshot_2018-03-01_15-51-32.png]]
+
+*** px, %
+- General units
+
+*** em, ex, ch
+- em ::
+  equal to the inherited font size.
+  If the font size of a ~<div>~ is set to ~16px~, ~1em~ within that ~<div>~ is equivalent to ~16px~.
+- ex :: x-height of the current font OR one-half of one ~em~
+- ch :: the width of the zero character, 0
+- Use ~ex~ or ~ch~ if you want more granular control
+
+*** rem
+- Relative to font-size of the root element
+
+#+BEGIN_SRC css
+  body {
+    font-size: 14px;
+  }
+  div {
+    font-size: 1.2em;
+  }
+#+END_SRC
+
+#+BEGIN_SRC html
+  <body>
+      <div>
+          Test <!-- 14 * 1.2 = 16.8px -->
+          <div>
+              Test <!-- 16.8 * 1.2 = 20.16px -->
+              <div>
+                  Test <!-- 20.16 * 1.2 = 24.192px -->
+              </div>
+          </div>
+      </div>
+  </body>
+#+END_SRC
+
+#+BEGIN_SRC css
+  html {
+    font-size: 14px;
+  }
+  div {
+  
+    /* 'r' in rem stands for 'root'. 
+    now all divs are sized as 16.8px */
+    font-size: 1.2rem; 
+  }
+#+END_SRC
+
+*** vw, vh, vmin, vmax
+- vw :: Relative to 1% of the width of the viewport
+- vh :: Relative to 1% of the height of the viewport
+- vmin :: Relative to 1% of viewport's* smaller dimension
+- vmax :: Relative to 1% of viewport's* larger dimension
+
+*** cm, mm, in, pt, pc
+- in :: inches (1in = 96px = 2.54cm)
+- pt :: points (1pt = 1/72 of 1in)
+- pc :: picas (1pc = 12 pt)
+
+| em	   | Relative to the font-size of the element (2em means 2 times the size of the current font) |
+| ex	   | Relative to the x-height of the current font (rarely used)                                |
+| ch	   | Relative to width of the "0" (zero)                                                       |
+
+
+* Layouts
+- http://learnlayout.com/
 
 ** flexbox
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
@@ -63,7 +162,4 @@
 [[file:_img/screenshot_2018-02-26_16-40-30.png]]
 
 [[file:_img/screenshot_2018-02-26_16-41-17.png]]
-
-* Links
-- http://learnlayout.com/
 
