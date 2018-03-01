@@ -1,7 +1,8 @@
 #+TITLE: Javascript
 
 * Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
+- [[#syntax][Syntax]]
+  - [[#let][let]]
 - [[#reference][Reference]]
   - [[#global-functions][Global functions]]
     - [[#encodeuri][encodeURI]]
@@ -9,14 +10,18 @@
     - [[#decodeuri][decodeURI]]
     - [[#decodeuricomponent][decodeURIComponent]]
   - [[#string][String]]
-- [[#terminology][Terminology]]
+  - [[#string-literals][String Literals]]
 - [[#topics][Topics]]
+  - [[#use-strict]['use strict';]]
+  - [[#let-const-var][let, const, var]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
   - [[#put-script][Put <script>]]
 - [[#links][Links]]
 
-* Overview
+* Syntax
+** let
+
 * Reference
 ** Global functions
 *** encodeURI
@@ -31,8 +36,54 @@
 ** String
 - https://www.w3schools.com/jsref/jsref_obj_string.asp
 
-* Terminology
+** String Literals
+- https://stackoverflow.com/questions/242813/when-to-use-double-or-single-quotes-in-javascript 
+- Single and double quotes are literally same (except escaping)
+- It seems that *single quotes are preferred* in the most famous libraries.
+- Backticks are used for string interpolation.
+
+#+BEGIN_SRC javascript
+  let name = "John";
+
+  // embed a variable
+  alert( `Hello, ${name}!` ); // Hello, John!
+
+  // embed an expression
+  alert( `the result is ${1 + 2}` ); // the result is 3
+#+END_SRC
+
 * Topics
+** 'use strict';
+- https://javascript.info/strict-mode
+
+Strict mode is declared by adding ~'use strict';~ to the beginning of a script or a function.
+Always use it. It's a kind of *modern mode*
+
+** let, const, var
+- https://javascript.info/var
+
+- ~let~ and ~const~ behave exactly the same way in terms of Lexical Environments.
+
+- ~var~ has no block scope ::
+#+BEGIN_SRC javascript
+  if (true) {
+    var test = true; // use "var" instead of "let"
+  }
+
+  alert(test); // true, the variable lives after if
+#+END_SRC
+
+- ~var~ are processed at the function start ::
+#+BEGIN_SRC javascript
+  function sayHi() {
+    phrase = "Hello";
+
+    alert(phrase);
+
+    var phrase;
+  }
+#+END_SRC
+
 * How-to
 ** Parse URI
 - https://gist.github.com/jlong/2428561
@@ -51,7 +102,19 @@
 #+END_SRC
 
 ** Put <script>
+- https://javascript.info/hello-world
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
+
+
+- As a rule, only the simplest scripts are put into HTML. 
+- The benefit of a separate file is that the browser will download it and then store in its cache.
+- If ~src~ is set, the script content is ignored.
+- The ~type~ and ~language~ attributes are not required.
+
+#+BEGIN_SRC html
+  <script src="path/to/script.js"></script>
+#+END_SRC
+
 
 [[file:_img/screenshot_2018-03-02_03-27-42.png]]
 
