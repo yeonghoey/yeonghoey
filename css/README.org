@@ -16,7 +16,7 @@
   as well as whether the ~!important~ declaration was used.
 
 - When multiple rules of the same "specificity level" exist ::
-  *whichever one appears last wins*.
+  Whichever one appears last wins.
 
 ** flexbox
 - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
