@@ -13,6 +13,7 @@
 - [[#topics][Topics]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
+  - [[#put-script][Put <script>]]
 - [[#links][Links]]
 
 * Overview
@@ -48,6 +49,15 @@
   parser.hash;     // => "#hash"
   parser.host;     // => "example.com:3000"
 #+END_SRC
+
+** Put <script>
+- http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
+
+[[file:_img/screenshot_2018-03-02_03-27-42.png]]
+
+- If the script is modular and does not rely on any scripts then use ~async~.
+- If the script relies upon or is relied upon by another script then use ~defer~.
+- If the script is small and is relied upon by an ~async~ script then use an ~inline script~ with no attributes placed above the ~async~ scripts.
 
 * Links
 - https://javascript.info/ 
