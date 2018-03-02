@@ -7,13 +7,15 @@
   - [[#switch][switch]]
 - [[#types][Types]]
   - [[#object][Object]]
+  - [[#arrays][Arrays]]
+  - [[#iterator][Iterator]]
+  - [[#map][Map]]
+  - [[#string][String]]
   - [[#symbol][Symbol]]
 - [[#reference][Reference]]
   - [[#global-functions][Global functions]]
     - [[#alert-prompt-confirm][alert, prompt, confirm]]
     - [[#encodeuri-encodeuricomponent-decodeuri-decodeuricomponent][encodeURI, encodeURIComponent, decodeURI, decodeURIComponent]]
-  - [[#string][String]]
-  - [[#string-literals][String Literals]]
 - [[#topics][Topics]]
   - [[#use-strict]['use strict';]]
   - [[#let-const-var][let, const, var]]
@@ -21,6 +23,7 @@
   - [[#comparisons][Comparisons]]
   - [[#style-guides][Style Guides]]
   - [[#garbage-collection][Garbage collection]]
+  - [[#destructuring][Destructuring]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
   - [[#put-script][Put <script>]]
@@ -182,6 +185,140 @@
   let clone = Object.assign({}, user);
 #+END_SRC
 
+#+BEGIN_SRC javascript
+  let user = {
+    name: "John",
+    age: 30
+  };
+
+  // loop over values
+  for (let value of Object.values(user)) {
+    alert(value); // John, then 30
+  }
+#+END_SRC
+
+[[file:_img/screenshot_2018-03-03_08-49-20.png]]
+
+** Arrays
+- https://javascript.info/array
+- https://javascript.info/array-methods
+
+#+BEGIN_SRC javascript
+  let arr = new Array();
+  let arr = [];
+
+  let fruits = ["Apple", "Orange", "Plum"];
+
+  for (let i = 0; i < arr.length; i++) {
+    alert( arr[i] );
+  }
+
+  // iterates over array elements
+  for (let fruit of fruits) {
+    alert( fruit );
+  }
+
+  // Don't use for..in, because it iterates over all of Array's properties.
+  // 10 ~ 100 times slower
+
+  let arr = ["I", "go", "home"];
+
+  delete arr[1]; // remove "go"
+
+  alert( arr[1] ); // undefined
+
+  // now arr = ["I",  , "home"];
+  alert( arr.length ); // 3
+#+END_SRC
+
+** Iterator
+- https://javascript.info/iterable
+
+#+BEGIN_SRC javascript
+  let range = {
+    from: 1,
+    to: 5
+  };
+
+  // 1. call to for..of initially calls this
+  range[Symbol.iterator] = function() {
+
+    // 2. ...it returns the iterator:
+    return {
+      current: this.from,
+      last: this.to,
+
+      // 3. next() is called on each iteration by the for..of loop
+      next() {
+        // 4. it should return the value as an object {done:.., value :...}
+        if (this.current <= this.last) {
+          return { done: false, value: this.current++ };
+        } else {
+          return { done: true };
+        }
+      }
+    };
+  };
+
+  // now it works!
+  for (let num of range) {
+    alert(num); // 1, then 2, 3, 4, 5
+  }
+#+END_SRC
+** Map
+- https://javascript.info/map-set-weakmap-weakset
+- The main difference with ~Object~ is that *Map allows keys of any type*.
+
+#+BEGIN_SRC javascript
+  let recipeMap = new Map([
+    ['cucumber', 500],
+    ['tomatoes', 350],
+    ['onion',    50]
+  ]);
+
+  // iterate over keys (vegetables)
+  for (let vegetable of recipeMap.keys()) {
+    alert(vegetable); // cucumber, tomateos, onion
+  }
+
+  // iterate over values (amounts)
+  for (let amount of recipeMap.values()) {
+    alert(amount); // 500, 350, 50
+  }
+
+  // iterate over [key, value] entries
+  for (let entry of recipeMap) { // the same as of recipeMap.entries()
+    alert(entry); // cucumber,500 (and so on)
+  }
+#+END_SRC
+
+** String
+- https://www.w3schools.com/jsref/jsref_obj_string.asp
+- https://stackoverflow.com/questions/242813/when-to-use-double-or-single-quotes-in-javascript 
+- https://javascript.info/string
+
+
+- Single and double quotes are literally same (except escaping)
+- It seems that *single quotes are preferred* in the most famous libraries.
+- Backticks are used for string interpolation.
+
+#+BEGIN_SRC javascript
+  let name = "John";
+
+  // embed a variable
+  alert( `Hello, ${name}!` ); // Hello, John!
+
+  // embed an expression
+  alert( `the result is ${1 + 2}` ); // the result is 3
+
+  // Multiple lines
+  let guestList = `Guests:
+   ,* John
+   ,* Pete
+   ,* Mary
+  `;
+#+END_SRC
+
 ** Symbol
 - https://javascript.info/symbol
 
@@ -335,25 +472,6 @@ So, as the result, the value of this is only passed the right way if the functio
 - The difference between ~-URI~ and ~-URIComponent~ is following:
 [[file:_img/screenshot_2017-06-03_21-15-23.png]]
 
-** String
-- https://www.w3schools.com/jsref/jsref_obj_string.asp
-
-** String Literals
-- https://stackoverflow.com/questions/242813/when-to-use-double-or-single-quotes-in-javascript 
-- Single and double quotes are literally same (except escaping)
-- It seems that *single quotes are preferred* in the most famous libraries.
-- Backticks are used for string interpolation.
-
-#+BEGIN_SRC javascript
-  let name = "John";
-
-  // embed a variable
-  alert( `Hello, ${name}!` ); // Hello, John!
-
-  // embed an expression
-  alert( `the result is ${1 + 2}` ); // the result is 3
-#+END_SRC
-
 * Topics
 ** 'use strict';
 - https://javascript.info/strict-mode
@@ -440,6 +558,118 @@ Always use it. It's a kind of *modern mode*
 - Incremental collection
 - Idle-time collection
 
+** Destructuring
+- https://javascript.info/destructuring-assignment
+
+#+BEGIN_SRC javascript
+  // let [firstName, surname] = arr;
+  let firstName = arr[0];
+  let surname = arr[1];
+
+  // first and second elements are not needed
+  let [, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+  alert( title ); // Consul
+
+  let user = {};
+  [user.name, user.surname] = "Ilya Kantor".split(' ');
+
+  alert(user.name); // Ilya
+
+  let user = {
+    name: "John",
+    age: 30
+  };
+
+  // loop over keys-and-values
+  for (let [key, value] of Object.entries(user)) {
+    alert(`${key}:${value}`); // name:John, then age:30
+  }
+
+  let [name1, name2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+  alert(name1); // Julius
+  alert(name2); // Caesar
+
+  alert(rest[0]); // Consul
+  alert(rest[1]); // of the Roman Republic
+  alert(rest.length); // 2
+
+  // default values
+  let [name = "Guest", surname = "Anonymous"] = ["Julius"];
+
+  alert(name);    // Julius (from array)
+  alert(surname); // Anonymous (default used)
+
+  let options = {
+    title: "Menu",
+    width: 100,
+    height: 200
+  };
+
+  let {title, width, height} = options;
+
+  alert(title);  // Menu
+  alert(width);  // 100
+  alert(height); // 200
+
+  let options = {
+    title: "Menu",
+    width: 100,
+    height: 200
+  };
+
+  // { sourceProperty: targetVariable }
+  let {width: w, height: h, title} = options;
+
+  // width -> w
+  // height -> h
+  // title -> title
+
+  alert(title);  // Menu
+  alert(w);      // 100
+  alert(h);      // 200
+
+  let options = {
+    title: "Menu"
+  };
+
+  let {width: w = 100, height: h = 200, title} = options;
+
+  alert(title);  // Menu
+  alert(w);      // 100
+  alert(h);      // 200
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let title, width, height;
+
+  // error in this line
+  {title, width, height} = {title: "Menu", width: 200, height: 100};
+
+  // okay now
+  ({title, width, height} = {title: "Menu", width: 200, height: 100});
+
+  alert( title ); // Menu
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  // we pass object to function
+  let options = {
+    title: "My menu",
+    items: ["Item1", "Item2"]
+  };
+
+  // ...and it immediately expands it to variables
+  function showMenu({title = "Untitled", width = 200, height = 100, items = []}) {
+    // title, items – taken from options,
+    // width, height – defaults used
+    alert( `${title} ${width} ${height}` ); // My Menu 200 100
+    alert( items ); // Item1, Item2
+  }
+
+  showMenu(options);
+#+END_SRC
 
 * How-to
 ** Parse URI
