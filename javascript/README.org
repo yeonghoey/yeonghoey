@@ -230,6 +230,7 @@
 #+END_SRC
 
 #+BEGIN_SRC javascript
+  // we can omit "function" and just write sayHi().
   let user = {
     name: "John",
     age: 30,
@@ -286,6 +287,33 @@ So, as the result, the value of this is only passed the right way if the functio
   user.sayHi(); // Ilya
 #+END_SRC
 
+#+BEGIN_SRC javascript
+  function User(name) {
+    this.name = name;
+    this.isAdmin = false;
+  }
+
+  let user = new User("Jack");
+
+  alert(user.name); // Jack
+  alert(user.isAdmin); // false
+
+  // 1. A new empty object is created and assigned to this.
+  // 2. The function body executes. Usually it modifies this, adds new properties to it.
+  // 3. The value of this is returned.
+
+
+  function User(name) {
+    if (!new.target) { // if you run me without new
+      return new User(name); // ...I will add new for you
+    }
+
+    this.name = name;
+  }
+
+  let john = User("John"); // redirects call to new User
+  alert(john.name); // John
+#+END_SRC
 * Reference
 ** Global functions
 *** alert, prompt, confirm
