@@ -2,12 +2,13 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#syntax][Syntax]]
+  - [[#for][for]]
+  - [[#function][function]]
+  - [[#switch][switch]]
 - [[#reference][Reference]]
   - [[#global-functions][Global functions]]
-    - [[#encodeuri][encodeURI]]
-    - [[#encodeuricomponent][encodeURIComponent]]
-    - [[#decodeuri][decodeURI]]
-    - [[#decodeuricomponent][decodeURIComponent]]
+    - [[#alert-prompt-confirm][alert, prompt, confirm]]
+    - [[#encodeuri-encodeuricomponent-decodeuri-decodeuricomponent][encodeURI, encodeURIComponent, decodeURI, decodeURIComponent]]
   - [[#string][String]]
   - [[#string-literals][String Literals]]
 - [[#topics][Topics]]
@@ -21,12 +22,114 @@
 - [[#links][Links]]
 
 * Syntax
+- https://javascript.info/javascript-specials
+
+** for
+- https://javascript.info/while-for
+
+#+BEGIN_SRC javascript
+  outer: for (let i = 0; i < 3; i++) {
+
+    for (let j = 0; j < 3; j++) {
+
+      let input = prompt(`Value at coords (${i},${j})`, '');
+
+      // if an empty string or canceled, then break out of both loops
+      if (!input) break outer; // (*)
+
+      // do something with the value...
+    }
+  }
+  alert('Done!');
+#+END_SRC
+
+** function
+- https://javascript.info/function-expressions-arrows
+
+#+BEGIN_SRC javascript
+  function sayHi() {
+    alert( "Hello" );
+  }
+
+  let sayHi = function() {
+    alert( "Hello" );
+  };
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let age = 16; // take 16 as an example
+
+  if (age < 18) {
+    welcome();               // \   (runs)
+                             //  |
+    function welcome() {     //  |
+      alert("Hello!");       //  |  Function Declaration is available
+    }                        //  |  everywhere in the block where it's declared
+                             //  |
+    welcome();               // /   (runs)
+
+  } else {
+
+    function welcome() {     //  for age = 16, this "welcome" is never created
+      alert("Greetings!");
+    }
+  }
+
+  // Here we're out of figure brackets,
+  // so we can not see Function Declarations made inside of them.
+
+  welcome(); // Error: welcome is not defined
+#+END_SRC
+
+- By put ~let welcome;~ before the ~if~, we can access ~welcome~ at last.
+
+#+BEGIN_SRC javascript
+  let func = (arg1, arg2, ...argN) => expression
+
+  let double = n => n * 2; // paran can be omitted
+
+  let sum = (a, b) => {  // the figure bracket opens a multiline function
+    let result = a + b;
+    return result; // if we use figure brackets, use return to get results
+  };
+#+END_SRC
+
+** switch
+- https://javascript.info/switch
+
+#+BEGIN_SRC javascript
+  switch(x) {
+  case 'value1':  // if (x === 'value1')
+    ...
+      [break]
+
+  case 'value2':  // if (x === 'value2')
+    ...
+      [break]
+
+  default:
+    ...
+      [break]
+  }
+#+END_SRC
+- The value of x is checked for a *strict equality*
+
 * Reference
 ** Global functions
-*** encodeURI
-*** encodeURIComponent
-*** decodeURI
-*** decodeURIComponent
+*** alert, prompt, confirm
+- https://javascript.info/alert-prompt-confirm
+
+#+BEGIN_SRC javascript
+  alert("Hello");
+
+  let age = prompt('How old are you?', 100); // always supply a 'default'
+  alert(`You are ${age} years old!`);
+
+  let isBoss = confirm("Are you the boss?");
+  alert( isBoss ); // true if OK is pressed
+#+END_SRC
+
+*** encodeURI, encodeURIComponent, decodeURI, decodeURIComponent
 - https://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-instead-of-encodeuri-encodeuricomponent
 - ~escape~, ~unescape~ are deprecated
 - The difference between ~-URI~ and ~-URIComponent~ is following:
