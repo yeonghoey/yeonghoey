@@ -16,6 +16,7 @@
   - [[#let-const-var][let, const, var]]
   - [[#type-conversions][Type Conversions]]
   - [[#comparisons][Comparisons]]
+  - [[#style-guides][Style Guides]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
   - [[#put-script][Put <script>]]
@@ -224,6 +225,11 @@ Always use it. It's a kind of *modern mode*
 - Use ~===~ much more often than ~==~.
 - ~null~ and ~undefined~ equal ~==~ each other and do not equal any other value.
 - Don’t use comparisons ~>=~ ~>~ ~<~ ~<=~ with a variable which may be ~null~ / ~undefined~
+
+** Style Guides
+- https://javascript.info/coding-style
+- https://github.com/rwaldron/idiomatic.js
+- https://google.github.io/styleguide/javascriptguide.xml
 
 * How-to
 ** Parse URI
