@@ -5,6 +5,9 @@
   - [[#for][for]]
   - [[#function][function]]
   - [[#switch][switch]]
+- [[#types][Types]]
+  - [[#object][Object]]
+  - [[#symbol][Symbol]]
 - [[#reference][Reference]]
   - [[#global-functions][Global functions]]
     - [[#alert-prompt-confirm][alert, prompt, confirm]]
@@ -17,6 +20,7 @@
   - [[#type-conversions][Type Conversions]]
   - [[#comparisons][Comparisons]]
   - [[#style-guides][Style Guides]]
+  - [[#garbage-collection][Garbage collection]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
   - [[#put-script][Put <script>]]
@@ -114,6 +118,173 @@
   }
 #+END_SRC
 - The value of x is checked for a *strict equality*
+
+* Types
+** Object
+- https://javascript.info/object
+
+#+BEGIN_SRC javascript
+  let user = new Object(); // "object constructor" syntax
+
+  let user = {
+    name: "John",
+    age: 30,
+    "likes birds": true  // multiword property name must be quoted
+  };
+
+  alert( user.name ); // John
+  alert( user.age ); // 30
+  delete user.age;
+
+  // multiword
+  user["likes birds"] = true;
+  alert(user["likes birds"]); // true
+
+  let fruit = "apple";
+  let bag = {
+    [fruit]: 5, // the name of the property is taken from the variable fruit
+  };
+  alert(bag.apple);
+
+  function makeUser(name, age) {
+    return {
+      name, // same as name: name
+      age   // same as age: age
+      // ...
+    };
+  }
+
+  let user = { name: "John", age: 30 };
+
+  alert("age" in user);                     // true, user.age exists
+  alert("blabla" in user);                  // false, user.blabla doesn't exist
+  alert(user.noSuchProperty === undefined); // true means "no such property"
+
+  for (key in object) {
+    // executes the body for each key among object properties
+  }
+
+  let user = { name: "John" };
+
+  let permissions1 = { canView: true };
+  let permissions2 = { canEdit: true };
+
+  // copies all properties from permissions1 and permissions2 into user
+  Object.assign(user, permissions1, permissions2);
+
+  // now user = { name: "John", canView: true, canEdit: true }
+
+  let user = {
+    name: "John",
+    age: 30
+  };
+
+  let clone = Object.assign({}, user);
+#+END_SRC
+
+** Symbol
+- https://javascript.info/symbol
+
+#+BEGIN_SRC javascript
+  // “Symbol” value represents a unique identifier.
+  // The first argument is a description("id", in this case), useful for debugging
+  let id1 = Symbol("id");
+  let id2 = Symbol("id");
+
+  alert(id1 == id2); // false
+
+  let user = { name: "John" };
+  // Work as a hidden property
+  let id = Symbol("id");
+
+  user[id] = "ID Value";
+  alert( user[id] ); // we can access the data using the symbol as the key
+
+  let id = Symbol("id");
+  let user = {
+    name: "John",
+    age: 30,
+    [id]: 123
+  };
+
+  for (let key in user) alert(key); // name, age (no symbols)
+
+  // the direct access by the symbol works
+  alert( "Direct: " + user[id] );
+
+  // read from the global registry
+  let id = Symbol.for("id"); // if the symbol did not exist, it is created
+
+  // read it again
+  let idAgain = Symbol.for("id");
+
+  // the same symbol
+  alert( id === idAgain ); // true
+
+  let sym = Symbol.for("name");
+  let sym2 = Symbol.for("id");
+
+  // get name from symbol
+  alert( Symbol.keyFor(sym) ); // name
+  alert( Symbol.keyFor(sym2) ); // id
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let user = {
+    name: "John",
+    age: 30,
+
+    sayHi() {
+      alert(this.name);
+    }
+
+  };
+
+  user.sayHi(); // John
+
+  function sayHi() {
+    alert(this);
+  }
+
+  sayHi(); // undefined
+
+#+END_SRC
+
+#+BEGIN_QUOTE
+In this case this is undefined in strict mode. If we try to access this.name, there will be an error.
+In non-strict mode (if one forgets use strict) the value of this in such case will be the global object (window in a browser, we’ll get to it later). This is a historical behavior that "use strict" fixes.
+Please note that usually a call of a function that uses this without an object is not normal, but rather a programming mistake. If a function has this, then it is usually meant to be called in the context of an object
+#+END_QUOTE
+
+#+BEGIN_SRC javascript
+  let user = {
+    name: "John",
+    hi() { alert(this.name); }
+  }
+
+  // split getting and calling the method in two lines
+  let hi = user.hi;
+  hi(); // Error, because this is undefined
+#+END_SRC
+
+To make ~user.hi()~ calls work, JavaScript uses a trick – the dot '.' returns not a function, but a value of the special Reference Type.
+The value of Reference Type is a three-value combination ~(base, name, strict)~
+
+Any other operation like assignment ~hi = user.hi~ discards the reference type as a whole.
+
+So, as the result, the value of this is only passed the right way if the function is called directly using a dot ~obj.method()~ or square brackets ~obj[method]()~ syntax (they do the same here).
+
+#+BEGIN_SRC javascript
+  let user = {
+    firstName: "Ilya",
+    sayHi() {
+      let arrow = () => alert(this.firstName);
+      arrow();
+    }
+  };
+
+  user.sayHi(); // Ilya
+#+END_SRC
 
 * Reference
 ** Global functions
@@ -230,6 +401,17 @@ Always use it. It's a kind of *modern mode*
 - https://javascript.info/coding-style
 - https://github.com/rwaldron/idiomatic.js
 - https://google.github.io/styleguide/javascriptguide.xml
+
+** Garbage collection
+- https://javascript.info/garbage-collection
+- http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection
+
+
+- Mark and sweep
+- Generational collection
+- Incremental collection
+- Idle-time collection
+
 
 * How-to
 ** Parse URI
