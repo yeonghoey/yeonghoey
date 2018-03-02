@@ -2,7 +2,6 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#syntax][Syntax]]
-  - [[#let][let]]
 - [[#reference][Reference]]
   - [[#global-functions][Global functions]]
     - [[#encodeuri][encodeURI]]
@@ -14,14 +13,14 @@
 - [[#topics][Topics]]
   - [[#use-strict]['use strict';]]
   - [[#let-const-var][let, const, var]]
+  - [[#type-conversions][Type Conversions]]
+  - [[#comparisons][Comparisons]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
   - [[#put-script][Put <script>]]
 - [[#links][Links]]
 
 * Syntax
-** let
-
 * Reference
 ** Global functions
 *** encodeURI
@@ -83,6 +82,45 @@ Always use it. It's a kind of *modern mode*
     var phrase;
   }
 #+END_SRC
+
+** Type Conversions
+- https://javascript.info/type-conversions
+
+#+BEGIN_SRC javascript
+  alert( Number("   123   ") ); // 123
+  alert( Number("123z") );      // NaN (error reading a number at "z")
+  alert( Number(true) );        // 1
+  alert( Number(false) );       // 0
+  alert( Boolean(1) );          // true
+  alert( Boolean(0) );          // false
+  alert( Boolean("hello") );    // true
+  alert( Boolean("") );         // false
+  alert( 1 + '2' );             // '12' (string to the right)
+  alert( '1' + 2 );             // '12' (string to the left)
+#+END_SRC
+
+** Comparisons
+#+BEGIN_SRC javascript
+  alert( '2' > 1 );            // true, string '2' becomes a number 2
+  alert( '01' == 1 );          // true, string '01' becomes a number 1
+  alert( true == 1 );          // true
+  alert( false == 0 );         // true
+  alert( '' == false );        // true
+
+  alert( 0 == false );         // true
+  alert( 0 === false );        // false, because the types are different
+
+  alert( null > 0 );           // false
+  alert( null == 0 );          // false, null special rule applied
+  alert( null >= 0 );          // true,  null is converted to 0
+
+  alert( null == undefined );  // true
+  alert( null === undefined ); // false
+#+END_SRC
+
+- Use ~===~ much more often than ~==~.
+- ~null~ and ~undefined~ equal ~==~ each other and do not equal any other value.
+- Don’t use comparisons ~>=~ ~>~ ~<~ ~<=~ with a variable which may be ~null~ / ~undefined~
 
 * How-to
 ** Parse URI
