@@ -2,6 +2,7 @@
 * Table of Contents                                                :TOC_2_gh:
 - [[#plugins][Plugins]]
 - [[#developer-tools][Developer Tools]]
+  - [[#debugging][Debugging]]
   - [[#storages-and-cookies][Storages and Cookies]]
   - [[#view-http-headers][View HTTP headers]]
 - [[#use-cases][Use Cases]]
@@ -11,6 +12,25 @@
 
 * Plugins
 * Developer Tools
+** Debugging
+- https://javascript.info/debugging-chrome
+
+[[file:_img/screenshot_2018-03-03_06-22-25.png]]
+
+[[file:_img/screenshot_2018-03-03_06-23-18.png]]
+
+[[file:_img/screenshot_2018-03-03_06-23-38.png]]
+
+[[file:_img/screenshot_2018-03-03_06-24-15.png]]
+
+[[file:_img/screenshot_2018-03-03_06-24-34.png]]
+
+- ~F10~ :: make a step
+- ~F11~ :: make a step (into)
+- ~S-F11~ :: continue the execution till the end of the current function
+
+[[file:_img/screenshot_2018-03-03_06-27-06.png]]
+
 ** Storages and Cookies
 [[file:_img/screenshot_2017-06-03_18-01-12.png]]
 
