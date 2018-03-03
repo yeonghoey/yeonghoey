@@ -31,6 +31,8 @@
   - [[#inheritance][Inheritance]]
   - [[#mixins][Mixins]]
   - [[#error-handling][Error handling]]
+- [[#dom][DOM]]
+- [[#events][Events]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
   - [[#put-script][Put <script>]]
@@ -1197,6 +1199,52 @@ Please note that the call to the parent method super.say() from sayHiMixin looks
       this.stack = <nested calls>; // non-standard, but most environments support it
     }
   }
+#+END_SRC
+
+* DOM
+- https://javascript.info/dom-navigation
+- https://javascript.info/basic-dom-node-properties
+
+[[file:_img/screenshot_2018-03-03_10-47-56.png]]
+
+[[file:_img/screenshot_2018-03-03_10-49-05.png]]
+
+* Events
+- https://javascript.info/introduction-browser-events
+
+#+BEGIN_SRC html
+  <input value="Click me" onclick="alert('Click!')" type="button">
+
+  <!-- -->
+
+  <script>
+    function countRabbits() {
+      for(let i=1; i<=3; i++) {
+        alert("Rabbit number " + i);
+      }
+    }
+  </script>
+
+  <input type="button" onclick="countRabbits()" value="Count rabbits!">
+
+  <!-- -->
+
+  <input id="elem" type="button" value="Click me">
+  <script>
+    elem.onclick = function() {
+      alert('Thank you');
+    };
+  </script>
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  element.addEventListener(event, handler[, phase]);
+
+  elem.addEventListener('click', {
+    handleEvent(event) {
+      alert(event.type + " at " + event.currentTarget);
+    }
+  });
 #+END_SRC
 
 * How-to
