@@ -5,6 +5,7 @@
   - [[#for][for]]
   - [[#function][function]]
   - [[#switch][switch]]
+  - [[#function-1][function]]
 - [[#types][Types]]
   - [[#object][Object]]
   - [[#arrays][Arrays]]
@@ -16,6 +17,7 @@
   - [[#global-functions][Global functions]]
     - [[#alert-prompt-confirm][alert, prompt, confirm]]
     - [[#encodeuri-encodeuricomponent-decodeuri-decodeuricomponent][encodeURI, encodeURIComponent, decodeURI, decodeURIComponent]]
+    - [[#settimeout-setinterval][setTimeout, setInterval]]
 - [[#topics][Topics]]
   - [[#use-strict]['use strict';]]
   - [[#let-const-var][let, const, var]]
@@ -121,6 +123,74 @@
   }
 #+END_SRC
 - The value of x is checked for a *strict equality*
+
+** function
+- https://javascript.info/rest-parameters-spread-operator
+
+#+BEGIN_SRC javascript
+  function sumAll(...args) { // args is the name for the array
+    let sum = 0;
+
+    for (let arg of args) sum += arg;
+
+    return sum;
+  }
+
+  alert( sumAll(1) ); // 1
+  alert( sumAll(1, 2) ); // 3
+  alert( sumAll(1, 2, 3) ); // 6
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let arr = [3, 5, 1];
+
+  alert( Math.max(...arr) ); // 5 (spread turns array into a list of arguments)
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  func.call(context, arg1, arg2, ...)
+
+  function sayHi() {
+    alert(this.name);
+  }
+
+  let user = { name: "John" };
+  let admin = { name: "Admin" };
+
+  // use call to pass different objects as "this"
+  sayHi.call( user ); // this = John
+  sayHi.call( admin ); // this = Admin
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let worker = {
+    someMethod() {
+      return 1;
+    },
+
+    slow(x) {
+      alert("Called with " + x);
+      return x * this.someMethod(); // (*)
+    }
+  };
+
+  function cachingDecorator(func) {
+    let cache = new Map();
+    return function(x) {
+      if (cache.has(x)) {
+        return cache.get(x);
+      }
+      let result = func.call(this, x); // "this" is passed correctly now
+      cache.set(x, result);
+      return result;
+    };
+  }
+
+  worker.slow = cachingDecorator(worker.slow); // now make it caching
+
+  alert( worker.slow(2) ); // works
+  alert( worker.slow(2) ); // works, doesn't call the original (cached)
+#+END_SRC
 
 * Types
 ** Object
@@ -453,6 +523,21 @@ So, as the result, the value of this is only passed the right way if the functio
 #+END_SRC
 * Reference
 ** Global functions
+- https://javascript.info/global-object
+
+#+BEGIN_SRC javascript
+  alert("Hello");
+
+  // the same as
+  window.alert("Hello");
+
+  let user = "John";
+  alert(user); // John
+
+  alert(window.user); // undefined, don't have let
+  alert("user" in window); // false
+#+END_SRC
+
 *** alert, prompt, confirm
 - https://javascript.info/alert-prompt-confirm
 
@@ -471,6 +556,32 @@ So, as the result, the value of this is only passed the right way if the functio
 - ~escape~, ~unescape~ are deprecated
 - The difference between ~-URI~ and ~-URIComponent~ is following:
 [[file:_img/screenshot_2017-06-03_21-15-23.png]]
+
+*** setTimeout, setInterval
+- https://javascript.info/settimeout-setinterval
+
+#+BEGIN_SRC javascript
+  function sayHi() {
+    alert('Hello');
+  }
+
+  setTimeout(sayHi, 1000);
+  setTimeout(() => alert('Hello'), 1000);
+
+  let timerId = setTimeout(...);
+  clearTimeout(timerId);
+
+  // repeat with the interval of 2 seconds
+  let timerId = setInterval(() => alert('tick'), 2000);
+
+  // after 5 seconds stop
+  setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
+#+END_SRC
+
+Some use cases of ~setTimeout(...,0)~:
+
+- To split CPU-hungry tasks into pieces, so that the script doesn’t “hang”
+- To let the browser do something else while the process is going on (paint the progress bar).
 
 * Topics
 ** 'use strict';
@@ -669,6 +780,83 @@ Always use it. It's a kind of *modern mode*
   }
 
   showMenu(options);
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  // these two calls are almost the same:
+  func(1, 2, 3);
+  func.apply(context, [1, 2, 3])
+
+  // The only syntax difference between call and apply is that call expects a list of arguments, while apply takes an array-like object with them.
+  let args = [1, 2, 3];
+  func.call(context, ...args); // pass an array as list with spread operator
+  func.apply(context, args);   // is same as using apply
+
+  // method borrowing (Use Array method with iterable)
+  function hash() {
+    alert( [].join.call(arguments) ); // 1,2
+  }
+
+  hash(1, 2);
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  setTimeout(() => user.sayHi(), 1000); // Hello, John!, but problematic
+
+  let user = {
+    firstName: "John"
+  };
+
+  function func() {
+    alert(this.firstName);
+  }
+
+  let funcUser = func.bind(user);
+  funcUser(); // John
+
+
+  let user = {
+    firstName: "John",
+    say(phrase) {
+      alert(`${phrase}, ${this.firstName}!`);
+    }
+  };
+
+  let say = user.say.bind(user);
+
+  say("Hello"); // Hello, John ("Hello" argument is passed to say)
+  say("Bye"); // Bye, John ("Bye" is passed to say)
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  function partial(func, ...argsBound) {
+    return function(...args) { // (*)
+      return func.call(this, ...argsBound, ...args);
+    }
+  }
+
+  // Usage:
+  let user = {
+    firstName: "John",
+    say(time, phrase) {
+      alert(`[${time}] ${this.firstName}: ${phrase}!`);
+    }
+  };
+
+  // add a partial method that says something now by fixing the first argument
+  user.sayNow = partial(user.say, new Date().getHours() + ':' + new Date().getMinutes());
+
+  user.sayNow("Hello");
+  // Something like:
+  // [10:00] Hello, John!
+
+  function curry(f) {
+    return function(..args) {
+      // if args.length == f.length (as many arguments as f has),
+      //   then pass the call to f
+      // otherwise return a partial function that fixes args as first arguments
+    };
+  }
 #+END_SRC
 
 * How-to
