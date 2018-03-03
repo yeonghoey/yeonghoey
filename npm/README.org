@@ -1,0 +1,146 @@
+#+TITLE: npm
+
+* Table of Contents :TOC_3_gh:
+- [[#commands][Commands]]
+  - [[#install][install]]
+  - [[#update][update]]
+  - [[#list][list]]
+  - [[#init][init]]
+  - [[#config][config]]
+- [[#packagejson][package.json]]
+  - [[#files][files]]
+    - [[#inlcuded-by-default][Inlcuded by default]]
+    - [[#excluded-by-default][Excluded by default]]
+- [[#how-to][How-to]]
+  - [[#publish][publish]]
+
+* Commands
+** install
+- local  :: ~<cwd>/node_modules~
+- global :: ~{prefix}/lib/node_modules~
+-  :: 
+#+BEGIN_SRC shell
+  # global
+  npm install npm --global
+
+  # specify a version
+  npm install underscore@1.8.2
+#+END_SRC
+
+** update
+#+BEGIN_SRC shell
+  npm update underscore
+#+END_SRC
+
+** list
+#+BEGIN_SRC shell
+  $ npm list --global
+  $ npm list --global --depth=0
+#+END_SRC
+
+** init
+#+BEGIN_SRC shell
+  $ npm initex
+  # prompt some information
+  # then, creates 'package.json'
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+    "name": "project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+#+END_SRC
+
+** config
+#+BEGIN_SRC shell
+  $ npm config list                                                                                                                                                                                              1 ↵
+#+END_SRC
+  
+#+BEGIN_EXAMPLE
+  ; cli configs
+  metrics-registry = "https://registry.npmjs.org/"
+  scope = ""
+  user-agent = "npm/5.6.0 node/v9.4.0 darwin x64"
+
+  ; builtin config undefined
+  prefix = "/usr/local"
+
+  ; node bin location = /usr/local/Cellar/node/9.4.0/bin/node
+  ; cwd = /Users/yeonghoey
+  ; HOME = /Users/yeonghoey
+  ; "npm config ls -l" to show all defaults.
+#+END_EXAMPLE
+
+To change ~prefix~:
+#+BEGIN_SRC shell
+  $ cd ~ && mkdir .node_modules_global
+  # Creates ~/.npmrc
+  $ npm config set prefix=$HOME/.node_modules_global
+#+END_SRC
+
+* package.json
+- https://docs.npmjs.com/files/package.json
+- https://docs.npmjs.com/getting-started/using-a-package.json
+
+#+BEGIN_SRC json
+  {
+    ...
+    "dependencies": {
+      "underscore": "^1.8.3"
+    }
+  }
+#+END_SRC
+
+The caret (~^~) at the front of the version number indicates that when installing,
+npm will pull in the highest version of the package it can find *where the only the major version has to match*
+(unless a ~package-lock.json~ file is present), In this case, anything below v2.0.0.
+
+~devDependency~ by specifying a ~--save-dev~ flag.
+~devDependencies~ are packages used for development purposes, for example for running tests or transpiling code.
+
+~private: true~ to prevent accidental publication of private repositories.
+
+
+** files
+- https://docs.npmjs.com/files/package.json#files
+
+1. If the files array is omitted, everything except automatically-excluded files will be included in your publish.
+2. If you name a folder in the array, then it will also include the files inside that folder
+   (unless they would be ignored by another rule in this section.).
+
+*** Inlcuded by default
+- package.json
+- README
+- CHANGES / CHANGELOG / HISTORY
+- LICENSE / LICENCE
+- NOTICE
+
+*** Excluded by default
+- .git
+- CVS
+- .svn
+- .hg
+- .lock-wscript
+- .wafpickle-N
+- .*.swp
+- .DS_Store
+- ._*
+- npm-debug.log
+- .npmrc
+- node_modules
+- config.gypi
+- *.orig
+- package-lock.json (use shrinkwrap instead)
+
+* How-to
+** publish
+- https://docs.npmjs.com/getting-started/publishing-npm-packages
+
