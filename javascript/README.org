@@ -32,6 +32,8 @@
   - [[#mixins][Mixins]]
   - [[#error-handling][Error handling]]
 - [[#dom][DOM]]
+- [[#page-lifecycle][Page lifecycle]]
+- [[#promise][Promise]]
 - [[#events][Events]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
@@ -1209,6 +1211,76 @@ Please note that the call to the parent method super.say() from sayHiMixin looks
 
 [[file:_img/screenshot_2018-03-03_10-49-05.png]]
 
+* Page lifecycle
+- https://javascript.info/onload-ondomcontentloaded
+
+
+- ~DOMContentLoaded~ event triggers on document when DOM is ready. We can apply JavaScript to elements at this stage.
+  - All scripts are executed except those that are external with ~async~ or ~defer~
+  - Images and other resources may still continue loading.
+- ~load~ event on ~window~ triggers when the page and all resources are loaded.
+    We rarely use it, because there’s usually no need to wait for so long.
+- ~beforeunload~ event on ~window~ triggers when the user wants to leave the page.
+  - If it returns a string, the browser shows a question whether the user really wants to leave or not.
+- ~unload~ event on window triggers when the user is finally leaving, in the handler we can only do simple things that do not involve delays or asking a user. Because of that limitation, it’s rarely used.
+- ~document.readyState~ is the current state of the document, changes can be tracked in the ~readystatechange~ event:
+  - ~loading~ – the document is loading.
+  - ~interactive~ – the document is parsed, happens at about the same time as ~DOMContentLoaded~, but before it.
+  - ~complete~ – the document and resources are loaded, happens at about the same time as ~window.onload~, but before it.
+
+* Promise
+- https://javascript.info/promise-basics
+
+#+BEGIN_SRC javascript
+  let promise = new Promise(function(resolve, reject) {
+    // executor (the producing code, "singer")
+  });
+
+  promise.then(
+    function(result) { /* handle a successful result */ },
+    function(error) { /* handle an error */ }
+  );
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => reject(new Error("Whoops!")), 1000);
+  });
+
+  // .catch(f) is the same as promise.then(null, f)
+  promise.catch(alert); // shows "Error: Whoops!" after 1 second
+
+  new Promise(function(resolve, reject) {
+
+    setTimeout(() => resolve(1), 1000); // (*)
+
+  }).then(function(result) { // (**)
+
+    alert(result); // 1
+    return result * 2;
+
+  }).then(function(result) { // (***)
+
+    alert(result); // 2
+    return result * 2;
+
+  }).then(function(result) {
+
+    alert(result); // 4
+    return result * 2;
+
+  });
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  async function f() {
+    return 1;
+  }
+
+  f().then(alert); // 1
+
+  // works only inside async functions
+  let value = await promise;
+#+END_SRC
+
 * Events
 - https://javascript.info/introduction-browser-events
 
@@ -1246,6 +1318,12 @@ Please note that the call to the parent method super.say() from sayHiMixin looks
     }
   });
 #+END_SRC
+
+1. Capturing phase :: the event goes down to the element.
+2. Target phase :: the event reached the target element.
+3. Bubbling phase :: the event bubbles up from the element.
+
+[[file:_img/screenshot_2018-03-03_13-20-38.png]]
 
 * How-to
 ** Parse URI
