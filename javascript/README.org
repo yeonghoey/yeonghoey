@@ -6,6 +6,7 @@
   - [[#function][function]]
   - [[#switch][switch]]
   - [[#function-1][function]]
+  - [[#class][class]]
 - [[#types][Types]]
   - [[#object][Object]]
   - [[#arrays][Arrays]]
@@ -26,6 +27,10 @@
   - [[#style-guides][Style Guides]]
   - [[#garbage-collection][Garbage collection]]
   - [[#destructuring][Destructuring]]
+  - [[#prototypes][Prototypes]]
+  - [[#inheritance][Inheritance]]
+  - [[#mixins][Mixins]]
+  - [[#error-handling][Error handling]]
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
   - [[#put-script][Put <script>]]
@@ -192,7 +197,111 @@
   alert( worker.slow(2) ); // works, doesn't call the original (cached)
 #+END_SRC
 
+** class
+- https://javascript.info/class
+
+#+BEGIN_SRC javascript
+  class MyClass {
+    constructor(...) {
+      // ...
+    }
+    method1(...) {}
+    method2(...) {}
+    get something(...) {}
+    set something(...) {}
+    static staticMethod(..) {}
+    // ...
+  }
+#+END_SRC
+Classes provide "super" keyword for that.
+
+- ~super.method(...)~ to call a parent method.
+- ~super(...)~ to call a parent constructor (inside our constructor only).
+- constructors in inheriting classes must call ~super(...)~, and (!) do it before using this.
+  - When a normal constructor runs, it creates an empty object as this and continues with it.
+  - But when a derived constructor runs, it doesn’t do it. It expects the parent constructor to do this job.
+
+
+#+BEGIN_SRC javascript
+  function User(name) {
+    this.name = name;
+  }
+
+  User.prototype.sayHi = function() {
+    alert(this.name);
+  }
+
+  let user = new User("John");
+  user.sayHi();
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  class User {
+
+    constructor(name) {
+      this.name = name;
+    }
+
+    sayHi() {
+      alert(this.name);
+    }
+
+  }
+
+  let user = new User("John");
+  user.sayHi();
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  function makeClass(phrase) {
+    // declare a class and return it
+    return class {
+      sayHi() {
+        alert(phrase);
+      };
+    };
+  }
+
+  let User = makeClass("Hello");
+
+  new User().sayHi(); // Hello
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  class PowerArray extends Array {
+    isEmpty() {
+      return this.length === 0;
+    }
+
+    // built-in methods will use this as the constructor
+    static get [Symbol.species]() {
+      return Array;
+    }
+  }
+
+  let arr = new PowerArray(1, 2, 5, 10, 50);
+  alert(arr.isEmpty()); // false
+
+  // filter creates new array using arr.constructor[Symbol.species] as constructor
+  let filteredArr = arr.filter(item => item >= 10);
+
+  // filteredArr is not PowerArray, but Array
+  alert(filteredArr.isEmpty()); // Error: filteredArr.isEmpty is not a function
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  class Rabbit {}
+  let rabbit = new Rabbit();
+
+  // is it an object of Rabbit class?
+  alert( rabbit instanceof Rabbit ); // true
+#+END_SRC
+
 * Types
+- https://javascript.info/instanceof
+
+[[file:_img/screenshot_2018-03-03_10-35-34.png]]
+
 ** Object
 - https://javascript.info/object
 
@@ -798,6 +907,10 @@ Always use it. It's a kind of *modern mode*
   }
 
   hash(1, 2);
+
+  function showArgs() {
+    alert( Array.prototype.join.call(arguments, " - ") );
+  }
 #+END_SRC
 
 #+BEGIN_SRC javascript
@@ -856,6 +969,233 @@ Always use it. It's a kind of *modern mode*
       //   then pass the call to f
       // otherwise return a partial function that fixes args as first arguments
     };
+  }
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let user = {};
+
+  Object.defineProperty(user, "name", {
+    value: "John"
+  });
+
+  let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+  alert( JSON.stringify(descriptor, null, 2 ) );
+  /*
+    {
+    "value": "John",
+    "writable": false,
+    "enumerable": false,
+    "configurable": false
+    }
+  ,*/
+#+END_SRC
+
+- writable :: if true, can be changed, otherwise it’s read-only.
+- enumerable :: if true, then listed in loops, otherwise not listed.
+- configurable :: if true, the property can be deleted and these attributes can be modified, otherwise not.
+
+#+BEGIN_SRC javascript
+  let user = {
+    name: "John",
+    surname: "Smith",
+
+    get fullName() {
+      return `${this.name} ${this.surname}`;
+    }
+  };
+
+  alert(user.fullName); // John Smith
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let animal = {
+    eats: true
+  };
+  let rabbit = {
+    jumps: true
+  };
+
+  rabbit.__proto__ = animal;
+
+
+  // animal has methods
+  let animal = {
+    walk() {
+      if (!this.isSleeping) {
+        alert(`I walk`);
+      }
+    },
+    sleep() {
+      this.isSleeping = true;
+    }
+  };
+
+  let rabbit = {
+    name: "White Rabbit",
+    __proto__: animal
+  };
+
+  // modifies rabbit.isSleeping
+  rabbit.sleep();
+
+  alert(rabbit.isSleeping); // true
+  alert(animal.isSleeping); // undefined (no such property in the prototype)
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let animal = {
+    eats: true
+  };
+
+  function Rabbit(name) {
+    this.name = name;
+  }
+
+  Rabbit.prototype = animal;
+
+  let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+
+  alert( rabbit.eats ); // true
+#+END_SRC
+
+[[file:_img/screenshot_2018-03-03_10-05-01.png]]
+
+#+BEGIN_SRC javascript
+  function Rabbit() {}
+  // by default:
+  // Rabbit.prototype = { constructor: Rabbit }
+
+  let rabbit = new Rabbit(); // inherits from {constructor: Rabbit}
+
+  alert(rabbit.constructor == Rabbit); // true (from prototype)
+#+END_SRC
+
+[[file:_img/screenshot_2018-03-03_10-06-16.png]]
+
+#+BEGIN_SRC javascript
+  function Rabbit() {}
+  Rabbit.prototype = {
+    jumps: true
+  };
+
+  let rabbit = new Rabbit();
+  alert(rabbit.constructor === Rabbit); // false
+#+END_SRC
+
+** Prototypes
+- https://javascript.info/native-prototypes
+
+[[file:_img/screenshot_2018-03-03_10-08-16.png]]
+
+~x.__proto__~ has a property setter, which takes the value as a prototype(~null~, or ~object~), not the value itself.
+So, it's impossible to set the actual value to the property named ~__proto__~.
+To do that, we should create a plain object(without default ~Object.prototype~) as follows:
+
+#+BEGIN_SRC javascript
+  let obj = Object.create(null);
+
+  let key = prompt("What's the key?", "__proto__");
+  obj[key] = "some value";
+
+  alert(obj[key]); // "some value"
+#+END_SRC
+
+** Inheritance
+- https://javascript.info/class-patterns
+
+#+BEGIN_SRC javascript
+  // Same Animal as before
+  function Animal(name) {
+    this.name = name;
+  }
+
+  // All animals can eat, right?
+  Animal.prototype.eat = function() {
+    alert(`${this.name} eats.`);
+  };
+
+  // Same Rabbit as before
+  function Rabbit(name) {
+    this.name = name;
+  }
+
+  Rabbit.prototype.jump = function() {
+    alert(`${this.name} jumps!`);
+  };
+
+  // setup the inheritance chain
+  Rabbit.prototype.__proto__ = Animal.prototype; // (*)
+
+  let rabbit = new Rabbit("White Rabbit");
+  rabbit.eat(); // rabbits can eat too
+  rabbit.jump();
+#+END_SRC
+
+[[file:_img/screenshot_2018-03-03_10-22-32.png]]
+
+** Mixins
+- https://javascript.info/mixins
+
+#+BEGIN_SRC javascript
+  // mixin
+  let sayHiMixin = {
+    sayHi() {
+      alert(`Hello ${this.name}`);
+    },
+    sayBye() {
+      alert(`Bye ${this.name}`);
+    }
+  };
+
+  // usage:
+  class User {
+    constructor(name) {
+      this.name = name;
+    }
+  }
+
+  // copy the methods
+  Object.assign(User.prototype, sayHiMixin);
+
+  // now User can say hi
+  new User("Dude").sayHi(); // Hello Dude!
+#+END_SRC
+
+#+BEGIN_QUOTE
+Please note that the call to the parent method super.say() from sayHiMixin looks for the method in the prototype of that mixin, not the class.
+#+END_QUOTE
+
+** Error handling
+- https://javascript.info/try-catch
+
+#+BEGIN_SRC javascript
+  try {
+    // code...
+  } catch (err) {
+    // error handling
+  } finally {
+    ... execute always ...
+  }
+
+  throw <error object>
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  window.onerror = function(message, url, line, col, error) {
+    // ...
+  };
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  // The "pseudocode" for the built-in Error class defined by JavaScript itself
+  class Error {
+    constructor(message) {
+      this.message = message;
+      this.name = "Error"; // (different names for different built-in error classes)
+      this.stack = <nested calls>; // non-standard, but most environments support it
+    }
   }
 #+END_SRC
 
