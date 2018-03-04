@@ -175,3 +175,4 @@ Executables installed (in ~node_modules/.bin~) will be added to the PATH for exe
   - For some sub packages like plugins of something(e.g ~webpack~ and ~babel-loader~)
   - They correctly work with proper versions of the host(peer) dependency(~webpack v1.0.0~)
   - Causes error if a different verion of peer dependency installed
+  - Not automatically installed
