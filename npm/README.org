@@ -11,6 +11,7 @@
   - [[#files][files]]
     - [[#inlcuded-by-default][Inlcuded by default]]
     - [[#excluded-by-default][Excluded by default]]
+  - [[#scripts][scripts]]
 - [[#how-to][How-to]]
   - [[#publish][publish]]
 
@@ -139,6 +140,18 @@ npm will pull in the highest version of the package it can find *where the only 
 - config.gypi
 - *.orig
 - package-lock.json (use shrinkwrap instead)
+
+** scripts
+- https://docs.npmjs.com/misc/scripts
+
+#+BEGIN_QUOTE
+Additionally, arbitrary scripts can be executed by running ~npm run-script <stage>~.
+Pre and post commands with matching names will be run for those as well (e.g. ~premyscript~, ~myscript~, ~postmyscript~)
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Executables installed (in ~node_modules/.bin~) will be added to the PATH for executing the scripts. 
+#+END_QUOTE
 
 * How-to
 ** publish

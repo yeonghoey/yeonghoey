@@ -742,7 +742,7 @@ Some use cases of ~setTimeout(...,0)~:
 ** 'use strict';
 - https://javascript.info/strict-mode
 
-Strict mode is declared by adding ~'use strict';~ to the beginning of a script or a function.
+Strict mode is declared by adding ~​'use strict';​~ to the beginning of a script or a function.
 Always use it. It's a kind of *modern mode*
 
 ** let, const, var

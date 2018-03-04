@@ -4,6 +4,8 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#__dirname][__dirname]]
+  - [[#path][path]]
+    - [[#resolve][resolve]]
 - [[#topics][Topics]]
   - [[#exports-vs-moduleexports][exports vs. module.exports]]
 - [[#how-to][How-to]]
@@ -20,6 +22,29 @@
 
   console.log(path.dirname(__filename));
   // Prints: /Users/mjr
+#+END_SRC
+
+** path
+- https://nodejs.org/api/path.html
+
+#+BEGIN_SRC javascript
+  const path = require('path');
+#+END_SRC
+
+*** resolve
+- https://nodejs.org/api/path.html#path_path_resolve_paths
+
+The given sequence of paths is processed from *right to left*, with each subsequent path prepended *until an absolute path is constructed.*
+#+BEGIN_SRC javascript
+  path.resolve('/foo/bar', './baz');
+  // Returns: '/foo/bar/baz'
+
+  path.resolve('/foo/bar', '/tmp/file/');
+  // Returns: '/tmp/file'
+
+  path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif');
+  // if the current working directory is /home/myself/node,
+  // this returns '/home/myself/node/wwwroot/static_files/gif/image.gif'
 #+END_SRC
 
 * Topics
