@@ -14,6 +14,8 @@
   - [[#scripts][scripts]]
 - [[#how-to][How-to]]
   - [[#publish][publish]]
+- [[#topics][Topics]]
+  - [[#dependencies-vs-devdependencies][dependencies vs. devDependencies]]
 
 * Commands
 ** install
@@ -157,3 +159,14 @@ Executables installed (in ~node_modules/.bin~) will be added to the PATH for exe
 ** publish
 - https://docs.npmjs.com/getting-started/publishing-npm-packages
 
+* Topics
+** dependencies vs. devDependencies
+- https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies
+
+- ~dependencies~ are installed on both:
+  - ~npm install~ from a directory that contains ~package.json~
+  - ~npm install $package~ on any other directory
+- ~devDependencies~ are:
+  - also installed on ~npm install~ on a directory that contains ~package.json~, unless you pass the ~--production~ flag
+  - not installed on ~npm install "$package"~ on any other directory, unless you give it the ~--dev~ option.
+  - are not installed transitively. (E.g. we don't need to test B to test A, so B's testing(dev) dependencies can be left out.)
