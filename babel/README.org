@@ -1,0 +1,39 @@
+#+TITLE: babel
+
+* Table of Contents :TOC_3_gh:
+- [[#cli][CLI]]
+  - [[#integration-with-webpack][Integration with webpack]]
+- [[#presets][Presets]]
+  - [[#env][env]]
+
+* CLI
+#+BEGIN_SRC shell
+  npm install --save-dev babel-cli
+#+END_SRC
+
+
+** Integration with webpack
+- https://babeljs.io/docs/setup/#installation
+
+#+BEGIN_SRC shell
+  npm install --save-dev babel-loader babel-core
+#+END_SRC
+
+- ~babel-loader~ is a ~webpack~ plugin.
+
+#+BEGIN_SRC javascript
+  module: {
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+    ]
+  }
+#+END_SRC
+
+* Presets
+- https://babeljs.io/docs/plugins/#presets
+
+** env
+- https://babeljs.io/docs/plugins/preset-env/
+- https://kangax.github.io/compat-table/es6/
+
+Babel preset that automatically determines the Babel plugins you need based on your supported environments.
