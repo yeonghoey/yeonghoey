@@ -8,10 +8,12 @@
   - [[#init][init]]
   - [[#config][config]]
 - [[#packagejson][package.json]]
+  - [[#package-lockjson][package-lock.json]]
   - [[#files][files]]
     - [[#inlcuded-by-default][Inlcuded by default]]
     - [[#excluded-by-default][Excluded by default]]
   - [[#scripts][scripts]]
+  - [[#semver][semver]]
 - [[#how-to][How-to]]
   - [[#publish][publish]]
 - [[#topics][Topics]]
@@ -112,6 +114,12 @@ npm will pull in the highest version of the package it can find *where the only 
 
 ~private: true~ to prevent accidental publication of private repositories.
 
+** package-lock.json
+- https://medium.com/@Quigley_Ja/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8
+
+~package.json~ can trump ~package-lock.json~ whenever a newer version is found for a dependency in ~package.json~.
+If you want to pin your dependencies effectively, you now must specify the versions without prefix,
+that means you need to write them as ~1.2.0~ instead of ~~1.2.0~ or ~^1.2.0~.
 
 ** files
 - https://docs.npmjs.com/files/package.json#files
@@ -162,6 +170,17 @@ It seems that people often use ~<verb>:<sub>~ for custom scripts like:
     "start:dev": "webpack-dev-server"
   }
 #+END_SRC
+
+** semver
+- https://docs.npmjs.com/misc/semver
+
+#+BEGIN_EXAMPLE
+  # Tilde Ranges: Allows patch level changes
+  ~1.2.3 := >=1.2.3 <1.3.0
+
+  # Caret Ranges: Allows patch and minor level changes
+  ^1.2.3 := >=1.2.3 <2.0.0
+#+END_EXAMPLE
 
 * How-to
 ** publish
