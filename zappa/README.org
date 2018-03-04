@@ -1,17 +1,34 @@
 #+TITLE: Zappa
 
 * Table of Contents :TOC_3_gh:
-- [[#reference][Reference]]
-  - [[#settings][Settings]]
+- [[#settings][Settings]]
+  - [[#exclude][exclude]]
 - [[#topics][Topics]]
   - [[#packaging-by-zappa][Packaging by Zappa]]
+  - [[#slim_handler][slim_handler]]
 - [[#how-to][How-to]]
   - [[#configure-https-using-aws-certificate-manager][Configure HTTPS using AWS Certificate Manager]]
 
-* Reference
-** Settings
+* Settings
 - https://github.com/Miserlou/Zappa#advanced-settings
 
+** exclude
+- https://github.com/Miserlou/Zappa/blob/cf8d09f7f286048e66c1f4da505876e2ea19c903/zappa/core.py#L197
+
+Default excludes:
+#+BEGIN_SRC python
+  ZIP_EXCLUDES = [
+      '*.exe', '*.DS_Store', '*.Python', '*.git', '.git/*', '*.zip', '*.tar.gz',
+      '*.hg', '*.egg-info', 'pip', 'docutils*', 'setuputils*', '__pycache__/*'
+  ]
+#+END_SRC
+
+This feature is implemented with [[https://docs.python.org/2/library/shutil.html#shutil.ignore_patterns][shutil.ignore_patterns]].
+This only checks the name, not the fullpath.
+So if you want to exclude ~__pycache__/*~, you have to specify it like ~__pycache__~.
+There is no way to exclude relative paths to the project currently.
+
+Actually, even ~ZIP_EXCLUDES~ has improper patterns!
 
 * Topics
 ** Packaging by Zappa
@@ -20,6 +37,15 @@
 It seems that Zappa packages all files in the current working directory.
 So, it doesn't need to ~pip install .~ to include the project code.
 
+** slim_handler
+- https://github.com/Miserlou/zappa-blog/blob/master/posts/slim-handler.md
+
+#+BEGIN_QUOTE
+When the slim handler is called on a cold start,
+it downloads the large project zip from S3 and unzips it in Lambda’s shared ~/tmp~ space.
+All subsequent calls to that warm Lambda share the ~/tmp~ space and have access to the project files;
+so it is possible for the file to only download once if the Lambda stays warm.
+#+END_QUOTE
 * How-to
 ** Configure HTTPS using AWS Certificate Manager
 - https://github.com/Miserlou/Zappa#ssl-certification
