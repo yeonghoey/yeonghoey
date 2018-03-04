@@ -7,6 +7,7 @@
   - [[#switch][switch]]
   - [[#function-1][function]]
   - [[#class][class]]
+  - [[#imports-exports][imports, exports]]
 - [[#types][Types]]
   - [[#object][Object]]
   - [[#arrays][Arrays]]
@@ -299,6 +300,42 @@ Classes provide "super" keyword for that.
 
   // is it an object of Rabbit class?
   alert( rabbit instanceof Rabbit ); // true
+#+END_SRC
+
+** imports, exports
+- https://github.com/mbeaudru/modern-js-cheatsheet#imports--exports
+
+#+BEGIN_SRC javascript
+  // mathConstants.js
+  export const pi = 3.14;
+  export const exp = 2.7;
+  export const alpha = 0.35;
+
+  // -------------
+
+  // myFile.js
+  import { pi, exp } from './mathConstants.js'; // Named import -- destructuring-like syntax
+  console.log(pi) // 3.14
+  console.log(exp) // 2.7
+
+  // -------------
+
+  // mySecondFile.js
+  import * as constants from './mathConstants.js'; // Inject all exported values into constants variable
+  console.log(constants.pi) // 3.14
+  console.log(constants.exp) // 2.7
+
+
+  // coolNumber.js
+  const ultimateNumber = 42;
+  export default ultimateNumber;
+
+  // ------------
+
+  // myFile.js
+  import number from './coolNumber.js';
+  // Default export, independently from its name, is automatically injected into number variable;
+  console.log(number) // 42
 #+END_SRC
 
 * Types
