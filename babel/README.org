@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#cli][CLI]]
   - [[#integration-with-webpack][Integration with webpack]]
+- [[#options][Options]]
 - [[#presets][Presets]]
   - [[#env][env]]
 
@@ -29,6 +30,9 @@
   }
 #+END_SRC
 
+* Options
+- https://babeljs.io/docs/usage/api/#options
+
 * Presets
 - https://babeljs.io/docs/plugins/#presets
 
@@ -37,3 +41,4 @@
 - https://kangax.github.io/compat-table/es6/
 
 Babel preset that automatically determines the Babel plugins you need based on your supported environments.
+Install with ~@babel/preset-env~, NOT ~babel-preset-env~

@@ -16,6 +16,7 @@
   - [[#publish][publish]]
 - [[#topics][Topics]]
   - [[#dependencies-devdependencies-peerdependencies][dependencies, devDependencies, peerDependencies]]
+  - [[#scoped-packages][Scoped packages]]
 
 * Commands
 ** install
@@ -183,3 +184,10 @@ It seems that people often use ~<verb>:<sub>~ for custom scripts like:
   - They correctly work with proper versions of the host(peer) dependency(~webpack v1.0.0~)
   - Causes error if a different verion of peer dependency installed
   - Not automatically installed
+
+** Scoped packages
+- https://docs.npmjs.com/misc/scope
+
+#+BEGIN_EXAMPLE
+  @somescope/somepackagename
+#+END_EXAMPLE

@@ -6,11 +6,13 @@
 - [[#loaders][Loaders]]
   - [[#css-loader][css-loader]]
   - [[#style-loader][style-loader]]
+  - [[#babel-loader][babel-loader]]
 - [[#plugins][Plugins]]
 - [[#cli][CLI]]
 - [[#configuration][Configuration]]
   - [[#mode][mode]]
 - [[#development][Development]]
+- [[#production][Production]]
 
 * Concepts
 - https://webpack.js.org/concepts/
@@ -84,6 +86,19 @@ Actually do nothing with it.
 - https://stackoverflow.com/questions/34039826/webpack-style-loader-vs-css-loader
 - Adds CSS to the DOM by injecting a ~<style>~ tag
 
+** babel-loader
+- https://github.com/babel/babel-loader
+
+- Note the version compatibility
+
+#+BEGIN_SRC shell
+  # webpack 3.x | babel-loader 8.x | babel 7.x
+  npm install babel-loader@8.0.0-beta.0 @babel/core @babel/preset-env webpack
+
+  # webpack 3.x babel-loader 7.x | babel 6.x
+  npm install babel-loader babel-core babel-preset-env webpack
+#+END_SRC
+
 * Plugins
 - https://webpack.js.org/concepts/plugins/
 
@@ -143,3 +158,6 @@ Or,
         "build": "webpack"
       },
 #+END_SRC
+
+* Production
+- https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9
