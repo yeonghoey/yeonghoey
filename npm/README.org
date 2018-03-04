@@ -15,7 +15,7 @@
 - [[#how-to][How-to]]
   - [[#publish][publish]]
 - [[#topics][Topics]]
-  - [[#dependencies-vs-devdependencies][dependencies vs. devDependencies]]
+  - [[#dependencies-devdependencies-peerdependencies][dependencies, devDependencies, peerDependencies]]
 
 * Commands
 ** install
@@ -160,8 +160,9 @@ Executables installed (in ~node_modules/.bin~) will be added to the PATH for exe
 - https://docs.npmjs.com/getting-started/publishing-npm-packages
 
 * Topics
-** dependencies vs. devDependencies
+** dependencies, devDependencies, peerDependencies
 - https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies
+- https://nodejs.org/en/blog/npm/peer-dependencies/
 
 - ~dependencies~ are installed on both:
   - ~npm install~ from a directory that contains ~package.json~
@@ -170,3 +171,7 @@ Executables installed (in ~node_modules/.bin~) will be added to the PATH for exe
   - also installed on ~npm install~ on a directory that contains ~package.json~, unless you pass the ~--production~ flag
   - not installed on ~npm install "$package"~ on any other directory, unless you give it the ~--dev~ option.
   - are not installed transitively. (E.g. we don't need to test B to test A, so B's testing(dev) dependencies can be left out.)
+- ~peerDependencies~ are:
+  - For some sub packages like plugins of something(e.g ~webpack~ and ~babel-loader~)
+  - They correctly work with proper versions of the host(peer) dependency(~webpack v1.0.0~)
+  - Causes error if a different verion of peer dependency installed
