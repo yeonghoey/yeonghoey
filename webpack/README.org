@@ -134,6 +134,7 @@ webpack 4 now ships with two sets of defaults. ~development~ and ~production~.
 These are the two values to which mode can be set to.
 
 #+BEGIN_SRC shell
+  # Overrides "mode" field in config
   webpack --mode production
 #+END_SRC
 
