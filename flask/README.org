@@ -46,6 +46,25 @@ If you however are using a package, it’s usually recommended to *hardcode the 
   -1
 #+END_SRC
 
+** url_for
+- http://flask.pocoo.org/docs/0.12/api/#flask.url_for
+- http://flask.pocoo.org/docs/0.12/quickstart/#url-building
+
+#+BEGIN_SRC python
+  flask.url_for(endpoint, **values)
+#+END_SRC
+
+#+BEGIN_SRC python
+  url_for('static', filename='style.css')
+#+END_SRC
+
+Generates a URL to the given endpoint with the method provided.
+This is better than hard-coded URLs as following reasons:
+
+1. Reversing is often more descriptive
+2. URL building will handle escaping
+3. If your application is placed outside the URL root
+
 * Patterns
 ** Application Factories
 - http://flask.pocoo.org/docs/0.12/patterns/appfactories/
