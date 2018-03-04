@@ -14,6 +14,7 @@
 
 ** exclude
 - https://github.com/Miserlou/Zappa/blob/cf8d09f7f286048e66c1f4da505876e2ea19c903/zappa/core.py#L197
+- https://github.com/Miserlou/Zappa/issues/692
 
 Default excludes:
 #+BEGIN_SRC python
