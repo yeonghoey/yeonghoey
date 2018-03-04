@@ -3,7 +3,14 @@
 * Table of Contents :TOC_3_gh:
 - [[#concepts][Concepts]]
 - [[#entry][Entry]]
+- [[#loaders][Loaders]]
+  - [[#css-loader][css-loader]]
+  - [[#style-loader][style-loader]]
 - [[#plugins][Plugins]]
+- [[#cli][CLI]]
+- [[#configuration][Configuration]]
+  - [[#mode][mode]]
+- [[#development][Development]]
 
 * Concepts
 - https://webpack.js.org/concepts/
@@ -58,6 +65,25 @@
   };
 #+END_SRC
 
+* Loaders
+- https://webpack.js.org/concepts/loaders/
+- https://webpack.js.org/loaders/
+- https://webpack.js.org/configuration/module/#module-rules
+
+Loaders can be chained by passing multiple loaders,
+which will be applied from *right to left* (last to first configured).
+
+** css-loader
+- https://github.com/webpack-contrib/css-loader
+
+The ~css-loader~ interprets ~@import~ and ~url()~ like ~import/require()~ and will resolve them.
+Actually do nothing with it.
+
+** style-loader
+- https://github.com/webpack-contrib/style-loader
+- https://stackoverflow.com/questions/34039826/webpack-style-loader-vs-css-loader
+- Adds CSS to the DOM by injecting a ~<style>~ tag
+
 * Plugins
 - https://webpack.js.org/concepts/plugins/
 
@@ -73,4 +99,47 @@
       callback();
     });
   };
+#+END_SRC
+
+* CLI
+- https://webpack.js.org/api/cli/
+
+#+BEGIN_SRC shell
+  webpack [--config webpack.config.js]
+#+END_SRC
+
+* Configuration
+- https://webpack.js.org/configuration/
+
+** mode
+- https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a
+- https://medium.com/webpack/webpack-4-released-today-6cdb994702d4
+
+webpack 4 now ships with two sets of defaults. ~development~ and ~production~.
+These are the two values to which mode can be set to.
+
+#+BEGIN_SRC shell
+  webpack --mode production
+#+END_SRC
+
+* Development
+- https://webpack.js.org/guides/development/
+
+#+BEGIN_SRC json
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+  +     "watch": "webpack --watch",
+        "build": "webpack"
+      },
+#+END_SRC
+
+Or,
+
+#+BEGIN_SRC json
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "watch": "webpack --watch",
+  +     "start": "webpack-dev-server --open",
+        "build": "webpack"
+      },
 #+END_SRC

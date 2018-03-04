@@ -155,6 +155,13 @@ Pre and post commands with matching names will be run for those as well (e.g. ~p
 Executables installed (in ~node_modules/.bin~) will be added to the PATH for executing the scripts. 
 #+END_QUOTE
 
+It seems that people often use ~<verb>:<sub>~ for custom scripts like:
+#+BEGIN_SRC json
+  "scripts": {
+    "start:dev": "webpack-dev-server"
+  }
+#+END_SRC
+
 * How-to
 ** publish
 - https://docs.npmjs.com/getting-started/publishing-npm-packages
