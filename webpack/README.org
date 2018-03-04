@@ -1,0 +1,76 @@
+#+TITLE: webpack
+
+* Table of Contents :TOC_3_gh:
+- [[#concepts][Concepts]]
+- [[#entry][Entry]]
+- [[#plugins][Plugins]]
+
+* Concepts
+- https://webpack.js.org/concepts/
+
+#+BEGIN_SRC javascript
+  const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+  const webpack = require('webpack'); //to access built-in plugins
+  const path = require('path');
+
+  const config = {
+    entry: './path/to/my/entry/file.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'my-first-webpack.bundle.js'
+    },
+    module: {
+      rules: [
+        { test: /\.txt$/, use: 'raw-loader' }
+      ]
+    },
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin(),
+      new HtmlWebpackPlugin({template: './src/index.html'})
+    ]
+  };
+
+  module.exports = config;
+#+END_SRC
+
+- ~entry~ indicates which module webpack should use to begin building out its internal dependency graph.
+- ~output~ tells webpack where to emit the bundles it creates and how to name these files.
+- ~module~ (loaders) is used to more than just JavaScript files
+- ~plugins~ can be leveraged to perform a wider range of tasks.
+
+* Entry
+#+BEGIN_SRC javascript
+  const config = {
+    entry: {
+      app: './src/app.js',
+      vendors: './src/vendors.js'
+    }
+  };
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  const config = {
+    entry: {
+      pageOne: './src/pageOne/index.js',
+      pageTwo: './src/pageTwo/index.js',
+      pageThree: './src/pageThree/index.js'
+    }
+  };
+#+END_SRC
+
+* Plugins
+- https://webpack.js.org/concepts/plugins/
+
+#+BEGIN_SRC javascript
+  function ConsoleLogOnBuildWebpackPlugin() {
+
+  };
+
+  ConsoleLogOnBuildWebpackPlugin.prototype.apply = function(compiler) {
+    compiler.plugin('run', function(compiler, callback) {
+      console.log("The webpack build process is starting!!!");
+
+      callback();
+    });
+  };
+#+END_SRC

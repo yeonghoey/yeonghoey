@@ -304,6 +304,7 @@ Classes provide "super" keyword for that.
 
 ** imports, exports
 - https://github.com/mbeaudru/modern-js-cheatsheet#imports--exports
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
 
 #+BEGIN_SRC javascript
   // mathConstants.js
@@ -333,10 +334,14 @@ Classes provide "super" keyword for that.
   // ------------
 
   // myFile.js
-  import number from './coolNumber.js';
+  // You can just omit '.js'
+  import number from 'coolNumber';
   // Default export, independently from its name, is automatically injected into number variable;
   console.log(number) // 42
 #+END_SRC
+
+- Imports and exports must be at the top level
+- Module imports are hoisted(internally moved to the beginning of the current scope)
 
 * Types
 - https://javascript.info/instanceof

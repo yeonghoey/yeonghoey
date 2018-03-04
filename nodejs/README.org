@@ -3,7 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
-- [[#terminology][Terminology]]
+  - [[#__dirname][__dirname]]
 - [[#topics][Topics]]
   - [[#exports-vs-moduleexports][exports vs. module.exports]]
 - [[#how-to][How-to]]
@@ -11,7 +11,17 @@
 
 * Overview
 * Reference
-* Terminology
+** __dirname
+- https://nodejs.org/docs/latest/api/modules.html#modules_dirname
+- The directory name of the current module. 
+#+BEGIN_SRC javascript
+  console.log(__dirname);
+  // Prints: /Users/mjr
+
+  console.log(path.dirname(__filename));
+  // Prints: /Users/mjr
+#+END_SRC
+
 * Topics
 ** exports vs. module.exports
 - https://stackoverflow.com/questions/7137397/module-exports-vs-exports-in-node-js
