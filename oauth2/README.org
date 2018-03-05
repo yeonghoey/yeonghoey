@@ -36,6 +36,6 @@ This prevents CSRF(Cross Site Request Forgery), which let the victim login as th
 [[file:_img/screenshot_2018-03-05_18-57-46.png]]
 
 * Links
+- [[https://www.udacity.com/course/authentication-authorization-oauth--ud330][Udacity: Authentication & Authorization: OAuth]]
 - https://developers.google.com/oauthplayground/
 - https://aaronparecki.com/oauth-2-simplified/
-- https://www.udacity.com/course/authentication-authorization-oauth--ud330
