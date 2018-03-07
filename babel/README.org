@@ -4,6 +4,7 @@
 - [[#cli][CLI]]
   - [[#integration-with-webpack][Integration with webpack]]
 - [[#options][Options]]
+- [[#plugins][Plugins]]
 - [[#presets][Presets]]
   - [[#env][env]]
 
@@ -33,6 +34,23 @@
 - https://babeljs.io/docs/usage/api/#options
 - https://babeljs.io/docs/usage/babelrc/
 
+* Plugins
+- https://babeljs.io/docs/plugins/#transform-plugins
+- https://babeljs.io/docs/plugins/#syntax-plugins
+- https://babeljs.io/docs/plugins/#pluginpreset-paths
+
+- If the plugin is on ~npm~, you can pass in the name of the plugin and ~babel~ will check that it’s installed in ~node_modules~
+- ~"plugins": ["babel-plugin-myPlugin"]~
+
+- You can also specify an relative/absolute path to your ~plugin/preset~.
+- ~"plugins": ["./node_modules/asdf/plugin"]~
+
+- You can omit ~babel-plugin-~ or ~babel-preset-~ prefixes
+
+
+- Plugins run before Presets.
+- Plugin ordering is first to last.
+- Preset ordering is reversed (last to first).
 
 * Presets
 - https://babeljs.io/docs/plugins/#presets
