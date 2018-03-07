@@ -1,0 +1,27 @@
+#+TITLE: ESLint
+
+* Table of Contents :TOC_3_gh:
+- [[#eslintrcjs][.eslintrc.js]]
+- [[#eslintignore][.eslintignore]]
+- [[#links][Links]]
+
+* .eslintrc.js
+- https://eslint.org/docs/user-guide/configuring
+- https://eslint.org/docs/rules/
+
+You can also use ~eslintConfig~ field in ~package.json~
+
+* .eslintignore
+- https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories
+
+#+BEGIN_EXAMPLE
+  /build/
+  /config/
+  /dist/
+  /*.js
+  /test/unit/coverage/
+#+END_EXAMPLE
+
+* Links
+- https://github.com/airbnb/javascript
+- https://www.npmjs.com/package/eslint-config-airbnb

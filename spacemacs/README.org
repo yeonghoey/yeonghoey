@@ -12,6 +12,7 @@
   - [[#restclient][restclient]]
 - [[#customization][Customization]]
   - [[#visual-pastes][Visual Pastes]]
+  - [[#editorconfig][EditorConfig]]
 - [[#use-cases][Use Cases]]
   - [[#how-to-fix-evaluation-of-code-disabled][How to Fix 'Evaluation of code disabled']]
 
@@ -183,8 +184,21 @@ It's *NOT* recommended if you use cut and paste routine.
 
   (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
 #+END_SRC
+** EditorConfig
+- https://www.johbo.com/2016/supporting-editorconfig-in-spacemacs.html
+
+It seems that ~Spacemacs~ uses ~EditorConfig~ implicitly. To make it explicit:
+#+BEGIN_SRC emacs-lisp
+  dotspacemacs-additional-packages '(editorconfig)
+
+  (defun dotspacemacs/user-config ()
+    (editorconfig-mode 1)
+  )
+#+END_SRC
+
 * Use Cases
 ** How to Fix 'Evaluation of code disabled'
 - https://github.com/syl20bnr/spacemacs/issues/7641
 - Simply run ~:spacemacs/recompile-elpa~ and restart emacs
+
 

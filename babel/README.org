@@ -12,7 +12,6 @@
   npm install --save-dev babel-cli
 #+END_SRC
 
-
 ** Integration with webpack
 - https://babeljs.io/docs/setup/#installation
 
@@ -32,6 +31,8 @@
 
 * Options
 - https://babeljs.io/docs/usage/api/#options
+- https://babeljs.io/docs/usage/babelrc/
+
 
 * Presets
 - https://babeljs.io/docs/plugins/#presets
