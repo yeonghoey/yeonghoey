@@ -1,19 +1,56 @@
 #+TITLE: Vue.js
 
 * Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#syntax][Syntax]]
 - [[#lifecycle][Lifecycle]]
+  - [[#mounted][mounted]]
 - [[#api][API]]
   - [[#new-vueoptions][new Vue(options)]]
 - [[#components][Components]]
   - [[#global-components][Global Components]]
   - [[#local-components][Local Components]]
   - [[#composing-components][Composing Components]]
+  - [[#props][props]]
 - [[#single-file-components-vue][Single File Components (.vue)]]
 - [[#router][Router]]
   - [[#router-link][<router-link>]]
   - [[#router-view][<router-view>]]
   - [[#history-mode][history mode]]
+  - [[#route-meta-fields][Route Meta Fields]]
+  - [[#navigation-guards][Navigation Guards]]
+  - [[#passing-props][Passing Props]]
+  - [[#programmatic-navigation][Programmatic Navigation]]
 - [[#links][Links]]
+
+* Overview
+#+BEGIN_QUOTE
+Vue instances expose a number of useful instance properties and methods.
+These properties and methods are prefixed with ~$~ to differentiate from proxied data properties. For example:
+#+END_QUOTE
+
+#+BEGIN_SRC javascript
+  var data = { a: 1 }
+  var vm = new Vue({
+    el: '#example',
+    data: data
+  })
+  vm.$data === data // -> true
+  vm.$el === document.getElementById('example') // -> true
+  // $watch is an instance method
+  vm.$watch('a', function (newVal, oldVal) {
+    // this callback will be called when `vm.a` changes
+  })
+#+END_SRC
+
+* Syntax
+- https://vuejs.org/v2/guide/syntax.html
+
+In templates, the context of ~this~, which is the corresponding ~Vue~ object can be referred without ~this~.
+#+BEGIN_SRC html
+  <!-- msg is data property of the Vue object-->
+  <span>Message: {{ msg }}</span>
+#+END_SRC
 
 * Lifecycle
 - https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
@@ -21,10 +58,13 @@
 [[file:_img/screenshot_2018-03-07_11-48-43.png]]
 [[file:_img/screenshot_2018-03-07_11-04-42.png]]
 
+** mounted
+- https://vuejs.org/v2/api/#mounted
+
 * API
 ** new Vue(options)
 - https://vuejs.org/v2/api/#Options-Data
-
+  
 * Components
 - https://vuejs.org/v2/guide/components.html
 
@@ -82,6 +122,11 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
   </my-component>
 #+END_SRC
 
+** props
+- https://vuejs.org/v2/guide/components.html#Props
+- A ~prop~ is a field on a component’s ~data~ that is expected to be passed down from its parent component.
+- So, a ~prop~ can be referenced as ~this.<prop>~ or ~{{ <prop> }}~
+
 * Single File Components (.vue)
 - https://vuejs.org/v2/guide/single-file-components.html
 * Router
@@ -115,6 +160,10 @@ Is preferred over ~<a href="...">~
 #+END_SRC
 
 ** <router-view>
+- https://router.vuejs.org/en/api/router-view.html
+- A functional component that renders the matched component for the given path.
+- Can use mutliple routes by [[https://router.vuejs.org/en/essentials/named-views.html][named-views]]
+
 ** history mode
 - https://router.vuejs.org/en/essentials/history-mode.html
 
@@ -129,6 +178,19 @@ Is preferred over ~<a href="...">~
 Since our app is a single page client side app, without a proper server configuration,
 the users will get a 404 error if they access http://oursite.com/user/id directly in their browser.
 #+END_QUOTE
+
+** Route Meta Fields
+- https://router.vuejs.org/en/advanced/meta.html
+
+** Navigation Guards
+- https://router.vuejs.org/en/advanced/navigation-guards.html
+
+** Passing Props
+- https://router.vuejs.org/en/essentials/passing-props.html
+
+** Programmatic Navigation
+- https://router.vuejs.org/en/essentials/navigation.html
+
 
 * Links
 - [[https://codesandbox.io/s/o29j95wx9][Simple Todo App]]

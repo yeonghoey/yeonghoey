@@ -1,0 +1,43 @@
+
+#+TITLE: AWS Mobile
+
+* Table of Contents :TOC_3_gh:
+- [[#aws-amplify][aws-amplify]]
+- [[#awsmobile-cli][awsmobile-cli]]
+- [[#links][Links]]
+
+* aws-amplify
+- https://github.com/aws/aws-amplify/blob/master/docs/media/developer_guide.md
+
+* awsmobile-cli
+- https://github.com/aws/awsmobile-cli
+
+#+BEGIN_EXAMPLE
+
+  Success! your project is now initialized with awsmobilejs
+
+     awsmobilejs/.awsmobile
+       is the workspace of awsmobile-cli, please do not modify its contents
+
+     awsmobilejs/#current-backend-info
+       contains information of the backend awsmobile project from the last
+       synchronization with the cloud
+
+     awsmobilejs/backend
+       is where you develop the codebase of the backend awsmobile project
+
+     awsmobile console
+       opens the web console of the backend awsmobile project
+
+     awsmobile run
+       pushes the latest development of the backend awsmobile project to the cloud,
+       and runs the frontend application locally
+
+     awsmobile publish
+       pushes the latest development of the backend awsmobile project to the cloud,
+       and publishes the frontend application to aws S3 for hosting
+
+  Happy coding with awsmobile!
+#+END_EXAMPLE
+
+* Links
