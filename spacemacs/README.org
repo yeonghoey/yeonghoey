@@ -6,6 +6,7 @@
   - [[#regex][Regex]]
 - [[#tips][Tips]]
   - [[#searching][Searching]]
+  - [[#saveload-layouts-and-workspaces][Save/Load layouts and workspaces]]
 - [[#layers][Layers]]
   - [[#auto-completion][auto-completion]]
   - [[#csharp][csharp]]
@@ -65,6 +66,12 @@ Emacs Regex engine specialties:
 ** Searching
 I want non-fuzzy searches sometimes. I tried to set ~dotspacemacs-helm-use-fuzzy~ to ~nil~, but I couldn't recognize obvious changes.
 Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems to work as expected.
+
+** Save/Load layouts and workspaces
+- https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#saveload-layouts-into-a-file
+
+- Save :: ~SPC l s~
+- Load :: ~SPC l L~
 
 * Layers
 ** auto-completion

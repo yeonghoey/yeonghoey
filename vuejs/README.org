@@ -1,0 +1,14 @@
+#+TITLE: Vue.js
+
+* Table of Contents :TOC_3_gh:
+- [[#lifecycle][Lifecycle]]
+- [[#single-file-components-vue][Single File Components (.vue)]]
+
+* Lifecycle
+- https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
+
+[[file:_img/screenshot_2018-03-07_11-48-43.png]]
+[[file:_img/screenshot_2018-03-07_11-04-42.png]]
+
+* Single File Components (.vue)
+- https://vuejs.org/v2/guide/single-file-components.html

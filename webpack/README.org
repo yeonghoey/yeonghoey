@@ -8,6 +8,7 @@
   - [[#style-loader][style-loader]]
   - [[#babel-loader][babel-loader]]
 - [[#plugins][Plugins]]
+  - [[#htmlwebpackplugin][HtmlWebpackPlugin]]
 - [[#cli][CLI]]
 - [[#configuration][Configuration]]
   - [[#mode][mode]]
@@ -114,6 +115,23 @@ Actually do nothing with it.
       callback();
     });
   };
+#+END_SRC
+
+** HtmlWebpackPlugin
+- https://webpack.js.org/plugins/html-webpack-plugin/
+
+Automatically generate a ~html~ file for serving your bundle. Within ~dist/index.html~:
+#+BEGIN_SRC html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <title>webpack App</title>
+    </head>
+    <body>
+      <script src="index_bundle.js"></script>
+    </body>
+  </html>
 #+END_SRC
 
 * CLI
