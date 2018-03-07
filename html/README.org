@@ -2,6 +2,8 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#template][Template]]
+- [[#tags][Tags]]
+  - [[#style][style]]
 
 * Template
 #+BEGIN_SRC html
@@ -20,4 +22,20 @@
   </body>
 
   </html>
+#+END_SRC
+* Tags
+** style
+- https://www.w3schools.com/tags/att_style_scoped.asp
+
+- scoped ::
+#+BEGIN_SRC html
+  <div>
+  <!-- styles only apply to elements within div -->
+  <style scoped>
+  h1 {color:red;}
+  p {color:blue;} 
+  </style>
+  <h1>This is a heading</h1>
+  <p>This is a paragraph.</p>
+  </div>
 #+END_SRC

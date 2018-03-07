@@ -305,6 +305,7 @@ Classes provide "super" keyword for that.
 ** imports, exports
 - https://github.com/mbeaudru/modern-js-cheatsheet#imports--exports
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+- https://stackoverflow.com/questions/42711175/what-does-the-symbol-do-in-javascript-imports
 
 #+BEGIN_SRC javascript
   // mathConstants.js
@@ -342,6 +343,8 @@ Classes provide "super" keyword for that.
 
 - Imports and exports must be at the top level
 - Module imports are hoisted(internally moved to the beginning of the current scope)
+- Imports which start with ~@~ (like ~import @/components/component~) means root of the project.
+  - This is generally customized as ~resolve.alias~ field within ~webpack.config.js~.
 
 * Types
 - https://javascript.info/instanceof
