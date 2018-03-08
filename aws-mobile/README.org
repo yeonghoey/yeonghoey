@@ -8,6 +8,7 @@
 
 * aws-amplify
 - https://github.com/aws/aws-amplify/blob/master/docs/media/developer_guide.md
+- https://aws.github.io/aws-amplify/api/
 
 * awsmobile-cli
 - https://github.com/aws/awsmobile-cli
@@ -39,5 +40,11 @@
 
   Happy coding with awsmobile!
 #+END_EXAMPLE
+
+- https://docs.aws.amazon.com/aws-mobile/latest/developerguide/project-import-export-yaml.html#project-import-export-yaml-details
+
+It seems that ~<project>/awsmobilejs/backend/mobile-hub-project.yml~ defines the backend settings.
+However, I couldn't find any reference guide to write it by myself.
+So, I think the best way to configure the backed is to use the web console UI, and ~awsmobile pull~ to sync.
 
 * Links
