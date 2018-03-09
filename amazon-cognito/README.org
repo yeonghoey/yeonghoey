@@ -1,11 +1,17 @@
 #+TITLE: Amazon Cognito
 
 * Table of Contents :TOC_3_gh:
+- [[#aws-amplify][aws-amplify]]
 - [[#amazon-cognito-identity-js][amazon-cognito-identity-js]]
 - [[#amazon-cognito-auth-js][amazon-cognito-auth-js]]
 
+* aws-amplify
+- https://github.com/aws/aws-amplify
+- https://aws.github.io/aws-amplify/
+
 * amazon-cognito-identity-js
 - https://github.com/aws/aws-amplify/tree/master/packages/amazon-cognito-identity-js
+- For managing User Pools, which means that it supports user sign-up, sign-in, changing password, etc.
 - This has currently become a part of [[https://github.com/aws/aws-amplify][aws-amplify]].
 
 * amazon-cognito-auth-js
