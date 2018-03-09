@@ -51,7 +51,7 @@ so it is possible for the file to only download once if the Lambda stays warm.
 ** Configure HTTPS using AWS Certificate Manager
 - https://github.com/Miserlou/Zappa#ssl-certification
 
-I don't know why, but Zappa only supports ACM in ~us-east-1~.
+Because CloudFront requires ACM in ~us-east-1~, Zappa is also under this restriction.
 So, make sure to use the proper region when registering ACM.
 
 #+BEGIN_SRC json

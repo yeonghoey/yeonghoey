@@ -1,8 +1,17 @@
-#+TITLE: Amazon Cloudfront
+#+TITLE: Amazon CloudFront
 
 * Table of Contents :TOC_3_gh:
+- [[#topics][Topics]]
+  - [[#zone-id-of-cloudfront-distributions][Zone ID of CloudFront Distributions]]
 - [[#how-to][How-to]]
   - [[#use-custom-domain-and-its-acm-aws-certificate-manager][Use custom domain and its ACM (AWS Certificate Manager)]]
+
+* Topics
+** Zone ID of CloudFront Distributions
+- https://github.com/hashicorp/terraform/issues/6489
+- https://docs.aws.amazon.com/general/latest/gr/rande.html#cf_region
+
+It's globally a single one, which is ~Z2FDTNDATAQYW2~
 
 * How-to
 ** Use custom domain and its ACM (AWS Certificate Manager)
