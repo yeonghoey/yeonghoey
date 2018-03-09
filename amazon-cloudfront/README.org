@@ -1,0 +1,22 @@
+#+TITLE: Amazon Cloudfront
+
+* Table of Contents :TOC_3_gh:
+- [[#how-to][How-to]]
+  - [[#use-custom-domain-and-its-acm-aws-certificate-manager][Use custom domain and its ACM (AWS Certificate Manager)]]
+
+* How-to
+** Use custom domain and its ACM (AWS Certificate Manager)
+- Only supports ACM issued in ~us-east-1~ (N. Virginia)
+
+[[file:_img/screenshot_2018-03-09_21-42-12.png]]
+
+#+BEGIN_QUOTE
+You must list any custom domain names (for example, www.example.com) that you use in addition to the CloudFront domain name (for example, d1234.cloudfront.net) for the URLs for your files.
+*Specify up to 100 CNAMEs separated with commas or put each on a new line.*
+You also *must create a CNAME record with your DNS service* to route queries for www.example.com to d1234.cloudfront.net.
+For more information, see the [[https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html][Help]].
+#+END_QUOTE
+
+- You should create ~ALIAS~ records.
+
+[[file:_img/screenshot_2018-03-09_21-40-45.png]]

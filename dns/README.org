@@ -46,6 +46,8 @@
 - ~AAAA~ records for IPv6
 
 ** CNAME
+- https://stackoverflow.com/questions/655235/is-root-domain-cname-to-other-domain-allowed-by-dns-rfc
+
 #+BEGIN_EXAMPLE
   www         IN  CNAME   server1
 #+END_EXAMPLE
@@ -53,6 +55,7 @@
 - Should only be used when there are no other records on that name. 
 - Comes with *some performance losses* because they require an additional query to the server
 - Recommended to provide an alias for a resource outside of the current zone.
+- It's impossible to make ~CNAME~ on the ~root~ domain(without subdomain, like ~example.com~)
 
 ** ALIAS
 - Some DNS providers like AWS Route 53 provides customized ~ALIAS~ records
