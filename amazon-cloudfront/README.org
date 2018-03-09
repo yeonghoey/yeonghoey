@@ -5,6 +5,7 @@
   - [[#zone-id-of-cloudfront-distributions][Zone ID of CloudFront Distributions]]
 - [[#how-to][How-to]]
   - [[#use-custom-domain-and-its-acm-aws-certificate-manager][Use custom domain and its ACM (AWS Certificate Manager)]]
+  - [[#redirect-http-to-https][Redirect HTTP to HTTPS]]
 
 * Topics
 ** Zone ID of CloudFront Distributions
@@ -33,3 +34,9 @@ For more information, see the [[https://docs.aws.amazon.com/Route53/latest/Devel
 If you want to use ACM for both apex domain and subdomains, you should specify apex domain(~example.com~) along with wildcard domain(~*.example.com~)
 when you create ACM
  
+** Redirect HTTP to HTTPS
+- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html
+
+Within Behaviros tab:
+
+[[file:_img/screenshot_2018-03-10_00-08-51.png]]
