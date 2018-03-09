@@ -1,0 +1,26 @@
+#+TITLE: jwt
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#rs256-vs-hs256-jwksjson][RS256 vs. HS256, jwks.json]]
+
+* Overview
+- https://jwt.io/
+- ~jwt~ comprises ~HEADER~, ~PAYLOAD~, ~SIGNATURE~.
+- Generally, its base64 encoded string is used as tokens.
+- The recipient of jwt tokens should validate its signature.
+- The recipient can serve some secured resources without managing sessions, through its payload.
+- Mostly used as ~id token~ of OpenID Connect.
+- There are a wide variety of libraries to handle ~jwt~ across programming languages.
+
+* RS256 vs. HS256, jwks.json
+- https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
+- There are two popular ways to sign ~jwt~, ~RS256~ and ~HS256~
+- ~RS256~ is asymmetric, which means that it uses public/private key pair.
+- ~RS256~ is generally recommended.
+
+- ~HS256~ is symmetric, on the other hand.
+- ~HS256~ is generally not safe because the private key can easily be exposed to other parties.
+
+- ~jwks.json~ is one way to manage public keys which are used when issuing ~jwt~.
+- ~jwks.json~ is provided by identity providers for third parties to validate ~jwt~
