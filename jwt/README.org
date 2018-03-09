@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
+- [[#validation-process][Validation Process]]
 - [[#rs256-vs-hs256-jwksjson][RS256 vs. HS256, jwks.json]]
 
 * Overview
@@ -12,6 +13,15 @@
 - The recipient can serve some secured resources without managing sessions, through its payload.
 - Mostly used as ~id token~ of OpenID Connect.
 - There are a wide variety of libraries to handle ~jwt~ across programming languages.
+
+* Validation Process
+- https://auth0.com/docs/api-auth/tutorials/verify-access-token
+
+1. Verify the signature
+2. Validate Claims
+  1. Token expiration (~exp~) :: Normally, it's Unix timestamp.
+  2. Token issuer (~iss~) :: the auth provider like ~Auth0~, ~AWS Cognito~ etc.
+  3. Token audience (~aud~) :: the resource server or its uri. Like ~https://resource-server.com/user~
 
 * RS256 vs. HS256, jwks.json
 - https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
