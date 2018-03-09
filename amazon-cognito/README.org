@@ -1,0 +1,22 @@
+#+TITLE: Amazon Cognito
+
+* Table of Contents :TOC_3_gh:
+- [[#amazon-cognito-identity-js][amazon-cognito-identity-js]]
+- [[#amazon-cognito-auth-js][amazon-cognito-auth-js]]
+
+* amazon-cognito-identity-js
+- https://github.com/aws/aws-amplify/tree/master/packages/amazon-cognito-identity-js
+- This has currently become a part of [[https://github.com/aws/aws-amplify][aws-amplify]].
+
+* amazon-cognito-auth-js
+- https://github.com/aws/amazon-cognito-auth-js
+- https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html
+
+- Supports to use Amazon Cognito as a kind of OAuth2 provider.
+- In other words, there is no way for users to sign up.
+- The ~Domain prefix~ and Callback, Signoutu URL is used for this service.
+
+[[file:_img/screenshot_2018-03-09_20-55-43.png]]
+
+[[file:_img/screenshot_2018-03-09_20-55-54.png]]
+
