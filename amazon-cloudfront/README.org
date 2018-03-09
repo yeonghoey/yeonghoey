@@ -29,3 +29,7 @@ For more information, see the [[https://docs.aws.amazon.com/Route53/latest/Devel
 - You should create ~ALIAS~ records.
 
 [[file:_img/screenshot_2018-03-09_21-40-45.png]]
+
+If you want to use ACM for both apex domain and subdomains, you should specify apex domain(~example.com~) along with wildcard domain(~*.example.com~)
+when you create ACM
+ 

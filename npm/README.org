@@ -16,6 +16,7 @@
   - [[#semver][semver]]
 - [[#how-to][How-to]]
   - [[#publish][publish]]
+  - [[#list-globally-installed-packages][List globally installed packages]]
 - [[#topics][Topics]]
   - [[#dependencies-devdependencies-peerdependencies][dependencies, devDependencies, peerDependencies]]
   - [[#scoped-packages][Scoped packages]]
@@ -185,6 +186,9 @@ It seems that people often use ~<verb>:<sub>~ for custom scripts like:
 * How-to
 ** publish
 - https://docs.npmjs.com/getting-started/publishing-npm-packages
+
+** List globally installed packages
+: npm list --global --depth=0
 
 * Topics
 ** dependencies, devDependencies, peerDependencies
