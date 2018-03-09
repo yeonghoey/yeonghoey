@@ -2,7 +2,9 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
-- [[#state][state]]
+- [[#concepts][Concepts]]
+  - [[#state][state]]
+  - [[#refresh-tokens][Refresh Tokens]]
 - [[#links][Links]]
 
 * Overview
@@ -10,7 +12,8 @@
 
 [[file:_img/screenshot_2018-01-11_15-50-31.png]]
 
-* state
+* Concepts
+** state
 1. Provides the following link to the user
 #+BEGIN_EXAMPLE
   https://authorization-server.com/auth?response_type=code&
@@ -34,6 +37,26 @@ This ensures *your redirection endpoint isn't able to be tricked* into attemptin
 This prevents CSRF(Cross Site Request Forgery), which let the victim login as the attacker.
 
 [[file:_img/screenshot_2018-03-05_18-57-46.png]]
+
+** Refresh Tokens
+- https://auth0.com/learn/refresh-tokens/
+- https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
+
+[[file:_img/screenshot_2018-03-09_20-38-24.png]]
+
+- A special kind of token that can be used to obtain a renewed access token
+- Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.
+- Refresh Tokens never expire.
+
+#+BEGIN_EXAMPLE
+  curl -X POST -H 'Authorization: Basic dGVzdGNsaWVudDpzZWNyZXQ=' -d 'refresh_token=<prev_refresh_token>&grant_type=refresh_token' localhost:3000/oauth/token
+  {
+      "token_type":"bearer",
+      "access_token":"<new_access_token>",
+      "expires_in":20,
+      "refresh_token":"<new_refresh_token>"
+  }
+#+END_EXAMPLE
 
 * Links
 - [[https://www.udacity.com/course/authentication-authorization-oauth--ud330][Udacity: Authentication & Authorization: OAuth]]
