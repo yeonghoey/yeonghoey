@@ -1,0 +1,105 @@
+#+TITLE: AWS DynamoDB
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#api][API]]
+- [[#attributes][Attributes]]
+- [[#consistency][Consistency]]
+- [[#throughput][Throughput]]
+- [[#secondary-indexes][Secondary Indexes]]
+  - [[#gsi][GSI]]
+    - [[#attribute-projections][Attribute Projections]]
+  - [[#lsi][LSI]]
+- [[#specifying-access-as-iam-policies][Specifying access as IAM Policies]]
+
+* Overview
+- http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html
+
+[[file:_img/screenshot_2017-04-21_12-12-59.png]]
+
+- Tables like ~People~, ~Music~
+- Items like each ~{..}~ in Tables
+- Attributes like ~PersonID~, ~LastName~, ~Artist~, ~Price~, and so on
+- Primary keys are bolded attributes like ~PersonID~, ~(Artist, SongTitle)~
+- Primary key can be either a single ~partition key~ or a pair of ~partition key~ and ~sort key~
+- Primary key attribute must be a scalar(like ~string~, ~number~, etc)
+- Secondary Indexes like ~GenreAlbumTitle~
+- Secondary Indexes can be either ~Global~ or ~Local~
+- ~Global~ consists of a ~partition key~ and a ~sort key~ that can be different from those on the table
+- ~Local~ has the same ~partition key~ as the table but a different ~sort key~
+
+* API
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.API.html
+
+#+BEGIN_EXAMPLE
+  CreateTable
+  DescribeTable
+  ListTables
+  UpdateTable
+  DeleteTable
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  PutItem
+  BatchWriteItem (up to 25 items)
+  GetItem        (uses primary key)
+  BatchGetItem   (up to 100 items)
+  Query
+  Scan
+  UpdateItem
+  DeleteItem
+  BatchWriteItem
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+  ListStreams
+  DescribeStream
+  GetShardIterator
+  GetRecords
+#+END_EXAMPLE
+
+* Attributes
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html
+- Also, the following characters have special meaning in DynamoDB: ~#~ (hash) and ~:~ (colon).
+- Although DynamoDB allows you to use these reserved words and special characters for names, we recommend that you avoid
+
+* Consistency
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html
+- DynamoDB supports eventually consistent and strongly consistent reads.
+
+* Throughput
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html
+
+* Secondary Indexes
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SecondaryIndexes.html
+
+** GSI
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GuidelinesForGSI.html
+
+
+- A global secondary index is considered "global" because queries on the index can span all of the data in the base table, across all partitions.
+- When you create an index, *you specify which attributes will be copied, or projected*, from the base table to the index.
+
+[[file:_img/screenshot_2018-03-10_20-34-48.png]]
+
+- DynamoDB maintains indexes automatically.
+- In this case, ~Artist~ and ~SongTitle~ are projected attributes
+*** Attribute Projections
+- A projection is the set of attributes that is copied from a table into a secondary index.
+- There are three options for attribute projections:
+  - ~KEYS_ONLY~
+  - ~INCLUDE~
+  - ~ALL~
+
+
+** LSI
+- A local secondary index is "local" in the sense that every partition of a local secondary index is scoped to a base table partition that has the same partition key value.
+
+* Specifying access as IAM Policies
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/specifying-conditions.html
+
+#+BEGIN_QUOTE
+If you use ~dynamodb:Attributes~, you must specify the names of all of the primary key and index key attributes for the table and any secondary indexes that are listed the in the policy.
+Otherwise, DynamoDB can't use these key attributes to perform the requested action.
+#+END_QUOTE
