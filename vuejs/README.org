@@ -17,6 +17,7 @@
   - [[#router-link][<router-link>]]
   - [[#router-view][<router-view>]]
   - [[#history-mode][history mode]]
+  - [[#matching-priority][Matching Priority]]
   - [[#the-route-object][The Route object]]
   - [[#route-meta-fields][Route Meta Fields]]
   - [[#navigation-guards][Navigation Guards]]
@@ -178,6 +179,15 @@ Is preferred over ~<a href="...">~
 #+BEGIN_QUOTE
 Since our app is a single page client side app, without a proper server configuration,
 the users will get a 404 error if they access http://oursite.com/user/id directly in their browser.
+#+END_QUOTE
+
+** Matching Priority
+- https://router.vuejs.org/en/essentials/dynamic-matching.html#matching-priority
+
+#+BEGIN_QUOTE
+Sometimes the same URL may be matched by multiple routes.
+In such a case the matching priority is determined by the order of route definition:
+*the earlier a route is defined, the higher priority it gets.*
 #+END_QUOTE
 
 ** The Route object
