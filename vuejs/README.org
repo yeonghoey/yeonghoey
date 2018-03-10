@@ -17,6 +17,7 @@
   - [[#router-link][<router-link>]]
   - [[#router-view][<router-view>]]
   - [[#history-mode][history mode]]
+  - [[#the-route-object][The Route object]]
   - [[#route-meta-fields][Route Meta Fields]]
   - [[#navigation-guards][Navigation Guards]]
   - [[#passing-props][Passing Props]]
@@ -179,6 +180,16 @@ Since our app is a single page client side app, without a proper server configur
 the users will get a 404 error if they access http://oursite.com/user/id directly in their browser.
 #+END_QUOTE
 
+** The Route object
+- https://router.vuejs.org/en/api/route-object.html
+
+#+BEGIN_SRC javascript
+
+  // For pattern '/:user', '/yeonghoey?test=no"
+  $route.params.user === 'yeonghoey';
+  $route.query.test === 'no';
+#+END_SRC
+
 ** Route Meta Fields
 - https://router.vuejs.org/en/advanced/meta.html
 
@@ -190,7 +201,6 @@ the users will get a 404 error if they access http://oursite.com/user/id directl
 
 ** Programmatic Navigation
 - https://router.vuejs.org/en/essentials/navigation.html
-
 
 * Links
 - [[https://codesandbox.io/s/o29j95wx9][Simple Todo App]]
