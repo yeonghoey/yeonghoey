@@ -4,6 +4,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#aws-amplify][aws-amplify]]
 - [[#awsmobile-cli][awsmobile-cli]]
+  - [[#configure-api-for-accessing-dynamodb][Configure API for accessing DynamoDB]]
 - [[#links][Links]]
 
 * aws-amplify
@@ -46,5 +47,14 @@
 It seems that ~<project>/awsmobilejs/backend/mobile-hub-project.yml~ defines the backend settings.
 However, I couldn't find any reference guide to write it by myself.
 So, I think the best way to configure the backed is to use the web console UI, and ~awsmobile pull~ to sync.
+
+** Configure API for accessing DynamoDB
+- https://docs.aws.amazon.com/aws-mobile/latest/developerguide/web-access-databases.html
+
+- You should access your dynamodb with Cloud API.
+
+#+BEGIN_SRC shell
+  awsmobile cloud-api enable --prompt
+#+END_SRC
 
 * Links

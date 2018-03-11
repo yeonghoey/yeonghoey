@@ -74,6 +74,7 @@
 
 * Secondary Indexes
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SecondaryIndexes.html
+- This requires separated capacity management from those of its base table
 
 ** GSI
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html
