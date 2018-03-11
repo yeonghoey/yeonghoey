@@ -3,14 +3,20 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#api][API]]
-- [[#attributes][Attributes]]
-- [[#consistency][Consistency]]
-- [[#throughput][Throughput]]
+- [[#partitions][Partitions]]
 - [[#secondary-indexes][Secondary Indexes]]
   - [[#gsi][GSI]]
     - [[#attribute-projections][Attribute Projections]]
   - [[#lsi][LSI]]
-- [[#specifying-access-as-iam-policies][Specifying access as IAM Policies]]
+- [[#operations][Operations]]
+- [[#attributes][Attributes]]
+- [[#consistency][Consistency]]
+- [[#capacity--throughput][Capacity & Throughput]]
+- [[#backup--restore][Backup & Restore]]
+- [[#pricing][Pricing]]
+- [[#access-and-permissions-based-on-iam][Access and Permissions Based on IAM]]
+- [[#limits][Limits]]
+- [[#best-practices][Best Practices]]
 
 * Overview
 - http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html
@@ -58,17 +64,13 @@
   GetRecords
 #+END_EXAMPLE
 
-* Attributes
-- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html
-- Also, the following characters have special meaning in DynamoDB: ~#~ (hash) and ~:~ (colon).
-- Although DynamoDB allows you to use these reserved words and special characters for names, we recommend that you avoid
+* Partitions
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.Partitions.html
 
-* Consistency
-- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html
-- DynamoDB supports eventually consistent and strongly consistent reads.
+[[file:_img/screenshot_2018-03-11_14-55-25.png]]
 
-* Throughput
-- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html
+- DynamoDB calculates the hash value of ~Dog~, yielding the partition in which these items are stored.
+- DynamoDB then scans the sort key attribute values until it finds ~Fido~.
 
 * Secondary Indexes
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/SecondaryIndexes.html
@@ -85,6 +87,8 @@
 
 - DynamoDB maintains indexes automatically.
 - In this case, ~Artist~ and ~SongTitle~ are projected attributes
+- Global secondary indexes are composed of partitions.
+
 *** Attribute Projections
 - A projection is the set of attributes that is copied from a table into a secondary index.
 - There are three options for attribute projections:
@@ -92,14 +96,83 @@
   - ~INCLUDE~
   - ~ALL~
 
-
 ** LSI
 - A local secondary index is "local" in the sense that every partition of a local secondary index is scoped to a base table partition that has the same partition key value.
 
-* Specifying access as IAM Policies
+* Operations
+
+#+BEGIN_SRC json
+  "GetItem"
+  {
+      TableName: "Music",
+      Key: {
+          "Artist": "No One You Know",
+          "SongTitle": "Call Me Today"
+      }
+  }
+
+  "Query"
+  {
+      TableName: "Music",
+      KeyConditionExpression: "Artist = :a and SongTitle = :t",
+      ExpressionAttributeValues: {
+          ":a": "No One You Know",
+          ":t": "Call Me Today"
+      }
+  }
+
+  "Query using Index"
+  {
+      TableName: "Music",
+      IndexName: "GenreAndPriceIndex",
+      KeyConditionExpression: "Genre = :genre",
+      ExpressionAttributeValues: {
+          ":genre": "Rock"
+      },
+  };
+#+END_SRC
+* Attributes
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html
+- Also, the following characters have special meaning in DynamoDB: ~#~ (hash) and ~:~ (colon).
+- Although DynamoDB allows you to use these reserved words and special characters for names, we recommend that you avoid
+
+* Consistency
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html
+- DynamoDB supports eventually consistent and strongly consistent reads.
+
+* Capacity & Throughput
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/CapacityUnitCalculations.html
+
+- Read unit is 4 KB per second (twice when using eventually consistent reads, not strongly consistent reads)
+- Write unit is 1 KB per second
+- Each unit performs one request per second(if the operation requires the size less than the unit size)
+  . In other words, with 5 read capacity unit, you can handle 5 requests per second.
+- Options for determining throughput: Auto scaling, Provisioned, Reserved
+
+#+BEGIN_QUOTE
+Query—reads multiple items that have the same partition key value.
+*All of the items returned are treated as a single read operation*, where DynamoDB computes the total size of all items and then rounds up to the next 4 KB boundary.
+For example, suppose your query returns 10 items whose combined size is 40.8 KB.
+DynamoDB rounds the item size for the operation to 44 KB. If a query returns 1500 items of 64 bytes each, the cumulative size is 96 KB.
+#+END_QUOTE
+
+* Backup & Restore
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html
+* Pricing
+- Based on WCU(Write Capacity Unit), RCU(Read Capacity Unit), and Storage
+
+* Access and Permissions Based on IAM
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/specifying-conditions.html
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/api-permissions-reference.html
 
 #+BEGIN_QUOTE
 If you use ~dynamodb:Attributes~, you must specify the names of all of the primary key and index key attributes for the table and any secondary indexes that are listed the in the policy.
 Otherwise, DynamoDB can't use these key attributes to perform the requested action.
 #+END_QUOTE
+* Limits
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html
+
+* Best Practices
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BestPractices.html
