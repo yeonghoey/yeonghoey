@@ -4,7 +4,7 @@
 - [[#how-to][How-to]]
 - [[#reference][Reference]]
   - [[#cache-control][Cache Control]]
-- [[#topics][Topics]]
+  - [[#cookies][Cookies]]
 - [[#terminology][Terminology]]
   - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
   - [[#endpoint][Endpoint]]
@@ -38,7 +38,16 @@
   Cache-Control: s-maxage=<seconds>
 #+END_EXAMPLE
 
-* Topics
+** Cookies
+*** Set-Cookie
+#+BEGIN_EXAMPLE
+  Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly
+#+END_EXAMPLE
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies
+- Secure   :: The cookies that are set can only be sent over HTTPS
+- HttpOnly :: The cookies that are set cannot be retrieved with JS. Only be sent to the designated server.
+
 * Terminology
 ** URL vs URI vs URN
 - https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn

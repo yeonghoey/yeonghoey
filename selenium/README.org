@@ -1,0 +1,38 @@
+#+TITLE: Selenium
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#how-to][How-to]]
+  - [[#set-cookies][Set cookies]]
+- [[#links][Links]]
+
+* Overview
+- Install chromedriver with ~brew install chromedriver~
+
+#+BEGIN_SRC python
+  from selenium import webdriver
+
+  driver = webdriver.Chrome('chromedriver')
+
+  driver.get('https://google.com')
+  print(driver.page_source)
+#+END_SRC
+
+* How-to
+** Set cookies
+- http://selenium-python.readthedocs.io/navigating.html#cookies
+
+#+BEGIN_SRC python
+  # Go to the correct domain
+  driver.get("http://www.example.com")
+
+  # Now set the cookie. This one's valid for the entire domain
+  cookie = {'name': 'foo', 'value': 'bar'}
+  driver.add_cookie(cookie)
+
+  # And now output all the available cookies for the current URL
+  driver.get_cookies()
+#+END_SRC
+
+* Links
+- http://selenium-python.readthedocs.io/

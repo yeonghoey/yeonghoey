@@ -1,8 +1,44 @@
 #+TITLE: Amazon API Gateway
 
 * Table of Contents :TOC_2_gh:
-- [[#working][Working]]
+- [[#overview][Overview]]
+- [[#lambda-proxy-integrations][Lambda Proxy Integrations]]
 
-* TODO Working
+* Overview
 
 [[file:_img/screenshot_2016-12-22_21-19-33.png]]
+* Lambda Proxy Integrations
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
+
+#+BEGIN_QUOTE
+With the Lambda proxy integration, when a client submits an API request,
+API Gateway passes to the integrated Lambda function the raw request as-is.
+This request data includes the request headers, query string parameters, URL path variables, payload, and API configuration data.
+*The configuration data can include current deployment stage name, stage variables, user identity, or authorization context (if any)*
+#+END_QUOTE
+
+The request data format is:
+#+BEGIN_SRC json
+  {
+      "resource": "Resource path",
+      "path": "Path parameter",
+      "httpMethod": "Incoming request's method name"
+      "headers": {Incoming request headers}
+      "queryStringParameters": {query string parameters }
+      "pathParameters":  {path parameters}
+      "stageVariables": {Applicable stage variables}
+      "requestContext": {Request context, including authorizer-returned key-value pairs}
+      "body": "A JSON string of the request payload."
+      "isBase64Encoded": "A boolean flag to indicate if the applicable request payload is Base64-encode"
+  }
+#+END_SRC
+
+The desired output format is:
+#+BEGIN_SRC json
+  {
+      "isBase64Encoded": true|false,
+      "statusCode": httpStatusCode,
+      "headers": { "headerName": "headerValue", ... },
+      "body": "..."
+  }
+#+END_SRC
