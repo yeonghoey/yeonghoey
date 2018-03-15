@@ -1,8 +1,25 @@
 #+TITLE: FFmpeg
 
 * Table of Contents :TOC_2_gh:
- - [[#use-cases][Use Cases]]
-   - [[#extracting-audio-from-video][Extracting audio from video]]
+- [[#how-to][How-to]]
+  - [[#encode-html5-compatible-videos][Encode HTML5 compatible videos]]
+- [[#use-cases][Use Cases]]
+  - [[#extracting-audio-from-video][Extracting audio from video]]
+
+* How-to
+** Encode HTML5 compatible videos
+- https://gist.github.com/yellowled/1439610
+
+#+BEGIN_SRC shell
+  # webm
+  ffmpeg -i IN -f webm -vcodec libvpx -acodec libvorbis -ab 128000 -crf 22 -s 640x360 OUT.webm
+
+  # mp4
+  ffmpeg -i IN -acodec aac -strict experimental -ac 2 -ab 128k -vcodec libx264 -vpre slow -f mp4 -crf 22 -s 640x360 OUT.mp4
+
+  # ogg (if you want to support older Firefox)
+  ffmpeg2theora IN -o OUT.ogv -x 640 -y 360 --videoquality 5 --audioquality 0  --frontend
+#+END_SRC
 
 * Use Cases
 ** Extracting audio from video
