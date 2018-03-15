@@ -1,0 +1,64 @@
+#+TITLE: OS
+
+* Table of Contents :TOC_3_gh:
+- [[#topics][Topics]]
+  - [[#cpu-os-and-applications][CPU, OS and Applications]]
+    - [[#early-single-tasking-oses][Early single tasking OSes]]
+    - [[#modern-multi-tasking-oses][Modern multi tasking OSes]]
+    - [[#the-program-loader][The Program Loader]]
+    - [[#compatibility-across-os-and-cpu-types][Compatibility across OS and CPU types]]
+  - [[#what-do-i386-and-amd64-stand-for][What do i386 and amd64 stand for?]]
+
+* Topics
+** CPU, OS and Applications
+- https://softwareengineering.stackexchange.com/questions/247183/why-is-software-os-specific/247187
+
+[[file:_img/screenshot_2018-03-15_12-01-09.png]]
+
+
+*** Early single tasking OSes
+- https://en.wikipedia.org/wiki/Protection_ring
+
+[[file:_img/screenshot_2018-03-15_12-01-52.png]]
+
+#+BEGIN_QUOTE
+In very early DOS and other early single tasking based systems all code was run in the inner ring(kernel), (...)
+~This code was in fact largely OS agnostic~,
+as long as you had a loader capable of loading the program into memory (pretty simple for early binary formats)
+and the code did not rely on any drivers
+#+END_QUOTE
+
+*** Modern multi tasking OSes
+#+BEGIN_QUOTE
+Each OS decided on a different implementation for these protections (...)
+These OS specific interactions are usually called "*system calls*" and encompass how a user space program interacts with the hardware through the OS completely
+#+END_QUOTE
+
+*** The Program Loader
+- https://en.wikipedia.org/wiki/Loader_%28computing%29
+
+#+BEGIN_QUOTE
+In addition to system calls, each OS provides a different method to load a program from the secondary storage medium and into memory,
+in order to be loadable by a specific OS the program must contain a special header which describes to the OS how it may be loaded and run.
+#+END_QUOTE
+
+*** Compatibility across OS and CPU types
+- https://www.techsupportalert.com/content/32-bit-and-64-bit-explained.htm
+
+[[file:_img/screenshot_2018-03-15_12-14-18.png]]
+** What do i386 and amd64 stand for?
+- https://askubuntu.com/questions/54296/difference-between-the-i386-download-and-the-amd64
+
+#+BEGIN_QUOTE
+The Intel ~80386~, also known as the ~i386~, or just ~386~, was a 32-bit microprocessor introduced by Intel in 1985...
+This is termed ~x86~, ~IA-32~, or the ~i386-architecture~, depending on context.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+~x86-64~ is an extension of the x86 instruction set.
+It supports vastly larger virtual and physical address spaces than are possible on x86, thereby allowing programmers to conveniently work with much larger data sets..
+ After launching the architecture under the ~"x86-64~" name, AMD renamed it ~AMD64~... ~x86-64~ is still used by many in the industry as a vendor-neutral term,
+while others, notably Sun Microsystems (now Oracle Corporation) and Microsoft, use ~x64~.
+#+END_QUOTE
+
+*Even if you have an intel CPU, you should use AMD64 to install 64-bit on your computer* (it uses the same instruction sets).
