@@ -1,0 +1,24 @@
+#+TITLE: brew
+
+* Table of Contents :TOC_3_gh:
+- [[#cask][cask]]
+
+* cask
+#+BEGIN_SRC shell
+  brew cask upgrade anki
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ brew cask info anki                                                      1 ↵
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  anki: 2.0.50
+  https://apps.ankiweb.net/
+  /usr/local/Caskroom/anki/2.0.47 (64B)
+  From: https://github.com/caskroom/homebrew-cask/blob/master/Casks/anki.rb
+  ==> Name
+  Anki
+  ==> Artifacts
+  Anki.app (App)
+#+END_EXAMPLE

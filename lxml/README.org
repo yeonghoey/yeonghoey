@@ -1,0 +1,34 @@
+#+TITLE: lxml
+
+* Table of Contents :TOC_3_gh:
+- [[#overview][Overview]]
+- [[#how-to][How-to]]
+  - [[#remove-all-tags-except-their-texts][Remove all tags except their texts]]
+
+* Overview
+- http://lxml.de/tutorial.html
+
+#+BEGIN_SRC python
+  from lxml import etree
+  s = "<root>data</root>"
+
+  root = etree.fromstring(s)
+  print(root.tag)             # root
+  print(root.text)            # data
+#+END_SRC
+
+#+BEGIN_SRC python
+  tree = etree.parse(some_file_or_file_like_object)
+#+END_SRC
+
+* How-to
+** Remove all tags except their texts
+- http://lxml.de/api/lxml.html.clean.Cleaner-class.html
+
+#+BEGIN_SRC python
+  import lxml
+  from lxml.html.clean import Cleaner
+  cleaner = Cleaner()
+  cleaner.remove_tags = ['p']
+  remove_tags:
+#+END_SRC
