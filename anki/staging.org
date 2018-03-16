@@ -3,3 +3,5 @@
 
 ** TODO <2018-01-17 Wed> Anki hr id=answer
 [[file:_img/screenshot_2018-02-27_09-05-53.png]]
+** Limits
+- https://anki.tenderapp.com/kb/anki-ecosystem/are-there-limits-on-file-sizes-on-ankiweb

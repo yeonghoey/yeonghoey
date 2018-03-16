@@ -40,3 +40,5 @@ twine upload sit/* # upload
 https://packaging.python.org/tutorials/distributing-packages/
 $HOME/.pipyrc 설정해야 함
 
+** Mixins
+- https://www.ianlewis.org/en/mixins-and-python

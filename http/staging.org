@@ -4,3 +4,8 @@
 - www.example.com.  Absolute domain name
 - www.example.com  Relative domain name, which, after applying the "." that's always implicitly in everyone's DNS searchlist, becomes www.example.com.
 - www with "example.com" in DNS searchlist  user types "www" and gets www.example.com.
+** URL rewriting
+- https://wordpress.stackexchange.com/questions/53474/permalink-format-singular-or-plural
+
+** Tokens vs. Cookies
+- https://auth0.com/blog/cookies-vs-tokens-definitive-guide/

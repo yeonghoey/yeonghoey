@@ -22,4 +22,5 @@
 * Links
 - https://wiki.qt.io/Qt_for_Beginners
 - http://pyqt.sourceforge.net/Docs/PyQt5/sip-classes.html
+- https://www.ics.com/designpatterns/book/spacers.html
 

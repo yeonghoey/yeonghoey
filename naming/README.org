@@ -1,0 +1,12 @@
+#+TITLE: Naming
+
+* Table of Contents :TOC_3_gh:
+- [[#cross-platform-safe-file-names][Cross-platform safe file names]]
+
+* Cross-platform safe file names
+- https://superuser.com/questions/358855/what-characters-are-safe-in-cross-platform-file-names-for-linux-windows-and-os
+
+[[file:_img/screenshot_2018-03-16_10-21-18.png]]
+
+- Windows(NTFS and VFAT) and Mac(HFS+, etc) are usually not case-sensitive, they are just case-preserving.
+- Linux(like ext4) is case sensitive.
