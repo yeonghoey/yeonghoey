@@ -1,8 +1,27 @@
 #+TITLE: GitHub
 
 * Table of Contents                                                :TOC_1_gh:
+- [[#rest-api-v3][REST API v3]]
 - [[#github-markup][GitHub Markup]]
 - [[#github-pages][GitHub Pages]]
+
+* REST API v3
+- https://developer.github.com/v3/
+
+** OAuth
+- https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/
+- https://developer.github.com/apps/building-oauth-apps/authorization-options-for-oauth-apps/
+- https://github.com/settings/developers
+
+*** Validate OAuth token
+- https://developer.github.com/v3/oauth_authorizations/#check-an-authorization
+
+#+BEGIN_SRC http
+  # Use Basic Auth with:
+  # username: <client_id>
+  # password: <client_secret>
+  GET /applications/:client_id/tokens/:access_token
+#+END_SRC
 
 * GitHub Markup
 - https://github.com/github/markup
