@@ -39,6 +39,15 @@
 #+END_EXAMPLE
 
 ** Cookies
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+- https://stackoverflow.com/questions/1336126/does-every-web-request-send-the-browser-cookies
+
+#+BEGIN_QUOTE
+Yes, as long as the URL requested is within the same domain and path defined in the cookie
+(and all of the other restrictions -- secure, httponly, not expired, etc) hold,
+then the cookie will be sent for every request.
+#+END_QUOTE
+
 *** Set-Cookie
 #+BEGIN_EXAMPLE
   Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly

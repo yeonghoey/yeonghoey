@@ -4,11 +4,19 @@
 - [[#rest-api-v3][REST API v3]]
 - [[#github-markup][GitHub Markup]]
 - [[#github-pages][GitHub Pages]]
+- [[#reserved-usernames][Reserved usernames]]
 
 * REST API v3
 - https://developer.github.com/v3/
 
-** OAuth
+By default using ~https://api.github.com~, you request to v3 API.
+To specify the version explicitly:
+#+BEGIN_EXAMPLE
+  Accept: application/vnd.github.v3+json
+#+END_EXAMPLE
+
+** Auth
+- https://developer.github.com/v3/guides/basics-of-authentication/
 - https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/
 - https://developer.github.com/apps/building-oauth-apps/authorization-options-for-oauth-apps/
 - https://github.com/settings/developers
@@ -55,3 +63,5 @@
 - https://help.github.com/articles/setting-up-a-custom-subdomain/
 
 [[file:_img/screenshot_2017-02-15_07-49-08.png]]
+* Reserved usernames
+- https://github.com/shouldbee/reserved-usernames/blob/master/reserved-usernames.csv

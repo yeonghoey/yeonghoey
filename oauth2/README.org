@@ -4,6 +4,9 @@
 - [[#overview][Overview]]
 - [[#concepts][Concepts]]
   - [[#state][state]]
+  - [[#grant-types][Grant Types]]
+    - [[#authorization-code-grant][Authorization Code Grant]]
+    - [[#implicit-grant][Implicit Grant]]
   - [[#refresh-tokens][Refresh Tokens]]
 - [[#links][Links]]
 
@@ -37,6 +40,77 @@ This ensures *your redirection endpoint isn't able to be tricked* into attemptin
 This prevents CSRF(Cross Site Request Forgery), which let the victim login as the attacker.
 
 [[file:_img/screenshot_2018-03-05_18-57-46.png]]
+
+** Grant Types
+
+*** Authorization Code Grant
+- https://tools.ietf.org/html/rfc6749#section-4.1
+
+#+BEGIN_EXAMPLE
+       +----------+
+       | Resource |
+       |   Owner  |
+       |          |
+       +----------+
+            ^
+            |
+           (B)
+       +----|-----+          Client Identifier      +---------------+
+       |         -+----(A)-- & Redirection URI ---->|               |
+       |  User-   |                                 | Authorization |
+       |  Agent  -+----(B)-- User authenticates --->|     Server    |
+       |          |                                 |               |
+       |         -+----(C)-- Authorization Code ---<|               |
+       +-|----|---+                                 +---------------+
+         |    |                                         ^      v
+        (A)  (C)                                        |      |
+         |    |                                         |      |
+         ^    v                                         |      |
+       +---------+                                      |      |
+       |         |>---(D)-- Authorization Code ---------'      |
+       |  Client |          & Redirection URI                  |
+       |         |                                             |
+       |         |<---(E)----- Access Token -------------------'
+       +---------+       (w/ Optional Refresh Token)
+#+END_EXAMPLE
+
+*** Implicit Grant
+- https://tools.ietf.org/html/rfc6749#section-4.2
+
+#+BEGIN_EXAMPLE
+  +----------+
+  | Resource |
+  |  Owner   |
+  |          |
+  +----------+
+       ^
+       |
+      (B)
+  +----|-----+          Client Identifier     +---------------+
+  |         -+----(A)-- & Redirection URI --->|               |
+  |  User-   |                                | Authorization |
+  |  Agent  -|----(B)-- User authenticates -->|     Server    |
+  |          |                                |               |
+  |          |<---(C)--- Redirection URI ----<|               |
+  |          |          with Access Token     +---------------+
+  |          |            in Fragment
+  |          |                                +---------------+
+  |          |----(D)--- Redirection URI ---->|   Web-Hosted  |
+  |          |          without Fragment      |     Client    |
+  |          |                                |    Resource   |
+  |     (F)  |<---(E)------- Script ---------<|               |
+  |          |                                +---------------+
+  +-|--------+
+    |    |
+   (A)  (G) Access Token
+    |    |
+    ^    v
+  +---------+
+  |         |
+  |  Client |
+  |         |
+  +---------+
+#+END_EXAMPLE
 
 ** Refresh Tokens
 - https://auth0.com/learn/refresh-tokens/
