@@ -33,13 +33,11 @@
   https://example-app.com/cb?code=AUTH_CODE_HERE&state=1234zyx
 #+END_EXAMPLE
 
-- *You should first compare this ~state~ value to ensure it matches the one you started with.*
-- You can typically store *the ~state~ value in a cookie or session, and compare it when the user comes back.*
+- You should first compare this ~state~ value to ensure it matches the one you started with.
+- You can typically store the ~state~ value in a cookie or session, and compare it when the user comes back.
 
 This ensures *your redirection endpoint isn't able to be tricked* into attempting to exchange arbitrary authorization codes.
 This prevents CSRF(Cross Site Request Forgery), which let the victim login as the attacker.
-
-[[file:_img/screenshot_2018-03-05_18-57-46.png]]
 
 ** Grant Types
 *** Authorization Code Grant
