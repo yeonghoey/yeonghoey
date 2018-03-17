@@ -81,6 +81,13 @@
   +---------+
 #+END_EXAMPLE
 
+- https://aaronparecki.com/oauth-2-simplified/#single-page-apps
+#+BEGIN_QUOTE
+Note: Previously, it was recommended that browser-based apps use the "Implicit" flow, which returns an access token immediately and does not have a token exchange step.
+In the time since the spec was originally written, the industry best practice has changed to recommend that the authorization code flow be used without the client secret.
+This provides more opportunities to create a secure flow, such as using the state parameter. References: Redhat, Deutsche Telekom, Smart Health IT.
+#+END_QUOTE
+
 ** Authorization Code Grant
 
 ** Implicit Grant
