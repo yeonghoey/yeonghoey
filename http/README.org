@@ -17,6 +17,29 @@
 * Topics
 ** Web Storage vs. Cookies
 - https://auth0.com/docs/security/store-tokens
+- https://stackoverflow.com/questions/35291573/csrf-protection-with-json-web-tokens
+
+Does your authn token protect anything to do with money?
+- You'll probably want the cookie httpOnly secure option.
+
+Is the level of effort required to implement CSRF protection not worth the assets it's protecting?
+- Then the Web Storage might be the right place.
+
+*** Web Storage
+There are two types of Web Storage:
+- localStorage   :: data persists until explicitly deleted.
+- sessionStorage :: Once the window is closed, the storage is deleted.
+
+Web Storage is safe from CSRF attacks, since it doesn't automatically send its contents.
+
+However, there are some disadvantages compared to Cookies:
+- sandboxed to a specific domain
+- accessible through JS, which means that it's vulnerable to XSS attacks
+
+*** Cookies
+Disadvantages compared to Web Storages:
+- 4KB of max size (it counts all elements like name, value, expiry date)
+- vulnerable to CSRF attacks
 
 ** XSS (Cross-site scripting)
 - https://en.wikipedia.org/wiki/Cross-site_scripting
