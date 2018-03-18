@@ -79,6 +79,8 @@ this indicates whether or not the actual request can be made using credentials.
 If this response doesn't contain ~Access-Control-Allow-Credentials: true~,
 it won't provide the actual response.
 
+The cookie created through this process will be treated as the third party cookie.
+
 *** Same-origin policy
 - https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
 - https://security.stackexchange.com/questions/8264/why-is-the-same-origin-policy-so-important
