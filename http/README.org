@@ -4,6 +4,7 @@
 - [[#how-to][How-to]]
 - [[#topics][Topics]]
   - [[#web-storage-vs-cookies][Web Storage vs. Cookies]]
+  - [[#cors-cross-origin-resource-sharing][CORS (Cross Origin Resource Sharing)]]
   - [[#xss-cross-site-scripting][XSS (Cross-site scripting)]]
   - [[#csrf-cross-site-request-forgery][CSRF (Cross-site request forgery)]]
 - [[#reference][Reference]]
@@ -40,6 +41,59 @@ However, there are some disadvantages compared to Cookies:
 Disadvantages compared to Web Storages:
 - 4KB of max size (it counts all elements like name, value, expiry date)
 - vulnerable to CSRF attacks
+
+** CORS (Cross Origin Resource Sharing)
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
+CORS is for invocations of the [[https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest][XMLHttpRequest]] or [[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API][Fetch API]], and other resources like images and fonts.
+
+*** Simple Requests
+With some limited conditions, CORS works as normal requests by just adding some headers 
+like ~Origin~ on requests and ~Access-Control-Allow-Origin~ on responses.
+This type of requests is usually a kind of read access, like ~GET~, ~HEAD~, ~POST~
+
+*** Preflighted Requests
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS
+
+If some requests is unable to comply the simple requests conditions, it should go with Preflighted Requests.
+With this process, the client sends an ~OPTION~ request first, and make the actual request using the ~OPTION~ response.
+This type of requests is usually a kind of write access, like ~PUT~, ~DELETE~
+
+When you send an ~OPTION~ request, you should include some headers like ~Access-Control-Request-Method~, ~Access-Control-Request-Headers~
+Here is an example respond of the ~OPTION~ request.
+#+BEGIN_EXAMPLE
+  Access-Control-Allow-Origin: http://foo.example
+  Access-Control-Allow-Methods: POST, GET, OPTIONS
+  Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
+  Access-Control-Max-Age: 86400
+#+END_EXAMPLE
+
+*** XMLHttpRequest.withCredentials and Access-Control-Allow-Credentials
+- https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
+
+If ~withCredentials~ is set to ~true~ on the request, 
+
+~Access-Control-Allow-Credentials~: When used as part of a response to a preflight request,
+this indicates whether or not the actual request can be made using credentials.
+If this response doesn't contain ~Access-Control-Allow-Credentials: true~,
+it won't provide the actual response.
+
+*** Same-origin policy
+- https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+- https://security.stackexchange.com/questions/8264/why-is-the-same-origin-policy-so-important
+- https://en.wikipedia.org/wiki/Same-origin_policy
+
+#+BEGIN_QUOTE
+The same-origin policy is a key mechanism implemented within browsers
+that is designed to keep content that came from different origins
+from interfering with each other.
+#+END_QUOTE
+
+Without Same-origin policy, any JS code would access other domains resources. 
+
+[[file:_img/screenshot_2018-03-19_01-16-27.png]]
+
 
 ** XSS (Cross-site scripting)
 - https://en.wikipedia.org/wiki/Cross-site_scripting
