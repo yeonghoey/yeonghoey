@@ -2,7 +2,7 @@
 
 - https://www.coursera.org/learn/neural-networks-deep-learning
 
-- Week 1 :: [[week1.org][Introduction to Deep Learning]]
-- Week 2 :: [[week2.org][Neural Networks Basics]]
-- Week 3 :: [[week3.org][Shallow Neural Networks]]
-- Week 4 :: [[week4.org][Deep Neural Networks]]
+- Week 1 :: [[week1][Introduction to Deep Learning]]
+- Week 2 :: [[week2][Neural Networks Basics]]
+- Week 3 :: [[week3][Shallow Neural Networks]]
+- Week 4 :: [[week4][Deep Neural Networks]]

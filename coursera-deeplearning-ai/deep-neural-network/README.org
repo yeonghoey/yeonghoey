@@ -8,6 +8,6 @@
 
 The second course of Deep Learning Specialization in Coursera.
 
-- Week 1 :: [[week1.org][Practical aspects of Deep Learning]]
-- Week 2 :: [[week2.org][Optimization algorithms]]
-- Week 3 :: [[week3.org][Hyperparameter tuning, Batch Normalization and Programming Frameworks]]
+- Week 1 :: [[week1][Practical aspects of Deep Learning]]
+- Week 2 :: [[week2][Optimization algorithms]]
+- Week 3 :: [[week3][Hyperparameter tuning, Batch Normalization and Programming Frameworks]]

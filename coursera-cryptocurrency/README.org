@@ -6,8 +6,8 @@
 * Overview
 - https://www.coursera.org/learn/cryptocurrency
 
-- Week 1 :: [[week1.org][Introduction to Crypto and Cryptocurrencies]]
-- Week 2 :: [[week2.org][How Bitcoin Achieves Decentralization]]
-- Week 3 :: [[week3.org][Mechanics of Bitcoin]]
-- Week 4 :: [[week4.org][How to Store and Use Bitcoins]]
-- Week 5 :: [[week5.org][Bitcoin Mining]]
+- Week 1 :: [[week1][Introduction to Crypto and Cryptocurrencies]]
+- Week 2 :: [[week2][How Bitcoin Achieves Decentralization]]
+- Week 3 :: [[week3][Mechanics of Bitcoin]]
+- Week 4 :: [[week4][How to Store and Use Bitcoins]]
+- Week 5 :: [[week5][Bitcoin Mining]]
