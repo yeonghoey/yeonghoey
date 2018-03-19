@@ -4,6 +4,7 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#serverlessyml][serverless.yml]]
+  - [[#serverless-python-requirements][serverless-python-requirements]]
 - [[#topics][Topics]]
   - [[#services][Services]]
     - [[#serverlessyml-1][serverless.yml]]
@@ -12,6 +13,7 @@
   - [[#resources][Resources]]
   - [[#deploying][Deploying]]
   - [[#packaging][Packaging]]
+  - [[#plugins][Plugins]]
 - [[#how-to][How-to]]
   - [[#deploy-flask-app][Deploy Flask App]]
 
@@ -23,6 +25,12 @@
 * Reference
 ** serverless.yml
 - https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
+
+** serverless-python-requirements
+- https://github.com/UnitedIncome/serverless-python-requirements
+- https://serverless.com/blog/serverless-python-packaging/
+
+- Supports ~Pipenv~
 
 * Topics
 ** Services
@@ -95,9 +103,13 @@ At first it will apply the globs defined in ~exclude~. After that it'll add all 
     include:
       - src/function/handler.js
 #+END_SRC
+** Plugins
+- https://github.com/serverless/plugins
+
 
 * How-to
 ** Deploy Flask App
+- https://serverless.com/blog/serverless-python-packaging/
 - https://serverless.com/blog/flask-python-rest-api-serverless-lambda-dynamodb/
 
 #+BEGIN_SRC shell
