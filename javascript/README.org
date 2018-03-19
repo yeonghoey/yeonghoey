@@ -4,6 +4,7 @@
 - [[#syntax][Syntax]]
   - [[#for][for]]
   - [[#function][function]]
+    - [[#hoisting][hoisting]]
   - [[#switch][switch]]
   - [[#function-1][function]]
   - [[#class][class]]
@@ -113,6 +114,15 @@
     return result; // if we use figure brackets, use return to get results
   };
 #+END_SRC
+
+*** hoisting
+- https://gist.github.com/maxogden/4bed247d9852de93c94c
+
+There is also function hoisting. A crude timeline of how JS gets executed:
+1. Parse the scope and detect all function definitions
+2. Execute the code top-to-bottom with all functions found in step 1 available as variables. following cases are exceptions:
+   - Assignments are not evaluated until the code is executed.
+   - Wrapping a function in parenthesis (~()~) is a quick way to convert a function definition into a function expression
 
 ** switch
 - https://javascript.info/switch
