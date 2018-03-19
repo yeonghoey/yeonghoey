@@ -1,8 +1,21 @@
 #+TITLE: flask
 
-* Table of Contents :TOC_1_gh:
+* Table of Contents :TOC_3_gh:
 - [[#reference][Reference]]
+  - [[#flask][Flask]]
+  - [[#request][request]]
+  - [[#multidict][MultiDict]]
+  - [[#url_for][url_for]]
+- [[#topics][Topics]]
+  - [[#cookies][Cookies]]
+  - [[#http-methods][HTTP Methods]]
+  - [[#redirects-and-erros][Redirects and Erros]]
+  - [[#responses][Responses]]
+  - [[#routing][Routing]]
+  - [[#sessions][Sessions]]
+  - [[#static-files][Static Files]]
 - [[#patterns][Patterns]]
+  - [[#application-factories][Application Factories]]
 
 * Reference
 ** Flask
@@ -64,6 +77,120 @@ This is better than hard-coded URLs as following reasons:
 1. Reversing is often more descriptive
 2. URL building will handle escaping
 3. If your application is placed outside the URL root
+
+* Topics
+** Cookies
+- http://flask.pocoo.org/docs/0.12/quickstart/#cookies
+#+BEGIN_SRC python
+  request.cookies.get('username')
+#+END_SRC
+
+#+BEGIN_SRC python
+  resp = make_response(render_template(...))
+  resp.set_cookie('username', 'the username')
+#+END_SRC
+
+** HTTP Methods
+- http://flask.pocoo.org/docs/0.12/quickstart/#http-methods
+- OPTIONS :: Starting with Flask 0.6, this is implemented for you automatically.
+
+** Redirects and Erros
+- http://flask.pocoo.org/docs/0.12/quickstart/#cookies
+
+#+BEGIN_SRC python
+  from flask import abort, redirect, render_template, url_for
+
+  @app.route('/')
+  def index():
+      return redirect(url_for('login'))
+
+  @app.route('/login')
+  def login():
+      abort(401)
+      this_is_never_executed()
+
+  @app.errorhandler(404)
+  def page_not_found(error):
+      return render_template('page_not_found.html'), 404
+#+END_SRC
+
+** Responses
+- http://flask.pocoo.org/docs/0.12/quickstart/#about-responses
+
+
+1. response object :: just return
+2. string :: create a response object with it
+3. tuple  :: ~(response, status, headers)~ or ~(response, headers)~, ~headers~ can be a ~list~ or a ~dict~.
+4. WSGI application :: covert it to a response object.
+
+** Routing
+- http://flask.pocoo.org/docs/0.12/quickstart/#routing
+
+#+BEGIN_SRC python
+  @app.route('/')
+  def index():
+      pass
+
+  @app.route('/hello')
+  def hello():
+      pass
+
+  @app.route('/user/<username>')
+  def show_user_profile(username):
+      pass
+
+  @app.route('/post/<int:post_id>')
+  def show_post(post_id):
+      pass
+#+END_SRC
+
+Trailing slashs:
+#+BEGIN_SRC python
+  @app.route('/projects/')
+  def projects():
+      return 'The project page'
+
+  @app.route('/about')
+  def about():
+      return 'The about page'
+#+END_SRC
+
+- routes defined with trailing slash    :: ~/projects~ is redirected to ~/projects/~
+- routes defined without trailing slash :: ~/about/~ goes to ~404~
+
+** Sessions
+- http://flask.pocoo.org/docs/0.12/quickstart/#sessions
+- On top of cookies, encrypted with a secret key.
+
+#+BEGIN_SRC python
+  from flask import Flask, session, redirect, url_for, escape, request
+
+  app = Flask(__name__)
+
+  @app.route('/')
+  def index():
+      if 'username' in session:
+          return 'Logged in as %s' % escape(session['username'])
+      return 'You are not logged in'
+
+  # set the secret key.  keep this really secret:
+  app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+#+END_SRC
+
+#+BEGIN_SRC python
+  >>> import os
+  >>> os.urandom(24)
+  '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
+
+  Just take that thing and copy/paste it into your code and you're done.
+#+END_SRC
+
+** Static Files
+- http://flask.pocoo.org/docs/0.12/quickstart/#static-files
+
+#+BEGIN_SRC python
+  url_for('static', filename='style.css')
+#+END_SRC
 
 * Patterns
 ** Application Factories
