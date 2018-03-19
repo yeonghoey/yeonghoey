@@ -2,12 +2,38 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
-- [[#lambda-proxy-integrations][Lambda Proxy Integrations]]
+- [[#topics][Topics]]
+  - [[#deployments][Deployments]]
+  - [[#lambda-proxy-integrations][Lambda Proxy Integrations]]
 
 * Overview
+[[file:_img/screenshot_2018-03-19_17-20-27.png]]
 
 [[file:_img/screenshot_2016-12-22_21-19-33.png]]
-* Lambda Proxy Integrations
+* Topics
+** Deployments
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html
+- Deployment :: assoicated with a stage
+- Stage :: a snapshot of API
+  - adjusting the default account-level
+  - request throttling limits 
+  - enabling API caching. 
+  - Stages enable robust version control of your API
+- [[https://docs.aws.amazon.com/apigateway/latest/developerguide/canary-release.html][Canary release]] :: updated version on the same stage
+
+*** Throttling
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
+
+*** Caching
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
+
+*** Logging
+*** Variables
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/stage-variables.html
+- Using stage variables you can configure an API deployment stage to interact with different backend endpoints.
+- When you call your ~beta~ endpoint, API Gateway uses the stage variable for the ~beta~ stage, and calls a different web host (for example, ~beta.example.com~)
+
+** Lambda Proxy Integrations
 - https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
 
 #+BEGIN_QUOTE
