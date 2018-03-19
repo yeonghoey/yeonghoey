@@ -1,0 +1,19 @@
+* Docker Machine
+- https://docs.docker.com/machine/get-started/#create-a-machine
+
+#+BEGIN_SRC shell
+  docker-machine create --driver virtualbox default
+#+END_SRC
+
+#+BEGIN_SRC shell
+  docker-machine env default
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+   export DOCKER_TLS_VERIFY="1"
+   export DOCKER_HOST="tcp://172.16.62.130:2376"
+   export DOCKER_CERT_PATH="/Users/<yourusername>/.docker/machine/machines/default"
+   export DOCKER_MACHINE_NAME="default"
+   # Run this command to configure your shell:
+   # eval "$(docker-machine env default)"
+#+END_EXAMPLE
