@@ -1,23 +1,105 @@
 #+TITLE: flask
 
-* Table of Contents :TOC_3_gh:
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#config][Config]]
   - [[#flask][Flask]]
+  - [[#g][g]]
+  - [[#open_resource][open_resource]]
   - [[#request][request]]
   - [[#multidict][MultiDict]]
   - [[#url_for][url_for]]
 - [[#topics][Topics]]
+  - [[#application-context][Application Context]]
+  - [[#commands][Commands]]
   - [[#cookies][Cookies]]
   - [[#http-methods][HTTP Methods]]
+  - [[#message-flashing][Message Flashing]]
   - [[#redirects-and-erros][Redirects and Erros]]
+  - [[#request-context][Request Context]]
   - [[#responses][Responses]]
   - [[#routing][Routing]]
   - [[#sessions][Sessions]]
+  - [[#signals][Signals]]
   - [[#static-files][Static Files]]
+  - [[#templates][Templates]]
 - [[#patterns][Patterns]]
   - [[#application-factories][Application Factories]]
 
+* Overview
+#+BEGIN_EXAMPLE
+  /<project-root>
+    /<package>
+      __init__.py
+      /static
+      /templates
+    setup.py
+    MANIFEST.in
+#+END_EXAMPLE
+
+~setup.py~:
+#+BEGIN_SRC python
+  from setuptools import setup
+
+  setup(
+      name='flaskr',
+      packages=['flaskr'],
+      include_package_data=True,
+      install_requires=[
+          'flask',
+      ],
+      setup_requires=[
+          'pytest-runner',
+      ],
+      tests_require=[
+          'pytest',
+      ],
+  )
+#+END_SRC
 * Reference
+** Config
+- http://flask.pocoo.org/docs/0.12/api/#flask.Config
+- http://flask.pocoo.org/docs/0.12/config/#builtin-configuration-values
+- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.default_config
+
+
+- Load from a ~.cfg~ file
+- The configuration files themselves are actual Python files.
+- Only values in uppercase are actually stored in the config object later on.
+#+BEGIN_SRC python
+  app.config.from_pyfile('yourconfig.cfg')
+#+END_SRC
+
+- Load from the current python module
+#+BEGIN_SRC python
+  # Only uppercase keys are added to the config
+  DEBUG = True
+  SECRET_KEY = 'development key'
+  app.config.from_object(__name__)
+#+END_SRC
+
+- Load from a file of which name is specified by env
+#+BEGIN_SRC python
+  export YOURAPPLICATION_SETTINGS='/path/to/config/file'
+  app.config.from_envvar('YOURAPPLICATION_SETTINGS')
+#+END_SRC
+
+Certain configuration values are also forwarded to the Flask object so you can read and write them from there:
+#+BEGIN_SRC python
+  app = Flask(__name__)
+  app.config['DEBUG'] = True
+
+  # equivalent to above
+  app.debug = True
+#+END_SRC
+
+#+BEGIN_SRC python
+  app = Flask(__name__)
+  app.config.from_object('yourapplication.default_settings')
+  app.config.from_envvar('YOURAPPLICATION_SETTINGS') # overrides
+#+END_SRC
+
 ** Flask
 - http://flask.pocoo.org/docs/0.12/api/#application-object
 
@@ -30,6 +112,37 @@
 If you are using a single module, ~name~ is always the correct value.
 If you however are using a package, it’s usually recommended to *hardcode the name of your package* there.
 #+END_QUOTE
+
+** g
+- http://flask.pocoo.org/docs/0.12/api/#flask.g
+
+#+BEGIN_QUOTE
+Stored on the application context and no longer on the request context which means it becomes available
+if only the application context is bound and not yet a request. 
+#+END_QUOTE
+** open_resource
+- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.open_resource
+
+#+BEGIN_EXAMPLE
+  /myapplication.py
+  /schema.sql
+  /static
+      /style.css
+  /templates
+      /layout.html
+      /index.html
+#+END_EXAMPLE
+
+- http://flask.pocoo.org/docs/0.12/api/#flask.Flask
+#+BEGIN_QUOTE
+The name of the package is used to resolve resources from inside the package or the folder the module is contained in
+#+END_QUOTE
+
+#+BEGIN_SRC python
+  with app.open_resource('schema.sql') as f:
+      contents = f.read()
+      do_something_with(contents)
+#+END_SRC
 
 ** request
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request
@@ -79,6 +192,49 @@ This is better than hard-coded URLs as following reasons:
 3. If your application is placed outside the URL root
 
 * Topics
+** Application Context
+- http://flask.pocoo.org/docs/0.12/appcontext/
+- Since one of the pillars of Flask’s design is that you can have more than one application in the same Python process.
+
+#+BEGIN_SRC python
+  from flask import Flask, current_app
+
+  app = Flask(__name__)
+  with app.app_context():
+      # within this block, current_app points to app.
+      print current_app.name
+#+END_SRC
+
+#+BEGIN_SRC python
+  import sqlite3
+  from flask import g
+
+  def get_db():
+      db = getattr(g, '_database', None)
+      if db is None:
+          db = g._database = connect_to_database()
+      return db
+
+  @app.teardown_appcontext
+  def teardown_db(exception):
+      db = getattr(g, '_database', None)
+      if db is not None:
+          db.close()
+#+END_SRC
+
+** Commands
+- http://flask.pocoo.org/docs/0.12/tutorial/dbinit/#tutorial-dbinit
+
+#+BEGIN_SRC python
+  @app.cli.command('initdb')
+  def initdb_command():
+      pass
+#+END_SRC
+
+#+BEGIN_SRC shell
+  $ flask initdb
+#+END_SRC
+
 ** Cookies
 - http://flask.pocoo.org/docs/0.12/quickstart/#cookies
 #+BEGIN_SRC python
@@ -93,6 +249,23 @@ This is better than hard-coded URLs as following reasons:
 ** HTTP Methods
 - http://flask.pocoo.org/docs/0.12/quickstart/#http-methods
 - OPTIONS :: Starting with Flask 0.6, this is implemented for you automatically.
+
+** Message Flashing
+- http://flask.pocoo.org/docs/0.12/patterns/flashing/#message-flashing-pattern
+
+#+BEGIN_SRC python
+  flash('You were successfully logged in')
+  return redirect(url_for('index'))
+
+  @app.route('/')
+  def index():
+      return render_template('index.html')
+#+END_SRC
+
+The template cotains following code:
+#+BEGIN_SRC html
+  {% with messages = get_flashed_messages() %}
+#+END_SRC
 
 ** Redirects and Erros
 - http://flask.pocoo.org/docs/0.12/quickstart/#cookies
@@ -112,6 +285,20 @@ This is better than hard-coded URLs as following reasons:
   @app.errorhandler(404)
   def page_not_found(error):
       return render_template('page_not_found.html'), 404
+#+END_SRC
+
+** Request Context
+- http://flask.pocoo.org/docs/0.12/reqcontext/
+- The request context internally works like a stack
+
+#+BEGIN_SRC python
+  def wsgi_app(self, environ):
+      with self.request_context(environ):
+          try:
+              response = self.full_dispatch_request()
+          except Exception as e:
+              response = self.make_response(self.handle_exception(e))
+          return response(environ, start_response)
 #+END_SRC
 
 ** Responses
@@ -185,6 +372,45 @@ Trailing slashs:
   Just take that thing and copy/paste it into your code and you're done.
 #+END_SRC
 
+** Signals
+- http://flask.pocoo.org/docs/0.12/signals/
+- http://flask.pocoo.org/docs/0.12/api/#core-signals-list
+
+#+BEGIN_SRC python
+  from flask import template_rendered
+  from contextlib import contextmanager
+
+  @contextmanager
+  def captured_templates(app):
+      recorded = []
+      def record(sender, template, context, **extra):
+          recorded.append((template, context))
+      template_rendered.connect(record, app)
+      try:
+          yield recorded
+      finally:
+          template_rendered.disconnect(record, app)
+#+END_SRC  
+
+#+BEGIN_SRC python
+  with captured_templates(app) as templates:
+      rv = app.test_client().get('/')
+      assert rv.status_code == 200
+      assert len(templates) == 1
+      template, context = templates[0]
+      assert template.name == 'index.html'
+      assert len(context['items']) == 10
+#+END_SRC
+
+- http://pythonhosted.org/blinker/#blinker.base.Signal.connect_via
+#+BEGIN_SRC python
+  from flask import template_rendered
+
+  @template_rendered.connect_via(app)
+  def when_template_rendered(sender, template, context, **extra):
+      print 'Template %s is rendered with %s' % (template.name, context)
+#+END_SRC
+
 ** Static Files
 - http://flask.pocoo.org/docs/0.12/quickstart/#static-files
 
@@ -192,6 +418,15 @@ Trailing slashs:
   url_for('static', filename='style.css')
 #+END_SRC
 
+** Templates
+- http://flask.pocoo.org/docs/0.12/templating/
+
+*** Standard Contexts
+- ~config~
+- ~request~
+- ~session~
+- ~g~
+- ~url_for~
 * Patterns
 ** Application Factories
 - http://flask.pocoo.org/docs/0.12/patterns/appfactories/
