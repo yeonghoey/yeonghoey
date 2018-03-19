@@ -31,7 +31,8 @@
 - https://github.com/UnitedIncome/serverless-python-requirements
 - https://serverless.com/blog/serverless-python-packaging/
 
-- Supports ~Pipenv~
+- ~dockerizePip: non-linux~ for making Lambda compatible packaging
+- Supports ~Pipenv~ by default
 
 ** serverless-wsgi
 - https://github.com/logandk/serverless-wsgi
@@ -57,6 +58,18 @@
     wsgi:
       app: api.app
 #+END_SRC
+
+#+BEGIN_SRC shell
+  # For development
+  sls wsgi serve
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+   ,* Running on http://localhost:5000/ (Press CTRL+C to quit)
+   ,* Restarting with stat
+   ,* Debugger is active!
+   ,* Debugger PIN: 109-942-480
+#+END_EXAMPLE
 
 * Topics
 ** Services
