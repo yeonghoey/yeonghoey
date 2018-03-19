@@ -142,9 +142,26 @@ At first it will apply the globs defined in ~exclude~. After that it'll add all 
     include:
       - src/function/handler.js
 #+END_SRC
+
+- https://github.com/serverless/serverless/blob/master/lib/plugins/package/lib/packageService.js
+#+BEGIN_SRC javascript
+  module.exports = {
+    defaultExcludes: [
+      '.git/**',
+      '.gitignore',
+      '.DS_Store',
+      'npm-debug.log',
+      'serverless.yml',
+      'serverless.yaml',
+      'serverless.json',
+      'serverless.js',
+      '.serverless/**',
+      '.serverless_plugins/**',
+    ],
+#+END_SRC
+
 ** Plugins
 - https://github.com/serverless/plugins
-
 
 * How-to
 ** Deploy Flask App
