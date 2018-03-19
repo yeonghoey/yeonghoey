@@ -5,6 +5,7 @@
 - [[#reference][Reference]]
   - [[#serverlessyml][serverless.yml]]
   - [[#serverless-python-requirements][serverless-python-requirements]]
+  - [[#serverless-wsgi][serverless-wsgi]]
 - [[#topics][Topics]]
   - [[#services][Services]]
     - [[#serverlessyml-1][serverless.yml]]
@@ -31,6 +32,31 @@
 - https://serverless.com/blog/serverless-python-packaging/
 
 - Supports ~Pipenv~
+
+** serverless-wsgi
+- https://github.com/logandk/serverless-wsgi
+
+#+BEGIN_SRC yaml
+  service: example
+
+  provider:
+    name: aws
+    runtime: python2.7
+
+  plugins:
+    - serverless-wsgi
+
+  functions:
+    api:
+      handler: wsgi.handler
+      events:
+        - http: ANY /
+        - http: ANY {proxy+}
+
+  custom:
+    wsgi:
+      app: api.app
+#+END_SRC
 
 * Topics
 ** Services

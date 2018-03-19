@@ -4,7 +4,7 @@
 - [[#overview][Overview]]
 - [[#topics][Topics]]
   - [[#deployments][Deployments]]
-  - [[#lambda-proxy-integrations][Lambda Proxy Integrations]]
+  - [[#proxy][Proxy]]
 
 * Overview
 [[file:_img/screenshot_2018-03-19_17-20-27.png]]
@@ -33,7 +33,8 @@
 - Using stage variables you can configure an API deployment stage to interact with different backend endpoints.
 - When you call your ~beta~ endpoint, API Gateway uses the stage variable for the ~beta~ stage, and calls a different web host (for example, ~beta.example.com~)
 
-** Lambda Proxy Integrations
+** Proxy
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-request.html
 - https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
 
 #+BEGIN_QUOTE
@@ -43,8 +44,32 @@ This request data includes the request headers, query string parameters, URL pat
 *The configuration data can include current deployment stage name, stage variables, user identity, or authorization context (if any)*
 #+END_QUOTE
 
+#+BEGIN_QUOTE
+You can set up a Lambda proxy integration for any API method.
+But a Lambda proxy integration is more potent when it is configured for an API method involving a generic proxy resource.
+The generic proxy resource can be denoted by a special templated path variable of ~{proxy+}~, the catch-all ~ANY~ method placeholder, or both. 
+#+END_QUOTE
+
+- ~ANY /{proxy+}~
+- ~ANY /res~
+- ~GET|POST|PUT|... /{proxy+}~
+- ~GET|POST|PUT|... /res/{path}/...~
+- ~GET|POST|PUT|... /res~
+
+The ~/parent/{proxy+}~ placeholder stands for any resource matching the path pattern of ~/parent/*~.
+
+Configuring ~/{proxy+}~ as a proxy resource catches all requests to its sub-resources.
+For example, it works for a GET request to ~/foo~. To handle requests to ~/~, add a new ~ANY~ method on the ~/~ resource.
+
+When a proxy resource has non-proxy siblings, *the sibling resources are excluded from the representation of the proxy resource.*
+#+BEGIN_EXAMPLE
+  /{proxy+}
+  /parent/{proxy+}
+  /parent/{child}/{proxy+}
+#+END_EXAMPLE
+
 The request data format is:
-#+BEGIN_SRC json
+#+BEGIN_EXAMPLE
   {
       "resource": "Resource path",
       "path": "Path parameter",
@@ -57,14 +82,14 @@ The request data format is:
       "body": "A JSON string of the request payload."
       "isBase64Encoded": "A boolean flag to indicate if the applicable request payload is Base64-encode"
   }
-#+END_SRC
+#+END_EXAMPLE
 
 The desired output format is:
-#+BEGIN_SRC json
+#+BEGIN_EXAMPLE
   {
       "isBase64Encoded": true|false,
       "statusCode": httpStatusCode,
       "headers": { "headerName": "headerValue", ... },
       "body": "..."
   }
-#+END_SRC
+#+END_EXAMPLE
