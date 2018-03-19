@@ -2,10 +2,10 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#commands][Commands]]
+  - [[#init][init]]
   - [[#install][install]]
   - [[#update][update]]
   - [[#list][list]]
-  - [[#init][init]]
   - [[#config][config]]
 - [[#packagejson][package.json]]
   - [[#package-lockjson][package-lock.json]]
@@ -22,6 +22,31 @@
   - [[#scoped-packages][Scoped packages]]
 
 * Commands
+** init
+#+BEGIN_SRC shell
+  $ npm init
+  # prompt some information
+  # then, creates 'package.json'
+
+  # use only defaults: --force and --yes are same
+  $ npm init -f  # --force
+  $ npm init -y  # --yes
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+    "name": "project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+#+END_SRC
+
 ** install
 - local  :: ~<cwd>/node_modules~
 - global :: ~{prefix}/lib/node_modules~
@@ -43,27 +68,6 @@
 #+BEGIN_SRC shell
   $ npm list --global
   $ npm list --global --depth=0
-#+END_SRC
-
-** init
-#+BEGIN_SRC shell
-  $ npm initex
-  # prompt some information
-  # then, creates 'package.json'
-#+END_SRC
-
-#+BEGIN_SRC json
-  {
-    "name": "project",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC"
-  }
 #+END_SRC
 
 ** config
