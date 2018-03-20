@@ -3,6 +3,8 @@
 * Table of Contents :TOC_2_gh:
 - [[#how-to][How-to]]
 - [[#topics][Topics]]
+  - [[#when-is-the-authorization-header-automatically-sent-by-the-browser][When is the Authorization header automatically sent by the browser?]]
+  - [[#basic-access-authentication][Basic access authentication]]
   - [[#web-storage-vs-cookies][Web Storage vs. Cookies]]
   - [[#cors-cross-origin-resource-sharing][CORS (Cross Origin Resource Sharing)]]
   - [[#xss-cross-site-scripting][XSS (Cross-site scripting)]]
@@ -16,6 +18,32 @@
 
 * How-to
 * Topics
+** When is the Authorization header automatically sent by the browser?
+- https://stackoverflow.com/questions/15427650/when-is-the-authorization-header-automatically-sent-by-the-browser
+- https://security.stackexchange.com/questions/172637/will-authorization-bearer-in-request-header-fix-csrf-attacks
+
+Only types like ~Basic~, ~NTLM~ of ~Authorization~ header is sent automatically by browser in following cases:
+#+BEGIN_QUOTE
+The ~Authorization~ header field allows a user agent to authenticate itself with an origin server --
+ usually, but not necessarily, after receiving a 401 (Unauthorized) response.
+#+END_QUOTE
+
+On the other hand, other types must explicitly be added by JS.
+#+BEGIN_QUOTE
+A ~Bearer~ token in the ~Authorization~ header necessarily requires being added by JavaScript
+because *the browser will never include it*
+#+END_QUOTE
+
+** Basic access authentication
+- https://en.wikipedia.org/wiki/Basic_access_authentication
+
+#+BEGIN_QUOTE
+Because the BA field(~Authorization: Basic~) has to be sent in the header of *each HTTP request*,
+the web browser needs to cache credentials for a reasonable period of time to avoid constantly prompting the user for their username and password.
+Caching policy differs between browsers.
+Microsoft Internet Explorer by default caches them for 15 minutes.[1]
+#+END_QUOTE
+
 ** Web Storage vs. Cookies
 - https://auth0.com/docs/security/store-tokens
 - https://stackoverflow.com/questions/35291573/csrf-protection-with-json-web-tokens
@@ -95,7 +123,6 @@ from interfering with each other.
 Without Same-origin policy, any JS code would access other domains resources. 
 
 [[file:_img/screenshot_2018-03-19_01-16-27.png]]
-
 
 ** XSS (Cross-site scripting)
 - https://en.wikipedia.org/wiki/Cross-site_scripting
