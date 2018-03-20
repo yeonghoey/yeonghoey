@@ -1,0 +1,118 @@
+#+TITLE: Requests
+
+* Table of Contents :TOC_3_gh:
+- [[#quickstart][Quickstart]]
+- [[#reference][Reference]]
+  - [[#request][request]]
+    - [[#parameters][Parameters]]
+  - [[#response][response]]
+    - [[#members][Members]]
+- [[#topics][Topics]]
+  - [[#session-objects][Session Objects]]
+  - [[#prepared-requests][Prepared Requests]]
+
+* Quickstart
+- http://docs.python-requests.org/en/master/user/quickstart/
+
+#+BEGIN_SRC python
+  import requests
+  r = requests.get('http://httpbin.org/get', params={'key':'value'})
+  r = requests.post('http://httpbin.org/post', data = {'key':'value'})
+  r = requests.put('http://httpbin.org/put', data = {'key':'value'})
+  r = requests.delete('http://httpbin.org/delete')
+  r = requests.head('http://httpbin.org/get')
+  r = requests.options('http://httpbin.org/get')
+  r.url
+  r.status_code
+  r.raise_for_status()
+  r.text
+  r.json()
+  r.raw
+  r.encoding
+  r.history
+#+END_SRC
+
+* Reference
+** request
+- http://docs.python-requests.org/en/master/api/#requests.request
+
+*** Parameters
+- data ::
+  Accepts data in forms of ~{}~ or ~[(k, v)]~
+
+- json ::
+  Like ~data~, but the payload is automatically json encoded,
+  and ~Content-Type~ is set to ~application/json~
+
+- headers ::
+  ~{}~, all values must be in string-like types
+
+- auth ::
+  a tuple of ~(<type>, <credentials>)~. Overrides ~headers['Authorization']~
+
+** response
+- http://docs.python-requests.org/en/master/api/#requests.Response
+
+*** Members
+- text           :: content in ~unicode~
+- coookies       ::
+- status_code    :: like ~200~
+- ok             :: True if ~status_code~ < ~400~
+- headers        ::
+- json(**kwargs) :: ~kwargs~: Optional arguments that ~json.loads~ takes.
+* Topics
+** Session Objects
+- http://docs.python-requests.org/en/master/user/advanced/#session-objects
+
+#+BEGIN_SRC python
+  s = requests.Session()
+
+  s.get('http://httpbin.org/cookies/set/sessioncookie/123456789')
+  r = s.get('http://httpbin.org/cookies')
+
+  print(r.text)
+  # '{"cookies": {"sessioncookie": "123456789"}}'
+#+END_SRC
+
+#+BEGIN_SRC python
+  s = requests.Session()
+  s.auth = ('user', 'pass')
+  s.headers.update({'x-test': 'true'})
+
+  # both 'x-test' and 'x-test2' are sent
+  s.get('http://httpbin.org/headers', headers={'x-test2': 'true'})
+#+END_SRC
+
+#+BEGIN_SRC python
+  # Make sure to close the session after use
+  with requests.Session() as s:
+      s.get('http://httpbin.org/cookies/set/sessioncookie/123456789')
+#+END_SRC
+
+** Prepared Requests
+- http://docs.python-requests.org/en/master/user/advanced/#prepared-requests
+
+#+BEGIN_SRC python
+  from requests import Request, Session
+
+  s = Session()
+  req = Request('GET',  url, data=data, headers=headers)
+
+  prepped = s.prepare_request(req)
+
+  # do something with prepped.body
+  prepped.body = 'Seriously, send exactly these bytes.'
+
+  # do something with prepped.headers
+  prepped.headers['Keep-Dead'] = 'parrot'
+
+  resp = s.send(prepped,
+      stream=stream,
+      verify=verify,
+      proxies=proxies,
+      cert=cert,
+      timeout=timeout
+  )
+
+  print(resp.status_code)
+#+END_SRC
