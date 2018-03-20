@@ -6,7 +6,9 @@
   - [[#config][Config]]
   - [[#flask][Flask]]
   - [[#g][g]]
+  - [[#jsonify][jsonify]]
   - [[#open_resource][open_resource]]
+  - [[#render_template][render_template]]
   - [[#request][request]]
   - [[#multidict][MultiDict]]
   - [[#url_for][url_for]]
@@ -118,8 +120,15 @@ If you however are using a package, it’s usually recommended to *hardcode the 
 
 #+BEGIN_QUOTE
 Stored on the application context and no longer on the request context which means it becomes available
-if only the application context is bound and not yet a request. 
+if only the application context is bound and not yet a request.
 #+END_QUOTE
+** jsonify
+- http://flask.pocoo.org/docs/0.12/api/#flask.json.jsonify
+
+: flask.json.jsonify(*args, **kwargs)
+1. Dumps the arguments. Pack multipe arugments as ~args~ into JSON array, ~kwargs~ into JSON object.
+2. Create ~Response~ object with ~Content-Type~ of ~application/json~
+
 ** open_resource
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.open_resource
 
@@ -143,6 +152,13 @@ The name of the package is used to resolve resources from inside the package or 
       contents = f.read()
       do_something_with(contents)
 #+END_SRC
+
+** render_template
+- http://flask.pocoo.org/docs/0.12/api/#flask.render_template
+
+: flask.render_template(template_name_or_list, **context)
+
+- context :: the variables that should be available in the context of the template.
 
 ** request
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request
@@ -390,7 +406,7 @@ Trailing slashs:
           yield recorded
       finally:
           template_rendered.disconnect(record, app)
-#+END_SRC  
+#+END_SRC
 
 #+BEGIN_SRC python
   with captured_templates(app) as templates:
@@ -427,6 +443,19 @@ Trailing slashs:
 - ~session~
 - ~g~
 - ~url_for~
+
+*** tojson
+~tojson()~: This function converts the given object into JSON representation.
+#+BEGIN_QUOTE
+Note that inside ~script~ tags no escaping must take place,
+so make sure to disable escaping with ~|safe~ before Flask 0.10 if you intend to use it inside ~script~ tags:
+#+END_QUOTE
+
+#+BEGIN_SRC python
+  <script type=text/javascript>
+      doSomethingWith({{ user.username|tojson|safe }});
+  </script>
+#+END_SRC
 * Patterns
 ** Application Factories
 - http://flask.pocoo.org/docs/0.12/patterns/appfactories/
