@@ -25,6 +25,26 @@
   npm install -g serverless
 #+END_SRC
 
+You can use Serverless CLI with ~serverless~ or ~sls~ command.
+
+Subcommands:
+#+BEGIN_EXAMPLE
+  config ........................ Configure Serverless
+  config credentials ............ Configures a new provider profile for the Serverless Framework
+  create ........................ Create new Serverless service
+  deploy ........................ Deploy a Serverless service
+  deploy function ............... Deploy a single function from the service
+  deploy list ................... List deployed version of your Serverless Service
+  deploy list functions ......... List all the deployed functions and their versions
+  info .......................... Display information about the service
+  install ....................... Install a Serverless service from GitHub or a plugin from the Serverless registry
+  invoke ........................ Invoke a deployed function
+  invoke local .................. Invoke function locally
+  logs .......................... Output the logs of a deployed function
+  metrics ....................... Show metrics for a specific function
+  package ....................... Packages a Serverless service
+#+END_EXAMPLE
+
 * Reference
 ** serverless.yml
 - https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
@@ -202,6 +222,33 @@ At first it will apply the globs defined in ~exclude~. After that it'll add all 
   npm install --save-dev serverless-wsgi serverless-python-requirements
 #+END_SRC
 ** Set Custom Domains
+- https://serverless.com/blog/serverless-api-gateway-domain/
+
+#+BEGIN_SRC shell
+  $ npm install serverless-domain-manager --save-dev
+#+END_SRC
+
+#+BEGIN_SRC yaml
+  plugins:
+    - serverless-domain-manager
+
+  custom:
+    customDomain:
+      domainName: <registered_domain_name>
+      basePath: ''
+      stage: ${self:provider.stage}
+      createRoute53Record: true
+#+END_SRC
+
+#+BEGIN_QUOTE
+If you're using a certificate that doesn't exactly match your domain name, such as a wildcard certificate,
+you'll need to specify the certificate name with a ~certificateName~ property under ~customDomain~.
+#+END_QUOTE
+
+#+BEGIN_SRC shell
+  $ sls create_domain
+#+END_SRC
+
 - https://stackoverflow.com/questions/46956660/how-to-set-up-different-domains-based-on-stage-with-serverless-domain-manager-pl
 
 #+BEGIN_SRC yaml
