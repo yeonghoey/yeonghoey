@@ -18,6 +18,7 @@
   - [[#plugins][Plugins]]
 - [[#how-to][How-to]]
   - [[#deploy-flask-app][Deploy Flask App]]
+  - [[#set-custom-domains][Set Custom Domains]]
 
 * Overview
 #+BEGIN_SRC shell
@@ -112,6 +113,21 @@
     functionThree:
       handler: handler.functionThree
 #+END_SRC
+
+#+BEGIN_SRC yaml
+  provider:
+    name: aws
+    environment:
+      SYSTEM_NAME: mySystem
+      TABLE_NAME: tableName1
+
+  functions:
+    hello:
+      handler: handler.users
+      environment:
+        TABLE_NAME: tableName2 # overrides
+#+END_SRC
+
 ** Events
 - https://serverless.com/framework/docs/providers/aws/guide/events/
 
@@ -184,4 +200,18 @@ At first it will apply the globs defined in ~exclude~. After that it'll add all 
 #+BEGIN_SRC shell
   npm init -f
   npm install --save-dev serverless-wsgi serverless-python-requirements
+#+END_SRC
+** Set Custom Domains
+- https://stackoverflow.com/questions/46956660/how-to-set-up-different-domains-based-on-stage-with-serverless-domain-manager-pl
+
+#+BEGIN_SRC yaml
+  custom:
+    domain:
+      dev: MY_DEV_DOMAIN
+      prod: MY_PROD_DOMAIN
+    customDomain:
+      basePath: ''
+      domainName: ${self:custom.domain.${opt:stage}}
+      stage: ${opt:stage}
+      createRoute53Record: true
 #+END_SRC
