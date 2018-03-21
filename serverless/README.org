@@ -13,6 +13,7 @@
   - [[#events][Events]]
   - [[#resources][Resources]]
   - [[#deploying][Deploying]]
+  - [[#variables][Variables]]
   - [[#packaging][Packaging]]
   - [[#plugins][Plugins]]
 - [[#how-to][How-to]]
@@ -125,6 +126,18 @@
   serverless deploy function --function myFunction # updates AWS Lambda only
   serverless deploy --stage production --region eu-central-1
 #+END_SRC
+** Variables
+- https://serverless.com/framework/docs/providers/aws/guide/variables/
+
+#+BEGIN_SRC yaml
+  x: ${env:NAME}                 # Environment Variables
+  x: ${opt:stage}                # CLI Options
+  x: ${cf:service.name}          # CloudFormation
+  x: ${self:custom.stage}        # self reference
+  x: ${s3:bucket/key}            # value(content) of the s3 object
+  x: ${file(../config.yml):name} # js, json or yaml, can be json object or equivalents
+#+END_SRC
+
 ** Packaging
 - https://serverless.com/framework/docs/providers/aws/guide/packaging/
 
