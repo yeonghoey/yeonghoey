@@ -4,6 +4,7 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#serverlessyml][serverless.yml]]
+  - [[#serverless-domain-manager][serverless-domain-manager]]
   - [[#serverless-python-requirements][serverless-python-requirements]]
   - [[#serverless-wsgi][serverless-wsgi]]
 - [[#topics][Topics]]
@@ -48,6 +49,9 @@ Subcommands:
 * Reference
 ** serverless.yml
 - https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
+
+** serverless-domain-manager
+- https://github.com/amplify-education/serverless-domain-manager#installing
 
 ** serverless-python-requirements
 - https://github.com/UnitedIncome/serverless-python-requirements
@@ -246,7 +250,7 @@ you'll need to specify the certificate name with a ~certificateName~ property un
 #+END_QUOTE
 
 #+BEGIN_SRC shell
-  $ sls create_domain
+  $ sls create_domain --stage <stage>
 #+END_SRC
 
 - https://stackoverflow.com/questions/46956660/how-to-set-up-different-domains-based-on-stage-with-serverless-domain-manager-pl
