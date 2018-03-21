@@ -1,17 +1,15 @@
 #+TITLE: OAuth 2.0
 
 * Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
+- [[#topics][Topics]]
   - [[#authorization-code-grant][Authorization Code Grant]]
+  - [[#authorization-code-grant-with-spa][Authorization Code Grant with SPA]]
   - [[#implicit-grant][Implicit Grant]]
-  - [[#authorization-code-grant-1][Authorization Code Grant]]
-  - [[#implicit-grant-1][Implicit Grant]]
-- [[#concepts][Concepts]]
-  - [[#how-state-prevents-from-csrf-attack][How ~state~ prevents from ~CSRF~ attack]]
+  - [[#how-state-prevents-from-csrf-attack][How state prevents from CSRF attack]]
   - [[#refresh-tokens][Refresh Tokens]]
 - [[#links][Links]]
 
-* Overview
+* Topics
 ** Authorization Code Grant
 - https://tools.ietf.org/html/rfc6749#section-4.1
 
@@ -42,6 +40,24 @@
        |         |<---(E)----- Access Token -------------------'
        +---------+       (w/ Optional Refresh Token)
 #+END_EXAMPLE
+
+** Authorization Code Grant with SPA
+- https://community.auth0.com/t/spa-backend-3rd-party-api-best-practices-for-authorization-code-flow/6257/3
+
+Code Grant need to keep ~client_secret~ as a secret.
+So server-side web application is necessary.
+
+For this reason, SPA applications usually choose to use *implicit grant*.
+However, some OAuth2 providers provide code grant only. If we use these providers for SPA app,
+we need a kind of oauth2 client delegator on backend API, which works as follows:
+1. ~/login~ ::
+   Requires *a returning point* as a parameter, in this case, the URI for th SPA app.
+   Keep this URI in somewhere like Cookie or so, and redirect to the OAuth2 provider auth point.
+2. ~/auth~ ::
+   The endpoint which will be redirected to by the provider with ~code~
+   Exchange it for the token, and redirect to the returning proint received from Step 1.
+
+In this way, you can use Authorization Code Grant without coupling SPA App and the backend API.
 
 ** Implicit Grant
 - https://tools.ietf.org/html/rfc6749#section-4.2
@@ -88,13 +104,7 @@ In the time since the spec was originally written, the industry best practice ha
 This provides more opportunities to create a secure flow, such as using the state parameter. References: Redhat, Deutsche Telekom, Smart Health IT.
 #+END_QUOTE
 
-** Authorization Code Grant
-
-** Implicit Grant
-- https://www.ibuildings.nl/blog/2013/07/secure-your-rest-api-oauth2-implicit-grant
-
-* Concepts
-** How ~state~ prevents from ~CSRF~ attack
+** How state prevents from CSRF attack
 - Provides the following link to the user
 #+BEGIN_EXAMPLE
   https://authorization-server.com/auth?response_type=code&
