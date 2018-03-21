@@ -8,6 +8,7 @@
   - [[#g][g]]
   - [[#jsonify][jsonify]]
   - [[#open_resource][open_resource]]
+  - [[#redirect][redirect]]
   - [[#render_template][render_template]]
   - [[#request][request]]
   - [[#multidict][MultiDict]]
@@ -151,6 +152,17 @@ The name of the package is used to resolve resources from inside the package or 
   with app.open_resource('schema.sql') as f:
       contents = f.read()
       do_something_with(contents)
+#+END_SRC
+
+** redirect
+- http://flask.pocoo.org/docs/0.10/api/#flask.redirect
+
+: flask.redirect(location, code=302, Response=None)
+
+#+BEGIN_SRC python
+  @app.route('/')
+  def index():
+      return redirect(url_for('login'))
 #+END_SRC
 
 ** render_template
@@ -363,7 +375,13 @@ Trailing slashs:
 
 ** Sessions
 - http://flask.pocoo.org/docs/0.12/quickstart/#sessions
-- On top of cookies, encrypted with a secret key.
+- http://flask.pocoo.org/docs/0.12/api/#sessions
+- https://stackoverflow.com/questions/34118093/flask-permanent-session-where-to-define-them
+- [[https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key][How SECRET_KEY works]]
+
+#+BEGIN_QUOTE
+The way Flask does this is by using a signed cookie.
+#+END_QUOTE
 
 #+BEGIN_SRC python
   from flask import Flask, session, redirect, url_for, escape, request
@@ -378,6 +396,12 @@ Trailing slashs:
 
   # set the secret key.  keep this really secret:
   app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+#+END_SRC
+
+#+BEGIN_SRC python
+  @app.before_request
+  def make_session_permanent():
+      session.permanent = True
 #+END_SRC
 
 #+BEGIN_SRC python

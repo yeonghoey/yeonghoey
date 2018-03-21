@@ -24,9 +24,9 @@
   r = requests.options('http://httpbin.org/get')
   r.url
   r.status_code
-  r.raise_for_status()
+  r.raise_for_status()  # raises requests.HTTPError
+  r.json()              # raises ValueError
   r.text
-  r.json()
   r.raw
   r.encoding
   r.history
