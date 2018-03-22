@@ -15,6 +15,7 @@
   - [[#url_for][url_for]]
 - [[#topics][Topics]]
   - [[#application-context][Application Context]]
+  - [[#blueprints][Blueprints]]
   - [[#commands][Commands]]
   - [[#cookies][Cookies]]
   - [[#http-methods][HTTP Methods]]
@@ -249,6 +250,53 @@ This is better than hard-coded URLs as following reasons:
       if db is not None:
           db.close()
 #+END_SRC
+
+** Blueprints
+- http://flask.pocoo.org/docs/0.12/blueprints/
+- http://flask.pocoo.org/docs/0.12/api/#flask.Blueprint
+
+: flask.Blueprint(name, import_name, ...)
+
+- ~name~        :: Use as the prefix of the blueprint routes
+- ~import_name~ :: Same as ~Flask~, used for resolve the relative path for resources.
+
+#+BEGIN_SRC python
+  from flask import Blueprint, render_template, abort
+  from jinja2 import TemplateNotFound
+
+  simple_page = Blueprint('simple_page', __name__,
+                          template_folder='templates')
+
+  @simple_page.route('/', defaults={'page': 'index'})
+  @simple_page.route('/<page>')
+  def show(page):
+      try:
+          return render_template('pages/%s.html' % page)
+      except TemplateNotFound:
+          abort(404)
+#+END_SRC
+
+#+BEGIN_SRC python
+  from flask import Flask
+  from yourapplication.simple_page import simple_page
+
+  app = Flask(__name__)
+  app.register_blueprint(simple_page)
+  app.register_blueprint(simple_page, url_prefix='/pages')
+#+END_SRC
+
+*** Access config within Blueprints
+- https://stackoverflow.com/questions/18214612/how-to-access-app-config-in-a-blueprint
+
+Use ~flask.current_app~,
+but be careful that ~current_app~ is only accessible under the request context.:
+#+BEGIN_SRC python
+  from flask import current_app as app
+  @api.route('/info/', methods = ['GET'])
+  def get_account_num():
+      num = app.config["INFO"]
+#+END_SRC
+
 
 ** Commands
 - http://flask.pocoo.org/docs/0.12/tutorial/dbinit/#tutorial-dbinit
