@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#how-to][How-to]]
   - [[#use-dns-to-validate-domain-ownership][Use DNS to Validate Domain Ownership]]
+  - [[#support-second-level-subdomains][Support second level subdomains]]
 
 * How-to
 ** Use DNS to Validate Domain Ownership
@@ -10,3 +11,13 @@
 - You can revoke permission at any time by removing the record
 
 [[file:_img/screenshot_2018-02-27_16-45-03.png]]
+** Support second level subdomains
+- https://stackoverflow.com/questions/47811149/wildcard-for-second-level-subdomain
+- https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html
+
+#+BEGIN_QUOTE
+the asterisk (*) must be in the leftmost position of the domain name and can protect only one subdomain level.
+#+END_QUOTE
+
+Unfortunately multiple wildcarded domains like ~*.*.example.com~ are not possible/supported.
+However, things like ~*.api.example.com~ is ok.
