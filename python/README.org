@@ -285,6 +285,16 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
       import math
 #+END_SRC
 
+*** Submodules related from
+- https://docs.python.org/3/tutorial/modules.html#packages
+- ~from package import item~ ::
+  1. Tests whether the ~item~ is defined in the package;
+  2. If not, it assumes it is a module and attempts to load it.
+  3. If it fails to find it, an ~ImportError~ exception is raised.
+- ~import item.subitem.subsubitem~ ::
+  1. Each item except for the last must be a package
+  2. The last item can be a module or a package but *can’t be a class or function or variable defined in the previous item.*
+
 *** Sorting imports
 - https://pypi.python.org/pypi/isort
 - https://stackoverflow.com/questions/20762662/whats-the-correct-way-to-sort-python-import-x-and-from-x-import-y-statement
