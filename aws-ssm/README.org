@@ -2,19 +2,75 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#parameter-store][Parameter Store]]
-  - [[#types][Types]]
+  - [[#cli][CLI]]
+  - [[#reference][Reference]]
 
 * Parameter Store
+
+** CLI
+- https://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html
+- https://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameter.html
+- https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cli.html
+
+#+BEGIN_SRC shell
+  aws ssm put-parameter --type String --name "/var/x" --value "10"
+#+END_SRC
+
+#+BEGIN_SRC shell
+  aws ssm get-parameters --names "/Test/IAD/helloWorld"
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+      "InvalidParameters": [],
+      "Parameters": [
+          {
+              "Type": "String",
+              "Name": "/var/x",
+              "Value": "10"
+          }
+      ]
+  }
+#+END_SRC
+
+#+BEGIN_SRC shell
+  aws ssm describe-parameters --filters "Key=Name,Values=/var/x"
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+    "Parameters": [
+      {
+        "LastModifiedUser": "arn:aws:iam::123456789:user/User's name",
+        "LastModifiedDate": 1494529763.156,
+        "Type": "String",
+        "Name": "10"
+      }
+    ]
+  }
+#+END_SRC
+
+#+BEGIN_SRC shell
+  aws ssm delete-parameter --name "/var/x"
+#+END_SRC
+
+** Reference
+- https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about
+
+*** Name
+- ~a-zA-Z0-9_.-/~
+- Can't include spaces.
 - You can create a hierarchy with a maximum of 15 levels.
 
-** Types
-*** String
-*** StringList
-- Items in a StringList must be separated by a comma (,).
+*** Type
+- String ::
 
-*** SecureString
-Consider using this type when:
-- You want to use data/parameters across AWS services without exposing the values as clear text in commands, functions, agent logs, or AWS CloudTrail logs.
-- You want to control who has access to sensitive data.
-- You want to be able to audit when sensitive data is accessed (AWS CloudTrail).
-- You want AWS-level encryption for your sensitive data and you want to bring your own encryption keys to manage access.
+- StringList :: 
+  Items in a StringList must be separated by a comma (,).
+
+- SecureString ::
+  Consider using this type when:
+  - You want to use data/parameters across AWS services without exposing the values as clear text in commands, functions, agent logs, or AWS CloudTrail logs.
+  - You want to control who has access to sensitive data.
+  - You want to be able to audit when sensitive data is accessed (AWS CloudTrail).
+  - You want AWS-level encryption for your sensitive data and you want to bring your own encryption keys to manage access.
