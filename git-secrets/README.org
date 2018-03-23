@@ -1,0 +1,22 @@
+#+TITLE: git-secrets
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+
+* Overview
+- https://github.com/awslabs/git-secrets#options
+
+#+BEGIN_SRC shell
+  brew install git-secrets
+#+END_SRC
+
+#+BEGIN_SRC shell
+  cd /path/to/my/repo
+  git secrets --install
+  git secrets --register-aws
+#+END_SRC
+
+#+BEGIN_SRC shell
+  git secrets --scan
+  git secrets --scan-history
+#+END_SRC
