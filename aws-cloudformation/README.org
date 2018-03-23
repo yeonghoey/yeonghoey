@@ -10,6 +10,7 @@
   - [[#transform][Transform]]
   - [[#resources][Resources]]
   - [[#outputs][Outputs]]
+- [[#functions][Functions]]
 
 * Overview
 - https://www.slideshare.net/AmazonWebServices/aws-cloudformation-best-practices
@@ -19,6 +20,7 @@
 
 * Template
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html
 
 #+BEGIN_SRC yaml
   ---
@@ -220,3 +222,5 @@ A kind of macro feature. For instance, ~AWS:Include~ includes templete definitio
       Export:
         Name: Value to export
 #+END_SRC
+* Functions
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html

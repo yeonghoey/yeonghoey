@@ -167,6 +167,8 @@ Subcommands:
 ** Resources
 - https://serverless.com/framework/docs/providers/aws/guide/resources/
 
+Based on [[https://github.com/serverless/serverless/blob/master/lib/plugins/aws/lib/naming.js#L48][getStackName]], though not explicitly documented, it seems that every stack is related to ~stage~
+
 ** Deploying
 - https://serverless.com/framework/docs/providers/aws/guide/deploying/
 
