@@ -213,6 +213,14 @@ The name of the package is used to resolve resources from inside the package or 
   url_for('static', filename='style.css')
 #+END_SRC
 
+#+BEGIN_SRC python
+  # relative to current Blueprint
+  url_for('.index')
+
+  # Generate absolute URL
+  url_for('.index', _external=True)
+#+END_SRC
+
 Generates a URL to the given endpoint with the method provided.
 This is better than hard-coded URLs as following reasons:
 
