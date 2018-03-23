@@ -5,6 +5,7 @@
 - [[#reference][Reference]]
   - [[#serverlessyml][serverless.yml]]
   - [[#serverless-domain-manager][serverless-domain-manager]]
+  - [[#serverless-dynamodb-local][serverless-dynamodb-local]]
   - [[#serverless-python-requirements][serverless-python-requirements]]
   - [[#serverless-wsgi][serverless-wsgi]]
 - [[#topics][Topics]]
@@ -52,6 +53,14 @@ Subcommands:
 
 ** serverless-domain-manager
 - https://github.com/amplify-education/serverless-domain-manager#installing
+
+** serverless-dynamodb-local
+- https://github.com/99xt/serverless-dynamodb-local
+
+#+BEGIN_SRC shell
+  sls dynamodb install
+  sls dynamodb remove
+#+END_SRC
 
 ** serverless-python-requirements
 - https://github.com/UnitedIncome/serverless-python-requirements
