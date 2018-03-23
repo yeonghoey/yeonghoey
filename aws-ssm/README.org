@@ -1,0 +1,20 @@
+#+TITLE: AWS Systems Manager
+
+* Table of Contents :TOC_2_gh:
+- [[#parameter-store][Parameter Store]]
+  - [[#types][Types]]
+
+* Parameter Store
+- You can create a hierarchy with a maximum of 15 levels.
+
+** Types
+*** String
+*** StringList
+- Items in a StringList must be separated by a comma (,).
+
+*** SecureString
+Consider using this type when:
+- You want to use data/parameters across AWS services without exposing the values as clear text in commands, functions, agent logs, or AWS CloudTrail logs.
+- You want to control who has access to sensitive data.
+- You want to be able to audit when sensitive data is accessed (AWS CloudTrail).
+- You want AWS-level encryption for your sensitive data and you want to bring your own encryption keys to manage access.
