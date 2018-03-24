@@ -169,8 +169,22 @@ Subcommands:
 
 ** Resources
 - https://serverless.com/framework/docs/providers/aws/guide/resources/
+- https://github.com/serverless/serverless/issues/3184
+- https://github.com/serverless/serverless/issues/3545
 
-Based on [[https://github.com/serverless/serverless/blob/master/lib/plugins/aws/lib/naming.js#L48][getStackName]], though not explicitly documented, it seems that every stack is related to ~stage~
+- Based on [[https://github.com/serverless/serverless/blob/master/lib/plugins/aws/lib/naming.js#L48][getStackName]], though not explicitly documented, it seems that every stack is related to ~stage~
+- ~!<Function>~ syntax is not supported
+
+- https://github.com/serverless/serverless/issues/3184#issuecomment-304671007
+#+BEGIN_SRC yaml
+  Resource:
+          "Fn::Sub": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table..."
+  provider:
+    name: aws
+    runtime: nodejs6.10
+    # Allow for cf "AWS::" variables, see https://serverless.com/framework/docs/providers/aws/guide/variables#using-custom-variable-syntax
+    variableSyntax: "\\${(?!AWS::)([ :a-zA-Z0-9._,\\-\\/\\(\\)]+?)}"
+#+END_SRC
 
 ** Deploying
 - https://serverless.com/framework/docs/providers/aws/guide/deploying/

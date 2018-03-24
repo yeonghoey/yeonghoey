@@ -12,6 +12,9 @@
   - [[#outputs][Outputs]]
 - [[#functions][Functions]]
   - [[#getatt][GetAtt]]
+  - [[#sub][Sub]]
+- [[#resource-types][Resource Types]]
+  - [[#awsdynamodbtable][AWS::DynamoDB::Table]]
 
 * Overview
 - https://www.slideshare.net/AmazonWebServices/aws-cloudformation-best-practices
@@ -199,7 +202,6 @@ A kind of macro feature. For instance, ~AWS:Include~ includes templete definitio
 
 ** Resources
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
-- [[https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html][Resource Types]]
 
 #+BEGIN_SRC yaml
   Resources:
@@ -229,4 +231,65 @@ A kind of macro feature. For instance, ~AWS:Include~ includes templete definitio
 ** GetAtt
 #+BEGIN_SRC yaml
   !GetAtt logicalNameOfResource.attributeName
+#+END_SRC
+** Sub
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html
+
+#+BEGIN_SRC yaml
+  Name: !Sub
+    - www.${Domain}
+    - { Domain: !Ref RootDomainName }
+#+END_SRC
+
+* Resource Types
+- [[https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html][Resource Types]]
+
+** AWS::DynamoDB::Table
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
+
+#+BEGIN_SRC yaml
+  Type: "AWS::DynamoDB::Table"
+  Properties:
+    AttributeDefinitions:
+      - AttributeDefinition
+    GlobalSecondaryIndexes:
+      - GlobalSecondaryIndexes
+    KeySchema:
+      - KeySchema
+    LocalSecondaryIndexes:
+      - LocalSecondaryIndexes
+    ProvisionedThroughput:
+      ProvisionedThroughput
+    SSESpecification:
+      SSESpecification
+    StreamSpecification:
+      StreamSpecification
+    TableName: String
+    Tags: 
+      - Resource Tag
+    TimeToLiveSpecification: 
+      TimeToLiveSpecification
+#+END_SRC
+
+*** AttributeDefinition
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
+
+The ~AttributeDefinition~ property type represents an attribute *for describing the key schema* for a DynamoDB table and indexes.
+*They don't represent the full schema of the table.*
+
+*** KeySchema
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html
+
+#+BEGIN_SRC yaml
+  KeySchema: 
+    - AttributeName: Sales
+      KeyType: HASH
+#+END_SRC
+
+#+BEGIN_SRC yaml
+  KeySchema: 
+    - AttributeName: Sales
+      KeyType: HASH
+    - AttributeName: Artist
+      KeyType: RANGE
 #+END_SRC
