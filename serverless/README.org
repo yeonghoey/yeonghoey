@@ -17,6 +17,9 @@
   - [[#deploying][Deploying]]
   - [[#variables][Variables]]
   - [[#packaging][Packaging]]
+  - [[#iam][IAM]]
+    - [[#additional-policies-on-the-generated-policies][Additional Policies on the generated policies]]
+    - [[#completely-custom-roles][Completely custom roles]]
   - [[#plugins][Plugins]]
 - [[#how-to][How-to]]
   - [[#deploy-flask-app][Deploy Flask App]]
@@ -222,6 +225,64 @@ At first it will apply the globs defined in ~exclude~. After that it'll add all 
       '.serverless/**',
       '.serverless_plugins/**',
     ],
+#+END_SRC
+
+** IAM
+- https://serverless.com/framework/docs/providers/aws/guide/iam/
+
+#+BEGIN_QUOTE
+As those statements will be merged into the CloudFormation template, you can use ~Join~, ~Ref~ or any other CloudFormation method or feature.
+#+END_QUOTE
+
+*** Additional Policies on the generated policies
+- provider.iamRoleStatements  :: Define additional policies in the CloudFormation format
+- provider.iamManagedPolicies :: Additional policies managed outside of serverless
+
+#+BEGIN_SRC yaml
+  service: new-service
+
+  provider:
+    name: aws
+    iamRoleStatements:
+      -  Effect: "Allow"
+         Action:
+           - "s3:ListBucket"
+         Resource:
+           Fn::Join:
+             - ""
+             - - "arn:aws:s3:::"
+               - Ref: ServerlessDeploymentBucket
+      -  Effect: "Allow"
+         Action:
+           - "s3:PutObject"
+         Resource:
+           Fn::Join:
+             - ""
+             - - "arn:aws:s3:::"
+               - Ref: ServerlessDeploymentBucket
+               - "/*"
+    iamManagedPolicies:
+        - 'some:aws:arn:xxx:*:*'
+        - 'someOther:aws:arn:xxx:*:*'
+        - { 'Fn::Join': [':', ['arn:aws:iam:', { Ref: 'AWSAccountId' }, 'some/path']] }
+#+END_SRC
+*** Completely custom roles
+
+#+BEGIN_QUOTE
+Using this way means that ~iamRoleStatements~ you've defined on the provider level won't be applied anymore.
+Furthermore, you need to provide the corresponding permissions for your Lambdas logs and stream events.
+#+END_QUOTE
+
+#+BEGIN_SRC yaml
+  provider:
+    name: aws
+    # declare one of the following...
+    role: myDefaultRole                                                  # must validly reference a role defined in the service
+    role: arn:aws:iam::0123456789:role//my/default/path/roleInMyAccount  # must validly reference a role defined in your account
+    role:                                                                # must validly resolve to the ARN of a role you have the rights to use
+      Fn::GetAtt:
+        - myRole
+        - Arn
 #+END_SRC
 
 ** Plugins

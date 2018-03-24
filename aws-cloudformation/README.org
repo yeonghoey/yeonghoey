@@ -11,6 +11,7 @@
   - [[#resources][Resources]]
   - [[#outputs][Outputs]]
 - [[#functions][Functions]]
+  - [[#getatt][GetAtt]]
 
 * Overview
 - https://www.slideshare.net/AmazonWebServices/aws-cloudformation-best-practices
@@ -224,3 +225,8 @@ A kind of macro feature. For instance, ~AWS:Include~ includes templete definitio
 #+END_SRC
 * Functions
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
+
+** GetAtt
+#+BEGIN_SRC yaml
+  !GetAtt logicalNameOfResource.attributeName
+#+END_SRC
