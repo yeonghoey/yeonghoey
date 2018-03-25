@@ -119,11 +119,13 @@ If you however are using a package, it’s usually recommended to *hardcode the 
 
 ** g
 - http://flask.pocoo.org/docs/0.12/api/#flask.g
+- http://flask.pocoo.org/docs/0.12/tutorial/dbcon/
 
 #+BEGIN_QUOTE
 Stored on the application context and no longer on the request context which means it becomes available
 if only the application context is bound and not yet a request.
 #+END_QUOTE
+
 ** jsonify
 - http://flask.pocoo.org/docs/0.12/api/#flask.json.jsonify
 
@@ -257,6 +259,9 @@ This is better than hard-coded URLs as following reasons:
       db = getattr(g, '_database', None)
       if db is not None:
           db.close()
+
+  from werkzeug.local import LocalProxy
+  db = LocalProxy(get_db)
 #+END_SRC
 
 ** Blueprints

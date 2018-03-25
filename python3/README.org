@@ -1,0 +1,22 @@
+#+TITLE: Python 3
+
+* Table of Contents :TOC_2_gh:
+- [[#36][3.6]]
+  - [[#formatted-stirng-literals][Formatted stirng literals]]
+
+* 3.6
+- https://docs.python.org/3/whatsnew/3.6.html
+
+** Formatted stirng literals
+- https://www.python.org/dev/peps/pep-0498/
+
+#+BEGIN_SRC python
+  >>> name = "Fred"
+  >>> f"He said his name is {name}."
+  'He said his name is Fred.'
+  >>> width = 10
+  >>> precision = 4
+  >>> value = decimal.Decimal("12.34567")
+  >>> f"result: {value:{width}.{precision}}"  # nested fields
+  'result:      12.35'
+#+END_SRC
