@@ -1,4 +1,6 @@
 * kill
+- https://en.wikipedia.org/wiki/Signal_(IPC)
+
 #+BEGIN_SRC shell
   # List signal names
   $ kill -l

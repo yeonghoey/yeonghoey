@@ -1,11 +1,11 @@
 #+TITLE: Vimium
 
 * Table of Contents :TOC_3_gh:
--  [[#custom-search-engines][Custom search engines]]
+- [[#custom-search-engines][Custom search engines]]
 - [[#custom-key-mappings][Custom key-mappings]]
 - [[#options][Options]]
 
-*  Custom search engines
+* Custom search engines
 #+BEGIN_EXAMPLE
   b: chrome://bookmarks/#q=%s Chrome Bookmarks
   e: http://endic.naver.com/search.nhn?query=%s Naver endic
@@ -24,6 +24,8 @@
 * Custom key-mappings
 - https://github.com/philc/vimium/wiki/Key-Mappings
 - https://github.com/philc/vimium/blob/58f45ac17938e2984b3d3b83c8aed452f1287498/background_scripts/commands.coffee#L138
+- https://github.com/philc/vimium/wiki/Tips-and-Tricks#key-mapping
+- https://github.com/philc/vimium/blob/master/background_scripts/commands.coffee
 
 #+BEGIN_EXAMPLE
   map M closeOtherTabs
