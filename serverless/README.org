@@ -62,7 +62,30 @@ Subcommands:
 
 #+BEGIN_SRC shell
   sls dynamodb install
+  sls dynamodb start
   sls dynamodb remove
+#+END_SRC
+
+- https://github.com/99xt/serverless-dynamodb-local#seeding-sls-dynamodb-seed
+#+BEGIN_SRC yaml
+  dynamodb:
+    start:
+      seed: true
+
+    seed:
+      <category>:
+        sources:
+          - table: domain-widgets
+            sources: [./data.json]
+#+END_SRC
+
+#+BEGIN_SRC json
+  [
+    {
+      "id": "John",
+      "name": "Doe",
+    }
+  ]
 #+END_SRC
 
 ** serverless-python-requirements
@@ -101,6 +124,8 @@ Subcommands:
   # For development
   sls wsgi serve
 #+END_SRC
+
+- ~IS_OFFLINE~ envvar is included when serving ([[https://github.com/logandk/serverless-wsgi/blob/master/CHANGELOG.md#141][1.4.1]])
 
 #+BEGIN_EXAMPLE
    ,* Running on http://localhost:5000/ (Press CTRL+C to quit)
