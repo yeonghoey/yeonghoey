@@ -7,7 +7,7 @@
 * Topics
 ** Multiple gitignore files
 :REFERENCES:
-- https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+- https://www.atlassian.com/git/tutorials/saving-changes/gitignore#shared
 :END:
 
 #+BEGIN_QUOTE
