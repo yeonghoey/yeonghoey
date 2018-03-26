@@ -26,6 +26,20 @@
 - [[#links][Links]]
 
 * Overview
+:REF:
+- https://vuejs.org/v2/guide/installation.html#CLI
+:END:
+
+#+BEGIN_SRC shell
+  # install vue-cli
+  $ npm install --global vue-cli
+  # create a new project using the "webpack" template
+  $ vue init webpack my-project
+  # install dependencies and go!
+  $ cd my-project
+  $ npm run dev
+#+END_SRC
+
 #+BEGIN_QUOTE
 Vue instances expose a number of useful instance properties and methods.
 These properties and methods are prefixed with ~$~ to differentiate from proxied data properties. For example:
