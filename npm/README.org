@@ -48,15 +48,23 @@
 #+END_SRC
 
 ** install
+:REFERENCES:
+- https://docs.npmjs.com/cli/install
+:END:
+
 - local  :: ~<cwd>/node_modules~
 - global :: ~{prefix}/lib/node_modules~
--  :: 
+
 #+BEGIN_SRC shell
   # global
   npm install npm --global
 
   # specify a version
   npm install underscore@1.8.2
+
+  npm install # dependencies + devDependencies
+  npm install --only=prod
+  npm install --only=dev
 #+END_SRC
 
 ** update
