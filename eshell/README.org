@@ -1,0 +1,18 @@
+#+TITLE: Eshell
+
+* Table of Contents :TOC_2_gh:
+- [[#key-bindings][Key bindings]]
+
+* Key bindings
+| Key Binding | Description                                                |
+|-------------+------------------------------------------------------------|
+| ~SPC '​~     | Open, close or go to the default shell                     |
+| ~SPC p '​~   | Open a shell in the project's root                         |
+| ~SPC a s e~ | Open, close or go to an =eshell=                           |
+| ~SPC a s i~ | Open, close or go to a =shell=                             |
+| ~SPC a s m~ | Open, close or go to a =multi-term=                        |
+| ~SPC a s t~ | Open, close or go to a =ansi-term=                         |
+| ~SPC a s T~ | Open, close or go to a =term=                              |
+| ~SPC m H~   | browse history with =helm= (works in =eshell= and =shell=) |
+| ~C-j~       | next item in history                                       |
+| ~C-k~       | previous item in history                                   |
