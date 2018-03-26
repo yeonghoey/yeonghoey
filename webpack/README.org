@@ -11,6 +11,7 @@
   - [[#babel-loader][babel-loader]]
 - [[#plugins][Plugins]]
   - [[#htmlwebpackplugin][HtmlWebpackPlugin]]
+  - [[#defineplugin][DefinePlugin]]
 - [[#cli][CLI]]
 - [[#configuration][Configuration]]
   - [[#mode][mode]]
@@ -71,11 +72,10 @@
 #+END_SRC
 
 * Ouptut
+** substitutions
 :REFERENCES:
 - https://webpack.js.org/configuration/output/#output-filename
 :END:
-
-** substitutions
 #+BEGIN_SRC js
   filename: "bundle.js"
   filename: "[name].bundle.js"
@@ -148,6 +148,26 @@ Automatically generate a ~html~ file for serving your bundle. Within ~dist/index
       <script src="index_bundle.js"></script>
     </body>
   </html>
+#+END_SRC
+
+** DefinePlugin
+:REFERENCES:
+- https://webpack.js.org/plugins/define-plugin/
+:END:
+- Each ~key~ passed into DefinePlugin is an identifier or multiple identifiers joined with ~.~
+- If the value is a ~string~ it *will be used as a code fragment.*
+- If the value isn't a ~string~, it ~will be stringified~ (including functions).
+- If the value is an ~object~ *all keys are defined the same way.*
+- If you prefix ~typeof~ to the key, it's only defined for typeof calls. ([[https://stackoverflow.com/questions/32598971/whats-the-purpose-of-if-typeof-window-undefined][typeof window]])
+
+#+BEGIN_SRC js
+  new webpack.DefinePlugin({
+    PRODUCTION: JSON.stringify(true),
+    VERSION: JSON.stringify("5fa3b9"),
+    BROWSER_SUPPORTS_HTML5: true,
+    TWO: "1+1",
+    "typeof window": JSON.stringify("object")
+  })
 #+END_SRC
 
 * CLI
