@@ -23,6 +23,8 @@
   - [[#navigation-guards][Navigation Guards]]
   - [[#passing-props][Passing Props]]
   - [[#programmatic-navigation][Programmatic Navigation]]
+- [[#how-to][How-to]]
+  - [[#use-axios-with-vuejs][Use axios with Vue.js]]
 - [[#links][Links]]
 
 * Overview
@@ -226,5 +228,19 @@ In such a case the matching priority is determined by the order of route definit
 ** Programmatic Navigation
 - https://router.vuejs.org/en/essentials/navigation.html
 
+* How-to
+** Use axios with Vue.js
+- http://vuejs.kr/update/2017/01/04/http-request-with-axios/
+
+#+BEGIN_SRC javascript
+  import Vue from 'vue'
+  import App from './App'
+  import axios from 'axios'
+
+  // Use axios globally
+  Vue.prototype.$http = axios
+
+  // Or, just import axios in each component
+#+END_SRC
 * Links
 - [[https://codesandbox.io/s/o29j95wx9][Simple Todo App]]
