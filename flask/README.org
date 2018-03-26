@@ -30,6 +30,8 @@
   - [[#templates][Templates]]
 - [[#patterns][Patterns]]
   - [[#application-factories][Application Factories]]
+- [[#extensions][Extensions]]
+  - [[#flask-cors][flask-cors]]
 
 * Overview
 #+BEGIN_EXAMPLE
@@ -560,4 +562,19 @@ so make sure to disable escaping with ~|safe~ before Flask 0.10 if you intend to
       app.register_blueprint(frontend)
 
       return app
+#+END_SRC
+* Extensions
+** flask-cors
+:REFERENCES:
+- https://github.com/corydolphin/flask-cors
+- https://flask-cors.corydolphin.com/en/latest/api.html#extension
+:END:
+
+#+BEGIN_SRC python
+  app = Flask(__name__)
+  cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+  @app.route("/api/v1/users")
+  def list_users():
+    return "user example"
 #+END_SRC

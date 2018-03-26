@@ -24,6 +24,7 @@
 - [[#how-to][How-to]]
   - [[#deploy-flask-app][Deploy Flask App]]
   - [[#set-custom-domains][Set Custom Domains]]
+  - [[#enable-cors][Enable CORS]]
 
 * Overview
 #+BEGIN_SRC shell
@@ -377,3 +378,36 @@ you'll need to specify the certificate name with a ~certificateName~ property un
       stage: ${opt:stage}
       createRoute53Record: true
 #+END_SRC
+** Enable CORS
+:REFERENCES:
+- https://serverless.com/framework/docs/providers/aws/events/apigateway/#enabling-cors
+:END:
+
+#+BEGIN_SRC yaml
+  functions:
+    hello:
+      handler: handler.hello
+      events:
+        - http:
+            path: hello
+            method: get
+            cors:
+              origin: '*'
+              headers:
+                - Content-Type
+                - X-Amz-Date
+                - Authorization
+                - X-Api-Key
+                - X-Amz-Security-Token
+                - X-Amz-User-Agent
+              allowCredentials: false
+#+END_SRC
+
+#+BEGIN_QUOTE
+If you want to use CORS with the lambda-proxy integration, You should handle CORS within your application.
+#+END_QUOTE
+
+[[https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html][API Gateway says]]:
+#+BEGIN_QUOTE
+For Lambda or HTTP proxy integrations, you can still set up the required ~OPTIONS~ response headers in API Gateway. However, you must rely on the back end to return the ~Access-Control-Allow-Origin~ headers because the integration response is disabled for the proxy integration.
+#+END_QUOTE

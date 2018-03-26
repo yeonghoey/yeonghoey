@@ -3,6 +3,7 @@
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
 - [[#topics][Topics]]
+  - [[#cors][CORS]]
   - [[#deployments][Deployments]]
   - [[#proxy][Proxy]]
 
@@ -11,6 +12,15 @@
 
 [[file:_img/screenshot_2016-12-22_21-19-33.png]]
 * Topics
+** CORS
+:REFERENCES:
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html
+:END:
+
+#+BEGIN_QUOTE
+For Lambda or HTTP proxy integrations, you can still set up the required ~OPTIONS~ response headers in API Gateway. However, you must rely on the back end to return the ~Access-Control-Allow-Origin~ headers because the integration response is disabled for the proxy integration.
+#+END_QUOTE
+
 ** Deployments
 - https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html
 - Deployment :: assoicated with a stage
