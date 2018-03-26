@@ -3,6 +3,8 @@
 * Table of Contents :TOC_3_gh:
 - [[#concepts][Concepts]]
 - [[#entry][Entry]]
+- [[#ouptut][Ouptut]]
+  - [[#substitutions][substitutions]]
 - [[#loaders][Loaders]]
   - [[#css-loader][css-loader]]
   - [[#style-loader][style-loader]]
@@ -66,6 +68,20 @@
       pageThree: './src/pageThree/index.js'
     }
   };
+#+END_SRC
+
+* Ouptut
+:REFERENCES:
+- https://webpack.js.org/configuration/output/#output-filename
+:END:
+
+** substitutions
+#+BEGIN_SRC js
+  filename: "bundle.js"
+  filename: "[name].bundle.js"
+  filename: "[id].bundle.js"
+  filename: "[name].[hash].bundle.js"
+  filename: "[chunkhash].bundle.js"
 #+END_SRC
 
 * Loaders
