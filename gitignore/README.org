@@ -1,0 +1,15 @@
+#+TITLE: gitignore
+
+* Table of Contents :TOC_2_gh:
+- [[#topics][Topics]]
+  - [[#multiple-gitignore-files][Multiple gitignore files]]
+
+* Topics
+** Multiple gitignore files
+:REFERENCES:
+- https://www.atlassian.com/git/tutorials/saving-changes/gitignore
+:END:
+
+#+BEGIN_QUOTE
+However, you can choose to define multiple ~.gitignore~ files in different directories in your repository. Each pattern in a particular ~.gitignore~ file is tested relative to the directory containing that file.
+#+END_QUOTE

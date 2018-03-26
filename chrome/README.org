@@ -1,6 +1,6 @@
 #+TITLE: Chrome
 * Table of Contents                                                :TOC_2_gh:
-- [[#plugins][Plugins]]
+- [[#extensions][Extensions]]
 - [[#developer-tools][Developer Tools]]
   - [[#debugging][Debugging]]
   - [[#storages-and-cookies][Storages and Cookies]]
@@ -10,7 +10,9 @@
   - [[#run-with-an-intital-incognito-window][Run with an intital incognito window]]
   - [[#server-dns-address-could-not-be-found][Server DNS address could not be found]]
 
-* Plugins
+* Extensions
+- chrome://extensions/shortcuts
+
 * Developer Tools
 ** Debugging
 - https://javascript.info/debugging-chrome

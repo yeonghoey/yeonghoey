@@ -16,6 +16,8 @@
   - [[#editorconfig][EditorConfig]]
 - [[#use-cases][Use Cases]]
   - [[#how-to-fix-evaluation-of-code-disabled][How to Fix 'Evaluation of code disabled']]
+- [[#how-to][How-to]]
+  - [[#enable-navigation-by-visual-lines][Enable navigation by visual lines?]]
 
 * Emacs
 ** Indirect Buffers
@@ -209,3 +211,15 @@ It seems that ~Spacemacs~ uses ~EditorConfig~ implicitly. To make it explicit:
 - Simply run ~:spacemacs/recompile-elpa~ and restart emacs
 
 
+* How-to
+** Enable navigation by visual lines?
+Add the following snippet to your =dotspacemacs/user-config= function:
+
+#+BEGIN_SRC emacs-lisp
+;; Make evil-mode up/down operate in screen lines instead of logical lines
+(define-key evil-motion-state-map "j" 'evil-next-visual-line)
+(define-key evil-motion-state-map "k" 'evil-previous-visual-line)
+;; Also in visual mode
+(define-key evil-visual-state-map "j" 'evil-next-visual-line)
+(define-key evil-visual-state-map "k" 'evil-previous-visual-line)
+#+END_SRC
