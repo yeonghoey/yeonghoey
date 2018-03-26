@@ -24,6 +24,7 @@
   - [[#passing-props][Passing Props]]
   - [[#programmatic-navigation][Programmatic Navigation]]
 - [[#how-to][How-to]]
+  - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
   - [[#use-axios-with-vuejs][Use axios with Vue.js]]
 - [[#links][Links]]
 
@@ -229,6 +230,39 @@ In such a case the matching priority is determined by the order of route definit
 - https://router.vuejs.org/en/essentials/navigation.html
 
 * How-to
+** Configure different environment variables by stage
+:REFERENCES:
+- https://vuejs.org/v2/guide/deployment.html
+- https://vuejs-templates.github.io/webpack/env.html
+:END:
+
+- Use ~webpack.DefinePlugin~ to configure ~process.env~
+
+If you use vue template is easier to configure:
+#+BEGIN_SRC js
+  // config/prod.env.js
+  module.exports = {
+    NODE_ENV: '"production"',
+    DEBUG_MODE: false,
+    API_KEY: '"..."' // this is shared between all environments
+  }
+
+  // config/dev.env.js
+  module.exports = merge(prodEnv, {
+    NODE_ENV: '"development"',
+    DEBUG_MODE: true // this overrides the DEBUG_MODE value of prod.env
+  })
+
+  // config/test.env.js
+  module.exports = merge(devEnv, {
+    NODE_ENV: '"testing"'
+  })
+#+END_SRC
+
+#+BEGIN_SRC js
+  Vue.config.productionTip = process.env.NODE_ENV === 'production'
+#+END_SRC
+
 ** Use axios with Vue.js
 - http://vuejs.kr/update/2017/01/04/http-request-with-axios/
 
@@ -242,5 +276,6 @@ In such a case the matching priority is determined by the order of route definit
 
   // Or, just import axios in each component
 #+END_SRC
+
 * Links
 - [[https://codesandbox.io/s/o29j95wx9][Simple Todo App]]
