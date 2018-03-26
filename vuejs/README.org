@@ -2,7 +2,6 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
-- [[#render-test][render test]]
 - [[#syntax][Syntax]]
 - [[#lifecycle][Lifecycle]]
   - [[#mounted][mounted]]
@@ -27,16 +26,9 @@
 - [[#links][Links]]
 
 * Overview
-:REF:
+:REFERENCES:
 - https://vuejs.org/v2/guide/installation.html#CLI
 :END:
-
-- test
-
-* render test
-- https://vuejs.org/v2/guide/installation.html#CLI
-
-- test
 
 #+BEGIN_SRC shell
   # install vue-cli
