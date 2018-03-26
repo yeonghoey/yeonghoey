@@ -234,9 +234,10 @@ Classes provide "super" keyword for that.
 - ~super(...)~ to call a parent constructor (inside our constructor only).
 - constructors in inheriting classes must call ~super(...)~, and (!) do it before using this.
   - When a normal constructor runs, it creates an empty object as this and continues with it.
-  - But when a derived constructor runs, it doesn’t do it. It expects the parent constructor to do this job.
+  - But when a derived constructor runs, it doesn't do it. It expects the parent constructor to do this job.
 
 
+Following two code blocks are equivalent:
 #+BEGIN_SRC javascript
   function User(name) {
     this.name = name;
