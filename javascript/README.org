@@ -1144,9 +1144,23 @@ Always use it. It's a kind of *modern mode*
 #+END_SRC
 
 ** Prototypes
+:REFERENCES:
 - https://javascript.info/native-prototypes
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto
+:END:
+
+- ~obj.prototype~ :: is used by children
+- ~obj.__proto__~ :: links to parents
+
+~__proto__~ is deprecated in favor of ~Object.getPrototypeOf~ / ~Reflect.getPrototypeOf~ and ~Object.setPrototypeOf~ / ~Reflect.setPrototypeOf~
 
 [[file:_img/screenshot_2018-03-03_10-08-16.png]]
+
+~__proto__~ getter function exposes the value of the internal [[Prototype]] of an object.
+For objects created using an object literal, this value is ~Object.prototype~.
+
+The ~proto~ setter allows the [[Prototype]] of an object to be mutated. The object must be extensible according to ~Object.isExtensible()~: if it is not, a ~TypeError~ is thrown. The value provided must be an ~object~ or ~null~. Providing any other value will do nothing.
 
 ~x.__proto__~ has a property setter, which takes the value as a prototype(~null~, or ~object~), not the value itself.
 So, it's impossible to set the actual value to the property named ~__proto__~.
