@@ -1,15 +1,14 @@
 #+TITLE: REST (Representational State Transfer)
 
 * Table of Contents :TOC_2_gh:
-- [[#principles][Principles]]
 - [[#best-practices][Best Practices]]
   - [[#urls-and-actions][URLs and Actions]]
   - [[#header][Header]]
   - [[#json][JSON]]
   - [[#errors-and-status-codes][Errors and status codes]]
   - [[#versioning][Versioning]]
+- [[#principles][Principles]]
 
-* Principles
 * Best Practices
 :REFERENCES:
 - https://github.com/Kikobeats/awesome-api
@@ -190,3 +189,20 @@ For browser explorability, it is generally better to put the major verion in URI
 #+BEGIN_QUOTE
 I'm a big fan of the approach that Stripe has taken to API versioning - the URL has a major version number (v1), but the API has date based sub-versions which can be chosen using a custom HTTP request header.
 #+END_QUOTE
+
+* Principles
+:REFERENCES:
+- https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf
+:END:
+
+- Stateless         :: induces the properties of visibility, reliability, and scalability.
+- Cache             :: improves network efficiency
+- Uniform Interface :: overall system architecture is simplified and the visibility of interactions is improved.
+- Layered System    :: improves behavior for Internet-scale requirements, we add layered system constraints
+- Code-On-Demand    :: allows client functionality to be extended by downloading and executing code in the form of applets or scripts. 
+
+[[file:_img/screenshot_2018-03-27_17-51-44.png]]
+
+- Request (a) :: a client proxy scenario
+- Request (b) :: a direct request scenario
+- Request (c) :: a server proxy scenario
