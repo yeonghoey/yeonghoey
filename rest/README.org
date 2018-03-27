@@ -9,6 +9,7 @@
   - [[#versioning][Versioning]]
 - [[#topics][Topics]]
   - [[#visibility][Visibility]]
+  - [[#is-it-okay-to-return-json-array][Is it okay to return JSON Array]]
 - [[#principles][Principles]]
 
 * Best Practices
@@ -206,6 +207,31 @@ For RESTful web services, your key goal must be to maintain visibility to the ex
 #+BEGIN_QUOTE
 Whenever you have multiple resources that share data or whenever an operation modifies more than one resource, be prepared to trade visibility for better abstraction of information, loose coupling, network efficiency, resource granularity, or pure client convenience.
 #+END_QUOTE
+
+** Is it okay to return JSON Array
+:REFERENCES:
+- https://softwareengineering.stackexchange.com/questions/253897/api-always-returns-jsonobject-or-jsonarray-best-practices
+- https://softwareengineering.stackexchange.com/questions/286293/whats-the-best-way-to-return-an-array-as-a-response-in-a-restful-api
+- https://stackoverflow.com/questions/3503102/what-are-top-level-json-arrays-and-why-are-they-a-security-risk
+:END:
+
+#+BEGIN_SRC json
+  [1, 2, 3]
+#+END_SRC
+- Some people say this is cleaner.
+- But this is vulnerable to XSS in some old browsers.(modern browsers have addressed this problem)
+  JSON object which starts its content with ~{~ is considered to be Javascript block.
+  However, JSON array is a valid Javascript array.
+
+#+BEGIN_SRC json
+  {
+    "meaningless_key": [1, 2, 3]
+  }
+#+END_SRC
+- Pros :: can extend the result, like including ~count~.
+- Cons :: less pretty
+     
+Overall: It is better to use enveloping arrays with objects.
 
 * Principles
 :REFERENCES:

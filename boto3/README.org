@@ -7,6 +7,7 @@
 - [[#core][Core]]
 - [[#ec2][EC2]]
 - [[#dynamodb][DynamoDB]]
+  - [[#get_item][get_item]]
 - [[#links][Links]]
 
 * Concepts
@@ -127,8 +128,11 @@ in a multithreaded application rather than sharing a single instance among the t
 #+END_SRC
 
 * DynamoDB
+:REFERENCES:
 - http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html
-
+- http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#table
+:END:
+** get_item
 #+BEGIN_SRC python
   import boto3
 
