@@ -178,6 +178,22 @@ Without Same-origin policy, any JS code would access other domains resources.
 
 [[file:_img/screenshot_2018-03-19_01-16-27.png]]
 
+*** JSONP
+:REFERENCES:
+- https://en.wikipedia.org/wiki/JSONP
+:END:
+JSON with Padding. A way to circumvent Same-origin policy before the adoption of ~CORS~.
+
+#+BEGIN_SRC html
+  <script type="application/javascript"
+          src="http://server.example.com/Users/1234?callback=parseResponse">
+  </script>
+#+END_SRC
+
+#+BEGIN_SRC js
+  parseResponse({"Name": "Foo", "Id": 1234, "Rank": 7});
+#+END_SRC
+
 ** XSS (Cross-site scripting)
 - https://en.wikipedia.org/wiki/Cross-site_scripting
 
