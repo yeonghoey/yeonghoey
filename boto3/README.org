@@ -8,6 +8,7 @@
 - [[#ec2][EC2]]
 - [[#dynamodb][DynamoDB]]
   - [[#get_item][get_item]]
+  - [[#query][query]]
 - [[#links][Links]]
 
 * Concepts
@@ -131,7 +132,9 @@ in a multithreaded application rather than sharing a single instance among the t
 :REFERENCES:
 - http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html
 - http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#table
+- http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#dynamodb-conditions
 :END:
+
 ** get_item
 #+BEGIN_SRC python
   import boto3
@@ -149,6 +152,48 @@ in a multithreaded application rather than sharing a single instance among the t
           'age': 32,
       },
   }
+#+END_SRC
+
+** query
+:REFERENCES:
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.04.html
+:END:
+
+#+BEGIN_QUOTE
+Query results are always sorted by the sort key value. If the data type of the sort key is Number, the results are returned in numeric order; otherwise, the results are returned in order of UTF-8 bytes. By default, the sort order is ascending. To reverse the order, set the ScanIndexForward parameter to false.
+#+END_QUOTE
+
+#+BEGIN_SRC python
+  # year - The partition key. The attribute type is number.
+  # title - The sort key. The attribute type is string.
+  from boto3.dynamodb.conditions import Key, Attr
+
+  # All Movies Released in a Year
+  response = table.query(
+      KeyConditionExpression=Key('year').eq(1985)
+  )
+
+  # All Movies Released in a Year with Certain Titles
+  # Because 'year' is a reserved keyword, give an alias of '#yr'
+  response = table.query(
+      ProjectionExpression="#yr, title, info.genres, info.actors[0]",
+      ExpressionAttributeNames={ "#yr": "year" }, # Expression Attribute Names for Projection Expression only.
+      KeyConditionExpression=Key('year').eq(1992) & Key('title').between('A', 'L')
+  )
+
+  print(response['Items'])
+#+END_SRC
+
+*** ExpressionAttributeNames
+- starts with ~#~, reference the name of the attribute in expressions
+#+BEGIN_SRC python
+  {"#P": "Percentile"}
+#+END_SRC
+
+*** ExpressionAttributeValues
+- starts with ~:~, reference the value of the attribute in expressions
+#+BEGIN_SRC python
+  { ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }
 #+END_SRC
 
 * Links
