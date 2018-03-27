@@ -1,25 +1,8 @@
 #+TITLE: Vimium
 
 * Table of Contents :TOC_3_gh:
-- [[#custom-search-engines][Custom search engines]]
 - [[#custom-key-mappings][Custom key-mappings]]
 - [[#options][Options]]
-
-* Custom search engines
-#+BEGIN_EXAMPLE
-  b: chrome://bookmarks/#q=%s Chrome Bookmarks
-  e: http://endic.naver.com/search.nhn?query=%s Naver endic
-  g: http://www.google.com/search?q=%s Google
-  gh: https://github.com/search?q=%s Github
-  h: chrome://history/?#q=%s Chrome History
-  i: http://www.google.com/search?tbm=isch&q=%s Google Image
-  k: http://krdic.naver.com/search.nhn?query=%s Naver krdic
-  n: https://search.naver.com/search.naver?query=%s Naver
-  w: http://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
-  y: http://www.youtube.com/results?search_query=%s Youtube
-  s: http://symbolhound.com/?q=%s SymbolHound
-  t: http://www.thesaurus.com/browse/%s Thesaurus
-#+END_EXAMPLE
 
 * Custom key-mappings
 - https://github.com/philc/vimium/wiki/Key-Mappings
