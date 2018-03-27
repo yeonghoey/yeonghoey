@@ -1,0 +1,192 @@
+#+TITLE: REST (Representational State Transfer)
+
+* Table of Contents :TOC_2_gh:
+- [[#principles][Principles]]
+- [[#best-practices][Best Practices]]
+  - [[#urls-and-actions][URLs and Actions]]
+  - [[#header][Header]]
+  - [[#json][JSON]]
+  - [[#errors-and-status-codes][Errors and status codes]]
+  - [[#versioning][Versioning]]
+
+* Principles
+* Best Practices
+:REFERENCES:
+- https://github.com/Kikobeats/awesome-api
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
+:END:
+
+** URLs and Actions
+:REFERENCES:
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#advanced-queries
+:END:
+
+- Use *always plural* keywords for consistency.
+
+#+BEGIN_QUOTE
+To prevent an API consumer from having to hit the API again for an updated representation, have the API return the updated (or created) representation as part of the response.
+In case of a POST that resulted in a creation, use a HTTP 201 status code and include a Location header that points to the URL of the new resource.
+#+END_QUOTE
+  
+: GET /tickets
+- Retrieves a list of tickets
+
+: GET /tickets/12
+- Retrieves a specific ticket
+
+: POST /tickets
+- Creates a new ticket
+
+: PUT /tickets/12
+- Updates ticket #12
+
+: PATCH /tickets/12
+- Partially updates ticket #12
+
+: DELETE /tickets/12
+- Deletes ticket #12
+
+: GET /tickets/12/messages
+- Retrieves list of messages for ticket #12
+
+: GET /tickets/12/messages/5
+- Retrieves message #5 for ticket #12
+
+: POST /tickets/12/messages
+- Creates a new message in ticket #12
+
+: PUT /tickets/12/messages/5
+- Updates message #5 for ticket #12
+
+: PATCH /tickets/12/messages/5
+- Partially updates message #5 for ticket #12
+
+: DELETE /tickets/12/messages/5
+- Deletes message #5 for ticket #12
+
+: PUT /gists/:id/star
+- Use sub-resource for actions don't fit CRUD
+
+: DELETE /gists/:id/star
+- Use sub-resource for actions don't fit CRUD
+
+: GET /tickets?state=open
+- Filter
+
+: GET /tickets?sort=-priority
+- Retrieves a list of tickets in descending order of priority
+
+: GET /tickets?sort=-priority,created_at
+- Retrieves a list of tickets in descending order of priority. Within a specific priority, older tickets are ordered first
+
+: GET /tickets?sort=-updated_at
+- Retrieve recently updated tickets
+
+: GET /tickets?state=closed&sort=-updated_at
+- Retrieve recently closed tickets
+
+: GET /tickets?q=return&state=open&sort=-priority,created_at
+- Retrieve the highest priority open tickets mentioning the word 'return'
+
+: GET /tickets/recently_closed
+- Aliases for common queries
+
+: GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at
+
+** Header
+:REFERENCES:
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#pagination
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#rate-limiting
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#caching
+:END:
+
+- [[https://tools.ietf.org/html/rfc5988#page-6][Link]]                   :: Pagination
+- X-Rate-Limit-Limit     :: The number of allowed requests in the current period
+- X-Rate-Limit-Remaining :: The number of remaining requests in the current period
+- X-Rate-Limit-Reset     :: The number of seconds left in the current period
+- [[https://en.wikipedia.org/wiki/HTTP_ETag][ETag]]                   :: Caching
+- [[https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.29][Last-Modified]]          :: Caching
+
+** JSON
+:REFERENCES:
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#json-responses
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#json-requests
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#snake-vs-camel
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#pretty-print-gzip
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#envelope
+- http://ieeexplore.ieee.org/document/5521745/?reload=true&tp=&arnumber=5521745
+:END:
+
+- Use JSON where possible for both input and output
+- ~snake_case~ is preferable to ~camelCase~
+  snake_case is 20% easier to read than camelCase!
+  Many popular JSON APIs use snake_case following the underlying language.
+- Pretty print by default & ensure gzip is supported
+  The cost of the extra data transfer is negligible
+  gzipping in itself provided over 60% in bandwidth savings.
+- Don't use response envelopes(~{"data":{<actual result>}}~ by default
+  Within envelopes, it is easy to include meta data into the payload.
+  However, thanks to ~CORS~, ~LINK~ header, etc., it is no more mandatory.
+
+[[file:_img/screenshot_2018-03-27_16-16-33.png]]
+
+** Errors and status codes
+:REFERENCES:
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#errors
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#http-status
+- http://www.restapitutorial.com/httpstatuscodes.html
+:END:
+
+#+BEGIN_SRC json
+  {
+    "code" : 1234,
+    "message" : "Something bad happened :(",
+    "description" : "More details about the error here"
+  }
+#+END_SRC
+
+#+BEGIN_SRC json
+  {
+    "code" : 1024,
+    "message" : "Validation Failed",
+    "errors" : [
+      {
+        "code" : 5432,
+        "field" : "first_name",
+        "message" : "First name cannot have fancy characters"
+      },
+      {
+         "code" : 5622,
+         "field" : "password",
+         "message" : "Password cannot be blank"
+      }
+    ]
+  }
+#+END_SRC
+
+- ~200~ OK                     :: Response to a successful GET, PUT, PATCH or DELETE. Can also be used for a POST that doesn't result in a creation.
+- ~201~ Created                :: Response to a POST that results in a creation. Should be combined with a Location header pointing to the location of the new resource
+- ~204~ No Content             :: Response to a successful request that won't be returning a body (like a DELETE request)
+- ~304~ Not Modified           :: Used when HTTP caching headers are in play
+- ~400~ Bad Request            :: The request is malformed, such as if the body does not parse
+- ~401~ Unauthorized           :: When no or invalid authentication details are provided. Also useful to trigger an auth popup if the API is used from a browser
+- ~403~ Forbidden              :: When authentication succeeded but authenticated user doesn't have access to the resource
+- ~404~ Not Found              :: When a non-existent resource is requested
+- ~405~ Method Not Allowed     :: When an HTTP method is being requested that isn't allowed for the authenticated user
+- ~410~ Gone                   :: Indicates that the resource at this end point is no longer available. Useful as a blanket response for old API versions
+- ~415~ Unsupported Media Type :: If incorrect content type was provided as part of the request
+- ~422~ Unprocessable Entity   :: Used for validation errors
+- ~429~ Too Many Requests      :: When a request is rejected due to rate limiting
+
+** Versioning
+:REFERENCES:
+- https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#versioning
+- https://stackoverflow.com/questions/389169/best-practices-for-api-versioning
+:END:
+
+For browser explorability, it is generally better to put the major verion in URI.
+
+#+BEGIN_QUOTE
+I'm a big fan of the approach that Stripe has taken to API versioning - the URL has a major version number (v1), but the API has date based sub-versions which can be chosen using a custom HTTP request header.
+#+END_QUOTE
