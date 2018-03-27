@@ -7,6 +7,8 @@
   - [[#json][JSON]]
   - [[#errors-and-status-codes][Errors and status codes]]
   - [[#versioning][Versioning]]
+- [[#topics][Topics]]
+  - [[#visibility][Visibility]]
 - [[#principles][Principles]]
 
 * Best Practices
@@ -188,6 +190,21 @@ For browser explorability, it is generally better to put the major verion in URI
 
 #+BEGIN_QUOTE
 I'm a big fan of the approach that Stripe has taken to API versioning - the URL has a major version number (v1), but the API has date based sub-versions which can be chosen using a custom HTTP request header.
+#+END_QUOTE
+
+* Topics
+** Visibility
+:REFERENCES:
+Allamaraju, Subbu. RESTful Web Services Cookbook: Solutions for Improving Scalability and Simplicity (p. 5). O'Reilly Media. Kindle Edition. 
+:END:
+
+#+BEGIN_QUOTE
+
+For RESTful web services, your key goal must be to maintain visibility to the extent possible. Keeping visibility is simple. Use each HTTP method such that it has the same semantics as specified by HTTP, and add appropriate headers to describe requests and responses.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Whenever you have multiple resources that share data or whenever an operation modifies more than one resource, be prepared to trade visibility for better abstraction of information, loose coupling, network efficiency, resource granularity, or pure client convenience.
 #+END_QUOTE
 
 * Principles
