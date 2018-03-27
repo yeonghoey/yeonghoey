@@ -107,6 +107,12 @@ In templates, the context of ~this~, which is the corresponding ~Vue~ object can
 #+END_SRC
 
 ** Local Components
+:REFERENCES:
+- https://v1.vuejs.org/guide/components.html#Component-Option-Caveats
+:END:
+
+- ~data~ and ~el~ should be functions, otherwise the state of components is all shared.
+
 #+BEGIN_SRC javascript
   var Child = {
     template: '<div>A custom component!</div>'

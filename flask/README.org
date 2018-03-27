@@ -570,9 +570,19 @@ so make sure to disable escaping with ~|safe~ before Flask 0.10 if you intend to
 - https://flask-cors.corydolphin.com/en/latest/api.html#extension
 :END:
 
+The settings for CORS are determined in the following order
+
+1. Resource level settings (e.g when passed as a dictionary)
+2. Keyword argument settings
+3. App level configuration settings (e.g. CORS_*)
+4. Default settings
+
 #+BEGIN_SRC python
+  from flask import Flask
+  from flask_cors import CORS
+
   app = Flask(__name__)
-  cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
+  CORS(app, resources={r"/api/*": {"origins": "*"}})
 
   @app.route("/api/v1/users")
   def list_users():
