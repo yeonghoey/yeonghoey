@@ -196,11 +196,10 @@ I'm a big fan of the approach that Stripe has taken to API versioning - the URL 
 * Topics
 ** Visibility
 :REFERENCES:
-Allamaraju, Subbu. RESTful Web Services Cookbook: Solutions for Improving Scalability and Simplicity (p. 5). O'Reilly Media. Kindle Edition. 
+- Allamaraju, Subbu. RESTful Web Services Cookbook: Solutions for Improving Scalability and Simplicity (p. 5). O'Reilly Media. Kindle Edition. 
 :END:
 
 #+BEGIN_QUOTE
-
 For RESTful web services, your key goal must be to maintain visibility to the extent possible. Keeping visibility is simple. Use each HTTP method such that it has the same semantics as specified by HTTP, and add appropriate headers to describe requests and responses.
 #+END_QUOTE
 
