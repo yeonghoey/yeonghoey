@@ -1,20 +1,27 @@
 #+TITLE: Vimium
 
 * Table of Contents :TOC_3_gh:
-- [[#custom-key-mappings][Custom key-mappings]]
+- [[#custom-key-mappings][Custom key mappings]]
 - [[#options][Options]]
 
-* Custom key-mappings
-- https://github.com/philc/vimium/wiki/Key-Mappings
-- https://github.com/philc/vimium/blob/58f45ac17938e2984b3d3b83c8aed452f1287498/background_scripts/commands.coffee#L138
-- https://github.com/philc/vimium/wiki/Tips-and-Tricks#key-mapping
-- https://github.com/philc/vimium/blob/master/background_scripts/commands.coffee
+* Custom key mappings
+:REFERENCES:
+- https://github.com/philc/vimium#custom-key-mappings
+- https://github.com/philc/vimium/wiki/Tips-and-Tricks
+- https://github.com/philc/vimium/blob/master/background_scripts/commands.coffee#L138
+:END:
 
 #+BEGIN_EXAMPLE
-  map M closeOtherTabs
-  map <c-h> closeTabsOnLeft
-  map <c-l> closeTabsOnRight
-  unmap r
+  # Use a new tabe to open a link by default
+  map f LinkHints.activateModeToOpenInNewForegroundTab
+  map F LinkHints.activateMode
+
+  # 'q' stands for 'quoted'
+  map q passNextKey
+
+  # Quick lookups
+  map e Vomnibar.activateInNewTab keyword=endic
+  map <space> Vomnibar.activateInNewTab keyword=yeonghoey
 #+END_EXAMPLE
 
 * Options
