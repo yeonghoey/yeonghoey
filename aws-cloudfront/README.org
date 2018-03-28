@@ -1,11 +1,27 @@
 #+TITLE: Amazon CloudFront
 
 * Table of Contents :TOC_3_gh:
+- [[#settings][Settings]]
 - [[#topics][Topics]]
   - [[#zone-id-of-cloudfront-distributions][Zone ID of CloudFront Distributions]]
 - [[#how-to][How-to]]
   - [[#use-custom-domain-and-its-acm-aws-certificate-manager][Use custom domain and its ACM (AWS Certificate Manager)]]
   - [[#redirect-http-to-https][Redirect HTTP to HTTPS]]
+
+* Settings
+[[file:_img/screenshot_2018-03-28_17-40-08.png]]
+
+[[file:_img/screenshot_2018-03-28_17-40-32.png]]
+
+[[file:_img/screenshot_2018-03-28_17-41-00.png]]
+
+[[file:_img/screenshot_2018-03-28_17-41-25.png]]
+
+[[file:_img/screenshot_2018-03-28_17-43-15.png]]
+
+[[file:_img/screenshot_2018-03-28_17-42-32.png]]
+
+[[file:_img/screenshot_2018-03-28_17-43-52.png]]
 
 * Topics
 ** Zone ID of CloudFront Distributions
