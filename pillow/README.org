@@ -4,6 +4,8 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#imagegrab][ImageGrab]]
+- [[#how-to][How-to]]
+  - [[#scale-image][scale image]]
 - [[#links][Links]]
 
 * Overview
@@ -21,6 +23,18 @@
   from PIL import ImageGrab
   im = ImageGrab.grabclipboard()  # None if the clipboard does not contain image
   im.save('somefile.png','PNG')
+#+END_SRC
+
+* How-to
+** scale image
+:REFERENCES:
+- https://pillow.readthedocs.io/en/latest/reference/Image.html#PIL.Image.size
+- https://pillow.readthedocs.io/en/latest/reference/Image.html#PIL.Image.Image.resize
+:END:
+
+#+BEGIN_SRC python
+  w, h = img.size
+  scaled = img.resize((w*s, h*s))
 #+END_SRC
 
 * Links
