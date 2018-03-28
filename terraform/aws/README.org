@@ -18,6 +18,7 @@
   - [[#set-up-a-vpc][Set up a VPC]]
   - [[#create-an-instance][Create an instance]]
   - [[#create-an-instance-profile][Create an instance profile]]
+  - [[#set-up-static-website-with-s3][Set up static website with S3]]
 
 * Reference
 ** Resources
@@ -529,5 +530,29 @@ Before you make any changes, be sure to read the link below.
     ]
   }
   EOF
+  }
+#+END_SRC
+** Set up static website with S3
+#+BEGIN_SRC terraform
+  resource "aws_s3_bucket" "main" {
+    bucket = "${var.bucket}"
+    policy = <<EOF
+  {
+    "Version":"2012-10-17",
+    "Statement":[
+      {
+        "Effect":"Allow",
+        "Principal": "*",
+        "Action": ["s3:GetObject"],
+        "Resource": ["arn:aws:s3:::${var.bucket}/*"]
+      }
+    ]
+  }
+  EOF
+
+    website {
+      index_document = "index.html"
+      error_document = "index.html" # SPA
+    }
   }
 #+END_SRC
