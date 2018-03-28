@@ -283,6 +283,10 @@ Then, when you launch the instance, *you must specify the instance profile name*
 #+END_SRC
 
 *** Principal
+:REFERENCES:
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying
+:END:
+
 To specify the user (IAM user, federated user, or assumed-role user), AWS account, AWS service, or other principal entity that is allowed or denied access to a resource.
 
 *** Action

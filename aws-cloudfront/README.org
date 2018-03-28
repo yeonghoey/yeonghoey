@@ -3,6 +3,8 @@
 * Table of Contents :TOC_3_gh:
 - [[#settings][Settings]]
 - [[#topics][Topics]]
+  - [[#price-class][Price Class]]
+  - [[#ensure-users-s3-content-only-through-cloudfront][Ensure users S3 content only through Cloudfront]]
   - [[#zone-id-of-cloudfront-distributions][Zone ID of CloudFront Distributions]]
 - [[#how-to][How-to]]
   - [[#use-custom-domain-and-its-acm-aws-certificate-manager][Use custom domain and its ACM (AWS Certificate Manager)]]
@@ -24,6 +26,42 @@
 [[file:_img/screenshot_2018-03-28_17-43-52.png]]
 
 * Topics
+** Price Class
+:REFERENCES:
+- https://aws.amazon.com/cloudfront/pricing/?nc1=h_ls
+:END:
+
+#+BEGIN_QUOTE
+Price Classes let you reduce your delivery prices by excluding Amazon CloudFront’s more expensive edge locations from your Amazon CloudFront distribution.
+#+END_QUOTE
+
+[[file:_img/screenshot_2018-03-28_18-44-08.png]]
+
+** Ensure users S3 content only through Cloudfront
+:REFERENCES:
+- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-6
+:END:
+
+1. Create origin_access_identity
+2. Allow this identity to access your private S3 bucket by updating bucket policy
+  #+BEGIN_SRC json
+    {
+      "Version":"2012-10-17",
+      "Id":"PolicyForCloudFrontPrivateContent",
+      "Statement":[
+        {
+          "Sid":" Grant a CloudFront Origin Identity access to support private content",
+          "Effect":"Allow",
+          "Principal":{"CanonicalUser":"79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be"},
+          "Action":"s3:GetObject",
+          "Resource":"arn:aws:s3:::example-bucket/*"
+        }
+      ]
+    }
+  #+END_SRC
+3. Set the identity to the cloudfront distribution.
+
 ** Zone ID of CloudFront Distributions
 - https://github.com/hashicorp/terraform/issues/6489
 - https://docs.aws.amazon.com/general/latest/gr/rande.html#cf_region
