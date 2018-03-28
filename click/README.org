@@ -3,12 +3,14 @@
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#echo-secho][echo, secho]]
   - [[#option][option]]
   - [[#param_decls][param_decls]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
+  - [[#][]]
 - [[#how-to][How-to]]
-- [[#links][Links]]
+  - [[#handle-exceptions][Handle exceptions]]
 
 * Overview
 #+BEGIN_SRC python
@@ -35,6 +37,21 @@
 #+END_SRC
 
 * Reference
+** echo, secho
+:REFERENCES:
+- http://click.pocoo.org/5/utils/#printing-to-stdout
+:END:
+
+#+BEGIN_SRC python
+  click.echo('Hello World!')
+  click.echo(b'\xe2\x98\x83', nl=False)
+  click.echo('Hello World!', err=True)
+
+  click.secho('Hello World!', fg='green')
+  click.secho('Some more text', bg='blue', fg='white')
+  click.secho('ATTENTION', blink=True, bold=True)
+#+END_SRC
+
 ** option
 - http://click.pocoo.org/5/options/
 
@@ -72,5 +89,23 @@
 
 * Terminology
 * Topics
+** 
 * How-to
-* Links
+** Handle exceptions
+:REFERENCES:
+- http://click.pocoo.org/5/exceptions/
+- https://github.com/pallets/click/issues/270
+- http://click.pocoo.org/5/api/#click.ClickException
+:END:
+
+~click.Abort~ just exits with code 1, shows nothing but a message ~Aborted!~.
+
+It seems okay to just use ~sys.exit()~, but there are some click exceptions available to handle it with default behaviors.
+
+#+BEGIN_QUOTE
+If an ~ClickException~ is raised, invoke the ~ClickException.show()~ method on it to display it and then exit the program with ~ClickException.exit_code~.
+#+END_QUOTE
+
+- ~UsageError~
+- ~BadParameter~
+- ~FileError~
