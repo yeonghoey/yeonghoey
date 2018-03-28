@@ -8,7 +8,6 @@
   - [[#param_decls][param_decls]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
-  - [[#][]]
 - [[#how-to][How-to]]
   - [[#handle-exceptions][Handle exceptions]]
 
@@ -89,7 +88,6 @@
 
 * Terminology
 * Topics
-** 
 * How-to
 ** Handle exceptions
 :REFERENCES:
