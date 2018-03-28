@@ -1,0 +1,27 @@
+#+TITLE: Pillow
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#imagegrab][ImageGrab]]
+- [[#links][Links]]
+
+* Overview
+#+BEGIN_SRC python
+  pip install Pillow
+#+END_SRC
+
+* Reference
+** ImageGrab
+:REFERENCES:
+- http://pillow.readthedocs.io/en/latest/reference/ImageGrab.html
+:END:
+
+#+BEGIN_SRC python
+  from PIL import ImageGrab
+  im = ImageGrab.grabclipboard()
+  im.save('somefile.png','PNG')
+#+END_SRC
+
+* Links
+- http://pillow.readthedocs.io/en/latest/

@@ -1,0 +1,37 @@
+* pytesseract
+:REFERENCES:
+- https://github.com/madmaze/pytesseract
+- https://github.com/tesseract-ocr/tesseract
+- [[https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc#languages][Language codes]]
+:END:
+
+#+BEGIN_SRC shell
+  # 'tesseract' CLI command required
+  brew install tesseract --all-languages
+  pip install pytesseract
+#+END_SRC
+
+#+BEGIN_SRC python
+  from PIL import Image
+  import pytesseract
+
+  # Simple image to string
+  print(pytesseract.image_to_string(Image.open('test.png')))
+
+  # French text image to string
+  print(pytesseract.image_to_string(Image.open('test-european.jpg'), lang='fra'))
+
+  # Get bounding box estimates
+  print(pytesseract.image_to_boxes(Image.open('test.png')))
+
+  # Get verbose data including boxes, confidences, line and page numbers
+  print(pytesseract.image_to_data(Image.open('test.png')))
+#+END_SRC
+
+: image_to_data(image, lang=None, config='', nice=0, output_type=Output.STRING)
+
+- *image* Object                :: PIL Image/NumPy array of the image to be processed by Tesseract
+- *lang* String                 :: Tesseract language code string
+- *config* String               :: Any additional configurations as a string, ex: config='--psm 6'
+- *nice* Integer                :: modifies the processor priority for the Tesseract run. Not supported on Windows. Nice adjusts the niceness of unix-like processes.
+- *output_type* Class attribute :: specifies the type of the output, defaults to string. For the full list of all supported types, please check the definition of pytesseract.Output class.
