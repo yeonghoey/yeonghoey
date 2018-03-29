@@ -9,6 +9,7 @@
   - [[#versioning][Versioning]]
 - [[#topics][Topics]]
   - [[#visibility][Visibility]]
+  - [[#post-vs-put-vs-patch][POST vs. PUT vs. PATCH]]
   - [[#is-it-okay-to-return-json-array][Is it okay to return JSON Array]]
 - [[#principles][Principles]]
 
@@ -30,7 +31,7 @@
 To prevent an API consumer from having to hit the API again for an updated representation, have the API return the updated (or created) representation as part of the response.
 In case of a POST that resulted in a creation, use a HTTP 201 status code and include a Location header that points to the URL of the new resource.
 #+END_QUOTE
-  
+
 : GET /tickets
 - Retrieves a list of tickets
 
@@ -196,7 +197,7 @@ I'm a big fan of the approach that Stripe has taken to API versioning - the URL 
 * Topics
 ** Visibility
 :REFERENCES:
-- Allamaraju, Subbu. RESTful Web Services Cookbook: Solutions for Improving Scalability and Simplicity (p. 5). O'Reilly Media. Kindle Edition. 
+- Allamaraju, Subbu. RESTful Web Services Cookbook: Solutions for Improving Scalability and Simplicity (p. 5). O'Reilly Media. Kindle Edition.
 :END:
 
 #+BEGIN_QUOTE
@@ -206,6 +207,21 @@ For RESTful web services, your key goal must be to maintain visibility to the ex
 #+BEGIN_QUOTE
 Whenever you have multiple resources that share data or whenever an operation modifies more than one resource, be prepared to trade visibility for better abstraction of information, loose coupling, network efficiency, resource granularity, or pure client convenience.
 #+END_QUOTE
+
+** POST vs. PUT vs. PATCH
+:REFERENCES:
+- https://stackoverflow.com/questions/31089221/what-is-the-difference-between-put-post-and-patch
+- http://restful-api-design.readthedocs.io/en/latest/methods.html#patch-vs-put
+:END:
+
+- ~POST~ ::
+  - server will decide the URI for the newly created resource.
+- ~PUT~  ::
+  - client is determining the URI for the newly created resource.
+  - The ~PUT~ method requests that the enclosed entity be stored under the supplied Request-URI.
+- ~PATCH~ ::
+  - when the client is sending one or more changes to be applied by the server.
+  - applies a delta rather than replacing the entire resource.
 
 ** Is it okay to return JSON Array
 :REFERENCES:
@@ -229,7 +245,7 @@ Whenever you have multiple resources that share data or whenever an operation mo
 #+END_SRC
 - Pros :: can extend the result, like including ~count~.
 - Cons :: less pretty
-     
+
 Overall: It is better to use enveloping arrays with objects.
 
 * Principles
@@ -241,7 +257,7 @@ Overall: It is better to use enveloping arrays with objects.
 - Cache             :: improves network efficiency
 - Uniform Interface :: overall system architecture is simplified and the visibility of interactions is improved.
 - Layered System    :: improves behavior for Internet-scale requirements, we add layered system constraints
-- Code-On-Demand    :: allows client functionality to be extended by downloading and executing code in the form of applets or scripts. 
+- Code-On-Demand    :: allows client functionality to be extended by downloading and executing code in the form of applets or scripts.
 
 [[file:_img/screenshot_2018-03-27_17-51-44.png]]
 
