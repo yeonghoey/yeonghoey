@@ -22,7 +22,6 @@
   - [[#router-view][<router-view>]]
   - [[#history-mode][history mode]]
   - [[#matching][Matching]]
-  - [[#matching-priority][Matching Priority]]
   - [[#the-route-object][The Route object]]
   - [[#route-meta-fields][Route Meta Fields]]
   - [[#navigation-guards][Navigation Guards]]
@@ -337,10 +336,15 @@ the users will get a 404 error if they access http://oursite.com/user/id directl
 ** Matching
 :REFERENCES:
 - https://github.com/pillarjs/path-to-regexp#parameters
+- https://router.vuejs.org/en/essentials/dynamic-matching.html
+- https://router.vuejs.org/en/essentials/dynamic-matching.html#matching-priority
 :END:
 
-** Matching Priority
-- https://router.vuejs.org/en/essentials/dynamic-matching.html#matching-priority
+#+BEGIN_SRC js
+  pathToRegexp('/:foo/:bar?')
+  pathToRegexp('/:foo*')
+  pathToRegexp('/:foo+')
+#+END_SRC
 
 #+BEGIN_QUOTE
 Sometimes the same URL may be matched by multiple routes.
@@ -365,7 +369,13 @@ In such a case the matching priority is determined by the order of route definit
 - https://router.vuejs.org/en/advanced/navigation-guards.html
 
 ** Passing Props
+:REFERENCES:
 - https://router.vuejs.org/en/essentials/passing-props.html
+:END:
+
+#+BEGIN_QUOTE
+When ~props~ is set to ~true~, the ~route.params~ will be set as the component props.
+#+END_QUOTE
 
 ** Programmatic Navigation
 - https://router.vuejs.org/en/essentials/navigation.html
