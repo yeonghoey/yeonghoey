@@ -4,6 +4,7 @@
 - [[#how-to][How-to]]
   - [[#change-an-user-name-and-its-home-folder][Change an user name and its home folder]]
   - [[#disable-space-auto-switching][Disable space auto switching]]
+  - [[#disable-recent-items][Disable Recent Items]]
 
 * How-to
 ** Change an user name and its home folder
@@ -27,3 +28,5 @@
 - If you use ~Dropbox~, remove =~/.dropbox= to reset your dropbox settings.
 ** Disable space auto switching
 [[file:_img/screenshot_2018-01-03_09-23-32.png]]
+** Disable Recent Items
+[[file:_img/screenshot_2018-03-29_11-13-23.png]]
