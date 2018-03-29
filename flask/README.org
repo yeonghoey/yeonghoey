@@ -20,7 +20,7 @@
   - [[#cookies][Cookies]]
   - [[#http-methods][HTTP Methods]]
   - [[#message-flashing][Message Flashing]]
-  - [[#redirects-and-erros][Redirects and Erros]]
+  - [[#redirects-and-errors][Redirects and Errors]]
   - [[#request-context][Request Context]]
   - [[#responses][Responses]]
   - [[#routing][Routing]]
@@ -358,7 +358,7 @@ The template cotains following code:
   {% with messages = get_flashed_messages() %}
 #+END_SRC
 
-** Redirects and Erros
+** Redirects and Errors
 - http://flask.pocoo.org/docs/0.12/quickstart/#cookies
 
 #+BEGIN_SRC python
@@ -402,7 +402,11 @@ The template cotains following code:
 4. WSGI application :: covert it to a response object.
 
 ** Routing
+:REFERENCES:
 - http://flask.pocoo.org/docs/0.12/quickstart/#routing
+- http://flask.pocoo.org/snippets/76/
+- http://flask.pocoo.org/docs/0.12/quickstart/#variable-rules
+:END:
 
 #+BEGIN_SRC python
   @app.route('/')
@@ -435,6 +439,7 @@ Trailing slashs:
 
 - routes defined with trailing slash    :: ~/projects~ is redirected to ~/projects/~
 - routes defined without trailing slash :: ~/about/~ goes to ~404~
+- ~/test/<path:code>~ :: `code` can include ~/~
 
 ** Sessions
 - http://flask.pocoo.org/docs/0.12/quickstart/#sessions
