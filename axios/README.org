@@ -2,6 +2,8 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
+- [[#request][Request]]
+- [[#response][Response]]
 
 * Overview
 :REFERENCES:
@@ -10,4 +12,112 @@
 
 #+BEGIN_SRC shell
   npm install --save axios
+#+END_SRC
+
+* Request
+:REFERENCES:
+- https://github.com/axios/axios#request-config
+:END:
+
+#+BEGIN_SRC js
+  {
+    url: '/user',
+    method: 'get', // default
+    baseURL: 'https://some-domain.com/api/',
+
+    transformRequest: [function (data, headers) {
+      return data;
+    }],
+    transformResponse: [function (data) {
+      return data;
+    }],
+
+    headers: {'X-Requested-With': 'XMLHttpRequest'},
+
+    params: {
+      ID: 12345
+    },
+
+    paramsSerializer: function(params) {
+      return Qs.stringify(params, {arrayFormat: 'brackets'})
+    },
+
+    data: {
+      firstName: 'Fred'
+    },
+
+    timeout: 1000,
+    withCredentials: false, // default
+
+    adapter: function (config) {
+    },
+
+    auth: {
+      username: 'janedoe',
+      password: 's00pers3cret'
+    },
+
+    responseType: 'json', // default
+    responseEncoding: 'utf8', // default
+
+    xsrfCookieName: 'XSRF-TOKEN', // default
+    xsrfHeaderName: 'X-XSRF-TOKEN', // default
+
+    onUploadProgress: function (progressEvent) {
+    },
+    onDownloadProgress: function (progressEvent) {
+    },
+
+    maxContentLength: 2000,
+
+    validateStatus: function (status) {
+      return status >= 200 && status < 300; // default
+    },
+
+    maxRedirects: 5, // default
+    socketPath: null, // default
+
+    httpAgent: new http.Agent({ keepAlive: true }),
+    httpsAgent: new https.Agent({ keepAlive: true }),
+
+    proxy: {
+      host: '127.0.0.1',
+      port: 9000,
+      auth: {
+        username: 'mikeymike',
+        password: 'rapunz3l'
+      }
+    },
+
+    cancelToken: new CancelToken(function (cancel) {
+    })
+  }
+#+END_SRC
+* Response
+:REFERENCES:
+- https://github.com/axios/axios#response-schema
+:END:
+#+BEGIN_SRC js
+  {
+    // `data` is the response that was provided by the server
+    data: {},
+
+    // `status` is the HTTP status code from the server response
+    status: 200,
+
+    // `statusText` is the HTTP status message from the server response
+    statusText: 'OK',
+
+    // `headers` the headers that the server responded with
+    // All header names are lower cased
+    headers: {},
+
+    // `config` is the config that was provided to `axios` for the request
+    config: {},
+
+    // `request` is the request that generated this response
+    // It is the last ClientRequest instance in node.js (in redirects)
+    // and an XMLHttpRequest instance the browser
+    request: {}
+  }
 #+END_SRC
