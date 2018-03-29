@@ -6,9 +6,10 @@
   - [[#data-and-methods][Data and Methods]]
   - [[#lifecycle][Lifecycle]]
     - [[#mounted][mounted]]
+  - [[#computed-and-watch][computed and watch]]
 - [[#template-syntax][Template Syntax]]
 - [[#api][API]]
-  - [[#new-vueoptions][new Vue(options)]]
+  - [[#vueoptions][Vue(options)]]
   - [[#v-bind][v-bind]]
 - [[#components][Components]]
   - [[#global-components][Global Components]]
@@ -84,6 +85,51 @@ Don’t use arrow functions on an options property or callback, such as ~created
 *** mounted
 - https://vuejs.org/v2/api/#mounted
 
+** computed and watch
+:REFERENCES:
+- https://vuejs.org/v2/guide/computed.html
+:END:
+
+- computed ::
+  - caches the value when first calculated
+  - updates automatically when its dependent variables changed
+
+  #+BEGIN_SRC js
+    var vm = new Vue({
+      el: '#example',
+      data: {
+        message: 'Hello'
+      },
+      computed: {
+        // a computed getter
+        reversedMessage: function () {
+          // `this` points to the vm instance
+          return this.message.split('').reverse().join('')
+        }
+      }
+    })
+  #+END_SRC
+
+- watch ::
+  - call back of data field's change event
+  #+BEGIN_SRC js
+    var vm = new Vue({
+      el: '#demo',
+      data: {
+        firstName: 'Foo',
+        lastName: 'Bar',
+        fullName: 'Foo Bar'
+      },
+      watch: {
+        firstName: function (val) {
+          this.fullName = val + ' ' + this.lastName
+        },
+        lastName: function (val) {
+          this.fullName = this.firstName + ' ' + val
+        }
+      }
+    })
+  #+END_SRC
 * Template Syntax
 :REFERENCES:
 - https://vuejs.org/v2/guide/syntax.html
@@ -128,8 +174,14 @@ Don’t use arrow functions on an options property or callback, such as ~created
 #+END_SRC
 
 * API
-** new Vue(options)
-- https://vuejs.org/v2/api/#Options-Data
+** Vue(options)
+- [[https://vuejs.org/v2/api/#data][data]] ::
+  - Only accepts ~Function~ when used in a component definition.
+  - The object must be plain
+- [[https://vuejs.org/v2/api/#el][el]] ::
+  - only respected in instance creation via new.
+  - provide the Vue instance an existing DOM element to mount on. It can be a CSS selector string or an actual HTMLElement.
+  - seems that it doesn't need to specify when using ~.vue~ files. 
   
 ** v-bind
 :REFERENCES:
@@ -228,6 +280,9 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
 * Single File Components (.vue)
 - https://vuejs.org/v2/guide/single-file-components.html
 
+#+BEGIN_QUOTE
+In many Vue projects, global components will be defined using ~Vue.component~, followed by ~new Vue({ el: '#container' })~ to target a container element in the body of every page.
+#+END_QUOTE
 * Router
 - https://router.vuejs.org/en/
 
