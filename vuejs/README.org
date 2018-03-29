@@ -2,11 +2,14 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
-- [[#syntax][Syntax]]
-- [[#lifecycle][Lifecycle]]
-  - [[#mounted][mounted]]
+  - [[#getting-started][Getting Started]]
+  - [[#data-and-methods][Data and Methods]]
+  - [[#lifecycle][Lifecycle]]
+    - [[#mounted][mounted]]
+- [[#template-syntax][Template Syntax]]
 - [[#api][API]]
   - [[#new-vueoptions][new Vue(options)]]
+  - [[#v-bind][v-bind]]
 - [[#components][Components]]
   - [[#global-components][Global Components]]
   - [[#local-components][Local Components]]
@@ -33,6 +36,7 @@
 - https://vuejs.org/v2/guide/installation.html#CLI
 :END:
 
+** Getting Started
 #+BEGIN_SRC shell
   # install vue-cli
   $ npm install --global vue-cli
@@ -42,6 +46,11 @@
   $ cd my-project
   $ npm run dev
 #+END_SRC
+
+** Data and Methods
+#+BEGIN_QUOTE
+*When a Vue instance is created*, it adds all the properties found in its ~data~ object to Vue’s reactivity system.
+#+END_QUOTE
 
 #+BEGIN_QUOTE
 Vue instances expose a number of useful instance properties and methods.
@@ -62,28 +71,92 @@ These properties and methods are prefixed with ~$~ to differentiate from proxied
   })
 #+END_SRC
 
-* Syntax
-- https://vuejs.org/v2/guide/syntax.html
-
-In templates, the context of ~this~, which is the corresponding ~Vue~ object can be referred without ~this~.
-#+BEGIN_SRC html
-  <!-- msg is data property of the Vue object-->
-  <span>Message: {{ msg }}</span>
-#+END_SRC
-
-* Lifecycle
+** Lifecycle
 - https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
+
+#+BEGIN_QUOTE
+Don’t use arrow functions on an options property or callback, such as ~created: () => console.log(this.a)~ or ~vm.$watch('a', newValue => this.myMethod())~. Since arrow functions are bound to the parent context, this will not be the Vue instance as you’d expect, often resulting in errors
+#+END_QUOTE
 
 [[file:_img/screenshot_2018-03-07_11-48-43.png]]
 [[file:_img/screenshot_2018-03-07_11-04-42.png]]
 
-** mounted
+*** mounted
 - https://vuejs.org/v2/api/#mounted
+
+* Template Syntax
+:REFERENCES:
+- https://vuejs.org/v2/guide/syntax.html
+:END:
+
+- The ~v-~ prefix serves as a visual cue for identifying Vue-specific attributes in your templates. 
+
+- In templates, the context of ~this~, which is the corresponding ~Vue~ object can be referred without ~this~.
+#+BEGIN_SRC html
+  <!-- msg is data property of the Vue object-->
+  <span>Message: {{ msg }}</span>
+  <span v-once>This will never change: {{ msg }}</span>
+#+END_SRC
+
+#+BEGIN_SRC html
+  <p>Using mustaches: {{ rawHtml }}</p>
+  <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+#+END_SRC
+
+[[file:_img/screenshot_2018-03-29_12-46-08.png]]
+
+#+BEGIN_SRC html
+  <!-- remove/insert the <p> element based on whether or not 'seen' is true. -->
+  <p v-if="seen">Now you see me</p>
+#+END_SRC
+
+#+BEGIN_SRC html
+  <!-- .prevent modifier tells the v-on directive to call event.preventDefault() on the triggered event: -->
+  <form v-on:submit.prevent="onSubmit"> ... </form>
+#+END_SRC
+
+#+BEGIN_SRC html
+  <!-- full syntax -->
+  <a v-bind:href="url"> ... </a>
+  <!-- shorthand -->
+  <a :href="url"> ... </a>
+
+  <!-- full syntax -->
+  <a v-on:click="doSomething"> ... </a>
+  <!-- shorthand -->
+  <a @click="doSomething"> ... </a>
+#+END_SRC
 
 * API
 ** new Vue(options)
 - https://vuejs.org/v2/api/#Options-Data
   
+** v-bind
+:REFERENCES:
+- https://vuejs.org/v2/api/#v-bind
+- https://vuejs.org/v2/guide/class-and-style.html
+:END:
+
+Dynamically bind one or more attributes, or a component prop to an expression.
+
+#+BEGIN_SRC html
+  <!-- bind an attribute -->
+  <img v-bind:src="imageSrc">
+
+  <!-- shorthand -->
+  <img :src="imageSrc">
+
+  <!-- with inline string concatenation -->
+  <img :src="'/path/to/images/' + fileName">
+
+  <!-- class binding -->
+  <div :class="{ red: isRed }"></div>
+  <div :class="[classA, classB]"></div>
+
+  <!-- class binding ('key' is included if 'value' is true -->
+  <div :class="[classA, { classB: isB, classC: isC }]">
+#+END_SRC
+
 * Components
 - https://vuejs.org/v2/guide/components.html
 
@@ -154,6 +227,7 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
 
 * Single File Components (.vue)
 - https://vuejs.org/v2/guide/single-file-components.html
+
 * Router
 - https://router.vuejs.org/en/
 
