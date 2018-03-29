@@ -2,8 +2,9 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
-- [[#request][Request]]
-- [[#response][Response]]
+  - [[#request][Request]]
+  - [[#response][Response]]
+- [[#reference][Reference]]
 
 * Overview
 :REFERENCES:
@@ -14,7 +15,7 @@
   npm install --save axios
 #+END_SRC
 
-* Request
+** Request
 :REFERENCES:
 - https://github.com/axios/axios#request-config
 :END:
@@ -93,7 +94,7 @@
     })
   }
 #+END_SRC
-* Response
+** Response
 :REFERENCES:
 - https://github.com/axios/axios#response-schema
 :END:
@@ -121,3 +122,13 @@
     request: {}
   }
 #+END_SRC
+
+* Reference
+- ~axios.create([config])~ ::
+  #+BEGIN_SRC js
+    var instance = axios.create({
+      baseURL: 'https://some-domain.com/api/',
+      timeout: 1000,
+      headers: {'X-Custom-Header': 'foobar'}
+    });
+  #+END_SRC
