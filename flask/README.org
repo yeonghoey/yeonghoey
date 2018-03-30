@@ -403,9 +403,9 @@ The template cotains following code:
 
 ** Routing
 :REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#url-route-registrations
 - http://flask.pocoo.org/docs/0.12/quickstart/#routing
 - http://flask.pocoo.org/snippets/76/
-- http://flask.pocoo.org/docs/0.12/quickstart/#variable-rules
 :END:
 
 #+BEGIN_SRC python
@@ -423,6 +423,13 @@ The template cotains following code:
 
   @app.route('/post/<int:post_id>')
   def show_post(post_id):
+      pass
+#+END_SRC
+
+#+BEGIN_SRC python
+  @bp.route('/<user>/', defaults={'name': None})
+  @bp.route('/<user>/<path:name>')
+  def query(user, name):
       pass
 #+END_SRC
 

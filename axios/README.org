@@ -5,6 +5,8 @@
   - [[#request][Request]]
   - [[#response][Response]]
 - [[#reference][Reference]]
+- [[#topics][Topics]]
+  - [[#catch-is-silently-taking-errors-from-then][.catch() is silently taking errors from .then()]]
 
 * Overview
 :REFERENCES:
@@ -132,3 +134,20 @@
       headers: {'X-Custom-Header': 'foobar'}
     });
   #+END_SRC
+
+* Topics
+** .catch() is silently taking errors from .then()
+:REFERENCES:
+- https://github.com/axios/axios/issues/1103
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
+:END:
+
+To avoid this, put the error handler into ~then()~ as the second argument.
+#+BEGIN_SRC javascript
+  axios.delete(base + '/addresses/' + params)
+    .then(data => { // Success
+      Vue.delete(/* something */);
+    }, error => { // Failed
+      notifyError('The Address couldn\'t be deleted!');
+    });
+#+END_SRC

@@ -453,8 +453,15 @@ The proof of the fact:
 [[file:_img/screenshot_2018-03-03_08-49-20.png]]
 
 ** Arrays
+:REFERENCES:
 - https://javascript.info/array
 - https://javascript.info/array-methods
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+- http://airbnb.io/javascript/#iterators-and-generators
+:END:
+
+Prefer JavaScript’s higher-order functions instead of loops like ~for-in~ or ~for-of~.
+Use ~map()~ / ~every()~ / ~filter()~ / ~find()~ / ~findIndex()~ / ~reduce()~ / ~some()~ / ...
 
 #+BEGIN_SRC javascript
   let arr = new Array();
@@ -467,6 +474,12 @@ The proof of the fact:
   }
 
   // iterates over array elements
+  for (let fruit of fruits) {
+    alert( fruit );
+  }
+
+  // Can use 'const' instead of 'let',
+  // if you don't reassign the variable inside the block.
   for (let fruit of fruits) {
     alert( fruit );
   }

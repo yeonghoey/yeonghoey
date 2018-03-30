@@ -11,6 +11,7 @@
 - [[#api][API]]
   - [[#vueoptions][Vue(options)]]
   - [[#v-bind][v-bind]]
+- [[#list-rendering][List Rendering]]
 - [[#components][Components]]
   - [[#global-components][Global Components]]
   - [[#local-components][Local Components]]
@@ -207,6 +208,29 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   <!-- class binding ('key' is included if 'value' is true -->
   <div :class="[classA, { classB: isB, classC: isC }]">
+#+END_SRC
+
+* List Rendering
+:REFERENCES:
+- https://vuejs.org/v2/guide/list.html
+- https://vuejs.org/v2/guide/list.html#key
+:END:
+
+#+BEGIN_SRC vue
+  <ul id="example-1">
+    <li v-for="item in items">
+      {{ item.message }}
+    </li>
+  </ul>
+
+  <div v-for="(value, key) in object">
+    {{ key }}: {{ value }}
+  </div>
+
+  <!-- It is recommended to provide a key with v-for whenever possible -->
+  <div v-for="item in items" :key="item.id">
+    <!-- content -->
+  </div>
 #+END_SRC
 
 * Components
