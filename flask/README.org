@@ -242,6 +242,8 @@ This is better than hard-coded URLs as following reasons:
 :REFERENCES:
 - http://flask.pocoo.org/docs/0.12/testing/
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.test_client
+- http://flask.pocoo.org/docs/0.12/api/#flask.testing.FlaskClient
+- http://werkzeug.pocoo.org/docs/0.14/test/#werkzeug.test.Client
 :END:
 #+BEGIN_SRC python
   # propgate excetions to test_client
