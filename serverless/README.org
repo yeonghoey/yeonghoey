@@ -225,6 +225,7 @@ Subcommands:
 
 #+BEGIN_SRC yaml
   x: ${env:NAME}                 # Environment Variables
+  x: ${env:NAME, 'temp'}         # default
   x: ${opt:stage}                # CLI Options
   x: ${cf:service.name}          # CloudFormation
   x: ${self:custom.stage}        # self reference

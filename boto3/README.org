@@ -5,7 +5,10 @@
   - [[#client-vs-resource][Client vs Resource]]
   - [[#paginators][Paginators]]
 - [[#core][Core]]
+  - [[#client-or-resource][client or resource]]
+  - [[#waiters][Waiters]]
 - [[#ec2][EC2]]
+- [[#cloudformation][CloudFormation]]
 - [[#dynamodb][DynamoDB]]
   - [[#get_item][get_item]]
   - [[#query][query]]
@@ -69,8 +72,11 @@ in a multithreaded application rather than sharing a single instance among the t
 #+END_SRC
 
 * Core
+** client or resource
+:REFERENCES:
 - http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client
 - http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource
+:END:
 
 #+BEGIN_SRC python
   def client_or_resource(service_name,
@@ -83,6 +89,22 @@ in a multithreaded application rather than sharing a single instance among the t
                          aws_secret_access_key=None,
                          aws_session_token=None,
                          config=None)
+#+END_SRC
+
+** Waiters
+:REFERENCES:
+- http://boto3.readthedocs.io/en/latest/guide/clients.html#waiters
+:END:
+
+#+BEGIN_SRC python
+  import boto3
+
+  s3 = boto3.client('s3')
+  print('s3 waiters: ', s3.waiter_names)
+  # [u'bucket_exists', u'bucket_not_exists', u'object_exists', u'object_not_exists']
+
+  w = s3.get_waiter('bucket_exists')
+  w.wait(Bucket='mybucket')
 #+END_SRC
 
 * EC2
@@ -126,6 +148,22 @@ in a multithreaded application rather than sharing a single instance among the t
   instance = ec2.Instance('id')
 
   print instance.private_ip_address  # For more attributes, SEE: EC2.Instance
+#+END_SRC
+
+* CloudFormation
+:REFERENCES:
+- http://boto3.readthedocs.io/en/latest/reference/services/cloudformation.html
+:END:
+
+#+BEGIN_SRC python
+  import boto3
+
+  client = boto3.client('cloudformation')
+  stack = client.create_stack(StackName='test', TmeplateBody='{"json": "template"}')
+
+  # http://boto3.readthedocs.io/en/latest/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete.wait
+  waiter = client.get_waiter('stack_create_complete')
+  waiter.wait(StackName='test', WaiterConfig={'Delay': 5})
 #+END_SRC
 
 * DynamoDB
