@@ -65,9 +65,13 @@
 #+END_SRC
 * Reference
 ** Config
+:REFERENCES:
 - http://flask.pocoo.org/docs/0.12/api/#flask.Config
 - http://flask.pocoo.org/docs/0.12/config/#builtin-configuration-values
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.default_config
+- http://flask.pocoo.org/docs/0.12/api/#flask.Config.from_mapping
+:END:
+
 
 
 - Load from a ~.cfg~ file
@@ -104,6 +108,7 @@ Certain configuration values are also forwarded to the Flask object so you can r
   app = Flask(__name__)
   app.config.from_object('yourapplication.default_settings')
   app.config.from_envvar('YOURAPPLICATION_SETTINGS') # overrides
+  app.config.from_mapping({'ABC': 'test'})
 #+END_SRC
 
 ** Flask
