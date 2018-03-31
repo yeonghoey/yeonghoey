@@ -10,8 +10,9 @@
   - [[#monkeypatch][monkeypatch]]
   - [[#raises][raises]]
   - [[#fail][fail]]
-- [[#terminology][Terminology]]
 - [[#topics][Topics]]
+  - [[#rootdir][rootdir]]
+  - [[#import-mechanisms][Import Mechanisms]]
   - [[#test-layouts][Test Layouts]]
 - [[#how-to][How-to]]
 - [[#links][Links]]
@@ -207,10 +208,28 @@
           pytest.fail("Unexpected MyError ..")
 #+END_SRC
 
-* Terminology
 * Topics
+** rootdir
+
+#+BEGIN_QUOTE
+The rootdir is used a reference directory for constructing test addresses (“nodeids”) and can be used also by plugins for storing per-testrun information.
+#+END_QUOTE
+
+#+BEGIN_SRC python
+  pytest.config.rootdir
+  pytest.config.inifile
+#+END_SRC
+
+** Import Mechanisms
+:REFERENCES:
+- https://docs.pytest.org/en/latest/pythonpath.html
+:END:
+
 ** Test Layouts
+:REFERENCES:
 - http://doc.pytest.org/en/latest/goodpractices.html
+- https://docs.pytest.org/en/latest/goodpractices.html#test-discovery
+:END:
 
 -----
 
