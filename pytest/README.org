@@ -76,9 +76,10 @@
 - https://docs.pytest.org/en/latest/fixture.html
 - https://docs.pytest.org/en/latest/builtin.html#_pytest.fixtures.fixture
 - https://docs.pytest.org/en/latest/builtin.html#builtin-fixtures-function-arguments
+- https://docs.pytest.org/en/latest/fixture.html#higher-scoped-fixtures-are-instantiated-first
 :END:
 
-- ~scope~ :: https://docs.pytest.org/en/latest/fixture.html#higher-scoped-fixtures-are-instantiated-first
+- ~scope~ ::
   - ~session~
   - ~module~
   - ~function~ (default)
