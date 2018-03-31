@@ -42,3 +42,21 @@ $HOME/.pipyrc 설정해야 함
 
 ** Mixins
 - https://www.ianlewis.org/en/mixins-and-python
+** How-to allocate free port
+#+BEGIN_SRC python
+  from contextlib import closing
+  from socket import socket, AF_INET, SOCK_STREAM
+
+  def candidate_port():
+      with closing(socket(AF_INET, SOCK_STREAM)) as s:
+          s.bind(('localhost', 0))
+          _, port = s.getsockname()
+          return port
+
+
+  def wait_healthy(host, port, interval=.1):
+      with closing(socket(AF_INET, SOCK_STREAM)) as s:
+          while s.connect_ex((host, port)) != 0:
+              sleep(interval)
+
+#+END_SRC
