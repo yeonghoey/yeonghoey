@@ -13,6 +13,7 @@
   - [[#request][request]]
   - [[#multidict][MultiDict]]
   - [[#url_for][url_for]]
+  - [[#test_client][test_client]]
 - [[#topics][Topics]]
   - [[#application-context][Application Context]]
   - [[#blueprints][Blueprints]]
@@ -236,6 +237,21 @@ This is better than hard-coded URLs as following reasons:
 1. Reversing is often more descriptive
 2. URL building will handle escaping
 3. If your application is placed outside the URL root
+
+** test_client
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/testing/
+- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.test_client
+:END:
+#+BEGIN_SRC python
+  # propgate excetions to test_client
+  app.testing = True
+  client = app.test_client()
+
+  # keep client open until the end of with block to test with contexts
+  with app.test_client() as c:
+      pass
+#+END_SRC
 
 * Topics
 ** Application Context

@@ -72,9 +72,16 @@
 #+END_SRC
 
 ** fixture
+:REFERENCES:
 - https://docs.pytest.org/en/latest/fixture.html
 - https://docs.pytest.org/en/latest/builtin.html#_pytest.fixtures.fixture
 - https://docs.pytest.org/en/latest/builtin.html#builtin-fixtures-function-arguments
+:END:
+
+- ~scope~ :: https://docs.pytest.org/en/latest/fixture.html#higher-scoped-fixtures-are-instantiated-first
+  - ~session~
+  - ~module~
+  - ~function~ (default)
 
 #+BEGIN_SRC python
   # content of ./test_smtpsimple.py
