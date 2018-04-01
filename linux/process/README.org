@@ -1,8 +1,7 @@
 #+TITLE: Linux Process Concepts
 
 * Table of Contents :TOC_2_gh:
-- [[#parent-and-child-process][Parent and Child Process]]
-- [[#process-group-session-and-controlling-terminal][Process Group, Session and Controlling Terminal]]
+- [[#process-groups-sessions-and-controlling-terminal][Process Groups, Sessions and Controlling Terminal]]
   - [[#process-group][Process Group]]
   - [[#session][Session]]
 - [[#zombie-and-orphan-process][Zombie and Orphan Process]]
@@ -11,24 +10,21 @@
   - [[#what-happens-when-you-press-ctrlc][What happens when you press ~Ctrl+C~]]
   - [[#pseudo-terminals][Pseudo Terminals]]
 
-* Parent and Child Process
-* Process Group, Session and Controlling Terminal
+* Process Groups, Sessions and Controlling Terminal
 :REFERENCES:
+- https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html
 - https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
-- http://pubs.opengroup.org/onlinepubs/9699919799/
 - http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
 :END:
 
-** Process Group
-:REFERENCES:
-- https://unix.stackexchange.com/questions/363126/why-is-process-not-part-of-expected-process-group
-- http://kirste.userpage.fu-berlin.de/chemnet/use/info/libc/libc_24.html
-:END:
+[[file:_img/screenshot_2018-04-01_17-33-25.png]]
 
+
+** Process Group
 - A collection of processes that *permits the signaling of related processes*.
 - A newly created process joins the process group of its creator.
 - When shells like ~bash~ run a command, it forks and call ~setpgid()~ to allocate a new process group,
-  and make it the foreground process group if the shell was in foreground.
+  and make it the foreground process group if the shell was in foreground. [[https://unix.stackexchange.com/questions/363126/why-is-process-not-part-of-expected-process-group][stackexchange]] [[http://kirste.userpage.fu-berlin.de/chemnet/use/info/libc/libc_24.html][ref]]
 
 ** Session
 - *A collection of process groups*
@@ -36,11 +32,7 @@
   - The terminal is now called as a controlling terminal
   - The session now has the foreground process group, which associated and interacts with the terminal
 
-*** setsid
-:REFERENCES:
-- https://linux.die.net/man/2/setsid
-:END:
-
+*** [[https://linux.die.net/man/2/setsid][setsid]]
 The calling process is 
 - the leader of the new session
 - the process group leader of the new process group
