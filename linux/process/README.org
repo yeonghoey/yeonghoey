@@ -4,6 +4,7 @@
 - [[#process-groups-sessions-and-controlling-terminal][Process Groups, Sessions and Controlling Terminal]]
   - [[#process-group][Process Group]]
   - [[#session][Session]]
+  - [[#references][References]]
 - [[#zombie-and-orphan-process][Zombie and Orphan Process]]
 - [[#double-fork][Double Fork]]
 - [[#terminal][Terminal]]
@@ -11,14 +12,8 @@
   - [[#pseudo-terminals][Pseudo Terminals]]
 
 * Process Groups, Sessions and Controlling Terminal
-:REFERENCES:
-- https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html
-- https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
-- http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
-:END:
 
 [[file:_img/screenshot_2018-04-01_17-33-25.png]]
-
 
 ** Process Group
 - A collection of processes that *permits the signaling of related processes*.
@@ -37,6 +32,11 @@ The calling process is
 - the leader of the new session
 - the process group leader of the new process group
 - has no controlling terminal.
+
+** References
+- https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html
+- https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
+- http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
 
 * Zombie and Orphan Process
 * Double Fork
