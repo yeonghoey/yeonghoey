@@ -29,7 +29,6 @@
     - [[#shell-parameter-expansion][Shell Parameter Expansion]]
 - [[#topics][Topics]]
   - [[#subtlety-of-following-symlinks][Subtlety of Following Symlinks]]
-  - [[#pseudo-terminals][Pseudo Terminals]]
   - [[#usage-of-dash---in-place-of-a-filename-like-cat--][Usage of dash (-) in place of a filename, like 'cat -']]
 - [[#how-to][How-to]]
   - [[#change-hostname][Change hostname]]
@@ -971,27 +970,6 @@ The general rule is,
   # ----------------------------------------------
   # 'b' is a copy of the actual file ('a')
 #+END_SRC
-
-** Pseudo Terminals
-- https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
-
-if you run a process on the terminal,
-you can interrupt it by pressing ~Ctrl+C~.
-
-if a process is not associated with any terminal,
-you *can't* interrupt it with ~Ctrl+C~,
-instead you would probably have to run ~kill~ or something like that
-
-~sshd~ process *passes your keystrokes to the remote process*
-by writing them to the master end of the *pseudo-terminal*.
-
-By default the remote ~sshd~ will allocate a ~pty~ only *when you don't specify* a command.
-
-If you try ~ssh remote.host screen~ then
-you'll see that specifying the command suppresses the ~pty~ allocation and you'll be in trouble again.
-To avoid this, specify the ~-t~ option, and then the remote ~sshd~ will always try to allocate a terminal.
-
-Use the flag of ~-T~ for explicitly disabling ~pty~.
 
 ** Usage of dash (-) in place of a filename, like 'cat -'
 - https://unix.stackexchange.com/questions/16357/usage-of-dash-in-place-of-a-filename

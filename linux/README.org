@@ -2,7 +2,6 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
-- [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#inode-structure][Inode Structure]]
   - [[#numa][NUMA]]
@@ -15,7 +14,6 @@
 - http://www.brendangregg.com/linuxperf.html
 
 [[file:_img/screenshot_2017-08-16_20-34-39.png]]
-* Terminology
 * Topics
 ** Inode Structure
 - http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file
