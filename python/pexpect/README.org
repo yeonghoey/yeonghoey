@@ -63,6 +63,7 @@
   - Wraps ~send()~, sending string s to child process, with ~os.linesep~ automatically appended.
 
 - [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendcontrol][sendcontrol]] ::
+
   : sendcontrol(char)
 
   - Use [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendintr][sendintr]] or [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendeof][sendeof]] when sending ~SIGINT~ or ~EOF~ 
