@@ -1,18 +1,39 @@
 #+TITLE: Linux Process Concepts
 
 * Table of Contents :TOC_2_gh:
+- [[#parent-child-orphan-and-zombie-process][Parent, Child, Orphan and Zombie Process]]
+  - [[#references][References]]
 - [[#process-groups-sessions-and-controlling-terminal][Process Groups, Sessions and Controlling Terminal]]
   - [[#process-group][Process Group]]
   - [[#session][Session]]
-  - [[#references][References]]
-- [[#zombie-and-orphan-process][Zombie and Orphan Process]]
+  - [[#references-1][References]]
 - [[#double-fork][Double Fork]]
-- [[#terminal][Terminal]]
-  - [[#what-happens-when-you-press-ctrlc][What happens when you press ~Ctrl+C~]]
-  - [[#pseudo-terminals][Pseudo Terminals]]
+  - [[#references-2][References]]
+- [[#pseudo-terminal-details][Pseudo Terminal Details]]
+  - [[#references-3][References]]
+
+* Parent, Child, Orphan and Zombie Process
+- Parent ::
+  - A process which forks
+
+- Child ::
+  - A process which is forked from another one
+
+- Orphan ::
+  - When a parent process terminates, the running child becomes an orphan process.
+  - ~init~ process (pid:1) adopt the process, this process is called *re-parenting*.
+
+- Zombie ::
+  - A process completed its execution, but still exists in the process table.
+  - Normally, a parent process should read its child's exit status by calling ~wait()~ system call
+  - If the parent forgets to call ~wait()~, the child process remains in the process table even after it has finished its execution.
+  - Since ~init~ periodically calls ~wait()~ for terminated child processes, orphan processes won't remain as zombies.
+
+** References
+- https://en.wikipedia.org/wiki/Parent_process
+- https://stackoverflow.com/questions/20688982/zombie-process-vs-orphan-process
 
 * Process Groups, Sessions and Controlling Terminal
-
 [[file:_img/screenshot_2018-04-01_17-33-25.png]]
 
 ** Process Group
@@ -28,7 +49,7 @@
   - The session now has the foreground process group, which associated and interacts with the terminal
 
 *** [[https://linux.die.net/man/2/setsid][setsid]]
-The calling process is 
+The calling process is
 - the leader of the new session
 - the process group leader of the new process group
 - has no controlling terminal.
@@ -38,15 +59,28 @@ The calling process is
 - https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
 - http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
 
-* Zombie and Orphan Process
 * Double Fork
-* Terminal
-** What happens when you press ~Ctrl+C~
-** Pseudo Terminals
-:REFERENCES:
-- https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
-:END:
+#+BEGIN_EXAMPLE
+  1. `Parent`    = PID: 28084, PGID: 28084, SID: 28046
+  2. `Fork#1`    = PID: 28085, PGID: 28084, SID: 28046
+  3. `Decouple#1`= PID: 28085, PGID: 28085, SID: 28085
+  4. `Fork#2`    = PID: 28086, PGID: 28085, SID: 28085
+#+END_EXAMPLE
 
+When executing a process:
+1. the grand parent process forks
+2. the parent process becomes a new session leader.
+3. the parent process executes a child process which is going to do the actual task.
+4. the parent process terminates
+
+As a result:
+- The actual process can't acquire TTY, because it's not a session leader.
+- The actual process becomes an orphan process, which means it won't remain as a zombie.
+
+** References
+- https://stackoverflow.com/questions/881388/what-is-the-reason-for-performing-a-double-fork-when-creating-a-daemon
+
+* Pseudo Terminal Details
 As an example, ~ssh~ works as follows:
 - ~ssh <host>~ ::
   connect to ~host~ and allocate a ~pty~ (pseudo terminal).
@@ -55,3 +89,6 @@ As an example, ~ssh~ works as follows:
 - ~ssh <host> tmux~ ::
   commands like ~tmux~ or ~screen~ need ~pty~ to work properly, but the default won't do this.
   In this case, specify ~-t~ to explicitly allocate ~pty~ for the command.
+
+** References
+- https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
