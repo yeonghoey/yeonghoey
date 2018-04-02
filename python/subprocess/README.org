@@ -8,8 +8,9 @@
 - [[#references][References]]
 
 * Invoke a blocking process
+:REFERENCES:
 - https://docs.python.org/3/library/subprocess.html#subprocess.run
------
+:END:
 
 #+BEGIN_SRC python
   >> subprocess.run(["ls", "-l"])  # doesn't capture output
@@ -24,6 +25,10 @@
 
 
 * Invoke a non-blocking process
+:REFERENCES:
+- [[https://stackoverflow.com/questions/2760652/how-to-kill-or-avoid-zombie-processes-with-subprocess-module]]
+:END:
+
 #+BEGIN_SRC python
   proc = Popen(['ls', '-l'], stdout=PIPE)
   # Read the subprocess's stdout, stdderr, and blocks until it exits
@@ -32,11 +37,11 @@
 
 - Not using ~Popen.communicate()~ or ~call()~ will result in a zombie process.
 
+* Using PIPE
 :REFERENCES:
-- [[https://stackoverflow.com/questions/2760652/how-to-kill-or-avoid-zombie-processes-with-subprocess-module][stackoverflow.com]]
+- [[https://docs.python.org/3/library/subprocess.html#subprocess.Popen.communicate]]
 :END:
 
-* Using PIPE
 - Always use ~communicate()~, Don't use ~wait()~
 - Use ~communicate()~ rather than ~.stdin.write~, ~.stdout.read~ or ~.stderr.read~
 
@@ -51,19 +56,16 @@ Use ~communicate()~ rather than ~.stdin.write~, ~.stdout.read~ or ~.stderr.read~
 to avoid deadlocks due to any of the other OS pipe buffersfilling up and blocking the child process.
 #+END_QUOTE
 
------
-- [[https://docs.python.org/3/library/subprocess.html#subprocess.Popen.communicate][docs.python.org]]
-
 * When to use shell=True
+:REFERENCES:
+- [[http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module]]
+:END:
+
 - with ~shell=False~, the first argument should be *a list*.
 - with ~shell=True~, the first argument should be *a string*.
   - The string for the first argument is like the command you put into the shell prompt.
   - The command can use environment variables, globs, pipes.
   - *It's very dangerous, not recommended.*
-
-:REFERENCES:
-- [[http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module][stackoverflow.com]]
-:END:
 
 * References
 - https://docs.python.org/2/library/subprocess.html
