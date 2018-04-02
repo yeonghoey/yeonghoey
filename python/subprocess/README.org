@@ -37,6 +37,12 @@
 * Using PIPE
 - Always use ~communicate()~, Don't use ~wait()~
 - Use ~communicate()~ rather than ~.stdin.write~, ~.stdout.read~ or ~.stderr.read~
+- ~bufsize~ only works on file descriptors on the parent process side.
+  - ~Popen~ uses ~os.pipe()~ internally.
+  - it won't make the child process ~flush~.
+  - To make the child process flush, there are several [[https://stackoverflow.com/questions/12419198/python-subprocess-readlines-hangs/12471855#12471855][ways]] like [[https://pexpect.readthedocs.io/en/stable/overview.html][pexpect]]
+
+as specified in [[/python/io#open][open]]
 
 #+BEGIN_QUOTE
 Warning This will deadlock when using stdout=PIPE and/or stderr=PIPE and

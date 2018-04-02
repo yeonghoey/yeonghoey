@@ -1,0 +1,70 @@
+#+TITLE: pexpect
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#run][run]]
+- [[#spawn][spawn]]
+
+* Overview
+- Pexpect makes Python a better tool for controlling other applications.
+- Pexpect can be used for automating interactive applications
+
+-----
+- https://pexpect.readthedocs.io/en/stable/index.html
+
+* run
+: pexpect.run(command, timeout=30, withexitstatus=False, events=None, extra_args=None, logfile=None, cwd=None, env=None, **kwargs)
+- This function runs the given command; waits for it to finish;
+
+#+BEGIN_SRC python
+  import pexpect
+  pexpect.run('scp foo user@example.com:.', events={'(?i)password': mypassword})
+#+END_SRC
+
+-----
+- https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.run
+* spawn
+- [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect][spawn]] ::
+  : class pexpect.spawn(command, args=[], timeout=30, maxread=2000, searchwindowsize=None, logfile=None, cwd=None, env=None, ignore_sighup=False, echo=True, preexec_fn=None, encoding=None, codec_errors='strict', dimensions=None)
+
+  #+BEGIN_SRC python
+    child = pexpect.spawn('/usr/bin/ftp')
+    child = pexpect.spawn('/usr/bin/ssh user@example.com')
+    child = pexpect.spawn('ls -latr /tmp')
+    child = pexpect.spawn('/usr/bin/ftp', [])
+    child = pexpect.spawn('/usr/bin/ssh', ['user@example.com'])
+    child = pexpect.spawn('ls', ['-latr', '/tmp'])
+  #+END_SRC
+  - Pexpect does NOT interpret shell meta characters such as redirect, pipe, or wild cards (~>~, ~|~, or ~*~)
+  - To use those things, use one of the shell commands explicitly
+
+  #+BEGIN_SRC python
+    child = pexpect.spawn('/bin/bash -c "ls -l | grep LOG > logs.txt"')
+    child.expect(pexpect.EOF)
+  #+END_SRC
+
+- [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect][expect]] ::
+  : expect(pattern, timeout=-1, searchwindowsize=-1, async_=False, **kw)
+  - This seeks through the stream until a pattern is matched.
+  #+BEGIN_SRC python
+    # the input is 'foobar'
+    index = p.expect(['bar', 'foo', 'foobar'])
+    # returns 1('foo') even though 'foobar' is a "better" match
+
+    index = p.expect(['foobar', 'foo'])
+    # returns 0('foobar') if all input is available at once,
+    # but returs 1('foo') if parts of the final 'bar' arrive late
+  #+END_SRC
+
+  See [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect_exact][exact]] if you want exact match.
+
+- [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendline][sendline]] ::
+  : sendline(s='')[source]
+  - Wraps ~send()~, sending string s to child process, with ~os.linesep~ automatically appended.
+
+- [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendcontrol][sendcontrol]] ::
+  : sendcontrol(char)
+  Use [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendintr][sendintr]] or [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendeof][sendeof]]
+
+-----
+-

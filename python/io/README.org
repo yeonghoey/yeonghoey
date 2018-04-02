@@ -1,0 +1,55 @@
+#+TITLE: io
+
+* Table of Contents :TOC_2_gh:
+- [[#open][open]]
+- [[#readline][readline]]
+- [[#when-the-buffer-is-flushed][When the buffer is flushed?]]
+
+* open
+- buffering ::
+  - 0 :: unbuffered (read and write are one system call and can return short)
+  - 1 :: line buffered (only usable if universal_newlines=True i.e., in a text mode)
+  - any other positive value ::  use a buffer of approximately that size
+  - negative bufsize (the default) :: the default buffering policy as follows:
+    - binary files use ~io.DEFAULT_BUFFER_SIZE~
+    - /interactive/ text files(files for which ~isatty()~ returns ~True~) use line buffering.
+    - In other words, even ~sys.stdout~ can be fully buffered if it runs as a background proces
+
+- Returns ::
+  - binary files are instances of [[https://docs.python.org/3.6/library/io.html#io.BytesIO][BytesIO]]
+  - text files are instances of [[https://docs.python.org/3.6/library/io.html#io.StringIO][StringIO]]
+
+-----
+- https://docs.python.org/2/library/io.html#io.open
+- https://docs.python.org/3.6/glossary.html#term-file-object
+
+* readline
+- ~f.readline()~ reads a single line from the file
+- A newline character (~\n~) is left at the end of the string
+- Handles whether or not the last line has a newline character
+- A blank line is represented by ~\n~
+
+An useful idiom is:
+#+BEGIN_SRC python
+  with open('mydata.txt') as f:
+      for line in iter(f.readline, ''):
+          process_line(line)
+#+END_SRC
+
+#+BEGIN_SRC python
+  # Following codes will block until the file is ready
+  for line in f:
+      pass
+
+  ls = f.readlines()
+#+END_SRC
+
+-----
+- https://docs.python.org/3.6/tutorial/inputoutput.html#methods-of-file-objects
+* When the buffer is flushed?
+- when the buffer gets too small for all pending data;
+- when ~flush()~ is called;
+- when a ~seek()~ is requested (for ~BufferedRandom~ objects);
+- when the ~BufferedWriter~ object is closed or destroyed.
+-----
+- https://docs.python.org/2/library/io.html#io.BufferedWriter
