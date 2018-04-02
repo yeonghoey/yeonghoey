@@ -2,13 +2,7 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#parent-child-orphan-and-zombie-process][Parent, Child, Orphan and Zombie Process]]
-  - [[#parent][Parent]]
-  - [[#child][Child]]
-  - [[#orphan][Orphan]]
-  - [[#zombie][Zombie]]
 - [[#process-groups-sessions-and-controlling-terminal][Process Groups, Sessions and Controlling Terminal]]
-  - [[#process-group][Process Group]]
-  - [[#session][Session]]
 - [[#double-fork][Double Fork]]
 - [[#pseudo-terminal-details][Pseudo Terminal Details]]
 
@@ -18,21 +12,21 @@
 - https://stackoverflow.com/questions/20688982/zombie-process-vs-orphan-process
 :END:
 
-** Parent
-- A process which forks
+- Parent ::
+  - A process which forks
 
-** Child
-- A process which is forked from another one
+- Child ::
+  - A process which is forked from another one
 
-** Orphan
-- When a parent process terminates, the running child becomes an orphan process.
-- ~init~ process (pid:1) adopt the process, this process is called *re-parenting*.
+- Orphan ::
+  - When a parent process terminates, the running child becomes an orphan process.
+  - ~init~ process (pid:1) adopt the process, this process is called *re-parenting*.
 
-** Zombie
-- A process completed its execution, but still exists in the process table.
-- Normally, a parent process should read its child's exit status by calling ~wait()~ system call
-- If the parent forgets to call ~wait()~, the child process remains in the process table even after it has finished its execution.
-- Since ~init~ periodically calls ~wait()~ for terminated child processes, orphan processes won't remain as zombies.
+- Zombie ::
+  - A process completed its execution, but still exists in the process table.
+  - Normally, a parent process should read its child's exit status by calling ~wait()~ system call
+  - If the parent forgets to call ~wait()~, the child process remains in the process table even after it has finished its execution.
+  - Since ~init~ periodically calls ~wait()~ for terminated child processes, orphan processes won't remain as zombies.
 
 * Process Groups, Sessions and Controlling Terminal
 :REFERENCES:
@@ -43,23 +37,23 @@
 
 [[file:_img/screenshot_2018-04-01_17-33-25.png]]
 
-** Process Group
-- A collection of processes that *permits the signaling of related processes*.
-- A newly created process joins the process group of its creator.
-- When shells like ~bash~ run a command, it forks and call ~setpgid()~ to allocate a new process group,
-  and make it the foreground process group if the shell was in foreground. [[https://unix.stackexchange.com/questions/363126/why-is-process-not-part-of-expected-process-group][stackexchange]] [[http://kirste.userpage.fu-berlin.de/chemnet/use/info/libc/libc_24.html][ref]]
+- Process Group ::
+  - A collection of processes that *permits the signaling of related processes*.
+  - A newly created process joins the process group of its creator.
+  - When shells like ~bash~ run a command, it forks and call ~setpgid()~ to allocate a new process group,
+    and make it the foreground process group if the shell was in foreground. [[https://unix.stackexchange.com/questions/363126/why-is-process-not-part-of-expected-process-group][stackexchange]] [[http://kirste.userpage.fu-berlin.de/chemnet/use/info/libc/libc_24.html][ref]]
 
-** Session
-- *A collection of process groups*
-- When attached to a terminal,
-  - The terminal is now called as a controlling terminal
-  - The session now has the foreground process group, which associated and interacts with the terminal
+- Session ::
+  - *A collection of process groups*
+  - When attached to a terminal,
+    - The terminal is now called as a controlling terminal
+    - The session now has the foreground process group, which associated and interacts with the terminal
 
-*** [[https://linux.die.net/man/2/setsid][setsid]]
-The calling process is
-- the leader of the new session
-- the process group leader of the new process group
-- has no controlling terminal.
+- [[https://linux.die.net/man/2/setsid][setsid()]] ::
+  The calling process is
+  - the leader of the new session
+  - the process group leader of the new process group
+  - has no controlling terminal.
 
 * Double Fork
 :REFERENCES:
