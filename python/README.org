@@ -31,6 +31,7 @@
   - [[#source-code-encodings][Source Code Encodings]]
 - [[#how-to][How-to]]
   - [[#wait-until-a-host-starts-listening][Wait until a host starts listening]]
+  - [[#pick-a-free-port-number][Pick a free port number]]
   - [[#read-a-file-except-the-first-line][Read a file except the first line]]
 - [[#links][Links]]
 
@@ -1142,6 +1143,20 @@ This issue can be solved with locks or by using the *EAFP* approach.
 - [[/socket#connect][/socket#connect]]
 - https://stackoverflow.com/questions/19196105/python-how-to-check-if-a-network-port-is-open-on-linux
 :END:
+
+** Pick a free port number
+#+BEGIN_SRC python
+  from socket import socket, AF_INET, SOCK_STREAM
+  from contextlib import closing
+
+  def free_port():
+      with closing(socket(AF_INET, SOCK_STREAM)) as s:
+          s.bind(('localhost', 0))
+          return s.getsockname()[1]
+#+END_SRC
+
+-----
+- https://stackoverflow.com/questions/1365265/on-localhost-how-do-i-pick-a-free-port-number/1365284
 
 ** Read a file except the first line
 - https://stackoverflow.com/questions/4796764/read-file-from-line-2-or-skip-header-row
