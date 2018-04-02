@@ -2,17 +2,18 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#parent-child-orphan-and-zombie-process][Parent, Child, Orphan and Zombie Process]]
-  - [[#references][References]]
 - [[#process-groups-sessions-and-controlling-terminal][Process Groups, Sessions and Controlling Terminal]]
   - [[#process-group][Process Group]]
   - [[#session][Session]]
-  - [[#references-1][References]]
 - [[#double-fork][Double Fork]]
-  - [[#references-2][References]]
 - [[#pseudo-terminal-details][Pseudo Terminal Details]]
-  - [[#references-3][References]]
 
 * Parent, Child, Orphan and Zombie Process
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Parent_process
+- https://stackoverflow.com/questions/20688982/zombie-process-vs-orphan-process
+:END:
+
 - Parent ::
   - A process which forks
 
@@ -29,11 +30,13 @@
   - If the parent forgets to call ~wait()~, the child process remains in the process table even after it has finished its execution.
   - Since ~init~ periodically calls ~wait()~ for terminated child processes, orphan processes won't remain as zombies.
 
-** References
-- https://en.wikipedia.org/wiki/Parent_process
-- https://stackoverflow.com/questions/20688982/zombie-process-vs-orphan-process
-
 * Process Groups, Sessions and Controlling Terminal
+:REFERENCES:
+- https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html
+- https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
+- http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
+:END:
+
 [[file:_img/screenshot_2018-04-01_17-33-25.png]]
 
 ** Process Group
@@ -54,12 +57,11 @@ The calling process is
 - the process group leader of the new process group
 - has no controlling terminal.
 
-** References
-- https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html
-- https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
-- http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
-
 * Double Fork
+:REFERENCES:
+- https://stackoverflow.com/questions/881388/what-is-the-reason-for-performing-a-double-fork-when-creating-a-daemon
+:END:
+
 #+BEGIN_EXAMPLE
   1. `Parent`    = PID: 28084, PGID: 28084, SID: 28046
   2. `Fork#1`    = PID: 28085, PGID: 28084, SID: 28046
@@ -77,10 +79,11 @@ As a result:
 - The actual process can't acquire TTY, because it's not a session leader.
 - The actual process becomes an orphan process, which means it won't remain as a zombie.
 
-** References
-- https://stackoverflow.com/questions/881388/what-is-the-reason-for-performing-a-double-fork-when-creating-a-daemon
-
 * Pseudo Terminal Details
+:REFERENCES:
+- https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
+:END:
+
 As an example, ~ssh~ works as follows:
 - ~ssh <host>~ ::
   connect to ~host~ and allocate a ~pty~ (pseudo terminal).
@@ -89,6 +92,3 @@ As an example, ~ssh~ works as follows:
 - ~ssh <host> tmux~ ::
   commands like ~tmux~ or ~screen~ need ~pty~ to work properly, but the default won't do this.
   In this case, specify ~-t~ to explicitly allocate ~pty~ for the command.
-
-** References
-- https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty
