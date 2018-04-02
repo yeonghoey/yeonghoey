@@ -44,9 +44,10 @@
   #+END_SRC
 
 - [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect][expect]] ::
-  : expect(pattern, timeout=-1, searchwindowsize=-1, async_=False, **kw)
+: expect(pattern, timeout=-1, searchwindowsize=-1, async_=False, **kw)
   - This seeks through the stream until a pattern is matched.
-  #+BEGIN_SRC python
+
+#+BEGIN_SRC python
     # the input is 'foobar'
     index = p.expect(['bar', 'foo', 'foobar'])
     # returns 1('foo') even though 'foobar' is a "better" match
@@ -54,7 +55,7 @@
     index = p.expect(['foobar', 'foo'])
     # returns 0('foobar') if all input is available at once,
     # but returs 1('foo') if parts of the final 'bar' arrive late
-  #+END_SRC
+#+END_SRC
 
   See [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect_exact][exact]] if you want exact match.
 
@@ -63,10 +64,5 @@
   - Wraps ~send()~, sending string s to child process, with ~os.linesep~ automatically appended.
 
 - [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendcontrol][sendcontrol]] ::
-
   : sendcontrol(char)
-
   - Use [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendintr][sendintr]] or [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendeof][sendeof]] when sending ~SIGINT~ or ~EOF~ 
-
------
--
