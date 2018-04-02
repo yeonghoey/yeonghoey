@@ -1,0 +1,57 @@
+#+TITLE: YAML
+
+* Table of Contents :TOC_2_gh:
+- [[#anchors-and-references][Anchors and References]]
+
+* Anchors and References
+#+BEGIN_SRC yaml
+  base: &base
+    apple: 0
+    banana: 1
+
+  foo:
+    <<: *base
+    apple: 1  # overrides
+    orange: 2
+#+END_SRC
+
+But this mechanism just works as replacements.
+*You shouldn't expect yaml to handle nested structures.*
+
+#+BEGIN_SRC yaml
+  base: &base
+    a: 10
+    b:
+      c: 10
+
+  foo:
+    <<: *base
+    b:
+      d: 20
+
+  # foo is equivalent to:
+  foo:
+    a: 10
+    b:      # overrideen, not inherited
+      d: 20
+#+END_SRC
+
+If you want to make an effect like inheritance:
+#+BEGIN_SRC yaml
+  base: &base
+    a: 10
+    b: &b
+      c: 10
+  foo:
+    <<: *base
+    b:
+      <<: *b
+      d: 20
+
+  # foo is now equivalent to:
+  foo:
+    a: 10
+    b:
+      c: 10
+      d: 20
+#+END_SRC
