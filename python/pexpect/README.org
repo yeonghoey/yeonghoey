@@ -44,7 +44,8 @@
   child.expect(pexpect.EOF)
 #+END_SRC
 
-: [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect][expect]](pattern, timeout=-1, searchwindowsize=-1, async_=False, **kw)
+- [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect][expect]] ::
+: expect(pattern, timeout=-1, searchwindowsize=-1, async_=False, **kw)
   - This seeks through the stream until a pattern is matched.
 
 #+BEGIN_SRC python
