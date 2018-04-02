@@ -11,9 +11,13 @@
 
 #+BEGIN_SRC python
   child = pexpect.spawn('some_command')
+
+  child.timeout = None        # default is 30s, timout between expect() calls
   child.logfile = sys.stdout  # All input and output will be copied to this
   child.expect('things')
   child.send('things')
+  # I couldn't find somewhere explicitly documented,
+  # but it seems like a good thing to call close() explicitly.
   child.close()
   print(child.exitstatus, child.signalstatus)
 #+END_SRC
