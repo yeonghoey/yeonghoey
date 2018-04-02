@@ -30,6 +30,7 @@
   - [[#getattr-setattr-why-need-them][getattr, setattr, Why need them?]]
   - [[#source-code-encodings][Source Code Encodings]]
 - [[#how-to][How-to]]
+  - [[#wait-until-a-host-starts-listening][Wait until a host starts listening]]
   - [[#read-a-file-except-the-first-line][Read a file except the first line]]
 - [[#links][Links]]
 
@@ -1122,6 +1123,26 @@ This issue can be solved with locks or by using the *EAFP* approach.
 #+END_SRC
 
 * How-to
+** Wait until a host starts listening
+#+BEGIN_SRC python
+  from contextlib import closing
+  from socket import socket, AF_INET, SOCK_STREAM
+  from time import sleep
+
+  def wait_healthy(host, port, interval=1.):
+      while True:
+          with closing(socket(AF_INET, SOCK_STREAM)) as s:
+              if s.connect_ex((host, port)) == 0:
+                  break
+              else:
+                  sleep(interval)
+#+END_SRC
+
+:REFERENCES:
+- [[../socket#connect][../socket#connect]]
+- https://stackoverflow.com/questions/19196105/python-how-to-check-if-a-network-port-is-open-on-linux
+:END:
+
 ** Read a file except the first line
 - https://stackoverflow.com/questions/4796764/read-file-from-line-2-or-skip-header-row
 

@@ -1,0 +1,9 @@
+* errno
+#+BEGIN_SRC python
+  errno.errorcode[x] #    name like 'EINVAL'
+  os.strerror(code)  # message like 'Invalid argument'
+#+END_SRC
+
+:REFERENCES:
+- https://docs.python.org/3.6/library/errno.html
+:END:

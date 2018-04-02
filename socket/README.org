@@ -1,22 +1,18 @@
-#+TITLE: Socket
+#+TITLE: socket
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#handling-eintr][Handling EINTR]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
+* Table of Contents :TOC_2_gh:
+- [[#connect][connect]]
+- [[#eintr][EINTR]]
 
-* Overview
-* Reference
-* Terminology
-* Topics
-** Handling EINTR
-- http://250bpm.com/blog:12
-- https://stackoverflow.com/questions/4959524/when-to-check-for-eintr-and-repeat-the-function-call
+* connect
+- If ~connect()~ fails, the state of the socket is unspecified.
 
+:REFERENCES:
+- http://pubs.opengroup.org/onlinepubs/009695399/functions/connect.html#tag_03_85_07
+- https://stackoverflow.com/questions/13109899/does-socket-become-unusable-after-connect-fails
+:END:
+
+* EINTR
 - POSIX specification defines that when signal (such as ~Ctrl+C~) is caught, ~recv~ returns ~EINTR~ error.
 - When ~Ctrl+C~ is pressed in this case,
   1. signal handler is executed, 'stop' is set to 1,
@@ -54,5 +50,7 @@
   }
 #+END_SRC
 
-* How-to
-* Links
+:REFERENCES:
+- http://250bpm.com/blog:12
+- https://stackoverflow.com/questions/4959524/when-to-check-for-eintr-and-repeat-the-function-call
+:END:
