@@ -48,12 +48,11 @@
   - When attached to a terminal,
     - The terminal is now called as a controlling terminal
     - The session now has the foreground process group, which associated and interacts with the terminal
-
-- [[https://linux.die.net/man/2/setsid][setsid()]] ::
-  The calling process is
-  - the leader of the new session
-  - the process group leader of the new process group
-  - has no controlling terminal.
+  - [[https://linux.die.net/man/2/setsid][setsid()]] ::
+    The calling process is
+    - the leader of the new session
+    - the process group leader of the new process group
+    - has no controlling terminal.
 
 * Double Fork
 :REFERENCES:
