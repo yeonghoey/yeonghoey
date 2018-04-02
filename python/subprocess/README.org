@@ -21,6 +21,7 @@
 
 -----
 - https://docs.python.org/3/library/subprocess.html#subprocess.run
+-----
 
 * Invoke a non-blocking process
 #+BEGIN_SRC python
@@ -33,6 +34,7 @@
 
 -----
 - https://stackoverflow.com/questions/2760652/how-to-kill-or-avoid-zombie-processes-with-subprocess-module
+-----
 
 * Using PIPE
 - Always use ~communicate()~, Don't use ~wait()~
@@ -51,6 +53,7 @@ to avoid deadlocks due to any of the other OS pipe buffersfilling up and blockin
 
 -----
 - https://docs.python.org/3/library/subprocess.html#subprocess.Popen.communicate
+-----
 
 * When to use shell=True
 - with ~shell=False~, the first argument should be *a list*.
@@ -61,6 +64,7 @@ to avoid deadlocks due to any of the other OS pipe buffersfilling up and blockin
 
 -----
 - http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module
+-----
 
 * References
 - https://docs.python.org/2/library/subprocess.html
