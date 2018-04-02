@@ -9,6 +9,14 @@
 - Pexpect makes Python a better tool for controlling other applications.
 - Pexpect can be used for automating interactive applications
 
+#+BEGIN_SRC python
+  child = pexpect.spawn('some_command')
+  child.expect('things')
+  child.send('things')
+  child.close()
+  print(child.exitstatus, child.signalstatus)
+#+END_SRC
+
 -----
 - https://pexpect.readthedocs.io/en/stable/index.html
 
@@ -36,8 +44,8 @@
   child = pexpect.spawn('/usr/bin/ssh', ['user@example.com'])
   child = pexpect.spawn('ls', ['-latr', '/tmp'])
 #+END_SRC
-  - Pexpect does NOT interpret shell meta characters such as redirect, pipe, or wild cards (~>~, ~|~, or ~*~)
-  - To use those things, use one of the shell commands explicitly
+- Pexpect does NOT interpret shell meta characters such as redirect, pipe, or wild cards (~>~, ~|~, or ~*~)
+- To use those things, use one of the shell commands explicitly
 
 #+BEGIN_SRC python
   child = pexpect.spawn('/bin/bash -c "ls -l | grep LOG > logs.txt"')
@@ -46,8 +54,7 @@
 
 - [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect][expect]] ::
 : expect(pattern, timeout=-1, searchwindowsize=-1, async_=False, **kw)
-  - This seeks through the stream until a pattern is matched.
-
+- This seeks through the stream until a pattern is matched.
 #+BEGIN_SRC python
   # the input is 'foobar'
   index = p.expect(['bar', 'foo', 'foobar'])
@@ -58,12 +65,18 @@
   # but returs 1('foo') if parts of the final 'bar' arrive late
 #+END_SRC
 
-  - See [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect_exact][exact]] if you want exact match.
+- See [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect_exact][exact]] if you want exact match.
 
 - [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendline][sendline]] ::
 : sendline(s='')
-  - Wraps ~send()~, sending string s to child process, with ~os.linesep~ automatically appended.
+- Wraps ~send()~, sending string s to child process, with ~os.linesep~ automatically appended.
 
 - [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendcontrol][sendcontrol]] ::
 : sendcontrol(char)
-  - Use [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendintr][sendintr]] or [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendeof][sendeof]] when sending ~SIGINT~ or ~EOF~ 
+- Use [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendintr][sendintr]] or [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.sendeof][sendeof]] when sending ~SIGINT~ or ~EOF~ 
+
+- [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.close][close]] ::
+: close(force=True)
+#+BEGIN_QUOTE
+If you wish to get the exit status of the child you must call the ~close()~ method.
+#+END_QUOTE
