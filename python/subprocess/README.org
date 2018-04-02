@@ -1,0 +1,71 @@
+#+TITLE: subprocess
+
+* Table of Contents :TOC_2_gh:
+- [[#invoke-a-blocking-process][Invoke a blocking process]]
+  - [[#references][References]]
+- [[#invoke-a-non-blocking-process][Invoke a non-blocking process]]
+  - [[#references-1][References]]
+- [[#using-pipe][Using PIPE]]
+  - [[#references-2][References]]
+- [[#when-to-use-shelltrue][When to use shell=True]]
+  - [[#references-3][References]]
+- [[#references-4][References]]
+
+* Invoke a blocking process
+#+BEGIN_SRC python
+  >> subprocess.run(["ls", "-l"])  # doesn't capture output
+  CompletedProcess(args=['ls', '-l'], returncode=0)
+
+  >> subprocess.run(["ls", "-l", "/dev/null"], stdout=subprocess.PIPE)
+  CompletedProcess(args=['ls', '-l', '/dev/null'], returncode=0,
+  stdout=b'crw-rw-rw- 1 root root 1, 3 Jan 23 16:23 /dev/null\n')
+#+END_SRC
+
+- Added in Python 3.5. For older versions, use [[https://docs.python.org/3/library/subprocess.html#subprocess.call][subprocess.call()]] instead.
+
+** References
+- https://docs.python.org/3/library/subprocess.html#subprocess.run
+
+* Invoke a non-blocking process
+#+BEGIN_SRC python
+  proc = Popen(['ls', '-l'], stdout=PIPE)
+  # Read the subprocess's stdout, stdderr, and blocks until it exits
+  outs, errs = proc.communicate(timeout=15)
+#+END_SRC
+
+- Not using ~Popen.communicate()~ or ~call()~ will result in a zombie process.
+
+** References
+- https://stackoverflow.com/questions/2760652/how-to-kill-or-avoid-zombie-processes-with-subprocess-module
+
+* Using PIPE
+- Always use ~communicate()~, Don't use ~wait()~
+- Use ~communicate()~ rather than ~.stdin.write~, ~.stdout.read~ or ~.stderr.read~
+
+#+BEGIN_QUOTE
+Warning This will deadlock when using stdout=PIPE and/or stderr=PIPE and
+the child process generates enough output to a pipe such that
+it blocks waiting for the OS pipe buffer to accept more data. Use communicate() to avoid that.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Use ~communicate()~ rather than ~.stdin.write~, ~.stdout.read~ or ~.stderr.read~
+to avoid deadlocks due to any of the other OS pipe buffersfilling up and blocking the child process.
+#+END_QUOTE
+
+** References
+- https://docs.python.org/3/library/subprocess.html#subprocess.Popen.communicate
+
+* When to use shell=True
+- with ~shell=False~, the first argument should be *a list*.
+- with ~shell=True~, the first argument should be *a string*.
+  - The string for the first argument is like the command you put into the shell prompt.
+  - The command can use environment variables, globs, pipes.
+  - *It's very dangerous, not recommended.*
+
+** References
+- http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module
+
+* References
+- https://docs.python.org/2/library/subprocess.html
+- http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
