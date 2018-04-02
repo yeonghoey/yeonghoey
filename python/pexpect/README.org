@@ -11,6 +11,7 @@
 
 #+BEGIN_SRC python
   child = pexpect.spawn('some_command')
+  child.logfile = sys.stdout  # All input and output will be copied to this
   child.expect('things')
   child.send('things')
   child.close()
