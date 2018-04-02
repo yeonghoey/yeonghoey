@@ -48,9 +48,9 @@
     - has no controlling terminal.
 
 :REFERENCES:
-- https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html
-- https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
-- http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
+https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html
+https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
+http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
 :END:
 
 * Double Fork
