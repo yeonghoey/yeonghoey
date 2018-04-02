@@ -8,10 +8,6 @@
 - [[#references][References]]
 
 * Invoke a blocking process
-:REFERENCES:
-- https://docs.python.org/3/library/subprocess.html#subprocess.run
-:END:
-
 #+BEGIN_SRC python
   >> subprocess.run(["ls", "-l"])  # doesn't capture output
   CompletedProcess(args=['ls', '-l'], returncode=0)
@@ -23,12 +19,11 @@
 
 - Added in Python 3.5. For older versions, use [[https://docs.python.org/3/library/subprocess.html#subprocess.call][subprocess.call()]] instead.
 
-
-* Invoke a non-blocking process
 :REFERENCES:
-- [[https://stackoverflow.com/questions/2760652/how-to-kill-or-avoid-zombie-processes-with-subprocess-module]]
+- https://docs.python.org/3/library/subprocess.html#subprocess.run
 :END:
 
+* Invoke a non-blocking process
 #+BEGIN_SRC python
   proc = Popen(['ls', '-l'], stdout=PIPE)
   # Read the subprocess's stdout, stdderr, and blocks until it exits
@@ -37,11 +32,11 @@
 
 - Not using ~Popen.communicate()~ or ~call()~ will result in a zombie process.
 
-* Using PIPE
 :REFERENCES:
-- [[https://docs.python.org/3/library/subprocess.html#subprocess.Popen.communicate]]
+- [[https://stackoverflow.com/questions/2760652/how-to-kill-or-avoid-zombie-processes-with-subprocess-module]]
 :END:
 
+* Using PIPE
 - Always use ~communicate()~, Don't use ~wait()~
 - Use ~communicate()~ rather than ~.stdin.write~, ~.stdout.read~ or ~.stderr.read~
 
@@ -56,16 +51,20 @@ Use ~communicate()~ rather than ~.stdin.write~, ~.stdout.read~ or ~.stderr.read~
 to avoid deadlocks due to any of the other OS pipe buffersfilling up and blocking the child process.
 #+END_QUOTE
 
-* When to use shell=True
 :REFERENCES:
-- [[http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module]]
+- [[https://docs.python.org/3/library/subprocess.html#subprocess.Popen.communicate]]
 :END:
 
+* When to use shell=True
 - with ~shell=False~, the first argument should be *a list*.
 - with ~shell=True~, the first argument should be *a string*.
   - The string for the first argument is like the command you put into the shell prompt.
   - The command can use environment variables, globs, pipes.
   - *It's very dangerous, not recommended.*
+
+:REFERENCES:
+- [[http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module]]
+:END:
 
 * References
 - https://docs.python.org/2/library/subprocess.html
