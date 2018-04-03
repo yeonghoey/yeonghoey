@@ -8,6 +8,7 @@
   - [[#errors-and-status-codes][Errors and status codes]]
   - [[#versioning][Versioning]]
 - [[#topics][Topics]]
+  - [[#response-of-put][Response of PUT]]
   - [[#visibility][Visibility]]
   - [[#post-vs-put-vs-patch][POST vs. PUT vs. PATCH]]
   - [[#is-it-okay-to-return-json-array][Is it okay to return JSON Array]]
@@ -195,6 +196,16 @@ I'm a big fan of the approach that Stripe has taken to API versioning - the URL 
 #+END_QUOTE
 
 * Topics
+** Response of PUT
+- Updated :: ~200 OK~ (or 204 No Content), no body needed
+- Created :: ~201 Created~, Location header, URI and metadata as body
+- Conflict :: ~409 Conflict~, list of differences as a body
+- Failed :: ~400 Bad Request~, body contains explanation in a natual language
+
+-----
+- https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2
+- https://stackoverflow.com/questions/797834/should-a-restful-put-operation-return-something 
+
 ** Visibility
 :REFERENCES:
 - Allamaraju, Subbu. RESTful Web Services Cookbook: Solutions for Improving Scalability and Simplicity (p. 5). O'Reilly Media. Kindle Edition.
