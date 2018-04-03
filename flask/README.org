@@ -254,7 +254,7 @@ This is better than hard-coded URLs as following reasons:
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.test_client
 - http://flask.pocoo.org/docs/0.12/api/#flask.testing.FlaskClient
 - http://werkzeug.pocoo.org/docs/0.14/test/#werkzeug.test.Client
-- http://werkzeug.pocoo.org/docs/0.14/wrappers/#werkzeug.wrappers.Response
+- http://werkzeug.pocoo.org/docs/0.14/wrappers/#werkzeug.wrappers.BaseResponse
 
 * Topics
 ** Application Context
