@@ -239,12 +239,6 @@ This is better than hard-coded URLs as following reasons:
 3. If your application is placed outside the URL root
 
 ** test_client
-:REFERENCES:
-- http://flask.pocoo.org/docs/0.12/testing/
-- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.test_client
-- http://flask.pocoo.org/docs/0.12/api/#flask.testing.FlaskClient
-- http://werkzeug.pocoo.org/docs/0.14/test/#werkzeug.test.Client
-:END:
 #+BEGIN_SRC python
   # propgate excetions to test_client
   app.testing = True
@@ -254,6 +248,13 @@ This is better than hard-coded URLs as following reasons:
   with app.test_client() as c:
       pass
 #+END_SRC
+
+-----
+- http://flask.pocoo.org/docs/0.12/testing/
+- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.test_client
+- http://flask.pocoo.org/docs/0.12/api/#flask.testing.FlaskClient
+- http://werkzeug.pocoo.org/docs/0.14/test/#werkzeug.test.Client
+- http://werkzeug.pocoo.org/docs/0.14/wrappers/#werkzeug.wrappers.Response
 
 * Topics
 ** Application Context
