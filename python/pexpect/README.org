@@ -10,7 +10,8 @@
 - Pexpect can be used for automating interactive applications
 
 #+BEGIN_SRC python
-  child = pexpect.spawn('some_command')
+  # Specify encoding='utf-8' for Python 3
+  child = pexpect.spawn('some_command', encoding='utf-8')
   # options can be specified both in the constructoror just assigning properties
   child.timeout = None        # default is 30s, timout between expect() calls
   child.logfile = sys.stdout  # All input and output will be copied to this

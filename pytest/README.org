@@ -14,33 +14,36 @@
   - [[#rootdir][rootdir]]
   - [[#import-mechanisms][Import Mechanisms]]
   - [[#test-layouts][Test Layouts]]
-- [[#how-to][How-to]]
+- [[#plugins][Plugins]]
+  - [[#pytest-watch][pytest-watch]]
 - [[#links][Links]]
 
 * Overview
 ** Commandline Usage
-- http://doc.pytest.org/en/latest/usage.html
 
 #+BEGIN_SRC shell
-  pytest --version   # shows where pytest was imported from
-  pytest --fixtures  # show available builtin function arguments
-  pytest -h | --help # show help on command line and config file options
-  pytest -x          # stop after first failure
-  pytest --maxfail=2 # stop after two failures
-  pyt
-  est test_mod.py # run tests in module
-  pytest somepath    # run all tests below somepath
+    pytest --version   # shows where pytest was imported from
+    pytest --fixtures  # show available builtin function arguments
+    pytest -h | --help # show help on command line and config file options
+    pytest -x          # stop after first failure
+    pytest --maxfail=2 # stop after two failures
+    pytest test_mod.py # run tests in module
+    pytest somepath    # run all tests below somepath
 
-  # only run tests with names that match the # "string expression".
-  # e.g. "MyClass and not method" # will select
-  # TestMyClass.test_something but not TestMyClass.test_method_simple
-  pytest -k stringexpr
+    pytest --capture=fd  # OS level; 1,2 fds are captured
+    pytest --capture=sys # sys module level; sys.stdout, sys.stderr are captured
+    pytest --capture=no  # nothing captured
+    pytest -s            # same as --capture=no
+    # only run tests with names that match the # "string expression".
+    # e.g. "MyClass and not method" # will select
+    # TestMyClass.test_something but not TestMyClass.test_method_simple
+    pytest -k stringexpr
 
-  # only run tests that match the "node ID",
-  pytest test_mod.py::test_func
-  pytest test_mod.py::TestClass::test_method
+    # only run tests that match the "node ID",
+    pytest test_mod.py::test_func
+    pytest test_mod.py::TestClass::test_method
 
-  pytest --pyargs pkg # run all tests found below directory of pkg
+    pytest --pyargs pkg # run all tests found below directory of pkg
 #+END_SRC
 
 #+BEGIN_SRC shell
@@ -58,6 +61,10 @@
   pytest --pdb           # drop into the PDB prompt
   pytest --durations=10  # To get a list of the slowest 10 test durations
 #+END_SRC
+
+-----
+- http://doc.pytest.org/en/latest/usage.html
+- https://docs.pytest.org/en/2.8.7/capture.html
 
 * Reference
 ** approx
@@ -298,7 +305,17 @@ Useful if you have direct relation between (unit-)test and application modules a
   pytest                         # run all tests below current dir
 #+END_SRC
 
-* How-to
+* Plugins
+** pytest-watch
+#+BEGIN_SRC shell
+  pip install pytest-watch
+  ptw --runner "pytest -s"
+  ptw --onpass "say passed" --onfail "say failed"
+#+END_SRC
+
+-----
+- https://github.com/joeyespo/pytest-watch
+
 * Links
 - http://plugincompat.herokuapp.com/
 - https://docs.pytest.org/en/latest/builtin.html?highlight=raises#_pytest._code.ExceptionInfo
