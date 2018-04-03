@@ -12,6 +12,7 @@
   - [[#render_template][render_template]]
   - [[#request][request]]
   - [[#multidict][MultiDict]]
+  - [[#route][route]]
   - [[#url_for][url_for]]
   - [[#test_client][test_client]]
 - [[#topics][Topics]]
@@ -210,6 +211,27 @@ The name of the package is used to resolve resources from inside the package or 
   >>> d.get('bar', -1, type=int)
   -1
 #+END_SRC
+
+** route
+
+#+BEGIN_SRC python
+  @app.route('/users/', defaults={'page': 1})
+  @app.route('/users/page/<int:page>')
+  def show_users(page):
+      pass
+#+END_SRC
+
+| rule        | the URL rule as string                                                                                                                                                                                                                                                                                                                                                                                        |   |
+| endpoint    | the endpoint for the registered URL rule. Flask itself assumes that the name of the view function is the name of the endpoint if not explicitly stated.                                                                                                                                                                                                                                                       |   |
+| view_func	 | the function to call when serving a request to the provided endpoint. If this is not provided one can specify the function later by storing it in the view_functions dictionary with the endpoint as key.                                                                                                                                                                                                     |   |
+| defaults    | A dictionary with defaults for this rule. See the example above for how defaults work.                                                                                                                                                                                                                                                                                                                        |   |
+| subdomain	 | specifies the rule for the subdomain in case subdomain matching is in use. If not specified the default subdomain is assumed.                                                                                                                                                                                                                                                                                 |   |
+| **options	 | the options to be forwarded to the underlying Rule object. A change to Werkzeug is handling of method options. methods is a list of methods this rule should be limited to (GET, POST etc.). By default a rule just listens for GET (and implicitly HEAD). Starting with Flask 0.6, OPTIONS is implicitly added and handled by the standard request handling. They have to be specified as keyword arguments. |   |
+
+-----
+- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.route
+- http://flask.pocoo.org/docs/0.12/api/#url-route-registrations
+- http://werkzeug.pocoo.org/docs/0.14/routing/#werkzeug.routing.Rule
 
 ** url_for
 - http://flask.pocoo.org/docs/0.12/api/#flask.url_for
