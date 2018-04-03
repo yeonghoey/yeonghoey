@@ -1,0 +1,19 @@
+* http
+#+BEGIN_SRC python
+  >>> from http import HTTPStatus
+  >>> HTTPStatus.OK
+  <HTTPStatus.OK: 200>
+  >>> HTTPStatus.OK == 200
+  True
+  >>> http.HTTPStatus.OK.value
+  200
+  >>> HTTPStatus.OK.phrase
+  'OK'
+  >>> HTTPStatus.OK.description
+  'Request fulfilled, document follows'
+  >>> list(HTTPStatus)
+  [<HTTPStatus.CONTINUE: 100>, <HTTPStatus.SWITCHING_PROTOCOLS: 101>, ...]
+#+END_SRC
+
+-----
+- https://docs.python.org/3/library/http.html#http.HTTPStatus
