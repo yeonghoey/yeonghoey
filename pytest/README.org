@@ -172,6 +172,29 @@ There are several ways to use a fixture:
   #   <Function 'test_a[ham]'>
 #+END_SRC
 
+#+BEGIN_QUOTE
+pytest minimizes the number of active fixtures during test runs. If you have a parametrized fixture, then all the tests using it will first execute with one instance and then finalizers are called before the next fixture instance is created. 
+#+END_QUOTE
+
+#+BEGIN_SRC python
+  @pytest.fixture
+  def fruit():
+      pass
+
+  @pytest.fixture
+  def apple(fruit):
+      pass
+
+  @pytest.fixture
+  def banana(fruit):
+      pass
+
+  def test_foo(apple, banana):
+      # For this test, 'fruit' is executed once.
+      # 'apple' and 'banana' uses the same 'fruit'
+      pass
+#+END_SRC
+
 ** mark
 - https://docs.pytest.org/en/latest/mark.html#mark
 - https://docs.pytest.org/en/latest/parametrize.html#parametrizemark
