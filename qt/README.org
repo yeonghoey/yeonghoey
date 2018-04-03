@@ -8,6 +8,7 @@
   - [[#parenting-system][Parenting System]]
   - [[#signals-and-slots][Signals and slots]]
 - [[#how-to][How-to]]
+  - [[#detect-if-a-window-has-been-activated][Detect if a window has been activated?]]
 - [[#links][Links]]
 
 * Overview
@@ -19,6 +20,37 @@
 ** Parenting System
 ** Signals and slots
 * How-to
+** Detect if a window has been activated?
+Since ~event()~ is a ~virtual protected~ method, you must explicitly implement it.
+It won't work as some dynamic things.
+
+#+BEGIN_SRC cpp
+  bool YourWidget::event(QEvent *e)
+  {
+    if (e->type() == QEvent::WindowActivate) {
+      // window was activated
+    }
+    return QWidget::event(e);
+  }
+#+END_SRC
+
+#+BEGIN_SRC python
+  class ActivationHandoverMixin:
+      def event(self, e):
+          if e.type() == QEvent.WindowActivate:
+              t = getattr(self, '_activation_target', None)
+              if t is not None:
+                  t.activateWindow()
+          return super().event(e)
+
+  class PlayerView(ActivationHandoverMixin, QWidget):
+      pass
+#+END_SRC
+
+-----
+- http://doc.qt.io/qt-5/qwidget.html#event
+- https://stackoverflow.com/questions/16721557/how-to-detect-if-a-window-has-been-activated
+
 * Links
 - https://wiki.qt.io/Qt_for_Beginners
 - http://pyqt.sourceforge.net/Docs/PyQt5/sip-classes.html
