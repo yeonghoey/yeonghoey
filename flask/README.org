@@ -185,21 +185,23 @@ The name of the package is used to resolve resources from inside the package or 
 - context :: the variables that should be available in the context of the template.
 
 ** request
-- http://flask.pocoo.org/docs/0.12/api/#flask.Request
-- http://flask.pocoo.org/docs/0.12/api/#flask.Request.args
-- http://flask.pocoo.org/docs/0.12/api/#flask.Request.get_json
-
 #+BEGIN_SRC python
   # A MultiDict with the parsed contents of the query string.(The part in the URL after the question mark).
   request.args.get('value', type=int)
 #+END_SRC
 
+Use ~request.get_json()~, which is later added for consistency, instead of ~request.json~
 #+BEGIN_SRC python
   # force  if set to True the mimetype is ignored.
-  # silent  if set to True this method will fail silently and return None.
+  # silent if set to True this method will fail silently and return None.
   # cache  if set to True the parsed JSON data is remembered on the request.
   request.get_json(force=False, silent=False, cache=True)
 #+END_SRC
+
+-----
+- http://flask.pocoo.org/docs/0.12/api/#flask.Request
+- http://flask.pocoo.org/docs/0.12/api/#flask.Request.args
+- http://flask.pocoo.org/docs/0.12/api/#flask.Request.get_json
 
 ** MultiDict
 - http://werkzeug.pocoo.org/docs/0.12/datastructures/#werkzeug.datastructures.MultiDict
