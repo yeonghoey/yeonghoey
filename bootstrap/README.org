@@ -1,0 +1,27 @@
+#+TITLE: Bootstrap
+
+* Table of Contents :TOC_2_gh:
+- [[#extensions][Extensions]]
+  - [[#social-buttons-for-bootstrap][Social Buttons for Bootstrap]]
+
+* Extensions
+** Social Buttons for Bootstrap
+#+BEGIN_SRC shell
+  bower install bootstrap-social
+#+END_SRC
+
+#+BEGIN_SRC js
+  import 'bootstrap/dist/css/bootstrap.min.css';
+  import 'bootstrap-social/bootstrap-social.css';
+  import 'font-awesome/css/font-awesome.min.css';
+#+END_SRC
+
+#+BEGIN_SRC html
+  <a class="btn btn-block btn-social btn-twitter">
+    <span class="fa fa-twitter"></span> Sign in with Twitter
+  </a>
+#+END_SRC
+
+-----
+- https://lipis.github.io/bootstrap-social/
+- https://github.com/lipis/bootstrap-social
