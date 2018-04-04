@@ -21,6 +21,7 @@
 - [[#topics][Topics]]
   - [[#__new__-vs-__init__][__new__ vs __init__]]
   - [[#comparison][Comparison]]
+  - [[#comparison-of-three-values][Comparison of three values]]
   - [[#double-underscores][Double underscores]]
   - [[#eafp-lbyl][EAFP, LBYL]]
   - [[#final-class][Final class]]
@@ -689,6 +690,19 @@ In contrast, their *operator based counterparts require their arguments to be se
 CPython implementation detail: Objects of different types except numbers are ordered by their type names;
 objects of the same types that don't support proper comparison are ordered by their address.
 #+END_QUOTE
+
+** Comparison of three values
+#+BEGIN_SRC python
+  x == y == z
+  x == y and y == z  # 'y' is evaluated twice
+
+  # ok
+  0 < x < 10
+  10 >= z >= 2
+#+END_SRC
+
+-----
+- https://stackoverflow.com/questions/13792604/usage-of-the-operator-for-three-objects/13792615#13792615
 
 ** Double underscores
 - https://docs.python.org/2/reference/datamodel.html
