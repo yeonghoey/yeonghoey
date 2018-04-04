@@ -2,10 +2,11 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#extensions][Extensions]]
-  - [[#social-buttons-for-bootstrap][Social Buttons for Bootstrap]]
+  - [[#bootstrap-social][bootstrap-social]]
+  - [[#bootstrap-vue][bootstrap-vue]]
 
 * Extensions
-** Social Buttons for Bootstrap
+** bootstrap-social
 #+BEGIN_SRC shell
   bower install bootstrap-social
 #+END_SRC
@@ -25,3 +26,19 @@
 -----
 - https://lipis.github.io/bootstrap-social/
 - https://github.com/lipis/bootstrap-social
+** bootstrap-vue
+#+BEGIN_SRC shell
+  npm i bootstrap-vue
+#+END_SRC
+
+#+BEGIN_SRC js
+  import 'bootstrap/dist/css/bootstrap.css'
+  import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+  import Vue from 'vue'
+  import BootstrapVue from 'bootstrap-vue'
+
+  Vue.use(BootstrapVue);
+#+END_SRC
+-----
+- https://bootstrap-vue.js.org/docs
