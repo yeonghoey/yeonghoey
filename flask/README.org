@@ -273,6 +273,14 @@ This is better than hard-coded URLs as following reasons:
       pass
 #+END_SRC
 
+*test_client DOES NOT support dict-json*.
+You have to manually serialize dict to json and specify ~content_type~ as follows:
+#+BEGIN_SRC python
+  client.post(url,
+              content_type='application/json',
+              data=json.dumps(d))
+#+END_SRC
+
 -----
 - http://flask.pocoo.org/docs/0.12/testing/
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.test_client
