@@ -1,0 +1,20 @@
+* copy
+#+BEGIN_SRC python
+  copy.copy(x)      # shallow
+  copy.deepcopy(x)
+#+END_SRC
+
+- It does "copy" *functions and classes*
+- Use ~dict.copy()~ or ~list[:]~ to create a shallow copy of ~dict~ and ~list~
+- Classes can define special methods ~__copy__()~ and ~__deepcopy__()~
+
+
+- shallow ::
+  inserts references into a new object to the objects found in the original.
+
+- deep ::
+  recursively inserts copies into a new object of the objects found in the original.
+  /Recursive objects may cause a recursive loop./
+
+-----
+- https://docs.python.org/3/library/copy.html
