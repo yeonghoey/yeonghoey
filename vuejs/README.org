@@ -18,6 +18,7 @@
   - [[#local-components][Local Components]]
   - [[#composing-components][Composing Components]]
   - [[#props][Props]]
+  - [[#slots][Slots]]
 - [[#single-file-components-vue][Single File Components (.vue)]]
 - [[#how-to][How-to]]
   - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
@@ -344,8 +345,74 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
   <blog-post post-title="hello!"></blog-post>
 #+END_SRC
 
+#+BEGIN_SRC js
+  Vue.component('my-component', {
+    props: {
+      // Basic type check (`null` matches any type)
+      propA: Number,
+      // Multiple possible types
+      propB: [String, Number],
+      // Required string
+      propC: {
+        type: String,
+        required: true
+      },
+      // Number with a default value
+      propD: {
+        type: Number,
+        default: 100
+      },
+      // Object with a default value
+      propE: {
+        type: Object,
+        // Object or array defaults must be returned from
+        // a factory function
+        default: function () {
+          return { message: 'hello' }
+        }
+      },
+      // Custom validator function
+      propF: {
+        validator: function (value) {
+          // The value must match one of these strings
+          return ['success', 'warning', 'danger'].indexOf(value) !== -1
+        }
+      }
+    }
+  })
+#+END_SRC
+
 -----
 - https://vuejs.org/v2/guide/components.html#Props
+
+** [[https://v1.vuejs.org/guide/components.html#Single-Slot][Slots]]
+The content between child component tags is passed to where ~<slot>~ tags placed within the child component.
+
+#+BEGIN_SRC html
+  <div>
+    <h1>This is my component!</h1>
+    <slot>
+      This will only be displayed if there is no content
+      to be distributed.
+    </slot>
+  </div>
+#+END_SRC
+
+#+BEGIN_SRC html
+  <my-component>
+    <p>This is some original content</p>
+    <p>This is some more original content</p>
+  </my-component>
+#+END_SRC
+
+Rendered as:
+#+BEGIN_SRC html
+  <div>
+    <h1>This is my component!</h1>
+    <p>This is some original content</p>
+    <p>This is some more original content</p>
+  </div>
+#+END_SRC
 
 * Single File Components (.vue)
 - https://vuejs.org/v2/guide/single-file-components.html
