@@ -11,6 +11,7 @@
 - requires HTML5
 - uses ~border-box~ by default
 - uses [[https://getbootstrap.com/docs/4.0/content/reboot/][Reboot]]
+  - Avoid ~margin-top~. (Use only ~margin-bottom~ for vertical margins). Because they can collapse
 - requires following meta tag:
 #+BEGIN_SRC html
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

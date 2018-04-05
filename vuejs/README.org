@@ -11,6 +11,9 @@
 - [[#api][API]]
   - [[#vueoptions][Vue(options)]]
   - [[#v-bind][v-bind]]
+  - [[#v-for][v-for]]
+- [[#special-attributes][Special Attributes]]
+- [[#lifecycle-hooks][Lifecycle Hooks]]
 - [[#list-rendering][List Rendering]]
 - [[#components][Components]]
   - [[#name-casing][Name Casing]]
@@ -19,7 +22,7 @@
   - [[#composing-components][Composing Components]]
   - [[#props][Props]]
   - [[#slots][Slots]]
-- [[#single-file-components-vue][Single File Components (.vue)]]
+  - [[#single-file-components-vue][Single File Components (.vue)]]
 - [[#how-to][How-to]]
   - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
   - [[#use-axios-with-vuejs][Use axios with Vue.js]]
@@ -206,7 +209,49 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 
   <!-- class binding ('key' is included if 'value' is true -->
   <div :class="[classA, { classB: isB, classC: isC }]">
+
+  <!-- style binding -->
+  <div :style="{ fontSize: size + 'px' }"></div>
+  <div :style="[styleObjectA, styleObjectB]"></div>
+
+  <!-- binding an object of attributes -->
+  <div v-bind="{ id: someProp, 'other-attr': otherProp }"></div>
+
+  <!-- prop binding. "prop" must be declared in my-component. -->
+  <my-component :prop="someThing"></my-component>
+
+  <!-- pass down parent props in common with a child component -->
+  <child-component v-bind="$props"></child-component>
 #+END_SRC
+
+** [[https://vuejs.org/v2/api/#v-for][v-for]]
+- ~:key~ ::
+  Specify this to give an ordering hint.
+#+BEGIN_SRC html
+  <ul>
+      <li v-for="(item, index) in items" :key="index"></li>
+  </ul>
+  <div v-for="item in items" :key="item.id">
+    {{ item.text }}
+  </div>
+#+END_SRC
+
+* Special Attributes
+- [[https://vuejs.org/v2/api/#key][key]] ::
+  - can be used as a hint for Vue's virtual DOM algorithm
+  - can be used to force replacement of an element/component instead of reusing it.
+#+BEGIN_SRC html
+  <!-- When text changes, the <span> will always be replaced instead of patched,
+       so a transition will be triggered. -->
+  <transition>
+    <span :key="text">{{ text }}</span>
+  </transition>
+#+END_SRC
+
+* Lifecycle Hooks
+- [[https://vuejs.org/v2/api/#created][created]] ::
+  - The instance has finished processing options
+  - ~data~, ~computed~, ~methods~, ~watch~, ~event~ are now accessible
 
 * List Rendering
 :REFERENCES:
@@ -414,12 +459,11 @@ Rendered as:
   </div>
 #+END_SRC
 
-* Single File Components (.vue)
-- https://vuejs.org/v2/guide/single-file-components.html
-
+** [[https://vuejs.org/v2/guide/single-file-components.html][Single File Components]] (.vue)
 #+BEGIN_QUOTE
 In many Vue projects, global components will be defined using ~Vue.component~, followed by ~new Vue({ el: '#container' })~ to target a container element in the body of every page.
 #+END_QUOTE
+
 * How-to
 ** Configure different environment variables by stage
 :REFERENCES:

@@ -42,6 +42,10 @@ Is preferred over ~<a href="...">~
 - https://router.vuejs.org/en/api/router-view.html
 - A functional component that renders the matched component for the given path.
 - Can use mutliple routes by [[https://router.vuejs.org/en/essentials/named-views.html][named-views]]
+- Use ~:key~ to force rerender when the path is changed
+#+BEGIN_SRC html
+  <router-view :key="$route.fullPath"></router-view>
+#+END_SRC
 
 * history mode
 - https://router.vuejs.org/en/essentials/history-mode.html
