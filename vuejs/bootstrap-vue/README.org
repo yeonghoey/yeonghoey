@@ -1,0 +1,8 @@
+#+TITLE: BootstrapVue
+
+* Table of Contents :TOC_2_gh:
+- [[#reference][Reference]]
+  - [[#tables][Tables]]
+
+* Reference
+** [[https://bootstrap-vue.js.org/docs/components/table][Tables]]

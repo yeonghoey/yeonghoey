@@ -1,0 +1,25 @@
+#+TITLE: vue-loader
+
+* Table of Contents :TOC_2_gh:
+- [[#scoped-css][Scoped CSS]]
+  - [[#deep-selectors][Deep Selectors]]
+
+* [[https://vue-loader.vuejs.org/en/features/scoped-css.html][Scoped CSS]]
+
+** Deep Selectors
+- Keep using classes for performance efficiency
+- Be careful with descendant selectors in recursive components
+- With ~scoped~, the parent component's styles will not leak into child components.
+- However, a child component's root node will be affected by both the parent's scoped CSS and the child's scoped CSS.
+
+To affect child components, use ~>>>~ combinator
+#+BEGIN_SRC html
+  <template>
+    <div id="parent">
+    </div>
+  </template>
+
+  <style scoped>
+  #parent >>> .child { /* ... */ }
+  </style>
+#+END_SRC

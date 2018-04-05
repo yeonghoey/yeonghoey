@@ -13,11 +13,11 @@
   - [[#v-bind][v-bind]]
 - [[#list-rendering][List Rendering]]
 - [[#components][Components]]
+  - [[#name-casing][Name Casing]]
   - [[#global-components][Global Components]]
   - [[#local-components][Local Components]]
   - [[#composing-components][Composing Components]]
-  - [[#name-casing][Name Casing]]
-  - [[#props][props]]
+  - [[#props][Props]]
 - [[#single-file-components-vue][Single File Components (.vue)]]
 - [[#how-to][How-to]]
   - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
@@ -231,6 +231,35 @@ Dynamically bind one or more attributes, or a component prop to an expression.
 #+END_SRC
 
 * [[https://vuejs.org/v2/guide/components.html][Components]]
+** Name Casing
+According to [[./style-guide]], ~PascalCase~ naming is preferred when it is possible.
+
+#+BEGIN_QUOTE
+When defining a component with PascalCase, you can use either case when referencing its custom element.
+That means both ~<my-component-name>~ and ~<MyComponentName>~ are acceptable.
+Note, however, that only kebab-case names are valid directly in the DOM (i.e. non-string templates).
+#+END_QUOTE
+
+Non-string templates are things when you use Vue.js within actual ~.html~ files, consider following code:
+#+BEGIN_SRC html
+  <body>
+    <div id="app"> <!-- your App is runnning in this div --->
+      <my-component></my-component>
+    </div>
+
+    <template id="template-for-my-component">
+      {{ message }}
+    </template>
+  </body>
+#+END_SRC
+
+This HTML will be controlled by the browser before Vue can work with it,
+and therefore Vue is limited by the caveats explained in the linked documentation
+
+-----
+- https://vuejs.org/v2/guide/components-registration.html#Name-Casing
+- https://forum.vuejs.org/t/confused-about-dom-template-and-string-template/1797/2
+
 ** Global Components
 #+BEGIN_SRC html
   <div id="example">
@@ -291,40 +320,32 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
   </my-component>
 #+END_SRC
 
-** Name Casing
-
-According to [[./style-guide]], ~PascalCase~ naming is preferred when it is possible.
-
-#+BEGIN_QUOTE
-When defining a component with PascalCase, you can use either case when referencing its custom element.
-That means both ~<my-component-name>~ and ~<MyComponentName>~ are acceptable.
-Note, however, that only kebab-case names are valid directly in the DOM (i.e. non-string templates).
-#+END_QUOTE
-
-Non-string templates are things when you use Vue.js within actual ~.html~ files, consider following code:
-#+BEGIN_SRC html
-  <body>
-    <div id="app"> <!-- your App is runnning in this div --->
-      <my-component></my-component>
-    </div>
-
-    <template id="template-for-my-component">
-      {{ message }}
-    </template>
-  </body>
-#+END_SRC
-
-This HTML will be controlled by the browser before Vue can work with it,
-and therefore Vue is limited by the caveats explained in the linked documentation
-
------
-- https://vuejs.org/v2/guide/components-registration.html#Name-Casing
-- https://forum.vuejs.org/t/confused-about-dom-template-and-string-template/1797/2
-
-** props
-- https://vuejs.org/v2/guide/components.html#Props
+** [[https://vuejs.org/v2/guide/components-props.html][Props]]
 - A ~prop~ is a field on a component’s ~data~ that is expected to be passed down from its parent component.
 - So, a ~prop~ can be referenced as ~this.<prop>~ or ~{{ <prop> }}~
+- When you’re using in-DOM templates(See /Name Casing/ above), ~camelCased~ prop names need to use their ~kebab-cased~ equivalents
+
+#+BEGIN_SRC js
+  Vue.component('blog-post', {
+    // camelCase in JavaScript
+    props: ['postTitle'],
+    template: '<h3>{{ postTitle }}</h3>'
+  })
+#+END_SRC
+
+#+BEGIN_SRC html
+  <!-- Vue (string templates) -->
+  <blog-post postTitle="hello!"></blog-post>
+
+  <!-- Vue with dynamic props (string templates) -->
+  <blog-post :postTitle="hello!"></blog-post>
+
+  <!-- HTML (non-string templates) -->
+  <blog-post post-title="hello!"></blog-post>
+#+END_SRC
+
+-----
+- https://vuejs.org/v2/guide/components.html#Props
 
 * Single File Components (.vue)
 - https://vuejs.org/v2/guide/single-file-components.html

@@ -1,9 +1,26 @@
 #+TITLE: Bootstrap
 
 * Table of Contents :TOC_2_gh:
+- [[#getting-started][Getting Started]]
+- [[#content][Content]]
 - [[#extensions][Extensions]]
   - [[#bootstrap-social][bootstrap-social]]
   - [[#bootstrap-vue][bootstrap-vue]]
+
+* Getting Started
+- requires HTML5
+- uses ~border-box~ by default
+- uses [[https://getbootstrap.com/docs/4.0/content/reboot/][Reboot]]
+- requires following meta tag:
+#+BEGIN_SRC html
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+#+END_SRC
+
+* Content
+- [[https://getbootstrap.com/docs/4.0/content/reboot/][Reboot]] ::
+Applies some defaults for pages, fonts, tables, etc.
+
+- [[https://getbootstrap.com/docs/4.0/content/typography/][Typography]] ::
 
 * Extensions
 ** bootstrap-social
