@@ -31,7 +31,6 @@
 - [[#how-to][How-to]]
   - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
   - [[#use-axios-with-vuejs][Use axios with Vue.js]]
-- [[#style-guide][Style Guide]]
 - [[#links][Links]]
 
 * Overview
@@ -452,11 +451,6 @@ If you use vue template is easier to configure:
 
   // Or, just import axios in each component
 #+END_SRC
-
-* Style Guide
-
------
-- https://vuejs.org/v2/style-guide/
 
 * Links
 - [[https://codesandbox.io/s/o29j95wx9][Simple Todo App]]

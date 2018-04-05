@@ -1,0 +1,15 @@
+#+TITLE: [[https://vuejs.org/v2/style-guide/#Priority-A-Rules-Essential-Error-Prevention][Vue.js Style Guide]]
+
+* Table of Contents :TOC_2_gh:
+- [[#priority-a-essential][Priority A: Essential]]
+  - [[#multi-word-component-names][Multi-word component names]]
+- [[#priority-b-strongly-recommended][Priority B: Strongly Recommended]]
+- [[#priority-c-recommended][Priority C: Recommended]]
+- [[#priority-d-use-with-caution][Priority D: Use with Caution]]
+
+* [[https://vuejs.org/v2/style-guide/#Priority-A-Rules-Essential-Error-Prevention][Priority A: Essential]]
+** Multi-word component names
+
+* Priority B: Strongly Recommended
+* Priority C: Recommended
+* Priority D: Use with Caution
