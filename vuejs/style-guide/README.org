@@ -2,14 +2,83 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#priority-a-essential][Priority A: Essential]]
-  - [[#multi-word-component-names][Multi-word component names]]
 - [[#priority-b-strongly-recommended][Priority B: Strongly Recommended]]
 - [[#priority-c-recommended][Priority C: Recommended]]
 - [[#priority-d-use-with-caution][Priority D: Use with Caution]]
 
 * [[https://vuejs.org/v2/style-guide/#Priority-A-Rules-Essential-Error-Prevention][Priority A: Essential]]
-** Multi-word component names
+- Component names should always be multi-word, except for root ~App~ components.
+  This prevents conflicts with existing and future HTML elements, since all HTML elements are a single word.
+  ex) Use ~TodoItem~ instead of just ~Todo~
+- Component ~data~ must be a function.
+- ~prop~ definitions should be as detailed as possible.
+- Always use ~key~ with ~v-for~.
+- Never use ~v-if~ on the same element as ~v-for~.
+- Component style scoping
+  - For applications, styles in a top-level ~App~ component and in layout components may be global, but all other components should always be scoped.
+  - Component libraries, however, should prefer a class-based strategy instead of using the ~scoped~ attribute.
+- Always use the ~$_~ prefix for custom private properties in a plugin, mixin, etc. Then to avoid conflicts with code by other authors, also include a named scope (e.g. ~$_yourPluginName_~).
 
 * Priority B: Strongly Recommended
+- Whenever a build system is available to concatenate files, each component should be in its own file.
+#+BEGIN_EXAMPLE
+  components/
+  |- TodoList.js
+  |- TodoItem.js
+  components/
+  |- TodoList.vue
+  |- TodoItem.vue
+#+END_EXAMPLE
+
+- Filenames of single-file components should either be always PascalCase or always kebab-case.
+- Base components (a.k.a. presentational, dumb, or pure components) that apply app-specific styling and conventions should all begin with a specific prefix, such as ~Base~, ~App~, or ~V~.
+- Components that should only ever have a single active instance should begin with the ~The~ prefix, to denote that there can be only one.
+- Child components that are tightly coupled with their parent should include the parent component name as a prefix.
+- Component names should start with the highest-level (often most general) words and end with descriptive modifying words.
+- Components with no content should be self-closing in single-file components, string templates, and JSX - but never in DOM templates.
+#+BEGIN_SRC html
+  <!-- In single-file components, string templates, and JSX -->
+  <MyComponent/>
+  <!-- In DOM templates -->
+  <my-component></my-component>
+#+END_SRC
+- In most projects, component names should always be PascalCase in single-file components and string templates - but kebab-case in DOM templates.
+- Component names should prefer full words over abbreviations.
+- Elements with multiple attributes should span multiple lines, with one attribute per line.
+#+BEGIN_SRC html
+  <img
+    src="https://vuejs.org/images/logo.png"
+    alt="Vue Logo"
+  >
+
+  <MyComponent
+    foo="a"
+    bar="b"
+    baz="c"
+  />
+#+END_SRC
+- Component templates should only include simple expressions, with more complex expressions refactored into computed properties or methods.
+- Complex computed properties should be split into as many simpler properties as possible.
+- Non-empty HTML attribute values should always be inside quotes (single or double, whichever is not used in JS).
+- Directive shorthands (~:~ for ~v-bind:~ and ~@~ for ~v-on:~) should be used always or never.0
+#+BEGIN_SRC html
+  <input
+    :value="newTodoText"
+    :placeholder="newTodoInstructions"
+  >
+  <input
+    v-bind:value="newTodoText"
+    v-bind:placeholder="newTodoInstructions"
+  >
+  <input
+    @input="onInput"
+    @focus="onFocus"
+  >
+  <input
+    v-on:input="onInput"
+    v-on:focus="onFocus"
+  >
+#+END_SRC
+
 * Priority C: Recommended
 * Priority D: Use with Caution
