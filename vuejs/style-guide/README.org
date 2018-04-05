@@ -8,8 +8,8 @@
 
 * [[https://vuejs.org/v2/style-guide/#Priority-A-Rules-Essential-Error-Prevention][Priority A: Essential]]
 - Component names should always be multi-word, except for root ~App~ components.
-  This prevents conflicts with existing and future HTML elements, since all HTML elements are a single word.
-  ex) Use ~TodoItem~ instead of just ~Todo~
+  - This prevents conflicts with existing and future HTML elements, since all HTML elements are a single word.
+  - ex) Use ~TodoItem~ instead of just ~Todo~
 - Component ~data~ must be a function.
 - ~prop~ definitions should be as detailed as possible.
 - Always use ~key~ with ~v-for~.
