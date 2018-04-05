@@ -16,18 +16,9 @@
   - [[#global-components][Global Components]]
   - [[#local-components][Local Components]]
   - [[#composing-components][Composing Components]]
+  - [[#name-casing][Name Casing]]
   - [[#props][props]]
 - [[#single-file-components-vue][Single File Components (.vue)]]
-- [[#router][Router]]
-  - [[#router-link][<router-link>]]
-  - [[#router-view][<router-view>]]
-  - [[#history-mode][history mode]]
-  - [[#matching][Matching]]
-  - [[#the-route-object][The Route object]]
-  - [[#route-meta-fields][Route Meta Fields]]
-  - [[#navigation-guards][Navigation Guards]]
-  - [[#passing-props][Passing Props]]
-  - [[#programmatic-navigation][Programmatic Navigation]]
 - [[#how-to][How-to]]
   - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
   - [[#use-axios-with-vuejs][Use axios with Vue.js]]
@@ -176,9 +167,15 @@ Don’t use arrow functions on an options property or callback, such as ~created
 
 * API
 ** Vue(options)
+- [[https://vuejs.org/v2/api/#name][name]] ::
+  - Only respected when used as a component option.
+  - Allow the component to /recursively invoke itself/ in its template.
+  - When a component is registered globally with ~Vue.component()~, the global ID is automatically set as its name.
+
 - [[https://vuejs.org/v2/api/#data][data]] ::
   - Only accepts ~Function~ when used in a component definition.
   - The object must be plain
+
 - [[https://vuejs.org/v2/api/#el][el]] ::
   - only respected in instance creation via new.
   - provide the Vue instance an existing DOM element to mount on. It can be a CSS selector string or an actual HTMLElement.
@@ -233,9 +230,7 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   </div>
 #+END_SRC
 
-* Components
-- https://vuejs.org/v2/guide/components.html
-
+* [[https://vuejs.org/v2/guide/components.html][Components]]
 ** Global Components
 #+BEGIN_SRC html
   <div id="example">
@@ -296,6 +291,36 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
   </my-component>
 #+END_SRC
 
+** Name Casing
+
+According to [[./style-guide]], ~PascalCase~ naming is preferred when it is possible.
+
+#+BEGIN_QUOTE
+When defining a component with PascalCase, you can use either case when referencing its custom element.
+That means both ~<my-component-name>~ and ~<MyComponentName>~ are acceptable.
+Note, however, that only kebab-case names are valid directly in the DOM (i.e. non-string templates).
+#+END_QUOTE
+
+Non-string templates are things when you use Vue.js within actual ~.html~ files, consider following code:
+#+BEGIN_SRC html
+  <body>
+    <div id="app"> <!-- your App is runnning in this div --->
+      <my-component></my-component>
+    </div>
+
+    <template id="template-for-my-component">
+      {{ message }}
+    </template>
+  </body>
+#+END_SRC
+
+This HTML will be controlled by the browser before Vue can work with it,
+and therefore Vue is limited by the caveats explained in the linked documentation
+
+-----
+- https://vuejs.org/v2/guide/components-registration.html#Name-Casing
+- https://forum.vuejs.org/t/confused-about-dom-template-and-string-template/1797/2
+
 ** props
 - https://vuejs.org/v2/guide/components.html#Props
 - A ~prop~ is a field on a component’s ~data~ that is expected to be passed down from its parent component.
@@ -307,103 +332,6 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
 #+BEGIN_QUOTE
 In many Vue projects, global components will be defined using ~Vue.component~, followed by ~new Vue({ el: '#container' })~ to target a container element in the body of every page.
 #+END_QUOTE
-* Router
-- https://router.vuejs.org/en/
-
-** <router-link>
-- https://router.vuejs.org/en/api/router-link.html
-
-Is preferred over ~<a href="...">~
-
-#+BEGIN_SRC html
-    <!-- literal string -->
-    <router-link to="home">Home</router-link>
-    <!-- renders to -->
-    <a href="home">Home</a>
-
-    <!-- javascript expression using `v-bind` -->
-    <router-link v-bind:to="'home'">Home</router-link>
-
-    <!-- Omitting `v-bind` is fine, just as binding any other prop -->
-    <router-link :to="'home'">Home</router-link>
-
-    <!-- same as above -->
-    <router-link :to="{ path: 'home' }">Home</router-link>
-
-    <!-- named route -->
-    <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
-
-    <!-- with query, resulting in `/register?plan=private` -->
-    <router-link :to="{ path: 'register', query: { plan: 'private' }}">Register</router-link>
-#+END_SRC
-
-** <router-view>
-- https://router.vuejs.org/en/api/router-view.html
-- A functional component that renders the matched component for the given path.
-- Can use mutliple routes by [[https://router.vuejs.org/en/essentials/named-views.html][named-views]]
-
-** history mode
-- https://router.vuejs.org/en/essentials/history-mode.html
-
-#+BEGIN_SRC javascript
-  const router = new VueRouter({
-    mode: 'history',
-    routes: [...]
-  })
-#+END_SRC
-
-#+BEGIN_QUOTE
-Since our app is a single page client side app, without a proper server configuration,
-the users will get a 404 error if they access http://oursite.com/user/id directly in their browser.
-#+END_QUOTE
-
-** Matching
-:REFERENCES:
-- https://github.com/pillarjs/path-to-regexp#parameters
-- https://router.vuejs.org/en/essentials/dynamic-matching.html
-- https://router.vuejs.org/en/essentials/dynamic-matching.html#matching-priority
-:END:
-
-#+BEGIN_SRC js
-  pathToRegexp('/:foo/:bar?')
-  pathToRegexp('/:foo*')
-  pathToRegexp('/:foo+')
-#+END_SRC
-
-#+BEGIN_QUOTE
-Sometimes the same URL may be matched by multiple routes.
-In such a case the matching priority is determined by the order of route definition:
-*the earlier a route is defined, the higher priority it gets.*
-#+END_QUOTE
-
-** The Route object
-- https://router.vuejs.org/en/api/route-object.html
-
-#+BEGIN_SRC javascript
-
-  // For pattern '/:user', '/yeonghoey?test=no"
-  $route.params.user === 'yeonghoey';
-  $route.query.test === 'no';
-#+END_SRC
-
-** Route Meta Fields
-- https://router.vuejs.org/en/advanced/meta.html
-
-** Navigation Guards
-- https://router.vuejs.org/en/advanced/navigation-guards.html
-
-** Passing Props
-:REFERENCES:
-- https://router.vuejs.org/en/essentials/passing-props.html
-:END:
-
-#+BEGIN_QUOTE
-When ~props~ is set to ~true~, the ~route.params~ will be set as the component props.
-#+END_QUOTE
-
-** Programmatic Navigation
-- https://router.vuejs.org/en/essentials/navigation.html
-
 * How-to
 ** Configure different environment variables by stage
 :REFERENCES:

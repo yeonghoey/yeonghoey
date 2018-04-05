@@ -1,0 +1,106 @@
+#+TITLE: [[https://router.vuejs.org/en/][vue-router]]
+
+* Table of Contents :TOC_2_gh:
+- [[#router-link][<router-link>]]
+- [[#router-view][<router-view>]]
+- [[#history-mode][history mode]]
+- [[#matching][Matching]]
+- [[#the-route-object][The Route object]]
+- [[#route-meta-fields][Route Meta Fields]]
+- [[#navigation-guards][Navigation Guards]]
+- [[#passing-props][Passing Props]]
+- [[#programmatic-navigation][Programmatic Navigation]]
+
+* <router-link>
+- https://router.vuejs.org/en/api/router-link.html
+
+Is preferred over ~<a href="...">~
+
+#+BEGIN_SRC html
+    <!-- literal string -->
+    <router-link to="home">Home</router-link>
+    <!-- renders to -->
+    <a href="home">Home</a>
+
+    <!-- javascript expression using `v-bind` -->
+    <router-link v-bind:to="'home'">Home</router-link>
+
+    <!-- Omitting `v-bind` is fine, just as binding any other prop -->
+    <router-link :to="'home'">Home</router-link>
+
+    <!-- same as above -->
+    <router-link :to="{ path: 'home' }">Home</router-link>
+
+    <!-- named route -->
+    <router-link :to="{ name: 'user', params: { userId: 123 }}">User</router-link>
+
+    <!-- with query, resulting in `/register?plan=private` -->
+    <router-link :to="{ path: 'register', query: { plan: 'private' }}">Register</router-link>
+#+END_SRC
+
+* <router-view>
+- https://router.vuejs.org/en/api/router-view.html
+- A functional component that renders the matched component for the given path.
+- Can use mutliple routes by [[https://router.vuejs.org/en/essentials/named-views.html][named-views]]
+
+* history mode
+- https://router.vuejs.org/en/essentials/history-mode.html
+
+#+BEGIN_SRC javascript
+  const router = new VueRouter({
+    mode: 'history',
+    routes: [...]
+  })
+#+END_SRC
+
+#+BEGIN_QUOTE
+Since our app is a single page client side app, without a proper server configuration,
+the users will get a 404 error if they access http://oursite.com/user/id directly in their browser.
+#+END_QUOTE
+
+* Matching
+:REFERENCES:
+- https://github.com/pillarjs/path-to-regexp#parameters
+- https://router.vuejs.org/en/essentials/dynamic-matching.html
+- https://router.vuejs.org/en/essentials/dynamic-matching.html#matching-priority
+:END:
+
+#+BEGIN_SRC js
+  pathToRegexp('/:foo/:bar?')
+  pathToRegexp('/:foo*')
+  pathToRegexp('/:foo+')
+#+END_SRC
+
+#+BEGIN_QUOTE
+Sometimes the same URL may be matched by multiple routes.
+In such a case the matching priority is determined by the order of route definition:
+*the earlier a route is defined, the higher priority it gets.*
+#+END_QUOTE
+
+* The Route object
+- https://router.vuejs.org/en/api/route-object.html
+
+#+BEGIN_SRC javascript
+
+  // For pattern '/:user', '/yeonghoey?test=no"
+  $route.params.user === 'yeonghoey';
+  $route.query.test === 'no';
+#+END_SRC
+
+* Route Meta Fields
+- https://router.vuejs.org/en/advanced/meta.html
+
+* Navigation Guards
+- https://router.vuejs.org/en/advanced/navigation-guards.html
+
+* Passing Props
+:REFERENCES:
+- https://router.vuejs.org/en/essentials/passing-props.html
+:END:
+
+#+BEGIN_QUOTE
+When ~props~ is set to ~true~, the ~route.params~ will be set as the component props.
+#+END_QUOTE
+
+* Programmatic Navigation
+- https://router.vuejs.org/en/essentials/navigation.html
