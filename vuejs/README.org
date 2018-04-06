@@ -433,6 +433,13 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
 ** [[https://v1.vuejs.org/guide/components.html#Single-Slot][Slots]]
 The content between child component tags is passed to where ~<slot>~ tags placed within the child component.
 
+- ~<child>DATA</child>~ ::
+  - ~DATA~ is put into the single existing ~<slot></slot>~.
+- ~<template slot="name">DATA</template>~ ::
+  - ~DATA~ is put into the named slot ~<slot name="name"></slot>~
+- ~<template slot="name" slot-scope="data">{{ data.DATA }}</template>~ ::
+  - Access to data from the child
+
 #+BEGIN_SRC html
   <div>
     <h1>This is my component!</h1>
