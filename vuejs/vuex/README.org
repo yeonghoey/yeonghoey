@@ -1,9 +1,4 @@
-#+TITLE: [[https://vuex.vuejs.org/en/][Vuex]]
-
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-
-* [[https://vuex.vuejs.org/en/structure.html][Overview]]
+* [[https://vuex.vuejs.org/en/][Vuex]]
 #+BEGIN_SRC shell
   npm install vuex
 #+END_SRC
