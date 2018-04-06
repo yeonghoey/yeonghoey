@@ -1,0 +1,56 @@
+#+TITLE: [[https://vuex.vuejs.org/en/][Vuex]]
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+
+* Overview
+#+BEGIN_SRC shell
+  npm install vuex
+#+END_SRC
+
+- ~src/store/index.js~ ::
+#+BEGIN_SRC js
+  import Vue from 'vue';
+  import Vuex from 'vuex';
+  import * as getters from './getters'
+  import * as actions from './actions'
+  import * as mutations from './mutations'
+
+  Vue.use(Vuex);
+
+  const debug = process.env.NODE_ENV !== 'production';
+
+  const store = new Vuex.Store({
+    state,
+    getters,
+    actions,
+    mutations,
+    strict: debug,
+    plugins: debug ? [createLogger()] : [],
+  })
+
+  if (module.hot) {
+    module.hot.accept([
+      './getters',
+      './actions',
+      './mutations',
+    ], () => {
+      store.hotUpdate({
+        getters: require('./getters'),
+        actions: require('./actions'),
+        mutations: require('./mutations'),
+      })
+    })
+  }
+#+END_SRC
+
+- ~src/main.js~ ::
+#+BEGIN_SRC js
+  import Vue from 'vue'
+  import store from './store'
+
+  new Vue({
+    el: '#app',
+    store,
+  })
+#+END_SRC
