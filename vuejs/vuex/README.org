@@ -45,7 +45,7 @@
 #+END_SRC
 - [[https://vuex.vuejs.org/en/strict.html][strict]]
 
-#+NAME: src/main.js
+#+CAPTION: src/main.js
 #+BEGIN_SRC js
   import Vue from 'vue'
   import store from './store'
