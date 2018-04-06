@@ -2,7 +2,6 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
-- [[#general][General]]
 
 * [[https://vuex.vuejs.org/en/structure.html][Overview]]
 #+BEGIN_SRC shell
@@ -43,9 +42,10 @@
     })
   }
 #+END_SRC
-- [[https://vuex.vuejs.org/en/strict.html][strict]]
+  - [[https://vuex.vuejs.org/en/strict.html][strict]]
+  - [[https://vuex.vuejs.org/en/hot-reload.html][hotUpdate]]
 
-#+CAPTION: src/main.js
+- ~src/main.js~ ::
 #+BEGIN_SRC js
   import Vue from 'vue'
   import store from './store'
@@ -56,14 +56,10 @@
   })
 #+END_SRC
 
------
-- https://github.com/vuejs/vuex/blob/dev/examples/counter-hot/store/index.js
-- https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/store/index.js
-
-* General
 - Pass ~store~ to when ~new Vue({})~ to reference the store as ~this.$store~ from child components.
 - Use [[https://vuex.vuejs.org/en/state.html#the-mapstate-helper][mapState]], [[https://vuex.vuejs.org/en/getters.html#the-mapgetters-helper][mapGetters]], as ~computed~ members and [[https://vuex.vuejs.org/en/mutations.html#committing-mutations-in-components][mapMutations]], [[https://vuex.vuejs.org/en/actions.html#dispatching-actions-in-components][mapActions]] as ~methods~ members.
 - Use ~mapThing~ with object spread operator(~...obj~) as follows:
+
 #+BEGIN_SRC js
   computed: {
     localComputed () { /* ... */ },
@@ -74,12 +70,25 @@
   }
 #+END_SRC
 
-- ~store~ ::
+- [[https://vuex.vuejs.org/en/state.html#the-mapstate-helper][state]] ::
   - the single source of truth.
   - *Can exist only one store for each application
-- ~state~ ::
   - like ~data~ in components
-- ~getters~ :: like ~computed~ in components
-- ~mutations~ is for methods which mutates the ~state~. *Must be synchronous*
-- ~actions~ is for methods which commit mutations. *Can be asynchronous*
-- ~modules~ for organizing things
+
+- [[https://vuex.vuejs.org/en/getters.html#the-mapgetters-helper][getters]] ::
+  - like ~computed~ in components
+
+- [[https://vuex.vuejs.org/en/mutations.html#committing-mutations-in-components][mutations]] ::
+  - methods which mutates the ~state~. *Must be synchronous*
+
+- [[https://vuex.vuejs.org/en/actions.html#dispatching-actions-in-components][actions]] :: 
+  - methods which commit mutations. *Can be asynchronous*
+  - the handler is called with ~context~, which contains store essentials like ~state~, ~commit~, and ~getters~.
+
+- [[https://vuex.vuejs.org/en/modules.html][modules]] ::
+  - all elements withn modules references their own [[https://vuex.vuejs.org/en/modules.html#module-local-state][localState]] by default.
+  - Note [[https://vuex.vuejs.org/en/modules.html#module-local-state][rootState]], [[https://vuex.vuejs.org/en/modules.html#namespacing][namespace]] for interactions between the store and other modules
+
+-----
+- https://github.com/vuejs/vuex/blob/dev/examples/counter-hot/store/index.js
+- https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/store/index.js
