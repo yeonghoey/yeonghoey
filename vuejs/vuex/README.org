@@ -2,7 +2,7 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
-- [[#state][state]]
+- [[#general][General]]
 
 * [[https://vuex.vuejs.org/en/structure.html][Overview]]
 #+BEGIN_SRC shell
@@ -43,8 +43,9 @@
     })
   }
 #+END_SRC
+- [[https://vuex.vuejs.org/en/strict.html][strict]]
 
-- ~src/main.js~ ::
+#+NAME: src/main.js
 #+BEGIN_SRC js
   import Vue from 'vue'
   import store from './store'
@@ -59,4 +60,26 @@
 - https://github.com/vuejs/vuex/blob/dev/examples/counter-hot/store/index.js
 - https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/store/index.js
 
-* state
+* General
+- Pass ~store~ to when ~new Vue({})~ to reference the store as ~this.$store~ from child components.
+- Use [[https://vuex.vuejs.org/en/state.html#the-mapstate-helper][mapState]], [[https://vuex.vuejs.org/en/getters.html#the-mapgetters-helper][mapGetters]], as ~computed~ members and [[https://vuex.vuejs.org/en/mutations.html#committing-mutations-in-components][mapMutations]], [[https://vuex.vuejs.org/en/actions.html#dispatching-actions-in-components][mapActions]] as ~methods~ members.
+- Use ~mapThing~ with object spread operator(~...obj~) as follows:
+#+BEGIN_SRC js
+  computed: {
+    localComputed () { /* ... */ },
+    // mix this into the outer object with the object spread operator
+    ...mapState({
+      // ...
+    })
+  }
+#+END_SRC
+
+- ~store~ ::
+  - the single source of truth.
+  - *Can exist only one store for each application
+- ~state~ ::
+  - like ~data~ in components
+- ~getters~ :: like ~computed~ in components
+- ~mutations~ is for methods which mutates the ~state~. *Must be synchronous*
+- ~actions~ is for methods which commit mutations. *Can be asynchronous*
+- ~modules~ for organizing things
