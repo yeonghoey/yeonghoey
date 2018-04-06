@@ -2,8 +2,9 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
+- [[#state][state]]
 
-* Overview
+* [[https://vuex.vuejs.org/en/structure.html][Overview]]
 #+BEGIN_SRC shell
   npm install vuex
 #+END_SRC
@@ -18,15 +19,14 @@
 
   Vue.use(Vuex);
 
-  const debug = process.env.NODE_ENV !== 'production';
+  const STRICT = process.env.NODE_ENV !== 'production';
 
   const store = new Vuex.Store({
     state,
     getters,
     actions,
     mutations,
-    strict: debug,
-    plugins: debug ? [createLogger()] : [],
+    strict: STRICT,
   })
 
   if (module.hot) {
@@ -54,3 +54,9 @@
     store,
   })
 #+END_SRC
+
+-----
+- https://github.com/vuejs/vuex/blob/dev/examples/counter-hot/store/index.js
+- https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/store/index.js
+
+* state
