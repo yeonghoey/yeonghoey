@@ -4,6 +4,9 @@
 - [[#using-matchers][Using Matchers]]
 - [[#testing-asynchronous-code][Testing Asynchronous Code]]
 - [[#setup-and-teardown][Setup and Teardown]]
+- [[#mock-functions][Mock Functions]]
+- [[#jest-platform][Jest Platform]]
+- [[#jest-community][Jest Community]]
 
 * [[https://facebook.github.io/jest/docs/en/using-matchers.html][Using Matchers]]
 #+BEGIN_SRC js
@@ -22,6 +25,11 @@
   expect(x).toMatch(/stop/);
   expect(x).toContain('beer');
   expect(x).toThrow();
+
+  expect(mockFunc).toBeCalled();
+  expect(mockFunc).toBeCalledWith(arg1, arg2);
+  expect(mockFunc).lastCalledWith(arg1, arg2);
+  expect(mockFunc).toMatchSnapshot();
 #+END_SRC
 
 -----
@@ -144,3 +152,83 @@ Like tests, setup and teardown functions can also be used with ~done~ param or r
     2 - afterAll
     1 - afterAll
   #+END_EXAMPLE
+* [[https://facebook.github.io/jest/docs/en/mock-functions.html][Mock Functions]]
+- Using a mock function ::
+  #+BEGIN_SRC js
+    function forEach(items, callback) {
+      for (let index = 0; index < items.length; index++) {
+        callback(items[index]);
+      }
+    }
+  #+END_SRC
+  #+BEGIN_SRC js
+    const mockCallback = jest.fn();
+    forEach([0, 1], mockCallback);
+
+    // The mock function is called twice
+    expect(mockCallback.mock.calls.length).toBe(2);
+
+    // The first argument of the first call to the function was 0
+    expect(mockCallback.mock.calls[0][0]).toBe(0);
+
+    // The first argument of the second call to the function was 1
+    expect(mockCallback.mock.calls[1][0]).toBe(1);
+  #+END_SRC
+
+- Mock Return Values ::
+  #+BEGIN_SRC js
+    const myMock = jest.fn();
+    console.log(myMock());
+    // > undefined
+
+    myMock
+      .mockReturnValueOnce(10)
+      .mockReturnValueOnce('x')
+      .mockReturnValue(true);
+
+    console.log(myMock(), myMock(), myMock(), myMock());
+    // > 10, 'x', true, true
+  #+END_SRC
+
+- Mocking Modules ::
+  #+BEGIN_SRC js
+    // users.test.js
+    import axios from 'axios';
+    import Users from './users';
+
+    jest.mock('axios');
+
+    test('should fetch users', () => {
+      const resp = {data: [{name: 'Bob'}]};
+      axios.get.mockResolvedValue(resp);
+
+      // or you could use the follwing depending on your use case:
+      // axios.get.mockImplementation(() => Promise.resolve(resp))
+
+      return Users.all().then(users => expect(users).toEqual(resp.data));
+    });
+  #+END_SRC
+
+- Mock Implementations ::
+  #+BEGIN_SRC js
+    const myMockFn = jest
+          .fn(() => 'default')
+          .mockImplementationOnce(() => 'first call')
+          .mockImplementationOnce(() => 'second call');
+
+    console.log(myMockFn(), myMockFn(), myMockFn(), myMockFn());
+    // > 'first call', 'second call', 'default', 'default'
+  #+END_SRC
+
+- Mock Names ::
+  - Give a name to the mock function for error output.
+  #+BEGIN_SRC js
+    const myMockFn = jest
+          .fn()
+          .mockReturnValue('default')
+          .mockImplementation(scalar => 42 + scalar)
+          .mockName('add42');
+  #+END_SRC
+
+* [[https://facebook.github.io/jest/docs/en/jest-platform.html][Jest Platform]]
+* [[https://facebook.github.io/jest/docs/en/jest-community.html][Jest Community]]
