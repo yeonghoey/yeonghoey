@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#selectors][Selectors]]
   - [[#before][::before]]
+  - [[#attribute-selectors][Attribute selectors]]
 - [[#properties][Properties]]
   - [[#box-sizing][box-sizing]]
   - [[#margin][margin]]
@@ -15,6 +16,7 @@
     - [[#rem][rem]]
     - [[#vw-vh-vmin-vmax][vw, vh, vmin, vmax]]
     - [[#cm-mm-in-pt-pc][cm, mm, in, pt, pc]]
+  - [[#media-queries][Media Queries]]
 - [[#layouts][Layouts]]
   - [[#flexbox][flexbox]]
 
@@ -25,6 +27,30 @@ Insert some text before the content of each ~<p>~ element:
 #+BEGIN_SRC css
   p::before { 
     content: "Read this: ";
+  }
+#+END_SRC
+
+
+** [[https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors][Attribute selectors]]
+#+BEGIN_SRC css
+  /* <a> elements with a title attribute */
+  a[title] {
+    color: purple;
+  }
+
+  /* <a> elements with an href matching "https://example.org" */
+  a[href="https://example.org"] {
+    color: green;
+  }
+
+  /* <a> elements with an href containing "example" */
+  a[href*="example"] {
+    font-size: 2em;
+  }
+
+  /* <a> elements with an href ending ".org" */
+  a[href$=".org"] {
+    font-style: italic;
   }
 #+END_SRC
 
@@ -152,6 +178,85 @@ To fix this, browsers on those devices scaled down the entire web page to fit th
 | em	   | Relative to the font-size of the element (2em means 2 times the size of the current font) |
 | ex	   | Relative to the x-height of the current font (rarely used)                                |
 | ch	   | Relative to width of the "0" (zero)                                                       |
+
+** [[https://www.w3schools.com/cssref/css3_pr_mediaquery.asp][Media Queries]]
+#+BEGIN_EXAMPLE
+  @media not|only mediatype and (media feature and|or|not mediafeature) {
+      CSS-Code;
+  }
+#+END_EXAMPLE
+- Without the ~only~, an older browser is allowed to interpret ~screen and (color)~ as being the ~screen~ media type. 
+- ~only~ is not needed in modern browsers ([[https://stackoverflow.com/questions/9286325/what-exactly-does-the-only-keyword-do-in-css-media-queries][ref]])
+
+#+BEGIN_SRC css
+  /* Set the background color of body to tan */
+  body {
+    background-color: tan;
+  }
+
+  /* On screens that are 992px or less, set the background color to blue */
+  @media screen and (max-width: 992px) {
+    body {
+      background-color: blue;
+    }
+  }
+
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    body {
+      background-color: olive;
+    }
+  }
+#+END_SRC
+
+Examples for using media queries as breakpoints:
+#+BEGIN_SRC css
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+  @media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+  }
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+#+END_SRC
+
+#+BEGIN_SRC html
+  <div class="row">
+    <div class="col-3 col-s-3">...</div>
+    <div class="col-6 col-s-9">...</div>
+    <div class="col-3 col-s-12">...</div>
+  </div>
+#+END_SRC
+
+-----
+- https://www.w3schools.com/css/css_rwd_mediaqueries.asp
 
 * Layouts
 - http://learnlayout.com/
