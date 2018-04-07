@@ -1,14 +1,17 @@
 #+TITLE: Jest
 
 * Table of Contents :TOC_2_gh:
-- [[#using-matchers][Using Matchers]]
-- [[#testing-asynchronous-code][Testing Asynchronous Code]]
-- [[#setup-and-teardown][Setup and Teardown]]
-- [[#mock-functions][Mock Functions]]
-- [[#jest-platform][Jest Platform]]
-- [[#jest-community][Jest Community]]
+- [[#introduction][Introduction]]
+  - [[#using-matchers][Using Matchers]]
+  - [[#testing-asynchronous-code][Testing Asynchronous Code]]
+  - [[#setup-and-teardown][Setup and Teardown]]
+  - [[#mock-functions][Mock Functions]]
+  - [[#jest-platform][Jest Platform]]
+  - [[#jest-community][Jest Community]]
+- [[#api-reference][API Reference]]
 
-* [[https://facebook.github.io/jest/docs/en/using-matchers.html][Using Matchers]]
+* Introduction
+** [[https://facebook.github.io/jest/docs/en/using-matchers.html][Using Matchers]]
 #+BEGIN_SRC js
   expect(x).toBeNull();
   expect(x).toBeDefined();
@@ -35,7 +38,7 @@
 -----
 - https://facebook.github.io/jest/docs/en/expect.html
 
-* [[https://facebook.github.io/jest/docs/en/asynchronous.html][Testing Asynchronous Code]]
+** [[https://facebook.github.io/jest/docs/en/asynchronous.html][Testing Asynchronous Code]]
 - Use ~done~ ::
   - Be sure to call ~done~
   #+BEGIN_SRC js
@@ -79,7 +82,7 @@
 
   #+END_SRC
 
-* [[https://facebook.github.io/jest/docs/en/setup-teardown.html][Setup and Teardown]]
+** [[https://facebook.github.io/jest/docs/en/setup-teardown.html][Setup and Teardown]]
 Like tests, setup and teardown functions can also be used with ~done~ param or returning ~Promise~.
 
 - Use ~beforeEach~, ~afterEach~ ::
@@ -152,7 +155,7 @@ Like tests, setup and teardown functions can also be used with ~done~ param or r
     2 - afterAll
     1 - afterAll
   #+END_EXAMPLE
-* [[https://facebook.github.io/jest/docs/en/mock-functions.html][Mock Functions]]
+** [[https://facebook.github.io/jest/docs/en/mock-functions.html][Mock Functions]]
 - Using a mock function ::
   #+BEGIN_SRC js
     function forEach(items, callback) {
@@ -230,5 +233,8 @@ Like tests, setup and teardown functions can also be used with ~done~ param or r
           .mockName('add42');
   #+END_SRC
 
-* [[https://facebook.github.io/jest/docs/en/jest-platform.html][Jest Platform]]
-* [[https://facebook.github.io/jest/docs/en/jest-community.html][Jest Community]]
+** [[https://facebook.github.io/jest/docs/en/jest-platform.html][Jest Platform]]
+** [[https://facebook.github.io/jest/docs/en/jest-community.html][Jest Community]]
+* API Reference
+- ~test(name, fn, timeout)~ ::
+  - Alias ~it(name, fn, timeout)~
