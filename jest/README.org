@@ -1,0 +1,146 @@
+#+TITLE: Jest
+
+* Table of Contents :TOC_2_gh:
+- [[#using-matchers][Using Matchers]]
+- [[#testing-asynchronous-code][Testing Asynchronous Code]]
+- [[#setup-and-teardown][Setup and Teardown]]
+
+* [[https://facebook.github.io/jest/docs/en/using-matchers.html][Using Matchers]]
+#+BEGIN_SRC js
+  expect(x).toBeNull();
+  expect(x).toBeDefined();
+  expect(x).not.toBeUndefined();
+  expect(x).not.toBeTruthy();
+  expect(x).toBeFalsy();
+  expect(x).toBeGreaterThan(3);
+  expect(x).toBeGreaterThanOrEqual(3.5);
+  expect(x).toBeLessThan(5);
+  expect(x).toBeLessThanOrEqual(4.5);
+  expect(x).toBe(4);
+  expect(x).toEqual(4);
+  expect(x).toBeCloseTo(0.3);
+  expect(x).toMatch(/stop/);
+  expect(x).toContain('beer');
+  expect(x).toThrow();
+#+END_SRC
+
+-----
+- https://facebook.github.io/jest/docs/en/expect.html
+
+* [[https://facebook.github.io/jest/docs/en/asynchronous.html][Testing Asynchronous Code]]
+- Use ~done~ ::
+  - Be sure to call ~done~
+  #+BEGIN_SRC js
+    test('the data is peanut butter', done => {
+      function callback(data) {
+        expect(data).toBe('peanut butter');
+        done();
+      }
+
+      fetchData(callback);
+    });
+  #+END_SRC
+
+- Use ~Promise~ ::
+  - Be sure to return the ~Promise~
+  #+BEGIN_SRC js
+    test('the data is peanut butter', () => {
+      expect.assertions(1);
+      return fetchData().then(data => {
+        expect(data).toBe('peanut butter');
+      });
+    });
+  #+END_SRC
+
+- Use ~.resolves~, ~.rejects~ ::
+  - Waits until the ~Promise~ reolves
+  #+BEGIN_SRC js
+    test('the data is peanut butter', () => {
+      expect.assertions(1);
+      return expect(fetchData()).resolves.toBe('peanut butter');
+    });
+  #+END_SRC
+
+- Use ~async~, ~await~ ::
+  #+BEGIN_SRC js
+    test('the data is peanut butter', async () => {
+      expect.assertions(1);
+      const data = await fetchData();
+      expect(data).toBe('peanut butter');
+    });
+
+  #+END_SRC
+
+* [[https://facebook.github.io/jest/docs/en/setup-teardown.html][Setup and Teardown]]
+Like tests, setup and teardown functions can also be used with ~done~ param or returning ~Promise~.
+
+- Use ~beforeEach~, ~afterEach~ ::
+  #+BEGIN_SRC js
+    beforeEach(() => {
+      initializeCityDatabase();
+    });
+
+    afterEach(() => {
+      clearCityDatabase();
+    });
+  #+END_SRC
+  
+- Use ~beforeAll~, ~afterAll~ ::
+  #+BEGIN_SRC js
+    beforeAll(() => {
+      return initializeCityDatabase();
+    });
+
+    afterAll(() => {
+      return clearCityDatabase();
+    });
+  #+END_SRC
+
+- Use ~describe~ for scoping ::
+  - Jest executes all ~describe~ handlers in a test file *before it executes any of the actual tests.* 
+  #+BEGIN_SRC js
+    describe('matching cities to foods', () => {
+      // Applies only to tests in this describe block
+      beforeEach(() => {
+        return initializeFoodDatabase();
+      });
+
+      test('Vienna <3 sausage', () => {
+        expect(isValidCityFoodPair('Vienna', 'Wiener Schnitzel')).toBe(true);
+      });
+
+      test('San Juan <3 plantains', () => {
+        expect(isValidCityFoodPair('San Juan', 'Mofongo')).toBe(true);
+      });
+    });
+  #+END_SRC
+
+  #+BEGIN_SRC js
+    beforeAll(() => console.log('1 - beforeAll'));
+    afterAll(() => console.log('1 - afterAll'));
+    beforeEach(() => console.log('1 - beforeEach'));
+    afterEach(() => console.log('1 - afterEach'));
+    test('', () => console.log('1 - test'));
+    describe('Scoped / Nested block', () => {
+      beforeAll(() => console.log('2 - beforeAll'));
+      afterAll(() => console.log('2 - afterAll'));
+      beforeEach(() => console.log('2 - beforeEach'));
+      afterEach(() => console.log('2 - afterEach'));
+      test('', () => console.log('2 - test'));
+    });
+  #+END_SRC
+
+  #+BEGIN_EXAMPLE
+    1 - beforeAll
+    1 - beforeEach
+    1 - test
+    1 - afterEach
+    2 - beforeAll
+    1 - beforeEach
+    2 - beforeEach
+    2 - test
+    2 - afterEach
+    1 - afterEach
+    2 - afterAll
+    1 - afterAll
+  #+END_EXAMPLE
