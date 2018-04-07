@@ -26,6 +26,7 @@
 - [[#how-to][How-to]]
   - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
   - [[#use-axios-with-vuejs][Use axios with Vue.js]]
+- [[#testing][Testing]]
 - [[#links][Links]]
 
 * Overview
@@ -518,6 +519,18 @@ If you use vue template is easier to configure:
 
   // Or, just import axios in each component
 #+END_SRC
+
+
+* Testing
+- Components ::
+  - [[https://github.com/vuejs/vue-test-utils][vue-test-utils]]
+  - [[https://facebook.github.io/jest/docs/en/jest-platform.html][jest]]
+  - [[https://github.com/babel/babel-jest][babel-jest]] (for ES2015+ features in tests)
+  - [[https://github.com/vuejs/vue-jest][vue-jest]] (for handling ~*.vue~ files in tests)
+  - [[https://github.com/eddyerburgh/jest-serializer-vue][jest-serializer-vue]] (for snapshot tests)
+
+- Guides ::
+  - [[https://alexjoverm.github.io/series/Unit-Testing-Vue-js-Components-with-the-Official-Vue-Testing-Tools-and-Jest/][Unit Testing Vue.js Components with the Official Vue Testing Tools and Jest]]
 
 * Links
 - [[https://codesandbox.io/s/o29j95wx9][Simple Todo App]]
