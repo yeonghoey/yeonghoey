@@ -277,3 +277,12 @@
 
 - [[https://facebook.github.io/jest/docs/en/configuration.html#setupfiles-array][setupFiles]] ~[array]~ ::
   - The paths to modules that run some code to configure or set up the testing environment *before each test*.
+
+- [[https://facebook.github.io/jest/docs/en/configuration.html#testmatch-array-string][testMatch]] ~[array]~ ::
+  - default (uses [[https://github.com/micromatch/micromatch#extended-globbing][micromatch]] patterns)
+    #+BEGIN_SRC js
+      [
+        '**/__tests__/**/*.js?(x)',   // .js and .jsx files inside of __tests__ folders
+        '**/?(*.)(spec|test).js?(x)', // files with a suffix of .test or .spec
+      ]
+    #+END_SRC
