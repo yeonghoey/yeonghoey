@@ -2,7 +2,9 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#getting-started][Getting Started]]
-- [[#content][Content]]
+- [[#layout][Layout]]
+  - [[#overview][Overview]]
+  - [[#content][Content]]
 - [[#extensions][Extensions]]
   - [[#bootstrap-social][bootstrap-social]]
   - [[#bootstrap-vue][bootstrap-vue]]
@@ -17,7 +19,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 #+END_SRC
 
-* Content
+* Layout
+** Overview
+*** [[https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints][Responsive breakpoints]]
+- ~xs~: extra small
+- ~sm~: small
+- ~md~: medium
+- ~lg~: large
+- ~xl~: extra large
+
+#+BEGIN_SRC css
+  // Extra small devices (portrait phones, less than 576px)
+  // No media query since this is the default in Bootstrap
+
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) { ... }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) { ... }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) { ... }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) { ... }
+#+END_SRC
+
+** Content
 - [[https://getbootstrap.com/docs/4.0/content/reboot/][Reboot]] ::
 Applies some defaults for pages, fonts, tables, etc.
 
