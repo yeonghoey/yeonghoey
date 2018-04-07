@@ -8,7 +8,10 @@
   - [[#mock-functions][Mock Functions]]
   - [[#jest-platform][Jest Platform]]
   - [[#jest-community][Jest Community]]
+  - [[#more-resources][More Resources]]
 - [[#api-reference][API Reference]]
+  - [[#globals][Globals]]
+  - [[#configuring-jest][Configuring Jest]]
 
 * Introduction
 ** [[https://facebook.github.io/jest/docs/en/using-matchers.html][Using Matchers]]
@@ -83,7 +86,8 @@
   #+END_SRC
 
 ** [[https://facebook.github.io/jest/docs/en/setup-teardown.html][Setup and Teardown]]
-Like tests, setup and teardown functions can also be used with ~done~ param or returning ~Promise~.
+- Like tests, setup and teardown functions can also be used with ~done~ param or returning ~Promise~.
+- ~beforeAll~, ~afterAll~ are scoped withgiin the file they are placed in
 
 - Use ~beforeEach~, ~afterEach~ ::
   #+BEGIN_SRC js
@@ -235,6 +239,41 @@ Like tests, setup and teardown functions can also be used with ~done~ param or r
 
 ** [[https://facebook.github.io/jest/docs/en/jest-platform.html][Jest Platform]]
 ** [[https://facebook.github.io/jest/docs/en/jest-community.html][Jest Community]]
+** [[https://facebook.github.io/jest/docs/en/more-resources.html][More Resources]]
+- https://github.com/facebook/jest/tree/master/examples
+
 * API Reference
+** Globals
 - ~test(name, fn, timeout)~ ::
   - Alias ~it(name, fn, timeout)~
+
+** [[https://facebook.github.io/jest/docs/en/configuration.html][Configuring Jest]]
+- ~package.json~ ::
+  #+BEGIN_SRC json
+    {
+      "name": "my-project",
+      "jest": {
+        "verbose": true
+      }
+    }
+  #+END_SRC
+
+- ~jest.config.js~ ::
+  #+BEGIN_SRC js
+    // jest.config.js
+    module.exports = {
+      verbose: true,
+    };
+  #+END_SRC
+
+- With ~--config~ option ::
+  - MUST not contain ~jest~ key in json
+  #+BEGIN_SRC json
+    {
+      "bail": true,
+      "verbose": true
+    }
+  #+END_SRC
+
+- [[https://facebook.github.io/jest/docs/en/configuration.html#setupfiles-array][setupFiles]] ~[array]~ ::
+  - The paths to modules that run some code to configure or set up the testing environment *before each test*.
