@@ -3,9 +3,16 @@
 * Table of Contents :TOC_2_gh:
 - [[#guides][Guides]]
   - [[#getting-started][Getting Started]]
+  - [[#using-with-vuex][Using with Vuex]]
 
 * Guides
 ** Getting Started
+- https://github.com/vuejs/vue-test-utils
+#+BEGIN_SRC shell
+  npm install --save-dev @vue/test-utils
+  npm install --save-dev @vue/server-test-utils # For server side rendering
+#+END_SRC
+
 - Mounting Components ::
   #+BEGIN_SRC js
     // test.js
@@ -25,3 +32,5 @@
     // and your adventure with the Vue Test Utils begins
     console.log(wrapper)
   #+END_SRC
+
+** [[https://vue-test-utils.vuejs.org/en/guides/using-with-vuex.html][Using with Vuex]]
