@@ -342,7 +342,10 @@ and therefore Vue is limited by the caveats explained in the linked documentatio
     // ...
     components: {
       // <my-component> will only be available in parent's template
-      'my-component': Child
+      'my-component': Child,
+      //  Using it as <Child/>
+      Child,
+
     }
   })
 #+END_SRC
