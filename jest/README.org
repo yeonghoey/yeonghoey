@@ -9,6 +9,8 @@
   - [[#jest-platform][Jest Platform]]
   - [[#jest-community][Jest Community]]
   - [[#more-resources][More Resources]]
+- [[#guides][Guides]]
+  - [[#snapshot-testing][Snapshot Testing]]
 - [[#api-reference][API Reference]]
   - [[#globals][Globals]]
   - [[#configuring-jest][Configuring Jest]]
@@ -241,6 +243,32 @@
 ** [[https://facebook.github.io/jest/docs/en/jest-community.html][Jest Community]]
 ** [[https://facebook.github.io/jest/docs/en/more-resources.html][More Resources]]
 - https://github.com/facebook/jest/tree/master/examples
+
+* Guides
+** [[https://facebook.github.io/jest/docs/en/snapshot-testing.html][Snapshot Testing]]
+Snapshot tests are a very useful tool *whenever you want to make sure your UI does not change unexpectedly.*
+
+#+BEGIN_SRC js
+  import React from 'react';
+  import Link from '../Link.react';
+  import renderer from 'react-test-renderer';
+
+  it('renders correctly', () => {
+    const tree = renderer
+      .create(<Link page="http://www.facebook.com">Facebook</Link>)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+#+END_SRC
+
+1. When the first time the test is run, Jest creates a snapshot file.
+2. After that, Jest compares new caculated results with it.
+3. To update it, run following command:
+  : jest --updateSnapshot 
+
+- Snapshot files should be committed.
+- The aim of snapshot testing is not to replace existing unit tests, but providing additional value and making testing painless.
+- Snapshots help figuring out whether the output of the modules covered by tests is changed, rather than giving guidance to design the code in the first place.
 
 * API Reference
 ** Globals
