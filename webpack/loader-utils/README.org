@@ -1,0 +1,15 @@
+#+TITLE: loader-utils
+
+* Table of Contents :TOC_2_gh:
+- [[#methods][Methods]]
+  - [[#urltorequest][urlToRequest]]
+
+* Methods
+** [[https://github.com/webpack/loader-utils#urltorequest][urlToRequest]]
+- Any URL containing a =~= will be interpreted as a module request.
+- Anything after the =~= will be considered the request path.
+
+#+BEGIN_SRC js
+  const url = "~path/to/module.js";
+  const request = loaderUtils.urlToRequest(url); // "path/to/module.js"
+#+END_SRC

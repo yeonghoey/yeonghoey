@@ -1,12 +1,14 @@
 #+TITLE: vue-loader
 
 * Table of Contents :TOC_2_gh:
-- [[#scoped-css][Scoped CSS]]
-  - [[#deep-selectors][Deep Selectors]]
+- [[#features][Features]]
+  - [[#scoped-css][Scoped CSS]]
+- [[#configurations][Configurations]]
+  - [[#pre-processors][Pre-Processors]]
 
-* [[https://vue-loader.vuejs.org/en/features/scoped-css.html][Scoped CSS]]
-
-** Deep Selectors
+* Features
+** [[https://vue-loader.vuejs.org/en/features/scoped-css.html][Scoped CSS]]
+*** Deep Selectors
 - Keep using classes for performance efficiency
 - Be careful with descendant selectors in recursive components
 - With ~scoped~, the parent component's styles will not leak into child components.
@@ -21,5 +23,16 @@ To affect child components, use ~>>>~ combinator
 
   <style scoped>
   #parent >>> .child { /* ... */ }
+  </style>
+#+END_SRC
+* Configurations
+** [[https://vue-loader.vuejs.org/en/configurations/pre-processors.html][Pre-Processors]]
+#+BEGIN_SRC shell
+  npm install sass-loader node-sass --save-dev
+#+END_SRC
+
+#+BEGIN_SRC html
+  <style lang="sass">
+    /* write sass here */
   </style>
 #+END_SRC
