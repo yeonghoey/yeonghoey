@@ -132,7 +132,7 @@ Don’t use arrow functions on an options property or callback, such as ~created
 - https://vuejs.org/v2/guide/syntax.html
 :END:
 
-- The ~v-~ prefix serves as a visual cue for identifying Vue-specific attributes in your templates. 
+- The ~v-~ prefix serves as a visual cue for identifying Vue-specific attributes in your templates.
 
 - In templates, the context of ~this~, which is the corresponding ~Vue~ object can be referred without ~this~.
 #+BEGIN_SRC html
@@ -182,10 +182,11 @@ Don’t use arrow functions on an options property or callback, such as ~created
   - The object must be plain
 
 - [[https://vuejs.org/v2/api/#el][el]] ::
-  - only respected in instance creation via new.
-  - provide the Vue instance an existing DOM element to mount on. It can be a CSS selector string or an actual HTMLElement.
-  - seems that it doesn't need to specify when using ~.vue~ files. 
-  
+  - Only respected in instance creation via new.
+  - Provide the Vue instance *an existing DOM element to mount on.*
+    - It can be a CSS selector string or an actual HTMLElement.
+    - It doesn't need to specify when using ~.vue~ files.
+
 ** v-bind
 :REFERENCES:
 - https://vuejs.org/v2/api/#v-bind
@@ -522,7 +523,6 @@ If you use vue template is easier to configure:
 
   // Or, just import axios in each component
 #+END_SRC
-
 
 * Testing
 - Components ::
