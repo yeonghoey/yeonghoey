@@ -1,0 +1,164 @@
+#+TITLE: [[https://sass-lang.com/guide][Sass]]
+
+* Table of Contents :TOC_2_gh:
+- [[#guide][Guide]]
+  - [[#variables][Variables]]
+  - [[#nesting][Nesting]]
+  - [[#import][Import]]
+  - [[#mixins][Mixins]]
+  - [[#extendinheritance][Extend/Inheritance]]
+  - [[#operators][Operators]]
+- [[#topics][Topics]]
+  - [[#sass-vs-scss][~.sass~ vs ~.scss~]]
+
+* Guide
+** Variables
+#+BEGIN_SRC scss
+  $font-stack:    Helvetica, sans-serif;
+  $primary-color: #333;
+
+  body {
+    font: 100% $font-stack;
+    color: $primary-color;
+  }
+#+END_SRC
+
+** Nesting
+#+BEGIN_SRC scss
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li { display: inline-block; }
+
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+  }
+#+END_SRC
+
+#+BEGIN_SRC css
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav li {
+    display: inline-block;
+  }
+
+  nav a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+#+END_SRC
+
+** Import
+- The underscore in the filename (~_reset.scss~) lets Sass know that the file is only a partial file and that it should not be generated into a CSS file.
+
+#+BEGIN_SRC scss
+  // _reset.scss
+
+  html,
+  body,
+  ul,
+  ol {
+    margin:  0;
+    padding: 0;
+  }
+#+END_SRC
+
+#+BEGIN_SRC scss
+  // base.scss
+
+  @import 'reset';
+
+  body {
+    font: 100% Helvetica, sans-serif;
+    background-color: #efefef;
+  }
+#+END_SRC
+
+** Mixins
+#+BEGIN_SRC scss
+  @mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+  }
+
+  .box { @include border-radius(10px); }
+#+END_SRC
+
+#+BEGIN_SRC css
+  .box {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+  }
+#+END_SRC
+
+** Extend/Inheritance
+#+BEGIN_SRC scss
+  // This CSS won't print because %equal-heights is never extended.
+  %equal-heights {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  // This CSS will print because %message-shared is extended.
+  %message-shared {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+  }
+
+  .message {
+    @extend %message-shared;
+  }
+
+  .success {
+    @extend %message-shared;
+    border-color: green;
+  }
+
+  .error {
+    @extend %message-shared;
+    border-color: red;
+  }
+
+  .warning {
+    @extend %message-shared;
+    border-color: yellow;
+  }
+#+END_SRC
+
+** Operators
+#+BEGIN_SRC scss
+  .container { width: 100%; }
+
+
+  article[role="main"] {
+    float: left;
+    width: 600px / 960px * 100%;
+  }
+
+  aside[role="complementary"] {
+    float: right;
+    width: 300px / 960px * 100%;
+  }
+#+END_SRC
+
+* Topics
+** ~.sass~ vs ~.scss~
+- So, use ~.scss~, ~.scss~ is the official default.
+- ~.sass~ has a concise, indent based syntax, and older one.
