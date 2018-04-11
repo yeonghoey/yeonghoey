@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#getting-started][Getting Started]]
+  - [[#theming][Theming]]
   - [[#webpack][Webpack]]
 - [[#layout][Layout]]
   - [[#overview][Overview]]
@@ -19,6 +20,9 @@
 #+BEGIN_SRC html
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 #+END_SRC
+
+** [[https://getbootstrap.com/docs/4.0/getting-started/theming][Theming]]
+See [[https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss][_variables.scss]]
 
 ** [[https://getbootstrap.com/docs/4.0/getting-started/webpack/][Webpack]]
 #+BEGIN_SRC shell
