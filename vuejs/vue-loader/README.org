@@ -36,3 +36,30 @@ To affect child components, use ~>>>~ combinator
     /* write sass here */
   </style>
 #+END_SRC
+
+[[https://vue-loader.vuejs.org/en/configurations/pre-processors.html#loading-a-global-settings-file][Use sass-resources-loader]] to load some scss code in each component:
+#+BEGIN_SRC shell
+  npm install sass-resources-loader --save-dev
+#+END_SRC
+
+~vue-loader.conf.js~:
+#+BEGIN_SRC js
+  {
+    loader: 'sass-resources-loader',
+    options: {
+      resources: path.resolve(__dirname, '../src/assets/scss/_variables.scss')
+    }
+  }
+#+END_SRC
+
+Or if you use ~vuejs-templates/webpack~, modify ~build/utils.js~:
+#+BEGIN_SRC js
+  scss: generateLoaders('sass').concat(
+    {
+      loader: 'sass-resources-loader',
+      options: {
+        resources: path.resolve(__dirname, '../src/assets/scss/_variables.scss')
+      }
+    }
+  ),
+#+END_SRC
