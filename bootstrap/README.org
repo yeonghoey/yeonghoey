@@ -22,8 +22,15 @@
 #+END_SRC
 
 ** [[https://getbootstrap.com/docs/4.0/getting-started/theming][Theming]]
-See [[https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss][_variables.scss]]
-
+- Every Sass variable in Bootstrap 4 includes the ~!default~ flag allowing you to override the variable’s default value in your own Sass without modifying Bootstrap’s source code.
+- See [[https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss][_variables.scss]]
+- To import bootstrap variables from multiple scss files, [[https://getbootstrap.com/docs/4.0/getting-started/theming/#importing][import partially]] as following:
+  #+BEGIN_SRC scss
+    @import "node_modules/bootstrap/scss/functions";
+    @import "node_modules/bootstrap/scss/variables";
+    @import "node_modules/bootstrap/scss/mixins";
+  #+END_SRC
+  
 ** [[https://getbootstrap.com/docs/4.0/getting-started/webpack/][Webpack]]
 #+BEGIN_SRC shell
   npm install bootstrap
