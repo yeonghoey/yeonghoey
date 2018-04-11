@@ -32,7 +32,7 @@ To affect child components, use ~>>>~ combinator
 #+END_SRC
 
 #+BEGIN_SRC html
-  <style lang="sass">
+  <style lang="scss">
     /* write sass here */
   </style>
 #+END_SRC
