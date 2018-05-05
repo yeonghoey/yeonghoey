@@ -27,6 +27,8 @@
 - [[#how-to][How-to]]
   - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
   - [[#use-axios-with-vuejs][Use axios with Vue.js]]
+- [[#topics][Topics]]
+  - [[#v-if-vs-v-show][v-if vs v-show]]
 - [[#testing][Testing]]
 - [[#links][Links]]
 
@@ -565,6 +567,16 @@ If you use vue template is easier to configure:
 
   // Or, just import axios in each component
 #+END_SRC
+
+* Topics
+** v-if vs v-show
+#+BEGIN_QUOTE
+Generally speaking, ~v-if~ has higher toggle costs while ~v-show~ has higher initial render costs.
+So prefer ~v-show~ if you need to toggle something very often, and prefer ~v-if~ if the condition is unlikely to change at runtime.
+#+END_QUOTE
+
+-----
+- https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 
 * Testing
 - Components ::
