@@ -33,6 +33,7 @@
   - [[#inheritance][Inheritance]]
   - [[#mixins][Mixins]]
   - [[#error-handling][Error handling]]
+  - [[#windowlocation][window.location]]
 - [[#dom][DOM]]
 - [[#page-lifecycle][Page lifecycle]]
 - [[#promise][Promise]]
@@ -1299,6 +1300,19 @@ Please note that the call to the parent method super.say() from sayHiMixin looks
     }
   }
 #+END_SRC
+
+** window.location
+Some keywords are optional, but there is a general guideline for compatibility:
+- ~window.location~ ::
+  is preferred over ~location~
+- ~window.location.href = url~ :: 
+  When redirecting, is preferred over ~window.location = url;~
+- ~window.location.replace(url);~ :;
+  When redirecting, but want to remove the current page from the browser history, use 
+
+-----
+- https://stackoverflow.com/questions/2383401/javascript-setting-location-href-versus-location
+- https://stackoverflow.com/questions/42918837/removing-current-page-from-browser-history
 
 * DOM
 - https://javascript.info/dom-navigation
