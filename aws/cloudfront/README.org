@@ -9,6 +9,7 @@
 - [[#how-to][How-to]]
   - [[#use-custom-domain-and-its-acm-aws-certificate-manager][Use custom domain and its ACM (AWS Certificate Manager)]]
   - [[#redirect-http-to-https][Redirect HTTP to HTTPS]]
+  - [[#invalidate-objects-web-dist-only][Invalidate objects (Web Dist Only)]]
 
 * Settings
 [[file:_img/screenshot_2018-03-28_17-40-08.png]]
@@ -94,3 +95,19 @@ when you create ACM
 Within Behaviros tab:
 
 [[file:_img/screenshot_2018-03-10_00-08-51.png]]
+** Invalidate objects (Web Dist Only)
+[[file:_img/screenshot_2018-05-06_03-13-24.png]]
+
+- Just put ~*~ to invalidate all objects.
+
+Or you can use ~awscli~ as follows:
+#+BEGIN_SRC shell
+  aws cloudfront create-invalidation --distribution-id <ID> --paths '/*'
+#+END_SRC
+
+- The first 1,000 invalidation paths that you submit per month are free;
+- An invalidation path can be for a single object (such as ~/images/logo.jpg~) or for multiple objects (such as ~/images/*~).
+- A path that includes the ~*~ wildcard counts as one path even if it causes CloudFront to invalidate thousands of objects.
+
+-----
+- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#PayingForInvalidation
