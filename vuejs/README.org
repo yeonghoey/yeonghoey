@@ -591,3 +591,4 @@ So prefer ~v-show~ if you need to toggle something very often, and prefer ~v-if~
 
 * Links
 - [[https://codesandbox.io/s/o29j95wx9][Simple Todo App]]
+- https://monterail.github.io/vuelidate/#examples
