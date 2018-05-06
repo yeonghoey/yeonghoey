@@ -44,5 +44,21 @@
 * Topics
 ** attributes vs properties
 
+#+BEGIN_SRC html
+  <input id="the-input" type="text" value="Name:">
+#+END_SRC
+
+- There are three *attributes*: ~id~, ~type~ and ~value~.
+- Once the browser parses this code, a ~HTMLInputElement~ javascript object will be created.
+- There are some *properties* in this object like ~accept~, ~align~, ~attributes~ etc.
+- The attributes defined in HTML go into the object's ~attributes~ property.
+- DOM nodes like ~HTMLInputElement~ will have the attributes corresponding properties.
+
+  #+BEGIN_SRC js
+    elem.id    // reflected for elem.attributes.id
+    elem.type  // reflected for elem.attributes.type
+    elem.value // uses elem.attributes.value as the initial value
+  #+END_SRC
+
 -----
 - https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html#answer-6004028
