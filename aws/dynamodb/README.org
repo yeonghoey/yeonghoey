@@ -9,6 +9,7 @@
     - [[#attribute-projections][Attribute Projections]]
   - [[#lsi][LSI]]
 - [[#operations][Operations]]
+- [[#working-with-items][Working with Items]]
 - [[#attributes][Attributes]]
 - [[#consistency][Consistency]]
 - [[#capacity--throughput][Capacity & Throughput]]
@@ -101,7 +102,6 @@
 - A local secondary index is "local" in the sense that every partition of a local secondary index is scoped to a base table partition that has the same partition key value.
 
 * Operations
-
 #+BEGIN_SRC json
   "GetItem"
   {
@@ -132,6 +132,25 @@
       },
   };
 #+END_SRC
+
+* Working with Items
+- ~#a~ :: an expression attribute name, mostly used with projection expressions
+- ~:a~ :: an expression attribute value, mostly used with update expressions
+
+Preventing Overwrites by using condition-expression
+#+BEGIN_SRC shell
+  aws dynamodb put-item \
+      --table-name ProductCatalog \
+      --item file://item.json \
+      --condition-expression "attribute_not_exists(Id)"
+#+END_SRC
+
+References for operators like ~attribute_not_exists~ are [[https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.OperatorsAndFunctions.html][here]].
+
+-----
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html
+
 * Attributes
 - https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeDefinition.html
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html

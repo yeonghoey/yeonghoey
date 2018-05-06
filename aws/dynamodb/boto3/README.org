@@ -1,7 +1,31 @@
-#+TITLE: Boto3 - DynamoDB
+#+TITLE: DynamoDB - Boto3
 
 * Table of Contents :TOC_2_gh:
 - [[#types][Types]]
+- [[#examples][Examples]]
+  - [[#update_item][update_item]]
 
 * Types
 - http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#ref-valid-dynamodb-types
+- Use ~boto3.dynamodb.conditions.Key~ and ~boto3.dynamodb.conditions.Attr~ when making API requests.
+- You can use ~|~ and ~&~ to compose these condition objects.
+
+* Examples
+** update_item
+#+BEGIN_SRC python
+  key = {'name': name}
+  expr = ','.join(['SET age = :age',
+                   'SET sex = :sex'])
+  attrs = {':age': 32, ':sex': 'M'}
+
+  table.update_item(Key=key,
+                    UpdateExpression=','.join(exprs),
+                    ExpressionAttributeValues=attrs)
+#+END_SRC
+
+- An expression attribute value(the key of ~attrs~ dict) must begin with ~:~ and be followed by one or more alphanumeric characters.
+
+-----
+- https://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Table.update_item
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html
+- https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeValues.html
