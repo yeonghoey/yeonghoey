@@ -1,0 +1,7 @@
+#+TITLE: Boto3 - DynamoDB
+
+* Table of Contents :TOC_2_gh:
+- [[#types][Types]]
+
+* Types
+- http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#ref-valid-dynamodb-types
