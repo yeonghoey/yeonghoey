@@ -87,3 +87,40 @@
 -----
 - https://github.com/vuejs/vuex/blob/dev/examples/counter-hot/store/index.js
 - https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/store/index.js
+
+* vuex-persistedstate
+
+#+BEGIN_SRC js
+  // Persists all vuex states in localStorage
+  export default new Vuex.Store({
+    // ...
+    plugins: [createPersistedState()],
+  });
+#+END_SRC
+
+#+BEGIN_SRC js
+  // Selective both states and storages
+  export default new Vuex.Store({
+    strict: process.env.NODE_ENV !== 'production',
+    plugins: [createPersistedState({
+        storage: window.localStorage,
+        paths: [
+          'auth.me',
+          'auth.avatarURL',
+        ],
+      }),
+      createPersistedState({
+        storage: window.sessionStorage,
+        paths: [
+          'auth.refresh',
+        ],
+      }),
+    ],
+    modules: {
+      auth,
+      main,
+    },
+  });
+#+END_SRC
+-----
+- https://github.com/robinvdvleuten/vuex-persistedstate
