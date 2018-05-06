@@ -1,6 +1,8 @@
 #+TITLE: HTTP
 
 * Table of Contents :TOC_2_gh:
+- [[#response-status-codes][Response status codes]]
+  - [[#409-conflict][409 Conflict]]
 - [[#topics][Topics]]
   - [[#cache-control][Cache Control]]
   - [[#cookies][Cookies]]
@@ -14,6 +16,14 @@
 - [[#terminology][Terminology]]
   - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
   - [[#endpoint][Endpoint]]
+
+* Response status codes
+** 409 Conflict
+- When ~PUT~ request cannot be completed because of a conflict with the current state of the resource.
+- It can be okay as a response of ~POST~, but not common because ~POST~ request as a creation would generally cause no conflicts.
+
+-----
+- https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
 
 * Topics
 ** Cache Control
