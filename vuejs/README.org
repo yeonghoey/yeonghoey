@@ -13,6 +13,7 @@
   - [[#vueoptions][Vue(options)]]
   - [[#v-bind][v-bind]]
   - [[#v-for][v-for]]
+  - [[#mixins][mixins]]
 - [[#special-attributes][Special Attributes]]
 - [[#lifecycle-hooks][Lifecycle Hooks]]
 - [[#list-rendering][List Rendering]]
@@ -23,6 +24,9 @@
   - [[#composing-components][Composing Components]]
   - [[#props][Props]]
   - [[#slots][Slots]]
+  - [[#ref][~ref~]]
+  - [[#events][Events]]
+    - [[#sync-modifier][~.sync~ Modifier]]
   - [[#single-file-components-vue][Single File Components (.vue)]]
 - [[#how-to][How-to]]
   - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
@@ -270,6 +274,17 @@ Dynamically bind one or more attributes, or a component prop to an expression.
   <child-component v-bind="$props"></child-component>
 #+END_SRC
 
+Static elements and dynamic bind elements are merged. So following code:
+#+BEGIN_SRC html
+  <div class="static"
+       v-bind:class="{ active: true }">
+  </div>
+#+END_SRC
+will render:
+#+BEGIN_SRC html
+  <div class="static active"></div>
+#+END_SRC
+
 ** [[https://vuejs.org/v2/api/#v-for][v-for]]
 - ~:key~ ::
   Specify this to give an ordering hint.
@@ -281,6 +296,10 @@ Dynamically bind one or more attributes, or a component prop to an expression.
     {{ item.text }}
   </div>
 #+END_SRC
+
+** mixins
+-----
+- https://vuejs.org/v2/api/#mixins
 
 * Special Attributes
 - [[https://vuejs.org/v2/api/#key][key]] ::
@@ -417,6 +436,7 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
 
 ** [[https://vuejs.org/v2/guide/components-props.html][Props]]
 - A ~prop~ is a field on a component’s ~data~ that is expected to be passed down from its parent component.
+- Since ~this.data~ is initialized once once, so ~data~ elements depending on ~prop~ would not be updated even if the ~prop~ changes.
 - So, a ~prop~ can be referenced as ~this.<prop>~ or ~{{ <prop> }}~
 - When you’re using in-DOM templates(See /Name Casing/ above), ~camelCased~ prop names need to use their ~kebab-cased~ equivalents
 
@@ -513,6 +533,33 @@ Rendered as:
     <p>This is some original content</p>
     <p>This is some more original content</p>
   </div>
+#+END_SRC
+
+** ~ref~
+#+BEGIN_SRC html
+  <input ref="hello">
+#+END_SRC
+You can refer the element above with following:
+#+BEGIN_SRC js
+  this.$refs.hello
+#+END_SRC
+
+-----
+- https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-Child-Component-Instances-amp-Child-Elements 
+
+** Events
+- For compatability, just use a [[https://stackoverflow.com/questions/42441952/vue-js-custom-event-naming][lower-cased event name all smashed together]], like ~mycustomevent~
+
+*** ~.sync~ Modifier
+#+BEGIN_SRC html
+  <text-document
+    v-bind:title="doc.title"
+    v-on:update:title="doc.title = $event"
+  ></text-document>
+#+END_SRC
+is equivalent to:
+#+BEGIN_SRC html
+  <text-document v-bind:title.sync="doc.title"></text-document>
 #+END_SRC
 
 ** [[https://vuejs.org/v2/guide/single-file-components.html][Single File Components]] (.vue)
