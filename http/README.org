@@ -2,6 +2,7 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#response-status-codes][Response status codes]]
+  - [[#204-no-content][204 No Content]]
   - [[#409-conflict][409 Conflict]]
 - [[#topics][Topics]]
   - [[#cache-control][Cache Control]]
@@ -18,6 +19,11 @@
   - [[#endpoint][Endpoint]]
 
 * Response status codes
+** 204 No Content
+- Designates that the client *doesn't need to go away from its current page.*
+-----
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
+
 ** 409 Conflict
 - When ~PUT~ request cannot be completed because of a conflict with the current state of the resource.
 - It can be okay as a response of ~POST~, but not common because ~POST~ request as a creation would generally cause no conflicts.
