@@ -1,19 +1,22 @@
 #+TITLE: ESLint
 
 * Table of Contents :TOC_3_gh:
-- [[#eslintrcjs][.eslintrc.js]]
-- [[#eslintignore][.eslintignore]]
+- [[#reference][Reference]]
+  - [[#eslintrcjs][.eslintrc.js]]
+  - [[#eslintignore][.eslintignore]]
+  - [[#rules][Rules]]
+- [[#topics][Topics]]
+  - [[#disable-no-unused-vars-on-arguments][Disable no-unused-vars on arguments]]
 - [[#links][Links]]
 
-* .eslintrc.js
+* Reference
+** .eslintrc.js
+You can also use ~eslintConfig~ field in ~package.json~
+-----
 - https://eslint.org/docs/user-guide/configuring
 - https://eslint.org/docs/rules/
 
-You can also use ~eslintConfig~ field in ~package.json~
-
-* .eslintignore
-- https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories
-
+** .eslintignore
 #+BEGIN_EXAMPLE
   /build/
   /config/
@@ -21,6 +24,28 @@ You can also use ~eslintConfig~ field in ~package.json~
   /*.js
   /test/unit/coverage/
 #+END_EXAMPLE
+-----
+- https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories
+
+** Rules
+- ~0~ or ~off~   :: turn the rule off
+- ~1~ or ~warn~  :: turn the rule on as a warning (doesn’t affect exit code)
+- ~2~ or ~error~ :: turn the rule on as an error (exit code is 1 when triggered)
+-----
+- https://eslint.org/docs/user-guide/configuring#configuring-rules
+
+* Topics
+** Disable no-unused-vars on arguments
+#+BEGIN_SRC js
+  // Disable arguments unused check.
+  // Cases like implementing callbacks, arguments might not be needed.
+  // It is just valid to omit those arguments,
+  // But, for readability, it is more important to explicitly specify args.
+  'no-unused-vars': ['error', { 'args': 'none' }],
+#+END_SRC
+-----
+- https://eslint.org/docs/rules/no-unused-vars#args
+- https://blog.javascripting.com/2015/09/07/fine-tuning-airbnbs-eslint-config/
 
 * Links
 - https://github.com/airbnb/javascript
