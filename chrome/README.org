@@ -5,6 +5,7 @@
   - [[#debugging][Debugging]]
   - [[#storages-and-cookies][Storages and Cookies]]
   - [[#view-http-headers][View HTTP headers]]
+  - [[#computed-style-pane][Computed Style Pane]]
 - [[#use-cases][Use Cases]]
   - [[#allow-file-access-from-local-files][Allow file access from local files]]
   - [[#run-with-an-intital-incognito-window][Run with an intital incognito window]]
@@ -40,6 +41,13 @@
 - http://stackoverflow.com/questions/4423061/view-http-headers-in-google-chrome
 
 [[file:_img/screenshot_2017-02-04_12-28-25.png]]
+
+** Computed Style Pane
+- All but the top-most one will be “cancelled out” in the trace, which is *denoted by a strike-through type.*
+[[file:_img/screenshot_2018-05-10_17-26-59.png]]
+
+-----
+- https://developer.chrome.com/devtools/docs/elements-styles?csw=1#computed_style
 
 * Use Cases
 ** Allow file access from local files
