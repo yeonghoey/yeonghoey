@@ -269,8 +269,14 @@ This is better than hard-coded URLs as following reasons:
   client = app.test_client()
 
   # keep client open until the end of with block to test with contexts
+  # You can now read the session or other context variables
   with app.test_client() as c:
       pass
+
+  # If you want to modify the current session
+  # Use session_transaction() as following:
+  with client.session_transaction() as sess:
+      sess.update(d)
 #+END_SRC
 
 *test_client DOES NOT support dict-json*.
