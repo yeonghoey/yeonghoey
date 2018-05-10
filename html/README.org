@@ -4,6 +4,7 @@
 - [[#template][Template]]
 - [[#tags][Tags]]
   - [[#style][style]]
+  - [[#video][video]]
 - [[#topics][Topics]]
   - [[#attributes-vs-properties][attributes vs properties]]
 
@@ -41,6 +42,24 @@
   <p>This is a paragraph.</p>
   </div>
 #+END_SRC
+** video
+#+BEGIN_SRC html
+  <video autoplay controls>
+      <source src="{filename}" type="video/mp4">
+  </video>
+#+END_SRC
+
+Supports:
+- MP4 (~video/mp4~)   :: MPEG 4 files with H264 video codec and AAC audio codec
+- WebM (~video/webm~) :: WebM files with VP8 video codec and Vorbis audio codec
+- Ogg  (~video/ogg~)  :: Ogg files with Theora video codec and Vorbis audio codec
+
+Attributes:
+- ~width~, ~height~ :: seems to use the source size if not specified
+
+-----
+- https://www.w3schools.com/tags/tag_video.asp
+
 * Topics
 ** attributes vs properties
 
