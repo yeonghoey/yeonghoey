@@ -9,6 +9,7 @@
 - [[#topics][Topics]]
   - [[#attributes-vs-properties][attributes vs properties]]
   - [[#boolean-attribute][Boolean Attribute]]
+  - [[#text-align-center-vs-margin-auto][text-align: center; vs margin: auto;]]
 
 * Template
 #+BEGIN_SRC html
@@ -95,3 +96,14 @@ Attributes:
 - *The values "true" and "false" are not allowed* on boolean attributes.
 -----
 - https://stackoverflow.com/questions/4139786/what-does-it-mean-in-html-5-when-an-attribute-is-a-boolean-attribute
+** text-align: center; vs margin: auto;
+- ~text-align: center;~ ::
+  To center the content of an element ( text, images etc.)
+  Although it's possible to center an element using ~text-align~ alongside ~display: inline;~,
+  It's not recommended.
+
+- ~margin: auto;~ ::
+  To center a element *with a known width*
+
+-----
+- https://teamtreehouse.com/community/text-align-center-margin-auto-which-one-is-better
