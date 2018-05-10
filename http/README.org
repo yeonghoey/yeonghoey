@@ -3,6 +3,8 @@
 * Table of Contents :TOC_2_gh:
 - [[#response-status-codes][Response status codes]]
   - [[#204-no-content][204 No Content]]
+  - [[#401-unauthorized][401 Unauthorized]]
+  - [[#403-forbidden][403 Forbidden]]
   - [[#409-conflict][409 Conflict]]
 - [[#topics][Topics]]
   - [[#cache-control][Cache Control]]
@@ -23,6 +25,22 @@
 - Designates that the client *doesn't need to go away from its current page.*
 -----
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
+
+** 401 Unauthorized
+#+BEGIN_QUOTE
+“you aren’t authenticated–either not authenticated at all or authenticated incorrectly–but please reauthenticate and try again.”
+#+END_QUOTE
+
+-----
+- https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses
+
+** 403 Forbidden
+#+BEGIN_QUOTE
+“I’m sorry. I know who you are–I believe who you say you are–but you just don’t have permission to access this resource. Maybe if you ask the system administrator nicely, you’ll get permission. But please don’t bother me again until your predicament changes.”
+#+END_QUOTE
+
+-----
+- https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses
 
 ** 409 Conflict
 - When ~PUT~ request cannot be completed because of a conflict with the current state of the resource.
