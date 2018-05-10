@@ -8,6 +8,7 @@
   - [[#video][video]]
 - [[#topics][Topics]]
   - [[#attributes-vs-properties][attributes vs properties]]
+  - [[#boolean-attribute][Boolean Attribute]]
 
 * Template
 #+BEGIN_SRC html
@@ -89,3 +90,8 @@ Attributes:
 
 -----
 - https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html#answer-6004028
+** Boolean Attribute
+- *The presence of a boolean attribute* on an element represents the ~true~ value
+- *The values "true" and "false" are not allowed* on boolean attributes.
+-----
+- https://stackoverflow.com/questions/4139786/what-does-it-mean-in-html-5-when-an-attribute-is-a-boolean-attribute
