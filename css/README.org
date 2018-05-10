@@ -5,6 +5,7 @@
   - [[#before][::before]]
   - [[#attribute-selectors][Attribute selectors]]
 - [[#properties][Properties]]
+  - [[#align-items][align-items]]
   - [[#box-sizing][box-sizing]]
   - [[#margin][margin]]
 - [[#topics][Topics]]
@@ -30,7 +31,6 @@ Insert some text before the content of each ~<p>~ element:
   }
 #+END_SRC
 
-
 ** [[https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors][Attribute selectors]]
 #+BEGIN_SRC css
   /* <a> elements with a title attribute */
@@ -55,6 +55,14 @@ Insert some text before the content of each ~<p>~ element:
 #+END_SRC
 
 * [[https://www.w3schools.com/cssref/default.asp][Properties]]
+** align-items
+- a sub-property of ~flexbox~
+
+[[file:_img/screenshot_2018-05-10_16-43-38.png]]
+
+-----
+- https://css-tricks.com/almanac/properties/a/align-items/
+
 ** box-sizing
 [[file:_img/screenshot_2018-04-05_16-31-52.png]]
 
@@ -262,8 +270,7 @@ Examples for using media queries as breakpoints:
 - http://learnlayout.com/
 
 ** flexbox
-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Relationship_of_Flexbox_to_Other_Layout_Methods
+- Only each *child* (direct descendant) of a flex container becomes a *flex item*
 
 [[file:_img/screenshot_2018-02-26_16-16-14.png]]
 
@@ -307,3 +314,7 @@ Examples for using media queries as breakpoints:
 
 [[file:_img/screenshot_2018-02-26_16-41-17.png]]
 
+-----
+- https://stackoverflow.com/questions/14148162/does-the-css-flexbox-module-work-on-direct-child-elements-only
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Relationship_of_Flexbox_to_Other_Layout_Methods
