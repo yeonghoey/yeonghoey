@@ -175,6 +175,11 @@ There are several ways to use a fixture:
 #+BEGIN_QUOTE
 pytest minimizes the number of active fixtures during test runs. If you have a parametrized fixture, then all the tests using it will first execute with one instance and then finalizers are called before the next fixture instance is created. 
 #+END_QUOTE
+For example:
+1. You define a fixture named ~a~
+2. You define fixtures of ~b~ and ~c~ depending on ~a~
+3. You define a test ~test_x~ uses fixtures of ~b~ and ~c~
+In this case, the fixture ~a~ is called only once for each run of ~test_x~
 
 #+BEGIN_SRC python
   @pytest.fixture
