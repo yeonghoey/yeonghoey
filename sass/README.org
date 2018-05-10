@@ -8,8 +8,11 @@
   - [[#mixins][Mixins]]
   - [[#extendinheritance][Extend/Inheritance]]
   - [[#operators][Operators]]
+- [[#reference][Reference]]
+  - [[#interpolation][interpolation]]
 - [[#topics][Topics]]
   - [[#sass-vs-scss][~.sass~ vs ~.scss~]]
+  - [[#how-to-calculate-units-like-percent-viewport-things][How to calculate units like percent, viewport things?]]
 
 * Guide
 ** Variables
@@ -158,7 +161,38 @@
   }
 #+END_SRC
 
+* Reference
+** interpolation
+#+BEGIN_SRC scss
+  $name: foo;
+  $attr: border;
+  p.#{$name} {
+    #{$attr}-color: blue;
+  }
+#+END_SRC
+-----
+- http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
+
 * Topics
 ** ~.sass~ vs ~.scss~
 - So, use ~.scss~, ~.scss~ is the official default.
 - ~.sass~ has a concise, indent based syntax, and older one.
+
+** How to calculate units like percent, viewport things?
+#+BEGIN_QUOTE
+Sass has no way of knowing exactly how wide "100%" is in terms of pixels or any other unit.
+#+END_QUOTE
+
+Use ~calc()~ from CSS standards or use interpolation(~#{$var}~) as following:
+#+BEGIN_SRC scss
+  $a: 25%;
+  $b: 5px;
+
+  .foo {
+    width: -webkit-calc(#{$a} - #{$b});
+    width:    -moz-calc(#{$a} - #{$b});
+    width:         calc(#{$a} - #{$b});
+  }
+#+END_SRC
+-----
+- https://stackoverflow.com/questions/13274599/sass-calculate-percent-minus-px
