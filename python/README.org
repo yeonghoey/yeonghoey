@@ -34,6 +34,7 @@
   - [[#wait-until-a-host-starts-listening][Wait until a host starts listening]]
   - [[#pick-a-free-port-number][Pick a free port number]]
   - [[#read-a-file-except-the-first-line][Read a file except the first line]]
+  - [[#convert-a-list-to-a-dictionary][Convert a list to a dictionary]]
 - [[#links][Links]]
 
 * Reference
@@ -1198,5 +1199,19 @@ To support method calls, functions include the ~__get__()~ method for binding me
       for line in f:
           #do something
 #+END_SRC
+
+** Convert a list to a dictionary
+#+BEGIN_SRC python
+  dict(izip(*([iter(a)]*2)))
+#+END_SRC
+
+#+BEGIN_SRC python
+  iter(h)    #create an iterator from the array, no copies here
+  []*2       #creates an array with two copies of the same iterator, the trick
+  izip(*())  #consumes the two iterators creating a tuple
+  dict()     #puts the tuples into key,value of the dictionary
+#+END_SRC
+-----
+- https://stackoverflow.com/questions/4576115/convert-a-list-to-a-dictionary-in-python
 
 * Links
