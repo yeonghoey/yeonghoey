@@ -3,6 +3,7 @@
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+  - [[#qplaintextedit][QPlainTextEdit]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
   - [[#parenting-system][Parenting System]]
@@ -15,6 +16,13 @@
 [[file:_img/screenshot_2018-01-29_08-37-24.png]]
 
 * Reference
+** QPlainTextEdit
+- Use ~setPlainText()~ to set a text.
+
+-----
+- https://stackoverflow.com/questions/30408982/how-to-settext-for-qplaintextedit
+- https://stackoverflow.com/questions/17466046/qtextedit-vs-qplaintextedit
+
 * Terminology
 * Topics
 ** Parenting System
