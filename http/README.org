@@ -16,8 +16,8 @@
   - [[#cors-cross-origin-resource-sharing][CORS (Cross Origin Resource Sharing)]]
   - [[#xss-cross-site-scripting][XSS (Cross-site scripting)]]
   - [[#csrf-cross-site-request-forgery][CSRF (Cross-site request forgery)]]
-- [[#terminology][Terminology]]
   - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
+  - [[#valid-url-characters][Valid URL characters]]
   - [[#endpoint][Endpoint]]
 
 * Response status codes
@@ -249,7 +249,6 @@ Force a ~.torrent~ file download:
 3. Inject the forged url as ~<img>~ tag like: ~<img src="<url>">~
 4. The victim opens the page containg the tag and download ~backdoor.torrent~ inadvertently.
 
-* Terminology
 ** URL vs URI vs URN
 - https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
 
@@ -260,6 +259,11 @@ Force a ~.torrent~ file download:
 | ~URN~ (Name)              | ~urn:google:search:uri~                 | Subset of ~URI~, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with ~urn:~ |
 
 [[file:_img/screenshot_2017-06-03_15-46-11.png]]
+
+** Valid URL characters
+[[file:_img/screenshot_2018-05-11_12-49-59.png]]
+-----
+- https://stackoverflow.com/questions/7109143/what-characters-are-valid-in-a-url
 
 ** Endpoint
 - https://stackoverflow.com/questions/9807382/what-is-a-web-service-endpoint
