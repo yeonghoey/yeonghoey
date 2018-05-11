@@ -2,14 +2,15 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#reference][Reference]]
-  - [[#configure][configure]]
+  - [[#configure][Configure]]
+  - [[#cli-skeleton-and-cli-input-json][CLI Skeleton and CLI Input JSON]]
   - [[#output-flags][Output Flags]]
 - [[#ec2][ec2]]
 - [[#s3][s3]]
 - [[#iam][iam]]
 
 * Reference
-** configure
+** Configure
 - http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
 
 #+BEGIN_SRC shell
@@ -25,6 +26,13 @@
   # Specify options as arguments
   aws ec2 describe-instances --output table --region us-west-1
 #+END_SRC
+
+** CLI Skeleton and CLI Input JSON
+1. Run a command only with ~--generate-cli-skeleton~ flag
+2. Save the output as a file like ~params.json~, and fill it with actual values
+3. Run the command with ~--cli-input-json file://params.json~
+-----
+- https://docs.aws.amazon.com/cli/latest/userguide/generate-cli-skeleton.html
 
 ** Output Flags
 - ~--output json~  :: Default
