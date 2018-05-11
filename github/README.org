@@ -58,12 +58,20 @@ To specify the version explicitly:
 **** Create A record (Only for APEX domain)
 [[file:_img/screenshot_2017-01-08_18-23-13.png]]
 
-[[file:_img/screenshot_2017-01-08_18-22-53.png]]
+[[file:_img/screenshot_2018-05-11_15-27-59.png]]
+
+-----
+- https://help.github.com/articles/setting-up-an-apex-domain/
 
 **** Create CNAME record for ~www~
 - https://help.github.com/articles/about-supported-custom-domains/#www-subdomains
 
 [[file:_img/screenshot_2017-01-08_18-30-36.png]]
+
+**** Enfore HTTPS
+[[file:_img/screenshot_2018-05-11_15-30-12.png]]
+-----
+- https://blog.github.com/2018-05-01-github-pages-custom-domains-https/#configuring-your-domain
 
 *** For Custom Subdomain
 - https://help.github.com/articles/setting-up-a-custom-subdomain/
