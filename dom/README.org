@@ -1,0 +1,23 @@
+#+TITLE: DOM
+
+* Table of Contents :TOC_2_gh:
+- [[#event][Event]]
+
+* Event
+- Events are bubbled up the event chain. (sometimes, it's called delegation or propagation)
+- Some events have their default actions. (putting letters when ~keypress~ within ~<input>~, refreshing the page when ~click~ within submit element, etc.)
+- Call ~stopPropagation~ to prevent the event from bubbling
+- Call ~preventDefault~ to prevent the default action.
+
+  #+BEGIN_SRC js
+    function handler(event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  #+END_SRC
+
+-----
+- https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
+- https://stackoverflow.com/questions/5963669/whats-the-difference-between-event-stoppropagation-and-event-preventdefault
+- https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
+- https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
