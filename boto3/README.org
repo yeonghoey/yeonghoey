@@ -7,6 +7,7 @@
 - [[#core][Core]]
   - [[#client-or-resource][client or resource]]
   - [[#waiters][Waiters]]
+  - [[#exceptions][Exceptions]]
 - [[#ec2][EC2]]
 - [[#cloudformation][CloudFormation]]
 - [[#dynamodb][DynamoDB]]
@@ -73,11 +74,6 @@ in a multithreaded application rather than sharing a single instance among the t
 
 * Core
 ** client or resource
-:REFERENCES:
-- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client
-- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource
-:END:
-
 #+BEGIN_SRC python
   def client_or_resource(service_name,
                          region_name=None,
@@ -90,6 +86,14 @@ in a multithreaded application rather than sharing a single instance among the t
                          aws_session_token=None,
                          config=None)
 #+END_SRC
+
+#+BEGIN_SRC python
+  # Access the raw client within a resource
+  client = resource.meta.client
+#+END_SRC
+-----
+- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client
+- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource
 
 ** Waiters
 :REFERENCES:
@@ -106,6 +110,35 @@ in a multithreaded application rather than sharing a single instance among the t
   w = s3.get_waiter('bucket_exists')
   w.wait(Bucket='mybucket')
 #+END_SRC
+
+** Exceptions
+- Tranditionally, it should be catched used to Catch boto3 exceptions with ~ClientError~
+
+  #+BEGIN_SRC python
+    import boto3
+    from botocore.exceptions import ClientError
+
+    try:
+        iam = boto3.client('iam')
+        user = iam.create_user(UserName='fred')
+    except ClientError as e:
+        if e.response['Error']['Code'] == 'EntityAlreadyExists':
+            pass # Handle error here
+  #+END_SRC
+
+- From *2018-03-07*, you can catch specific exceptions dynamically generated within ~client~ as follows:
+
+#+BEGIN_SRC python
+  import boto3
+
+  try:
+      iam = boto3.client('iam')
+      user = iam.create_user(UserName='fred')
+  except iam.exceptions.EntityAlreadyExistsException:
+      pass # Handle error here
+#+END_SRC
+-----
+- https://stackoverflow.com/questions/33068055/boto3-python-and-how-to-handle-errors
 
 * EC2
 - https://boto3.readthedocs.io/en/latest/reference/services/ec2.html
