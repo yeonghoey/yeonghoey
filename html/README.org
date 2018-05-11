@@ -9,6 +9,7 @@
 - [[#topics][Topics]]
   - [[#attributes-vs-properties][attributes vs properties]]
   - [[#boolean-attribute][Boolean Attribute]]
+  - [[#form-validation][Form Validation]]
   - [[#text-align-center-vs-margin-auto][text-align: center; vs margin: auto;]]
 
 * Template
@@ -96,6 +97,13 @@ Attributes:
 - *The values "true" and "false" are not allowed* on boolean attributes.
 -----
 - https://stackoverflow.com/questions/4139786/what-does-it-mean-in-html-5-when-an-attribute-is-a-boolean-attribute
+** Form Validation
+[[file:_img/screenshot_2018-05-11_11-51-53.png]]
+
+-----
+- https://webdesign.tutsplus.com/tutorials/html5-form-validation-with-the-pattern-attribute--cms-25145
+- https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation#Validating_forms_using_JavaScript
+
 ** text-align: center; vs margin: auto;
 - ~text-align: center;~ ::
   To center the content of an element ( text, images etc.)
