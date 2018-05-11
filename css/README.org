@@ -19,6 +19,7 @@
     - [[#cm-mm-in-pt-pc][cm, mm, in, pt, pc]]
   - [[#media-queries][Media Queries]]
   - [[#text-align-center-vs-margin-auto][text-align: center; vs margin: auto;]]
+  - [[#float-right-vs-margin-left-auto][float: right; vs margin-left: auto;]]
 - [[#layouts][Layouts]]
   - [[#flexbox][flexbox]]
 
@@ -278,6 +279,12 @@ Examples for using media queries as breakpoints:
 
 -----
 - https://teamtreehouse.com/community/text-align-center-margin-auto-which-one-is-better
+
+** float: right; vs margin-left: auto;
+[[file:_img/screenshot_2018-05-11_12-55-03.png]]
+
+-----
+- https://stackoverflow.com/questions/12242472/css-may-i-right-align-an-element-by-margin-0-0-0-auto
 
 * Layouts
 - http://learnlayout.com/
