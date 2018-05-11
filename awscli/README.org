@@ -1,12 +1,15 @@
 #+TITLE: AWS Command Line Interface
 
 * Table of Contents :TOC_3_gh:
-- [[#configure][configure]]
+- [[#reference][Reference]]
+  - [[#configure][configure]]
+  - [[#output-flags][Output Flags]]
 - [[#ec2][ec2]]
 - [[#s3][s3]]
 - [[#iam][iam]]
 
-* configure
+* Reference
+** configure
 - http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
 
 #+BEGIN_SRC shell
@@ -22,6 +25,77 @@
   # Specify options as arguments
   aws ec2 describe-instances --output table --region us-west-1
 #+END_SRC
+
+** Output Flags
+- ~--output json~  :: Default
+- ~--output text~  :: Tab-delimited text
+- ~--output table~ :: ASCII-formatted table
+
+You can configure the default in the configuration file or ~AWS_DEFAULT_OUTPUT~ environment variable.
+
+You can also filter the output with ~--query~ flag. This feature is implemented with [[http://jmespath.org/][JMESPath]]:
+#+BEGIN_SRC shell
+  $ aws ec2 describe-volumes
+  {
+      "Volumes": [
+          {
+              "AvailabilityZone": "us-west-2a",
+              "Attachments": [
+                  {
+                      "AttachTime": "2013-09-17T00:55:03.000Z",
+                      "InstanceId": "i-a071c394",
+                      "VolumeId": "vol-e11a5288",
+                      "State": "attached",
+                      "DeleteOnTermination": true,
+                      "Device": "/dev/sda1"
+                  }
+              ],
+              "VolumeType": "standard",
+              "VolumeId": "vol-e11a5288",
+              "State": "in-use",
+              "SnapshotId": "snap-f23ec1c8",
+              "CreateTime": "2013-09-17T00:55:03.000Z",
+              "Size": 30
+          },
+          {
+              "AvailabilityZone": "us-west-2a",
+              "Attachments": [
+                  {
+                      "AttachTime": "2013-09-18T20:26:16.000Z",
+                      "InstanceId": "i-4b41a37c",
+                      "VolumeId": "vol-2e410a47",
+                      "State": "attached",
+                      "DeleteOnTermination": true,
+                      "Device": "/dev/sda1"
+                  }
+              ],
+              "VolumeType": "standard",
+              "VolumeId": "vol-2e410a47",
+              "State": "in-use",
+              "SnapshotId": "snap-708e8348",
+              "CreateTime": "2013-09-18T20:26:15.000Z",
+              "Size": 8
+          }
+      ]
+  }
+#+END_SRC
+
+#+BEGIN_SRC shell
+  # First element
+  aws ec2 describe-volumes --query 'Volumes[0]'
+
+  # Aliased
+  aws ec2 describe-volumes --query 'Volumes[*].{ID:VolumeId,AZ:AvailabilityZone,Size:Size}'
+
+  # Value only
+  aws ec2 describe-volumes --query 'Volumes[*].[VolumeId, Attachments[0].InstanceId, AvailabilityZone, Size]'
+
+  # Conditional
+  aws ec2 describe-volumes --query 'Volumes[?AvailabilityZone==`us-west-2a`]'
+#+END_SRC
+
+-----
+- https://docs.aws.amazon.com/cli/latest/userguide/controlling-output.html
 
 * ec2
 :REFERENCES:
