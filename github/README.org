@@ -70,6 +70,7 @@ To specify the version explicitly:
 
 **** Enfore HTTPS
 [[file:_img/screenshot_2018-05-11_15-30-12.png]]
+- If you update the existing custom domain page, you should reset it first.
 -----
 - https://blog.github.com/2018-05-01-github-pages-custom-domains-https/#configuring-your-domain
 
