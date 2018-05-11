@@ -25,6 +25,7 @@
   - [[#use-strict]['use strict';]]
   - [[#let-const-var][let, const, var]]
   - [[#type-conversions][Type Conversions]]
+  - [[#check-for-an-undefined-or-null-variable][Check for an undefined or null variable]]
   - [[#comparisons][Comparisons]]
   - [[#style-guides][Style Guides]]
   - [[#garbage-collection][Garbage collection]]
@@ -827,6 +828,18 @@ Always use it. It's a kind of *modern mode*
   alert( 1 + '2' );             // '12' (string to the right)
   alert( '1' + 2 );             // '12' (string to the left)
 #+END_SRC
+
+** Check for an undefined or null variable
+#+BEGIN_SRC js
+  if (some_variable == null){
+    // some_variable is either null or undefined
+  }
+#+END_SRC
+In general it is recommended to use ~=~ instead of ~==~.
+The proposed solution is an exception to this rule.
+The JSHint syntax checker even provides the ~eqnull~ option for this reason.
+-----
+- https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-null-variable-in-javascript
 
 ** Comparisons
 #+BEGIN_SRC javascript
