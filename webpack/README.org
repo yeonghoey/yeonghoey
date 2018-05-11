@@ -17,6 +17,8 @@
   - [[#mode][mode]]
 - [[#development][Development]]
 - [[#production][Production]]
+- [[#topics][Topics]]
+  - [[#dependencies-vs-devdependencies][dependencies vs devDependencies]]
 
 * Concepts
 - https://webpack.js.org/concepts/
@@ -216,3 +218,9 @@ Or,
 
 * Production
 - https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9
+* Topics
+** dependencies vs devDependencies
+Theoretically speaking, Since a webpack project builds a kind of package as a product,
+all dependencies required to build the project must be installed as ~dependencies~, not ~devDependencies~.
+-----
+- https://github.com/webpack/webpack/issues/520
