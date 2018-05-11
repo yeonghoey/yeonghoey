@@ -71,6 +71,8 @@
 #+BEGIN_SRC shell
   npm update underscore
 #+END_SRC
+-----
+- https://docs.npmjs.com/cli/update
 
 ** list
 #+BEGIN_SRC shell
