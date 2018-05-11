@@ -1,6 +1,8 @@
 #+TITLE: HTTP
 
 * Table of Contents :TOC_2_gh:
+- [[#headers][Headers]]
+  - [[#http-referer][HTTP referer]]
 - [[#response-status-codes][Response status codes]]
   - [[#204-no-content][204 No Content]]
   - [[#401-unauthorized][401 Unauthorized]]
@@ -19,6 +21,24 @@
   - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
   - [[#valid-url-characters][Valid URL characters]]
   - [[#endpoint][Endpoint]]
+
+* Headers
+** HTTP referer
+- Misspelling of *referrer*
+- There are some tricky parts when requesting between HTTPS and HTTP ([[https://isc.sans.edu/forums/diary/When+does+your+browser+send+a+Referer+header+or+not/16433/][detail]])
+
+#+BEGIN_EXAMPLE
+  Referer: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+when a user clicks a hyperlink in a web browser, the browser sends a request to the server holding the destination webpage.
+The request includes the referer field, which indicates the last page the user was on (the one where they clicked the link).
+#+END_QUOTE
+-----
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer
+- https://en.wikipedia.org/wiki/HTTP_referer
+- https://isc.sans.edu/forums/diary/When+does+your+browser+send+a+Referer+header+or+not/16433/
 
 * Response status codes
 ** 204 No Content
