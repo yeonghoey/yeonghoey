@@ -45,6 +45,7 @@
     - [[#resolve-conflicts-with-ours-or-theirs][Resolve conflicts with ours or theirs]]
     - [[#continue-with-the-resolved-resulte][Continue with the resolved resulte]]
   - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
+  - [[#delete-empty-directories-within-a-repository][Delete empty directories within a repository]]
 - [[#links][Links]]
 
 * Reference
@@ -476,6 +477,13 @@ $ git add guide.md
 #+BEGIN_SRC shell
 git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 #+END_SRC
+
+** Delete empty directories within a repository
+#+BEGIN_SRC shell
+  find . -type d -empty -not -path './.git/**' -delete
+#+END_SRC
+-----
+- [[/find]]
 
 * Links
 - https://github.com/git-tips/tips
