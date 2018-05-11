@@ -10,6 +10,7 @@
   - [[#attributes-vs-properties][attributes vs properties]]
   - [[#boolean-attribute][Boolean Attribute]]
   - [[#form-validation][Form Validation]]
+  - [[#semantic-tags][Semantic Tags]]
   - [[#text-align-center-vs-margin-auto][text-align: center; vs margin: auto;]]
 
 * Template
@@ -103,6 +104,14 @@ Attributes:
 -----
 - https://webdesign.tutsplus.com/tutorials/html5-form-validation-with-the-pattern-attribute--cms-25145
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation#Validating_forms_using_JavaScript
+
+** Semantic Tags
+[[file:_img/screenshot_2018-05-11_12-24-57.png]]
+
+-----
+- http://html5doctor.com/lets-talk-about-semantics/
+- https://www.w3schools.com/html/html5_semantic_elements.asp
+- https://stackoverflow.com/questions/17272019/why-to-use-html5-semantic-tag-instead-of-div
 
 ** text-align: center; vs margin: auto;
 - ~text-align: center;~ ::
