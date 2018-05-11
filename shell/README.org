@@ -4,6 +4,7 @@
 - [[#reference][Reference]]
   - [[#builtins][Builtins]]
     - [[#command][command]]
+    - [[#declare][declare]]
     - [[#export][export]]
     - [[#readonly][readonly]]
     - [[#set][set]]
@@ -73,7 +74,12 @@
   $ command -v 'carl' >/dev/null 2>&1; echo "$?"
   1
 #+END_SRC
-  
+
+*** declare
+- ~-x~ :: export
+----
+- https://ss64.com/bash/declare.html
+
 *** export
 - https://ss64.com/bash/export.html
 - Mark each *name to be passed to child processes* in the environment.
