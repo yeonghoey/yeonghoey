@@ -7,6 +7,7 @@
   - [[#style][style]]
   - [[#video][video]]
 - [[#topics][Topics]]
+  - [[#aria][ARIA]]
   - [[#attributes-vs-properties][attributes vs properties]]
   - [[#quotes-for-attribute-values][Quotes for attribute values]]
   - [[#boolean-attribute][Boolean Attribute]]
@@ -74,6 +75,12 @@ Attributes:
 - https://www.w3schools.com/tags/tag_video.asp
 
 * Topics
+** ARIA
+- Stands for Accessible Rich Internet Applications
+- For making web applications more accessible to people with disabilities.
+-----
+- https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+
 ** attributes vs properties
 
 #+BEGIN_SRC html
