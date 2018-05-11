@@ -112,7 +112,7 @@ in a multithreaded application rather than sharing a single instance among the t
 #+END_SRC
 
 ** Exceptions
-- Tranditionally, it should be catched used to Catch boto3 exceptions with ~ClientError~
+- Tranditionally, all exceptions from boto3 should be catched as ~ClientError~
 
   #+BEGIN_SRC python
     import boto3
@@ -127,7 +127,6 @@ in a multithreaded application rather than sharing a single instance among the t
   #+END_SRC
 
 - From *2018-03-07*, you can catch specific exceptions dynamically generated within ~client~ as follows:
-
 #+BEGIN_SRC python
   import boto3
 
@@ -139,6 +138,7 @@ in a multithreaded application rather than sharing a single instance among the t
 #+END_SRC
 -----
 - https://stackoverflow.com/questions/33068055/boto3-python-and-how-to-handle-errors
+- http://botocore.readthedocs.io/en/latest/client_upgrades.html#error-handling
 
 * EC2
 - https://boto3.readthedocs.io/en/latest/reference/services/ec2.html
