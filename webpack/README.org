@@ -12,6 +12,7 @@
 - [[#plugins][Plugins]]
   - [[#htmlwebpackplugin][HtmlWebpackPlugin]]
   - [[#defineplugin][DefinePlugin]]
+  - [[#cleanwebpackplugin][CleanWebpackPlugin]]
 - [[#cli][CLI]]
 - [[#configuration][Configuration]]
   - [[#mode][mode]]
@@ -171,6 +172,18 @@ Automatically generate a ~html~ file for serving your bundle. Within ~dist/index
     "typeof window": JSON.stringify("object")
   })
 #+END_SRC
+
+** CleanWebpackPlugin
+#+BEGIN_SRC js
+  plugins: [
+    new CleanWebpackPlugin(['dist'], {
+      root: path.join(__dirname, '..')
+    }),
+    ...
+  ]
+#+END_SRC
+-----
+- https://github.com/johnagan/clean-webpack-plugin
 
 * CLI
 - https://webpack.js.org/api/cli/
