@@ -18,6 +18,7 @@
     - [[#vw-vh-vmin-vmax][vw, vh, vmin, vmax]]
     - [[#cm-mm-in-pt-pc][cm, mm, in, pt, pc]]
   - [[#media-queries][Media Queries]]
+  - [[#text-align-center-vs-margin-auto][text-align: center; vs margin: auto;]]
 - [[#layouts][Layouts]]
   - [[#flexbox][flexbox]]
 
@@ -265,6 +266,18 @@ Examples for using media queries as breakpoints:
 
 -----
 - https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+
+** text-align: center; vs margin: auto;
+- ~text-align: center;~ ::
+  To center the content of an element ( text, images etc.)
+  Although it's possible to center an element using ~text-align~ alongside ~display: inline;~,
+  It's not recommended.
+
+- ~margin: auto;~ ::
+  To center a element *with a known width*
+
+-----
+- https://teamtreehouse.com/community/text-align-center-margin-auto-which-one-is-better
 
 * Layouts
 - http://learnlayout.com/

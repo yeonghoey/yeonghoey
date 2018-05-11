@@ -11,7 +11,6 @@
   - [[#boolean-attribute][Boolean Attribute]]
   - [[#form-validation][Form Validation]]
   - [[#semantic-tags][Semantic Tags]]
-  - [[#text-align-center-vs-margin-auto][text-align: center; vs margin: auto;]]
 
 * Template
 #+BEGIN_SRC html
@@ -112,15 +111,3 @@ Attributes:
 - http://html5doctor.com/lets-talk-about-semantics/
 - https://www.w3schools.com/html/html5_semantic_elements.asp
 - https://stackoverflow.com/questions/17272019/why-to-use-html5-semantic-tag-instead-of-div
-
-** text-align: center; vs margin: auto;
-- ~text-align: center;~ ::
-  To center the content of an element ( text, images etc.)
-  Although it's possible to center an element using ~text-align~ alongside ~display: inline;~,
-  It's not recommended.
-
-- ~margin: auto;~ ::
-  To center a element *with a known width*
-
------
-- https://teamtreehouse.com/community/text-align-center-margin-auto-which-one-is-better
