@@ -8,6 +8,7 @@
   - [[#video][video]]
 - [[#topics][Topics]]
   - [[#attributes-vs-properties][attributes vs properties]]
+  - [[#quotes-for-attribute-values][Quotes for attribute values]]
   - [[#boolean-attribute][Boolean Attribute]]
   - [[#form-validation][Form Validation]]
   - [[#semantic-tags][Semantic Tags]]
@@ -92,6 +93,15 @@ Attributes:
 
 -----
 - https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html#answer-6004028
+** Quotes for attribute values
+- Quotes are optional, but it's recommended to consistently use double quotes.
+- In other words, quoting *doesn't* mean that the type of value is string or something.
+#+BEGIN_SRC html
+  <iframe src="www.example.com" width="100%"></iframe>
+#+END_SRC
+-----
+- https://stackoverflow.com/questions/13056683/html-attribute-with-without-quotes
+
 ** Boolean Attribute
 - *The presence of a boolean attribute* on an element represents the ~true~ value
 - *The values "true" and "false" are not allowed* on boolean attributes.
