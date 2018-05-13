@@ -7,6 +7,7 @@
   - [[#update][update]]
   - [[#list][list]]
   - [[#config][config]]
+  - [[#run-script][run-script]]
 - [[#packagejson][package.json]]
   - [[#package-lockjson][package-lock.json]]
   - [[#files][files]]
@@ -106,6 +107,12 @@ To change ~prefix~:
   # Creates ~/.npmrc
   $ npm config set prefix=$HOME/.node_modules_global
 #+END_SRC
+
+** run-script
+- ~npm run <cmd>~ set their customized signal handler. ([[https://github.com/npm/npm-lifecycle/blob/latest/lib/spawn.js#L43][code]]) ([[https://nodejs.org/api/child_process.html#child_process_event_close][ref:close]])
+- It seems that ~npm~ propagates the signal to the spawned process ([[https://github.com/npm/npm-lifecycle/blob/latest/index.js#L342][code]])
+- As a result, the spawned process receives the signal twice (as a member of theprocess group and the signal sent by ~npm~)
+- It seems that it's because of compatability for some OS not propgates signals to the process group or something.
 
 * package.json
 - https://docs.npmjs.com/files/package.json
