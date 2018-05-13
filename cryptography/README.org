@@ -1,0 +1,50 @@
+#+TITLE: Cryptography
+
+* Table of Contents :TOC_2_gh:
+- [[#rsa][RSA]]
+  - [[#overview][Overview]]
+
+* RSA
+** Overview
+Define ~R~ (RSA Function) as following:
+#+BEGIN_EXAMPLE
+  R(x,k,n) = x^k (mod n) 
+#+END_EXAMPLE
+(For simplicity, ~n~ is omitted from now on)
+
+Along with the function there is a way to choose two keys such that:
+#+BEGIN_EXAMPLE
+  R(R(x, pk), sk) = x, and
+  R(R(x, sk), pk) = x.
+#+END_EXAMPLE 
+(~pk~, ~sk~ stands for public key and secretly, respectively.)
+
+How encryption works:
+#+BEGIN_EXAMPLE
+  c = Encrypt(m, pk) => R(m, pk)
+  m = Decrypt(c, sk) => R(c, sk)
+#+END_EXAMPLE
+
+In practice, simplely using ~RSA~ is vulnerable.
+For preventing from many attacks, There are pre-post processes like [[https://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding][OAEP]] as following:
+#+BEGIN_EXAMPLE
+  c = Encrypt(m, pk) => R(pre(m), pk)
+  m = Decrypt(c, sk) => post(R(c, sk))
+#+END_EXAMPLE
+
+How digital signature works:
+#+BEGIN_EXAMPLE
+  s = Sign(m, sk) => R(m, sk)
+  v = Verify(m, s, pk) => R(s, pk) == m
+#+END_EXAMPLE
+
+However, RSA function can't accomote messages longer than the key.
+(Encryption also can suffer this problem, but it's not so problematic because most encryption for actual data is done by symmetric key)
+So, apply a hash function as following:
+#+BEGIN_EXAMPLE
+  s = Sign(m, sk) => R(H(m), sk) 
+  v = Verify(m, s, pk) => R(s, pk) == H(m)
+#+END_EXAMPLE
+
+-----
+- https://www.cs.cornell.edu/courses/cs5430/2015sp/notes/rsa_sign_vs_dec.php
