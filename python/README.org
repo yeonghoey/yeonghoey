@@ -233,6 +233,13 @@ or the empty string when there were no arguments.
 Because ~except TypeError,e~ is equivalent to ~exception TypeError as e~, you must use ~tuple~ to catch multiple exceptions
 like ~except (TypeError, ValueError) as e~
 
+*** KeyboardInterrupt
+- Normally, ~KeyboardInterrupt~ is raised by the python defined ~default_int_handler~ for ~SIGINT~ ([[https://hg.python.org/cpython/file/6eefdf0fade6/Modules/signalmodule.c#l603][code]])
+- However, if signal mask contains ~SIG_IGN~, it won't, which means, There would be no ~KeyboardInterrupt~.
+- Most shell like ~bash~ set the signal mask of ~SIG_IGN~ to ~SIGINT~ and ~SIGQUIT~ when it runs the process background (like ~$ cmd &~)
+-----
+- https://stackoverflow.com/questions/40775054/capturing-sigint-using-keyboardinterrupt-exception-works-in-terminal-not-in-scr
+
 ** import
 *** Absolute import vs implicit, explicit relative import
 - https://www.python.org/dev/peps/pep-0328/
