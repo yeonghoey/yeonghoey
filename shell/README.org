@@ -8,6 +8,7 @@
     - [[#export][export]]
     - [[#readonly][readonly]]
     - [[#set][set]]
+    - [[#trap][trap]]
   - [[#keywords][Keywords]]
     - [[#array][array]]
     - [[#case][case]]
@@ -148,6 +149,22 @@
   # or simply
   ( set -x; command )
 #+END_SRC
+
+*** trap
+#+BEGIN_SRC shell
+  # signal
+  trap 'cmd' SIGINT
+
+  # SIG prefix is optional
+  trap 'cmd' INT
+
+  # special sigspec
+  trap 'cmd' EXIT   # on exit
+  trap 'cmd' DEBUG  # at every line
+  trap 'cmd' ERR    # on error. 'set -e' is more preferred
+#+END_SRC
+-----
+- https://ss64.com/bash/trap.html
 
 ** Keywords
 *** array
