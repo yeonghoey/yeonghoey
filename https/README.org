@@ -37,4 +37,15 @@ Signatures are verified as following:
 - https://www.globalsign.com/en/blog/ssl-vs-tls-difference/
 
 ** SNI
-- Short for /Server Name Indication/
+- SNI stands for Server Name Indication, and the successor to VIP (Virtual IP Transition)
+- *Stick to SNI*, VIP is being deprecated.
+- SNI is a sort of virtual hosting for HTTPS
+- Virtual hosting can't just be applied because TLS handshake happens before the serever sees the header.
+
+SNI allows:
+- a server to present multiple certificates on the same IP address and TCP port number
+- Accordingly, multiple secure (HTTPS) websites (or any other service over TLS) to be served by the same IP address without requiring all those sites to use the same certificate.
+
+When using SNI:
+- Client sends the name of the virtual domain as part of the TLS negotiation.
+- Server decides which certificate to send based on the request.
