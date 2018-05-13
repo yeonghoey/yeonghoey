@@ -1,0 +1,40 @@
+#+TITLE: HTTPS
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#topics][Topics]]
+  - [[#ssl-vs-tls][SSL vs TLS]]
+  - [[#sni][SNI]]
+
+* Overview
+[[file:_img/screenshot_2018-05-13_17-57-49.png]]
+1. Client requests secure connection
+2. Server responses with a certificate and a public key, etc.
+3. Client verifies the certificate received.
+4. Client generates a symmetric key, encrypts it with the pubic key received, and send it to Server
+5. Session is established
+
+How Client verifies the certificate is based on Chain of Trust, as following:
+[[file:_img/screenshot_2018-05-13_18-05-31.png]]
+(It seems that ~DN~ stands for /Domain Name/)
+
+Signatures are verified as following:
+[[file:_img/screenshot_2018-05-13_18-04-12.png]]
+-----
+- [[/cryptography]]
+- [[https://www.cgi.com/files/white-papers/cgi_whpr_35_pki_e.pdf]]
+- https://www.youtube.com/watch?v=4nGrOpo0Cuc
+- https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&actp=CROSSLINK&id=SO16297
+- https://commons.wikimedia.org/wiki/File:Digital_Signature_diagram.svg
+
+* Topics
+** SSL vs TLS
+- SSL is the predecessor to TLS
+- TLS was introduced in 1999 as a new version of SSL and was based on SSL 3.0
+- Both SSL 2.0 and 3.0 have been deprecated by the IETF (1.0 was never released)
+- When it comes to your servers, you should only have TLS protocols enabled.
+-----
+- https://www.globalsign.com/en/blog/ssl-vs-tls-difference/
+
+** SNI
+- Short for /Server Name Indication/
