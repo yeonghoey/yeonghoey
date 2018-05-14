@@ -2,15 +2,456 @@
 
 * Table of Contents :TOC_3_gh:
 - [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
 - [[#topics][Topics]]
-- [[#how-to][How-to]]
+  - [[#makefile][Makefile]]
+    - [[#include][Include]]
+    - [[#evaluation][Evaluation]]
+    - [[#wildcard][Wildcard]]
+    - [[#parallel-execution][Parallel Execution]]
+    - [[#recursive-use-of-make][Recursive Use of make]]
+  - [[#rules][Rules]]
+    - [[#multiple-rules-for-one-target][Multiple Rules for One Target]]
+    - [[#static-pattern-rules][Static Pattern Rules]]
+    - [[#implicit-rules][Implicit Rules]]
+    - [[#pattern-rules][Pattern Rules]]
+  - [[#targets][Targets]]
+    - [[#phony-targets][Phony Targets]]
+  - [[#prerequisites][Prerequisites]]
+    - [[#vpath][VPATH]]
+  - [[#recipes][Recipes]]
+    - [[#echoing][Echoing]]
+    - [[#shell-for-recipe][Shell for Recipe]]
+    - [[#errors-in-recipes][Errors in Recipes]]
+    - [[#canned-recipes][Canned Recipes]]
+  - [[#variables][Variables]]
+  - [[#conditionals][Conditionals]]
+  - [[#functions][Functions]]
+  - [[#cli][CLI]]
+  - [[#conventions][Conventions]]
 - [[#links][Links]]
 
 * Overview
-* Reference
-* Terminology
+Simple usage of [[https://github.com/requests/requests/blob/master/Makefile][requests]]:
+#+BEGIN_SRC makefile
+  .PHONY: docs
+  init:
+    pip install pipenv --upgrade
+    pipenv install --dev --skip-lock
+  test:
+    # This runs all of the tests, on both Python 2 and Python 3.
+    detox
+  ci:
+    pipenv run py.test -n 8 --boxed --junitxml=report.xml
+
+  test-readme:
+    @pipenv run python setup.py check --restructuredtext --strict && ([ $$? -eq 0 ] && echo "README.rst and HISTORY.rst ok") || echo "Invalid markup in README.rst or HISTORY.rst!"
+
+  flake8:
+    pipenv run flake8 --ignore=E501,F401,E128,E402,E731,F821 requests
+
+  coverage:
+    pipenv run py.test --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov=requests tests
+
+  publish:
+    pip install 'twine>=1.5.0'
+    python setup.py sdist bdist_wheel
+    twine upload dist/*
+    rm -fr build dist .egg requests.egg-info
+
+  docs:
+    cd docs && make html
+    @echo "\033[95m\n\nBuild successful! View the docs homepage at docs/_build/html/index.html.\n\033[0m"
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Features-of-GNU-make
+
 * Topics
-* How-to
+** Makefile
+The file name can be one of ~GNUmakefile~, ~makefile~ and ~Makefile~, but
+~Makefile~ is mostly recommended.
+-----
+- https://www.gnu.org/software/make/manual/make.html#What-Name-to-Give-Your-Makefile
+
+*** Include
+- Include other makefiles
+- Static file names, wildcards, variables are all supported:
+  #+BEGIN_SRC makefile
+    include foo *.mk $(bar)
+  #+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Including-Other-Makefiles
+
+*** Evaluation
+#+BEGIN_SRC makefile
+  immediate = deferred
+  immediate ?= deferred
+  immediate := immediate
+  immediate ::= immediate
+  immediate += deferred or immediate
+  immediate != immediate
+
+  immediate : immediate ; deferred
+          deferred
+#+END_SRC
+- immediate :: Expanded during when ~Makefile~ is parsed, included, etc.
+- deferred  :: Expanded during when other expanding rule requires it or actual invoking(target-update)
+
+You can take advantage of ~.SECONDEXPANSION~ special rule and ~$$~ to defer expanding some prerequisites:
+#+BEGIN_SRC makefile
+  .SECONDEXPANSION:
+  AVAR = top
+  onefile: $(AVAR)   # top
+  twofile: $$(AVAR)  # bottom
+  AVAR = bottom
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  .SECONDEXPANSION:
+  main_OBJS := main.o try.o test.o
+
+  main: $$($$@_OBJS)
+
+  # After the first phase:
+  #   $($@_OBJS) 
+  # During the second phase:
+  #   $(main_OBJS) =>
+  #   main.o try.o test.o
+#+END_SRC
+
+-----
+- https://www.gnu.org/software/make/manual/make.html#Variable-Assignment
+- https://www.gnu.org/software/make/manual/make.html#Secondary-Expansion-1
+
+*** Wildcard
+- Wildcard expansions within the definitions of targets and prerequisites are done by ~make~
+- For recipes, it is done by the ~shell~
+- Variables don't just expand wildcards, they expand only when they are used in targets or prerequisites
+- To explicitly expand the wildcard in a variable, Use ~$(wildcard var)~
+
+-----
+- https://www.gnu.org/software/make/manual/make.html#Wildcard-Examples-1
+
+*** Parallel Execution
+- ~-j~ or ~--jobs~
+- ~-j 3~   :: run 3 recipes in parallel
+- ~-l 2.5~ :: limit parallelism by load average of ~2.5~
+- ~.NOTPARALLEL~ :: inhibit parallelism
+-----
+- https://www.gnu.org/software/make/manual/make.html#Parallel-Execution
+- https://www.gnu.org/software/make/manual/make.html#Output-During-Parallel-Execution
+
+*** Recursive Use of make
+#+BEGIN_SRC makefile
+  subsystem:
+          $(MAKE) -C subdir
+#+END_SRC
+- ~$(MAKE)~ is the path of ~make~ executable that is invoked
+- Some flags for ~make~ is passed automatically through ~MAKEFLAGS~
+- The options ~-C~, ~-f~, ~-o~, and ~-W~ are not put into ~MAKEFLAGS~; 
+-----
+- https://www.gnu.org/software/make/manual/make.html#Recursive-Use-of-make
+
+** Rules
+#+BEGIN_SRC makefile
+  target … : prerequisites …
+          recipe
+          …
+          …
+#+END_SRC
+- /target/ ::
+  usually the name of a file, can also be the name of an action ([[https://www.gnu.org/software/make/manual/make.html#Phony-Targets][Phony Targets]])
+  - /Phony Targets/ ::
+    Not refer a file but just the name of an action.
+    They are not prerequisites of something, or does not require some other prerequisites
+
+- /prerequisite/ ::
+  the names of files that the target depends on
+
+- /recipe/ ::
+  must be indented with ~\t~, or set ~.RECIPEPREFIX~ to your taste
+
+- /Line break/ :
+   Like many other languages, place ~\~ at the end of the line.
+   Backslash/newlines are converted into a single space character.
+   Once that is done, all whitespace around the backslash/newline is condensed into a single space
+
+When execute the command ~make <target>~:
+1. Reads the ~Makefile~ in the currenty directory
+2. Pick ~<target>~'s rule or the first rule if ~<target>~ is omitted
+3. Process the rule recursively:
+   1. Process the rule's prerequisites
+   2. Run its own recipe if some of its prerequisites are newer than its own target.
+
+-----
+- https://www.gnu.org/software/make/manual/make.html#An-Introduction-to-Makefiles
+
+*** Multiple Rules for One Target
+- All the prerequisites mentioned in all the rules are *merged* into one list
+- There can only be one recipe to be executed for a file.
+- When there are serverl recipes for a file, ~make~ uses the last one given and prints an error message.
+-----
+- https://www.gnu.org/software/make/manual/make.html#Multiple-Rules-for-One-Target
+
+*** Static Pattern Rules
+#+BEGIN_SRC makefile
+  objects = foo.o bar.o
+
+  all: $(objects)
+
+  $(objects): %.o: %.c
+          $(CC) -c $(CFLAGS) $< -o $@
+#+END_SRC
+- Each pattern normally contains the character ~%~ just once.
+- ~$<~ is the automatic variable that hold the name matched by ~%~
+- ~$@~ is the automatic variable that hold the name of the target
+
+-----
+- https://www.gnu.org/software/make/manual/make.html#Syntax-of-Static-Pattern-Rules
+
+*** Implicit Rules
+- Each implicit rule has a target pattern and prerequisite patterns
+- There are built-in rules for common languages
+
+#+BEGIN_SRC makefile
+  x: y.o z.o
+#+END_SRC
+
+when x.c, y.c and z.c all exist will execute:
+#+BEGIN_SRC shell
+  cc -c x.c -o x.o
+  cc -c y.c -o y.o
+  cc -c z.c -o z.o
+  cc x.o y.o z.o -o x
+  rm -f x.o
+  rm -f y.o
+  rm -f z.o
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Using-Implicit-Rules
+- https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules
+- https://www.gnu.org/software/make/manual/make.html#Variables-Used-by-Implicit-Rules
+- https://www.gnu.org/software/make/manual/make.html#Implicit-Rule-Search-Algorithm
+
+*** Pattern Rules
+- A pattern rule contains the character ~%~ (exactly one of them) in the target
+
+#+BEGIN_SRC makefile
+  # Specifies how to make a file n.o, with another file n.c as its prerequisite,
+  # provided that n.c exists or can be made.
+  %.o : %.c ; recipe…
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Defining-and-Redefining-Pattern-Rules
+
+** Targets
+- There are special built-in target names to adjust ~make~ behaviors
+-----
+- https://www.gnu.org/software/make/manual/make.html#Special-Targets
+
+*** Phony Targets
+- Prevent the name collision between files and actions
+- Prevent rules from not being treated as a implicit rule.
+
+#+BEGIN_SRC makefile
+  .PHONY: clean
+  clean:
+          rm *.o temp
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  SUBDIRS = foo bar baz
+
+  .PHONY: subdirs $(SUBDIRS)
+
+  subdirs: $(SUBDIRS)
+
+  $(SUBDIRS):
+          $(MAKE) -C $@
+
+  foo: baz
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Phony-Targets-1
+
+** Prerequisites
+- Normal ::
+  Just a usual thing
+- Order-only ::
+  Placed after ~|~, just specify the dependency, but not triggers the target even if it's newer.
+
+#+BEGIN_SRC makefile
+  OBJDIR := objdir
+  OBJS := $(addprefix $(OBJDIR)/,foo.o bar.o baz.o)
+
+  # $(OBJDIR) is triggered before $(OBJS),
+  # But $(OBJS) won't be triggered even if $(OBJDIR) is newer
+  $(OBJS): | $(OBJDIR)
+
+  $(OBJDIR):
+          mkdir $(OBJDIR)
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Types-of-Prerequisites
+
+*** VPATH
+#+BEGIN_SRC makefile
+  # 'src' and '../headers' are searched for all prerequisites
+  VPATH = src:../headers
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  vpath %.c foo
+  vpath %   blish
+  vpath %.c bar
+
+  vpath %.c # clear out for %.c
+  vpath     # clear out for all
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#VPATH_003a-Search-Path-for-All-Prerequisites 
+
+** Recipes
+*** Echoing
+- Recipe lines are echoed by default
+- When a line starts with ~@~, the echoing of that line is suppressed.
+- The ~@~ is discarded before the line is passed to the shell.
+#+BEGIN_SRC makefile
+  @echo About to make distribution files
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Recipe-Echoing
+
+*** Shell for Recipe
+- ~SHELL = <path-to-shell>~
+- ~.SHELLFLAGS = <flags>~
+- ~.ONESHELL:~ to do all invokations in a shell
+- Unlike most variables, the variable ~SHELL~ is never set from the environment.
+
+-----
+- https://www.gnu.org/software/make/manual/make.html#Using-One-Shell
+- https://www.gnu.org/software/make/manual/make.html#Choosing-the-Shell-1
+
+*** Errors in Recipes
+#+BEGIN_SRC makefile
+  clean:
+          -rm -f *.o
+#+END_SRC
+- To ignore errors in a recipe line, write a ~-~ at the beginning of the line’s text
+-----
+- https://www.gnu.org/software/make/manual/make.html#Errors-in-Recipes
+
+*** Canned Recipes
+When the same sequence of commands is useful in making various targets:
+#+BEGIN_SRC makefile
+  define run-yacc =
+  yacc $(firstword $^)
+  mv y.tab.c $@
+  endef
+
+  foo.c : foo.y
+          $(run-yacc)
+#+END_SRC
+
+** Variables
+- Variable names beginning with ~.~ and an uppercase letter may be given special meaning in future versions of make.
+- Variable names are case-sensitive
+- It is traditional to use upper case letters in variable names
+- It is recommended to use lower case letters for variable names that serve internal purposes in the makefile
+
+- Every environment variable that ~make~ sees when it starts up is transformed into a ~make~ variable with the same name and value.
+- ~SHELL~ variable is an exception.
+- Explicit assignments will override the variables from environment.
+- When ~make~ runs a recipe, variables defined in the ~Makefile~ are placed into the environment of each shell.
+
+#+BEGIN_SRC makefile
+  foo = $(bar)
+  bar = $(ugh)
+  ugh = Huh?
+
+  all:;echo $(foo)  # prints 'Huh?', by recursive expansion
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  foo := a.o b.o c.o
+  bar := $(foo:.o=.c)    # substitution
+  bar := $(foo:%.o=%.c)  # same as above
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  FOO ?= bar  # set a value only if it’s not already set
+
+  # Equivalent to above
+  ifeq ($(origin FOO), undefined)
+  FOO = bar
+  endif
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  # Set the ouptut of a shell execution to the variable
+  hash != printf '\043'
+  file_list != find . -name '*.c'
+
+  # Equivalent to above
+  hash := $(shell printf '\043')
+  var := $(shell find . -name "*.c")
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  objects += another.o
+
+  # Equivalent to above
+  objects := $(objects) another.o
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  prog : CFLAGS = -g  # Target specific variable, wil be inherited by dependent targets
+  prog : prog.o foo.o bar.o
+
+  EXTRA_CFLAGS =
+
+  prog: private EXTRA_CFLAGS = -L/usr/local/lib  # not inherited
+  prog: a.o b.o
+#+END_SRC
+
+-----
+- https://www.gnu.org/software/make/manual/make.html#How-to-Use-Variables
+- https://www.gnu.org/software/make/manual/make.html#Other-Special-Variables
+- https://www.gnu.org/software/make/manual/make.html#Automatic-Variables-1
+
+** Conditionals
+#+BEGIN_SRC makefile
+  libs_for_gcc = -lgnu
+  normal_libs =
+
+  foo: $(objects)
+  ifeq ($(CC),gcc)
+          $(CC) -o foo $(objects) $(libs_for_gcc)
+  else
+          $(CC) -o foo $(objects) $(normal_libs)
+  endif
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Conditional-Parts-of-Makefiles
+
+** Functions
+#+BEGIN_SRC makefile
+  $(function arguments)
+#+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#Functions-for-Transforming-Text
+
+** CLI
+-----
+- https://www.gnu.org/software/make/manual/make.html#How-to-Run-make
+- https://www.gnu.org/software/make/manual/make.html#Summary-of-Options
+
+** Conventions
+- Every Makefile should contain this line: 
+  #+BEGIN_SRC makefile
+    SHELL = /bin/sh
+  #+END_SRC
+-----
+- https://www.gnu.org/software/make/manual/make.html#General-Conventions-for-Makefiles
+
 * Links
+- https://www.gnu.org/software/make/manual/make.html
