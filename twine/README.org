@@ -21,6 +21,7 @@ Use [[https://pypi.org/project/keyring/][keyring]] to store your credentials:
   $ keyring set https://test.pypi.org/legacy/ your-username
   $ keyring set https://upload.pypi.org/legacy/ your-username
 #+END_SRC
+You need to install ~keyring~ into the same virtualenv that ~twine~ is installed
 
 Here are some environment variables:
 - ~TWINE_USERNAME~ :: the username to use for authentication to the repository.
