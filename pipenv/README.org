@@ -1,6 +1,7 @@
 #+TITLE:Pipenv
 
-* Commands
+* Overview
+** Commands
 - https://github.com/pypa/pipenv#-usage
 
 #+BEGIN_SRC shell
@@ -23,7 +24,7 @@
 
 - When executing ~pipenv shell or pipenv run~, ~.env~ is loaded
 
-* Pipfile
+** Pipfile
 #+BEGIN_SRC toml
   [[source]]
   url = "https://pypi.python.org/simple"
@@ -36,3 +37,10 @@
   [requires]
   python_version = "3.6"
 #+END_SRC
+
+* Reference
+** pipenv install
+- ~pipenv install~ just installs only packages defined in ~[packages]~
+- ~pipenv install --dev~ installs packages in ~[dev-packages]~ *along with* packges in ~[packages]~
+-----
+- https://docs.pipenv.org/#pipenv-install
