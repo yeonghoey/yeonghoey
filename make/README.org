@@ -75,9 +75,7 @@ The file name can be one of ~GNUmakefile~, ~makefile~ and ~Makefile~, but
 *** Include
 - Include other makefiles
 - Static file names, wildcards, variables are all supported:
-  #+BEGIN_SRC makefile
-    include foo *.mk $(bar)
-  #+END_SRC
+  : include foo *.mk $(bar)
 -----
 - https://www.gnu.org/software/make/manual/make.html#Including-Other-Makefiles
 
@@ -446,10 +444,8 @@ When the same sequence of commands is useful in making various targets:
 - https://www.gnu.org/software/make/manual/make.html#Summary-of-Options
 
 ** Conventions
-- Every Makefile should contain this line: 
-  #+BEGIN_SRC makefile
-    SHELL = /bin/sh
-  #+END_SRC
+- Every Makefile should contain this line:
+  : SHELL = /bin/sh
 -----
 - https://www.gnu.org/software/make/manual/make.html#General-Conventions-for-Makefiles
 
