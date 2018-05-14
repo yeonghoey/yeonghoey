@@ -1,0 +1,26 @@
+#+TITLE: pkgutil
+
+* Table of Contents :TOC_2_gh:
+- [[#reference][Reference]]
+  - [[#iter_modules][iter_modules]]
+
+* Reference
+** iter_modules
+: pkgutil.iter_modules(path=None, prefix='')
+
+- Iters only the direct descendent submodules:
+#+BEGIN_EXAMPLE
+  a
+  ├ __init__.py
+  └ b
+    ├ __init__.py
+    └ c └ __init__.py
+#+END_EXAMPLE
+
+#+BEGIN_SRC python
+  >>> import pkgutil
+  >>> list(pkgutil.iter_modules('a'))
+  [ModuleInfo(module_finder=FileFinder('a'), name='b', ispkg=True)]
+#+END_SRC
+-----
+- https://docs.python.org/3/library/pkgutil.html#pkgutil.iter_modules
