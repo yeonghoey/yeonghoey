@@ -1,0 +1,34 @@
+#+TITLE: twine
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+
+* Overview
+#+BEGIN_SRC shell
+  $ pip install twine
+  $ python setup.py sdist bdist_wheel
+
+  # Test
+  $ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+  # Release
+  $ twine upload dist/*
+#+END_SRC
+
+Use [[https://pypi.org/project/keyring/][keyring]] to store your credentials:
+#+BEGIN_SRC shell
+  $ pip install keyring
+  $ keyring set https://test.pypi.org/legacy/ your-username
+  $ keyring set https://upload.pypi.org/legacy/ your-username
+#+END_SRC
+
+Here are some environment variables:
+- ~TWINE_USERNAME~ :: the username to use for authentication to the repository.
+- ~TWINE_PASSWORD~ :: the password to use for authentication to the repository.
+- ~TWINE_REPOSITORY~ :: the repository configuration, either defined as a section in ~.pypirc~ or provided as a full URL.
+- ~TWINE_REPOSITORY_URL~ :: the repository URL to use.
+- ~TWINE_CERT~ :: custom CA certificate to use for repositories with self-signed or untrusted certificates.
+
+-----
+- https://pypi.org/project/twine/
+- https://twine.readthedocs.io/en/latest/
