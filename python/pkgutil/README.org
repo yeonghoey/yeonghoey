@@ -7,8 +7,9 @@
 * Reference
 ** iter_modules
 : pkgutil.iter_modules(path=None, prefix='')
-
 - Iters only the direct descendent submodules:
+- Pass a list of path string to ~path~, as like [[https://docs.python.org/3/reference/import.html#module-path][__path__]]
+
 #+BEGIN_EXAMPLE
   a
   ├ __init__.py
@@ -19,7 +20,7 @@
 
 #+BEGIN_SRC python
   >>> import pkgutil
-  >>> list(pkgutil.iter_modules('a'))
+  >>> list(pkgutil.iter_modules(['a']))
   [ModuleInfo(module_finder=FileFinder('a'), name='b', ispkg=True)]
 #+END_SRC
 -----

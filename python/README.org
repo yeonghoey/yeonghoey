@@ -878,7 +878,6 @@ objects of the same types that don't support proper comparison are ordered by th
   __main__
   __mro__
   __package__
-  __path__
   __pkgdir__
   __return__
   __safe_for_unpickling__
@@ -887,6 +886,11 @@ objects of the same types that don't support proper comparison are ordered by th
   __test__
   __version__
 #+END_SRC
+
+- [[https://docs.python.org/3/reference/import.html#module-path][__path__]] ::
+  - only for a package.
+  - a list of the package directory path string
+  - used during imports of its subpackages
 
 ** EAFP, LBYL
 - https://docs.python.org/3/glossary.html#term-eafp
