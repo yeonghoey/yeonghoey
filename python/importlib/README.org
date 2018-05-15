@@ -1,0 +1,26 @@
+#+TITLE: importlib
+
+* Table of Contents :TOC_2_gh:
+- [[#reference][Reference]]
+  - [[#__import__][__import__]]
+  - [[#import_module][import_module]]
+
+* Reference
+** __import__
+: __import__(name, globals=None, locals=None, fromlist=(), level=0)
+
+#+BEGIN_QUOTE
+Programmatic importing of modules should use ~import_module()~ instead of this function.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+If you simply want to import a module (potentially within a package) by name, use ~importlib.import_module()~.
+#+END_QUOTE
+-----
+- https://docs.python.org/3/library/functions.html#__import__
+
+** import_module
+: importlib.import_module(name, package=None)
+- acts as a simplifying wrapper around ~importlib.__import__()~.
+-----
+- https://docs.python.org/3/library/importlib.html#importlib.import_module
