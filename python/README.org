@@ -892,6 +892,11 @@ objects of the same types that don't support proper comparison are ordered by th
   - a list of the package directory path string
   - used during imports of its subpackages
 
+- [[https://docs.python.org/3/reference/import.html#__package__][__package__]] ::
+  if the module is a package, ~__package__~ is equal to ~__name__~
+  if not, it should be set to its parent package or empty when it's a top-level module
+  This value is used to calculate explicit relative imports
+
 ** EAFP, LBYL
 - https://docs.python.org/3/glossary.html#term-eafp
 - https://docs.python.org/3/glossary.html#term-lbyl
