@@ -1,0 +1,28 @@
+#+TITLE: Data Visualization
+
+* Table of Contents :TOC_2_gh:
+- [[#course-information][Course Information]]
+- [[#resources][Resources]]
+
+* Course Information
+[[file:_img/screenshot_2018-05-15_12-57-52.png]]
+
+[[file:_img/screenshot_2018-05-15_13-03-35.png]]
+
+- Orientation Quiz        :: not graded, unlimited attempts
+- Graded Quizzes          :: Almost every week, unlimited attempts
+- Programming Assignments :: 2 assignments, takes about 2 hours, unlimited attempts
+- Peer Review Assignments :: 1 assignment, takes about 3 hours, required to grade other 5 peers
+- Projects                :: 2 projects, graded by peer review.
+- Proctored Exames        :: 2 exams
+
+
+[[file:_img/screenshot_2018-05-15_13-10-35.png]] 
+
+-----
+- https://www.coursera.org/learn/cs-498-dv/supplement/DQjww/syllabus
+* Resources
+[[file:_img/screenshot_2018-05-15_13-12-45.png]]
+
+-----
+- https://www.coursera.org/learn/cs-498-dv/supplement/ijZAO/resources
