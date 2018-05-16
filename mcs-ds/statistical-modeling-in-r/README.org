@@ -1,0 +1,38 @@
+#+TITLE: STAT 420: Statistical Modeling in R
+
+* Table of Contents :TOC_2_gh:
+- [[#course-information][Course Information]]
+- [[#student-introduction][Student Introduction]]
+
+* Course Information
+[[file:_img/screenshot_2018-05-16_13-45-30.png]]
+
+[[file:_img/screenshot_2018-05-16_13-45-58.png]]
+
+[[file:_img/screenshot_2018-05-16_13-46-41.png]]
+
+[[file:_img/screenshot_2018-05-16_13-46-53.png]]
+
+[[file:_img/screenshot_2018-05-16_13-46-56.png]]
+
+[[file:_img/screenshot_2018-05-16_13-47-10.png]]
+
+[[file:_img/screenshot_2018-05-16_13-47-19.png]]
+
+-----
+- https://www.coursera.org/learn/stat-420/supplement/x0NPf/syllabus
+
+* Student Introduction
+#+BEGIN_QUOTE
+- I'm from Seoul, South Korea.
+- I majored in Philosophy and Computer Science.
+- I had been working as a game developer, a data engineer, a DevOps engineer for about 4 years.
+- I developed an intelligent game matchmaking system. This experience allowed me to build lots of statistics background.
+- I developed a big data log Pipelines on AWS.
+- I did a lot of infrastructure automation through Terraform on AWS.
+- I'm interested in learning programming languages. I have experiences in C++, C#, Python, Go, Scala, Javascript, Shell, Terraform, etc.
+- I've been doing a toy project with Vue.js and Serverless, called Galpi, a personalized URL shortener. (https://galpi.io)
+- I hope to build some theoretical basis in Data Science and to do a career shift to it.
+- I recently got a desk on WeWork, and I'm pursuing what I love.
+- I'm a heavy note taker. You're welcome to look around github.com/yeonghoey/yeonghoey
+#+END_QUOTE
