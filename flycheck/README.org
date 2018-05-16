@@ -1,0 +1,28 @@
+#+TITLE: flycheck
+
+* Table of Contents :TOC_2_gh:
+- [[#topics][Topics]]
+  - [[#flycheck-reports-errors-which-are-not-caused-when-excuting-the-linter-as-a-shell-command][flycheck reports errors which are not caused when excuting the linter as a shell command]]
+- [[#how-to][How-to]]
+  - [[#debug-syntax-checkers][Debug syntax checkers]]
+
+* Topics
+** flycheck reports errors which are not caused when excuting the linter as a shell command
+~flake8~ complains an undefined name on the editor.
+The weird thing was, there's nothing when I manually execute ~flake8~ on the shell.
+
+By using ~flycheck-compile~, I found out that flycheck tries to use ~stdin~ for all checker.
+
+In other words, flycheck always lose its context.
+That was the problem. But there was no way I could fix it.
+So I concluded to slightly modify the flycheck-only-error causing line.
+-----
+- https://github.com/flycheck/flycheck/issues/767
+- https://github.com/flycheck/flycheck/blob/master/flycheck.el#L8838
+
+* How-to
+** Debug syntax checkers
+~M-x flycheck-compile~ will print the actual command that Flycheck uses.
+
+-----
+- http://www.flycheck.org/en/latest/user/troubleshooting.html#debug-syntax-checkers
