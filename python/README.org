@@ -35,7 +35,7 @@
   - [[#pick-a-free-port-number][Pick a free port number]]
   - [[#read-a-file-except-the-first-line][Read a file except the first line]]
   - [[#convert-a-list-to-a-dictionary][Convert a list to a dictionary]]
-- [[#links][Links]]
+  - [[#get-a-reference-to-the-current-module][Get a reference to the current module?]]
 
 * Reference
 ** decorator
@@ -1230,4 +1230,10 @@ To support method calls, functions include the ~__get__()~ method for binding me
 -----
 - https://stackoverflow.com/questions/4576115/convert-a-list-to-a-dictionary-in-python
 
-* Links
+** Get a reference to the current module?
+#+BEGIN_SRC python
+  import sys
+  current_module = sys.modules[__name__]
+#+END_SRC
+-----
+- https://stackoverflow.com/questions/1676835/python-how-do-i-get-a-reference-to-a-module-inside-the-module-itself
