@@ -25,3 +25,4 @@
 #+END_SRC
 -----
 - https://docs.python.org/3/library/pkgutil.html#pkgutil.iter_modules
+- https://github.com/python/cpython/blob/master/Lib/pkgutil.py#L110
