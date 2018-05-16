@@ -1,0 +1,55 @@
+#+TITLE: Data Visualization: Week 01
+
+* Table of Contents :TOC_2_gh:
+- [[#week-1-information][Week 1 Information]]
+  - [[#week-1-introduction][Week 1 Introduction]]
+- [[#lesson-1-1-introduction][Lesson 1-1: Introduction]]
+  - [[#111-some-books-on-data-visualization][1.1.1. Some books on Data Visualization]]
+  - [[#112-overview-of-visualization][1.1.2. Overview of Visualization]]
+- [[#lession-1-2-graphics-drawing-and-photorealism][Lession 1-2: Graphics, Drawing, and Photorealism]]
+  - [[#121-2-d-graphics][1.2.1. 2-D Graphics]]
+  - [[#122-2-d-drawing][1.2.2. 2-D Drawing]]
+
+* Week 1 Information
+** Week 1 Introduction
+[[file:_img/screenshot_2018-05-16_14-59-22.png]]
+
+[[file:_img/screenshot_2018-05-16_14-59-41.png]]
+
+- Blue, red, green each stand for 1st, 2nd, 3rd choice.
+- Each bar stands for a member, in alphabetical order.
+- This visualization gives the insight that the students(voters) might not have cared the order of their choice.
+- Like this, providing insight into data is the hallmark of data visualization.
+
+* Lesson 1-1: Introduction
+** 1.1.1. Some books on Data Visualization
+There are a lot of books. From his comments,
+I decided to care the last book, because he acclaimed the book a lot in many perspective.
+
+[[file:_img/screenshot_2018-05-16_15-08-57.png]]
+
+** 1.1.2. Overview of Visualization
+Types of visualization:
+- Mathematical
+- Scientific
+- Information
+- Domain Specific
+
+Modes of visualization:
+- Interactive
+- Presentation
+- Interactive Storytelling
+
+-----
+- [[./slides/1.1.2.pdf]]
+
+* Lession 1-2: Graphics, Drawing, and Photorealism
+** 1.2.1. 2-D Graphics
+- Vector vs Raster
+- Hierarchical Coordinate Systems
+- Canvas to Screen Transformation
+
+-----
+- [[./slides/1.2.1.pdf]]
+
+** 1.2.2. 2-D Drawing

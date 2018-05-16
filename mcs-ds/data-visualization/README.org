@@ -1,4 +1,4 @@
-#+TITLE: Data Visualization
+#+TITLE: CS 498: Data Visualization
 
 * Table of Contents :TOC_2_gh:
 - [[#course-information][Course Information]]
