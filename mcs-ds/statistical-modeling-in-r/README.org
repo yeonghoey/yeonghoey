@@ -19,6 +19,10 @@
 
 [[file:_img/screenshot_2018-05-16_13-47-19.png]]
 
+- Practice Quiz :: not graded
+- Graded Quiz   :: 3 attempts per every 8 hours
+- Homework Assignments :: If the deadline has not yet passed, we'll remove your existing submission so you can replace it.
+
 -----
 - https://www.coursera.org/learn/stat-420/supplement/x0NPf/syllabus
 
