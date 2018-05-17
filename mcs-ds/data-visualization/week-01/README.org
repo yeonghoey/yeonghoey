@@ -1,4 +1,4 @@
-#+TITLE: Data Visualization: Week 01
+#+TITLE: CS 498: Week 01
 
 * Table of Contents :TOC_2_gh:
 - [[#week-1-information][Week 1 Information]]
