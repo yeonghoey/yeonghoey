@@ -53,3 +53,11 @@ Modes of visualization:
 - [[./slides/1.2.1.pdf]]
 
 ** 1.2.2. 2-D Drawing
+- SVG: Scalable Vector Graphics
+
+[[file:_img/screenshot_2018-05-18_19-22-30.png]]
+
+[[file:_img/screenshot_2018-05-18_19-23-18.png]]
+
+-----
+- [[./slides/1.2.2.pdf]]
