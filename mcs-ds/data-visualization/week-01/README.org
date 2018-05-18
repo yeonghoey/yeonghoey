@@ -12,6 +12,8 @@
   - [[#123-3-d-graphics][1.2.3. 3-D Graphics]]
   - [[#124-photorealism][1.2.4. Photorealism]]
   - [[#125-non-photorealism][1.2.5. Non-Photorealism]]
+- [[#lesson-1-3-humans-and-visualization][Lesson 1-3: Humans and Visualization]]
+  - [[#131-the-human][1.3.1. The Human]]
 
 * Week 1 Information
 ** Week 1 Introduction
@@ -96,3 +98,9 @@ Depth cues
 
 -----
 - [[./slides/1.2.5.pdf]]
+* Lesson 1-3: Humans and Visualization
+** 1.3.1. The Human
+[[file:_img/screenshot_2018-05-18_19-58-04.png]]
+
+-----
+- [[./slides/1.3.1.pdf]]
