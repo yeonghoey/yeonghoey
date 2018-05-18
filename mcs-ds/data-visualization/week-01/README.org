@@ -10,6 +10,7 @@
   - [[#121-2-d-graphics][1.2.1. 2-D Graphics]]
   - [[#122-2-d-drawing][1.2.2. 2-D Drawing]]
   - [[#123-3-d-graphics][1.2.3. 3-D Graphics]]
+  - [[#124-photorealism][1.2.4. Photorealism]]
 
 * Week 1 Information
 ** Week 1 Introduction
@@ -77,3 +78,13 @@ Modes of visualization:
 
 -----
 [[./slides/1.2.3.pdf]]
+
+** 1.2.4. Photorealism
+Depth cues
+- Occlusion    :: the strongest depth cue
+- Illumination :: reveals surface orientation
+- Shadowing    :: occlusion of a light source
+- Perspective  :: reveals different scales of visualization in addition to aiding depth perspection.
+- Stereopsis   :: useful when other cues are unavailable
+-----
+- [[./slides/1.2.4.pdf]]
