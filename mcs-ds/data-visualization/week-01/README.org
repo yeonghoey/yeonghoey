@@ -11,6 +11,7 @@
   - [[#122-2-d-drawing][1.2.2. 2-D Drawing]]
   - [[#123-3-d-graphics][1.2.3. 3-D Graphics]]
   - [[#124-photorealism][1.2.4. Photorealism]]
+  - [[#125-non-photorealism][1.2.5. Non-Photorealism]]
 
 * Week 1 Information
 ** Week 1 Introduction
@@ -88,3 +89,10 @@ Depth cues
 - Stereopsis   :: useful when other cues are unavailable
 -----
 - [[./slides/1.2.4.pdf]]
+** 1.2.5. Non-Photorealism
+- based on psychology of perception
+- based on contours
+- makes it easier to communicate shape without complex lighting
+
+-----
+- [[./slides/1.2.5.pdf]]
