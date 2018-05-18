@@ -9,6 +9,7 @@
 - [[#lession-1-2-graphics-drawing-and-photorealism][Lession 1-2: Graphics, Drawing, and Photorealism]]
   - [[#121-2-d-graphics][1.2.1. 2-D Graphics]]
   - [[#122-2-d-drawing][1.2.2. 2-D Drawing]]
+  - [[#123-3-d-graphics][1.2.3. 3-D Graphics]]
 
 * Week 1 Information
 ** Week 1 Introduction
@@ -61,3 +62,18 @@ Modes of visualization:
 
 -----
 - [[./slides/1.2.2.pdf]]
+** 1.2.3. 3-D Graphics
+[[file:_img/screenshot_2018-05-18_19-25-37.png]]
+
+- Sky looks blue because blue is scattered.
+- Because blue is more scattered, the sun light looks yellow.
+- Chlorophyl absorbs most of colors other than green. So it looks green.
+
+[[file:_img/screenshot_2018-05-18_19-29-16.png]]
+
+- Vertex Processing :: after transform and lighting, projects vertices of triangles onto an image plane.
+- Rasterization     :: takes the 2d triangles from prior step and converts them into pixels.
+- Pixel Processing  :: figures out what colors should be on the pixels from prior step.
+
+-----
+[[./slides/1.2.3.pdf]]
