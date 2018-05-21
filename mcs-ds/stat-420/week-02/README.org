@@ -8,6 +8,12 @@
 - [[#the-normal-distribution][The Normal Distribution]]
   - [[#normal-distribution][Normal Distribution]]
   - [[#normal-distribution-in-r][Normal Distribution in R]]
+- [[#slr-details][SLR Details]]
+  - [[#estimation][Estimation]]
+  - [[#variance-decomposition][Variance Decomposition]]
+  - [[#maximum-likelihood][Maximum Likelihood]]
+  - [[#the-lm-function][The lm() Function]]
+- [[#slr-in-r][SLR in R]]
 
 * Simple Linear Regression
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html
@@ -55,7 +61,6 @@ All models are wrong; some models are useful. — George E. P. Box
 - Independent
 - Normal 
 - Equal Variance
-
 * The Normal Distribution
 ** Normal Distribution
 [[file:_img/screenshot_2018-05-21_17-33-14.png]]
@@ -102,3 +107,60 @@ All models are wrong; some models are useful. — George E. P. Box
 : [1] 0.7733726
 : [1] 0.8413447
 : [1] 0.02275013
+* SLR Details
+** Estimation
+[[file:_img/screenshot_2018-05-21_19-27-20.png]]
+
+[[file:_img/screenshot_2018-05-21_19-28-43.png]]
+
+[[file:_img/screenshot_2018-05-21_19-31-30.png]]
+
+- As the general sample variance is divided by ~(n - 1)~, the estimated variance should be divided by ~(n - 2)~, since there are two variables(~b0~, ~b1~)
+
+** Variance Decomposition
+[[file:_img/screenshot_2018-05-21_19-38-33.png]]
+
+[[file:_img/screenshot_2018-05-21_19-39-29.png]]
+
+[[file:_img/screenshot_2018-05-21_19-40-15.png]]
+
+[[file:_img/screenshot_2018-05-21_19-46-39.png]]
+
+-----
+- https://en.wikipedia.org/wiki/Coefficient_of_determination
+
+** Maximum Likelihood
+[[file:_img/screenshot_2018-05-21_19-50-54.png]]
+
+[[file:_img/screenshot_2018-05-21_19-51-14.png]]
+
+[[file:_img/screenshot_2018-05-21_19-52-32.png]]
+
+** The lm() Function
+- ~lm()~ stands for ~linear model~.
+
+#+BEGIN_SRC R
+  stop_dist_model = lm(dist ~ speed, data = cars)
+
+  plot(dist ~ speed, data = cars,
+       xlab = "Speed (in Miles Per Hour)",
+       ylab = "Stopping Distance (in Feet)",
+       main = "Stopping Distance vs Speed",
+       pch  = 20,
+       cex  = 2,
+       col  = "grey")
+  abline(stop_dist_model, lwd = 3, col = "darkorange")
+
+  coef(stop_dist_model)
+  resid(stop_dist_model)
+  fitted(stop_dist_model)
+  summary(stop_dist_model)
+
+  predict(stop_dist_model, newdata = data.frame(speed = 8))
+  predict(stop_dist_model, newdata = data.frame(speed = c(8, 21, 50)))
+  predict(stop_dist_model)
+#+END_SRC
+-----
+- http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#the-lm-function
+
+* SLR in R
