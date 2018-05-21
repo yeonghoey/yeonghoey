@@ -1,0 +1,3 @@
+#+TITLE: STAT 420: Week 02
+
+* Table of Contents :TOC_2_gh:
