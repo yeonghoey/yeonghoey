@@ -14,6 +14,8 @@
   - [[#maximum-likelihood][Maximum Likelihood]]
   - [[#the-lm-function][The lm() Function]]
 - [[#slr-in-r][SLR in R]]
+  - [[#simulation][Simulation]]
+  - [[#simulating-slr-in-r][Simulating SLR in R]]
 
 * Simple Linear Regression
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html
@@ -164,3 +166,68 @@ All models are wrong; some models are useful. — George E. P. Box
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#the-lm-function
 
 * SLR in R
+** Simulation
+[[file:_img/screenshot_2018-05-21_20-17-43.png]]
+
+[[file:_img/screenshot_2018-05-21_20-21-07.png]]
+
+** Simulating SLR in R
+#+BEGIN_SRC R :results output :exports both
+  num_obs = 21
+  (x_vals = seq(from = 0, to = 10, length.out = num_obs))
+#+END_SRC
+
+#+RESULTS:
+:  [1]  0.0  0.5  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0
+: [16]  7.5  8.0  8.5  9.0  9.5 10.0
+
+#+BEGIN_SRC R :results output :exports both
+  num_obs = 21
+  sigma = 3
+  set.seed(1)
+  (epsilon = rnorm(n = num_obs, mean = 0, sd = sigma))
+#+END_SRC
+
+#+RESULTS:
+:  [1] -1.87936143  0.55092997 -2.50688584  4.78584241  0.98852332 -2.46140515
+:  [7]  1.46228716  2.21497412  1.72734405 -0.91616516  4.53534351  1.16952971
+: [13] -1.86372174 -6.64409966  3.37479275 -0.13480083 -0.04857079  2.83150863
+: [19]  2.46366359  1.78170396  2.75693211
+
+#+BEGIN_SRC R :file _img/sim_slr.png :results graphics :exports both
+  num_obs = 21
+  beta_0  = 5
+  beta_1  = -2
+  sigma   = 3
+
+  x_vals = seq(from = 0, to = 10, length.out = num_obs)
+
+  sim_slr = function(x, beta_0 = 10, beta_1 = 5, sigma = 1) {
+    n = length(x)
+    epsilon = rnorm(n, mean = 0, sd = sigma)
+    y = beta_0 + beta_1 * x + epsilon
+    data.frame(predictor = x, response = y)
+  }
+
+  set.seed(1)
+  sim_data = sim_slr(x = x_vals, beta_0 = beta_0, beta_1 = beta_1, sigma = sigma)
+  sim_fit = lm(response ~ predictor, data = sim_data)
+
+  plot(response ~ predictor, data = sim_data,
+       xlab = "Simulated Predictor Variable",
+       ylab = "Simulated Response Variable",
+       main = "Simulated Regression Data",
+       pch  = 20,
+       cex  = 2,
+       col  = "grey")
+  abline(sim_fit, lwd = 3, lty = 1, col = "darkorange")
+  abline(beta_0, beta_1, lwd = 3, lty = 2, col = "dodgerblue")
+  legend("topright", c("Estimate", "Truth"), lty = c(1, 2), lwd = 2,
+         col = c("darkorange", "dodgerblue"))
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/sim_slr.png]]
+
+-----
+- http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#simulating-slr
