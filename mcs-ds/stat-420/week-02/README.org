@@ -1,3 +1,104 @@
 #+TITLE: STAT 420: Week 02
 
 * Table of Contents :TOC_2_gh:
+- [[#simple-linear-regression][Simple Linear Regression]]
+  - [[#models][Models]]
+  - [[#fitting-a-line][Fitting a Line]]
+  - [[#simple-linear-regression-model][Simple Linear Regression Model]]
+- [[#the-normal-distribution][The Normal Distribution]]
+  - [[#normal-distribution][Normal Distribution]]
+  - [[#normal-distribution-in-r][Normal Distribution in R]]
+
+* Simple Linear Regression
+- http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html
+
+** Models
+[[file:_img/screenshot_2018-05-21_16-43-40.png]]
+
+- Predictor and Response
+
+[[file:_img/screenshot_2018-05-21_16-44-57.png]]
+
+- Overfit and Underfit
+
+[[file:_img/screenshot_2018-05-21_16-48-15.png]]
+
+#+BEGIN_QUOTE
+All models are wrong; some models are useful. — George E. P. Box
+#+END_QUOTE
+
+** Fitting a Line
+[[file:_img/screenshot_2018-05-21_16-54-45.png]]
+1. Minimize the maximum error
+2. Minimize the abs value of errors
+3. Minimize the squared errors. This is easier to calculate beta than others.
+
+[[file:_img/screenshot_2018-05-21_16-56-42.png]]
+
+- Note that ~f(b0, b1)~ is convex. ([[https://math.stackexchange.com/questions/483339/proof-of-convexity-of-linear-least-squares][note1]], [[https://en.wikipedia.org/wiki/Derivative_test#Second_derivative_test_(single_variable)][note2]])
+
+[[file:_img/screenshot_2018-05-21_16-56-49.png]]
+
+[[file:_img/screenshot_2018-05-21_17-18-23.png]]
+
+- Interpolation and Extrapolation
+- The further we get away from the dataset, the less confident we are in our fitted model.
+
+** Simple Linear Regression Model
+[[file:_img/screenshot_2018-05-21_17-26-37.png]]
+
+[[file:_img/screenshot_2018-05-21_17-27-45.png]]
+
+[[file:_img/screenshot_2018-05-21_17-29-40.png]]
+
+- Linear
+- Independent
+- Normal 
+- Equal Variance
+
+* The Normal Distribution
+** Normal Distribution
+[[file:_img/screenshot_2018-05-21_17-33-14.png]]
+
+[[file:_img/screenshot_2018-05-21_17-35-50.png]]
+
+[[file:_img/screenshot_2018-05-21_17-38-24.png]]
+
+** Normal Distribution in R
+- ~dnrom~ :: ~d~ stands for *density* (PDF)
+- ~pnorm~ :: ~p~ stands for *probability* (CDF)
+
+#+BEGIN_SRC R :results output :exports both
+  diff(pnorm(c(100, 115), mean = 100, sd = 15))
+#+END_SRC
+
+#+RESULTS:
+: [1] 0.3413447
+
+#+BEGIN_SRC R :results output :exports both
+  pnorm(130, mean = 100, sd = 15, lower.tail = FALSE)
+#+END_SRC
+
+#+RESULTS:
+: [1] 0.02275013
+
+#+BEGIN_SRC R :results output :exports both
+  qnorm(0.95, mean = 100, sd = 15)
+#+END_SRC
+
+#+RESULTS:
+: [1] 124.6728
+
+#+BEGIN_SRC R :results output :exports both
+  pnorm(c(0.5, 1, 0), mean = c(-1, 0, 1), sd = c(2, 1, 0.5))
+  # Equivalant to above
+  pnorm(0.5, mean = -1, sd = 2)
+  pnorm(1, mean = 0, sd = 1)
+  pnorm(0, mean = 1, sd = 0.5)
+#+END_SRC
+
+#+RESULTS:
+: [1] 0.77337265 0.84134475 0.02275013
+: [1] 0.7733726
+: [1] 0.8413447
+: [1] 0.02275013
