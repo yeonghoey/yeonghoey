@@ -11,6 +11,9 @@
   - [[#222-parallel-coordinates][2.2.2. Parallel Coordinates]]
   - [[#223-stacked-graphs-part-1][2.2.3. Stacked Graphs: Part 1]]
   - [[#223-stacked-graphs-part-2][2.2.3. Stacked Graphs: Part 2]]
+- [[#lesson-2-3-tuftes-design-rules-and-using-color][Lesson 2-3: Tufte's Design Rules and Using Color]]
+  - [[#231-tuftes-design-rules][2.3.1. Tufte's Design Rules]]
+  - [[#232-using-color][2.3.2. Using Color]]
 
 * Lesson 2-1: Data, Mapping, and Charts
 ** 2.1.1. Data
@@ -89,3 +92,35 @@
 
 -----
 - [[./slides/2.2.3.pdf]]
+* Lesson 2-3: Tufte's Design Rules and Using Color
+** 2.3.1. Tufte's Design Rules
+[[file:_img/screenshot_2018-05-21_21-43-38.png]]
+- Instead of interpolating or something, let the viewer reason about the missing data.
+
+- A picture is worth a thousand words.
+- Label your axes!
+- Label should stand out from data
+- Making a visualization look prettier often makes it less effective at communicating its data
+
+[[file:_img/screenshot_2018-05-21_21-49-24.png]]
+
+[[file:_img/screenshot_2018-05-21_21-51-36.png]]
+
+-----
+- [[./slides/2.3.1.pdf]]
+
+** 2.3.2. Using Color
+- Prefer HSV over RGB
+- Hues are good for representing Nominal variables
+
+[[file:_img/screenshot_2018-05-21_22-00-46.png]]
+
+[[file:_img/screenshot_2018-05-21_22-01-57.png]]
+
+[[file:_img/screenshot_2018-05-21_22-04-48.png]]
+
+[[file:_img/screenshot_2018-05-21_22-06-34.png]]
+
+-----
+- [[./slides/2.3.2.pdf]]
+- http://colorbrewer2.org/
