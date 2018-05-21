@@ -5,6 +5,12 @@
   - [[#211-data][2.1.1. Data]]
   - [[#212-mapping][2.1.2. Mapping]]
   - [[#213-charts][2.1.3. Charts]]
+- [[#lesson-2-2-glyphs-parallel-coordinates-and-stacked-graphs][Lesson 2-2: Glyphs, Parallel Coordinates, and Stacked Graphs]]
+  - [[#221-glyphs-part-1][2.2.1. Glyphs: Part 1]]
+  - [[#222-glyphs-part-2][2.2.2. Glyphs: Part 2]]
+  - [[#222-parallel-coordinates][2.2.2. Parallel Coordinates]]
+  - [[#223-stacked-graphs-part-1][2.2.3. Stacked Graphs: Part 1]]
+  - [[#223-stacked-graphs-part-2][2.2.3. Stacked Graphs: Part 2]]
 
 * Lesson 2-1: Data, Mapping, and Charts
 ** 2.1.1. Data
@@ -36,3 +42,50 @@
 
 -----
 - [[./slides/2.1.3.pdf]]
+* Lesson 2-2: Glyphs, Parallel Coordinates, and Stacked Graphs
+** 2.2.1. Glyphs: Part 1
+[[file:_img/screenshot_2018-05-21_21-02-13.png]]
+
+-----
+- [[./slides/2.2.1.pdf]]
+
+** 2.2.2. Glyphs: Part 2
+[[file:_img/screenshot_2018-05-21_21-05-48.png]]
+
+[[file:_img/screenshot_2018-05-21_21-08-44.png]]
+
+-----
+- [[./slides/2.2.1.pdf]]
+
+** 2.2.2. Parallel Coordinates
+[[file:_img/screenshot_2018-05-21_21-17-04.png]]
+
+[[file:_img/screenshot_2018-05-21_21-19-12.png]]
+
+-----
+- [[./slides/2.2.2.pdf]]
+
+** 2.2.3. Stacked Graphs: Part 1
+[[file:_img/screenshot_2018-05-21_21-22-40.png]]
+
+[[file:_img/screenshot_2018-05-21_21-23-36.png]]
+- On the right, it's easy to see that the red variable is not chaning across the x-axis.
+- On the left, it's harder.
+- The ~Position~ is a stronger indicator than the ~Length~.
+
+[[file:_img/screenshot_2018-05-21_21-26-55.png]]
+
+[[file:_img/screenshot_2018-05-21_21-28-03.png]]
+
+-----
+- [[./slides/2.2.3.pdf]]
+
+** 2.2.3. Stacked Graphs: Part 2
+[[file:_img/screenshot_2018-05-21_21-31-18.png]]
+
+[[file:_img/screenshot_2018-05-21_21-36-04.png]]
+
+[[file:_img/screenshot_2018-05-21_21-38-30.png]]
+
+-----
+- [[./slides/2.2.3.pdf]]
