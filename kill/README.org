@@ -1,8 +1,20 @@
 * kill
-- https://en.wikipedia.org/wiki/Signal_(IPC)
-
 #+BEGIN_SRC shell
   # List signal names
   $ kill -l
   HUP INT QUIT ILL TRAP ABRT EMT FPE KILL BUS SEGV SYS PIPE ALRM TERM URG STOP TSTP CONT CHLD TTIN TTOU IO XCPU XFSZ VTALRM PROF WINCH INFO USR1 USR2
 #+END_SRC
+
+#+BEGIN_SRC shell
+  $ kill -INT ${PID}
+  $ kill -INT -${PGID}
+  $ kill -INT 0  # current process group
+
+  # kill $PID's process group
+  $ kill -INT -$(ps -o pgid= $PID | grep -o '[0-9]*')
+#+END_SRC
+
+-----
+- https://en.wikipedia.org/wiki/Signal_(IPC)
+- https://linux.die.net/man/1/kill
+- http://fibrevillage.com/sysadmin/237-ways-to-kill-parent-and-child-processes-in-one-command
