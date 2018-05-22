@@ -67,6 +67,8 @@
   1
 
   $ grep -e '--foo' foo.txt  # -e [pattern], --regexp=pattern, Indicate following argument as regexp explicitly
+  # Useful when [pattern] contains '--' which would cause ambiguity as above.
+  # Consider `grep --foo` or something.
 
   $ grep -Z foo foobar.tar.gz; echo $?  # -Z, -z, --decompress, Behave as zgrep
   Binary file foobar.tar.gz matches
