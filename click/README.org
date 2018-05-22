@@ -7,6 +7,7 @@
   - [[#option][option]]
   - [[#param_decls][param_decls]]
   - [[#path][Path]]
+  - [[#callback][callback]]
 - [[#samples][Samples]]
   - [[#arguments][Arguments]]
 - [[#how-to][How-to]]
@@ -91,6 +92,28 @@
 : class click.Path(exists=False, file_okay=True, dir_okay=True, writable=False, readable=True, resolve_path=False)
 -----
 - http://click.pocoo.org/5/api/#click.Path
+
+** callback
+#+BEGIN_SRC python
+  import urllib
+
+  def open_url(ctx, param, value):
+      if value is not None:
+          ctx.params['fp'] = urllib.urlopen(value)
+          return value
+
+  @click.command()
+  @click.option('--url', callback=open_url)
+  def cli(url, fp=None):
+      if fp is not None:
+          click.echo('%s: %s' % (url, fp.code))
+#+END_SRC
+- Can modify ~ctx.params~ to overwrite other parameters
+- ~param~ is the ~Parameter~ object
+- ~value~ is the actaul value
+
+-----
+- http://click.pocoo.org/5/advanced/#parameter-modifications
 
 * Samples
 ** Arguments
