@@ -26,8 +26,11 @@
   - [[#variables][Variables]]
   - [[#conditionals][Conditionals]]
   - [[#functions][Functions]]
+    - [[#define-custom-functions][Define custom functions]]
   - [[#cli][CLI]]
   - [[#conventions][Conventions]]
+- [[#reference][Reference]]
+  - [[#filter-out-patterntext][$(filter-out pattern…,text)]]
 - [[#links][Links]]
 
 * Overview
@@ -70,14 +73,14 @@ Simple usage of [[https://github.com/requests/requests/blob/master/Makefile][req
 The file name can be one of ~GNUmakefile~, ~makefile~ and ~Makefile~, but
 ~Makefile~ is mostly recommended.
 -----
-- https://www.gnu.org/software/make/manual/make.html#What-Name-to-Give-Your-Makefile
+- https://www.gnu.org/software/make/manual/html_node/Makefile-Names.html
 
 *** Include
 - Include other makefiles
 - Static file names, wildcards, variables are all supported:
   : include foo *.mk $(bar)
 -----
-- https://www.gnu.org/software/make/manual/make.html#Including-Other-Makefiles
+- https://www.gnu.org/software/make/manual/html_node/Include.html#Include
 
 *** Evaluation
 #+BEGIN_SRC makefile
@@ -123,7 +126,7 @@ You can take advantage of ~.SECONDEXPANSION~ special rule and ~$$~ to defer expa
 *** Wildcard
 - Wildcard expansions within the definitions of targets and prerequisites are done by ~make~
 - For recipes, it is done by the ~shell~
-- Variables don't just expand wildcards, they expand only when they are used in targets or prerequisites
+- Variables don't just expand wildcards, *they expand only when they are used in targets or prerequisites*
 - To explicitly expand the wildcard in a variable, Use ~$(wildcard var)~
 
 -----
@@ -134,9 +137,22 @@ You can take advantage of ~.SECONDEXPANSION~ special rule and ~$$~ to defer expa
 - ~-j 3~   :: run 3 recipes in parallel
 - ~-l 2.5~ :: limit parallelism by load average of ~2.5~
 - ~.NOTPARALLEL~ :: inhibit parallelism
+
+To force some targets to run parallel:
+#+BEGIN_SRC makefile
+  foo:
+    $(MAKE) --jobs 'bar' 'baz'
+  bar:
+    echo 'bar'
+  baz:
+    echo 'baz'
+#+END_SRC
+
+- ~--output-sync~ option is not supported the default macOS ~make~ (GNU Make 3.81)
+
 -----
-- https://www.gnu.org/software/make/manual/make.html#Parallel-Execution
-- https://www.gnu.org/software/make/manual/make.html#Output-During-Parallel-Execution
+- https://www.gnu.org/software/make/manual/html_node/Parallel.html
+- https://www.gnu.org/software/make/manual/html_node/Parallel-Output.html
 
 *** Recursive Use of make
 #+BEGIN_SRC makefile
@@ -147,7 +163,7 @@ You can take advantage of ~.SECONDEXPANSION~ special rule and ~$$~ to defer expa
 - Some flags for ~make~ is passed automatically through ~MAKEFLAGS~
 - The options ~-C~, ~-f~, ~-o~, and ~-W~ are not put into ~MAKEFLAGS~; 
 -----
-- https://www.gnu.org/software/make/manual/make.html#Recursive-Use-of-make
+- https://www.gnu.org/software/make/manual/html_node/Recursion.html
 
 ** Rules
 #+BEGIN_SRC makefile
@@ -181,7 +197,7 @@ When execute the command ~make <target>~:
    2. Run its own recipe if some of its prerequisites are newer than its own target.
 
 -----
-- https://www.gnu.org/software/make/manual/make.html#An-Introduction-to-Makefiles
+- https://www.gnu.org/software/make/manual/html_node/Introduction.html
 
 *** Multiple Rules for One Target
 - All the prerequisites mentioned in all the rules are *merged* into one list
@@ -351,22 +367,37 @@ When the same sequence of commands is useful in making various targets:
 #+END_SRC
 
 ** Variables
-- Variable names beginning with ~.~ and an uppercase letter may be given special meaning in future versions of make.
-- Variable names are case-sensitive
+- Variable names like ~.UPPERCASE~ may be given special meaning in future versions of make.
+- Variable names are *case-sensitive*
 - It is traditional to use upper case letters in variable names
-- It is recommended to use lower case letters for variable names that serve internal purposes in the makefile
-
-- Every environment variable that ~make~ sees when it starts up is transformed into a ~make~ variable with the same name and value.
-- ~SHELL~ variable is an exception.
-- Explicit assignments will override the variables from environment.
+- It is recommended to use *lower case letters* for variable names that serve *internal purposes in the makefile*
+- Every environment variable that ~make~ sees *when it starts up is transformed into* a ~make~ variable with the same name and value.
+- *Explicit assignments will override the variables from environment.*
 - When ~make~ runs a recipe, variables defined in the ~Makefile~ are placed into the environment of each shell.
 
 #+BEGIN_SRC makefile
+  # recursively expanded variable
+  # -----------------------------
   foo = $(bar)
   bar = $(ugh)
   ugh = Huh?
 
   all:;echo $(foo)  # prints 'Huh?', by recursive expansion
+#+END_SRC
+
+#+BEGIN_SRC makefile
+  # simply expanded variable
+  # ------------------------
+  # For GNU make, '::=' is equivalent to ':='
+  # POSIX standard only supports '::='
+
+  x := foo
+  y := $(x) bar  # evaluated right away
+  x := later
+
+  all:
+    echo $(y)  # prints 'foo bar'
+    echo $(x)  # prints 'later'
 #+END_SRC
 
 #+BEGIN_SRC makefile
@@ -376,13 +407,15 @@ When the same sequence of commands is useful in making various targets:
 #+END_SRC
 
 #+BEGIN_SRC makefile
+  # like setdefulat
   FOO ?= bar  # set a value only if it’s not already set
 
   # Equivalent to above
   ifeq ($(origin FOO), undefined)
-  FOO = bar
+    FOO = bar
   endif
 #+END_SRC
+- [[https://www.gnu.org/software/make/manual/html_node/Origin-Function.html#Origin-Function][$(origin variable)]] :: tell the source of the variable, like ~undefined~, ~environment~, ~default~, etc.
 
 #+BEGIN_SRC makefile
   # Set the ouptut of a shell execution to the variable
@@ -402,7 +435,8 @@ When the same sequence of commands is useful in making various targets:
 #+END_SRC
 
 #+BEGIN_SRC makefile
-  prog : CFLAGS = -g  # Target specific variable, wil be inherited by dependent targets
+  # Target specific variable, wil be inherited by dependent targets
+  prog : CFLAGS = -g
   prog : prog.o foo.o bar.o
 
   EXTRA_CFLAGS =
@@ -413,8 +447,10 @@ When the same sequence of commands is useful in making various targets:
 
 -----
 - https://www.gnu.org/software/make/manual/make.html#How-to-Use-Variables
+- https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors
 - https://www.gnu.org/software/make/manual/make.html#Other-Special-Variables
 - https://www.gnu.org/software/make/manual/make.html#Automatic-Variables-1
+- https://www.gnu.org/software/make/manual/html_node/Target_002dspecific.html
 
 ** Conditionals
 #+BEGIN_SRC makefile
@@ -436,7 +472,19 @@ When the same sequence of commands is useful in making various targets:
   $(function arguments)
 #+END_SRC
 -----
-- https://www.gnu.org/software/make/manual/make.html#Functions-for-Transforming-Text
+- https://www.gnu.org/software/make/manual/html_node/Functions.html#Functions
+
+*** Define custom functions
+- There is no explicit function definition, but it can be mimicked using [[https://www.gnu.org/software/make/manual/html_node/Multi_002dLine.html#Multi_002dLine][define]] directive along with [[https://www.gnu.org/software/make/manual/html_node/Call-Function.html#Call-Function][$(call variable,param,param,…)]]
+
+#+BEGIN_SRC makefile
+  define foo
+  echo $(1)
+  endef
+
+  bar:
+      @$(call foo,'Hello World!')
+#+END_SRC
 
 ** CLI
 -----
@@ -448,6 +496,14 @@ When the same sequence of commands is useful in making various targets:
   : SHELL = /bin/sh
 -----
 - https://www.gnu.org/software/make/manual/make.html#General-Conventions-for-Makefiles
+
+* Reference
+** [[https://www.gnu.org/software/make/manual/html_node/Text-Functions.html][$(filter-out pattern…,text)]]
+#+BEGIN_SRC makefile
+  objects=main1.o foo.o main2.o bar.o
+  mains=main1.o main2.o
+  $(filter-out $(mains),$(objects)) # foo.o bar.o
+#+END_SRC
 
 * Links
 - https://www.gnu.org/software/make/manual/make.html
