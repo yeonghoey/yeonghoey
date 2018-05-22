@@ -1,0 +1,18 @@
+#+TITLE: pathlib
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+
+* Overview
+#+BEGIN_SRC python
+  from pathlib import Path
+
+  p = Path('/path/to/file')
+  print(p.parents[0])  # /path/to
+  print(p.parents[1])  # /path
+
+  p.mkdir(parents=True, exist_ok=True)
+#+END_SRC
+
+-----
+- https://docs.python.org/3/library/pathlib.html
