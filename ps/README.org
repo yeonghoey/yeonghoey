@@ -1,0 +1,25 @@
+#+TITLE: ps
+
+* Table of Contents :TOC_2_gh:
+- [[#reference][Reference]]
+  - [[#-o-keywords][-o keywords]]
+
+* Reference
+** -o keywords
+
+#+BEGIN_SRC shell
+  # select fields
+  $ ps -o pgid
+  PGID
+   836
+   838
+
+  # customize header.comma separated
+  $ ps -o pgid=,pid=foo
+        foo
+  836   836
+  838   838
+#+END_SRC
+-----
+- https://ss64.com/bash/ps.html
+- https://ss64.com/bash/ps_keywords.html
