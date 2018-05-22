@@ -31,6 +31,8 @@
   - [[#conventions][Conventions]]
 - [[#reference][Reference]]
   - [[#filter-out-patterntext][$(filter-out pattern…,text)]]
+- [[#how-to][How-to]]
+  - [[#manage-background-processes][Manage background processes]]
 - [[#links][Links]]
 
 * Overview
@@ -537,6 +539,27 @@ When the same sequence of commands is useful in making various targets:
   objects=main1.o foo.o main2.o bar.o
   mains=main1.o main2.o
   $(filter-out $(mains),$(objects)) # foo.o bar.o
+#+END_SRC
+
+* How-to
+** Manage background processes
+- Write a pid file when running a background process using shell's ~$!~
+- Clean up the process on stop
+
+#+BEGIN_SRC makefile
+  test: db
+    pipenv run pytest
+
+  db: db.pid
+
+  db.pid:
+    sls dynamodb start &> 'db.log' & echo "$$!" > 'db.pid'
+
+  db-stop: PID  = $(shell cat db.pid)
+  db-stop: PGID = $(shell ps -o pgid= $(PID))
+  db-stop:
+    -kill -INT -$(PGID)
+    -rm 'db.pid'
 #+END_SRC
 
 * Links
