@@ -294,18 +294,52 @@ when x.c, y.c and z.c all exist will execute:
   Placed after ~|~, just specify the dependency, but not triggers the target even if it's newer.
 
 #+BEGIN_SRC makefile
-  OBJDIR := objdir
-  OBJS := $(addprefix $(OBJDIR)/,foo.o bar.o baz.o)
-
-  # $(OBJDIR) is triggered before $(OBJS),
-  # But $(OBJS) won't be triggered even if $(OBJDIR) is newer
-  $(OBJS): | $(OBJDIR)
-
-  $(OBJDIR):
-          mkdir $(OBJDIR)
+  a: b
+      touch a
+  b: c
+      touch b
+  c:
+      touch c
+  x: | y
+      touch x
+  y: | z
+      touch y
+  z:
+      touch z
 #+END_SRC
+
+#+BEGIN_EXAMPLE
+  $ make a
+  touch c
+  touch b
+  touch a
+  $ make x
+  touch z
+  touch y
+  touch x
+  $ make a
+  make: `a' is up to date.
+  $ make x
+  make: `x' is up to date.
+  $ touch c
+  $ make a
+  touch b
+  touch a
+  $ touch z
+  $ make x
+  make: `x' is up to date.
+  $ rm c
+  $ make a
+  touch c
+  touch b
+  touch a
+  $ rm z
+  $ make x
+  touch z
+#+END_EXAMPLE
 -----
 - https://www.gnu.org/software/make/manual/make.html#Types-of-Prerequisites
+- https://stackoverflow.com/questions/24821611/order-only-prerequisites-not-working-correctly-in-gnu-make
 
 *** VPATH
 #+BEGIN_SRC makefile
