@@ -4,6 +4,7 @@
 - [[#types][Types]]
 - [[#examples][Examples]]
   - [[#update_item][update_item]]
+  - [[#wait_until_exists][wait_until_exists]]
 
 * Types
 - http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#ref-valid-dynamodb-types
@@ -29,3 +30,15 @@
 - https://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Table.update_item
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeValues.html
+** wait_until_exists
+[[http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Table.wait_until_exists][table.wait_until_exists()]] doesn't expose the waiter parameters.
+To manually do the operation using client:
+
+#+BEGIN_SRC python
+  waiter = resource.meta.client.get_waiter('table_exists')
+  waiter.wait(TableName=table.name, WaiterConfig={'Delay': 5})
+  setattr(g, attr, table)
+#+END_SRC
+
+-----
+- http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists
