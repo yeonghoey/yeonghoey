@@ -11,6 +11,7 @@
   $ kill -INT 0  # current process group
 
   # kill $PID's process group
+  # grep is used because some `ps` prints the header like PGID
   $ kill -INT -$(ps -o pgid= $PID | grep -o '[0-9]*')
 #+END_SRC
 
