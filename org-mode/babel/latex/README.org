@@ -1,0 +1,18 @@
+#+TITLE: Babel: LaTex
+
+* Table of Contents :TOC_2_gh:
+- [[#examples][Examples]]
+
+* Examples
+#+BEGIN_SRC latex :results raw :exports results :file d65525d0-ba58-11e7-ab13-0242ade4b119.png
+  \begin{gather}
+    \begin{align*}
+      X_1 &\equiv S+R {\pmod {P}}\\
+      X_2 &\equiv S+2R{\pmod {P}}\\
+      2X_1 - X_2 &\equiv S {\pmod {P}}
+    \end{align}
+  \end{gather}
+#+END_SRC
+
+#+RESULTS:
+[[file:d65525d0-ba58-11e7-ab13-0242ade4b119.png]]
