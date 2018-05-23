@@ -3,6 +3,7 @@
 * Table of Contents :TOC_2_gh:
 - [[#course-information][Course Information]]
 - [[#student-introduction][Student Introduction]]
+- [[#contents][Contents]]
 
 * Course Information
 [[file:_img/screenshot_2018-05-16_13-45-30.png]]
@@ -40,3 +41,7 @@
 - I recently got a desk on WeWork, and I'm pursuing what I love.
 - I'm a heavy note taker. You're welcome to look around github.com/yeonghoey/yeonghoey
 #+END_QUOTE
+
+* Contents
+- [[./week-01/README.org][Week 1]]
+- [[./week-02/README.org][Week 2]]

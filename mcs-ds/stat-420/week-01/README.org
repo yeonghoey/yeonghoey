@@ -1,4 +1,4 @@
-#+TITLE: STAT 420: Week 01
+#+TITLE: STAT 420: Week 1
 
 * Table of Contents :TOC_2_gh:
 - [[#r-and-rstudio][R and RStudio]]

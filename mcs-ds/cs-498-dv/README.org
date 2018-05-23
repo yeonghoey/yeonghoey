@@ -3,6 +3,7 @@
 * Table of Contents :TOC_2_gh:
 - [[#course-information][Course Information]]
 - [[#resources][Resources]]
+- [[#contents][Contents]]
 
 * Course Information
 [[file:_img/screenshot_2018-05-15_12-57-52.png]]
@@ -26,3 +27,6 @@
 
 -----
 - https://www.coursera.org/learn/cs-498-dv/supplement/ijZAO/resources
+* Contents
+- [[./week-01/README.org][Week 1]]
+- [[./week-02/README.org][Week 2]]

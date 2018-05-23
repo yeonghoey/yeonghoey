@@ -1,4 +1,4 @@
-#+TITLE: CS 498: Week 02
+#+TITLE: CS 498: Week 2
 
 * Table of Contents :TOC_2_gh:
 - [[#lesson-2-1-data-mapping-and-charts][Lesson 2-1: Data, Mapping, and Charts]]

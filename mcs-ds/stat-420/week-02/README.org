@@ -1,4 +1,4 @@
-#+TITLE: STAT 420: Week 02
+#+TITLE: STAT 420: Week 2
 
 * Table of Contents :TOC_2_gh:
 - [[#simple-linear-regression][Simple Linear Regression]]

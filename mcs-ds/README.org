@@ -1,0 +1,10 @@
+#+TITLE: MCS-DS: Master of Computer Science in Data Science
+
+* Table of Contents :TOC_2_gh:
+- [[#semesters][Semesters]]
+  - [[#summer-2018][Summer 2018]]
+
+* Semesters
+** Summer 2018
+- [[./cs-498-dv/README.org][CS 498: Data Visualization]]
+- [[./stat-420/README.org][STAT 420: Statistical Modeling in R]]
