@@ -19,6 +19,7 @@
   - [[#134-the-human-retina][1.3.4. The Human Retina]]
   - [[#135-perceiving-two-dimensions][1.3.5. Perceiving Two Dimensions]]
   - [[#136-perceiving-perspective][1.3.6. Perceiving Perspective]]
+- [[#week-1-milestone-how-many-and-what-programming-languages-does-each-open-source-developer-use][Week 1 Milestone: How many and what programming languages does each open source developer use?]]
 
 * Week 1 Information
 ** Week 1 Introduction
@@ -150,3 +151,12 @@ We tend to focus better on warmer colors
 - Avoid the incorporation of artificial 3d elements in the presentation of 2d data.
 -----
 - [[./slides/1.3.6.pdf]]
+* Week 1 Milestone: How many and what programming languages does each open source developer use?
+As a programming language enthusiast, I've always been curious about how other developers use programming languages.
+
+With short research, I found out that GitHub provides almost all of events happening on GitHub, and https://www.gharchive.org/ provide those data from 2011 as bundles.
+
+On GitHub, people make pull requests and review and merge them.
+Based on [[https://developer.github.com/v3/activity/events/types/#pullrequestevent][PullRequestEvent]], I found out that I can extract information like related developers and the representative programming language of pull requests.
+
+I'm going to start the project by visualizing how many programming languages each developer use. Moreover, I'm going to improve the project with details like "what languages are most popular among 5 or more language developers?", "How the programming language polyglotism trend changes over the years?"
