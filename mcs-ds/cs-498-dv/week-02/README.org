@@ -24,6 +24,9 @@
 
 [[file:_img/screenshot_2018-05-21_11-39-06.png]]
 
+I'm not familiar with Data Warehouses. So I found a concept image ([[https://www.slideshare.net/algum/data-cubes-7923771][ref]]):
+[[file:_img/screenshot_2018-05-23_11-13-11.png]]
+
 -----
 - [[./slides/2.1.1.pdf]]
 
