@@ -1,8 +1,11 @@
 #+TITLE: Org Mode
 
-* Table of Contents                                                :TOC_1_GH:
+* Table of Contents :TOC_3_gh:
 - [[#settings][Settings]]
+  - [[#omitting-title][Omitting #+TITLE]]
 - [[#markup][Markup]]
+  - [[#code-vs-verbatim][code(~~) vs verbatim(==)]]
+  - [[#cant-stylize-part-of-a-word][Can't stylize part of a word]]
 - [[#easy-templates][Easy Templates]]
 - [[#babel][Babel]]
 - [[#latex][LaTeX]]
@@ -11,7 +14,11 @@
 - [[#agenda][Agenda]]
 - [[#capture][Capture]]
 - [[#add-ons][Add-ons]]
+  - [[#toc-org][toc-org]]
+  - [[#org-reveal][org-reveal]]
+  - [[#ox-twbs][ox-twbs]]
 - [[#use-cases][Use Cases]]
+  - [[#automatically-save-buffers-after-refiling-and-archiving][Automatically Save buffers after refiling and archiving]]
 
 * Settings
 - https://github.com/fniessen/refcard-org-mode
@@ -171,7 +178,7 @@ delimited by whitespace or punctuation.
 #+END_EXAMPLE
 
 * Babel
-SEE: [[./babel]]
+For about ~#+BEGIN_SRC~, see [[./babel]]
 
 * LaTeX
 When using LaTex as a part of documentations which will be exported some other forms like ~html~ and the like,

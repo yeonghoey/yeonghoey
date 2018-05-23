@@ -2,7 +2,8 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
-- [[#reference][Reference]]
+- [[#switches][Switches]]
+- [[#headers][Headers]]
   - [[#results][:results]]
 
 * Overview
@@ -16,11 +17,52 @@
   ,#+BEGIN_SRC emacs-lisp -n 20  ;; Show line numbers starting from 20
   ,#+BEGIN_SRC emacs-lisp +n 20  ;; Show line numbers ending with 20
 #+END_SRC
+
+#+BEGIN_SRC org
+  ,#+NAME: named-block
+  ,#+HEADER: :var data=2
+  ,#+BEGIN_SRC emacs-lisp
+    (message "data:%S" data)
+  ,#+END_SRC
+
+  ,#+RESULTS: named-block
+    : data:2
+#+END_SRC
+
+- ~#+NAME:~ :: optional, can be refered with the name from some other elements in the document
+- ~#+HEADER:~ :: put headers in separated lines
+
 -----
 - http://orgmode.org/manual/Structure-of-code-blocks.html
 - http://orgmode.org/worg/org-contrib/babel/languages.html
+- https://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments
 
-* Reference
+* Switches
+-----
+- https://orgmode.org/manual/Literal-examples.html#Literal-examples
+
+* Headers
+1. Editor wide :: ~org-babel-default-header-args~ or ~org-babel-default-header-args:<lang>~
+2. Heading wide ::
+  #+BEGIN_SRC org
+    ,* sample header
+      :PROPERTIES:
+      :header-args:    :cache yes
+      :END:
+
+    # Language specific
+    ,* Heading
+      :PROPERTIES:
+      :header-args:clojure:    :session *clojure-1*
+      :header-args:R:          :session *R*
+      :END:
+  #+END_SRC
+3. Block wide ::
+  #+BEGIN_SRC org
+    ,#+HEADER: :var data=2
+    ,#+BEGIN_SRC emacs-lisp :results both
+    ,#+END_SRC
+  #+END_SRC
 -----
 - http://orgmode.org/manual/Specific-header-arguments.html#Specific-header-arguments
 
