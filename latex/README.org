@@ -4,16 +4,10 @@
 - [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#mathematical-symbols][Mathematical Symbols]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
 
 * Overview
 * Reference
 ** Mathematical Symbols
-- http://reu.dimacs.rutgers.edu/Symbols.pdf
-
 [[file:_img/screenshot_2017-10-26_20-46-57.png]]
 
 [[file:_img/screenshot_2017-10-26_20-47-18.png]]
@@ -22,8 +16,5 @@
 
 [[file:_img/screenshot_2017-10-26_20-47-50.png]]
 
-
-* Terminology
-* Topics
-* How-to
-* Links
+-----
+- http://reu.dimacs.rutgers.edu/Symbols.pdf
