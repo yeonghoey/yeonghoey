@@ -4,7 +4,11 @@
 - [[#examples][Examples]]
 
 * Examples
-#+BEGIN_SRC latex :results raw :exports results :file d65525d0-ba58-11e7-ab13-0242ade4b119.png
+#+HEADER: :results value raw
+#+HEADER: :exports results
+#+HEADER: :file a.png
+#+HEADER: :imagemagick t
+#+BEGIN_SRC latex
   \begin{gather}
     \begin{align*}
       X_1 &\equiv S+R {\pmod {P}}\\
@@ -15,4 +19,4 @@
 #+END_SRC
 
 #+RESULTS:
-[[file:d65525d0-ba58-11e7-ab13-0242ade4b119.png]]
+[[file:a.png]]
