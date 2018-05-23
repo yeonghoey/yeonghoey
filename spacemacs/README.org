@@ -210,7 +210,6 @@ It seems that ~Spacemacs~ uses ~EditorConfig~ implicitly. To make it explicit:
 - https://github.com/syl20bnr/spacemacs/issues/7641
 - Simply run ~:spacemacs/recompile-elpa~ and restart emacs
 
-
 * How-to
 ** Enable navigation by visual lines?
 Add the following snippet to your =dotspacemacs/user-config= function:
