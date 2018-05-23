@@ -25,3 +25,6 @@
 - http://orgmode.org/manual/Specific-header-arguments.html#Specific-header-arguments
 
 ** :results
+
+-----
+- https://orgmode.org/manual/results.html
