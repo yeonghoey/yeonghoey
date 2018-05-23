@@ -1,14 +1,28 @@
 #+TITLE: Babel: LaTex
 
 * Table of Contents :TOC_2_gh:
-- [[#examples][Examples]]
+- [[#overview][Overview]]
+- [[#headers][Headers]]
+  - [[#buffer][:buffer]]
 
-* Examples
-#+BEGIN_SRC latex :file a.png :results raw :foreground Black :buffer no :exports results
-  X_1 &\equiv S+R {\pmod {P}}\\
-  X_2 &\equiv S+2R{\pmod {P}}\\
-  2X_1 - X_2 &\equiv S {\pmod {P}}
+* Overview
+#+BEGIN_SRC org
+  ,#+HEADER: :results raw :exports both :buffer no
+  ,#+BEGIN_SRC latex :file _img/a.png
+    \sum x
+  ,#+END_SRC
+#+END_SRC
+
+#+HEADER: :results raw :exports both :buffer no
+#+BEGIN_SRC latex :file _img/a.png
+  \sum x
 #+END_SRC
 
 #+RESULTS:
-[[file:a.png]]
+[[file:_img/a.png]]
+
+
+* Headers
+** :buffer
+- ~yes~ :: current face colors (editor theme) is used to render. (not recommended)
+- ~no~  :: If you want to export the redended image to html or something, *use this*
