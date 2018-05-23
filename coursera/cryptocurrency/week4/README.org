@@ -41,8 +41,7 @@
 
 - By https://en.wikipedia.org/wiki/Modular_arithmetic#Properties, the equation of reconstruction is true.
 
-#+HEADER: :results raw :exports results :buffer no
-#+BEGIN_SRC latex :file _img/equation1.png
+#+BEGIN_SRC latex :file _img/equation1.png :results raw :exports both :buffer no
   \begin{gather}
     \begin{align*}
       X_1 &\equiv S+R {\pmod {P}}\\

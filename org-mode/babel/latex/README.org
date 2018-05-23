@@ -7,15 +7,14 @@
 
 * Overview
 #+BEGIN_SRC org
-  ,#+HEADER: :results raw :exports both :buffer no
-  ,#+BEGIN_SRC latex :file _img/a.png
+  ,#+BEGIN_SRC latex :file _img/a.png :results raw :exports both :buffer no
     \sum x
   ,#+END_SRC
 #+END_SRC
+(GitHub's ~github-markup~ doesn't seem to support ~#+HEADER:~ syntax.)
 
-#+HEADER: :results raw :exports both :buffer no
-#+BEGIN_SRC latex :file _img/a.png
-  \sum x
+#+BEGIN_SRC latex :file _img/a.png :results raw :exports both :buffer no
+  \sum x^2
 #+END_SRC
 
 #+RESULTS:
