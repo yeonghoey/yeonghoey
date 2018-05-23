@@ -763,7 +763,13 @@ $b
 #+BEGIN_SRC R :file _img/plot.png :results graphics :exports both
   mpg = ggplot2::mpg
   # scatter plot
-  plot(hwy ~ displ, data = mpg)
+  plot(hwy ~ displ, data = mpg,
+       xlab = "Engine Displacement (in Liters)",
+       ylab = "Miles Per Gallon (Highway)",
+       main = "MPG (Highway) vs Engine Displacement",
+       pch  = 20,
+       cex  = 2,
+       col  = "dodgerblue")
 #+END_SRC
 
 #+RESULTS:
