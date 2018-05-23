@@ -1,0 +1,27 @@
+#+TITLE: org-babel
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#results][:results]]
+
+* Overview
+#+BEGIN_SRC org
+  ,#+NAME: <name>
+  ,#+BEGIN_SRC <language> <switches> <header arguments>
+     <body>
+  ,#+END_SRC
+
+  ,#+BEGIN_SRC emacs-lisp
+  ,#+BEGIN_SRC emacs-lisp -n 20  ;; Show line numbers starting from 20
+  ,#+BEGIN_SRC emacs-lisp +n 20  ;; Show line numbers ending with 20
+#+END_SRC
+-----
+- http://orgmode.org/manual/Structure-of-code-blocks.html
+- http://orgmode.org/worg/org-contrib/babel/languages.html
+
+* Reference
+-----
+- http://orgmode.org/manual/Specific-header-arguments.html#Specific-header-arguments
+
+** :results

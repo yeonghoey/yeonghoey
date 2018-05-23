@@ -171,50 +171,7 @@ delimited by whitespace or punctuation.
 #+END_EXAMPLE
 
 * Babel
-- http://orgmode.org/worg/org-contrib/babel/languages.html
-- http://orgmode.org/manual/Structure-of-code-blocks.html
-- http://orgmode.org/manual/Specific-header-arguments.html#Specific-header-arguments
-
-** Basics
-#+BEGIN_SRC org
-  ,#+NAME: <name>
-  ,#+BEGIN_SRC <language> <switches> <header arguments>
-     <body>
-  ,#+END_SRC
-
-  ,#+BEGIN_SRC emacs-lisp
-  ,#+BEGIN_SRC emacs-lisp -n 20  ;; Show line numbers starting from 20
-  ,#+BEGIN_SRC emacs-lisp +n 20  ;; Show line numbers ending with 20
-#+END_SRC
-
-** Python
-#+BEGIN_SRC org
-  ,#+BEGIN_SRC python :results output
-    print "Hello, world!"
-  ,#+END_SRC
-
-  ,#+RESULTS:
-  : Hello, world!
-
-  ,#+TBLNAME: data_table
-  | a | 1 |
-  | b | 2 |
-  | c | 3 |
-
-  ,#+BEGIN_SRC python :var val=1 :var data=data_table
-    return data[val]
-  ,#+END_SRC
-
-  ,#+RESULTS:
-  | b | 2 |
-#+END_SRC
-
-** Graphviz
-- http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-dot.html
-
-#+BEGIN_SRC org
-  ,#+BEGIN_SRC dot :file img/small-graph.png :exports results
-#+END_SRC
+- [[/org-babel]]
 
 * LaTeX
 - http://orgmode.org/manual/LaTeX-export.html#LaTeX-export

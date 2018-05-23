@@ -1,0 +1,6 @@
+* Graphviz
+#+BEGIN_SRC org
+  ,#+BEGIN_SRC dot :file img/small-graph.png :exports results
+#+END_SRC
+-----
+- http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-dot.html

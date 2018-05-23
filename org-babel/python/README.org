@@ -1,0 +1,21 @@
+* Python
+#+BEGIN_SRC org
+  ,#+BEGIN_SRC python :results output
+    print "Hello, world!"
+  ,#+END_SRC
+
+  ,#+RESULTS:
+  : Hello, world!
+
+  ,#+TBLNAME: data_table
+  | a | 1 |
+  | b | 2 |
+  | c | 3 |
+
+  ,#+BEGIN_SRC python :var val=1 :var data=data_table
+    return data[val]
+  ,#+END_SRC
+
+  ,#+RESULTS:
+  | b | 2 |
+#+END_SRC
