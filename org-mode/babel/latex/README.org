@@ -4,18 +4,10 @@
 - [[#examples][Examples]]
 
 * Examples
-#+HEADER: :results value raw
-#+HEADER: :exports results
-#+HEADER: :file a.png
-#+HEADER: :imagemagick t
-#+BEGIN_SRC latex
-  \begin{gather}
-    \begin{align*}
-      X_1 &\equiv S+R {\pmod {P}}\\
-      X_2 &\equiv S+2R{\pmod {P}}\\
-      2X_1 - X_2 &\equiv S {\pmod {P}}
-    \end{align}
-  \end{gather}
+#+BEGIN_SRC latex :file a.png :results raw :foreground Black :buffer no :exports results
+  X_1 &\equiv S+R {\pmod {P}}\\
+  X_2 &\equiv S+2R{\pmod {P}}\\
+  2X_1 - X_2 &\equiv S {\pmod {P}}
 #+END_SRC
 
 #+RESULTS:
