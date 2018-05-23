@@ -171,16 +171,15 @@ delimited by whitespace or punctuation.
 #+END_EXAMPLE
 
 * Babel
-- [[/org-babel]]
+SEE: [[/org-babel]]
 
 * LaTeX
-- http://orgmode.org/manual/LaTeX-export.html#LaTeX-export
+When using LaTex as a part of documentations which will be exported some other forms like ~html~ and the like,
+use [[/org-babel/latex]] instead of native org-mode's LaTeX supprot.
 
 #+BEGIN_EXAMPLE
   ,#+LATEX: any arbitrary LaTeX code
-  
   ---
-
   <l + <TAB>
   ,#+BEGIN_EXPORT latex
   any arbitrary LaTeX code
@@ -197,6 +196,8 @@ delimited by whitespace or punctuation.
   x=\sqrt{b}
   \end{equation}
 #+END_EXAMPLE
+-----
+- http://orgmode.org/manual/LaTeX-export.html#LaTeX-export
 
 * Export
 - http://orgmode.org/manual/Exporting.html
