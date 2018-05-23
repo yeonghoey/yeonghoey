@@ -154,7 +154,7 @@ We tend to focus better on warmer colors
 * Week 1 Milestone: How many and what programming languages does each open source developer use?
 As a programming language enthusiast, I've always been curious about how other developers use programming languages.
 
-With short research, I found out that GitHub provides almost all of events happening on GitHub, and https://www.gharchive.org/ provide those data from 2011 as bundles.
+With short research, I found out that GitHub provides almost all of events happening on GitHub, and https://www.gharchive.org/ provides those data from 2011 as bundles.
 
 On GitHub, people make pull requests and review and merge them.
 Based on [[https://developer.github.com/v3/activity/events/types/#pullrequestevent][PullRequestEvent]], I found out that I can extract information like related developers and the representative programming language of pull requests.
