@@ -2,16 +2,191 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#reference][Reference]]
+  - [[#array-matrix][array, matrix]]
+  - [[#assign][assign]]
+  - [[#attr-attributes][attr, attributes]]
+  - [[#class-mode][class, mode]]
+  - [[#factor][factor]]
   - [[#help][help]]
   - [[#length][length]]
-  - [[#mode][mode]]
   - [[#na][NA]]
-  - [[#vector][Vector]]
+  - [[#tapply][tapply]]
+  - [[#vector][vector]]
 - [[#topics][Topics]]
-  - [[#syntax][Syntax]]
-  - [[#assignments][Assignments]]
+  - [[#oo-systems][OO Systems]]
 
 * Reference
+- R is case sensitive
+- Symbols: ~[A-Za-z][.0-9A-Za-z_]*~ or ~[.]([A-Za-z][.0-9A-Za-z_]*)?~
+- Strings can be expressed by ~'~ or ~"~. ~"~ is preferred.
+- Commands are separated either by a semi-colon(~;~) or by a newline(~\n~).
+- Commands can be grouped by braces(~{}~)
+- Comments can be put almost everywhere, staring with ~#~
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#R-commands_002c-case-sensitivity_002c-etc_002e
+
+** array, matrix
+- a multiply subscripted collection of data entries
+
+#+BEGIN_SRC R :results output :exports both
+  x = 1:9
+  dim(x) <- c(3, 3)
+  x
+  array(1:9, dim = c(3, 3))
+  matrix(1:9, nrow = 3, ncol = 3)
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+#+end_example
+
+#+BEGIN_SRC R :results output :exports both
+  x = 1:3
+  y = 1:3 * 10
+  z = 1:3 * 100
+  cbind(x, y, z)                      # column named are bound as their variable name
+  cbind(col1 = x, col2 = y, col3 = z) # specify column names explicitly
+#+END_SRC
+
+#+RESULTS:
+:      x  y   z
+: [1,] 1 10 100
+: [2,] 2 20 200
+: [3,] 3 30 300
+:      col1 col2 col3
+: [1,]    1   10  100
+: [2,]    2   20  200
+: [3,]    3   30  300
+
+#+BEGIN_SRC R :results output :exports both
+  x <- matrix(1:9, 3, 3)
+  x
+  i <- array(c(1:3,3:1), dim = c(3, 2))
+  x[i] # === c(x[1, 3], x[2, 2], x[3, 1])
+  x[i] <- 0
+  x
+#+END_SRC
+
+#+RESULTS:
+:      [,1] [,2] [,3]
+: [1,]    1    4    7
+: [2,]    2    5    8
+: [3,]    3    6    9
+: [1] 7 5 3
+:      [,1] [,2] [,3]
+: [1,]    1    4    0
+: [2,]    2    0    8
+: [3,]    0    6    9
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Arrays-1
+
+** assign
+#+BEGIN_SRC R
+  # following lines are all the same
+  x <- 0
+  0 -> x
+  x = 0
+  assign("x", 0)
+#+END_SRC
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Vectors-and-assignment-1
+
+** attr, attributes
+#+BEGIN_SRC R :results output :exports both
+  z <- matrix(0, nrow = 3, ncol = 3)
+  attributes(z)
+  attr(z, "dim")
+  z
+  attr(z, "dim") <- 9
+  z
+#+END_SRC
+
+#+RESULTS:
+: $dim
+: [1] 3 3
+: 
+: [1] 3 3
+:      [,1] [,2] [,3]
+: [1,]    0    0    0
+: [2,]    0    0    0
+: [3,]    0    0    0
+: [1] 0 0 0 0 0 0 0 0 0
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Getting-and-setting-attributes-1
+
+** class, mode
+- ~class~ is similar to the class from other languages
+- ~mode~ is a kind of /atomic types/
+
+#+BEGIN_SRC R :results output :exports both
+  x <- 10
+  class(x)
+  unclass(x)  # remove temporarily the effects of class
+#+END_SRC
+
+#+RESULTS:
+: [1] "numeric"
+: NULL
+: [1] 10
+
+#+BEGIN_SRC R :results output :exports both
+  mode(TRUE)
+  mode(0)
+  mode(1i)
+  mode("foo")
+#+END_SRC
+
+#+RESULTS:
+: [1] "logical"
+: [1] "numeric"
+: [1] "complex"
+: [1] "character"
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Intrinsic-attributes_003a-mode-and-length
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#The-class-of-an-object-1
+
+** factor
+- R provides both ordered and unordered factors.
+
+#+BEGIN_SRC R :results output :exports both
+  sz <- c("M", "L", "S", "XL")
+  sz1 <- factor(sz)  # Levels are sorted by alphabetical order by default
+  sz1
+  sz2 <- factor(sz, levels = c("S", "M", "L", "XL"))
+  sz2
+  sz3 <- factor(sz, ordered = FALSE)
+  sz3
+  levels(sz1)
+  levels(sz2)
+#+END_SRC
+
+#+RESULTS:
+: [1] M  L  S  XL
+: Levels: L M S XL
+: [1] M  L  S  XL
+: Levels: S M L XL
+: [1] M  L  S  XL
+: Levels: L M S XL
+: [1] "L"  "M"  "S"  "XL"
+: [1] "S"  "M"  "L"  "XL"
+: [1] "L"  "M"  "S"  "XL"
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Ordered-and-unordered-factors
+
 ** help
 #+BEGIN_SRC R
   help(solve)         # same as ?solve
@@ -45,22 +220,6 @@
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Changing-the-length-of-an-object-1
 
-** mode
-- a kind of /atomic types/
-
-#+BEGIN_SRC R :results output :exports both
-  mode(TRUE)
-  mode(0)
-  mode(1i)
-  mode("foo")
-#+END_SRC
-
-#+RESULTS:
-: [1] "logical"
-: [1] "numeric"
-: [1] "complex"
-: [1] "character"
-
 ** NA
 - Stands for Not Available
 - Most functions have ~na.rm~ parameter that excludes ~NA~ when it's ~TRUE~
@@ -70,7 +229,24 @@
   mean(x, na.rm = TRUE)
 #+END_SRC
 
-** Vector
+** tapply
+- Apply a function to each cell of a ragged array
+- The combination of a vector and a labelling factor is an example of what is sometimes called a ragged array since the subclass sizes are possibly irregular.
+
+#+BEGIN_SRC R :results output :exports both
+  x <- 1:5
+  y <- factor(c("a", "b", "a", "b", "c"))
+  tapply(x, y, mean)
+  tapply(x, y, length)
+#+END_SRC
+
+#+RESULTS:
+: a b c 
+: 2 3 5 
+: a b c 
+: 2 2 1 
+
+** vector
 #+BEGIN_SRC R
   1 + 2 - 3 * 4 / (5 ^ 6)
   a <- c(1,2,3,4)
@@ -143,21 +319,22 @@
 - https://www.cyclismo.org/tutorial/R/basicOps.html
 
 * Topics
-** Syntax
-- R is case sensitive
-- Symbols: ~[A-Za-z][.0-9A-Za-z_]*~ or ~[.]([A-Za-z][.0-9A-Za-z_]*)?~
-- Strings can be expressed by ~'~ or ~"~. ~"~ is preferred.
-- Commands are separated either by a semi-colon(~;~) or by a newline(~\n~).
-- Commands can be grouped by braces(~{}~)
-- Comments can be put almost everywhere, staring with ~#~
------
-- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#R-commands_002c-case-sensitivity_002c-etc_002e
+** OO Systems
+- S3 ::
+  - ~drawRect(canvas, "blue")~ dispatches the method call to ~drawRect.canvas("blue")~
+  #+BEGIN_SRC R
+    methods(print) # list all the sub methods like 'print.lm', etc.
+  #+END_SRC
 
-** Assignments
-#+BEGIN_SRC R
-  # following lines are all the same
-  x <- 0
-  0 -> x
-  x = 0
-  assign("x", 0)
-#+END_SRC
+- S4 ::
+  - similar to S3, but is more formal.
+
+- Reference classes ::
+  - RC for short.
+  - like message-passing OO
+  - Looks like ~canvas$drawRect("blue")~
+
+Currently S3 is the most popular one.
+-----
+- https://stackoverflow.com/questions/6583265/what-does-s3-methods-mean-in-r
+- http://adv-r.had.co.nz/OO-essentials.html
