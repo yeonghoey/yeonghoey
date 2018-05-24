@@ -552,7 +552,7 @@ Notations:
 - ~deviance(object)~                    :: Residual sum of squares, weighted if appropriate.
 - ~formula(object)~                     :: Extract the model formula.
 - ~plot(object)~                        :: Produce four plots, showing residuals, fitted values and some diagnostics.
-- ~predict(object, newdata=data.frame)~ :: The data frame supplied must have variables specified with the same labels as the original. The value is a vector or matrix of predicted values corresponding to the determining variable values in ~data.frame~.
+- [[https://www.rdocumentation.org/packages/stats/versions/3.5.0/topics/predict.lm][predict(object, newdata=data.frame)]]   :: The data frame supplied must have variables specified with the same labels as the original. The value is a vector or matrix of predicted values corresponding to the determining variable values in ~data.frame~.
 - ~print(object)~                       :: Print a concise version of the object. Most often used implicitly.
 - ~residuals(object)~                   :: Extract the (matrix of) residuals, weighted as appropriate. Short form: ~resid(object)~.
 - ~step(object)~                        :: Select a suitable model by adding or dropping terms and preserving hierarchies. The model with the smallest value of AIC (Akaike’s An Information Criterion) discovered in the stepwise search is returned.
