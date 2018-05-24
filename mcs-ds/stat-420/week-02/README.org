@@ -242,8 +242,6 @@ The first two equations above are the same as least squares.
 
 [[file:_img/screenshot_2018-05-21_19-51-14.png]]
 
-k
-
 [[file:_img/screenshot_2018-05-21_19-52-32.png]]
 -----
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#maximum-likelihood-estimation-mle-approach
