@@ -1,21 +1,28 @@
 #+TITLE: R
 
 * Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
+- [[#basics][Basics]]
   - [[#array-matrix][array, matrix]]
   - [[#assign][assign]]
   - [[#attr-attributes][attr, attributes]]
   - [[#class-mode][class, mode]]
+  - [[#dataframe][data.frame]]
   - [[#factor][factor]]
+  - [[#function][function]]
   - [[#help][help]]
   - [[#length][length]]
+  - [[#list][list]]
   - [[#na][NA]]
   - [[#tapply][tapply]]
   - [[#vector][vector]]
+- [[#probability-distributions][Probability distributions]]
+- [[#statistical-models-in-r][Statistical models in R]]
+  - [[#formulae][formulae]]
 - [[#topics][Topics]]
   - [[#oo-systems][OO Systems]]
+  - [[#the-recycling-rule-of-mixed-vector-and-array-arithmetic][The Recycling Rule of Mixed vector and array arithmetic]]
 
-* Reference
+* Basics
 - R is case sensitive
 - Symbols: ~[A-Za-z][.0-9A-Za-z_]*~ or ~[.]([A-Za-z][.0-9A-Za-z_]*)?~
 - Strings can be expressed by ~'~ or ~"~. ~"~ is preferred.
@@ -24,7 +31,7 @@
 - Comments can be put almost everywhere, staring with ~#~
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#R-commands_002c-case-sensitivity_002c-etc_002e
-
+  
 ** array, matrix
 - a multiply subscripted collection of data entries
 
@@ -90,8 +97,39 @@
 : [2,]    2    0    8
 : [3,]    0    6    9
 
+#+BEGIN_SRC R :results output :exports both
+  A <- matrix(1:4, 2, 2)
+  B <- matrix(4:1, 2, 2)
+  A * B     # element-wise product
+  A %*% B   # matrix product
+  solve(A)  # inverse
+#+END_SRC
+
+#+RESULTS:
+:      [,1] [,2]
+: [1,]    4    6
+: [2,]    6    4
+:      [,1] [,2]
+: [1,]   13    5
+: [2,]   20    8
+:      [,1] [,2]
+: [1,]   -2  1.5
+: [2,]    1 -0.5
+
+#+BEGIN_SRC R :results output :exports both
+  A <- matrix(1:4, 2, 2)
+  # To vector
+  as.vector(A)
+  c(A)
+#+END_SRC
+
+#+RESULTS:
+: [1] 1 2 3 4
+: [1] 1 2 3 4
+
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Arrays-1
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#The-concatenation-function_002c-c_0028_0029_002c-with-arrays
 
 ** assign
 #+BEGIN_SRC R
@@ -159,6 +197,25 @@
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Intrinsic-attributes_003a-mode-and-length
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#The-class-of-an-object-1
 
+** data.frame
+A kind of ~list~ but:
+- The components must be vectors (numeric, character, or logical), factors, numeric matrices, lists, or other data frames.
+- Matrices, lists, and data frames provide as many variables to the new data frame as they have columns, elements, or variables, respectively.
+- Numeric vectors, logicals and factors are included as is, and by default18 character vectors are coerced to be factors, whose levels are the unique values appearing in the vector.
+- Vector structures appearing as variables of the data frame must all have the same length, and matrix structures must all have the same row size.
+
+#+BEGIN_SRC R :results output :exports both
+  class(data.frame(1, 2, 3))
+  mode(data.frame(1, 2, 3))
+#+END_SRC
+
+#+RESULTS:
+: [1] "data.frame"
+: [1] "list"
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Data-frames-1
+
 ** factor
 - R provides both ordered and unordered factors.
 
@@ -172,20 +229,64 @@
   sz3
   levels(sz1)
   levels(sz2)
+  table(sz2)  # a contingency table of the counts
 #+END_SRC
 
 #+RESULTS:
-: [1] M  L  S  XL
-: Levels: L M S XL
-: [1] M  L  S  XL
-: Levels: S M L XL
-: [1] M  L  S  XL
-: Levels: L M S XL
-: [1] "L"  "M"  "S"  "XL"
-: [1] "S"  "M"  "L"  "XL"
-: [1] "L"  "M"  "S"  "XL"
+#+begin_example
+[1] M  L  S  XL
+Levels: L M S XL
+[1] M  L  S  XL
+Levels: S M L XL
+[1] M  L  S  XL
+Levels: L M S XL
+[1] "L"  "M"  "S"  "XL"
+[1] "S"  "M"  "L"  "XL"
+sz2
+ S  M  L XL 
+ 1  1  1  1 
+#+end_example
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Ordered-and-unordered-factors
+
+** function
+- any ordinary assignments done within the function are local and temporary and are lost after exit from the function
+
+#+BEGIN_SRC R
+  # define new binary operator
+  "%!%" <- function(X, y) { … }
+#+END_SRC
+
+#+BEGIN_SRC R
+  fun1 <- function(data, data.frame, graph, limit) {
+    [function body omitted]
+  }
+
+  ans <- fun1(d, df, TRUE, 20)
+  ans <- fun1(d, df, graph=TRUE, limit=20)
+  ans <- fun1(data=d, limit=20, graph=TRUE, data.frame=df)
+#+END_SRC
+
+#+BEGIN_SRC R :results output :exports both
+  foo <- function(..., x = 100) {
+    c(..., x)
+  }
+  foo(1, 2, 3)
+  foo(1, 2, x = 3)
+
+  bar <- function(...) {
+    c(..1, ..3)
+  }
+  bar(1, 2, 3)
+#+END_SRC
+
+#+RESULTS:
+: [1]   1   2   3 100
+: [1] 1 2 3
+: [1] 1 3
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Writing-your-own-functions-1
 
 ** help
 #+BEGIN_SRC R
@@ -219,6 +320,65 @@
 : [1] 1 2
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Changing-the-length-of-an-object-1
+
+** list
+#+BEGIN_SRC R :results output :exports both
+  family <- list(name="Fred", wife="Mary", no.children=3, child.ages=c(4,7,9))
+  family$name
+  family[["wife"]]  # element
+  family["wife"]    # sublist
+#+END_SRC
+
+#+RESULTS:
+: [1] "Fred"
+: [1] "Mary"
+
+#+BEGIN_SRC R :results output :exports both
+  x <- list(1, 2, 3)
+  x[4] <- list(4)
+  x
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+[[1]]
+[1] 1
+
+[[2]]
+[1] 2
+
+[[3]]
+[1] 3
+
+[[4]]
+[1] 4
+
+#+end_example
+
+#+BEGIN_SRC R :results output :exports both
+  x <- list("a", "b")
+  y <- list("x", "y")
+  c(x, y)  # concat
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+[[1]]
+[1] "a"
+
+[[2]]
+[1] "b"
+
+[[3]]
+[1] "x"
+
+[[4]]
+[1] "y"
+
+#+end_example
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Lists-1
 
 ** NA
 - Stands for Not Available
@@ -318,6 +478,65 @@
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Simple-manipulations_003b-numbers-and-vectors
 - https://www.cyclismo.org/tutorial/R/basicOps.html
 
+* Probability distributions
+| Distribution      | R name   | additional arguments |
+|-------------------+----------+----------------------|
+| beta              | beta     | shape1, shape2, ncp  |
+| binomial          | binom    | size, prob           |
+| Cauchy            | cauchy   | location, scale      |
+| chi-squared       | chisq    | df, ncp              |
+| exponential       | exp      | rate                 |
+| F                 | f        | df1, df2, ncp        |
+| gamma             | gamma    | shape, scale         |
+| geometric         | geom     | prob                 |
+| hypergeometric    | hyper    | m, n, k              |
+| log-normal        | lnorm    | meanlog, sdlog       |
+| logistic          | logis    | location, scale      |
+| negative binomial | nbinom   | size, prob           |
+| normal            | norm     | mean, sd             |
+| Poisson           | pois     | lambda               |
+| signed rank       | signrank | n                    |
+| Student’s t       | t        | df, ncp              |
+| uniform           | unif     | min, max             |
+| Weibull           | weibull  | shape, scale         |
+| Wilcoxon          | wilcox   | m, n                 |
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Probability-distributions-1
+
+* Statistical models in R
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Statistical-models-in-R-1
+
+** formulae
+The operator =~= is used to define a model formula in R.
+
+#+BEGIN_EXAMPLE
+  response ~ op_1 term_1 op_2 term_2 op_3 term_3 …
+#+END_EXAMPLE
+
+- response :: is a vector or matrix, (or expression evaluating to a vector or matrix) defining the response variable(s).
+- op_i   :: is an operator, either ~+~ or ~-~, implying the inclusion or exclusion of a term in the model, (the first is optional).
+- term_i :: is either
+  - a vector or matrix expression, or ~1~,
+  - a factor, or
+  - a formula expression consisting of factors, vectors or matrices connected by formula operators.
+  In all cases each term defines a collection of columns either to be added to or removed from the model matrix.
+
+Notations:
+- =Y ~ M=        :: Y is modeled as M.
+- =M_1 + M_2=    :: Include M_1 and M_2.
+- =M_1 - M_2=    :: Include M_1 leaving out terms of M_2.
+- =M_1 : M_2=    :: The tensor product of M_1 and M_2. If both terms are factors, then the “subclasses” factor.
+- =M_1 %in% M_2= :: Similar to M_1:M_2, but with a different coding.
+- =M_1 * M_2=    :: =M_1 + M_2 + M_1:M_2=.
+- =M_1 / M_2=    :: =M_1 + M_2 %in% M_1=.
+- =M^n=          :: All terms in =M= together with “interactions” up to order n
+- =I(M)=         :: Insulate =M=. Inside =M= all operators have their normal arithmetic meaning, and that term appears in the model matrix.
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Defining-statistical-models_003b-formulae
+
 * Topics
 ** OO Systems
 - S3 ::
@@ -338,3 +557,11 @@ Currently S3 is the most popular one.
 -----
 - https://stackoverflow.com/questions/6583265/what-does-s3-methods-mean-in-r
 - http://adv-r.had.co.nz/OO-essentials.html
+** The Recycling Rule of Mixed vector and array arithmetic
+- The expression is scanned from left to right.
+- Any short vector operands are extended by recycling their values until they match the size of any other operands.
+- As long as short vectors and arrays only are encountered, the arrays must all have the same dim attribute or an error results.
+- Any vector operand longer than a matrix or array operand generates an error.
+- If array structures are present and no error or coercion to vector has been precipitated, the result is an array structure with the common dim attribute of its array operands.
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Mixed-vector-and-array-arithmetic_002e-The-recycling-rule
