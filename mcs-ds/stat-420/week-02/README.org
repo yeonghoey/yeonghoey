@@ -47,10 +47,57 @@ All models are wrong; some models are useful. — George E. P. Box
 
 [[file:_img/screenshot_2018-05-21_16-56-49.png]]
 
+#+BEGIN_SRC latex :file _img/solve-least-squares1.png :results raw :exports results :buffer no
+  \begin{aligned}
+  \hat{\beta}_1 &= \frac{\sum_{i = 1}^{n} x_i y_i - \frac{(\sum_{i = 1}^{n} x_i)(\sum_{i = 1}^{n} y_i)}{n}}{\sum_{i = 1}^{n} x_i^2 - \frac{(\sum_{i = 1}^{n} x_i)^2}{n}} = \frac{S_{xy}}{S_{xx}}\\
+  \hat{\beta}_0 &= \bar{y} - \hat{\beta}_1 \bar{x}
+  \end{aligned}
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/solve-least-squares1.png]]
+
+#+BEGIN_SRC latex :file _img/solve-least-squares2.png :results raw :exports results :buffer no
+  \begin{aligned}
+  S_{xy} &= \sum_{i = 1}^{n} x_i y_i - \frac{(\sum_{i = 1}^{n} x_i)(\sum_{i = 1}^{n} y_i)}{n}  = \sum_{i = 1}^{n}(x_i - \bar{x})(y_i - \bar{y})\\
+  S_{xx} &= \sum_{i = 1}^{n} x_i^2 - \frac{(\sum_{i = 1}^{n} x_i)^2}{n}  = \sum_{i = 1}^{n}(x_i - \bar{x})^2\\
+  S_{yy} &= \sum_{i = 1}^{n} y_i^2 - \frac{(\sum_{i = 1}^{n} y_i)^2}{n}  = \sum_{i = 1}^{n}(y_i - \bar{y})^2
+  \end{aligned}
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/solve-least-squares2.png]]
+
+This is because:
+#+BEGIN_SRC latex :file _img/solve-least-squares3.png :results raw :exports results :buffer no
+  \begin{aligned}
+  \sum_{i = 1}^{n}(x_i - \bar{x})(y_i - \bar{y})
+  &= \sum x_i y_i - \bar{x}\sum y_i - \bar{y}\sum x_i + \sum \bar{x}\bar{y}\\
+  &= \sum x_i y_i - n \bar{x}\bar{y} - n \bar{x}\bar{y} + n \bar{x}\bar{y}\\
+  &= \sum x_i y_i - n \bar{x}\bar{y}\\
+  &= \sum x_i y_i - \frac{(\sum x) (\sum y)}{n}
+  \end{aligned}
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/solve-least-squares3.png]]
+
+#+BEGIN_SRC latex :file _img/solve-least-squares4.png :results raw :exports results :buffer no
+  \begin{aligned}
+  \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} = \frac{\sum_{i = 1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i = 1}^{n}(x_i - \bar{x})^2}
+  \end{aligned}
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/solve-least-squares4.png]]
+
+
 [[file:_img/screenshot_2018-05-21_17-18-23.png]]
 
 - Interpolation and Extrapolation
 - The further we get away from the dataset, the less confident we are in our fitted model.
+- -----
+- http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#least-squares-approach
 
 ** Simple Linear Regression Model
 [[file:_img/screenshot_2018-05-21_17-26-37.png]]
