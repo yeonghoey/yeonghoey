@@ -197,9 +197,14 @@
 : [1] "complex"
 : [1] "character"
 
+#+BEGIN_EXAMPLE
+  > mean
+  function (x, ...)
+  UseMethod("mean")
+#+END_EXAMPLE
+
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Intrinsic-attributes_003a-mode-and-length
-- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#The-class-of-an-object-1
 
 ** data.frame
 A kind of ~list~ but:
@@ -642,6 +647,114 @@ Currently S3 is the most popular one.
 -----
 - https://stackoverflow.com/questions/6583265/what-does-s3-methods-mean-in-r
 - http://adv-r.had.co.nz/OO-essentials.html
+
+*** S3 object system
+#+BEGIN_SRC R :results output :exports both
+  x <- 1
+  attr(x, "class") <- "foo"
+  x
+
+  # Or in one line
+  x <- structure(1, class = "foo")
+  x
+
+  # Or
+  class(x) <- "foo"
+  class(x)
+#+END_SRC
+
+#+RESULTS:
+: [1] 1
+: attr(,"class")
+: [1] "foo"
+: [1] 1
+: attr(,"class")
+: [1] "foo"
+: [1] "foo"
+
+#+BEGIN_SRC R
+  mean <- function (x, ...) {
+    UseMethod("mean", x)
+  }
+
+  # Methods are ordinary functions that use a special naming convention: 'generic.class':
+  mean.numeric <- function(x, ...) sum(x) / length(x)
+  mean.data.frame <- function(x, ...) sapply(x, mean, ...)
+  mean.matrix <- function(x, ...) apply(x, 2, mean)
+#+END_SRC
+
+#+BEGIN_SRC R :results output :exports both
+  x <- structure(1, class = "foo")
+  bar <- function(x) UseMethod("bar", x)
+  bar.foo <- function(x) "hello"
+  bar(x)
+#+END_SRC
+
+#+RESULTS:
+: [1] "hello"
+
+- There are internal generics, methods implemented in C.
+- Internal generic have a slightly different dispatch mechanism to other generic functions:
+  - Before trying the ~default~ method, they will also try dispatching on the mode of an object
+#+BEGIN_SRC R
+  x <- structure(as.list(1:10), class = "myclass")
+  length(x)  # this works even though there is no 'length.default'
+  # [1] 10
+
+  mylength <- function(x) UseMethod("mylength", x)
+  mylength.list <- function(x) length(x)
+  mylength(x)
+  # Error in UseMethod("mylength", x) :
+  #  no applicable method for 'mylength' applied to an object of class
+  #  "myclass"
+#+END_SRC
+
+Here is how inheritance works:
+#+BEGIN_SRC R :results output :exports both
+  baz <- function(x) UseMethod("baz", x)
+  baz.A <- function(x) "A"
+  baz.B <- function(x) "B"
+
+  ab <- structure(1, class = c("A", "B"))
+  ba <- structure(1, class = c("B", "A"))
+  baz(ab)
+  baz(ba)
+
+  baz.C <- function(x) c("C", NextMethod())
+  ca <- structure(1, class = c("C", "A"))
+  cb <- structure(1, class = c("C", "B"))
+  baz(ca)
+  baz(cb)
+#+END_SRC
+
+#+RESULTS:
+: [1] "A"
+: [1] "B"
+: [1] "C" "A"
+: [1] "C" "B"
+
+# NextMethod() keep track of which class' method is currently processing
+# by `.Class`, `.Generic` global variable
+#+BEGIN_SRC R :results output :exports both
+  baz <- function(x) UseMethod("baz", x)
+  baz.A <- function(x) {
+    print(c(.Generic, "(A)", .Class))
+  }
+  baz.B <- function(x) {
+    print(c(.Generic, "(B)", .Class))
+    NextMethod()
+  }
+  ba <- structure(1, class = c("B", "A"))
+  baz(ba)
+#+END_SRC
+
+#+RESULTS:
+: [1] "baz" "(B)" "B"   "A"  
+: [1] "baz" "(A)" "A"  
+
+-----
+- http://adv-r.had.co.nz/S3.html
+
 ** The Recycling Rule of Mixed vector and array arithmetic
 - The expression is scanned from left to right.
 - Any short vector operands are extended by recycling their values until they match the size of any other operands.
