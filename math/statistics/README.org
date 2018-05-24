@@ -1,0 +1,20 @@
+#+TITLE: Statistics
+
+* Table of Contents :TOC_2_gh:
+- [[#topics][Topics]]
+  - [[#why-we-divide-by-n-1-for-the-unbiased-sample][Why we divide by n-1 for the unbiased sample]]
+
+* Topics
+** Why we divide by n-1 for the unbiased sample
+- Since we usually don't know the real =mu=, the population mean.
+- So, we resort to use the sample mean to calculate the sample variance.
+- The problem is:
+  1. Since the sample size is smaller than the population size
+  2. it is more likely that the values are more close to each other.
+  3. Therefore, ~sum((x - x_bar)^2)~ is usually smaller.
+- To compensate this, divide by ~n-1~, which results in the larger value.
+
+[[file:_img/screenshot_2018-05-24_20-04-00.png]] 
+
+-----
+- https://www.youtube.com/watch?v=KkaU2ur3Ymw&feature=youtu.be
