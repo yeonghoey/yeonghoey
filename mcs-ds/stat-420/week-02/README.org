@@ -82,6 +82,7 @@ This is because:
 #+RESULTS:
 [[file:_img/solve-least-squares3.png]]
 
+So,
 #+BEGIN_SRC latex :file _img/solve-least-squares4.png :results raw :exports results :buffer no
   \begin{aligned}
   \hat{\beta}_1 = \frac{S_{xy}}{S_{xx}} = \frac{\sum_{i = 1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i = 1}^{n}(x_i - \bar{x})^2}
@@ -90,6 +91,20 @@ This is because:
 
 #+RESULTS:
 [[file:_img/solve-least-squares4.png]]
+
+
+#+LATEX_HEADER: \usepackage{amsmath}
+#+BEGIN_SRC latex :file _img/interpretation.png :results raw :exports results :buffer no
+  \begin{aligned}
+  & \beta_0       &&  \text{the \textbf{mean} of $y$ when predictor is zero} \\
+  & \hat{\beta_0} &&  \text{the \textbf{estimated mean} of $y$ when predictor is zero} \\
+  & \beta_1       &&  \text{the \textbf{mean} of $y$ increases by this value} \\
+  & \hat{\beta_1} &&  \text{the \textbf{estimated mean} increases by this value} \\
+  \end{aligned}
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/interpretation.png]]
 
 
 [[file:_img/screenshot_2018-05-21_17-18-23.png]]
