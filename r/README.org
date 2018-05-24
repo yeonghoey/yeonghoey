@@ -17,7 +17,11 @@
   - [[#vector][vector]]
 - [[#probability-distributions][Probability distributions]]
 - [[#statistical-models-in-r][Statistical models in R]]
-  - [[#formulae][formulae]]
+  - [[#formula][formula]]
+  - [[#lm][lm]]
+- [[#graphical-procedures][Graphical procedures]]
+  - [[#graphics-parameters-list][Graphics parameters list]]
+- [[#packages][Packages]]
 - [[#topics][Topics]]
   - [[#oo-systems][OO Systems]]
   - [[#the-recycling-rule-of-mixed-vector-and-array-arithmetic][The Recycling Rule of Mixed vector and array arithmetic]]
@@ -508,7 +512,7 @@ sz2
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Statistical-models-in-R-1
 
-** formulae
+** formula
 The operator =~= is used to define a model formula in R.
 
 #+BEGIN_EXAMPLE
@@ -524,18 +528,99 @@ The operator =~= is used to define a model formula in R.
   In all cases each term defines a collection of columns either to be added to or removed from the model matrix.
 
 Notations:
-- =Y ~ M=        :: Y is modeled as M.
-- =M_1 + M_2=    :: Include M_1 and M_2.
-- =M_1 - M_2=    :: Include M_1 leaving out terms of M_2.
-- =M_1 : M_2=    :: The tensor product of M_1 and M_2. If both terms are factors, then the “subclasses” factor.
-- =M_1 %in% M_2= :: Similar to M_1:M_2, but with a different coding.
+- =Y ~ M=        :: =Y= is modeled as =M=.
+- =M_1 + M_2=    :: Include =M_1= and =M_2=.
+- =M_1 - M_2=    :: Include =M_1= leaving out terms of =M_2=.
+- =M_1 : M_2=    :: The tensor product of =M_1= and =M_2=. If both terms are factors, then the “subclasses” factor.
+- =M_1 %in% M_2= :: Similar to =M_1:M_2=, but with a different coding.
 - =M_1 * M_2=    :: =M_1 + M_2 + M_1:M_2=.
 - =M_1 / M_2=    :: =M_1 + M_2 %in% M_1=.
-- =M^n=          :: All terms in =M= together with “interactions” up to order n
+- =M^n=          :: All terms in =M= together with “interactions” up to order =n=
 - =I(M)=         :: Insulate =M=. Inside =M= all operators have their normal arithmetic meaning, and that term appears in the model matrix.
 
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Defining-statistical-models_003b-formulae
+
+** lm
+- ~anova(object_1, object_2)~           :: Compare a submodel with an outer model and produce an analysis of variance table.
+- ~coef(object)~                        :: Extract the regression coefficient (matrix). Long form: ~coefficients(object)~.
+- ~deviance(object)~                    :: Residual sum of squares, weighted if appropriate.
+- ~formula(object)~                     :: Extract the model formula.
+- ~plot(object)~                        :: Produce four plots, showing residuals, fitted values and some diagnostics.
+- ~predict(object, newdata=data.frame)~ :: The data frame supplied must have variables specified with the same labels as the original. The value is a vector or matrix of predicted values corresponding to the determining variable values in ~data.frame~.
+- ~print(object)~                       :: Print a concise version of the object. Most often used implicitly.
+- ~residuals(object)~                   :: Extract the (matrix of) residuals, weighted as appropriate. Short form: ~resid(object)~.
+- ~step(object)~                        :: Select a suitable model by adding or dropping terms and preserving hierarchies. The model with the smallest value of AIC (Akaike’s An Information Criterion) discovered in the stepwise search is returned.
+- ~summary(object)~                     :: Print a comprehensive summary of the results of the regression analysis.
+- ~vcov(object)~                        :: Returns the variance-covariance matrix of the main parameters of a fitted model object.
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Linear-models-1
+
+* Graphical procedures
+#+BEGIN_SRC R
+  plot(x, y)
+  plot(xy)
+  plot(x)
+  plot(f)
+  plot(f, y)
+  plot(df)
+  plot(~ expr)
+  plot(y ~ expr)
+  qqnorm(x)
+  qqline(x)
+  qqplot(x, y)
+  hist(x)
+  hist(x, nclass=n)
+  hist(x, breaks=b, …)
+  dotchart(x, …)
+  image(x, y, z, …)
+  contour(x, y, z, …)
+  persp(x, y, z, …)
+#+END_SRC
+#+BEGIN_SRC R
+  points(x, y)
+  lines(x, y)
+  text(x, y, labels, …)
+  abline(a, b)
+  abline(h=y)
+  abline(v=x)
+  abline(lm.obj)
+  polygon(x, y, …)
+  legend(x, y, legend, …)
+  title(main, sub)
+  axis(side, …)
+#+END_SRC
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Graphics
+
+** Graphics parameters list
+#+BEGIN_SRC R
+  par()  # graphics parameters
+  par(c("col", "lty"))
+  par(col=4, lty=2)
+#+END_SRC
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Graphics-parameters-list
+
+* Packages
+#+BEGIN_SRC R
+  library()      # which packages are installed?
+  library(boot)  # load 'boot' package
+
+  search()            # which packages are currently loaded?
+  loadedNamespaces()
+#+END_SRC
+
+Packages have namespaces:
+#+BEGIN_SRC R
+  base::t   # access 't' in base
+  base:::t  # access hidden 't' in base
+#+END_SRC
+
+-----
+
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Packages
 
 * Topics
 ** OO Systems
