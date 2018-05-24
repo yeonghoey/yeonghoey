@@ -1,7 +1,6 @@
 #+TITLE: R
 
 * Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
 - [[#reference][Reference]]
   - [[#help][help]]
   - [[#length][length]]
@@ -11,9 +10,6 @@
 - [[#topics][Topics]]
   - [[#syntax][Syntax]]
   - [[#assignments][Assignments]]
-
-* Overview
-SEE: [[./intro/README.org]]
 
 * Reference
 ** help
