@@ -10,6 +10,7 @@
   - [[#factor][factor]]
   - [[#function][function]]
   - [[#help][help]]
+  - [[#ifelse][ifelse]]
   - [[#length][length]]
   - [[#list][list]]
   - [[#na][NA]]
@@ -308,6 +309,7 @@ sz2
 -----
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Getting-help-with-functions-and-features
 
+** [[https://www.rdocumentation.org/packages/base/versions/3.5.0/topics/ifelse][ifelse]]
 ** length
 #+BEGIN_SRC R :results output :exports both
   x <- numeric()
