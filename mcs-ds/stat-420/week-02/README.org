@@ -184,9 +184,27 @@ So,
 ** Variance Decomposition
 [[file:_img/screenshot_2018-05-21_19-38-33.png]]
 
+#+BEGIN_SRC latex :file _img/variance-decomposition.png :results raw :exports results :buffer no
+  \begin{aligned}
+  y_i - \bar{y} &= (y_i - \hat{y}_i) + (\hat{y}_i - \bar{y}).\\
+  \sum_{i=1}^{n}(y_i - \bar{y})^2 &= \sum_{i=1}^{n}(y_i - \hat{y}_i)^2 + \sum_{i=1}^{n}(\hat{y}_i - \bar{y})^2.
+  \end{aligned}
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/variance-decomposition.png]]
+
+This is true. This can be proven by using the fact that sum of the residuals are zero ([[https://autarkaw.org/2017/07/06/sum-of-the-residuals-for-the-linear-regression-model-is-zero/][proof]])
+
+[[file:_img/screenshot_2018-05-24_20-50-34.png]]
+([[https://www.xycoon.com/decom1.htm][link1]]) ([[https://www.xycoon.com/decom2.htm][link2]])
+
 [[file:_img/screenshot_2018-05-21_19-39-29.png]]
 
 [[file:_img/screenshot_2018-05-21_19-40-15.png]]
+
+For the ~cars~ example, we calculate ~R^2 = 0.65~,
+We then say that ~65%~ of the observed variability in stopping distance is explained by the linear relationship with speed.
 
 [[file:_img/screenshot_2018-05-21_19-46-39.png]]
 
@@ -194,11 +212,41 @@ So,
 - https://en.wikipedia.org/wiki/Coefficient_of_determination
 
 ** Maximum Likelihood
+[[file:_img/screenshot_2018-05-24_21-00-09.png]]
+
 [[file:_img/screenshot_2018-05-21_19-50-54.png]]
+
+#+BEGIN_SRC latex :file _img/mle.png :results raw :exports results :buffer no
+  \begin{aligned}
+  \sum_{i = 1}^{n} (y_i - \beta_0 - \beta_1 x_i) &= 0\\
+  \sum_{i = 1}^{n}(x_i)(y_i - \beta_0 - \beta_1 x_i) &= 0\\
+  -\frac{n}{2 \sigma^2} + \frac{1}{2(\sigma^2)^2} \sum_{i = 1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2 &= 0
+  \end{aligned}
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/mle.png]]
+
+The first two equations above are the same as least squares.
+
+#+BEGIN_SRC latex :file _img/least-squares-mle.png :results raw :exports results :buffer no
+  \begin{aligned}
+  s_e^2 &= \frac{1}{n - 2} \sum_{i = 1}^{n}(y_i - \hat{y}_i)^2 = \frac{1}{n - 2} \sum_{i = 1}^{n}e_i^2 & \text{Least Squares}\\
+  \hat{\sigma}^2 &= \frac{1}{n} \sum_{i = 1}^{n}(y_i - \hat{y}_i)^2 = \frac{1}{n} \sum_{i = 1}^{n}e_i^2 & \text{MLE}
+  \end{aligned}
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/least-squares-mle.png]]
+
 
 [[file:_img/screenshot_2018-05-21_19-51-14.png]]
 
+k
+
 [[file:_img/screenshot_2018-05-21_19-52-32.png]]
+-----
+- http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#maximum-likelihood-estimation-mle-approach
 
 ** The lm() Function
 - ~lm()~ stands for ~linear model~.
