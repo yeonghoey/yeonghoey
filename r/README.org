@@ -2,6 +2,166 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
+- [[#reference][Reference]]
+  - [[#help][help]]
+  - [[#length][length]]
+  - [[#mode][mode]]
+  - [[#na][NA]]
+  - [[#vector][Vector]]
+- [[#topics][Topics]]
+  - [[#syntax][Syntax]]
+  - [[#assignments][Assignments]]
 
 * Overview
 SEE: [[./intro/README.org]]
+
+* Reference
+** help
+#+BEGIN_SRC R
+  help(solve)         # same as ?solve
+  help("[[")          # about the syntax of [[
+  help.start()        # show help main page
+  help.search(solve)  # same as ??solve
+  example(solve)      # run the examples in the help page
+#+END_SRC
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Getting-help-with-functions-and-features
+
+** length
+#+BEGIN_SRC R :results output :exports both
+  x <- numeric()
+  x[3] <- 5
+  x
+#+END_SRC
+
+#+RESULTS:
+: [1] NA NA  5
+: [1] 3
+
+#+BEGIN_SRC R :results output :exports both
+  x <- 1:5
+  length(x) <- 2
+  x
+#+END_SRC
+
+#+RESULTS:
+: [1] 1 2
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Changing-the-length-of-an-object-1
+
+** mode
+- a kind of /atomic types/
+
+#+BEGIN_SRC R :results output :exports both
+  mode(TRUE)
+  mode(0)
+  mode(1i)
+  mode("foo")
+#+END_SRC
+
+#+RESULTS:
+: [1] "logical"
+: [1] "numeric"
+: [1] "complex"
+: [1] "character"
+
+** NA
+- Stands for Not Available
+- Most functions have ~na.rm~ parameter that excludes ~NA~ when it's ~TRUE~
+
+#+BEGIN_SRC R
+  is.na(x)
+  mean(x, na.rm = TRUE)
+#+END_SRC
+
+** Vector
+#+BEGIN_SRC R
+  1 + 2 - 3 * 4 / (5 ^ 6)
+  a <- c(1,2,3,4)
+  sqrt(a)
+  exp(a)
+  log(a)
+  a <- c(1,2,3)
+  b <- c(10,11,12,13)
+  # shows warninging: not a multiple of shorter one
+  a + b
+#+END_SRC
+
+#+BEGIN_SRC R
+  mean(x)
+  median(x)
+  quantile(x)
+  min(x)
+  max(x)
+  range(x)  # c(min(x), max(x))
+  var(x)
+  sd(x)
+#+END_SRC
+
+#+BEGIN_SRC R :results output :exports both
+  1:3
+  3:1
+  seq(1, 3, by = 1)
+  rep(0, times = 3)
+#+END_SRC
+
+#+RESULTS:
+: [1] 1 2 3
+: [1] 3 2 1
+: [1] 1 2 3
+: [1] 0 0 0
+
+#+BEGIN_SRC R :results output :exports both
+  n <- 3
+  1:n-1    # === 1:3 - 1
+  1:(n-1)  # === 1:2
+#+END_SRC
+
+#+RESULTS:
+: [1] 0 1 2
+: [1] 1 2
+
+#+BEGIN_SRC R :results output :exports both
+  x <- 1:5
+  x > 3
+  x[x > 3]
+#+END_SRC
+
+#+RESULTS:
+: [1] FALSE FALSE FALSE  TRUE  TRUE
+: [1] 4 5
+
+#+BEGIN_SRC R
+  x[1]
+  x[3]
+  x[-2]      # everything except the 2nd element
+  x[1:3]     # 1st - 3rd elements
+  x[c(1, 4)] # 1st, and 4th elements
+
+  z = c(TRUE, FALSE, TRUE, FALSE, TRUE)
+  x[z]  # corresponding TRUE elements
+#+END_SRC
+
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Simple-manipulations_003b-numbers-and-vectors
+- https://www.cyclismo.org/tutorial/R/basicOps.html
+
+* Topics
+** Syntax
+- R is case sensitive
+- Symbols: ~[A-Za-z][.0-9A-Za-z_]*~ or ~[.]([A-Za-z][.0-9A-Za-z_]*)?~
+- Strings can be expressed by ~'~ or ~"~. ~"~ is preferred.
+- Commands are separated either by a semi-colon(~;~) or by a newline(~\n~).
+- Commands can be grouped by braces(~{}~)
+- Comments can be put almost everywhere, staring with ~#~
+-----
+- https://cran.r-project.org/doc/manuals/r-release/R-intro.html#R-commands_002c-case-sensitivity_002c-etc_002e
+
+** Assignments
+#+BEGIN_SRC R
+  # following lines are all the same
+  x <- 0
+  0 -> x
+  x = 0
+  assign("x", 0)
+#+END_SRC
