@@ -7,14 +7,16 @@
 
 * Overview
 #+BEGIN_SRC org
+  ,#+LATEX_HEADER: \usepackage{mathtools}
   ,#+BEGIN_SRC latex :file _img/a.png :results raw :exports both :buffer no
-    \sum x
+    \sum x \shortintertext{hello}
   ,#+END_SRC
 #+END_SRC
 (GitHub's ~github-markup~ doesn't seem to support ~#+HEADER:~ syntax.)
 
+#+LATEX_HEADER: \usepackage{mathtools}
 #+BEGIN_SRC latex :file _img/a.png :results raw :exports both :buffer no
-  \sum x^2
+  \sum x \shortintertext{hello}
 #+END_SRC
 
 #+RESULTS:
