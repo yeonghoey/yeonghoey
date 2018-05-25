@@ -1,0 +1,26 @@
+#+TITLE: R Markdown
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#reference][Reference]]
+
+* Overview
+[[file:_img/screenshot_2018-05-25_11-34-04.png]]
+
+* Reference
+#+BEGIN_EXAMPLE
+  ```{r chunk_name, option=value, ...}
+#+END_EXAMPLE
+
+- Giving a name to a chunk is optional
+
+[[file:_img/screenshot_2018-05-25_11-41-28.png]]
+
+[[file:_img/screenshot_2018-05-25_11-41-46.png]]                                        
+
+[[file:_img/screenshot_2018-05-25_11-41-59.png]]
+
+-----
+- https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+- https://rmarkdown.rstudio.com/authoring_rcodechunks.html
+- https://yihui.name/knitr/options/
