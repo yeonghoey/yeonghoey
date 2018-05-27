@@ -122,3 +122,6 @@ hs_err_pid*
 
 # OS Specific
 .DS_Store
+
+# Generated Site
+_site/

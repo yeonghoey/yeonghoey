@@ -1,7 +1,7 @@
 SHELL = /bin/bash
 
 PANDOC = pandoc
-DESTDIR = docs
+DESTDIR = _site
 
 export YHY_SRC_PATH ?= ''
 export YHY_BASE_URL ?= \
