@@ -12,4 +12,4 @@ docs/%/index.html: content/%/README.org
 	pandoc '$<' --mathjax -s -o '$@'
 
 dev:
-	pipenv run python dev.py
+	pipenv run python scripts/dev.py
