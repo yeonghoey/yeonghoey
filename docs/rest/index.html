@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>REST (Representational State Transfer)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">REST (Representational State Transfer)</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_2_gh"><span class="smallcaps">TOC_2_gh</span></span></h1>
+<ul>
+<li><a href="#best-practices">Best Practices</a>
+<ul>
+<li><a href="#urls-and-actions">URLs and Actions</a></li>
+<li><a href="#header">Header</a></li>
+<li><a href="#json">JSON</a></li>
+<li><a href="#errors-and-status-codes">Errors and status codes</a></li>
+<li><a href="#versioning">Versioning</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#response-of-put">Response of PUT</a></li>
+<li><a href="#visibility">Visibility</a></li>
+<li><a href="#post-vs-put-vs-patch">POST vs. PUT vs. PATCH</a></li>
+<li><a href="#is-it-okay-to-return-json-array">Is it okay to return JSON Array</a></li>
+</ul></li>
+<li><a href="#principles">Principles</a></li>
+</ul>
+<h1 id="best-practices">Best Practices</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/Kikobeats/awesome-api" class="uri">https://github.com/Kikobeats/awesome-api</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api</a></li>
+</ul>
+</div>
+<h2 id="urls-and-actions">URLs and Actions</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#advanced-queries" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#advanced-queries</a></li>
+</ul>
+</div>
+<ul>
+<li>Use <strong>always plural</strong> keywords for consistency.</li>
+</ul>
+<blockquote>
+<p>To prevent an API consumer from having to hit the API again for an updated representation, have the API return the updated (or created) representation as part of the response. In case of a POST that resulted in a creation, use a HTTP 201 status code and include a Location header that points to the URL of the new resource.</p>
+</blockquote>
+<pre class="example"><code>GET /tickets
+</code></pre>
+<ul>
+<li>Retrieves a list of tickets</li>
+</ul>
+<pre class="example"><code>GET /tickets/12
+</code></pre>
+<ul>
+<li>Retrieves a specific ticket</li>
+</ul>
+<pre class="example"><code>POST /tickets
+</code></pre>
+<ul>
+<li>Creates a new ticket</li>
+</ul>
+<pre class="example"><code>PUT /tickets/12
+</code></pre>
+<ul>
+<li>Updates ticket #12</li>
+</ul>
+<pre class="example"><code>PATCH /tickets/12
+</code></pre>
+<ul>
+<li>Partially updates ticket #12</li>
+</ul>
+<pre class="example"><code>DELETE /tickets/12
+</code></pre>
+<ul>
+<li>Deletes ticket #12</li>
+</ul>
+<pre class="example"><code>GET /tickets/12/messages
+</code></pre>
+<ul>
+<li>Retrieves list of messages for ticket #12</li>
+</ul>
+<pre class="example"><code>GET /tickets/12/messages/5
+</code></pre>
+<ul>
+<li>Retrieves message #5 for ticket #12</li>
+</ul>
+<pre class="example"><code>POST /tickets/12/messages
+</code></pre>
+<ul>
+<li>Creates a new message in ticket #12</li>
+</ul>
+<pre class="example"><code>PUT /tickets/12/messages/5
+</code></pre>
+<ul>
+<li>Updates message #5 for ticket #12</li>
+</ul>
+<pre class="example"><code>PATCH /tickets/12/messages/5
+</code></pre>
+<ul>
+<li>Partially updates message #5 for ticket #12</li>
+</ul>
+<pre class="example"><code>DELETE /tickets/12/messages/5
+</code></pre>
+<ul>
+<li>Deletes message #5 for ticket #12</li>
+</ul>
+<pre class="example"><code>PUT /gists/:id/star
+</code></pre>
+<ul>
+<li>Use sub-resource for actions don't fit CRUD</li>
+</ul>
+<pre class="example"><code>DELETE /gists/:id/star
+</code></pre>
+<ul>
+<li>Use sub-resource for actions don't fit CRUD</li>
+</ul>
+<pre class="example"><code>GET /tickets?state=open
+</code></pre>
+<ul>
+<li>Filter</li>
+</ul>
+<pre class="example"><code>GET /tickets?sort=-priority
+</code></pre>
+<ul>
+<li>Retrieves a list of tickets in descending order of priority</li>
+</ul>
+<pre class="example"><code>GET /tickets?sort=-priority,created_at
+</code></pre>
+<ul>
+<li>Retrieves a list of tickets in descending order of priority. Within a specific priority, older tickets are ordered first</li>
+</ul>
+<pre class="example"><code>GET /tickets?sort=-updated_at
+</code></pre>
+<ul>
+<li>Retrieve recently updated tickets</li>
+</ul>
+<pre class="example"><code>GET /tickets?state=closed&amp;sort=-updated_at
+</code></pre>
+<ul>
+<li>Retrieve recently closed tickets</li>
+</ul>
+<pre class="example"><code>GET /tickets?q=return&amp;state=open&amp;sort=-priority,created_at
+</code></pre>
+<ul>
+<li>Retrieve the highest priority open tickets mentioning the word 'return'</li>
+</ul>
+<pre class="example"><code>GET /tickets/recently_closed
+</code></pre>
+<ul>
+<li>Aliases for common queries</li>
+</ul>
+<pre class="example"><code>GET /tickets?fields=id,subject,customer_name,updated_at&amp;state=open&amp;sort=-updated_at
+</code></pre>
+<h2 id="header">Header</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#pagination" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#pagination</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#rate-limiting" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#rate-limiting</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#caching" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#caching</a></li>
+</ul>
+</div>
+<dl>
+<dt><a href="https://tools.ietf.org/html/rfc5988#page-6">Link</a></dt>
+<dd>Pagination
+</dd>
+<dt>X-Rate-Limit-Limit</dt>
+<dd>The number of allowed requests in the current period
+</dd>
+<dt>X-Rate-Limit-Remaining</dt>
+<dd>The number of remaining requests in the current period
+</dd>
+<dt>X-Rate-Limit-Reset</dt>
+<dd>The number of seconds left in the current period
+</dd>
+<dt><a href="https://en.wikipedia.org/wiki/HTTP_ETag">ETag</a></dt>
+<dd>Caching
+</dd>
+<dt><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.29">Last-Modified</a></dt>
+<dd>Caching
+</dd>
+</dl>
+<h2 id="json">JSON</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#json-responses" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#json-responses</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#json-requests" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#json-requests</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#snake-vs-camel" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#snake-vs-camel</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#pretty-print-gzip" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#pretty-print-gzip</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#envelope" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#envelope</a></li>
+<li><a href="http://ieeexplore.ieee.org/document/5521745/?reload=true&amp;tp=&amp;arnumber=5521745" class="uri">http://ieeexplore.ieee.org/document/5521745/?reload=true&amp;tp=&amp;arnumber=5521745</a></li>
+</ul>
+</div>
+<ul>
+<li>Use JSON where possible for both input and output</li>
+<li><code>snake_case</code> is preferable to <code>camelCase</code> snake<sub>case</sub> is 20% easier to read than camelCase! Many popular JSON APIs use snake<sub>case</sub> following the underlying language.</li>
+<li>Pretty print by default &amp; ensure gzip is supported The cost of the extra data transfer is negligible gzipping in itself provided over 60% in bandwidth savings.</li>
+<li>Don't use response envelopes(<code>{&quot;data&quot;:{&lt;actual result&gt;}}</code> by default Within envelopes, it is easy to include meta data into the payload. However, thanks to <code>CORS</code>, <code>LINK</code> header, etc., it is no more mandatory.</li>
+</ul>
+<p><img src="_img/screenshot_2018-03-27_16-16-33.png" /></p>
+<h2 id="errors-and-status-codes">Errors and status codes</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#errors" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#errors</a></li>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#http-status" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#http-status</a></li>
+<li><a href="http://www.restapitutorial.com/httpstatuscodes.html" class="uri">http://www.restapitutorial.com/httpstatuscodes.html</a></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">  <span class="dt">&quot;code&quot;</span> <span class="fu">:</span> <span class="dv">1234</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">  <span class="dt">&quot;message&quot;</span> <span class="fu">:</span> <span class="st">&quot;Something bad happened :(&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">  <span class="dt">&quot;description&quot;</span> <span class="fu">:</span> <span class="st">&quot;More details about the error here&quot;</span></a>
+<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="fu">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">  <span class="dt">&quot;code&quot;</span> <span class="fu">:</span> <span class="dv">1024</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="dt">&quot;message&quot;</span> <span class="fu">:</span> <span class="st">&quot;Validation Failed&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">  <span class="dt">&quot;errors&quot;</span> <span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">      <span class="dt">&quot;code&quot;</span> <span class="fu">:</span> <span class="dv">5432</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">      <span class="dt">&quot;field&quot;</span> <span class="fu">:</span> <span class="st">&quot;first_name&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb24-8" data-line-number="8">      <span class="dt">&quot;message&quot;</span> <span class="fu">:</span> <span class="st">&quot;First name cannot have fancy characters&quot;</span></a>
+<a class="sourceLine" id="cb24-9" data-line-number="9">    <span class="fu">}</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb24-10" data-line-number="10">    <span class="fu">{</span></a>
+<a class="sourceLine" id="cb24-11" data-line-number="11">       <span class="dt">&quot;code&quot;</span> <span class="fu">:</span> <span class="dv">5622</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb24-12" data-line-number="12">       <span class="dt">&quot;field&quot;</span> <span class="fu">:</span> <span class="st">&quot;password&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb24-13" data-line-number="13">       <span class="dt">&quot;message&quot;</span> <span class="fu">:</span> <span class="st">&quot;Password cannot be blank&quot;</span></a>
+<a class="sourceLine" id="cb24-14" data-line-number="14">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb24-15" data-line-number="15">  <span class="ot">]</span></a>
+<a class="sourceLine" id="cb24-16" data-line-number="16"><span class="fu">}</span></a></code></pre></div>
+<dl>
+<dt><code>200</code> OK</dt>
+<dd>Response to a successful GET, PUT, PATCH or DELETE. Can also be used for a POST that doesn't result in a creation.
+</dd>
+<dt><code>201</code> Created</dt>
+<dd>Response to a POST that results in a creation. Should be combined with a Location header pointing to the location of the new resource
+</dd>
+<dt><code>204</code> No Content</dt>
+<dd>Response to a successful request that won't be returning a body (like a DELETE request)
+</dd>
+<dt><code>304</code> Not Modified</dt>
+<dd>Used when HTTP caching headers are in play
+</dd>
+<dt><code>400</code> Bad Request</dt>
+<dd>The request is malformed, such as if the body does not parse
+</dd>
+<dt><code>401</code> Unauthorized</dt>
+<dd>When no or invalid authentication details are provided. Also useful to trigger an auth popup if the API is used from a browser
+</dd>
+<dt><code>403</code> Forbidden</dt>
+<dd>When authentication succeeded but authenticated user doesn't have access to the resource
+</dd>
+<dt><code>404</code> Not Found</dt>
+<dd>When a non-existent resource is requested
+</dd>
+<dt><code>405</code> Method Not Allowed</dt>
+<dd>When an HTTP method is being requested that isn't allowed for the authenticated user
+</dd>
+<dt><code>410</code> Gone</dt>
+<dd>Indicates that the resource at this end point is no longer available. Useful as a blanket response for old API versions
+</dd>
+<dt><code>415</code> Unsupported Media Type</dt>
+<dd>If incorrect content type was provided as part of the request
+</dd>
+<dt><code>422</code> Unprocessable Entity</dt>
+<dd>Used for validation errors
+</dd>
+<dt><code>429</code> Too Many Requests</dt>
+<dd>When a request is rejected due to rate limiting
+</dd>
+</dl>
+<h2 id="versioning">Versioning</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#versioning" class="uri">https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#versioning</a></li>
+<li><a href="https://stackoverflow.com/questions/389169/best-practices-for-api-versioning" class="uri">https://stackoverflow.com/questions/389169/best-practices-for-api-versioning</a></li>
+</ul>
+</div>
+<p>For browser explorability, it is generally better to put the major verion in URI.</p>
+<blockquote>
+<p>I'm a big fan of the approach that Stripe has taken to API versioning - the URL has a major version number (v1), but the API has date based sub-versions which can be chosen using a custom HTTP request header.</p>
+</blockquote>
+<h1 id="topics">Topics</h1>
+<h2 id="response-of-put">Response of PUT</h2>
+<dl>
+<dt>Updated</dt>
+<dd><code>200 OK</code> (or 204 No Content), no body needed
+</dd>
+<dt>Created</dt>
+<dd><code>201 Created</code>, Location header, URI and metadata as body
+</dd>
+<dt>Conflict</dt>
+<dd><code>409 Conflict</code>, list of differences as a body
+</dd>
+<dt>Failed</dt>
+<dd><code>400 Bad Request</code>, body contains explanation in a natual language
+</dd>
+</dl>
+<hr />
+<ul>
+<li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2" class="uri">https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2</a></li>
+<li><a href="https://stackoverflow.com/questions/797834/should-a-restful-put-operation-return-something" class="uri">https://stackoverflow.com/questions/797834/should-a-restful-put-operation-return-something</a></li>
+</ul>
+<h2 id="visibility">Visibility</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li>Allamaraju, Subbu. RESTful Web Services Cookbook: Solutions for Improving Scalability and Simplicity (p. 5). O'Reilly Media. Kindle Edition.</li>
+</ul>
+</div>
+<blockquote>
+<p>For RESTful web services, your key goal must be to maintain visibility to the extent possible. Keeping visibility is simple. Use each HTTP method such that it has the same semantics as specified by HTTP, and add appropriate headers to describe requests and responses.</p>
+</blockquote>
+<blockquote>
+<p>Whenever you have multiple resources that share data or whenever an operation modifies more than one resource, be prepared to trade visibility for better abstraction of information, loose coupling, network efficiency, resource granularity, or pure client convenience.</p>
+</blockquote>
+<h2 id="post-vs.-put-vs.-patch">POST vs. PUT vs. PATCH</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/31089221/what-is-the-difference-between-put-post-and-patch" class="uri">https://stackoverflow.com/questions/31089221/what-is-the-difference-between-put-post-and-patch</a></li>
+<li><a href="http://restful-api-design.readthedocs.io/en/latest/methods.html#patch-vs-put" class="uri">http://restful-api-design.readthedocs.io/en/latest/methods.html#patch-vs-put</a></li>
+</ul>
+</div>
+<dl>
+<dt><code>POST</code></dt>
+<dd><ul>
+<li>server will decide the URI for the newly created resource.</li>
+</ul>
+</dd>
+<dt><code>PUT</code></dt>
+<dd><ul>
+<li>client is determining the URI for the newly created resource.</li>
+<li>The <code>PUT</code> method requests that the enclosed entity be stored under the supplied Request-URI.</li>
+</ul>
+</dd>
+<dt><code>PATCH</code></dt>
+<dd><ul>
+<li>when the client is sending one or more changes to be applied by the server.</li>
+<li>applies a delta rather than replacing the entire resource.</li>
+</ul>
+</dd>
+</dl>
+<h2 id="is-it-okay-to-return-json-array">Is it okay to return JSON Array</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://softwareengineering.stackexchange.com/questions/253897/api-always-returns-jsonobject-or-jsonarray-best-practices" class="uri">https://softwareengineering.stackexchange.com/questions/253897/api-always-returns-jsonobject-or-jsonarray-best-practices</a></li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/286293/whats-the-best-way-to-return-an-array-as-a-response-in-a-restful-api" class="uri">https://softwareengineering.stackexchange.com/questions/286293/whats-the-best-way-to-return-an-array-as-a-response-in-a-restful-api</a></li>
+<li><a href="https://stackoverflow.com/questions/3503102/what-are-top-level-json-arrays-and-why-are-they-a-security-risk" class="uri">https://stackoverflow.com/questions/3503102/what-are-top-level-json-arrays-and-why-are-they-a-security-risk</a></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="ot">[</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">2</span><span class="ot">,</span> <span class="dv">3</span><span class="ot">]</span></a></code></pre></div>
+<ul>
+<li>Some people say this is cleaner.</li>
+<li>But this is vulnerable to XSS in some old browsers.(modern browsers have addressed this problem) JSON object which starts its content with <code>{</code> is considered to be Javascript block. However, JSON array is a valid Javascript array.</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">  <span class="dt">&quot;meaningless_key&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">2</span><span class="ot">,</span> <span class="dv">3</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="fu">}</span></a></code></pre></div>
+<dl>
+<dt>Pros</dt>
+<dd>can extend the result, like including <code>count</code>.
+</dd>
+<dt>Cons</dt>
+<dd>less pretty
+</dd>
+</dl>
+<p>Overall: It is better to use enveloping arrays with objects.</p>
+<h1 id="principles">Principles</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf" class="uri">https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf</a></li>
+</ul>
+</div>
+<dl>
+<dt>Stateless</dt>
+<dd>induces the properties of visibility, reliability, and scalability.
+</dd>
+<dt>Cache</dt>
+<dd>improves network efficiency
+</dd>
+<dt>Uniform Interface</dt>
+<dd>overall system architecture is simplified and the visibility of interactions is improved.
+</dd>
+<dt>Layered System</dt>
+<dd>improves behavior for Internet-scale requirements, we add layered system constraints
+</dd>
+<dt>Code-On-Demand</dt>
+<dd>allows client functionality to be extended by downloading and executing code in the form of applets or scripts.
+</dd>
+</dl>
+<p><img src="_img/screenshot_2018-03-27_17-51-44.png" /></p>
+<dl>
+<dt>Request (a)</dt>
+<dd>a client proxy scenario
+</dd>
+<dt>Request (b)</dt>
+<dd>a direct request scenario
+</dd>
+<dt>Request (c)</dt>
+<dd>a server proxy scenario
+</dd>
+</dl>
+</body>
+</html>

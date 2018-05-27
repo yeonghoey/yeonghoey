@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>httpbin</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">httpbin</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#get">/get</a></li>
+<li><a href="#headers">/headers</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="reference">Reference</h1>
+<h2 id="get">/get</h2>
+<pre class="shell"><code>$ curl httpbin.org/get
+{
+  &quot;args&quot;: {},
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Cache-Control&quot;: &quot;max-age=259200&quot;,
+    &quot;Connection&quot;: &quot;close&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.47.0&quot;
+  },
+  &quot;origin&quot;: &quot;10.60.26.204, 52.192.61.2&quot;,
+  &quot;url&quot;: &quot;http://httpbin.org/get&quot;
+}
+</code></pre>
+<h2 id="headers">/headers</h2>
+<pre class="shell"><code>$ curl httpbin.org/headers?show_env=1
+{
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;,
+    &quot;Cache-Control&quot;: &quot;max-age=259200&quot;,
+    &quot;Connect-Time&quot;: &quot;1&quot;,
+    &quot;Connection&quot;: &quot;close&quot;,
+    &quot;Host&quot;: &quot;httpbin.org&quot;,
+    &quot;Total-Route-Time&quot;: &quot;0&quot;,
+    &quot;User-Agent&quot;: &quot;curl/7.47.0&quot;,
+    &quot;Via&quot;: &quot;1.1 cbt-nxproxy-000 (squid/3.5.12), 1.1 vegur&quot;,
+    &quot;X-Forwarded-For&quot;: &quot;10.60.12.54, 52.192.61.2&quot;,
+    &quot;X-Forwarded-Port&quot;: &quot;80&quot;,
+    &quot;X-Forwarded-Proto&quot;: &quot;http&quot;,
+    &quot;X-Request-Id&quot;: &quot;c0cc61b1-3b45-46a7-ba3c-2a161c6e7890&quot;,
+    &quot;X-Request-Start&quot;: &quot;1510731143601&quot;
+  }
+}
+</code></pre>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://github.com/kennethreitz/httpbin" class="uri">https://github.com/kennethreitz/httpbin</a></li>
+<li><a href="https://httpbin.org/" class="uri">https://httpbin.org/</a></li>
+<li><a href="https://requestb.in/" class="uri">https://requestb.in/</a></li>
+</ul>
+</body>
+</html>

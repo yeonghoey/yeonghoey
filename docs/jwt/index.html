@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>jwt</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">jwt</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#validation-process">Validation Process</a></li>
+<li><a href="#rs256-vs-hs256-jwksjson">RS256 vs. HS256, jwks.json</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<ul>
+<li><a href="https://jwt.io/" class="uri">https://jwt.io/</a></li>
+<li><code>jwt</code> comprises <code>HEADER</code>, <code>PAYLOAD</code>, <code>SIGNATURE</code>.</li>
+<li>Generally, its base64 encoded string is used as tokens.</li>
+<li>The recipient of jwt tokens should validate its signature.</li>
+<li>The recipient can serve some secured resources without managing sessions, through its payload.</li>
+<li>Mostly used as <code>id token</code> of OpenID Connect.</li>
+<li>There are a wide variety of libraries to handle <code>jwt</code> across programming languages.</li>
+</ul>
+<h1 id="validation-process">Validation Process</h1>
+<ul>
+<li><a href="https://auth0.com/docs/api-auth/tutorials/verify-access-token" class="uri">https://auth0.com/docs/api-auth/tutorials/verify-access-token</a></li>
+</ul>
+<ol>
+<li>Verify the signature</li>
+<li>Validate Claims
+<ol>
+<li>Token expiration (<code>exp</code>) :: Normally, it's Unix timestamp.</li>
+<li>Token issuer (<code>iss</code>) :: the auth provider like <code>Auth0</code>, <code>AWS Cognito</code> etc.</li>
+<li>Token audience (<code>aud</code>) :: the resource server or its uri. Like <code>https://resource-server.com/user</code></li>
+</ol></li>
+</ol>
+<h1 id="rs256-vs.-hs256-jwks.json">RS256 vs. HS256, jwks.json</h1>
+<ul>
+<li><a href="https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference" class="uri">https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference</a></li>
+<li>There are two popular ways to sign <code>jwt</code>, <code>RS256</code> and <code>HS256</code></li>
+<li><code>RS256</code> is asymmetric, which means that it uses public/private key pair.</li>
+<li><p><code>RS256</code> is generally recommended.</p></li>
+<li><code>HS256</code> is symmetric, on the other hand.</li>
+<li><p><code>HS256</code> is generally not safe because the private key can easily be exposed to other parties.</p></li>
+<li><code>jwks.json</code> is one way to manage public keys which are used when issuing <code>jwt</code>.</li>
+<li><p><code>jwks.json</code> is provided by identity providers for third parties to validate <code>jwt</code></p></li>
+</ul>
+</body>
+</html>

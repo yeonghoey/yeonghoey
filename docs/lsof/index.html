@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="lsof">lsof</h1>
+<ul>
+<li><a href="https://itsmetommy.com/2011/06/23/lsof-list-of-open-files/" class="uri">https://itsmetommy.com/2011/06/23/lsof-list-of-open-files/</a></li>
+</ul>
+<pre class="shell"><code>lsof         # files opened by processes
+lsof -i      # opened internet sockets
+lsof -i :80  # opened internet sockets on port 80
+lsof -i udp
+lsof -i tcp
+lsof -i tcp:80
+lsof -p 4455 # opend by pid 4455
+
+sudo lsof /usr/sbin/httpd  # opened by httpd
+sudo lsof &quot;$(which httpd)&quot;
+
+# by pattern
+lsof -c h
+lsof -c httpd
+lsof -c Dropbox
+lsof | grep httpd
+lsof -c bash
+
+# by user
+lsof -u tommy
+lsof -u _www
+lsof -u root
+
+$ lsof -n -P # numeric ip(-n) and port(-P)
+</code></pre>
+</body>
+</html>

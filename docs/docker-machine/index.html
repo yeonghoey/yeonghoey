@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="docker-machine">Docker Machine</h1>
+<ul>
+<li><a href="https://docs.docker.com/machine/get-started/#create-a-machine" class="uri">https://docs.docker.com/machine/get-started/#create-a-machine</a></li>
+</ul>
+<pre class="shell"><code>docker-machine create --driver virtualbox default
+</code></pre>
+<pre class="shell"><code>docker-machine env default
+</code></pre>
+<pre class="example"><code>export DOCKER_TLS_VERIFY=&quot;1&quot;
+export DOCKER_HOST=&quot;tcp://172.16.62.130:2376&quot;
+export DOCKER_CERT_PATH=&quot;/Users/&lt;yourusername&gt;/.docker/machine/machines/default&quot;
+export DOCKER_MACHINE_NAME=&quot;default&quot;
+# Run this command to configure your shell:
+# eval &quot;$(docker-machine env default)&quot;
+</code></pre>
+</body>
+</html>

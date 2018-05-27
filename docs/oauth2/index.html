@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>OAuth 2.0</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">OAuth 2.0</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#authorization-code-grant">Authorization Code Grant</a></li>
+<li><a href="#authorization-code-grant-with-spa">Authorization Code Grant with SPA</a></li>
+<li><a href="#implicit-grant">Implicit Grant</a></li>
+<li><a href="#how-state-prevents-from-csrf-attack">How state prevents from CSRF attack</a></li>
+<li><a href="#refresh-tokens">Refresh Tokens</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="topics">Topics</h1>
+<h2 id="authorization-code-grant">Authorization Code Grant</h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc6749#section-4.1" class="uri">https://tools.ietf.org/html/rfc6749#section-4.1</a></li>
+</ul>
+<pre class="example"><code>+----------+
+| Resource |
+|   Owner  |
+|          |
++----------+
+     ^
+     |
+    (B)
++----|-----+          Client Identifier      +---------------+
+|         -+----(A)-- &amp; Redirection URI ----&gt;|               |
+|  User-   |                                 | Authorization |
+|  Agent  -+----(B)-- User authenticates ---&gt;|     Server    |
+|          |                                 |               |
+|         -+----(C)-- Authorization Code ---&lt;|               |
++-|----|---+                                 +---------------+
+  |    |                                         ^      v
+ (A)  (C)                                        |      |
+  |    |                                         |      |
+  ^    v                                         |      |
++---------+                                      |      |
+|         |&gt;---(D)-- Authorization Code ---------&#39;      |
+|  Client |          &amp; Redirection URI                  |
+|         |                                             |
+|         |&lt;---(E)----- Access Token -------------------&#39;
++---------+       (w/ Optional Refresh Token)
+</code></pre>
+<h2 id="authorization-code-grant-with-spa">Authorization Code Grant with SPA</h2>
+<ul>
+<li><a href="https://community.auth0.com/t/spa-backend-3rd-party-api-best-practices-for-authorization-code-flow/6257/3" class="uri">https://community.auth0.com/t/spa-backend-3rd-party-api-best-practices-for-authorization-code-flow/6257/3</a></li>
+</ul>
+<p>Code Grant need to keep <code>client_secret</code> as a secret. So server-side web application is necessary.</p>
+<p>For this reason, SPA applications usually choose to use <strong>implicit grant</strong>. However, some OAuth2 providers provide code grant only. If we use these providers for SPA app, we need a kind of oauth2 client delegator on backend API, which works as follows:</p>
+<ol>
+<li><code>/login</code> :: Requires <strong>a returning point</strong> as a parameter, in this case, the URI for th SPA app. Keep this URI in somewhere like Cookie or so, and redirect to the OAuth2 provider auth point.</li>
+<li><code>/auth</code> :: The endpoint which will be redirected to by the provider with <code>code</code> Exchange it for the token, and redirect to the returning proint received from Step 1.</li>
+</ol>
+<p>In this way, you can use Authorization Code Grant without coupling SPA App and the backend API.</p>
+<h2 id="implicit-grant">Implicit Grant</h2>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc6749#section-4.2" class="uri">https://tools.ietf.org/html/rfc6749#section-4.2</a></li>
+</ul>
+<pre class="example"><code>+----------+
+| Resource |
+|  Owner   |
+|          |
++----------+
+     ^
+     |
+    (B)
++----|-----+          Client Identifier     +---------------+
+|         -+----(A)-- &amp; Redirection URI ---&gt;|               |
+|  User-   |                                | Authorization |
+|  Agent  -|----(B)-- User authenticates --&gt;|     Server    |
+|          |                                |               |
+|          |&lt;---(C)--- Redirection URI ----&lt;|               |
+|          |          with Access Token     +---------------+
+|          |            in Fragment
+|          |                                +---------------+
+|          |----(D)--- Redirection URI ----&gt;|   Web-Hosted  |
+|          |          without Fragment      |     Client    |
+|          |                                |    Resource   |
+|     (F)  |&lt;---(E)------- Script ---------&lt;|               |
+|          |                                +---------------+
++-|--------+
+  |    |
+ (A)  (G) Access Token
+  |    |
+  ^    v
++---------+
+|         |
+|  Client |
+|         |
++---------+
+</code></pre>
+<ul>
+<li><a href="https://aaronparecki.com/oauth-2-simplified/#single-page-apps" class="uri">https://aaronparecki.com/oauth-2-simplified/#single-page-apps</a></li>
+</ul>
+<blockquote>
+<p>Note: Previously, it was recommended that browser-based apps use the &quot;Implicit&quot; flow, which returns an access token immediately and does not have a token exchange step. In the time since the spec was originally written, the industry best practice has changed to recommend that the authorization code flow be used without the client secret. This provides more opportunities to create a secure flow, such as using the state parameter. References: Redhat, Deutsche Telekom, Smart Health IT.</p>
+</blockquote>
+<h2 id="how-state-prevents-from-csrf-attack">How state prevents from CSRF attack</h2>
+<ul>
+<li>Provides the following link to the user</li>
+</ul>
+<pre class="example"><code>https://authorization-server.com/auth?response_type=code&amp;
+  client_id=CLIENT_ID&amp;redirect_uri=REDIRECT_URI&amp;scope=photos&amp;state=1234zyx
+</code></pre>
+<p><code>state</code>: A random string generated by your application, which you'll verify later.</p>
+<ul>
+<li>User allows the acess</li>
+<li>User redirects to the following link.</li>
+</ul>
+<pre class="example"><code>https://example-app.com/cb?code=AUTH_CODE_HERE&amp;state=1234zyx
+</code></pre>
+<ul>
+<li>You should first compare this <code>state</code> value to ensure it matches the one you started with.</li>
+<li>You can typically store the <code>state</code> value in a cookie or session, and compare it when the user comes back.</li>
+</ul>
+<p>This ensures your redirection endpoint(<code>https://example-app.com/cb</code>, in this case) isn't able to be tricked into attempting to exchange arbitrary authorization codes. This prevents CSRF(Cross Site Request Forgery), which let the victim login as the attacker.</p>
+<h2 id="refresh-tokens">Refresh Tokens</h2>
+<ul>
+<li><a href="https://auth0.com/learn/refresh-tokens/" class="uri">https://auth0.com/learn/refresh-tokens/</a></li>
+<li><a href="https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/" class="uri">https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/</a></li>
+</ul>
+<p><img src="_img/screenshot_2018-03-09_20-38-24.png" /></p>
+<ul>
+<li>A special kind of token that can be used to obtain a renewed access token</li>
+<li>Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.</li>
+<li>Refresh Tokens never expire.</li>
+</ul>
+<pre class="example"><code>curl -X POST -H &#39;Authorization: Basic dGVzdGNsaWVudDpzZWNyZXQ=&#39; -d &#39;refresh_token=&lt;prev_refresh_token&gt;&amp;grant_type=refresh_token&#39; localhost:3000/oauth/token
+{
+    &quot;token_type&quot;:&quot;bearer&quot;,
+    &quot;access_token&quot;:&quot;&lt;new_access_token&gt;&quot;,
+    &quot;expires_in&quot;:20,
+    &quot;refresh_token&quot;:&quot;&lt;new_refresh_token&gt;&quot;
+}
+</code></pre>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://www.udacity.com/course/authentication-authorization-oauth--ud330">Udacity: Authentication &amp; Authorization: OAuth</a></li>
+<li><a href="https://developers.google.com/oauthplayground/" class="uri">https://developers.google.com/oauthplayground/</a></li>
+<li><a href="https://aaronparecki.com/oauth-2-simplified/" class="uri">https://aaronparecki.com/oauth-2-simplified/</a></li>
+</ul>
+</body>
+</html>

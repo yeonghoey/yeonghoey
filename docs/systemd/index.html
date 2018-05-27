@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>systemd</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">systemd</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_5_gh"><span class="smallcaps">TOC_5_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#units">Units</a>
+<ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#types">Types</a>
+<ul>
+<li><a href="#target">Target</a></li>
+</ul></li>
+<li><a href="#paths">Paths</a></li>
+</ul></li>
+<li><a href="#special-units">Special units</a></li>
+<li><a href="#sections">Sections</a>
+<ul>
+<li><a href="#unit">Unit</a>
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#requires">Requires</a></li>
+<li><a href="#wants">Wants</a></li>
+<li><a href="#requisite">Requisite</a></li>
+<li><a href="#conflicts">Conflicts</a></li>
+<li><a href="#before">Before</a></li>
+<li><a href="#after">After</a></li>
+<li><a href="#condition">Condition…</a></li>
+<li><a href="#assert">Assert…</a></li>
+</ul></li>
+<li><a href="#service">Service</a>
+<ul>
+<li><a href="#type">Type</a></li>
+<li><a href="#remainafterexit">RemainAfterExit</a></li>
+<li><a href="#pidfile">PIDFile</a></li>
+<li><a href="#busname">BusName</a></li>
+<li><a href="#notifyaccess">NotifyAccess</a></li>
+<li><a href="#execstart">ExecStart</a></li>
+<li><a href="#execstartpre">ExecStartPre</a></li>
+<li><a href="#execstartpost">ExecStartPost</a></li>
+<li><a href="#execreload">ExecReload~</a></li>
+<li><a href="#execstop">ExecStop=</a></li>
+<li><a href="#execstoppost">ExecStopPost</a></li>
+<li><a href="#restartsec">RestartSec</a></li>
+<li><a href="#restart">Restart</a></li>
+<li><a href="#timeoutsec">TimeoutSec</a></li>
+</ul></li>
+<li><a href="#install">Install</a>
+<ul>
+<li><a href="#wantedby">WantedBy</a></li>
+<li><a href="#requiredby">RequiredBy</a></li>
+<li><a href="#alias">Alias</a></li>
+<li><a href="#also">Also</a></li>
+<li><a href="#defaultinstance">DefaultInstance</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#commands">Commands</a>
+<ul>
+<li><a href="#systemctl">systemctl</a></li>
+<li><a href="#journalctl">journalctl</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#is-it-expected-for-systemd-to-start-disabled-services">Is it expected for systemd to start disabled services?</a></li>
+<li><a href="#what-is-state-from-systemctl-list-unit-files">What is STATE from 'systemctl list-unit-files'?</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Systemd" class="uri">https://en.wikipedia.org/wiki/Systemd</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files" class="uri">https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files</a></li>
+</ul>
+<p><img src="_img/screenshot_2017-11-09_15-47-44.png" /></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files" class="uri">https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal" class="uri">https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal</a></li>
+</ul>
+<h1 id="units">Units</h1>
+<h2 id="syntax">Syntax</h2>
+<ul>
+<li>case-sensitive</li>
+<li><code>X-&lt;name&gt;</code> for non-standard sections</li>
+<li><code>1</code>, <code>yes</code>, <code>on</code>, <code>true</code>, <code>0</code>, <code>no</code>, <code>off</code>, <code>false</code> for booleans</li>
+</ul>
+<pre class="example"><code>[Section]
+Directive1=value
+Directive2=value
+...
+</code></pre>
+<h2 id="types">Types</h2>
+<table>
+<thead>
+<tr class="header">
+<th>type of unit</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.service</code></td>
+<td>manage a service or application on the server</td>
+</tr>
+<tr class="even">
+<td><code>.socket</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.device</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.mount</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.automount</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.swap</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.target</code></td>
+<td>synchronization points for other units when booting up or changing states</td>
+</tr>
+<tr class="even">
+<td><code>.path</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.timer</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.snapshot</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>.slice</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>.scope</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="target">Target</h3>
+<ul>
+<li>Target units do not offer any additional functionality on top of the generic functionality provided by units.</li>
+<li>They exist merely to group units via dependencies</li>
+</ul>
+<h2 id="paths">Paths</h2>
+<table>
+<thead>
+<tr class="header">
+<th>path</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/lib/systemd/system</code></td>
+<td>unit files</td>
+</tr>
+<tr class="even">
+<td><code>/run/systemd/system</code></td>
+<td>runt-ime unit definitions</td>
+</tr>
+<tr class="odd">
+<td><code>/etc/systemd/system</code></td>
+<td>overrides (unit files which take precedence)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="special-units">Special units</h1>
+<ul>
+<li><a href="https://www.freedesktop.org/software/systemd/man/systemd.special.html" class="uri">https://www.freedesktop.org/software/systemd/man/systemd.special.html</a></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Target</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>default.target</code></td>
+<td>Usually, this should be aliased (symlinked) to <code>multi-user.target</code> or <code>graphical.target</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><img src="_img/screenshot_2017-11-26_09-40-34.png" /></p>
+<h1 id="sections">Sections</h1>
+<ul>
+<li><a href="https://www.freedesktop.org/software/systemd/man/systemd.directives.html" class="uri">https://www.freedesktop.org/software/systemd/man/systemd.directives.html</a></li>
+</ul>
+<h2 id="unit">Unit</h2>
+<ul>
+<li>The first section found in most unit files</li>
+<li>Defines metadata for the unit and configuring the relationship of the unit to other units.</li>
+</ul>
+<h3 id="description">Description</h3>
+<h3 id="documentation">Documentation</h3>
+<h3 id="requires">Requires</h3>
+<ul>
+<li>activate dependenceis and fail if they fail</li>
+</ul>
+<h3 id="wants">Wants</h3>
+<ul>
+<li>activate dependencies but don't care whether they fail or not</li>
+</ul>
+<h3 id="requisite">Requisite</h3>
+<ul>
+<li>fails if the dependency is not active</li>
+</ul>
+<h3 id="conflicts">Conflicts</h3>
+<ul>
+<li>deactivate the dependency if it is active</li>
+</ul>
+<h3 id="before">Before</h3>
+<h3 id="after">After</h3>
+<h3 id="condition">Condition…</h3>
+<h3 id="assert">Assert…</h3>
+<h2 id="service">Service</h2>
+<ul>
+<li><a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options" class="uri">https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options</a></li>
+<li><p><a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html#Command%20lines">https://www.freedesktop.org/software/systemd/man/systemd.service.html#Command%20lines</a></p></li>
+<li><p>Defines configuration that is only applicable for services</p></li>
+</ul>
+<h3 id="type">Type</h3>
+<ul>
+<li>how to manage services. <code>simple</code> is default, <code>forking</code> for services which fork, <code>oneshot</code> for shot-lived process</li>
+</ul>
+<h3 id="remainafterexit">RemainAfterExit</h3>
+<ul>
+<li>with <code>oneshot</code> type. active after process exits</li>
+</ul>
+<h3 id="pidfile">PIDFile</h3>
+<ul>
+<li>with <code>forking</code> type |</li>
+</ul>
+<h3 id="busname">BusName</h3>
+<ul>
+<li>with <code>dbus</code> type |</li>
+</ul>
+<h3 id="notifyaccess">NotifyAccess</h3>
+<ul>
+<li>with <code>notify</code> type |</li>
+</ul>
+<h3 id="execstart">ExecStart</h3>
+<ul>
+<li>if path to command starts with <code>-</code>, systemd considers active even if it's failed</li>
+</ul>
+<h3 id="execstartpre">ExecStartPre</h3>
+<h3 id="execstartpost">ExecStartPost</h3>
+<h3 id="execreload">ExecReload~</h3>
+<h3 id="execstop">ExecStop=</h3>
+<ul>
+<li>if not given, the process will be killed when stopped</li>
+</ul>
+<h3 id="execstoppost">ExecStopPost</h3>
+<h3 id="restartsec">RestartSec</h3>
+<h3 id="restart">Restart</h3>
+<ul>
+<li><code>always</code>, <code>on-success</code>, <code>on-failure</code>, <code>on-abnormal</code>, <code>on-abort</code>, <code>on-watchdog</code></li>
+</ul>
+<p><img src="_img/screenshot_2017-11-09_16-14-09.png" /></p>
+<h3 id="timeoutsec">TimeoutSec</h3>
+<ul>
+<li>When stopping, after waiting <code>n</code> seconds, systemd kills the process</li>
+</ul>
+<h2 id="install">Install</h2>
+<ul>
+<li>The last section is often</li>
+<li>optional</li>
+<li>Defines the behavior or a unit if it is <em>enabled</em> or <em>disabled</em></li>
+<li><strong>Enabling a unit marks it to be automatically started at boot.</strong></li>
+</ul>
+<h3 id="wantedby">WantedBy</h3>
+<p>For <code>sshd.service</code>,</p>
+<pre class="example"><code>[Unit]
+...
+[Service]
+...
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>When enabling <code>sshd.service</code>, systemd adds it to <code>multi-user.target</code> by following:</p>
+<pre class="shell"><code>ln -s &#39;/usr/lib/systemd/system/sshd.service&#39; &#39;/etc/systemd/system/multi-user.target/wants/sshd.service&#39;
+</code></pre>
+<h3 id="requiredby">RequiredBy</h3>
+<h3 id="alias">Alias</h3>
+<h3 id="also">Also</h3>
+<h3 id="defaultinstance">DefaultInstance</h3>
+<h1 id="commands">Commands</h1>
+<h2 id="systemctl">systemctl</h2>
+<pre class="shell"><code>systemctl start &lt;name&gt;.service
+systemctl stop &lt;name&gt;.service
+systemctl restart &lt;name&gt;.service
+systemctl reload &lt;name&gt;.service      # reload some configs while running
+systemctl enable &lt;name&gt;.service      # make service start at boot
+systemctl disable &lt;name&gt;.service
+
+systemctl status &lt;name&gt;.service      # overview
+systemctl show &lt;name&gt;.service        # low-level details
+systemctl list-dependencies &lt;name&gt;.service
+
+systemctl list-units                 # only active
+systemctl list-units --all           # all loaded
+systemctl list-unit-files            # all installed
+
+systemctl cat &lt;name&gt;.service         # contents of unit file
+systemctl edit &lt;name&gt;.service        # edit override for unit file
+systemctl edit --full &lt;name&gt;.service # edit unit file
+
+systemctl daemon-reload              # reload after edit
+
+systemctl list-unit-files --type=target
+systemctl get-default
+</code></pre>
+<h2 id="journalctl">journalctl</h2>
+<pre class="shell"><code>journalctl                   # all
+journalctl -b                # current boot
+journalctl -k                # only kernel messages
+journalctl -u &lt;name&gt;.service # unit
+journalctl -f                # follow, like tail -f
+</code></pre>
+<h1 id="topics">Topics</h1>
+<h2 id="is-it-expected-for-systemd-to-start-disabled-services">Is it expected for systemd to start disabled services?</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/39086459/is-it-expected-for-systemd-to-start-disabled-services" class="uri">https://stackoverflow.com/questions/39086459/is-it-expected-for-systemd-to-start-disabled-services</a></li>
+</ul>
+<blockquote>
+<p>The <code>systemctl enable</code> and <code>systemctl disable</code> operations <strong>configure auto-starting</strong> of a unit.</p>
+</blockquote>
+<p>So, starting a unit without enabling it is valid.</p>
+<h2 id="what-is-state-from-systemctl-list-unit-files">What is STATE from 'systemctl list-unit-files'?</h2>
+<ul>
+<li><a href="https://www.linux.com/learn/understanding-and-using-systemd" class="uri">https://www.linux.com/learn/understanding-and-using-systemd</a></li>
+</ul>
+<pre class="shell"><code>$ systemctl list-unit-files --type=service
+UNIT FILE              STATE
+[...]
+chronyd.service        enabled
+clamd@.service         static
+clamd@scan.service     disabled
+</code></pre>
+<dl>
+<dt><code>enabled</code></dt>
+<dd>it has a symlink in a .wants directory.
+</dd>
+<dt><code>disabled</code></dt>
+<dd>it does not.
+</dd>
+<dt><code>static</code></dt>
+<dd>the service is missing the <code>[Install]</code> section in its init script, so you cannot enable or disable it. Static services are usually dependencies of other services, and are controlled automatically.
+</dd>
+</dl>
+<h1 id="how-to">How-to</h1>
+<h1 id="links">Links</h1>
+</body>
+</html>

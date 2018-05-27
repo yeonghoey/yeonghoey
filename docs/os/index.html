@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>OS</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">OS</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#cpu-os-and-applications">CPU, OS and Applications</a>
+<ul>
+<li><a href="#early-single-tasking-oses">Early single tasking OSes</a></li>
+<li><a href="#modern-multi-tasking-oses">Modern multi tasking OSes</a></li>
+<li><a href="#the-program-loader">The Program Loader</a></li>
+<li><a href="#compatibility-across-os-and-cpu-types">Compatibility across OS and CPU types</a></li>
+</ul></li>
+<li><a href="#what-do-i386-and-amd64-stand-for">What do i386 and amd64 stand for?</a></li>
+</ul></li>
+</ul>
+<h1 id="topics">Topics</h1>
+<h2 id="cpu-os-and-applications">CPU, OS and Applications</h2>
+<ul>
+<li><a href="https://softwareengineering.stackexchange.com/questions/247183/why-is-software-os-specific/247187" class="uri">https://softwareengineering.stackexchange.com/questions/247183/why-is-software-os-specific/247187</a></li>
+</ul>
+<p><img src="_img/screenshot_2018-03-15_12-01-09.png" /></p>
+<h3 id="early-single-tasking-oses">Early single tasking OSes</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Protection_ring" class="uri">https://en.wikipedia.org/wiki/Protection_ring</a></li>
+</ul>
+<p><img src="_img/screenshot_2018-03-15_12-01-52.png" /></p>
+<blockquote>
+<p>In very early DOS and other early single tasking based systems all code was run in the inner ring(kernel), (…) <code>This code was in fact largely OS agnostic</code>, as long as you had a loader capable of loading the program into memory (pretty simple for early binary formats) and the code did not rely on any drivers</p>
+</blockquote>
+<h3 id="modern-multi-tasking-oses">Modern multi tasking OSes</h3>
+<blockquote>
+<p>Each OS decided on a different implementation for these protections (…) These OS specific interactions are usually called &quot;<strong>system calls</strong>&quot; and encompass how a user space program interacts with the hardware through the OS completely</p>
+</blockquote>
+<h3 id="the-program-loader">The Program Loader</h3>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Loader_%28computing%29">https://en.wikipedia.org/wiki/Loader_%28computing%29</a></li>
+</ul>
+<blockquote>
+<p>In addition to system calls, each OS provides a different method to load a program from the secondary storage medium and into memory, in order to be loadable by a specific OS the program must contain a special header which describes to the OS how it may be loaded and run.</p>
+</blockquote>
+<h3 id="compatibility-across-os-and-cpu-types">Compatibility across OS and CPU types</h3>
+<ul>
+<li><a href="https://www.techsupportalert.com/content/32-bit-and-64-bit-explained.htm" class="uri">https://www.techsupportalert.com/content/32-bit-and-64-bit-explained.htm</a></li>
+</ul>
+<p><img src="_img/screenshot_2018-03-15_12-14-18.png" /></p>
+<h2 id="what-do-i386-and-amd64-stand-for">What do i386 and amd64 stand for?</h2>
+<ul>
+<li><a href="https://askubuntu.com/questions/54296/difference-between-the-i386-download-and-the-amd64" class="uri">https://askubuntu.com/questions/54296/difference-between-the-i386-download-and-the-amd64</a></li>
+</ul>
+<blockquote>
+<p>The Intel <code>80386</code>, also known as the <code>i386</code>, or just <code>386</code>, was a 32-bit microprocessor introduced by Intel in 1985… This is termed <code>x86</code>, <code>IA-32</code>, or the <code>i386-architecture</code>, depending on context.</p>
+</blockquote>
+<blockquote>
+<p><code>x86-64</code> is an extension of the x86 instruction set. It supports vastly larger virtual and physical address spaces than are possible on x86, thereby allowing programmers to conveniently work with much larger data sets.. After launching the architecture under the <code>&quot;x86-64</code>&quot; name, AMD renamed it <code>AMD64</code>… <code>x86-64</code> is still used by many in the industry as a vendor-neutral term, while others, notably Sun Microsystems (now Oracle Corporation) and Microsoft, use <code>x64</code>.</p>
+</blockquote>
+<p><strong>Even if you have an intel CPU, you should use AMD64 to install 64-bit on your computer</strong> (it uses the same instruction sets).</p>
+</body>
+</html>

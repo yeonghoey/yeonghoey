@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Serverless</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Serverless</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#serverlessyml">serverless.yml</a></li>
+<li><a href="#serverless-domain-manager">serverless-domain-manager</a></li>
+<li><a href="#serverless-dynamodb-local">serverless-dynamodb-local</a></li>
+<li><a href="#serverless-python-requirements">serverless-python-requirements</a></li>
+<li><a href="#serverless-wsgi">serverless-wsgi</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#services">Services</a>
+<ul>
+<li><a href="#serverlessyml-1">serverless.yml</a></li>
+</ul></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#deploying">Deploying</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#packaging">Packaging</a></li>
+<li><a href="#iam">IAM</a>
+<ul>
+<li><a href="#additional-policies-on-the-generated-policies">Additional Policies on the generated policies</a></li>
+<li><a href="#completely-custom-roles">Completely custom roles</a></li>
+</ul></li>
+<li><a href="#plugins">Plugins</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#deploy-flask-app">Deploy Flask App</a></li>
+<li><a href="#set-custom-domains">Set Custom Domains</a></li>
+<li><a href="#enable-cors">Enable CORS</a></li>
+</ul></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<pre class="shell"><code>npm install -g serverless
+</code></pre>
+<p>You can use Serverless CLI with <code>serverless</code> or <code>sls</code> command.</p>
+<p>Subcommands:</p>
+<pre class="example"><code>config ........................ Configure Serverless
+config credentials ............ Configures a new provider profile for the Serverless Framework
+create ........................ Create new Serverless service
+deploy ........................ Deploy a Serverless service
+deploy function ............... Deploy a single function from the service
+deploy list ................... List deployed version of your Serverless Service
+deploy list functions ......... List all the deployed functions and their versions
+info .......................... Display information about the service
+install ....................... Install a Serverless service from GitHub or a plugin from the Serverless registry
+invoke ........................ Invoke a deployed function
+invoke local .................. Invoke function locally
+logs .......................... Output the logs of a deployed function
+metrics ....................... Show metrics for a specific function
+package ....................... Packages a Serverless service
+</code></pre>
+<h1 id="reference">Reference</h1>
+<h2 id="serverless.yml">serverless.yml</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/</a></li>
+</ul>
+<h2 id="serverless-domain-manager">serverless-domain-manager</h2>
+<ul>
+<li><a href="https://github.com/amplify-education/serverless-domain-manager#installing" class="uri">https://github.com/amplify-education/serverless-domain-manager#installing</a></li>
+</ul>
+<h2 id="serverless-dynamodb-local">serverless-dynamodb-local</h2>
+<ul>
+<li><a href="https://github.com/99xt/serverless-dynamodb-local" class="uri">https://github.com/99xt/serverless-dynamodb-local</a></li>
+</ul>
+<pre class="shell"><code>sls dynamodb install
+sls dynamodb start
+sls dynamodb remove
+</code></pre>
+<ul>
+<li><a href="https://github.com/99xt/serverless-dynamodb-local#seeding-sls-dynamodb-seed" class="uri">https://github.com/99xt/serverless-dynamodb-local#seeding-sls-dynamodb-seed</a></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">dynamodb:</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="fu">start:</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="fu">seed:</span><span class="at"> true</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="fu">seed:</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="fu">&lt;category&gt;:</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">      <span class="fu">sources:</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">        <span class="kw">-</span> <span class="fu">table:</span><span class="at"> domain-widgets</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">          <span class="fu">sources:</span><span class="at"> </span><span class="kw">[</span>./data.json<span class="kw">]</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ot">[</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;John&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Doe&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="ot">]</span></a></code></pre></div>
+<h2 id="serverless-python-requirements">serverless-python-requirements</h2>
+<ul>
+<li><a href="https://github.com/UnitedIncome/serverless-python-requirements" class="uri">https://github.com/UnitedIncome/serverless-python-requirements</a></li>
+<li><p><a href="https://serverless.com/blog/serverless-python-packaging/" class="uri">https://serverless.com/blog/serverless-python-packaging/</a></p></li>
+<li><code>dockerizePip: non-linux</code> for making Lambda compatible packaging</li>
+<li><p>Supports <code>Pipenv</code> by default</p></li>
+</ul>
+<h2 id="serverless-wsgi">serverless-wsgi</h2>
+<ul>
+<li><a href="https://github.com/logandk/serverless-wsgi" class="uri">https://github.com/logandk/serverless-wsgi</a></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu">service:</span><span class="at"> example</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="fu">provider:</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="fu">name:</span><span class="at"> aws</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="fu">runtime:</span><span class="at"> python2.7</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="fu">plugins:</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  <span class="kw">-</span> serverless-wsgi</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="fu">functions:</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">  <span class="fu">api:</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    <span class="fu">handler:</span><span class="at"> wsgi.handler</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">    <span class="fu">events:</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">      <span class="kw">-</span> <span class="fu">http:</span><span class="at"> ANY /</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">      <span class="kw">-</span> <span class="fu">http:</span><span class="at"> ANY {proxy+}</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="fu">custom:</span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">  <span class="fu">wsgi:</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">    <span class="fu">app:</span><span class="at"> api.app</span></a></code></pre></div>
+<pre class="shell"><code># For development
+sls wsgi serve
+</code></pre>
+<ul>
+<li><code>IS_OFFLINE</code> envvar is included when serving (<a href="https://github.com/logandk/serverless-wsgi/blob/master/CHANGELOG.md#141">1.4.1</a>)</li>
+</ul>
+<pre class="example"><code>* Running on http://localhost:5000/ (Press CTRL+C to quit)
+* Restarting with stat
+* Debugger is active!
+* Debugger PIN: 109-942-480
+</code></pre>
+<h1 id="topics">Topics</h1>
+<h2 id="services">Services</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/services/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/services/</a></li>
+</ul>
+<pre class="example"><code>users/
+  serverless.yml # Contains 4 functions that do Users CRUD operations and the Users database
+posts/
+  serverless.yml # Contains 4 functions that do Posts CRUD operations and the Posts database
+comments/
+  serverless.yml # Contains 4 functions that do Comments CRUD operations and the Comments database
+</code></pre>
+<pre class="shell"><code>serverless create --template aws-nodejs --path myService
+</code></pre>
+<h3 id="serverless.yml-1">serverless.yml</h3>
+<ul>
+<li>Declare a Serverless service</li>
+<li>Define one or more functions in the service</li>
+<li>Define the provider the service will be deployed to (and the runtime if provided)</li>
+<li>Define any custom plugins to be used</li>
+<li>Define events that trigger each function to execute (e.g. HTTP requests)</li>
+<li>Define a set of resources (e.g. 1 DynamoDB table) required by the functions in this service</li>
+<li>Allow events listed in the events section to automatically create the resources required for the event upon deployment</li>
+<li>Allow flexible configuration using Serverless Variables</li>
+</ul>
+<h2 id="functions">Functions</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/functions/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/functions/</a></li>
+<li>Your functions can either inherit their settings from the <code>provider</code> property.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="fu">functions:</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="fu">functionOne:</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="fu">handler:</span><span class="at"> handler.functionOne</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">    <span class="fu">description:</span><span class="at"> optional description for your Lambda</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="fu">functionTwo:</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">    <span class="fu">handler:</span><span class="at"> handler.functionTwo</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="fu">functionThree:</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">    <span class="fu">handler:</span><span class="at"> handler.functionThree</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="fu">provider:</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="fu">name:</span><span class="at"> aws</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="fu">environment:</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">    <span class="fu">SYSTEM_NAME:</span><span class="at"> mySystem</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">    <span class="fu">TABLE_NAME:</span><span class="at"> tableName1</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="fu">functions:</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">  <span class="fu">hello:</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">    <span class="fu">handler:</span><span class="at"> handler.users</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">    <span class="fu">environment:</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">      <span class="fu">TABLE_NAME:</span><span class="at"> tableName2 </span><span class="co"># overrides</span></a></code></pre></div>
+<h2 id="events">Events</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/events/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/events/</a></li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/resources/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/resources/</a></li>
+<li><a href="https://github.com/serverless/serverless/issues/3184" class="uri">https://github.com/serverless/serverless/issues/3184</a></li>
+<li><p><a href="https://github.com/serverless/serverless/issues/3545" class="uri">https://github.com/serverless/serverless/issues/3545</a></p></li>
+<li>Based on <a href="https://github.com/serverless/serverless/blob/master/lib/plugins/aws/lib/naming.js#L48">getStackName</a>, though not explicitly documented, it seems that every stack is related to <code>stage</code></li>
+<li><p><code>!&lt;Function&gt;</code> syntax is not supported</p></li>
+<li><a href="https://github.com/serverless/serverless/issues/3184#issuecomment-304671007" class="uri">https://github.com/serverless/serverless/issues/3184#issuecomment-304671007</a></li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="fu">Resource:</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">        <span class="fu">&quot;Fn::Sub&quot;:</span><span class="at"> </span><span class="st">&quot;arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table...&quot;</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="fu">provider:</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="fu">name:</span><span class="at"> aws</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="fu">runtime:</span><span class="at"> nodejs6.10</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">  <span class="co"># Allow for cf &quot;AWS::&quot; variables, see https://serverless.com/framework/docs/providers/aws/guide/variables#using-custom-variable-syntax</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">  <span class="fu">variableSyntax:</span><span class="at"> </span><span class="st">&quot;\\${(?!AWS::)([ :a-zA-Z0-9._,\\-\\/\\(\\)]+?)}&quot;</span></a></code></pre></div>
+<h2 id="deploying">Deploying</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/deploying/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/deploying/</a></li>
+</ul>
+<pre class="shell"><code>serverless deploy --verbose                      # uses AWS CloudFormation Stack Update
+serverless deploy function --function myFunction # updates AWS Lambda only
+serverless deploy --stage production --region eu-central-1
+</code></pre>
+<h2 id="variables">Variables</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/variables/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/variables/</a></li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="fu">x:</span><span class="at"> ${env:NAME}                 </span><span class="co"># Environment Variables</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="fu">x:</span><span class="at"> ${env:NAME, &#39;temp&#39;}         </span><span class="co"># default</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="fu">x:</span><span class="at"> ${opt:stage}                </span><span class="co"># CLI Options</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="fu">x:</span><span class="at"> ${cf:service.name}          </span><span class="co"># CloudFormation</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="fu">x:</span><span class="at"> ${self:custom.stage}        </span><span class="co"># self reference</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="fu">x:</span><span class="at"> ${s3:bucket/key}            </span><span class="co"># value(content) of the s3 object</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="fu">x:</span><span class="at"> ${file(../config.yml):name} </span><span class="co"># js, json or yaml, can be json object or equivalents</span></a></code></pre></div>
+<h2 id="packaging">Packaging</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/packaging/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/packaging/</a></li>
+</ul>
+<pre class="shell"><code>serverless package
+serverless package --package my-artifacts
+</code></pre>
+<p>Serverless will <strong>run the glob patterns in order.</strong> At first it will apply the globs defined in <code>exclude</code>. After that it'll add all the globs from <code>include</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="fu">package:</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="fu">exclude:</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">    <span class="kw">-</span> src/**</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  <span class="fu">include:</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">    <span class="kw">-</span> src/function/handler.js</a></code></pre></div>
+<ul>
+<li><a href="https://github.com/serverless/serverless/blob/master/lib/plugins/package/lib/packageService.js" class="uri">https://github.com/serverless/serverless/blob/master/lib/plugins/package/lib/packageService.js</a></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="dt">defaultExcludes</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">    <span class="st">&#39;.git/**&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">    <span class="st">&#39;.gitignore&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">    <span class="st">&#39;.DS_Store&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">    <span class="st">&#39;npm-debug.log&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">    <span class="st">&#39;serverless.yml&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">    <span class="st">&#39;serverless.yaml&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">    <span class="st">&#39;serverless.json&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-10" data-line-number="10">    <span class="st">&#39;serverless.js&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-11" data-line-number="11">    <span class="st">&#39;.serverless/**&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-12" data-line-number="12">    <span class="st">&#39;.serverless_plugins/**&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb18-13" data-line-number="13">  ]<span class="op">,</span></a></code></pre></div>
+<h2 id="iam">IAM</h2>
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/guide/iam/" class="uri">https://serverless.com/framework/docs/providers/aws/guide/iam/</a></li>
+</ul>
+<blockquote>
+<p>As those statements will be merged into the CloudFormation template, you can use <code>Join</code>, <code>Ref</code> or any other CloudFormation method or feature.</p>
+</blockquote>
+<h3 id="additional-policies-on-the-generated-policies">Additional Policies on the generated policies</h3>
+<dl>
+<dt>provider.iamRoleStatements</dt>
+<dd>Define additional policies in the CloudFormation format
+</dd>
+<dt>provider.iamManagedPolicies</dt>
+<dd>Additional policies managed outside of serverless
+</dd>
+</dl>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="fu">service:</span><span class="at"> new-service</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="fu">provider:</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">  <span class="fu">name:</span><span class="at"> aws</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">  <span class="fu">iamRoleStatements:</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">    <span class="kw">-</span>  <span class="fu">Effect:</span><span class="at"> </span><span class="st">&quot;Allow&quot;</span></a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">       <span class="fu">Action:</span></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">         <span class="kw">-</span> <span class="st">&quot;s3:ListBucket&quot;</span></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9">       <span class="fu">Resource:</span></a>
+<a class="sourceLine" id="cb19-10" data-line-number="10">         <span class="fu">Fn:</span><span class="at">:Join:</span></a>
+<a class="sourceLine" id="cb19-11" data-line-number="11">           <span class="kw">-</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb19-12" data-line-number="12">           <span class="kw">-</span> - <span class="st">&quot;arn:aws:s3:::&quot;</span></a>
+<a class="sourceLine" id="cb19-13" data-line-number="13">             <span class="kw">-</span> <span class="fu">Ref:</span><span class="at"> ServerlessDeploymentBucket</span></a>
+<a class="sourceLine" id="cb19-14" data-line-number="14">    <span class="kw">-</span>  <span class="fu">Effect:</span><span class="at"> </span><span class="st">&quot;Allow&quot;</span></a>
+<a class="sourceLine" id="cb19-15" data-line-number="15">       <span class="fu">Action:</span></a>
+<a class="sourceLine" id="cb19-16" data-line-number="16">         <span class="kw">-</span> <span class="st">&quot;s3:PutObject&quot;</span></a>
+<a class="sourceLine" id="cb19-17" data-line-number="17">       <span class="fu">Resource:</span></a>
+<a class="sourceLine" id="cb19-18" data-line-number="18">         <span class="fu">Fn:</span><span class="at">:Join:</span></a>
+<a class="sourceLine" id="cb19-19" data-line-number="19">           <span class="kw">-</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb19-20" data-line-number="20">           <span class="kw">-</span> - <span class="st">&quot;arn:aws:s3:::&quot;</span></a>
+<a class="sourceLine" id="cb19-21" data-line-number="21">             <span class="kw">-</span> <span class="fu">Ref:</span><span class="at"> ServerlessDeploymentBucket</span></a>
+<a class="sourceLine" id="cb19-22" data-line-number="22">             <span class="kw">-</span> <span class="st">&quot;/*&quot;</span></a>
+<a class="sourceLine" id="cb19-23" data-line-number="23">  <span class="fu">iamManagedPolicies:</span></a>
+<a class="sourceLine" id="cb19-24" data-line-number="24">      <span class="kw">-</span> <span class="st">&#39;some:aws:arn:xxx:*:*&#39;</span></a>
+<a class="sourceLine" id="cb19-25" data-line-number="25">      <span class="kw">-</span> <span class="st">&#39;someOther:aws:arn:xxx:*:*&#39;</span></a>
+<a class="sourceLine" id="cb19-26" data-line-number="26">      <span class="kw">-</span> <span class="kw">{</span> <span class="fu">&#39;Fn::Join&#39;:</span><span class="at"> </span><span class="kw">[</span><span class="st">&#39;:&#39;</span><span class="fu">, [&#39;arn:</span><span class="at">aws:iam:&#39;, { Ref: &#39;AWSAccountId&#39; }, &#39;some/path&#39;]] }</span></a></code></pre></div>
+<h3 id="completely-custom-roles">Completely custom roles</h3>
+<blockquote>
+<p>Using this way means that <code>iamRoleStatements</code> you've defined on the provider level won't be applied anymore. Furthermore, you need to provide the corresponding permissions for your Lambdas logs and stream events.</p>
+</blockquote>
+<div class="sourceCode" id="cb20"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="fu">provider:</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">  <span class="fu">name:</span><span class="at"> aws</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">  <span class="co"># declare one of the following...</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">  <span class="fu">role:</span><span class="at"> myDefaultRole                                                  </span><span class="co"># must validly reference a role defined in the service</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">  <span class="fu">role:</span><span class="at"> arn:aws:iam::0123456789:role//my/default/path/roleInMyAccount  </span><span class="co"># must validly reference a role defined in your account</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">  <span class="fu">role:</span><span class="at">                                                                </span><span class="co"># must validly resolve to the ARN of a role you have the rights to use</span></a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">    <span class="fu">Fn:</span><span class="at">:GetAtt:</span></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8">      <span class="kw">-</span> myRole</a>
+<a class="sourceLine" id="cb20-9" data-line-number="9">      <span class="kw">-</span> Arn</a></code></pre></div>
+<h2 id="plugins">Plugins</h2>
+<ul>
+<li><a href="https://github.com/serverless/plugins" class="uri">https://github.com/serverless/plugins</a></li>
+</ul>
+<h1 id="how-to">How-to</h1>
+<h2 id="deploy-flask-app">Deploy Flask App</h2>
+<ul>
+<li><a href="https://serverless.com/blog/serverless-python-packaging/" class="uri">https://serverless.com/blog/serverless-python-packaging/</a></li>
+<li><a href="https://serverless.com/blog/flask-python-rest-api-serverless-lambda-dynamodb/" class="uri">https://serverless.com/blog/flask-python-rest-api-serverless-lambda-dynamodb/</a></li>
+</ul>
+<pre class="shell"><code>npm init -f
+npm install --save-dev serverless-wsgi serverless-python-requirements
+</code></pre>
+<h2 id="set-custom-domains">Set Custom Domains</h2>
+<ul>
+<li><a href="https://serverless.com/blog/serverless-api-gateway-domain/" class="uri">https://serverless.com/blog/serverless-api-gateway-domain/</a></li>
+</ul>
+<pre class="shell"><code>$ npm install serverless-domain-manager --save-dev
+</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="fu">plugins:</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">  <span class="kw">-</span> serverless-domain-manager</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="fu">custom:</span></a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">  <span class="fu">customDomain:</span></a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">    <span class="fu">domainName:</span><span class="at"> &lt;registered_domain_name&gt;</span></a>
+<a class="sourceLine" id="cb23-7" data-line-number="7">    <span class="fu">basePath:</span><span class="at"> </span><span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb23-8" data-line-number="8">    <span class="fu">stage:</span><span class="at"> ${self:provider.stage}</span></a>
+<a class="sourceLine" id="cb23-9" data-line-number="9">    <span class="fu">createRoute53Record:</span><span class="at"> true</span></a></code></pre></div>
+<blockquote>
+<p>If you're using a certificate that doesn't exactly match your domain name, such as a wildcard certificate, you'll need to specify the certificate name with a <code>certificateName</code> property under <code>customDomain</code>.</p>
+</blockquote>
+<pre class="shell"><code>$ sls create_domain --stage &lt;stage&gt;
+</code></pre>
+<ul>
+<li><a href="https://stackoverflow.com/questions/46956660/how-to-set-up-different-domains-based-on-stage-with-serverless-domain-manager-pl" class="uri">https://stackoverflow.com/questions/46956660/how-to-set-up-different-domains-based-on-stage-with-serverless-domain-manager-pl</a></li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="fu">custom:</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">  <span class="fu">domain:</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">    <span class="fu">dev:</span><span class="at"> MY_DEV_DOMAIN</span></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">    <span class="fu">prod:</span><span class="at"> MY_PROD_DOMAIN</span></a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">  <span class="fu">customDomain:</span></a>
+<a class="sourceLine" id="cb25-6" data-line-number="6">    <span class="fu">basePath:</span><span class="at"> </span><span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb25-7" data-line-number="7">    <span class="fu">domainName:</span><span class="at"> ${self:custom.domain.${opt:stage}}</span></a>
+<a class="sourceLine" id="cb25-8" data-line-number="8">    <span class="fu">stage:</span><span class="at"> ${opt:stage}</span></a>
+<a class="sourceLine" id="cb25-9" data-line-number="9">    <span class="fu">createRoute53Record:</span><span class="at"> true</span></a></code></pre></div>
+<h2 id="enable-cors">Enable CORS</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://serverless.com/framework/docs/providers/aws/events/apigateway/#enabling-cors" class="uri">https://serverless.com/framework/docs/providers/aws/events/apigateway/#enabling-cors</a></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="fu">functions:</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">  <span class="fu">hello:</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">    <span class="fu">handler:</span><span class="at"> handler.hello</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">    <span class="fu">events:</span></a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">      <span class="kw">-</span> <span class="fu">http:</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6">          <span class="fu">path:</span><span class="at"> hello</span></a>
+<a class="sourceLine" id="cb26-7" data-line-number="7">          <span class="fu">method:</span><span class="at"> get</span></a>
+<a class="sourceLine" id="cb26-8" data-line-number="8">          <span class="fu">cors:</span></a>
+<a class="sourceLine" id="cb26-9" data-line-number="9">            <span class="fu">origin:</span><span class="at"> </span><span class="st">&#39;*&#39;</span></a>
+<a class="sourceLine" id="cb26-10" data-line-number="10">            <span class="fu">headers:</span></a>
+<a class="sourceLine" id="cb26-11" data-line-number="11">              <span class="kw">-</span> Content-Type</a>
+<a class="sourceLine" id="cb26-12" data-line-number="12">              <span class="kw">-</span> X-Amz-Date</a>
+<a class="sourceLine" id="cb26-13" data-line-number="13">              <span class="kw">-</span> Authorization</a>
+<a class="sourceLine" id="cb26-14" data-line-number="14">              <span class="kw">-</span> X-Api-Key</a>
+<a class="sourceLine" id="cb26-15" data-line-number="15">              <span class="kw">-</span> X-Amz-Security-Token</a>
+<a class="sourceLine" id="cb26-16" data-line-number="16">              <span class="kw">-</span> X-Amz-User-Agent</a>
+<a class="sourceLine" id="cb26-17" data-line-number="17">            <span class="fu">allowCredentials:</span><span class="at"> false</span></a></code></pre></div>
+<blockquote>
+<p>If you want to use CORS with the lambda-proxy integration, You should handle CORS within your application.</p>
+</blockquote>
+<p><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html">API Gateway says</a>:</p>
+<blockquote>
+<p>For Lambda or HTTP proxy integrations, you can still set up the required <code>OPTIONS</code> response headers in API Gateway. However, you must rely on the back end to return the <code>Access-Control-Allow-Origin</code> headers because the integration response is disabled for the proxy integration.</p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AWS Command Line Interface</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">AWS Command Line Interface</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#configure">Configure</a></li>
+<li><a href="#cli-skeleton-and-cli-input-json">CLI Skeleton and CLI Input JSON</a></li>
+<li><a href="#output-flags">Output Flags</a></li>
+</ul></li>
+<li><a href="#ec2">ec2</a></li>
+<li><a href="#iam">iam</a></li>
+</ul>
+<h1 id="reference">Reference</h1>
+<h2 id="configure">Configure</h2>
+<ul>
+<li><a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html" class="uri">http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html</a></li>
+</ul>
+<pre class="shell"><code># when &#39;--profile&#39; omitted, considered it as &#39;default&#39;
+$ aws configure --profile user2
+AWS Access Key ID [None]: AKIAI44QH8DHBEXAMPLE
+AWS Secret Access Key [None]: je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
+Default region name [None]: us-east-1
+Default output format [None]: text
+</code></pre>
+<pre class="shell"><code># Specify options as arguments
+aws ec2 describe-instances --output table --region us-west-1
+</code></pre>
+<h2 id="cli-skeleton-and-cli-input-json">CLI Skeleton and CLI Input JSON</h2>
+<ol>
+<li>Run a command only with <code>--generate-cli-skeleton</code> flag</li>
+<li>Save the output as a file like <code>params.json</code>, and fill it with actual values</li>
+<li>Run the command with <code>--cli-input-json file://params.json</code></li>
+</ol>
+<hr />
+<ul>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/generate-cli-skeleton.html" class="uri">https://docs.aws.amazon.com/cli/latest/userguide/generate-cli-skeleton.html</a></li>
+</ul>
+<h2 id="output-flags">Output Flags</h2>
+<dl>
+<dt><code>--output json</code></dt>
+<dd>Default
+</dd>
+<dt><code>--output text</code></dt>
+<dd>Tab-delimited text
+</dd>
+<dt><code>--output table</code></dt>
+<dd>ASCII-formatted table
+</dd>
+</dl>
+<p>You can configure the default in the configuration file or <code>AWS_DEFAULT_OUTPUT</code> environment variable.</p>
+<p>You can also filter the output with <code>--query</code> flag. This feature is implemented with <a href="http://jmespath.org/">JMESPath</a>:</p>
+<pre class="shell"><code>$ aws ec2 describe-volumes
+{
+    &quot;Volumes&quot;: [
+        {
+            &quot;AvailabilityZone&quot;: &quot;us-west-2a&quot;,
+            &quot;Attachments&quot;: [
+                {
+                    &quot;AttachTime&quot;: &quot;2013-09-17T00:55:03.000Z&quot;,
+                    &quot;InstanceId&quot;: &quot;i-a071c394&quot;,
+                    &quot;VolumeId&quot;: &quot;vol-e11a5288&quot;,
+                    &quot;State&quot;: &quot;attached&quot;,
+                    &quot;DeleteOnTermination&quot;: true,
+                    &quot;Device&quot;: &quot;/dev/sda1&quot;
+                }
+            ],
+            &quot;VolumeType&quot;: &quot;standard&quot;,
+            &quot;VolumeId&quot;: &quot;vol-e11a5288&quot;,
+            &quot;State&quot;: &quot;in-use&quot;,
+            &quot;SnapshotId&quot;: &quot;snap-f23ec1c8&quot;,
+            &quot;CreateTime&quot;: &quot;2013-09-17T00:55:03.000Z&quot;,
+            &quot;Size&quot;: 30
+        },
+        {
+            &quot;AvailabilityZone&quot;: &quot;us-west-2a&quot;,
+            &quot;Attachments&quot;: [
+                {
+                    &quot;AttachTime&quot;: &quot;2013-09-18T20:26:16.000Z&quot;,
+                    &quot;InstanceId&quot;: &quot;i-4b41a37c&quot;,
+                    &quot;VolumeId&quot;: &quot;vol-2e410a47&quot;,
+                    &quot;State&quot;: &quot;attached&quot;,
+                    &quot;DeleteOnTermination&quot;: true,
+                    &quot;Device&quot;: &quot;/dev/sda1&quot;
+                }
+            ],
+            &quot;VolumeType&quot;: &quot;standard&quot;,
+            &quot;VolumeId&quot;: &quot;vol-2e410a47&quot;,
+            &quot;State&quot;: &quot;in-use&quot;,
+            &quot;SnapshotId&quot;: &quot;snap-708e8348&quot;,
+            &quot;CreateTime&quot;: &quot;2013-09-18T20:26:15.000Z&quot;,
+            &quot;Size&quot;: 8
+        }
+    ]
+}
+</code></pre>
+<pre class="shell"><code># First element
+aws ec2 describe-volumes --query &#39;Volumes[0]&#39;
+
+# Aliased
+aws ec2 describe-volumes --query &#39;Volumes[*].{ID:VolumeId,AZ:AvailabilityZone,Size:Size}&#39;
+
+# Value only
+aws ec2 describe-volumes --query &#39;Volumes[*].[VolumeId, Attachments[0].InstanceId, AvailabilityZone, Size]&#39;
+
+# Conditional
+aws ec2 describe-volumes --query &#39;Volumes[?AvailabilityZone==`us-west-2a`]&#39;
+</code></pre>
+<hr />
+<ul>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/controlling-output.html" class="uri">https://docs.aws.amazon.com/cli/latest/userguide/controlling-output.html</a></li>
+</ul>
+<h1 id="ec2">ec2</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/index.html#cli-aws-ec2" class="uri">http://docs.aws.amazon.com/cli/latest/reference/ec2/index.html#cli-aws-ec2</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html" class="uri">http://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html</a></li>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#using-regions-availability-zones-describe" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#using-regions-availability-zones-describe</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html" class="uri">http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html</a></li>
+</ul>
+</div>
+<pre class="shell"><code># Make the instance terminable (Disable Termination Protection)
+aws ec2 modify-instance-attribute --instance-id &lt;value&gt; --no-disable-api-termination
+
+# Retrieve availability zones
+aws ec2 describe-availability-zones --region eu-west-1
+
+aws ec2 describe-images | grep ubuntu
+aws ec2 describe-images --owners 099720109477 --filters &#39;Name=name,Values=*ubuntu-*-16.04*&#39; --query &#39;Images[*].{NAME: Name, ID: ImageId}&#39; --output text
+</code></pre>
+<h1 id="iam">iam</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://cloudacademy.com/blog/aws-cli-10-useful-commands/" class="uri">https://cloudacademy.com/blog/aws-cli-10-useful-commands/</a></li>
+</ul>
+</div>
+<pre class="shell"><code>aws iam list-users --output table
+aws iam list-users --output json | jq -r .Users[].Arn
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>DNS</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">DNS</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_2_gh"><span class="smallcaps">TOC_2_gh</span></span></h1>
+<ul>
+<li><a href="#outline">Outline</a></li>
+<li><a href="#records">Records</a>
+<ul>
+<li><a href="#soa">SOA</a></li>
+<li><a href="#a-and-aaaa">A and AAAA</a></li>
+<li><a href="#cname">CNAME</a></li>
+<li><a href="#alias">ALIAS</a></li>
+<li><a href="#mx">MX</a></li>
+<li><a href="#ns">NS</a></li>
+<li><a href="#ptr">PTR</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h1 id="outline">Outline</h1>
+<p><img src="_img/screenshot_2017-04-21_07-48-53.png" /></p>
+<p><img src="_img/screenshot_2017-04-21_07-52-32.png" /></p>
+<h1 id="records">Records</h1>
+<h2 id="soa">SOA</h2>
+<pre class="example"><code>domain.com.  IN SOA ns1.domain.com. admin.domain.com. (
+                                            12083   ; serial number
+                                            3h      ; refresh interval
+                                            30m     ; retry interval
+                                            3w      ; expiry period
+                                            1h      ; negative TTL
+)
+</code></pre>
+<ul>
+<li><code>SOA</code> stands for <strong>Start of Authority</strong></li>
+<li>Name servers can either be master or slaves</li>
+<li><code>admin.domain.com</code> is an email address. The &quot;@&quot; is replaced with a dot in the email address</li>
+<li>Other settings for managing master and slaves</li>
+</ul>
+<h2 id="a-and-aaaa">A and AAAA</h2>
+<pre class="example"><code>ns1                 IN  A       111.222.111.222
+ns1.domain.com.     IN  A       111.222.111.222  ;  They are equivalent
+
+@       IN  A       222.222.222.222  ; To refer to the base domain
+*       IN  A       222.222.222.222  ; To refer to anything not defined
+</code></pre>
+<ul>
+<li><code>AAAA</code> records for IPv6</li>
+</ul>
+<h2 id="cname">CNAME</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/655235/is-root-domain-cname-to-other-domain-allowed-by-dns-rfc" class="uri">https://stackoverflow.com/questions/655235/is-root-domain-cname-to-other-domain-allowed-by-dns-rfc</a></li>
+</ul>
+<pre class="example"><code>www         IN  CNAME   server1
+</code></pre>
+<ul>
+<li>Should only be used when there are no other records on that name.</li>
+<li>Comes with <strong>some performance losses</strong> because they require an additional query to the server</li>
+<li>Recommended to provide an alias for a resource outside of the current zone.</li>
+<li>It's impossible to make <code>CNAME</code> on the <code>root</code> domain(without subdomain, like <code>example.com</code>)</li>
+</ul>
+<h2 id="alias">ALIAS</h2>
+<ul>
+<li>Some DNS providers like AWS Route 53 provides customized <code>ALIAS</code> records</li>
+<li>With <code>ALIAS</code> records the additional step for looking up the name is done by the server</li>
+<li>Can coexist with other records on that name</li>
+</ul>
+<h2 id="mx">MX</h2>
+<pre class="example"><code>        IN  MX  10  mail1.domain.com.
+        IN  MX  50  mail2.domain.com.
+mail1   IN  A       111.111.111.111
+mail2   IN  A       222.222.222.222
+</code></pre>
+<ul>
+<li>Used to define the mail exchanges that are used for the domain</li>
+</ul>
+<h2 id="ns">NS</h2>
+<pre class="example"><code>        IN  NS     ns1.domain.com.
+        IN  NS     ns2.domain.com.
+ns1     IN  A      111.222.111.111
+ns2     IN  A      123.211.111.233
+</code></pre>
+<ul>
+<li>This record type defines the name servers that are used for this zone</li>
+</ul>
+<h2 id="ptr">PTR</h2>
+<pre class="example"><code>444.333.222.111.in-addr.arpa.   33692   IN  PTR host.example.com.
+</code></pre>
+<ul>
+<li>Pointer to a canonical name</li>
+<li>Used define a name associated with an IP address</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="http://www.learndns.com/pdf/dns101.pdf" class="uri">http://www.learndns.com/pdf/dns101.pdf</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-dns-terminology-components-and-concepts" class="uri">https://www.digitalocean.com/community/tutorials/an-introduction-to-dns-terminology-components-and-concepts</a></li>
+<li><a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html" class="uri">http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html</a></li>
+<li><a href="https://serverfault.com/questions/419402/similarities-and-differences-between-cname-record-and-route-53-alias-record" class="uri">https://serverfault.com/questions/419402/similarities-and-differences-between-cname-record-and-route-53-alias-record</a></li>
+</ul>
+</body>
+</html>

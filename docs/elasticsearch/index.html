@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Elasticsearch</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Elasticsearch</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#apis">APIs</a>
+<ul>
+<li><a href="#index">&lt;index&gt;</a></li>
+<li><a href="#_bulk"><sub>bulk</sub></a></li>
+<li><a href="#_cat"><sub>cat</sub></a></li>
+<li><a href="#_cluster"><sub>cluster</sub></a></li>
+<li><a href="#_nodes"><sub>nodes</sub></a></li>
+<li><a href="#_template"><sub>template</sub></a></li>
+</ul></li>
+<li><a href="#query-string-syntax">Query string syntax</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#understanding-cluster">Understanding Cluster</a>
+<ul>
+<li><a href="#inside-a-shard">Inside a Shard</a></li>
+<li><a href="#routing-a-document-to-a-shard">Routing a Document to a Shard</a></li>
+<li><a href="#choosing-number-of-shards">Choosing Number of Shards</a></li>
+<li><a href="#routing">Routing</a></li>
+</ul></li>
+<li><a href="#inverted-index">Inverted Index</a>
+<ul>
+<li><a href="#terms-are-normalized">Terms are normalized</a></li>
+<li><a href="#analysis-and-analyzers">Analysis and Analyzers</a></li>
+<li><a href="#how-innernested-objects-are-indexed">How Inner(Nested) Objects are Indexed</a></li>
+</ul></li>
+<li><a href="#how-queries-work">How Queries Work</a></li>
+<li><a href="#types-and-mappings">Types and Mappings</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#configure-settings-and-deployment">Configure Settings and Deployment</a></li>
+<li><a href="#manage-the-change-of-mappings">Manage the change of mappings</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="reference">Reference</h1>
+<h2 id="apis">APIs</h2>
+<h3 id="index">&lt;index&gt;</h3>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html</a></li>
+</ul>
+<pre class="shell"><code>curl -X DELETE &#39;localhost:9200/twitter?pretty&#39;
+</code></pre>
+<h3 id="bulk"><sub>bulk</sub></h3>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/bulk.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/bulk.html</a></li>
+</ul>
+<ul>
+<li>Every line must end with a newline character (), <strong>including the last line</strong>.</li>
+<li>The lines <strong>cannot contain unescaped newline characters</strong>, as they would interfere with parsing.</li>
+</ul>
+<pre class="shell"><code>curl -XPOST &#39;localhost:9200/_bulk?pretty&#39; -H &#39;Content-Type: application/json&#39; -d&#39;
+{ &quot;delete&quot;: { &quot;_index&quot;: &quot;website&quot;, &quot;_type&quot;: &quot;blog&quot;, &quot;_id&quot;: &quot;123&quot; }} 
+{ &quot;create&quot;: { &quot;_index&quot;: &quot;website&quot;, &quot;_type&quot;: &quot;blog&quot;, &quot;_id&quot;: &quot;123&quot; }}
+{ &quot;title&quot;:    &quot;My first blog post&quot; }
+{ &quot;index&quot;:  { &quot;_index&quot;: &quot;website&quot;, &quot;_type&quot;: &quot;blog&quot; }}
+{ &quot;title&quot;:    &quot;My second blog post&quot; }
+{ &quot;update&quot;: { &quot;_index&quot;: &quot;website&quot;, &quot;_type&quot;: &quot;blog&quot;, &quot;_id&quot;: &quot;123&quot;, &quot;_retry_on_conflict&quot; : 3} }
+{ &quot;doc&quot; : {&quot;title&quot; : &quot;My updated blog post&quot;} }
+&#39;
+</code></pre>
+<p>The syntactic format is:</p>
+<pre class="example"><code>{ action: { metadata }}\n
+{ request body        }\n
+{ action: { metadata }}\n
+{ request body        }\n
+...
+</code></pre>
+<blockquote>
+<p>Fortunately, it is easy to find this sweet spot: Try indexing typical documents in batches of increasing size. When performance starts to drop off, your batch size is too big. <strong>A good place to start is with batches of 1,000 to 5,000 documents</strong> or, if your documents are very large, with even smaller batches.</p>
+<p>It is often useful to keep an eye on the physical size of your bulk requests. One thousand 1KB documents is very different from one thousand 1MB documents. <strong>A good bulk size to start playing with is around 5-15MB in size</strong></p>
+</blockquote>
+<h3 id="cat"><sub>cat</sub></h3>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_cat_api.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/_cat_api.html</a></li>
+</ul>
+<pre class="shell"><code>curl &#39;http://localhost:9200/_cat/indices?v&#39;
+#                                        └─ enable headers
+</code></pre>
+<pre class="example"><code>health status index                    uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+green  open   logs-live-v2-2017-08-13  WZsOKpLPTqenX94e9bHW1g   5   1  294275045            0    226.1gb          113gb
+green  open   logs-live-v2-2017-08-15  toS_eRpLTjSTya3vY5Ptjw   5   1  223682189            0    169.9gb         84.9gb
+green  open   logs-live-v2-2017-08-16  Cs__a2aARcCVpfzatSk_GA   5   1  217529882            0    167.7gb         83.8gb
+green  open   logs-release-v2-2017-08  59lJiVBASNWmDtmpRrCajw   5   1    1495794            0      1.3gb        728.4mb
+green  open   logs-hotfix-v2-2017-08   sNOe06HQQ9-GwY86AMlOUg   5   1    1920518            0      2.1gb            1gb
+green  open   logs-hotfix-v2-2017-07   medqyWS2RjmHUzrF0mTOjA   5   1     980643            0    484.8mb        242.4mb
+green  open   logs-live-v2-2017-08-18  n5xWNmMNR56lp7aHwulMkA   5   1  114339261            0     89.2gb         45.4gb
+green  open   logs-release-v2-2017-07  YibGjpmfQyakDpKm9ZE6Dg   5   1     187285            0    108.9mb         54.4mb
+green  open   .kibana                  nqIdvMr_QOe7tLZRcTatzg   1   1         15            1     60.5kb         30.2kb
+green  open   logs-live-v2-2017-08-14  3xFuhX4_TvaeYMEeLgMkCQ   5   1  226026719            0    170.7gb         85.3gb
+green  open   logs-live-v2-2017-08-17  GVqhRMk7TsWB0KjUUqwTQw   5   1  225820075            0    164.4gb         82.2gb
+</code></pre>
+<h3 id="cluster"><sub>cluster</sub></h3>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html</a></li>
+</ul>
+<pre class="shell"><code>curl &#39;http://localhost:9200/_cluster/health&#39;
+curl &#39;http://localhost:9200/_cluster/health?level=indices&#39;
+curl &#39;http://localhost:9200/_cluster/stats&#39;
+</code></pre>
+<h3 id="nodes"><sub>nodes</sub></h3>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html</a></li>
+</ul>
+<pre class="shell"><code>curl &#39;http://localhost:9200/_nodes/stats&#39;
+</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">   <span class="dt">&quot;cluster_name&quot;</span><span class="fu">:</span> <span class="st">&quot;elasticsearch_zach&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">   <span class="dt">&quot;nodes&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">      <span class="dt">&quot;UNr6ZMf5Qk-YCPA_L18BOQ&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">         <span class="dt">&quot;timestamp&quot;</span><span class="fu">:</span> <span class="dv">1408474151742</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">         <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Zach&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">         <span class="dt">&quot;transport_address&quot;</span><span class="fu">:</span> <span class="st">&quot;inet[zacharys-air/192.168.1.131:9300]&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">         <span class="dt">&quot;host&quot;</span><span class="fu">:</span> <span class="st">&quot;zacharys-air&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">         <span class="dt">&quot;ip&quot;</span><span class="fu">:</span> <span class="ot">[</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">            <span class="st">&quot;inet[zacharys-air/192.168.1.131:9300]&quot;</span><span class="ot">,</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">            <span class="st">&quot;NONE&quot;</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">         <span class="ot">]</span><span class="fu">,</span></a></code></pre></div>
+<h3 id="template"><sub>template</sub></h3>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html</a></li>
+</ul>
+<pre class="shell"><code>curl -XPUT &quot;$ES_ENDPOINT/_template/my-logging&quot; --fail \
+     -H &#39;Content-Type: application/json&#39; -d&#39;
+{
+  &quot;template&quot;: &quot;logging-*&quot;,
+  &quot;mappings&quot;: {
+    &quot;log&quot;: {
+      &quot;properties&quot;: {
+        &quot;time&quot;:             {&quot;type&quot;: &quot;date&quot;},
+        &quot;level&quot;:            {&quot;type&quot;: &quot;integer&quot;},
+        &quot;host&quot;:             {&quot;type&quot;: &quot;string&quot;, &quot;index&quot;: &quot;not_analyzed&quot;},
+        &quot;pid&quot;:              {&quot;type&quot;: &quot;string&quot;, &quot;index&quot;: &quot;not_analyzed&quot;},
+        &quot;channel&quot;:          {&quot;type&quot;: &quot;string&quot;},
+        &quot;message&quot;:          {&quot;type&quot;: &quot;string&quot;, &quot;analyzer&quot;: &quot;whitespace&quot;},
+        &quot;exc_info&quot;:         {&quot;type&quot;: &quot;string&quot;, &quot;analyzer&quot;: &quot;whitespace&quot;}
+      }
+    }
+  }
+}
+&#39;
+</code></pre>
+<h2 id="query-string-syntax">Query string syntax</h2>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax" class="uri">https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax</a></li>
+</ul>
+<pre class="example"><code>apple                                  # search &quot;apple&quot; in the default field(which is &#39;_all&#39; by default)
+
+fruit:apple                            # search &quot;apple&quot; in &#39;fruit&#39; field
+fruit:&quot;pen pineapple&quot;                  # exact phrase
+
+fruit:(pineapple OR apple)
+fruit:(pineapple apple)                # Same as above
+
+A AND B OR (NOT C)
+A &amp;&amp; B || (! C)                        # Same as above
+
+fruit.\*:apple                         # fields pattern
+_exists_:fruit                         # where the field has any non-null value
+
+fruit:ap?le                            # single character wildcard
+fruit:apple*                           # zero or more
+fruit:*apple                           # Don&#39;t do this: Leading wildcards are particularly heavy
+name:/joh?n/                           # regex
+
+quikc~ brwn~ foks~                     # fuzzy search (Damerau-Levenshtein distance)
+quikc~1                                # specific edit distance (default is 2)
+&quot;fox quick&quot;~5                          # can find &quot;quick fox&quot;. 5 is the edit distance by word
+
+count:[1 TO 5]                         # inclusive (1, 2, 3, 4, 5)
+count:{1 TO 5}                         # exclusive (2, 3, 4)
+count:[1 TO 5}                         # half-open (1, 2, 3, 4)
+
+date:[2016-12-24 TO 2016-12-25]
+date:[2016-12-07 TO *]                 # since 2016-12-07
+
+age:&gt;10
+age:&gt;=10
+age:&lt;10
+age:&lt;=10
+
+quick^2 fox                            # boost (find &#39;fox&#39;. but especially interested in &quot;quick fox&quot;)
+
+quick +fox -news                       # +term must be present; -term must not be present; others are optional
+((quick AND fox) OR fox) AND NOT news  # equivalent to above
+
+
+# reserved characters (You should escape these characters with &#39;\&#39; if you want to search them literally)
++ - = &amp;&amp; || &gt; &lt; ! ( ) { } [ ] ^ &quot; ~ * ? : \ /  
+</code></pre>
+<h1 id="topics">Topics</h1>
+<h2 id="understanding-cluster">Understanding Cluster</h2>
+<blockquote>
+<p>One node in the cluster is elected to be the master node, which is in charge of managing cluster-wide changes like creating or deleting an index, or adding or removing a node from the cluster. The master node does not need to be involved in document-level changes or searches, which means that having just one master node will not become a bottleneck as traffic grows. Any node can become the master. Our example cluster has only one node, so it performs the master role.</p>
+</blockquote>
+<h3 id="inside-a-shard">Inside a Shard</h3>
+<p><img src="_img/screenshot_2017-01-12_14-44-43.png" /></p>
+<ul>
+<li>A shard is a low-level worker unit that holds just a slice of all the data in the index.</li>
+<li>a single instance of Lucene, and is a complete search engine in its own right.</li>
+<li>a Lucene index is what we call a shard in Elasticsearch, while an index in Elasticsearch is a collection of shards.</li>
+<li>The inverted index that is written to disk is immutable</li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/dynamic-indices.html">Dynamically Updatable Indices</a></li>
+<li>When a document is “deleted,” it is actually just marked as deleted in the .del file. A document that has been marked as deleted can still match a query, but it is removed from the results list before the final query results are returned.</li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/translog.html">Making Changes Persistent</a></li>
+<li>The translog provides a persistent record of all operations that have not yet been flushed to disk</li>
+<li>The action of performing a commit and truncating the translog is known in Elasticsearch as a flush.</li>
+<li>Small segments are merged into bigger segments, which, in turn, are merged into even bigger segments.</li>
+</ul>
+<h3 id="routing-a-document-to-a-shard">Routing a Document to a Shard</h3>
+<pre class="example"><code>shard = hash(routing) % number_of_primary_shards
+</code></pre>
+<blockquote>
+<p>This explains why the number of primary shards can be set only when an index is created and never changed</p>
+</blockquote>
+<h3 id="choosing-number-of-shards">Choosing Number of Shards</h3>
+<ol>
+<li><p>A Shard is not free</p>
+<ul>
+<li>A shard is a Lucene index under the covers, which uses file handles, memory, and CPU cycles.</li>
+<li>Every search request needs to hit a copy of every shard in the index. That’s fine if every shard is sitting on a different node, but not if many shards have to compete for the same resources.</li>
+<li>Term statistics, used to calculate relevance, are per shard. Having a small amount of data in many shards leads to poor relevance.</li>
+</ul>
+<blockquote>
+<p>Searching 1 index of 50 shards is exactly equivalent to searching 50 indices with 1 shard each: both search requests hit 50 shards.</p>
+</blockquote></li>
+</ol>
+<h3 id="routing">Routing</h3>
+<blockquote>
+<p>The routing value defaults to the document’s <code>_id</code>, but we can override that and provide our own custom routing value, such as <code>forum_id</code>.</p>
+</blockquote>
+<pre class="example"><code>PUT /forums/post/1?routing=baking 
+{
+  &quot;forum_id&quot;: &quot;baking&quot;, 
+  &quot;title&quot;:    &quot;Easy recipe for ginger nuts&quot;,
+  ...
+}
+</code></pre>
+<h2 id="inverted-index">Inverted Index</h2>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html</a></li>
+</ul>
+<pre class="example"><code>Term  | Doc 1 | Doc 2 | Doc 3 | ...
+------------------------------------
+brown |   X   |       |  X    | ...
+fox   |   X   |   X   |  X    | ...
+quick |   X   |   X   |       | ...
+the   |   X   |       |  X    | ...
+</code></pre>
+<h3 id="terms-are-normalized">Terms are normalized</h3>
+<ul>
+<li><code>Quick</code> can be lowercased to become <code>quick</code>.</li>
+<li><code>foxes</code> can be stemmed–reduced to its root formto become <code>fox</code>.</li>
+<li>Similarly, <code>dogs</code> could be stemmed to <code>dog</code>.</li>
+<li><code>jumped</code> and <code>leap a</code> re synonyms and can be indexed as just the single term <code>jump</code>.</li>
+</ul>
+<blockquote>
+<p>This is very important. You can find only terms that exist in your index, so both the indexed text and the query string must be normalized into the same form.</p>
+</blockquote>
+<p>This process of tokenization and normalization is called <strong>analysis</strong>.</p>
+<h3 id="analysis-and-analyzers">Analysis and Analyzers</h3>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/analysis-intro.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/analysis-intro.html</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html</a></li>
+<li>Tokenizing a block of text into individual terms suitable for use in an inverted index</li>
+<li>Normalizing these terms into a standard form to improve their <strong>searchability</strong> or <strong>recall</strong></li>
+</ul>
+<ol>
+<li><p>Kinds of analyzers</p>
+<ul>
+<li><p>Standard</p>
+<pre class="example"><code>set, the, shape, to, semi, transparent, by, calling, set_trans, 5~
+</code></pre></li>
+<li><p>Simple</p>
+<pre class="example"><code>set, the, shape, to, semi, transparent, by, calling, set, trans
+</code></pre></li>
+<li><p>Whitespace</p>
+<pre class="example"><code>Set, the, shape, to, semi-transparent, by, calling, set_trans(5)
+</code></pre></li>
+<li><p>Language analyzers</p>
+<pre class="example"><code>set, shape, semi, transpar, call, set_tran, 5 (english)
+</code></pre></li>
+</ul></li>
+<li><p>Mappings for Configuring Analyzers</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">    <span class="dt">&quot;tag&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">        <span class="dt">&quot;type&quot;</span><span class="fu">:</span>     <span class="st">&quot;string&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">        <span class="dt">&quot;index&quot;</span><span class="fu">:</span>    <span class="st">&quot;not_analyzed&quot;</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">    <span class="dt">&quot;tweet&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">        <span class="dt">&quot;type&quot;</span><span class="fu">:</span>     <span class="st">&quot;string&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">        <span class="dt">&quot;analyzer&quot;</span><span class="fu">:</span> <span class="st">&quot;english&quot;</span></a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">    <span class="fu">}</span></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
+<blockquote>
+<p>Although you can add to an existing mapping, you can’t change existing field mappings. If a mapping already exists for a field, data from that field has probably been indexed. If you were to change the field mapping, the indexed data would be wrong and would not be properly searchable.</p>
+</blockquote></li>
+</ol>
+<h3 id="how-innernested-objects-are-indexed">How Inner(Nested) Objects are Indexed</h3>
+<ol>
+<li><p>Inner objects</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">    <span class="dt">&quot;tweet&quot;</span><span class="fu">:</span>            <span class="ot">[</span><span class="st">&quot;elasticsearch&quot;</span><span class="ot">,</span> <span class="st">&quot;flexible&quot;</span><span class="ot">,</span> <span class="st">&quot;very&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">    <span class="dt">&quot;user.id&quot;</span><span class="fu">:</span>          <span class="ot">[</span><span class="st">&quot;@johnsmith&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">    <span class="dt">&quot;user.gender&quot;</span><span class="fu">:</span>      <span class="ot">[</span><span class="st">&quot;male&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">    <span class="dt">&quot;user.age&quot;</span><span class="fu">:</span>         <span class="ot">[</span><span class="dv">26</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">    <span class="dt">&quot;user.name.full&quot;</span><span class="fu">:</span>   <span class="ot">[</span><span class="st">&quot;john&quot;</span><span class="ot">,</span> <span class="st">&quot;smith&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">    <span class="dt">&quot;user.name.first&quot;</span><span class="fu">:</span>  <span class="ot">[</span><span class="st">&quot;john&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8">    <span class="dt">&quot;user.name.last&quot;</span><span class="fu">:</span>   <span class="ot">[</span><span class="st">&quot;smith&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb20-9" data-line-number="9"><span class="fu">}</span></a></code></pre></div></li>
+<li><p>Array of Inner objects</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">    <span class="dt">&quot;followers.age&quot;</span><span class="fu">:</span>    <span class="ot">[</span><span class="dv">19</span><span class="ot">,</span> <span class="dv">26</span><span class="ot">,</span> <span class="dv">35</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">    <span class="dt">&quot;followers.name&quot;</span><span class="fu">:</span>   <span class="ot">[</span><span class="st">&quot;alex&quot;</span><span class="ot">,</span> <span class="st">&quot;jones&quot;</span><span class="ot">,</span> <span class="st">&quot;lisa&quot;</span><span class="ot">,</span> <span class="st">&quot;smith&quot;</span><span class="ot">,</span> <span class="st">&quot;mary&quot;</span><span class="ot">,</span> <span class="st">&quot;white&quot;</span><span class="ot">]</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="fu">}</span></a></code></pre></div>
+<p>In this way, the relation between <code>age</code> and <code>name</code> is lost. To work around this, set the type of <code>followers</code> to <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/nested-objects.html">nested</a>.</p></li>
+</ol>
+<h2 id="how-queries-work">How Queries Work</h2>
+<p><img src="_img/screenshot_2017-01-12_18-32-46.png" /></p>
+<p><img src="_img/screenshot_2017-01-12_18-33-17.png" /></p>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_query_phase.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/_query_phase.html</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/_fetch_phase.html</a></li>
+</ul>
+<h2 id="types-and-mappings">Types and Mappings</h2>
+<blockquote>
+<p>what happens if you have two different types, each with an identically named field but mapped differently (e.g. one is a string, the other is a number)?</p>
+</blockquote>
+<blockquote>
+<p>The longer answer is that each Lucene index contains a single, flat schema for all fields. A particular field is either mapped as a string, or a number, but not both.</p>
+</blockquote>
+<ul>
+<li><code>_all</code> field: a special field that indexes the values from all other fields as one big string. The query<sub>string</sub> query clause (and searches performed as <code>?q=john</code>) defaults to searching in the <code>_all</code> field if no other field is specified.</li>
+<li>When Elasticsearch encounters a previously unknown field in a document, it uses dynamic mapping to determine the datatype for the field and automatically adds the new field to the type mapping.</li>
+</ul>
+<h1 id="how-to">How-to</h1>
+<h2 id="configure-settings-and-deployment">Configure Settings and Deployment</h2>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_revisit_this_list_before_production.html">Revisit This List Before Production</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_java_virtual_machine.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/_java_virtual_machine.html</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/important-configuration-changes.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/important-configuration-changes.html</a></li>
+</ul>
+<blockquote>
+<p>Please Do Not Tweak JVM Settings</p>
+</blockquote>
+<blockquote>
+<p>If you have two masters, data integrity becomes perilous, since you have two nodes that think they are in charge.</p>
+</blockquote>
+<p>A quorum is <code>(number of master-eligible nodes / 2) + 1</code>.</p>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#_give_less_than_half_your_memory_to_lucene">Give (less than) Half Your Memory to Lucene</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#compressed_oops">Don't Cross 32GB</a></li>
+</ul>
+<h2 id="manage-the-change-of-mappings">Manage the change of mappings</h2>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html</a></li>
+<li><a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html" class="uri">https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html</a>
+<ul>
+<li>Don't follw this way manually. There is a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-reindex.html">Reindex API</a>.</li>
+</ul></li>
+</ul>
+<p>There seems to be a conflict between the use case of <code>index templates</code> and <code>index aliases</code>.</p>
+<p>My personal workaround is using index templates with versioning like REST APIs. ex) <code>myindex-v1-2017-08-15</code>, <code>myindex-v2-2017-08-16</code>, etc.</p>
+<p>In this way, you can query for common fields across indexes even if the mapping has been changed through index wildcard queries.</p>
+<h1 id="links">Links</h1>
+</body>
+</html>

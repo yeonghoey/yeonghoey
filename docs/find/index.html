@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="find">find</h1>
+<ul>
+<li><p><a href="https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find" class="uri">https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find</a></p></li>
+<li><code>-L</code> ::
+<ul>
+<li>causes <code>find</code> to follow symlinks for all properties <strong>except the name</strong></li>
+<li>Because the name cannot be ignored when doing directory search</li>
+</ul></li>
+<li><code>-o</code>, <code>-or</code>, <code>-a</code>, <code>-and</code> ::
+<ul>
+<li>When expressions are placed without any of theses, <code>-and</code> is implied</li>
+</ul></li>
+<li><code>--empty</code> ::
+<ul>
+<li>True if the current file or directory is empty.</li>
+</ul></li>
+</ul>
+<h1 id="how-to">How-to</h1>
+<h2 id="find-and-delete-empty-directories"><a href="https://stackoverflow.com/questions/2810838/finding-empty-directories-unix">Find and delete empty directories</a></h2>
+<pre class="shell"><code>find . -type d -empty -not -path &#39;./.git/**&#39;
+find . -type d -empty -not -path &#39;./.git/**&#39; -delete
+</code></pre>
+</body>
+</html>

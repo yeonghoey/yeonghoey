@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>FFmpeg</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">FFmpeg</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_2_gh"><span class="smallcaps">TOC_2_gh</span></span></h1>
+<ul>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#encode-html5-compatible-videos">Encode HTML5 compatible videos</a></li>
+</ul></li>
+<li><a href="#use-cases">Use Cases</a>
+<ul>
+<li><a href="#extracting-audio-from-video">Extracting audio from video</a></li>
+</ul></li>
+</ul>
+<h1 id="how-to">How-to</h1>
+<h2 id="encode-html5-compatible-videos">Encode HTML5 compatible videos</h2>
+<ul>
+<li><a href="https://gist.github.com/yellowled/1439610" class="uri">https://gist.github.com/yellowled/1439610</a></li>
+</ul>
+<pre class="shell"><code># webm
+ffmpeg -i IN -f webm -vcodec libvpx -acodec libvorbis -ab 128000 -crf 22 -s 640x360 OUT.webm
+
+# mp4
+ffmpeg -i IN -acodec aac -strict experimental -ac 2 -ab 128k -vcodec libx264 -vpre slow -f mp4 -crf 22 -s 640x360 OUT.mp4
+
+# ogg (if you want to support older Firefox)
+ffmpeg2theora IN -o OUT.ogv -x 640 -y 360 --videoquality 5 --audioquality 0  --frontend
+</code></pre>
+<h1 id="use-cases">Use Cases</h1>
+<h2 id="extracting-audio-from-video">Extracting audio from video</h2>
+<ul>
+<li><a href="http://stackoverflow.com/questions/9913032/ffmpeg-to-extract-audio-from-video" class="uri">http://stackoverflow.com/questions/9913032/ffmpeg-to-extract-audio-from-video</a></li>
+</ul>
+<pre class="example"><code>ffmpeg -i &quot;video.mp4&quot; -vn -codec:a libmp3lame -qscale:a 3 &quot;audio.mp3&quot;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SQLAlachemy</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">SQLAlachemy</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_2_gh"><span class="smallcaps">TOC_2_gh</span></span></h1>
+<ul>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#column">Column</a></li>
+<li><a href="#declarative-api">Declarative API</a></li>
+<li><a href="#functions">functions</a></li>
+<li><a href="#query">Query</a></li>
+<li><a href="#session">Session</a></li>
+<li><a href="#hybrid_property">hybrid<sub>property</sub></a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#prefix-all-tables-under-a-declarative_base">Prefix all tables under a declarative<sub>base</sub></a></li>
+</ul></li>
+</ul>
+<h1 id="reference">Reference</h1>
+<h2 id="column">Column</h2>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column" class="uri">http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column</a></li>
+<li><a href="http://docs.sqlalchemy.org/en/latest/core/type_basics.html" class="uri">http://docs.sqlalchemy.org/en/latest/core/type_basics.html</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># use a type with arguments</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">Column(<span class="st">&#39;data&#39;</span>, String(<span class="dv">50</span>))</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># use no arguments</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">Column(<span class="st">&#39;level&#39;</span>, Integer)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co"># turn on autoincrement for this column despite</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># the ForeignKey()</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">Column(<span class="st">&#39;id&#39;</span>, ForeignKey(<span class="st">&#39;other.id&#39;</span>),</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">            primary_key<span class="op">=</span><span class="va">True</span>, autoincrement<span class="op">=</span><span class="st">&#39;ignore_fk&#39;</span>)</a></code></pre></div>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/mapping_columns.html#sqlalchemy.orm.column_property">column<sub>property</sub></a> can be used for column level options:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">class</span> User(Base):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    __tablename__ <span class="op">=</span> <span class="st">&#39;user&#39;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="bu">id</span> <span class="op">=</span> Column(Integer, primary_key<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    firstname <span class="op">=</span> Column(String(<span class="dv">50</span>))</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    lastname <span class="op">=</span> Column(String(<span class="dv">50</span>))</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    fullname <span class="op">=</span> column_property(firstname <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> lastname)</a></code></pre></div>
+<ul>
+<li><code>Column</code> can have positional arugments of <a href="http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.SchemaItem">SchemaItem</a>, such as <code>Constraint</code>, <code>ForeignKey</code>, <code>Sequence</code>, etc.</li>
+</ul>
+<h3 id="string-text">String, Text</h3>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.String.params.convert_unicode" class="uri">http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.String.params.convert_unicode</a></li>
+<li><a href="http://docs.sqlalchemy.org/en/latest/core/engines.html#sqlalchemy.create_engine.params.convert_unicode" class="uri">http://docs.sqlalchemy.org/en/latest/core/engines.html#sqlalchemy.create_engine.params.convert_unicode</a></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># will assume that input is to be passed as Python unicode objects,</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># and results returned as Python unicode objects</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># There is an engine configuration which sets this flag to True by default.</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">String(convert_unicode<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<h3 id="float">Float</h3>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.Float" class="uri">http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.Float</a></li>
+<li><a href="https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html" class="uri">https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html</a></li>
+<li>For mysql, set <code>precision</code> to <code>53</code> cause to make the column as double</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Use float with double precision</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">Column(Float(precision<span class="op">=</span><span class="dv">53</span>))</a></code></pre></div>
+<h2 id="declarative-api">Declarative API</h2>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/index.html" class="uri">http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/index.html</a></li>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html" class="uri">http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html</a></li>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/basic_use.html" class="uri">http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/basic_use.html</a></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="im">from</span> sqlalchemy <span class="im">import</span> Column, Integer, String</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="im">from</span> sqlalchemy.ext.declarative <span class="im">import</span> declarative_base</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">Base <span class="op">=</span> declarative_base()</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw">class</span> SomeClass(Base):</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    __tablename__ <span class="op">=</span> <span class="st">&#39;some_table&#39;</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    <span class="bu">id</span> <span class="op">=</span> Column(Integer, primary_key<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">    name <span class="op">=</span>  Column(String(<span class="dv">50</span>))</a></code></pre></div>
+<h2 id="functions">functions</h2>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/core/tutorial.html#functions" class="uri">http://docs.sqlalchemy.org/en/latest/core/tutorial.html#functions</a></li>
+</ul>
+<h2 id="query">Query</h2>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/query.html#sqlalchemy.orm.query.Query" class="uri">http://docs.sqlalchemy.org/en/latest/orm/query.html#sqlalchemy.orm.query.Query</a></li>
+</ul>
+<h2 id="session">Session</h2>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/session_basics.html" class="uri">http://docs.sqlalchemy.org/en/latest/orm/session_basics.html</a></li>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.Session" class="uri">http://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.Session</a></li>
+</ul>
+<p>~Session.begin()~ returns a <code>SessionTransaction</code> object:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">class</span> SessionTransaction(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="co"># ...</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="kw">def</span> <span class="fu">__enter__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">        <span class="cf">return</span> <span class="va">self</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="kw">def</span> <span class="fu">__exit__</span>(<span class="va">self</span>, <span class="bu">type</span>, value, traceback):</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">        <span class="va">self</span>._assert_active(deactive_ok<span class="op">=</span><span class="va">True</span>, prepared_ok<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">        <span class="cf">if</span> <span class="va">self</span>.session.transaction <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">            <span class="cf">return</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">        <span class="cf">if</span> <span class="bu">type</span> <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">            <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">                <span class="va">self</span>.commit()</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">            <span class="cf">except</span>:</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">                <span class="cf">with</span> util.safe_reraise():</a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">                    <span class="va">self</span>.rollback()</a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">            <span class="va">self</span>.rollback()</a></code></pre></div>
+<p>So, we can use like this (code from <a href="http://docs.sqlalchemy.org/en/rel_0_9/orm/session_transaction.html#autocommit-mode">here</a>):</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">Session <span class="op">=</span> sessionmaker(bind<span class="op">=</span>engine, autocommit<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">session <span class="op">=</span> Session()</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="cf">with</span> session.begin():</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    item1 <span class="op">=</span> session.query(Item).get(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    item2 <span class="op">=</span> session.query(Item).get(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    item1.foo <span class="op">=</span> <span class="st">&#39;bar&#39;</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    item2.bar <span class="op">=</span> <span class="st">&#39;foo&#39;</span></a></code></pre></div>
+<h3 id="session.begin">Session.begin()</h3>
+<ul>
+<li><a href="https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/session.py#L793">Session.begin</a></li>
+<li><a href="https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/session.py#L556">SessionTransaction.<span class="underline"><span class="underline">exit</span></span></a></li>
+<li>Returns <code>SessionTransaction</code>. It implements <code>__exit__</code>, which calls <code>session.commit</code> when levaving the block.</li>
+</ul>
+<h3 id="session.commit-vs-session.flush">Session.commit() vs Session.flush()</h3>
+<ul>
+<li><a href="http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit" class="uri">http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit</a></li>
+<li>A Session object is basically an ongoing transaction of changes to a database</li>
+<li><code>session.commit()</code> commits (persists) those changes to the database.</li>
+<li><code>flush()</code> is always called as part of a call to <code>commit()</code></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1">s <span class="op">=</span> Session()</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co"># The Foo(&#39;A&#39;) object has been added to the session.</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co"># It has not been committed to the database yet,</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co"># but is returned as part of a query.</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">s.add(Foo(<span class="st">&#39;A&#39;</span>))</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="bu">print</span> s.query(Foo).<span class="bu">all</span>()  <span class="co"># Output: [&lt;Foo(&#39;A&#39;)&gt;]</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">s.commit()</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">s2 <span class="op">=</span> Session()</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">s2.autoflush <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co"># The Foo(&#39;B&#39;) object is *not* returned as part of this query</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co"># because it hasn&#39;t been flushed yet.</span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">s2.add(Foo(<span class="st">&#39;B&#39;</span>))</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="bu">print</span> s2.query(Foo).<span class="bu">all</span>()  <span class="co"># Output: [&lt;Foo(&#39;A&#39;)&gt;]</span></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="co"># Now, Foo(&#39;B&#39;) is in the same state as Foo(&#39;A&#39;) was above.</span></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21">s2.flush()</a>
+<a class="sourceLine" id="cb8-22" data-line-number="22"><span class="bu">print</span> s2.query(Foo).<span class="bu">all</span>()  <span class="co"># Output: [&lt;Foo(&#39;A&#39;)&gt;, &lt;Foo(&#39;B&#39;)&gt;]</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb8-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25"><span class="co"># Foo(&#39;B&#39;) has not been committed, and rolling</span></a>
+<a class="sourceLine" id="cb8-26" data-line-number="26"><span class="co"># back the session&#39;s transaction removes it from the session.</span></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">s2.rollback()</a>
+<a class="sourceLine" id="cb8-28" data-line-number="28"><span class="bu">print</span> s2.query(Foo).<span class="bu">all</span>()  <span class="co"># Output: [&lt;Foo(&#39;A&#39;)&gt;]</span></a></code></pre></div>
+<h3 id="scopedsession">scoped<sub>session</sub></h3>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/contextual.html" class="uri">http://docs.sqlalchemy.org/en/latest/orm/contextual.html</a></li>
+<li><a href="https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/scoping.py#L30" class="uri">https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/scoping.py#L30</a></li>
+<li><code>scoped_session</code> is used for ensuring one <code>session</code> for a scope</li>
+<li><code>scoped_session</code> uses <code>sessionmaker</code></li>
+<li>For <code>scopefunc</code>, <code>threading.local()</code> is used by default.</li>
+<li>Can be used like <code>Session</code>, by <a href="https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/scoping.py#L151">dynamic things</a>.</li>
+</ul>
+<h2 id="hybridproperty">hybrid<sub>property</sub></h2>
+<ul>
+<li><a href="http://docs.sqlalchemy.org/en/latest/orm/mapped_sql_expr.html" class="uri">http://docs.sqlalchemy.org/en/latest/orm/mapped_sql_expr.html</a></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="im">from</span> sqlalchemy.ext.hybrid <span class="im">import</span> hybrid_property</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">class</span> User(Base):</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    __tablename__ <span class="op">=</span> <span class="st">&#39;user&#39;</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">    <span class="bu">id</span> <span class="op">=</span> Column(Integer, primary_key<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    firstname <span class="op">=</span> Column(String(<span class="dv">50</span>))</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    lastname <span class="op">=</span> Column(String(<span class="dv">50</span>))</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">    <span class="at">@hybrid_property</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">    <span class="kw">def</span> fullname(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">        <span class="cf">return</span> <span class="va">self</span>.firstname <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> <span class="va">self</span>.lastname</a></code></pre></div>
+<p>Can use <code>fullname</code> like other columns:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1">some_user <span class="op">=</span> session.query(User).<span class="bu">filter</span>(User.fullname <span class="op">==</span> <span class="st">&quot;John Smith&quot;</span>).first()</a></code></pre></div>
+<h1 id="how-to">How-to</h1>
+<h2 id="prefix-all-tables-under-a-declarativebase">Prefix all tables under a declarative<sub>base</sub></h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/38245145/how-to-set-common-prefix-for-all-tables-in-sqlalchemy" class="uri">https://stackoverflow.com/questions/38245145/how-to-set-common-prefix-for-all-tables-in-sqlalchemy</a></li>
+<li>Overriding both <code>cls.__tablename__</code> along with <code>dict_['__tablename__']</code> is required because <code>DeclarativeMeta</code> refers the attributes of <code>cls</code> during initialization.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="im">from</span> sqlalchemy.ext.declarative.api <span class="im">import</span> DeclarativeMeta</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">class</span> PrefixerMeta(DeclarativeMeta):</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">    <span class="kw">def</span> <span class="fu">__init__</span>(cls, name, bases, dict_):</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">        <span class="cf">if</span> <span class="st">&#39;__tablename__&#39;</span> <span class="kw">in</span> dict_:</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">            cls.__tablename__ <span class="op">=</span> dict_[<span class="st">&#39;__tablename__&#39;</span>] <span class="op">=</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">                <span class="co">&#39;someprefix_&#39;</span> <span class="op">+</span> dict_[<span class="st">&#39;__tablename__&#39;</span>]</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">        <span class="cf">return</span> <span class="bu">super</span>().<span class="fu">__init__</span>(name, bases, dict_)</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">Base <span class="op">=</span> declarative_base(metaclass<span class="op">=</span>PrefixerMeta)</a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb11-16" data-line-number="16"><span class="kw">class</span> SomeModel(Base):</a>
+<a class="sourceLine" id="cb11-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb11-18" data-line-number="18">    __tablename__ <span class="op">=</span> <span class="st">&#39;sometable&#39;</span></a>
+<a class="sourceLine" id="cb11-19" data-line-number="19">    ...</a></code></pre></div>
+</body>
+</html>

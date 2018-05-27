@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Vue.js</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Vue.js</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a>
+<ul>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#data-and-methods">Data and Methods</a></li>
+<li><a href="#lifecycle">Lifecycle</a>
+<ul>
+<li><a href="#mounted">mounted</a></li>
+</ul></li>
+<li><a href="#computed-and-watch">computed and watch</a></li>
+</ul></li>
+<li><a href="#project-structure">Project Structure</a></li>
+<li><a href="#template-syntax">Template Syntax</a></li>
+<li><a href="#api">API</a>
+<ul>
+<li><a href="#vueoptions">Vue(options)</a></li>
+<li><a href="#v-bind">v-bind</a></li>
+<li><a href="#v-for">v-for</a></li>
+<li><a href="#mixins">mixins</a></li>
+</ul></li>
+<li><a href="#special-attributes">Special Attributes</a></li>
+<li><a href="#lifecycle-hooks">Lifecycle Hooks</a></li>
+<li><a href="#list-rendering">List Rendering</a></li>
+<li><a href="#components">Components</a>
+<ul>
+<li><a href="#name-casing">Name Casing</a></li>
+<li><a href="#global-components">Global Components</a></li>
+<li><a href="#local-components">Local Components</a></li>
+<li><a href="#composing-components">Composing Components</a></li>
+<li><a href="#props">Props</a></li>
+<li><a href="#slots">Slots</a></li>
+<li><a href="#ref"><code>ref</code></a></li>
+<li><a href="#events">Events</a>
+<ul>
+<li><a href="#sync-modifier"><code>.sync</code> Modifier</a></li>
+</ul></li>
+<li><a href="#single-file-components-vue">Single File Components (.vue)</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#configure-different-environment-variables-by-stage">Configure different environment variables by stage</a></li>
+<li><a href="#use-axios-with-vuejs">Use axios with Vue.js</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#v-if-vs-v-show">v-if vs v-show</a></li>
+</ul></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://vuejs.org/v2/guide/installation.html#CLI" class="uri">https://vuejs.org/v2/guide/installation.html#CLI</a></li>
+</ul>
+</div>
+<h2 id="getting-started">Getting Started</h2>
+<pre class="shell"><code># install vue-cli
+$ npm install --global vue-cli
+# create a new project using the &quot;webpack&quot; template
+$ vue init webpack my-project
+# install dependencies and go!
+$ cd my-project
+$ npm run dev
+</code></pre>
+<h2 id="data-and-methods">Data and Methods</h2>
+<blockquote>
+<p><strong>When a Vue instance is created</strong>, it adds all the properties found in its <code>data</code> object to Vue’s reactivity system.</p>
+</blockquote>
+<blockquote>
+<p>Vue instances expose a number of useful instance properties and methods. These properties and methods are prefixed with <code>$</code> to differentiate from proxied data properties. For example:</p>
+</blockquote>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">var</span> data <span class="op">=</span> <span class="op">{</span> <span class="dt">a</span><span class="op">:</span> <span class="dv">1</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">var</span> vm <span class="op">=</span> <span class="kw">new</span> <span class="at">Vue</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">el</span><span class="op">:</span> <span class="st">&#39;#example&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="dt">data</span><span class="op">:</span> data</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="va">vm</span>.<span class="at">$data</span> <span class="op">===</span> data <span class="co">// -&gt; true</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="va">vm</span>.<span class="at">$el</span> <span class="op">===</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&#39;example&#39;</span>) <span class="co">// -&gt; true</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">// $watch is an instance method</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="va">vm</span>.<span class="at">$watch</span>(<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="kw">function</span> (newVal<span class="op">,</span> oldVal) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">  <span class="co">// this callback will be called when `vm.a` changes</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="op">}</span>)</a></code></pre></div>
+<h2 id="lifecycle">Lifecycle</h2>
+<ul>
+<li><a href="https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram" class="uri">https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram</a></li>
+</ul>
+<blockquote>
+<p>Don’t use arrow functions on an options property or callback, such as <code>created: () =&gt; console.log(this.a)</code> or <code>vm.$watch('a', newValue =&gt; this.myMethod())</code>. Since arrow functions are bound to the parent context, this will not be the Vue instance as you’d expect, often resulting in errors</p>
+</blockquote>
+<p><img src="_img/screenshot_2018-03-07_11-48-43.png" /> <img src="_img/screenshot_2018-03-07_11-04-42.png" /></p>
+<h3 id="mounted">mounted</h3>
+<ul>
+<li><a href="https://vuejs.org/v2/api/#mounted" class="uri">https://vuejs.org/v2/api/#mounted</a></li>
+</ul>
+<h2 id="computed-and-watch">computed and watch</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://vuejs.org/v2/guide/computed.html" class="uri">https://vuejs.org/v2/guide/computed.html</a></li>
+</ul>
+</div>
+<dl>
+<dt>computed</dt>
+<dd><ul>
+<li>caches the value when first calculated</li>
+<li>updates automatically when its dependent variables changed</li>
+</ul>
+<div class="sourceCode" id="cb3" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">var</span> vm <span class="op">=</span> <span class="kw">new</span> <span class="at">Vue</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dt">el</span><span class="op">:</span> <span class="st">&#39;#example&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="dt">message</span><span class="op">:</span> <span class="st">&#39;Hello&#39;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="dt">computed</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="co">// a computed getter</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="dt">reversedMessage</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">      <span class="co">// `this` points to the vm instance</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">      <span class="cf">return</span> <span class="kw">this</span>.<span class="va">message</span>.<span class="at">split</span>(<span class="st">&#39;&#39;</span>).<span class="at">reverse</span>().<span class="at">join</span>(<span class="st">&#39;&#39;</span>)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="op">}</span>)</a></code></pre></div>
+</dd>
+<dt>watch</dt>
+<dd><ul>
+<li>call back of data field's change event</li>
+</ul>
+<div class="sourceCode" id="cb4" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">var</span> vm <span class="op">=</span> <span class="kw">new</span> <span class="at">Vue</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">el</span><span class="op">:</span> <span class="st">&#39;#demo&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">firstName</span><span class="op">:</span> <span class="st">&#39;Foo&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">    <span class="dt">lastName</span><span class="op">:</span> <span class="st">&#39;Bar&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="dt">fullName</span><span class="op">:</span> <span class="st">&#39;Foo Bar&#39;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="dt">watch</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="dt">firstName</span><span class="op">:</span> <span class="kw">function</span> (val) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">      <span class="kw">this</span>.<span class="at">fullName</span> <span class="op">=</span> val <span class="op">+</span> <span class="st">&#39; &#39;</span> <span class="op">+</span> <span class="kw">this</span>.<span class="at">lastName</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">    <span class="dt">lastName</span><span class="op">:</span> <span class="kw">function</span> (val) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">      <span class="kw">this</span>.<span class="at">fullName</span> <span class="op">=</span> <span class="kw">this</span>.<span class="at">firstName</span> <span class="op">+</span> <span class="st">&#39; &#39;</span> <span class="op">+</span> val</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="op">}</span>)</a></code></pre></div>
+</dd>
+</dl>
+<h1 id="project-structure"><a href="https://vuejs-templates.github.io/webpack/structure.html">Project Structure</a></h1>
+<pre class="example"><code>.
+├── build/                      # webpack config files
+│   └── ...
+├── config/
+│   ├── index.js                # main project config
+│   └── ...
+├── src/
+│   ├── main.js                 # app entry file
+│   ├── App.vue                 # main app component
+│   ├── components/             # ui components
+│   │   └── ...
+│   └── assets/                 # module assets (processed by webpack)
+│       └── ...
+├── static/                     # pure static assets (directly copied)
+├── test/
+│   └── unit/                   # unit tests
+│   │   ├── specs/              # test spec files
+│   │   ├── eslintrc            # config file for eslint with extra settings only for unit tests
+│   │   ├── index.js            # test build entry file
+│   │   ├── jest.conf.js        # Config file when using Jest for unit tests
+│   │   └── karma.conf.js       # test runner config file when using Karma for unit tests
+│   │   ├── setup.js            # file that runs before Jest runs your unit tests
+│   └── e2e/                    # e2e tests
+│   │   ├── specs/              # test spec files
+│   │   ├── custom-assertions/  # custom assertions for e2e tests
+│   │   ├── runner.js           # test runner script
+│   │   └── nightwatch.conf.js  # test runner config file
+├── .babelrc                    # babel config
+├── .editorconfig               # indentation, spaces/tabs and similar settings for your editor
+├── .eslintrc.js                # eslint config
+├── .eslintignore               # eslint ignore rules
+├── .gitignore                  # sensible defaults for gitignore
+├── .postcssrc.js               # postcss config
+├── index.html                  # index.html template
+├── package.json                # build scripts and dependencies
+└── README.md                   # Default README file
+</code></pre>
+<h1 id="template-syntax">Template Syntax</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://vuejs.org/v2/guide/syntax.html" class="uri">https://vuejs.org/v2/guide/syntax.html</a></li>
+</ul>
+</div>
+<ul>
+<li><p>The <code>v-</code> prefix serves as a visual cue for identifying Vue-specific attributes in your templates.</p></li>
+<li>In templates, the context of <code>this</code>, which is the corresponding <code>Vue</code> object can be referred without <code>this</code>.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">&lt;!-- msg is data property of the Vue object--&gt;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">&lt;span&gt;</span>Message: {{ msg }}<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">&lt;span</span><span class="ot"> v-once</span><span class="kw">&gt;</span>This will never change: {{ msg }}<span class="kw">&lt;/span&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">&lt;p&gt;</span>Using mustaches: {{ rawHtml }}<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">&lt;p&gt;</span>Using v-html directive: <span class="kw">&lt;span</span><span class="ot"> v-html=</span><span class="st">&quot;rawHtml&quot;</span><span class="kw">&gt;&lt;/span&gt;&lt;/p&gt;</span></a></code></pre></div>
+<p><img src="_img/screenshot_2018-03-29_12-46-08.png" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">&lt;!-- remove/insert the &lt;p&gt; element based on whether or not &#39;seen&#39; is true. --&gt;</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">&lt;p</span><span class="ot"> v-if=</span><span class="st">&quot;seen&quot;</span><span class="kw">&gt;</span>Now you see me<span class="kw">&lt;/p&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">&lt;!-- .prevent modifier tells the v-on directive to call event.preventDefault() on the triggered event: --&gt;</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">&lt;form</span><span class="ot"> v-on:submit.prevent=</span><span class="st">&quot;onSubmit&quot;</span><span class="kw">&gt;</span> ... <span class="kw">&lt;/form&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">&lt;!-- full syntax --&gt;</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">&lt;a</span><span class="ot"> v-bind:href=</span><span class="st">&quot;url&quot;</span><span class="kw">&gt;</span> ... <span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co">&lt;!-- shorthand --&gt;</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="kw">&lt;a</span><span class="ot"> :href=</span><span class="st">&quot;url&quot;</span><span class="kw">&gt;</span> ... <span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co">&lt;!-- full syntax --&gt;</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="kw">&lt;a</span><span class="ot"> v-on:click=</span><span class="st">&quot;doSomething&quot;</span><span class="kw">&gt;</span> ... <span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co">&lt;!-- shorthand --&gt;</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="kw">&lt;a</span> <span class="er">@click</span><span class="ot">=</span><span class="st">&quot;doSomething&quot;</span><span class="kw">&gt;</span> ... <span class="kw">&lt;/a&gt;</span></a></code></pre></div>
+<h1 id="api">API</h1>
+<h2 id="vueoptions">Vue(options)</h2>
+<dl>
+<dt><a href="https://vuejs.org/v2/api/#name">name</a></dt>
+<dd><ul>
+<li>Only respected when used as a component option.</li>
+<li>Allow the component to <em>recursively invoke itself</em> in its template.</li>
+<li>When a component is registered globally with <code>Vue.component()</code>, the global ID is automatically set as its name.</li>
+</ul>
+</dd>
+<dt><a href="https://vuejs.org/v2/api/#data">data</a></dt>
+<dd><ul>
+<li>Only accepts <code>Function</code> when used in a component definition.</li>
+<li>The object must be plain</li>
+</ul>
+</dd>
+<dt><a href="https://vuejs.org/v2/api/#el">el</a></dt>
+<dd><ul>
+<li>Only respected in instance creation via new.</li>
+<li>Provide the Vue instance <strong>an existing DOM element to mount on.</strong>
+<ul>
+<li>It can be a CSS selector string or an actual HTMLElement.</li>
+<li>It doesn't need to specify when using <code>.vue</code> files.</li>
+</ul></li>
+</ul>
+</dd>
+</dl>
+<h2 id="v-bind">v-bind</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://vuejs.org/v2/api/#v-bind" class="uri">https://vuejs.org/v2/api/#v-bind</a></li>
+<li><a href="https://vuejs.org/v2/guide/class-and-style.html" class="uri">https://vuejs.org/v2/guide/class-and-style.html</a></li>
+</ul>
+</div>
+<p>Dynamically bind one or more attributes, or a component prop to an expression.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">&lt;!-- bind an attribute --&gt;</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">&lt;img</span><span class="ot"> v-bind:src=</span><span class="st">&quot;imageSrc&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">&lt;!-- shorthand --&gt;</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw">&lt;img</span><span class="ot"> :src=</span><span class="st">&quot;imageSrc&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">&lt;!-- with inline string concatenation --&gt;</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="kw">&lt;img</span><span class="ot"> :src=</span><span class="st">&quot;&#39;/path/to/images/&#39; + fileName&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="co">&lt;!-- class binding --&gt;</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="kw">&lt;div</span><span class="ot"> :class=</span><span class="st">&quot;{ red: isRed }&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12"><span class="kw">&lt;div</span><span class="ot"> :class=</span><span class="st">&quot;[classA, classB]&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="co">&lt;!-- class binding (&#39;key&#39; is included if &#39;value&#39; is true --&gt;</span></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="kw">&lt;div</span><span class="ot"> :class=</span><span class="st">&quot;[classA, { classB: isB, classC: isC }]&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb11-17" data-line-number="17"><span class="co">&lt;!-- style binding --&gt;</span></a>
+<a class="sourceLine" id="cb11-18" data-line-number="18"><span class="kw">&lt;div</span><span class="ot"> :style=</span><span class="st">&quot;{ fontSize: size + &#39;px&#39; }&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-19" data-line-number="19"><span class="kw">&lt;div</span><span class="ot"> :style=</span><span class="st">&quot;[styleObjectA, styleObjectB]&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb11-21" data-line-number="21"><span class="co">&lt;!-- binding an object of attributes --&gt;</span></a>
+<a class="sourceLine" id="cb11-22" data-line-number="22"><span class="kw">&lt;div</span><span class="ot"> v-bind=</span><span class="st">&quot;{ id: someProp, &#39;other-attr&#39;: otherProp }&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb11-24" data-line-number="24"><span class="co">&lt;!-- prop binding. &quot;prop&quot; must be declared in my-component. --&gt;</span></a>
+<a class="sourceLine" id="cb11-25" data-line-number="25"><span class="kw">&lt;my-component</span><span class="ot"> :prop=</span><span class="st">&quot;someThing&quot;</span><span class="kw">&gt;&lt;/my-component&gt;</span></a>
+<a class="sourceLine" id="cb11-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb11-27" data-line-number="27"><span class="co">&lt;!-- pass down parent props in common with a child component --&gt;</span></a>
+<a class="sourceLine" id="cb11-28" data-line-number="28"><span class="kw">&lt;child-component</span><span class="ot"> v-bind=</span><span class="st">&quot;$props&quot;</span><span class="kw">&gt;&lt;/child-component&gt;</span></a></code></pre></div>
+<p>Static elements and dynamic bind elements are merged. So following code:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;static&quot;</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="ot">     v-bind:class=</span><span class="st">&quot;{ active: true }&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<p>will render:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;static active&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a></code></pre></div>
+<h2 id="v-for"><a href="https://vuejs.org/v2/api/#v-for">v-for</a></h2>
+<dl>
+<dt><code>:key</code></dt>
+<dd>Specify this to give an ordering hint.
+</dd>
+</dl>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">    <span class="kw">&lt;li</span><span class="ot"> v-for=</span><span class="st">&quot;(item, index) in items&quot;</span><span class="ot"> :key=</span><span class="st">&quot;index&quot;</span><span class="kw">&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">&lt;div</span><span class="ot"> v-for=</span><span class="st">&quot;item in items&quot;</span><span class="ot"> :key=</span><span class="st">&quot;item.id&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">  {{ item.text }}</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<h2 id="mixins">mixins</h2>
+<hr />
+<ul>
+<li><a href="https://vuejs.org/v2/api/#mixins" class="uri">https://vuejs.org/v2/api/#mixins</a></li>
+</ul>
+<h1 id="special-attributes">Special Attributes</h1>
+<dl>
+<dt><a href="https://vuejs.org/v2/api/#key">key</a></dt>
+<dd><ul>
+<li>can be used as a hint for Vue's virtual DOM algorithm</li>
+<li>can be used to force replacement of an element/component instead of reusing it.</li>
+</ul>
+</dd>
+</dl>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">&lt;!-- When text changes, the &lt;span&gt; will always be replaced instead of patched,</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co">     so a transition will be triggered. --&gt;</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="kw">&lt;transition&gt;</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">  <span class="kw">&lt;span</span><span class="ot"> :key=</span><span class="st">&quot;text&quot;</span><span class="kw">&gt;</span>{{ text }}<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="kw">&lt;/transition&gt;</span></a></code></pre></div>
+<h1 id="lifecycle-hooks">Lifecycle Hooks</h1>
+<dl>
+<dt><a href="https://vuejs.org/v2/api/#created">created</a></dt>
+<dd><ul>
+<li>The instance has finished processing options</li>
+<li><code>data</code>, <code>computed</code>, <code>methods</code>, <code>watch</code>, <code>event</code> are now accessible</li>
+</ul>
+</dd>
+</dl>
+<h1 id="list-rendering">List Rendering</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://vuejs.org/v2/guide/list.html" class="uri">https://vuejs.org/v2/guide/list.html</a></li>
+<li><a href="https://vuejs.org/v2/guide/list.html#key" class="uri">https://vuejs.org/v2/guide/list.html#key</a></li>
+</ul>
+</div>
+<pre class="vue"><code>&lt;ul id=&quot;example-1&quot;&gt;
+  &lt;li v-for=&quot;item in items&quot;&gt;
+    {{ item.message }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div v-for=&quot;(value, key) in object&quot;&gt;
+  {{ key }}: {{ value }}
+&lt;/div&gt;
+
+&lt;!-- It is recommended to provide a key with v-for whenever possible --&gt;
+&lt;div v-for=&quot;item in items&quot; :key=&quot;item.id&quot;&gt;
+  &lt;!-- content --&gt;
+&lt;/div&gt;
+</code></pre>
+<h1 id="components"><a href="https://vuejs.org/v2/guide/components.html">Components</a></h1>
+<h2 id="name-casing">Name Casing</h2>
+<p>According to <a href="./style-guide" class="uri">./style-guide</a>, <code>PascalCase</code> naming is preferred when it is possible.</p>
+<blockquote>
+<p>When defining a component with PascalCase, you can use either case when referencing its custom element. That means both <code>&lt;my-component-name&gt;</code> and <code>&lt;MyComponentName&gt;</code> are acceptable. Note, however, that only kebab-case names are valid directly in the DOM (i.e. non-string templates).</p>
+</blockquote>
+<p>Non-string templates are things when you use Vue.js within actual <code>.html</code> files, consider following code:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;app&quot;</span><span class="kw">&gt;</span> <span class="co">&lt;!-- your App is runnning in this div ---&gt;</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">    <span class="kw">&lt;my-component&gt;&lt;/my-component&gt;</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">  <span class="kw">&lt;template</span><span class="ot"> id=</span><span class="st">&quot;template-for-my-component&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">    {{ message }}</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">  <span class="kw">&lt;/template&gt;</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9"><span class="kw">&lt;/body&gt;</span></a></code></pre></div>
+<p>This HTML will be controlled by the browser before Vue can work with it, and therefore Vue is limited by the caveats explained in the linked documentation</p>
+<hr />
+<ul>
+<li><a href="https://vuejs.org/v2/guide/components-registration.html#Name-Casing" class="uri">https://vuejs.org/v2/guide/components-registration.html#Name-Casing</a></li>
+<li><a href="https://forum.vuejs.org/t/confused-about-dom-template-and-string-template/1797/2" class="uri">https://forum.vuejs.org/t/confused-about-dom-template-and-string-template/1797/2</a></li>
+</ul>
+<h2 id="global-components">Global Components</h2>
+<div class="sourceCode" id="cb18"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;example&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="kw">&lt;my-component&gt;&lt;/my-component&gt;</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">// register</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="va">Vue</span>.<span class="at">component</span>(<span class="st">&#39;my-component&#39;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">  <span class="dt">template</span><span class="op">:</span> <span class="st">&#39;&lt;div&gt;A custom component!&lt;/div&gt;&#39;</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb19-6" data-line-number="6"><span class="co">// create a root instance</span></a>
+<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="kw">new</span> <span class="at">Vue</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">  <span class="dt">el</span><span class="op">:</span> <span class="st">&#39;#example&#39;</span></a>
+<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="op">}</span>)</a></code></pre></div>
+<h2 id="local-components">Local Components</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://v1.vuejs.org/guide/components.html#Component-Option-Caveats" class="uri">https://v1.vuejs.org/guide/components.html#Component-Option-Caveats</a></li>
+</ul>
+</div>
+<ul>
+<li><code>data</code> and <code>el</code> should be functions, otherwise the state of components is all shared.</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">var</span> Child <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">  <span class="dt">template</span><span class="op">:</span> <span class="st">&#39;&lt;div&gt;A custom component!&lt;/div&gt;&#39;</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="kw">new</span> <span class="at">Vue</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">  <span class="dt">components</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8">    <span class="co">// &lt;my-component&gt; will only be available in parent&#39;s template</span></a>
+<a class="sourceLine" id="cb20-9" data-line-number="9">    <span class="st">&#39;my-component&#39;</span><span class="op">:</span> Child<span class="op">,</span></a>
+<a class="sourceLine" id="cb20-10" data-line-number="10">    <span class="co">//  Using it as &lt;Child/&gt;</span></a>
+<a class="sourceLine" id="cb20-11" data-line-number="11">    Child<span class="op">,</span></a>
+<a class="sourceLine" id="cb20-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb20-13" data-line-number="13">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb20-14" data-line-number="14"><span class="op">}</span>)</a></code></pre></div>
+<h2 id="composing-components">Composing Components</h2>
+<p><img src="_img/screenshot_2018-03-07_14-04-10.png" /></p>
+<p>The API for a Vue component comes in three parts - <code>props</code>, <code>events</code>, and <code>slots</code>:</p>
+<ul>
+<li>Props allow the external environment to pass data into the component</li>
+<li>Events allow the component to trigger side effects in the external environment</li>
+<li>Slots allow the external environment to compose the component with extra content.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">&lt;my-component</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="ot">  :foo=</span><span class="st">&quot;baz&quot;</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="ot">  :bar=</span><span class="st">&quot;qux&quot;</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">  <span class="er">@event-a</span><span class="ot">=</span><span class="st">&quot;doThis&quot;</span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">  <span class="er">@event-b</span><span class="ot">=</span><span class="st">&quot;doThat&quot;</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7">  <span class="kw">&lt;img</span><span class="ot"> slot=</span><span class="st">&quot;icon&quot;</span><span class="ot"> src=</span><span class="st">&quot;...&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8">  <span class="kw">&lt;p</span><span class="ot"> slot=</span><span class="st">&quot;main-text&quot;</span><span class="kw">&gt;</span>Hello!<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb21-9" data-line-number="9"><span class="kw">&lt;/my-component&gt;</span></a></code></pre></div>
+<h2 id="props"><a href="https://vuejs.org/v2/guide/components-props.html">Props</a></h2>
+<ul>
+<li>A <code>prop</code> is a field on a component’s <code>data</code> that is expected to be passed down from its parent component.</li>
+<li>Since <code>this.data</code> is initialized once once, so <code>data</code> elements depending on <code>prop</code> would not be updated even if the <code>prop</code> changes.</li>
+<li>So, a <code>prop</code> can be referenced as <code>this.&lt;prop&gt;</code> or <code>{{ &lt;prop&gt; }}</code></li>
+<li>When you’re using in-DOM templates(See <em>Name Casing</em> above), <code>camelCased</code> prop names need to use their <code>kebab-cased</code> equivalents</li>
+</ul>
+<div class="sourceCode" id="cb22" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="va">Vue</span>.<span class="at">component</span>(<span class="st">&#39;blog-post&#39;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">  <span class="co">// camelCase in JavaScript</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">  <span class="dt">props</span><span class="op">:</span> [<span class="st">&#39;postTitle&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">  <span class="dt">template</span><span class="op">:</span> <span class="st">&#39;&lt;h3&gt;{{ postTitle }}&lt;/h3&gt;&#39;</span></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co">&lt;!-- Vue (string templates) --&gt;</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">&lt;blog-post</span><span class="ot"> postTitle=</span><span class="st">&quot;hello!&quot;</span><span class="kw">&gt;&lt;/blog-post&gt;</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="co">&lt;!-- Vue with dynamic props (string templates) --&gt;</span></a>
+<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="kw">&lt;blog-post</span><span class="ot"> :postTitle=</span><span class="st">&quot;hello!&quot;</span><span class="kw">&gt;&lt;/blog-post&gt;</span></a>
+<a class="sourceLine" id="cb23-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="co">&lt;!-- HTML (non-string templates) --&gt;</span></a>
+<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="kw">&lt;blog-post</span><span class="ot"> post-title=</span><span class="st">&quot;hello!&quot;</span><span class="kw">&gt;&lt;/blog-post&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb24" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="va">Vue</span>.<span class="at">component</span>(<span class="st">&#39;my-component&#39;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">  <span class="dt">props</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">    <span class="co">// Basic type check (`null` matches any type)</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">    <span class="dt">propA</span><span class="op">:</span> Number<span class="op">,</span></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">    <span class="co">// Multiple possible types</span></a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">    <span class="dt">propB</span><span class="op">:</span> [String<span class="op">,</span> Number]<span class="op">,</span></a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">    <span class="co">// Required string</span></a>
+<a class="sourceLine" id="cb24-8" data-line-number="8">    <span class="dt">propC</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-9" data-line-number="9">      <span class="dt">type</span><span class="op">:</span> String<span class="op">,</span></a>
+<a class="sourceLine" id="cb24-10" data-line-number="10">      <span class="dt">required</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb24-11" data-line-number="11">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb24-12" data-line-number="12">    <span class="co">// Number with a default value</span></a>
+<a class="sourceLine" id="cb24-13" data-line-number="13">    <span class="dt">propD</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-14" data-line-number="14">      <span class="dt">type</span><span class="op">:</span> Number<span class="op">,</span></a>
+<a class="sourceLine" id="cb24-15" data-line-number="15">      <span class="dt">default</span><span class="op">:</span> <span class="dv">100</span></a>
+<a class="sourceLine" id="cb24-16" data-line-number="16">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb24-17" data-line-number="17">    <span class="co">// Object with a default value</span></a>
+<a class="sourceLine" id="cb24-18" data-line-number="18">    <span class="dt">propE</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-19" data-line-number="19">      <span class="dt">type</span><span class="op">:</span> Object<span class="op">,</span></a>
+<a class="sourceLine" id="cb24-20" data-line-number="20">      <span class="co">// Object or array defaults must be returned from</span></a>
+<a class="sourceLine" id="cb24-21" data-line-number="21">      <span class="co">// a factory function</span></a>
+<a class="sourceLine" id="cb24-22" data-line-number="22">      <span class="dt">default</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-23" data-line-number="23">        <span class="cf">return</span> <span class="op">{</span> <span class="dt">message</span><span class="op">:</span> <span class="st">&#39;hello&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb24-24" data-line-number="24">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb24-25" data-line-number="25">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb24-26" data-line-number="26">    <span class="co">// Custom validator function</span></a>
+<a class="sourceLine" id="cb24-27" data-line-number="27">    <span class="dt">propF</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-28" data-line-number="28">      <span class="dt">validator</span><span class="op">:</span> <span class="kw">function</span> (value) <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-29" data-line-number="29">        <span class="co">// The value must match one of these strings</span></a>
+<a class="sourceLine" id="cb24-30" data-line-number="30">        <span class="cf">return</span> [<span class="st">&#39;success&#39;</span><span class="op">,</span> <span class="st">&#39;warning&#39;</span><span class="op">,</span> <span class="st">&#39;danger&#39;</span>].<span class="at">indexOf</span>(value) <span class="op">!==</span> <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb24-31" data-line-number="31">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb24-32" data-line-number="32">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb24-33" data-line-number="33">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb24-34" data-line-number="34"><span class="op">}</span>)</a></code></pre></div>
+<hr />
+<ul>
+<li><a href="https://vuejs.org/v2/guide/components.html#Props" class="uri">https://vuejs.org/v2/guide/components.html#Props</a></li>
+</ul>
+<h2 id="slots"><a href="https://v1.vuejs.org/guide/components.html#Single-Slot">Slots</a></h2>
+<p>The content between child component tags is passed to where <code>&lt;slot&gt;</code> tags placed within the child component.</p>
+<dl>
+<dt><code>&lt;child&gt;DATA&lt;/child&gt;</code></dt>
+<dd><ul>
+<li><code>DATA</code> is put into the single existing <code>&lt;slot&gt;&lt;/slot&gt;</code>.</li>
+</ul>
+</dd>
+<dt><code>&lt;template slot=&quot;name&quot;&gt;DATA&lt;/template&gt;</code></dt>
+<dd><ul>
+<li><code>DATA</code> is put into the named slot <code>&lt;slot name=&quot;name&quot;&gt;&lt;/slot&gt;</code></li>
+</ul>
+</dd>
+<dt><code>&lt;template slot=&quot;name&quot; slot-scope=&quot;data&quot;&gt;{{ data.DATA }}&lt;/template&gt;</code></dt>
+<dd><ul>
+<li>Access to data from the child</li>
+</ul>
+</dd>
+</dl>
+<div class="sourceCode" id="cb25"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">&lt;div&gt;</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">  <span class="kw">&lt;h1&gt;</span>This is my component!<span class="kw">&lt;/h1&gt;</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">  <span class="kw">&lt;slot&gt;</span></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">    This will only be displayed if there is no content</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">    to be distributed.</a>
+<a class="sourceLine" id="cb25-6" data-line-number="6">  <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb25-7" data-line-number="7"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">&lt;my-component&gt;</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">  <span class="kw">&lt;p&gt;</span>This is some original content<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">  <span class="kw">&lt;p&gt;</span>This is some more original content<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="kw">&lt;/my-component&gt;</span></a></code></pre></div>
+<p>Rendered as:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">&lt;div&gt;</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">  <span class="kw">&lt;h1&gt;</span>This is my component!<span class="kw">&lt;/h1&gt;</span></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">  <span class="kw">&lt;p&gt;</span>This is some original content<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4">  <span class="kw">&lt;p&gt;</span>This is some more original content<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<h2 id="ref"><code>ref</code></h2>
+<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">&lt;input</span><span class="ot"> ref=</span><span class="st">&quot;hello&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<p>You can refer the element above with following:</p>
+<div class="sourceCode" id="cb29" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">this</span>.<span class="va">$refs</span>.<span class="at">hello</span></a></code></pre></div>
+<hr />
+<ul>
+<li><a href="https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-Child-Component-Instances-amp-Child-Elements" class="uri">https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-Child-Component-Instances-amp-Child-Elements</a></li>
+</ul>
+<h2 id="events">Events</h2>
+<ul>
+<li>For compatability, just use a <a href="https://stackoverflow.com/questions/42441952/vue-js-custom-event-naming">lower-cased event name all smashed together</a>, like <code>mycustomevent</code></li>
+</ul>
+<h3 id="sync-modifier"><code>.sync</code> Modifier</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">&lt;text-document</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="ot">  v-bind:title=</span><span class="st">&quot;doc.title&quot;</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="ot">  v-on:update:title=</span><span class="st">&quot;doc.title = $event&quot;</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="kw">&gt;&lt;/text-document&gt;</span></a></code></pre></div>
+<p>is equivalent to:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">&lt;text-document</span><span class="ot"> v-bind:title.sync=</span><span class="st">&quot;doc.title&quot;</span><span class="kw">&gt;&lt;/text-document&gt;</span></a></code></pre></div>
+<h2 id="single-file-components-.vue"><a href="https://vuejs.org/v2/guide/single-file-components.html">Single File Components</a> (.vue)</h2>
+<blockquote>
+<p>In many Vue projects, global components will be defined using <code>Vue.component</code>, followed by <code>new Vue({ el: '#container' })</code> to target a container element in the body of every page.</p>
+</blockquote>
+<h1 id="how-to">How-to</h1>
+<h2 id="configure-different-environment-variables-by-stage">Configure different environment variables by stage</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://vuejs.org/v2/guide/deployment.html" class="uri">https://vuejs.org/v2/guide/deployment.html</a></li>
+<li><a href="https://vuejs-templates.github.io/webpack/env.html" class="uri">https://vuejs-templates.github.io/webpack/env.html</a></li>
+</ul>
+</div>
+<ul>
+<li>Use <code>webpack.DefinePlugin</code> to configure <code>process.env</code></li>
+</ul>
+<p>If you use vue template is easier to configure:</p>
+<div class="sourceCode" id="cb32" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co">// config/prod.env.js</span></a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3">  <span class="dt">NODE_ENV</span><span class="op">:</span> <span class="st">&#39;&quot;production&quot;&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4">  <span class="dt">DEBUG_MODE</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb32-5" data-line-number="5">  <span class="dt">API_KEY</span><span class="op">:</span> <span class="st">&#39;&quot;...&quot;&#39;</span> <span class="co">// this is shared between all environments</span></a>
+<a class="sourceLine" id="cb32-6" data-line-number="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb32-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb32-8" data-line-number="8"><span class="co">// config/dev.env.js</span></a>
+<a class="sourceLine" id="cb32-9" data-line-number="9"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="at">merge</span>(prodEnv<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb32-10" data-line-number="10">  <span class="dt">NODE_ENV</span><span class="op">:</span> <span class="st">&#39;&quot;development&quot;&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb32-11" data-line-number="11">  <span class="dt">DEBUG_MODE</span><span class="op">:</span> <span class="kw">true</span> <span class="co">// this overrides the DEBUG_MODE value of prod.env</span></a>
+<a class="sourceLine" id="cb32-12" data-line-number="12"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb32-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb32-14" data-line-number="14"><span class="co">// config/test.env.js</span></a>
+<a class="sourceLine" id="cb32-15" data-line-number="15"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="at">merge</span>(devEnv<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb32-16" data-line-number="16">  <span class="dt">NODE_ENV</span><span class="op">:</span> <span class="st">&#39;&quot;testing&quot;&#39;</span></a>
+<a class="sourceLine" id="cb32-17" data-line-number="17"><span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb33" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="va">Vue</span>.<span class="va">config</span>.<span class="at">productionTip</span> <span class="op">=</span> <span class="va">process</span>.<span class="va">env</span>.<span class="at">NODE_ENV</span> <span class="op">===</span> <span class="st">&#39;production&#39;</span></a></code></pre></div>
+<h2 id="use-axios-with-vue.js">Use axios with Vue.js</h2>
+<ul>
+<li><a href="http://vuejs.kr/update/2017/01/04/http-request-with-axios/" class="uri">http://vuejs.kr/update/2017/01/04/http-request-with-axios/</a></li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="im">import</span> Vue <span class="im">from</span> <span class="st">&#39;vue&#39;</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2"><span class="im">import</span> App <span class="im">from</span> <span class="st">&#39;./App&#39;</span></a>
+<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="im">import</span> axios <span class="im">from</span> <span class="st">&#39;axios&#39;</span></a>
+<a class="sourceLine" id="cb34-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb34-5" data-line-number="5"><span class="co">// Use axios globally</span></a>
+<a class="sourceLine" id="cb34-6" data-line-number="6"><span class="va">Vue</span>.<span class="va">prototype</span>.<span class="at">$http</span> <span class="op">=</span> axios</a>
+<a class="sourceLine" id="cb34-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb34-8" data-line-number="8"><span class="co">// Or, just import axios in each component</span></a></code></pre></div>
+<h1 id="topics">Topics</h1>
+<h2 id="v-if-vs-v-show">v-if vs v-show</h2>
+<blockquote>
+<p>Generally speaking, <code>v-if</code> has higher toggle costs while <code>v-show</code> has higher initial render costs. So prefer <code>v-show</code> if you need to toggle something very often, and prefer <code>v-if</code> if the condition is unlikely to change at runtime.</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show" class="uri">https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show</a></li>
+</ul>
+<h1 id="testing">Testing</h1>
+<dl>
+<dt>Components</dt>
+<dd><ul>
+<li><a href="https://github.com/vuejs/vue-test-utils">vue-test-utils</a></li>
+<li><a href="https://facebook.github.io/jest/docs/en/jest-platform.html">jest</a></li>
+<li><a href="https://github.com/babel/babel-jest">babel-jest</a> (for ES2015+ features in tests)</li>
+<li><a href="https://github.com/vuejs/vue-jest">vue-jest</a> (for handling <code>*.vue</code> files in tests)</li>
+<li><a href="https://github.com/eddyerburgh/jest-serializer-vue">jest-serializer-vue</a> (for snapshot tests)</li>
+</ul>
+</dd>
+<dt>Guides</dt>
+<dd><ul>
+<li><a href="https://alexjoverm.github.io/series/Unit-Testing-Vue-js-Components-with-the-Official-Vue-Testing-Tools-and-Jest/">Unit Testing Vue.js Components with the Official Vue Testing Tools and Jest</a></li>
+</ul>
+</dd>
+</dl>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://codesandbox.io/s/o29j95wx9">Simple Todo App</a></li>
+<li><a href="https://monterail.github.io/vuelidate/#examples" class="uri">https://monterail.github.io/vuelidate/#examples</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Qt</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Qt</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#qplaintextedit">QPlainTextEdit</a></li>
+</ul></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#parenting-system">Parenting System</a></li>
+<li><a href="#signals-and-slots">Signals and slots</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#detect-if-a-window-has-been-activated">Detect if a window has been activated?</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<p><img src="_img/screenshot_2018-01-29_08-37-24.png" /></p>
+<h1 id="reference">Reference</h1>
+<h2 id="qplaintextedit">QPlainTextEdit</h2>
+<ul>
+<li>Use <code>setPlainText()</code> to set a text.</li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://stackoverflow.com/questions/30408982/how-to-settext-for-qplaintextedit" class="uri">https://stackoverflow.com/questions/30408982/how-to-settext-for-qplaintextedit</a></li>
+<li><a href="https://stackoverflow.com/questions/17466046/qtextedit-vs-qplaintextedit" class="uri">https://stackoverflow.com/questions/17466046/qtextedit-vs-qplaintextedit</a></li>
+</ul>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="parenting-system">Parenting System</h2>
+<h2 id="signals-and-slots">Signals and slots</h2>
+<h1 id="how-to">How-to</h1>
+<h2 id="detect-if-a-window-has-been-activated">Detect if a window has been activated?</h2>
+<p>Since <code>event()</code> is a <code>virtual protected</code> method, you must explicitly implement it. It won't work as some dynamic things.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dt">bool</span> YourWidget::event(<span class="ex">QEvent</span> *e)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">{</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="cf">if</span> (e-&gt;type() == <span class="ex">QEvent::</span>WindowActivate) {</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="co">// window was activated</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  }</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="cf">return</span> <span class="ex">QWidget::</span>event(e);</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">class</span> ActivationHandoverMixin:</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="kw">def</span> event(<span class="va">self</span>, e):</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">        <span class="cf">if</span> e.<span class="bu">type</span>() <span class="op">==</span> QEvent.WindowActivate:</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">            t <span class="op">=</span> <span class="bu">getattr</span>(<span class="va">self</span>, <span class="st">&#39;_activation_target&#39;</span>, <span class="va">None</span>)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">            <span class="cf">if</span> t <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">                t.activateWindow()</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">        <span class="cf">return</span> <span class="bu">super</span>().event(e)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="kw">class</span> PlayerView(ActivationHandoverMixin, QWidget):</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    <span class="cf">pass</span></a></code></pre></div>
+<hr />
+<ul>
+<li><a href="http://doc.qt.io/qt-5/qwidget.html#event" class="uri">http://doc.qt.io/qt-5/qwidget.html#event</a></li>
+<li><a href="https://stackoverflow.com/questions/16721557/how-to-detect-if-a-window-has-been-activated" class="uri">https://stackoverflow.com/questions/16721557/how-to-detect-if-a-window-has-been-activated</a></li>
+</ul>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://wiki.qt.io/Qt_for_Beginners" class="uri">https://wiki.qt.io/Qt_for_Beginners</a></li>
+<li><a href="http://pyqt.sourceforge.net/Docs/PyQt5/sip-classes.html" class="uri">http://pyqt.sourceforge.net/Docs/PyQt5/sip-classes.html</a></li>
+<li><a href="https://www.ics.com/designpatterns/book/spacers.html" class="uri">https://www.ics.com/designpatterns/book/spacers.html</a></li>
+</ul>
+</body>
+</html>

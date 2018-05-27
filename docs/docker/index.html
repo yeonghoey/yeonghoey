@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Docker</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Docker</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_1_gh"><span class="smallcaps">TOC_1_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a></li>
+<li><a href="#how-to">How-to</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<h1 id="reference">Reference</h1>
+<h2 id="dockerfile">Dockerfile</h2>
+<ul>
+<li><a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/" class="uri">https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/</a></li>
+</ul>
+<h3 id="label">LABEL</h3>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/builder/#label" class="uri">https://docs.docker.com/engine/reference/builder/#label</a></li>
+<li><a href="https://docs.docker.com/engine/userguide/labels-custom-metadata/" class="uri">https://docs.docker.com/engine/userguide/labels-custom-metadata/</a></li>
+</ul>
+<pre class="example"><code>LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...
+</code></pre>
+<pre class="example"><code>LABEL &quot;com.example.vendor&quot;=&quot;ACME Incorporated&quot;
+LABEL com.example.label-with-value=&quot;foo&quot;
+LABEL version=&quot;1.0&quot;
+LABEL description=&quot;This text illustrates \
+that label-values can span multiple lines.&quot;
+</code></pre>
+<pre class="example"><code>LABEL multi.label1=&quot;value1&quot; multi.label2=&quot;value2&quot; other=&quot;value3&quot;
+</code></pre>
+<pre class="example"><code>LABEL multi.label1=&quot;value1&quot; \
+      multi.label2=&quot;value2&quot; \
+      other=&quot;value3&quot;
+</code></pre>
+<h3 id="maintainer-deprecated">MAINTAINER (deprecated)</h3>
+<ul>
+<li>Use <code>LABEL</code></li>
+</ul>
+<pre class="example"><code>LABEL maintainer=&quot;SvenDowideit@home.org.au&quot;
+</code></pre>
+<h3 id="run">RUN</h3>
+<ul>
+<li><p><a href="https://docs.docker.com/engine/reference/builder/#run" class="uri">https://docs.docker.com/engine/reference/builder/#run</a></p></li>
+<li><code>RUN &lt;command&gt;</code>
+<ul>
+<li>shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows)</li>
+<li>You can use a <code>\</code> (backslash) to continue a single <code>RUN</code> instruction onto the next line.</li>
+</ul></li>
+<li><code>RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</code>
+<ul>
+<li>This, exec form, makes it possible to avoid shell string munging, and to <code>RUN</code> commands using a base image that does not contain the specified shell executable.</li>
+</ul></li>
+<li>Below is a well-formed RUN instruction that demonstrates all the apt-get recommendations.</li>
+</ul>
+<pre class="example"><code>RUN apt-get update &amp;&amp; apt-get install -y \
+    aufs-tools \
+    automake \
+    build-essential \
+    curl \
+    dpkg-sig \
+    libcap-dev \
+    libsqlite3-dev \ mercurial \
+    reprepro \
+    ruby1.9.1 \
+    ruby1.9.1-dev \
+    s3cmd=1.1.* \
+ &amp;&amp; rm -rf /var/lib/apt/lists/*
+</code></pre>
+<h3 id="cmd">CMD</h3>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/builder/#cmd" class="uri">https://docs.docker.com/engine/reference/builder/#cmd</a></li>
+<li><code>CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code> (exec form, this is the preferred form)</li>
+<li><code>CMD [&quot;param1&quot;,&quot;param2&quot;]</code> (as default parameters to ENTRYPOINT)</li>
+<li><code>CMD command param1 param2</code> (shell form)</li>
+<li>The main purpose of a CMD is to provide defaults for an executing container</li>
+</ul>
+<h3 id="copy">COPY</h3>
+<ul>
+<li><p><a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy" class="uri">https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy</a></p></li>
+<li><p>If you have multiple <code>Dockerfile</code> steps that use different files from your context, <code>COPY</code> them individually, rather than all at once. This will ensure that each step’s build cache is only invalidated (forcing the step to be re-run) if the specifically required files change.</p></li>
+</ul>
+<pre class="example"><code>COPY requirements.txt /tmp/
+RUN pip install --requirement /tmp/requirements.txt
+COPY . /tmp/
+</code></pre>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="dockerfile-add-vs-copy">Dockerfile: ADD vs COPY</h2>
+<ul>
+<li><a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy" class="uri">https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy</a></li>
+<li><p><a href="https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-copy-and-add-commands-in-a-dockerfile" class="uri">https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-copy-and-add-commands-in-a-dockerfile</a></p></li>
+<li><p>Although <code>ADD</code> and <code>COPY</code> are functionally similar, generally speaking, <code>COPY</code> is preferred.</p></li>
+<li><code>ADD</code> allows <code>&lt;src&gt;</code> to be an URL</li>
+<li><p>If the <code>&lt;src&gt;</code> parameter of <code>ADD</code> is an archive in a recognised compression format, it will be unpacked</p></li>
+</ul>
+<h1 id="how-to">How-to</h1>
+<h2 id="install-docker-with-a-single-command">Install docker with a single command</h2>
+<ul>
+<li><a href="https://get.docker.com/" class="uri">https://get.docker.com/</a></li>
+</ul>
+<pre class="shell"><code>curl -sSL https://get.docker.com/ | sh
+</code></pre>
+<h2 id="install-docker-on-amazon-linux-instance">Install docker on Amazon Linux instance</h2>
+<ul>
+<li><a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker" class="uri">http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker</a></li>
+</ul>
+<pre class="shell"><code>sudo yum update -y
+sudo yum install -y docker
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+</code></pre>
+<h2 id="access-internet-from-containers-when-private-dns-intrudes">Access internet from containers when private DNS intrudes</h2>
+<ul>
+<li><a href="https://github.com/moby/moby/issues/13381#issuecomment-159836002" class="uri">https://github.com/moby/moby/issues/13381#issuecomment-159836002</a></li>
+<li><a href="https://github.com/docker/docker/issues/9889" class="uri">https://github.com/docker/docker/issues/9889</a></li>
+</ul>
+<p>In private network with private DNS, the network administrator often blocks access to common DNS like <code>8.8.8.8</code>. This may cause to block access to internet within the docker container.</p>
+<p>In this case, the private DNS is used within docker containers with <code>--dns</code> option. To use this option by default, put the following line in <code>/etc/default/docker</code>:</p>
+<pre class="shell"><code># Use DOCKER_OPTS to modify the daemon startup options.
+DOCKER_OPTS=&quot;--dns 10.10.0.1 --dns 10.10.0.2&quot;
+</code></pre>
+<p>Additionally, <code>systemd</code> script for <code>docker</code> doesn't read <code>/etc/default/docker</code> and <code>$DOCKER_OPTS</code>. To fix it, add following lines to <code>/lib/systemd/system/docker.service</code>:</p>
+<pre class="example"><code>[Service]
+// ...
+EnvironmentFile=-/etc/default/docker
+ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS
+</code></pre>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://github.com/wsargent/docker-cheat-sheet#table-of-contents">docker-cheat-sheet</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Debian</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Debian</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#dch-debchange">dch (debchange)</a></li>
+<li><a href="#deb-files">.deb files</a></li>
+<li><a href="#dpkg">dpkg</a></li>
+<li><a href="#postinst">postinst</a></li>
+</ul></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a></li>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#create-a-debian-pacakge">Create a debian pacakge</a>
+<ul>
+<li><a href="#source-package">Source package</a></li>
+<li><a href="#files-in-debian">Files in debian/</a></li>
+<li><a href="#debianchangelog">debian/changelog</a></li>
+<li><a href="#debiancontrol">debian/control</a></li>
+<li><a href="#debinrules">debin/rules</a></li>
+<li><a href="#debiancompat">debian/compat</a></li>
+<li><a href="#debhelper">debhelper</a></li>
+<li><a href="#dh">dh</a></li>
+<li><a href="#patch-systems">Patch systems</a></li>
+<li><a href="#doing-things-during-installation-and-removal">Doing things during installation and removal</a></li>
+<li><a href="#packaging-with-a-vcs">Packaging with a VCS</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<p><img src="_img/screenshot_2017-09-04_22-35-21.png" /></p>
+<h1 id="reference">Reference</h1>
+<h2 id="dch-debchange">dch (debchange)</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/18957811/debian-packages-on-xubuntu-install-debchange-dch" class="uri">https://stackoverflow.com/questions/18957811/debian-packages-on-xubuntu-install-debchange-dch</a></li>
+<li><a href="https://askubuntu.com/questions/579323/dch-non-interactive-mode" class="uri">https://askubuntu.com/questions/579323/dch-non-interactive-mode</a></li>
+</ul>
+<pre class="shell"><code>sudo apt-get install devscripts
+</code></pre>
+<pre class="shell"><code># Create initial `debian/changelog`, content would look like following:
+# -------------------------------------------------------------------------------
+# my-package (2.11.2-b145b232a) unstable; urgency=low
+#
+#   * Built automatically
+#
+#  -- Yeongho Kim &lt;yeonghoey@yhws&gt;  Wed, 18 Oct 2017 17:09:58 +0900
+# -------------------------------------------------------------------------------
+debchange \
+  --create \
+  --package      &quot;my-package&quot; \
+  --newversion   &quot;${VERSION}&quot; \
+  --distribution &quot;unstable&quot; \
+  --urgency      &quot;low&quot; \
+  &quot;Built automatically&quot;
+
+</code></pre>
+<h2 id="deb-files">.deb files</h2>
+<ul>
+<li><a href="https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf" class="uri">https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf</a></li>
+<li>an <a href="https://en.wikipedia.org/wiki/Ar_(Unix)">ar</a> archive, contains:
+<dl>
+<dt><code>debian-binary</code></dt>
+<dd>version of the deb file format, <code>&quot;2.0\n&quot;</code>
+</dd>
+<dt><code>control.tar.gz</code></dt>
+<dd>metadata about the package
+</dd>
+<dt><code>data.tar.gz</code></dt>
+<dd>data files of the package
+</dd>
+</dl></li>
+</ul>
+<h2 id="dpkg">dpkg</h2>
+<dl>
+<dt><code>-i</code>, <code>--install</code> <code>&lt;package-file...&gt;</code></dt>
+<dd><ol>
+<li>Extract the control files of the new package.</li>
+<li>If another version of the same package was installed before the new installation, execute <code>prerm</code> script of the old package.</li>
+<li>Run <code>preinst</code> script, if provided by the package.</li>
+<li>Unpack the new files, and at the same time back up the old files, so that if something goes wrong, they can be restored.</li>
+<li>If another version of the same package was installed before the new installation, execute the <code>postrm</code> script of the old package. Note that this script is executed after the <code>preinst</code> script of the new package, because new files are written at the same time old files are removed.</li>
+<li>Configure the package. See <code>--configure</code> for detailed information about how this is done.</li>
+</ol>
+</dd>
+</dl>
+<h2 id="postinst">postinst</h2>
+<ul>
+<li><a href="https://askubuntu.com/questions/101962/script-to-only-execute-during-first-install-of-a-package" class="uri">https://askubuntu.com/questions/101962/script-to-only-execute-during-first-install-of-a-package</a></li>
+</ul>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h1 id="how-to">How-to</h1>
+<h2 id="create-a-debian-pacakge">Create a debian pacakge</h2>
+<ul>
+<li><a href="https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf" class="uri">https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf</a></li>
+</ul>
+<p><img src="_img/screenshot_2017-10-10_16-27-53.png" /></p>
+<h3 id="source-package">Source package</h3>
+<ul>
+<li>One source package can generate several binary packages</li>
+<li>Two kinds of packages
+<dl>
+<dt>Native Packages</dt>
+<dd>normally for Debian specific software (<code>dpkg</code>, <code>apt</code>)
+</dd>
+<dt>Non-native packages</dt>
+<dd>software developed outside Debian (<strong>Mostly this is relevant</strong>)
+</dd>
+</dl></li>
+<li>Main file: <code>.dsc</code> (meta-data)</li>
+<li>Other files depending on the version of the source format(Here shows only <code>3.0 (quilt)</code>
+<dl>
+<dt><code>pkg_ver.orig.tar.gz</code></dt>
+<dd>Upstream source
+</dd>
+<dt><code>pkg_debver.debian.tar.gz</code></dt>
+<dd>tarball with the Debian changes
+</dd>
+</dl></li>
+</ul>
+<h3 id="files-in-debian">Files in debian/</h3>
+<ul>
+<li>Main files
+<dl>
+<dt><code>control</code></dt>
+<dd>meta-data about the package (dependencies, etc.)
+</dd>
+<dt><code>rules</code></dt>
+<dd>specifies how to build the package
+</dd>
+<dt><code>copyright</code></dt>
+<dd>copyright information for the package
+</dd>
+<dt><code>changelog</code></dt>
+<dd>history of the Debian package
+</dd>
+</dl></li>
+</ul>
+<h3 id="debianchangelog">debian/changelog</h3>
+<ul>
+<li><p><a href="https://www.debian.org/doc/debian-policy/#debian-changelog-debian-changelog" class="uri">https://www.debian.org/doc/debian-policy/#debian-changelog-debian-changelog</a></p></li>
+<li>Lists the Debian pacakging changes</li>
+<li>Gives the current version of the package</li>
+<li><img src="_img/screenshot_2017-10-10_16-39-43.png" /></li>
+<li><p>Edited manually or with <code>dch</code>, for new release: <code>dch -i</code></p></li>
+</ul>
+<pre class="example"><code>mpich2 (1.2.1.1-5) unstable; urgency = low
+  * Descriptions
+ -- Lucas Nussbaum &lt;lucas@debian.org&gt; Wed, 15 Sep 2010 18:13:44 +0200
+</code></pre>
+<h3 id="debiancontrol">debian/control</h3>
+<ul>
+<li><p><a href="https://www.debian.org/doc/debian-policy/#source-package-control-files-debian-control" class="uri">https://www.debian.org/doc/debian-policy/#source-package-control-files-debian-control</a></p></li>
+<li><p>Package metadata like :: Package name, section, priority, maintainer, uploaders, build-dependencies, dependencies, description, homepage</p></li>
+</ul>
+<pre class="example"><code>Source : wget
+Section : web
+Priority : important
+Maintainer : Noel Kothe &lt; noel@debian.org &gt;
+Build - Depends : debhelper (&gt;&gt; 5.0.0) , gettext , texinfo ,
+libssl - dev ( &gt;= 0.9.8) , dpatch , info2man
+Standards - Version : 3.8.4
+Homepage : http://www.gnu.org/software/wget/
+Package : wget
+Architecture : any
+Depends : ${ shlibs : Depends }, ${ misc : Depends }
+Description : retrieves files from the web
+Wget is a network utility to retrieve files from the Web
+</code></pre>
+<h3 id="debinrules">debin/rules</h3>
+<ul>
+<li><a href="https://www.debian.org/doc/debian-policy/#main-building-script-debian-rules" class="uri">https://www.debian.org/doc/debian-policy/#main-building-script-debian-rules</a></li>
+<li>Makefile</li>
+</ul>
+<h3 id="debiancompat">debian/compat</h3>
+<ul>
+<li>Use <code>9</code></li>
+</ul>
+<h3 id="debhelper">debhelper</h3>
+<ul>
+<li>Factor the common tasks in standard tools used by all packages</li>
+<li>Fix some packaging bugs once for all packages</li>
+<li>Called from <code>debian/rules</code></li>
+</ul>
+<h3 id="dh">dh</h3>
+<ul>
+<li>Simple <code>debian/rules</code>, listing only overrides</li>
+</ul>
+<pre class="example"><code>#!/ usr / bin / make -f
+%:
+  dh $@
+override_dh_auto_configure :
+  dh_auto_configure -- -- with - kitchen - sink
+override_dh_auto_build :
+  make world
+</code></pre>
+<p><img src="_img/screenshot_2017-10-10_16-55-53.png" /></p>
+<h3 id="patch-systems">Patch systems</h3>
+<ul>
+<li><a href="http://pkg-perl.alioth.debian.org/howto/quilt.html" class="uri">http://pkg-perl.alioth.debian.org/howto/quilt.html</a></li>
+<li>Recommended built-in patch system: <code>3.0 (quilt)</code></li>
+</ul>
+<h3 id="doing-things-during-installation-and-removal">Doing things during installation and removal</h3>
+<ul>
+<li><a href="https://www.debian.org/doc/debian-policy/#maintainer-scripts" class="uri">https://www.debian.org/doc/debian-policy/#maintainer-scripts</a></li>
+<li>Create/remove system users, start/stop services, manage alternatives</li>
+<li>Done in maintainer scripts, <code>preinst</code>, <code>postinst</code>, <code>prerm</code>, <code>postrm</code></li>
+</ul>
+<h3 id="packaging-with-a-vcs">Packaging with a VCS</h3>
+<ul>
+<li><a href="http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.html" class="uri">http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.html</a></li>
+<li>Use <code>git-buildpackage</code></li>
+</ul>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://www.debian.org/doc/manuals/maint-guide/" class="uri">https://www.debian.org/doc/manuals/maint-guide/</a></li>
+<li><a href="https://www.debian.org/doc/devel-manuals" class="uri">https://www.debian.org/doc/devel-manuals</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>setuptools</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">setuptools</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_2_gh"><span class="smallcaps">TOC_2_gh</span></span></h1>
+<ul>
+<li><a href="#which-tool-should-use">Which tool should use?</a></li>
+<li><a href="#python-packaging-user-guide">Python Packaging User Guide</a></li>
+<li><a href="#setuppy">setup.py</a>
+<ul>
+<li><a href="#install_requires-vs-requirementstxt">install<sub>requires</sub> vs requirements.txt</a></li>
+<li><a href="#scripts-vs-console_scripts">scripts vs console<sub>scripts</sub></a></li>
+</ul></li>
+<li><a href="#setuppy-minimal">setup.py (minimal)</a></li>
+</ul>
+<h1 id="which-tool-should-use">Which tool should use?</h1>
+<ul>
+<li><a href="http://stackoverflow.com/questions/6344076/differences-between-distribute-distutils-setuptools-and-distutils2" class="uri">http://stackoverflow.com/questions/6344076/differences-between-distribute-distutils-setuptools-and-distutils2</a></li>
+</ul>
+<blockquote>
+<p>So in conclusion, out of all these options, I would recommend Setuptools, unless your requirements are very basic and you only need Distutils. Setuptools works very well with Virtualenv and Pip, tools that I highly recommend. Virtualenv and Pip could both be considered official, as they're part of PyPA, and Python 3 now ships ensurepip (which helps you install pip on some systems).</p>
+</blockquote>
+<h1 id="python-packaging-user-guide">Python Packaging User Guide</h1>
+<ul>
+<li><a href="https://packaging.python.org/" class="uri">https://packaging.python.org/</a></li>
+<li><a href="https://github.com/pypa/sampleproject" class="uri">https://github.com/pypa/sampleproject</a></li>
+</ul>
+<h1 id="setup.py">setup.py</h1>
+<ul>
+<li><a href="https://packaging.python.org/distributing/#setup-args" class="uri">https://packaging.python.org/distributing/#setup-args</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">from</span> setuptools <span class="im">import</span> setup, find_packages</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">setup(</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    name<span class="op">=</span><span class="st">&#39;sample&#39;</span>,</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="co"># Versions should comply with PEP440.  For a discussion on single-sourcing</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="co"># the version across setup.py and the project code, see</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="co"># https://packaging.python.org/en/latest/single_source_version.html</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    version<span class="op">=</span><span class="st">&#39;1.2.0&#39;</span>,</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    description<span class="op">=</span><span class="st">&#39;A sample Python project&#39;</span>,</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    long_description<span class="op">=</span>long_description,</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    <span class="co"># The project&#39;s main homepage.</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    url<span class="op">=</span><span class="st">&#39;https://github.com/pypa/sampleproject&#39;</span>,</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">    <span class="co"># Author details</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">    author<span class="op">=</span><span class="st">&#39;The Python Packaging Authority&#39;</span>,</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">    author_email<span class="op">=</span><span class="st">&#39;pypa-dev@googlegroups.com&#39;</span>,</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    <span class="co"># Choose your license</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    license<span class="op">=</span><span class="st">&#39;MIT&#39;</span>,</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">    <span class="co"># See https://pypi.python.org/pypi?%3Aaction=list_classifiers</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">    classifiers<span class="op">=</span>[</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">        <span class="co"># How mature is this project? Common values are</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">        <span class="st">&#39;Development Status :: 3 - Alpha&#39;</span>,</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">        <span class="co"># Indicate who your project is intended for</span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">        <span class="st">&#39;Intended Audience :: Developers&#39;</span>,</a>
+<a class="sourceLine" id="cb1-32" data-line-number="32">        <span class="st">&#39;Topic :: Software Development :: Build Tools&#39;</span>,</a>
+<a class="sourceLine" id="cb1-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34">        <span class="co"># Pick your license as you wish (should match &quot;license&quot; above)</span></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35">        <span class="st">&#39;License :: OSI Approved :: MIT License&#39;</span>,</a>
+<a class="sourceLine" id="cb1-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb1-37" data-line-number="37">        <span class="co"># Specify the Python versions you support here. In particular, ensure</span></a>
+<a class="sourceLine" id="cb1-38" data-line-number="38">        <span class="co"># that you indicate whether you support Python 2, Python 3 or both.</span></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39">        <span class="st">&#39;Programming Language :: Python :: 2&#39;</span>,</a>
+<a class="sourceLine" id="cb1-40" data-line-number="40">        <span class="st">&#39;Programming Language :: Python :: 2.6&#39;</span>,</a>
+<a class="sourceLine" id="cb1-41" data-line-number="41">        <span class="st">&#39;Programming Language :: Python :: 2.7&#39;</span>,</a>
+<a class="sourceLine" id="cb1-42" data-line-number="42">        <span class="st">&#39;Programming Language :: Python :: 3&#39;</span>,</a>
+<a class="sourceLine" id="cb1-43" data-line-number="43">        <span class="st">&#39;Programming Language :: Python :: 3.3&#39;</span>,</a>
+<a class="sourceLine" id="cb1-44" data-line-number="44">        <span class="st">&#39;Programming Language :: Python :: 3.4&#39;</span>,</a>
+<a class="sourceLine" id="cb1-45" data-line-number="45">        <span class="st">&#39;Programming Language :: Python :: 3.5&#39;</span>,</a>
+<a class="sourceLine" id="cb1-46" data-line-number="46">    ],</a>
+<a class="sourceLine" id="cb1-47" data-line-number="47"></a>
+<a class="sourceLine" id="cb1-48" data-line-number="48">    <span class="co"># What does your project relate to?</span></a>
+<a class="sourceLine" id="cb1-49" data-line-number="49">    keywords<span class="op">=</span><span class="st">&#39;sample setuptools development&#39;</span>,</a>
+<a class="sourceLine" id="cb1-50" data-line-number="50"></a>
+<a class="sourceLine" id="cb1-51" data-line-number="51">    <span class="co"># You can just specify the packages manually here if your project is</span></a>
+<a class="sourceLine" id="cb1-52" data-line-number="52">    <span class="co"># simple. Or you can use find_packages().</span></a>
+<a class="sourceLine" id="cb1-53" data-line-number="53">    packages<span class="op">=</span>find_packages(exclude<span class="op">=</span>[<span class="st">&#39;contrib&#39;</span>, <span class="st">&#39;docs&#39;</span>, <span class="st">&#39;tests&#39;</span>]),</a>
+<a class="sourceLine" id="cb1-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb1-55" data-line-number="55">    <span class="co"># Alternatively, if you want to distribute just a my_module.py, uncomment</span></a>
+<a class="sourceLine" id="cb1-56" data-line-number="56">    <span class="co"># this:</span></a>
+<a class="sourceLine" id="cb1-57" data-line-number="57">    <span class="co">#   py_modules=[&quot;my_module&quot;],</span></a>
+<a class="sourceLine" id="cb1-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb1-59" data-line-number="59">    <span class="co"># List run-time dependencies here.</span></a>
+<a class="sourceLine" id="cb1-60" data-line-number="60">    <span class="co"># These will be installed by pip when your project is installed.</span></a>
+<a class="sourceLine" id="cb1-61" data-line-number="61">    install_requires<span class="op">=</span>[<span class="st">&#39;peppercorn&#39;</span>],</a>
+<a class="sourceLine" id="cb1-62" data-line-number="62"></a>
+<a class="sourceLine" id="cb1-63" data-line-number="63">    <span class="co"># List additional groups of dependencies here (e.g. development</span></a>
+<a class="sourceLine" id="cb1-64" data-line-number="64">    <span class="co"># dependencies). You can install these using the following syntax,</span></a>
+<a class="sourceLine" id="cb1-65" data-line-number="65">    <span class="co"># for example:</span></a>
+<a class="sourceLine" id="cb1-66" data-line-number="66">    <span class="co"># $ pip install -e .[dev,test]</span></a>
+<a class="sourceLine" id="cb1-67" data-line-number="67">    extras_require<span class="op">=</span>{</a>
+<a class="sourceLine" id="cb1-68" data-line-number="68">        <span class="st">&#39;dev&#39;</span>: [<span class="st">&#39;check-manifest&#39;</span>],</a>
+<a class="sourceLine" id="cb1-69" data-line-number="69">        <span class="st">&#39;test&#39;</span>: [<span class="st">&#39;coverage&#39;</span>],</a>
+<a class="sourceLine" id="cb1-70" data-line-number="70">    },</a>
+<a class="sourceLine" id="cb1-71" data-line-number="71"></a>
+<a class="sourceLine" id="cb1-72" data-line-number="72">    <span class="co"># If there are data files included in your packages that need to be</span></a>
+<a class="sourceLine" id="cb1-73" data-line-number="73">    <span class="co"># installed, specify them here.  If using Python 2.6 or less, then these</span></a>
+<a class="sourceLine" id="cb1-74" data-line-number="74">    <span class="co"># have to be included in MANIFEST.in as well.</span></a>
+<a class="sourceLine" id="cb1-75" data-line-number="75">    package_data<span class="op">=</span>{</a>
+<a class="sourceLine" id="cb1-76" data-line-number="76">        <span class="st">&#39;sample&#39;</span>: [<span class="st">&#39;package_data.dat&#39;</span>],</a>
+<a class="sourceLine" id="cb1-77" data-line-number="77">    },</a>
+<a class="sourceLine" id="cb1-78" data-line-number="78"></a>
+<a class="sourceLine" id="cb1-79" data-line-number="79">    <span class="co"># Although &#39;package_data&#39; is the preferred approach, in some case you may</span></a>
+<a class="sourceLine" id="cb1-80" data-line-number="80">    <span class="co"># need to place data files outside of your packages. See:</span></a>
+<a class="sourceLine" id="cb1-81" data-line-number="81">    data_files<span class="op">=</span>[(<span class="st">&#39;my_data&#39;</span>, [<span class="st">&#39;data/data_file&#39;</span>])],</a>
+<a class="sourceLine" id="cb1-82" data-line-number="82">    entry_points<span class="op">=</span>{</a>
+<a class="sourceLine" id="cb1-83" data-line-number="83">        <span class="st">&#39;console_scripts&#39;</span>: [</a>
+<a class="sourceLine" id="cb1-84" data-line-number="84">            <span class="st">&#39;sample=sample.__main__:main&#39;</span>,</a>
+<a class="sourceLine" id="cb1-85" data-line-number="85">        ],</a>
+<a class="sourceLine" id="cb1-86" data-line-number="86">    },</a>
+<a class="sourceLine" id="cb1-87" data-line-number="87">)</a></code></pre></div>
+<h2 id="installrequires-vs-requirements.txt">install<sub>requires</sub> vs requirements.txt</h2>
+<ul>
+<li><a href="https://packaging.python.org/requirements/#requirements-files" class="uri">https://packaging.python.org/requirements/#requirements-files</a></li>
+<li><a href="https://caremad.io/posts/2013/07/setup-vs-requirement/" class="uri">https://caremad.io/posts/2013/07/setup-vs-requirement/</a></li>
+</ul>
+<p>~install<sub>requires</sub>~ is mostly required when the project is a python library. For just a python application, it seems okay to just have <code>requirements.txt</code>.</p>
+<p><img src="_img/screenshot_2017-01-29_09-46-07.png" /></p>
+<h2 id="scripts-vs-consolescripts">scripts vs console<sub>scripts</sub></h2>
+<ul>
+<li><a href="http://python-packaging.readthedocs.io/en/latest/command-line-scripts.html" class="uri">http://python-packaging.readthedocs.io/en/latest/command-line-scripts.html</a></li>
+</ul>
+<pre class="example"><code>funniest/
+    funniest/
+        __init__.py
+        ...
+    setup.py
+    bin/
+        funniest-joke
+</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">setup(</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    ...</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    scripts<span class="op">=</span>[<span class="st">&#39;bin/funniest-joke&#39;</span>],</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    ...</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">)</a></code></pre></div>
+<pre class="example"><code>funniest/
+    funniest/
+        __init__.py
+        command_line.py
+        ...
+    setup.py
+    ...
+</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">setup(</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    ...</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    entry_points <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">        <span class="st">&#39;console_scripts&#39;</span>: [<span class="st">&#39;funniest-joke=funniest.command_line:main&#39;</span>],</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    }</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    ...</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">)</a></code></pre></div>
+<h1 id="setup.py-minimal">setup.py (minimal)</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="im">from</span> setuptools <span class="im">import</span> setup</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">setup(</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    name<span class="op">=</span><span class="st">&#39;yourapplication&#39;</span>,</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    packages<span class="op">=</span>[<span class="st">&#39;yourapplication&#39;</span>],</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    include_package_data<span class="op">=</span><span class="va">True</span>,</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    install_requires<span class="op">=</span>[<span class="st">&#39;flask&#39;</span>],</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">)</a></code></pre></div>
+</body>
+</html>

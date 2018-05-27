@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>apt-get</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">apt-get</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#update">update</a>
+<ul>
+<li><a href="#when-needed">When needed</a></li>
+<li><a href="#when-fails">When fails</a></li>
+<li><a href="#varlibaptlists">/var/lib/apt/lists/*</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#apt-vs-apt-get">apt vs apt-get</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#install-java8">Install java8</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<h1 id="reference">Reference</h1>
+<h2 id="update">update</h2>
+<h3 id="when-needed">When needed</h3>
+<pre class="example"><code>E: Failed to fetch &lt;uri&gt;  404  Not Found [IP: &lt;ip&gt; 80]
+E: Failed to fetch &lt;uri&gt;  404  Not Found [IP: &lt;ip&gt; 80]
+</code></pre>
+<h3 id="when-fails">When fails</h3>
+<ul>
+<li><p>Check files in:</p>
+<pre class="example"><code>/etc/apt/sources.list
+/etc/apt/sources.list.d/*.list
+</code></pre></li>
+</ul>
+<h3 id="varlibaptlists">/var/lib/apt/lists/*</h3>
+<ul>
+<li><a href="https://askubuntu.com/questions/179955/var-lib-apt-lists-huge-in-12-04" class="uri">https://askubuntu.com/questions/179955/var-lib-apt-lists-huge-in-12-04</a></li>
+<li>Files for the list of packages, downloaded from Ubuntu servers.</li>
+<li>The size of the files is over MBs, people generally delete these files when building a Docker image.</li>
+</ul>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="apt-vs-apt-get">apt vs apt-get</h2>
+<ul>
+<li><a href="https://askubuntu.com/questions/445384/what-is-the-difference-between-apt-and-apt-get" class="uri">https://askubuntu.com/questions/445384/what-is-the-difference-between-apt-and-apt-get</a></li>
+</ul>
+<blockquote>
+<p>The <code>apt</code> command is meant to be pleasant for end users and does not need to be backward compatible like apt-get(8).</p>
+</blockquote>
+<h1 id="how-to">How-to</h1>
+<h2 id="install-java8">Install java8</h2>
+<ul>
+<li><a href="http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/" class="uri">http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/</a></li>
+</ul>
+<pre class="shell"><code>sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+
+java -version
+sudo apt-get install oracle-java8-set-default
+
+sudo update-alternatives --config java
+</code></pre>
+<h1 id="links">Links</h1>
+</body>
+</html>

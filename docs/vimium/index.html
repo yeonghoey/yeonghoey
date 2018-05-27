@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Vimium</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Vimium</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#custom-key-mappings">Custom key mappings</a></li>
+<li><a href="#options">Options</a></li>
+</ul>
+<h1 id="custom-key-mappings">Custom key mappings</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/philc/vimium#custom-key-mappings" class="uri">https://github.com/philc/vimium#custom-key-mappings</a></li>
+<li><a href="https://github.com/philc/vimium/wiki/Tips-and-Tricks" class="uri">https://github.com/philc/vimium/wiki/Tips-and-Tricks</a></li>
+<li><a href="https://github.com/philc/vimium/blob/master/background_scripts/commands.coffee#L138" class="uri">https://github.com/philc/vimium/blob/master/background_scripts/commands.coffee#L138</a></li>
+</ul>
+</div>
+<pre class="example"><code># Use a new tabe to open a link by default
+map f LinkHints.activateModeToOpenInNewForegroundTab
+map F LinkHints.activateMode
+
+# &#39;q&#39; stands for &#39;quoted&#39;
+map q passNextKey
+
+# Quick lookups
+map e Vomnibar.activateInNewTab keyword=endic
+map &lt;space&gt; Vomnibar.activateInNewTab keyword=yeonghoey
+</code></pre>
+<h1 id="options">Options</h1>
+<p><img src="_img/screenshot_2017-11-28_17-26-07.png" /></p>
+</body>
+</html>

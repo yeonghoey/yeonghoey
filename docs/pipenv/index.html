@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Pipenv</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Pipenv</h1>
+</header>
+<h1 id="overview">Overview</h1>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><a href="https://github.com/pypa/pipenv#-usage" class="uri">https://github.com/pypa/pipenv#-usage</a></li>
+</ul>
+<pre class="shell"><code>pipenv --python 3.6          # specify python version for venv
+pipenv --where               # output project path
+pipenv --venv                # output venv path
+pipenv --py                  # output python path
+pipenv --rm                  # remove existing venv
+pipenv graph                 # show dependency graph
+pipenv install -e . --dev    # for dev
+pipenv install requests      # add dependency
+pipenv install pytest --dev  # add dev dependency
+pipenv install --dev         # install all dependencies including dev
+pipenv sync                  # install dependencies specified in Pipfile.lock
+pipenv clean                 # remove packages not specified in Pipfile.lock
+pipenv uninstall --all       # Clear
+pipenv shell                 # run a shell activated venv
+pipenv run python            # run a command with venv activated
+</code></pre>
+<ul>
+<li>When executing <code>pipenv shell or pipenv run</code>, <code>.env</code> is loaded</li>
+</ul>
+<h2 id="pipfile">Pipfile</h2>
+<pre class="toml"><code>[[source]]
+url = &quot;https://pypi.python.org/simple&quot;
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+
+[requires]
+python_version = &quot;3.6&quot;
+</code></pre>
+<h1 id="reference">Reference</h1>
+<h2 id="pipenv-install">pipenv install</h2>
+<ul>
+<li><code>pipenv install</code> just installs only packages defined in <code>[packages]</code></li>
+<li><code>pipenv install --dev</code> installs packages in <code>[dev-packages]</code> <strong>along with</strong> packges in <code>[packages]</code></li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://docs.pipenv.org/#pipenv-install" class="uri">https://docs.pipenv.org/#pipenv-install</a></li>
+</ul>
+</body>
+</html>

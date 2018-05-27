@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="du">du</h1>
+<pre class="shell"><code>$ du
+0       ./temp
+24      .
+
+$ du ./temp
+0       ./temp
+
+# -a stands for &#39;all files&#39;
+$ du -a  ./
+8       ./404.html
+8       ./CNAME
+8       ./index.html
+0       ./temp/a
+0       ./temp/b
+0       ./temp
+24      .
+
+# -h stands for &#39;human readable&#39;
+$ du -h
+0B    ./temp
+12K    .
+
+# list file in order of size
+$ du -a ./ | sort -n
+
+# merge subdirectories
+$ du -sh
+12K    .
+
+# display sizes of all entries in current directory
+$ du -sh *
+4.0K    404.html
+4.0K    CNAME
+4.0K    index.html
+0B    temp
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="mktemp">mktemp</h1>
+<pre class="shell"><code>$ mktemp
+/tmp/tmp.rBNuGr7Glt
+
+$ mktemp -d
+#         └─ --directory, create temporary directory
+/tmp/tmp.e3mvea6YBv
+
+$ mktemp yeonghoey.XXX
+#                    └─ at least 3 trailing Xs
+yeonghoey.vnM
+
+$ mktemp yeonghoey.XXXXXXXX
+yeonghoey.CvSbQIKV
+
+$ mktemp --tmpdir yeonghoey.XXX
+#            └─ put &#39;/tmp&#39; (or use $TEMPDIR)
+/tmp/yeonghoey.wN5
+
+$ mktemp -p ~ yeonghoey.XXX
+#        └─ specify base directory
+/home/ubuntu/yeonghoey.qRA
+</code></pre>
+</body>
+</html>

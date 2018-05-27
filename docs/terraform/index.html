@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Terraform</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">Terraform</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#configurations">Configurations</a>
+<ul>
+<li><a href="#backend">backend</a></li>
+<li><a href="#path">path</a></li>
+<li><a href="#depends_on">depends<sub>on</sub></a></li>
+<li><a href="#element">element</a></li>
+<li><a href="#ignore_changes">ignore<sub>changes</sub></a></li>
+<li><a href="#null_resource">null<sub>resource</sub></a></li>
+<li><a href="#local-exec">local-exec</a></li>
+<li><a href="#remote-exec">remote-exec</a></li>
+<li><a href="#archive_file">archive<sub>file</sub></a></li>
+<li><a href="#template_file">template<sub>file</sub></a></li>
+</ul></li>
+<li><a href="#commands">Commands</a>
+<ul>
+<li><a href="#plan">plan</a></li>
+<li><a href="#apply">apply</a></li>
+<li><a href="#import">import</a></li>
+<li><a href="#state">state</a></li>
+<li><a href="#taint">taint</a></li>
+<li><a href="#force-unlcok">force-unlcok</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a>
+<ul>
+<li><a href="#terraform-files">Terraform files</a></li>
+<li><a href="#resources-and-data-sources">Resources and Data Sources</a></li>
+<li><a href="#state-file">State file</a></li>
+<li><a href="#variable-files">Variable files</a></li>
+<li><a href="#resource-addressing">Resource Addressing</a></li>
+<li><a href="#interpolation">Interpolation</a></li>
+<li><a href="#limitations">Limitations</a>
+<ul>
+<li><a href="#no-dynamic-interpolation-over-count">No dynamic interpolation over count</a></li>
+<li><a href="#no-integer-variable">No integer variable</a></li>
+<li><a href="#no-list-of-maps">No list of maps</a></li>
+</ul></li>
+<li><a href="#modules">Modules</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a>
+<ul>
+<li><a href="#make-manual-modifications-on-remote-backeded-tfstates">Make manual modifications on remote backeded tfstates</a></li>
+<li><a href="#migrate-existing-aws-infra-with-terraforming">Migrate existing AWS Infra with terraforming</a></li>
+<li><a href="#generate-documents-automatically">Generate documents automatically</a></li>
+<li><a href="#use-multiple-providers-or-aws-regions">Use multiple providers (or AWS regions)</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="overview">Overview</h1>
+<h1 id="reference">Reference</h1>
+<h2 id="configurations">Configurations</h2>
+<h3 id="backend">backend</h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/backends/types/s3.html" class="uri">https://www.terraform.io/docs/backends/types/s3.html</a></li>
+</ul>
+<pre class="terraform"><code>resource &quot;aws_s3_bucket&quot; &quot;bucket&quot; {
+  bucket = &quot;my-bucket&quot;
+}
+
+resource &quot;aws_dynamodb_table&quot; &quot;locktable&quot; {
+  name           = &quot;my-locktable&quot;
+  read_capacity  = 5
+  write_capacity = 5
+  hash_key       = &quot;LockID&quot;
+
+  attribute {
+    name = &quot;LockID&quot; # Reserved name by terraform
+    type = &quot;S&quot;
+  }
+}
+</code></pre>
+<pre class="terraform"><code>terraform {
+  backend &quot;s3&quot; {
+    bucket         = &quot;my-bucket&quot;
+    dynamodb_table = &quot;my-locktable&quot;
+    key            = &quot;my.tfstate&quot;
+    region         = &quot;ap-northeast-1&quot;
+  }
+}
+</code></pre>
+<h3 id="path">path</h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/configuration/interpolation.html#path-information" class="uri">https://www.terraform.io/docs/configuration/interpolation.html#path-information</a></li>
+</ul>
+<pre class="example"><code>source_file = &quot;${path.cwd}/main.py&quot;   # Path to the current working directory
+source_file = &quot;${path.root}/main.py&quot;  # Path to the root module
+source_file = &quot;${path.module}/main.py&quot; # Path to the current module
+</code></pre>
+<h3 id="dependson">depends<sub>on</sub></h3>
+<ul>
+<li><a href="https://www.terraform.io/intro/getting-started/dependencies.html#implicit-and-explicit-dependencies" class="uri">https://www.terraform.io/intro/getting-started/dependencies.html#implicit-and-explicit-dependencies</a></li>
+<li><code>depends_on</code> parameter which is available on any resource</li>
+</ul>
+<pre class="example"><code>resource &quot;aws_eip&quot; &quot;ip&quot; {
+  instance   = &quot;${aws_instance.example.id}&quot;
+
+  # Use &#39;depends_on&#39; to make the dependency explicit.
+  # It&#39;s redundant in this case because this resource already depends on &#39;aws_instance.example&#39;
+  # by referencing its id
+  depends_on = [&quot;aws_instance.example&quot;]
+}
+</code></pre>
+<h3 id="element">element</h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/configuration/interpolation.html#element-list-index-" class="uri">https://www.terraform.io/docs/configuration/interpolation.html#element-list-index-</a></li>
+<li>if <code>index</code> is greater than <code>len(list)</code>, <code>index</code> modulo <code>len(list)</code> is used</li>
+</ul>
+<pre class="example"><code>vars {
+  ip = &quot;${element(aws_instance.cluster.*.private_ip, count.index)}&quot;
+}
+</code></pre>
+<h3 id="ignorechanges">ignore<sub>changes</sub></h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/configuration/resources.html" class="uri">https://www.terraform.io/docs/configuration/resources.html</a></li>
+<li><a href="https://github.com/hashicorp/terraform/issues/4944" class="uri">https://github.com/hashicorp/terraform/issues/4944</a></li>
+</ul>
+<p>There was a problem when I defined multiple <code>aws_eip</code> s which are associated to <code>aws_instance</code> s.</p>
+<pre class="example"><code>resource &quot;aws_instance&quot; &quot;foo&quot; {
+  count = 10
+  ..
+}
+
+resource &quot;aws_eip&quot; &quot;bar&quot; {
+  count = 10
+  instance = &quot;${element(aws_instance.foo.*.i, count.index}&quot;
+}
+</code></pre>
+<p>Terraform plans to change the all association when I only change the <code>count</code>. To work around this, use <code>ignore_changes</code></p>
+<pre class="example"><code>resource &quot;aws_eip&quot; &quot;bar&quot; {
+  count = 10
+  instance = &quot;${element(aws_instance.foo.*.i, count.index}&quot;
+  lifecycle {
+    ignore_changes = [&quot;instance&quot;]
+  }
+}
+</code></pre>
+<h3 id="nullresource">null<sub>resource</sub></h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/provisioners/null_resource.html" class="uri">https://www.terraform.io/docs/provisioners/null_resource.html</a></li>
+<li>Allows to run provionsers not directly associated with a single existing resource</li>
+</ul>
+<pre class="terraform"><code>resource &quot;null_resource&quot; &quot;docker_run&quot; {
+  count = &quot;${var.count}&quot;
+
+  triggers {
+    cluster_instance_ids = &quot;${join(&quot;,&quot;, aws_instance.cluster.*.id)}&quot;
+  }
+
+  connection {
+    type        = &quot;ssh&quot;
+    user        = &quot;ubuntu&quot;
+    host        = &quot;${element(aws_instance.cluster.*.private_ip, count.index)}&quot;
+    private_key = &quot;${file(var.key_path)}&quot;
+  }
+
+  provisioner &quot;remote-exec&quot; {
+    inline = [
+      &quot;sudo docker stop etcd || true&quot;,
+      &quot;sudo docker rm -f etcd || true&quot;,
+      &quot;${element(data.template_file.docker_run_command.*.rendered, count.index)}&quot;,
+    ]
+  }
+}
+</code></pre>
+<h3 id="local-exec">local-exec</h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/provisioners/local-exec.html" class="uri">https://www.terraform.io/docs/provisioners/local-exec.html</a></li>
+</ul>
+<pre class="example"><code>provisioner &quot;local-exec&quot; {
+  command = &quot;run.sh ${var.args}&quot;
+}
+</code></pre>
+<h3 id="remote-exec">remote-exec</h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/provisioners/remote-exec.html" class="uri">https://www.terraform.io/docs/provisioners/remote-exec.html</a></li>
+</ul>
+<pre class="example"><code>connection {
+  type        = &quot;ssh&quot;
+  user        = &quot;ubuntu&quot;
+  host        = &quot;${aws_instance.main.private_ip}&quot; # can omit if within the instance
+  private_key = &quot;${file(var.key_path)}&quot;
+}
+
+provisioner &quot;remote-exec&quot; {
+  inline = [
+    &quot;curl -sSL https://get.docker.com/ | sh&quot;,
+  ]
+}
+</code></pre>
+<h3 id="archivefile">archive<sub>file</sub></h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/archive/d/archive_file.html" class="uri">https://www.terraform.io/docs/providers/archive/d/archive_file.html</a></li>
+<li>Useful to provision resources which require zip files.</li>
+</ul>
+<pre class="example"><code>data &quot;archive_file&quot; &quot;code&quot; {
+  type        = &quot;zip&quot;
+  source_file = &quot;${path.module}/main.py&quot;
+  output_path = &quot;${path.module}/lambda.zip&quot;
+}
+resource &quot;aws_lambda_function&quot; &quot;main&quot; {
+  function_name    = &quot;foo&quot;
+  filename         = &quot;${data.archive_file.code.output_path}&quot;
+  source_code_hash = &quot;${data.archive_file.code.output_base64sha256}&quot;
+  ...
+}
+</code></pre>
+<h3 id="templatefile">template<sub>file</sub></h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/template/index.html" class="uri">https://www.terraform.io/docs/providers/template/index.html</a></li>
+<li>Use <code>$$</code> in <code>template</code> to escape <code>$</code></li>
+</ul>
+<pre class="example"><code>data &quot;template_file&quot; &quot;curl&quot; {
+  count    = &quot;${var.count}&quot;
+  template = &quot;curl http://$${ip}&quot;
+  vars {
+    ip = &quot;${element(aws_instance.cluster.*.private_ip, count.index)}&quot;
+  }
+}
+</code></pre>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><a href="https://www.terraform.io/docs/commands/index.html" class="uri">https://www.terraform.io/docs/commands/index.html</a></li>
+</ul>
+<h3 id="plan">plan</h3>
+<pre class="shell"><code>terraform plan
+terraform plan -var &#39;access_key=foo&#39; -var &#39;secret_key=bar&#39;
+terraform plan -var &#39;amis={us-east-1 = &quot;foo&quot;, us-west-2 = &quot;bar&quot;}&#39;
+terraform plan -out=my.plan
+</code></pre>
+<h3 id="apply">apply</h3>
+<pre class="shell"><code>terraform apply
+terraform apply &#39;my.plan&#39;
+</code></pre>
+<h3 id="import">import</h3>
+<pre class="shell"><code>terraform import aws_instance.main i-abcd1234
+</code></pre>
+<h3 id="state">state</h3>
+<ol>
+<li><p>mv</p>
+<ul>
+<li><a href="https://www.terraform.io/docs/commands/state/mv.html" class="uri">https://www.terraform.io/docs/commands/state/mv.html</a></li>
+</ul>
+<pre class="shell"><code># from ./terraform.tfstate:aws_instance.main
+# to new/terraform.tfstate:aws_instance.server
+terraform state mv -state-out new/terraform.tfstate \
+          aws_instance.main \
+          aws_instance.server
+</code></pre></li>
+</ol>
+<h3 id="taint">taint</h3>
+<ul>
+<li><a href="https://github.com/yeonghoey/notes/tree/master/terraform#taint" class="uri">https://github.com/yeonghoey/notes/tree/master/terraform#taint</a></li>
+<li>You can taint resources within modules</li>
+<li>It looks like that tainting a whole module is currently impossible</li>
+</ul>
+<pre class="shell"><code>terraform taint aws_instance.main                                                                              1 ↵
+terraform taint -module=my_module aws_instance.main                                                                              1 ↵
+</code></pre>
+<h3 id="force-unlcok">force-unlcok</h3>
+<ul>
+<li><a href="https://www.terraform.io/docs/commands/force-unlock.html" class="uri">https://www.terraform.io/docs/commands/force-unlock.html</a></li>
+<li><code>LockID</code> will be printed out when commands fail</li>
+</ul>
+<pre class="shell"><code>Error locking state: Error acquiring the state lock: ConditionalCheckFailedException: The conditional request failed
+        status code: 400, request id: &lt;...&gt;
+Lock Info:
+  ID:        abcdef01-ef34-abcd-5678-abc123def456
+  Path:      &lt;...&gt;
+  Operation: OperationTypePlan
+  Who:       &lt;...&gt;
+  Version:   0.9.8
+  Created:   2017-06-13 11:00:23.886816353 +0000 UTC
+  Info:
+
+...
+</code></pre>
+<pre class="shell"><code>terraform force-unlock &quot;abcdef01-ef34-abcd-5678-abc123def456&quot;
+</code></pre>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="terraform-files">Terraform files</h2>
+<ul>
+<li>All <code>.tf</code> files are loaded</li>
+<li><code>.tf</code> files are declarative, so the order of loading files doesn't matter, except for Override files</li>
+<li>Override files are <code>.tf</code> files named as <code>override.tf</code> or <code>{name}_override.tf</code></li>
+<li>Override files are loaded last in alphabetical order</li>
+<li>Configurations in override files are <strong>merged into the existing configuration</strong>, not appended.</li>
+</ul>
+<h2 id="resources-and-data-sources">Resources and Data Sources</h2>
+<ul>
+<li><strong>Resources</strong> are infrastructures managed by <code>terraform</code></li>
+<li><strong>Data sources</strong> are not managed by <code>terraform</code></li>
+</ul>
+<p>The use case of these things are following:</p>
+<blockquote>
+<p>You can provision servers by defining them as <strong>resources</strong>.<br />
+For specifying server configurations, you can reference existing security groups, VPCs, and the like by defining them as <strong>data sources</strong>.</p>
+</blockquote>
+<h2 id="state-file">State file</h2>
+<ul>
+<li>State about the real managed infrastructure</li>
+<li><code>terraform.tfstate</code> by default</li>
+<li>Formatted in <code>json</code></li>
+<li>While terraform files are about <strong>to be</strong>, state file is about <strong>as is</strong></li>
+<li>State is refreshed before performing most of operations like <code>terraform plan</code>, <code>terraform apply</code></li>
+<li>Basic modifications can be done through <code>terraform state [sub]</code> commands</li>
+<li>Importing existing infrastructures can be done using <code>terraform state import</code>
+<ul>
+<li>Importing is related to <code>resources</code>, not <code>data sources</code></li>
+<li>Which means <code>terraform</code> can destroy the existing infrastructures once they are imported</li>
+</ul></li>
+</ul>
+<h2 id="variable-files">Variable files</h2>
+<ul>
+<li>A file named <code>terraform.tfvars</code> is automatically loaded</li>
+<li>Use <code>-var-file</code> flag to specify other <code>.tfvars</code> files</li>
+</ul>
+<h2 id="resource-addressing">Resource Addressing</h2>
+<ul>
+<li><a href="https://www.terraform.io/docs/commands/state/addressing.html" class="uri">https://www.terraform.io/docs/commands/state/addressing.html</a></li>
+</ul>
+<pre class="example"><code>[module path][resource spec]
+module.A.module.B.module.C...
+resource_type.resource_name[N]
+</code></pre>
+<pre class="example"><code>resource &quot;aws_instance&quot; &quot;web&quot; {
+  # ...
+  count = 4
+}
+aws_instance.web[3]
+aws_instance.web
+</code></pre>
+<h2 id="interpolation">Interpolation</h2>
+<ul>
+<li><a href="https://www.terraform.io/docs/configuration/interpolation.html" class="uri">https://www.terraform.io/docs/configuration/interpolation.html</a></li>
+</ul>
+<pre class="example"><code>${self.private_ip_address}  # attributes of their own
+${aws_instance.web.id}
+${aws_instance.web.0.id}    # a specific one when the resource is plural(&#39;count&#39; attribute exists)
+${aws_instance.web.*.id}    # this is a list
+${module.foo.bar}           # outputs from module
+.. and many more including some functions
+</code></pre>
+<h2 id="limitations">Limitations</h2>
+<h3 id="no-dynamic-interpolation-over-count">No dynamic interpolation over count</h3>
+<ul>
+<li><a href="https://github.com/hashicorp/terraform/issues/1497#issuecomment-105874601" class="uri">https://github.com/hashicorp/terraform/issues/1497#issuecomment-105874601</a></li>
+</ul>
+<ol>
+<li><p>Update</p>
+<ul>
+<li><a href="https://github.com/hashicorp/terraform/pull/11482" class="uri">https://github.com/hashicorp/terraform/pull/11482</a></li>
+<li>Interpolations other than <code>computing required</code> can be used for <code>count</code>.</li>
+<li><p>Now</p>
+<pre class="example"><code>count = &quot;${length(var.other_List)}&quot;
+</code></pre>
+<p>is valid.</p></li>
+</ul></li>
+<li><p>Previous limitation</p>
+<p>For now, you can't use interpolation for referencing other resources to specify <code>count</code> because of the way that terraform handles <code>count</code>.</p>
+<pre class="example"><code>variable my_count {
+  default = 10
+}
+
+resource &quot;something&quot; &quot;foo&quot; {
+  count = &quot;${var.my_count}&quot;   # ok
+}
+
+resource &quot;something&quot; &quot;bar&quot; {
+  count = &quot;${something.foo.count}&quot;  # error
+}
+</code></pre>
+<blockquote>
+<p>We should definitely do this, the tricky part comes from the fact that count expansion is currently done statically, before the primary graph walk, which means we can't support &quot;computed&quot; counts right now. (A &quot;computed&quot; value in TF is one that's flagged as not known until all its dependencies are calculated.)</p>
+</blockquote></li>
+</ol>
+<h3 id="no-integer-variable">No integer variable</h3>
+<ul>
+<li><a href="https://github.com/hashicorp/terraform/issues/6254" class="uri">https://github.com/hashicorp/terraform/issues/6254</a></li>
+</ul>
+<h3 id="no-list-of-maps">No list of maps</h3>
+<ul>
+<li><a href="https://github.com/hashicorp/terraform/issues/7705" class="uri">https://github.com/hashicorp/terraform/issues/7705</a></li>
+<li>The type of most mapping arguments are actually the list of maps</li>
+</ul>
+<pre class="example"><code>variable &quot;cluster_config&quot; {
+  type = &quot;map&quot;
+}
+
+resource aws_elasticsearch_domain &quot;main&quot; {
+  cluster_config = &quot;${var.cluster_config}&quot;  # Not supported
+}
+</code></pre>
+<p>Because the actual schema is:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode go"><code class="sourceCode go"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="st">&quot;cluster_config&quot;</span>: {</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">    Type:     schema.TypeList,</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">    Optional: <span class="ot">true</span>,</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">    Computed: <span class="ot">true</span>,</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">    Elem: &amp;schema.Resource{</a>
+<a class="sourceLine" id="cb26-6" data-line-number="6">        Schema: <span class="kw">map</span>[<span class="dt">string</span>]*schema.Schema{</a></code></pre></div>
+<h2 id="modules">Modules</h2>
+<ul>
+<li><a href="https://www.terraform.io/docs/modules/create.html" class="uri">https://www.terraform.io/docs/modules/create.html</a></li>
+<li>When you run <code>terraform apply</code>, the current working directory holding the Terraform files is called the <strong>root module</strong>.</li>
+<li>With <strong>Local File Paths</strong>, Terraform will <strong>create a symbolic link to the original directory.</strong> Therefore, any changes are automatically available.</li>
+</ul>
+<h1 id="how-to">How-to</h1>
+<h2 id="make-manual-modifications-on-remote-backeded-tfstates">Make manual modifications on remote backeded tfstates</h2>
+<ul>
+<li><a href="https://www.terraform.io/docs/commands/state/pull.html" class="uri">https://www.terraform.io/docs/commands/state/pull.html</a></li>
+<li><a href="https://www.terraform.io/docs/commands/state/push.html" class="uri">https://www.terraform.io/docs/commands/state/push.html</a></li>
+</ul>
+<pre class="shell"><code># Download the backended tfstate
+$ terraform state pull &gt; terraform.tfstate
+
+# Most terraform state commands modify &#39;./terraform.tfstate&#39; by default
+$ terraform import ADDR ID
+
+# Push the modified tfstate back
+$ terraform state push terraform.tfstate
+</code></pre>
+<h2 id="migrate-existing-aws-infra-with-terraforming">Migrate existing AWS Infra with terraforming</h2>
+<ul>
+<li><a href="https://github.com/dtan4/terraforming" class="uri">https://github.com/dtan4/terraforming</a></li>
+</ul>
+<h2 id="generate-documents-automatically">Generate documents automatically</h2>
+<ul>
+<li><a href="https://github.com/segmentio/terraform-docs" class="uri">https://github.com/segmentio/terraform-docs</a></li>
+</ul>
+<p>This simple tool automatically generates markdown or json document based on <code>variable</code> and <code>output</code> blocks.</p>
+<h2 id="use-multiple-providers-or-aws-regions">Use multiple providers (or AWS regions)</h2>
+<ul>
+<li><a href="https://www.terraform.io/docs/configuration/providers.html#multiple-provider-instances" class="uri">https://www.terraform.io/docs/configuration/providers.html#multiple-provider-instances</a></li>
+</ul>
+<pre class="terraform"><code>
+provider &quot;aws&quot; {
+  region = &quot;ap-northeast-1&quot;
+}
+
+provider &quot;aws&quot; {
+  alias  = &quot;test&quot;
+  region = &quot;us-east-1&quot;
+}
+
+# Set provider with alias
+resource &quot;aws_instance&quot; &quot;foo&quot; {
+  provider = &quot;aws.test&quot;
+
+  # ...
+}
+</code></pre>
+<h1 id="links">Links</h1>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>nginx</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">nginx</h1>
+</header>
+<h1 id="table-of-contents">Table of Contents <span class="tag" data-tag-name="TOC_3_gh"><span class="smallcaps">TOC_3_gh</span></span></h1>
+<ul>
+<li><a href="#beginners-guide">Beginner's Guide</a>
+<ul>
+<li><a href="#processes">Processes</a></li>
+<li><a href="#directives">Directives</a></li>
+</ul></li>
+<li><a href="#reference">Reference</a>
+<ul>
+<li><a href="#core">core</a>
+<ul>
+<li><a href="#events">events</a></li>
+<li><a href="#include">include</a></li>
+<li><a href="#worker_processes">worker<sub>processes</sub></a></li>
+</ul></li>
+<li><a href="#http">http</a>
+<ul>
+<li><a href="#location">location</a></li>
+<li><a href="#types">types</a></li>
+</ul></li>
+<li><a href="#proxy">proxy</a>
+<ul>
+<li><a href="#proxy_pass">proxy<sub>pass</sub></a></li>
+<li><a href="#proxy_redirect">proxy<sub>redirect</sub></a></li>
+<li><a href="#proxy_hide_header">proxy<sub>hideheader</sub></a></li>
+</ul></li>
+<li><a href="#rewrite">rewrite</a>
+<ul>
+<li><a href="#rewrite-1">rewrite</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#details">Details</a>
+<ul>
+<li><a href="#site-enabled-site-available">site-enabled, site-available</a></li>
+</ul></li>
+<li><a href="#use-cases">Use Cases</a>
+<ul>
+<li><a href="#reverse-proxy-with-preserving-request-host">Reverse Proxy with preserving request host</a></li>
+<li><a href="#server-block-examples">Server Block Examples</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+<h1 id="beginners-guide">Beginner's Guide</h1>
+<ul>
+<li><a href="http://nginx.org/en/docs/beginners_guide.html" class="uri">http://nginx.org/en/docs/beginners_guide.html</a></li>
+</ul>
+<pre class="shell"><code>$ nginx -s stop   # fast shutdown
+$ nginx -s quit   # graceful shutdown
+$ nginx -s reload # reloading the configuration file
+$ nginx -s reopen # reopening the log files
+</code></pre>
+<h2 id="processes">Processes</h2>
+<ul>
+<li>one master process and several worker processes</li>
+<li>master process reads and evaluates configuration, and maintain worker processes.</li>
+</ul>
+<h2 id="directives">Directives</h2>
+<ul>
+<li>simple: <code>name</code> and <code>parameters</code>, separated by <code>spaces</code>, ends with <code>;</code></li>
+<li>block: Instead of the semicolon, it ends with a block surrounded by <code>{}</code></li>
+<li>A block surrounding directives is called a <code>context</code></li>
+<li>Top level context is called the <code>main context</code></li>
+<li><code>#</code> to comment a line</li>
+</ul>
+<h1 id="reference">Reference</h1>
+<h2 id="core">core</h2>
+<ul>
+<li><a href="http://nginx.org/en/docs/ngx_core_module.html" class="uri">http://nginx.org/en/docs/ngx_core_module.html</a></li>
+</ul>
+<h3 id="events">events</h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/ngx_core_module.html#events" class="uri">http://nginx.org/en/docs/ngx_core_module.html#events</a></li>
+<li>Where directives relating connection processing are placed</li>
+</ul>
+<pre class="example"><code>#+BEGIN_EXAMPLE
+  events {
+      use kqueue;
+      worker_connections 2048;
+  }
+</code></pre>
+<h3 id="include">include</h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/ngx_core_module.html#include" class="uri">http://nginx.org/en/docs/ngx_core_module.html#include</a></li>
+<li>Directives in files are inlcuded in the current context</li>
+</ul>
+<pre class="example"><code>include mime.types;
+include vhosts/*.conf;
+</code></pre>
+<h3 id="workerprocesses">worker<sub>processes</sub></h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/ngx_core_module.html#worker_processes" class="uri">http://nginx.org/en/docs/ngx_core_module.html#worker_processes</a></li>
+<li>Setting it to the number of available CPU cores would be a good start</li>
+<li>The value <code>auto</code> will try to autodetect it</li>
+</ul>
+<pre class="example"><code>worker_processes auto;
+</code></pre>
+<h2 id="http">http</h2>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_core_module.html" class="uri">http://nginx.org/en/docs/http/ngx_http_core_module.html</a></li>
+</ul>
+<h3 id="location">location</h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#location" class="uri">http://nginx.org/en/docs/http/ngx_http_core_module.html#location</a></li>
+<li>The matching is performed against a <strong>normalized</strong> URI,</li>
+<li><strong>normalized</strong> URI
+<ul>
+<li>Decoding the text encoded in the “%XX” form</li>
+<li>resolving references to relative path components “.” and “..”</li>
+<li>possible compression of two or more adjacent slashes into a single slash.</li>
+</ul></li>
+<li>If there exists exact match(<code>=</code>) its configuration used</li>
+<li>Pick the longest prefix match</li>
+<li>Regex checked, in order of appearance
+<ol>
+<li>first regex match configuration used</li>
+<li>no regex match, the longest prefix match used.</li>
+</ol></li>
+</ul>
+<pre class="example"><code>location = / {
+    [ configuration A ]
+}
+
+location / {
+    [ configuration B ]
+}
+
+location /documents/ {
+    [ configuration C ]
+}
+
+# &#39;^~&#39; modifier skips regex check
+location ^~ /images/ {
+    [ configuration D ]
+}
+
+# &#39;~*&#39; modifier for regex case insensitive match
+# &#39;~&#39; for case sensitive
+location ~* \.(gif|jpg|jpeg)$ {
+    [ configuration E ]
+}
+</code></pre>
+<pre class="example"><code>/                        -&gt; A
+/index.html              -&gt; B
+/documents/document.html -&gt; C
+/images/1.gif            -&gt; D
+/documents/1.jpg         -&gt; E
+</code></pre>
+<h3 id="types">types</h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#types" class="uri">http://nginx.org/en/docs/http/ngx_http_core_module.html#types</a></li>
+<li>Maps file name extensions to MIME types of responses</li>
+</ul>
+<pre class="example"><code>types {
+    text/html  html;
+    image/gif  gif;
+    image/jpeg jpg;
+}
+</code></pre>
+<h2 id="proxy">proxy</h2>
+<h3 id="proxypass">proxy<sub>pass</sub></h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass" class="uri">http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass</a></li>
+</ul>
+<p>If the <code>proxy_pass</code> directive is specified with a URI, then when a request is passed to the server, the part of a <strong>normalized</strong> request URI matching the location is replaced by a URI specified in the directive:</p>
+<pre class="example"><code>location /name/ {
+    proxy_pass http://127.0.0.1/remote/;
+}
+</code></pre>
+<p><code>/name</code> will be replaced with <code>/remote</code></p>
+<p>If <code>proxy_pass</code> is specified without a URI, the request URI is passed to the server <strong>in the same form</strong> as sent by a client when the original request is processed, or the full normalized request URI is passed when processing the changed URI:</p>
+<pre class="example"><code>location /name/ {
+    rewrite    /name/([^/]+) /users?name=$1 break;
+    proxy_pass http://127.0.0.1;
+}
+</code></pre>
+<p>In this case, the URI specified in the directive is ignored and the full changed request URI is passed to the server.</p>
+<h3 id="proxyredirect">proxy<sub>redirect</sub></h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_redirect" class="uri">http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_redirect</a></li>
+<li>Sets the text that should be changed in the <code>Location</code> and <code>Refresh</code> header fields of a proxied server response</li>
+</ul>
+<pre class="example"><code># will rewrite this string to “Location: http://frontend/one/some/uri/”.
+proxy_redirect http://localhost:8000/two/ http://frontend/one/;
+</code></pre>
+<h3 id="proxyhideheader">proxy<sub>hideheader</sub></h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_hide_header" class="uri">http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_hide_header</a></li>
+<li>By default, nginx does not pass the header fields <code>Date</code>, <code>Server</code>, <code>X-Pad</code>, and <code>X-Accel-...</code> from the response of a proxied server to a client.</li>
+<li>The proxy<sub>hideheader</sub> directive sets additional fields that will not be passed</li>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass_header">proxy<sub>passheader</sub></a> for the opposite</li>
+</ul>
+<h2 id="rewrite">rewrite</h2>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_rewrite_module.html" class="uri">http://nginx.org/en/docs/http/ngx_http_rewrite_module.html</a></li>
+</ul>
+<h3 id="rewrite-1">rewrite</h3>
+<ul>
+<li><a href="http://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite" class="uri">http://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite</a></li>
+<li><a href="https://serverfault.com/questions/379675/nginx-reverse-proxy-url-rewrite" class="uri">https://serverfault.com/questions/379675/nginx-reverse-proxy-url-rewrite</a></li>
+</ul>
+<pre class="example"><code>location  /foo {
+  rewrite /foo(.*) /$1  break;
+  proxy_pass         http://localhost:3200;
+  proxy_redirect     off;
+  proxy_set_header   Host $host;
+}
+</code></pre>
+<h1 id="details">Details</h1>
+<h2 id="site-enabled-site-available">site-enabled, site-available</h2>
+<ul>
+<li><a href="https://serverfault.com/questions/527630/what-is-the-different-usages-for-sites-available-vs-the-conf-d-directory-for-ngi" class="uri">https://serverfault.com/questions/527630/what-is-the-different-usages-for-sites-available-vs-the-conf-d-directory-for-ngi</a></li>
+<li>The <code>sites-available</code> folder is for storing all of your vhost configurations, whether or not they're currently enabled.</li>
+<li>The <code>sites-enabled</code> folder contains symlinks to files in the <code>sites-available</code> folder. This allows you to selectively disable vhosts by removing the symlink.</li>
+<li><code>sites-</code> are from Apache HTTP Server convention</li>
+<li>The default <code>nginx.conf</code> contains following lines:</li>
+</ul>
+<pre class="nginx"><code>##
+# Virtual Host Configs
+##
+
+include /etc/nginx/conf.d/*.conf;
+include /etc/nginx/sites-enabled/*;
+</code></pre>
+<h1 id="use-cases">Use Cases</h1>
+<h2 id="reverse-proxy-with-preserving-request-host">Reverse Proxy with preserving request host</h2>
+<ul>
+<li><a href="https://www.nginx.com/resources/admin-guide/reverse-proxy/" class="uri">https://www.nginx.com/resources/admin-guide/reverse-proxy/</a></li>
+<li><a href="http://stackoverflow.com/questions/5834025/how-to-preserve-request-url-with-nginx-proxy-pass" class="uri">http://stackoverflow.com/questions/5834025/how-to-preserve-request-url-with-nginx-proxy-pass</a></li>
+</ul>
+<p>It seems that some hosts use <code>Host</code> header to redirect the client. nginx passes <code>$proxy_host</code>, which contains the address of proxied server, by default.</p>
+<p>Some proxied servers redirect the client to a URL of their original host. By setting <code>proxy_set_header Host $host</code>, nginx passes <code>Host</code> as its own address. By this, nginx keep clients communicating with it.</p>
+<pre class="example"><code>user www-data www-data;
+worker_processes auto;
+
+events {
+}
+
+http {
+  server {
+    listen 80;
+    location / {
+      proxy_pass http://localhost:8080;
+      proxy_set_header Host $host;
+      proxy_set_header X-Real-IP $remote_addr;
+    }
+  }
+}
+</code></pre>
+<h2 id="server-block-examples">Server Block Examples</h2>
+<ul>
+<li><a href="https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/" class="uri">https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/</a></li>
+<li>Same as <code>Virtual Host</code> of Apache</li>
+</ul>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="http://wiki.nginx.org/pitfalls" class="uri">http://wiki.nginx.org/pitfalls</a></li>
+<li><a href="http://wiki.nginx.org/configuration" class="uri">http://wiki.nginx.org/configuration</a></li>
+<li><a href="https://github.com/perusio/nginx_ensite" class="uri">https://github.com/perusio/nginx_ensite</a></li>
+<li><a href="https://github.com/nginx-boilerplate/nginx-boilerplate" class="uri">https://github.com/nginx-boilerplate/nginx-boilerplate</a></li>
+</ul>
+</body>
+</html>

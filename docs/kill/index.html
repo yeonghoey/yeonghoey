@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="kill">kill</h1>
+<pre class="shell"><code># List signal names
+$ kill -l
+HUP INT QUIT ILL TRAP ABRT EMT FPE KILL BUS SEGV SYS PIPE ALRM TERM URG STOP TSTP CONT CHLD TTIN TTOU IO XCPU XFSZ VTALRM PROF WINCH INFO USR1 USR2
+</code></pre>
+<pre class="shell"><code>$ kill -INT ${PID}
+$ kill -INT -${PGID}
+$ kill -INT 0  # current process group
+
+# kill $PID&#39;s process group
+# grep is used because some `ps` prints the header like PGID
+$ kill -INT -$(ps -o pgid= $PID | grep -o &#39;[0-9]*&#39;)
+</code></pre>
+<hr />
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Signal_(IPC)" class="uri">https://en.wikipedia.org/wiki/Signal_(IPC)</a></li>
+<li><a href="https://linux.die.net/man/1/kill" class="uri">https://linux.die.net/man/1/kill</a></li>
+<li><a href="http://fibrevillage.com/sysadmin/237-ways-to-kill-parent-and-child-processes-in-one-command" class="uri">http://fibrevillage.com/sysadmin/237-ways-to-kill-parent-and-child-processes-in-one-command</a></li>
+</ul>
+</body>
+</html>
