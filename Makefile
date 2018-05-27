@@ -11,14 +11,14 @@ export YHY_BASE_URL ?= \
 content_src = content/%/README.org
 content_dst = $(DESTDIR)/%/index.html
 
-content_src_files = $(wildcard $(subst %,**,$(content_src)))
+content_src_files = $(shell find content -type f -name 'README.org')
 content_dst_files = \
 	$(patsubst $(content_src),$(content_dst),$(content_src_files))
 
 # static
 static_src = static/%
 static_dst = $(DESTDIR)/%
-static_src_files = $(wildcard $(subst %,**,$(static_src)))
+static_src_files = $(shell find static -type f)
 static_dst_files = \
 	$(patsubst $(static_src),$(static_dst),$(static_src_files))
 
@@ -32,7 +32,7 @@ dev:
 	pipenv run python scripts/dev.py
 
 clean:
-	-rm -rf $(DESTDIR)
+	-rm -rf $(DESTDIR)/*
 
 $(content_dst) : $(content_src)
 	mkdir -p "$(dir $@)"
