@@ -23,9 +23,12 @@ static_dst_files = \
 	$(patsubst $(static_src),$(static_dst),$(static_src_files))
 
 
-.PHONY: all dev clean
+.PHONY: all update dev clean
 
 all: $(content_dst_files) $(static_dst_files)
+
+update:
+	scripts/update.sh
 
 dev:
 	YHY_BASE_URL='' \
