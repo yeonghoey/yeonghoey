@@ -14,11 +14,10 @@
   - [[#getatt][GetAtt]]
   - [[#sub][Sub]]
 - [[#resource-types][Resource Types]]
-  - [[#awsdynamodbtable][AWS::DynamoDB::Table]]
+  - [[#awsdynamodbtable][~AWS::DynamoDB::Table~]]
 
 * Overview
 - https://www.slideshare.net/AmazonWebServices/aws-cloudformation-best-practices
-
 
 [[file:_img/screenshot_2018-03-23_18-45-46.png]]
 
@@ -244,7 +243,7 @@ A kind of macro feature. For instance, ~AWS:Include~ includes templete definitio
 * Resource Types
 - [[https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html][Resource Types]]
 
-** AWS::DynamoDB::Table
+** ~AWS::DynamoDB::Table~
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
 
 #+BEGIN_SRC yaml

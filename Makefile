@@ -29,6 +29,7 @@ all: $(content_dst_files) $(static_dst_files)
 
 dev:
 	YHY_BASE_URL='' \
+	$(MAKE) -j; \
 	pipenv run python scripts/dev.py
 
 clean:
