@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting to github repository</title>
+</head>
+
+<body>
+  <script>
+   var base = "https://github.com/yeonghoey/yeonghoey/tree/master/content";
+   var basePath = window.location.pathname
+
+   // Some usecases, hash part is encoded and included to path.
+   // To use hash properly, decode the path and re-parse the uri again
+   var parser = document.createElement("a");
+   parser.href = decodeURIComponent(basePath);
+
+   // "/python"        -> "/python" (Will show "python/README.org")
+   // "/python/pytest" -> "/python/pytest.org"
+   var path = parser.pathname;
+
+   // "/python#dict"        -> "#dict"
+   // "/python%23dict"      -> "#dict"
+   // "/python%23dict#dict" -> "#dict#dict" (unexpected)
+   var hash = parser.hash;
+   if (window.location.hash) {
+     hash = hash + window.location.hash;
+   }
+
+   window.location.replace(base + path + hash);
+  </script>
+</body>
+
+</html>
