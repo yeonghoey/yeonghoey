@@ -3,6 +3,10 @@ SHELL = /bin/bash
 PANDOC = pandoc
 DESTDIR = docs
 
+export YHY_SRC_PATH ?= ''
+export YHY_BASE_URL ?= \
+	https://github.com/yeonghoey/yeonghoey/raw/master
+
 # content
 content_src = content/%/README.org
 content_dst = $(DESTDIR)/%/index.html
@@ -24,6 +28,7 @@ static_dst_files = \
 all: $(content_dst_files) $(static_dst_files)
 
 dev:
+	YHY_BASE_URL='' \
 	pipenv run python scripts/dev.py
 
 clean:
@@ -31,7 +36,13 @@ clean:
 
 $(content_dst) : $(content_src)
 	mkdir -p "$(dir $@)"
-	$(PANDOC) '$<' --mathjax -s -o '$@'
+	YHY_SRC_PATH='$<' \
+	pipenv run $(PANDOC) \
+		--standalone \
+		--mathjax \
+		--filter 'scripts/filter.py' \
+		--output '$@' \
+		'$<'
 
 $(static_dst) : $(static_src)
 	cp '$<' '$@'
