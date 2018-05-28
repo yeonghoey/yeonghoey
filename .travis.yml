@@ -1,0 +1,7 @@
+language: R
+
+install:
+  - make init
+
+script:
+  - make -j build
