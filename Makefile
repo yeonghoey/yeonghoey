@@ -48,7 +48,7 @@ $(content_dst): $(content_src)
 	pipenv run $(PANDOC) \
 		--standalone \
 		--mathjax \
-		--css '/_css/pandoc.css' \
+		--css '/pandoc.css' \
 		--filter 'scripts/filter.py' \
 		--output '$@' \
 		'$<'
