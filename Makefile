@@ -1,9 +1,9 @@
 SHELL = /bin/bash
 DESTDIR = _site
-
 PANDOC = pandoc
+
 export YHY_FILTER_SRC
-export YHY_FILTER_BASEURL
+export YHY_FILTER_BASE
 
 content_src = content/%/README.org
 content_dst = $(DESTDIR)/%/index.html
@@ -27,7 +27,7 @@ local_dst_files = \
 init:
 	pipenv install --dev
 
-build: YHY_FILTER_BASEURL = https://github.com/yeonghoey/yeonghoey/raw/master/
+build: YHY_FILTER_BASE = https://github.com/yeonghoey/yeonghoey
 build: $(content_dst_files) $(static_dst_files)
 
 update: local
