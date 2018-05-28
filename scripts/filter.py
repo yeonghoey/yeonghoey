@@ -1,18 +1,26 @@
-import os
+from os import environ
+from os.path import dirname
+from pprint import pprint
+from sys import stderr
 
 from pandocfilters import Image, toJSONFilters
 
 
-SRC = os.environ['YHY_FILTER_SRC']
-BASE = os.environ['YHY_FILTER_BASE']
+SRC = environ['YHY_FILTER_SRC']
+BASE = environ['YHY_FILTER_BASE']
+DEBUG = environ.get('YHY_FILTER_DEBUG') is not None
 
-CONTEXT_PATH = os.path.dirname(SRC)
+CONTEXT_PATH = dirname(SRC)
 
 
-def fix_basepath(key, value, format, meta):
+def handle_basepath(key, value, format, meta):
     if key == 'Image':
         value[2][0] = basepath(value[2][0])
         return Image(*value)
+
+
+def handle_debug(*arg):
+    pprint(arg, stream=stderr)
 
 
 def basepath(url, raw=True):
@@ -22,5 +30,6 @@ def basepath(url, raw=True):
 
 if __name__ == '__main__':
     toJSONFilters(filter(None, [
-        fix_basepath if BASE else None
+        handle_basepath if BASE else None,
+        handle_debug if DEBUG else None,
     ]))
