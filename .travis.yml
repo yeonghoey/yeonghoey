@@ -1,5 +1,9 @@
 language: R
 
+before_install:
+  - sudo pip install --upgrade pip
+  - sudo pip install pipenv
+
 install:
   - make init
 
