@@ -1,26 +1,23 @@
 from copy import deepcopy
 import os
+from urllib.parse import urljoin
 
 from pandocfilters import Image, toJSONFilters
 
 
 SRC = os.environ['YHY_FILTER_SRC']
-BASEURL = os.environ['YHY_FILTER_BASEURL']
-
 SRCDIR = os.path.dirname(SRC)
+BASEURL = os.environ['YHY_FILTER_BASEURL']
 
 
 def baseurl_fix(key, value, format, meta):
-    if not BASEURL:
-        return
     if key == 'Image':
-        _, _, (url, _) = value
-        new_ = deepcopy(value)
-        new_[2][0] = '/'.join([BASEURL, SRCDIR, url])
-        return Image(*new_)
+        url = value[2][0]
+        value[2][0] = urljoin(BASEURL, os.path.join(SRCDIR, url))
+        return Image(*value)
 
 
 if __name__ == '__main__':
-    toJSONFilters([
-        baseurl_fix,
-    ])
+    toJSONFilters(filter(None, [
+        baseurl_fix if BASEURL else None
+    ]))

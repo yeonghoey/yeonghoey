@@ -27,7 +27,7 @@ local_dst_files = \
 init:
 	pipenv install --dev
 
-build: YHY_FILTER_BASEURL = https://github.com/yeonghoey/yeonghoey/raw/master
+build: YHY_FILTER_BASEURL = https://github.com/yeonghoey/yeonghoey/raw/master/
 build: $(content_dst_files) $(static_dst_files)
 
 update: local

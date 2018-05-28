@@ -9,15 +9,14 @@ git:
 
 env:
   global:
-    - PANDOC_VERSION='2.2.1'
-    - PANDOC_DEB="pandoc-${PANDOC_VERSION}-1-amd64.deb"
-    - PANDOC_URL="https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/${PANDOC_DEB}"
     - MAKEFLAGS="-j 2"
+    - YHY_PANDOC_VER='2.2.1'
+    - YHY_PANDOC_DEB="pandoc-${YHY_PANDOC_VER}-1-amd64.deb"
 
 before_install:
   - pip install pipenv
-  - wget "${PANDOC_URL}"
-  - sudo dpkg -i "${PANDOC_DEB}"
+  - wget "https://github.com/jgm/pandoc/releases/download/${YHY_PANDOC_VER}/${YHY_PANDOC_DEB}"
+  - sudo dpkg -i "${YHY_PANDOC_DEB}"
 
 install:
   - make init
