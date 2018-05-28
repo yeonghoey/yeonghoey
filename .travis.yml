@@ -8,10 +8,11 @@ git:
   lfs_skip_smudge: true
 
 env:
-  - PANDOC_VERSION='2.2.1'
-  - PANDOC_DEB="pandoc-${PANDOC_VERSION}-1-amd64.deb"
-  - PANDOC_URL="https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/${PANDOC_DEB}"
-  - MAKEFLAGS="-j 2"
+  global:
+    - PANDOC_VERSION='2.2.1'
+    - PANDOC_DEB="pandoc-${PANDOC_VERSION}-1-amd64.deb"
+    - PANDOC_URL="https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/${PANDOC_DEB}"
+    - MAKEFLAGS="-j 2"
 
 before_install:
   - pip install pipenv
