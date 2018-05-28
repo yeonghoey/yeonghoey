@@ -1,0 +1,14 @@
+#+TITLE: Tableau
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#topics][Topics]]
+
+* Overview
+#+BEGIN_SRC shell
+  brew cask install tableau-public
+#+END_SRC
+-----
+- https://www.tableau.com/learn/training
+
+* Topics
