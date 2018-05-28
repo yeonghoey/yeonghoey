@@ -1,9 +1,12 @@
 language: R
 
+addons:
+  apt:
+    packages:
+      - python3
+      - python3-pip
+
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y python3
-  - sudo pip3 install --upgrade pip
   - sudo pip3 install pipenv
 
 install:
