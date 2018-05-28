@@ -9,4 +9,4 @@ readonly PANDOC_DEB="pandoc-${PANDOC_VERSION}-1-amd64.deb"
 readonly PANDOC_URL="https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/${PANDOC_DEB}"
 
 wget "${PANDOC_URL}"
-sudo dpkg -i "${PANDOC_DEB}"
+dpkg -i "${PANDOC_DEB}"
