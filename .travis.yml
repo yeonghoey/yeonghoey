@@ -21,10 +21,6 @@ install:
 script:
   - make build
 
-cache:
-  directories:
-    - _site
-
 deploy:
   provider: pages
   skip-cleanup: true
