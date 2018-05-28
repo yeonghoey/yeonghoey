@@ -1,12 +1,10 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c1351a47901956d7feaab62a8a69d438a6792e98c172f1f6cd090d73bee68e80"
+            "sha256": "df1eb13b6ce1fe2143b30ef1c69ff0d82f6b5c863ac3a64ef8900e6cd6016c64"
         },
         "pipfile-spec": 6,
-        "requires": {
-            "python_version": "3.6"
-        },
+        "requires": {},
         "sources": [
             {
                 "name": "pypi",
@@ -16,6 +14,15 @@
         ]
     },
     "default": {
+        "pandocfilters": {
+            "hashes": [
+                "sha256:b3dd70e169bb5449e6bc6ff96aea89c5eea8c5f6ab5e207fc2f521a2cf4a0da9"
+            ],
+            "index": "pypi",
+            "version": "==1.4.2"
+        }
+    },
+    "develop": {
         "livereload": {
             "hashes": [
                 "sha256:583179dc8d49b040a9da79bd33de59e160d2a8802b939e304eb359a4419f6498",
@@ -23,13 +30,6 @@
             ],
             "index": "pypi",
             "version": "==2.5.2"
-        },
-        "pandocfilters": {
-            "hashes": [
-                "sha256:b3dd70e169bb5449e6bc6ff96aea89c5eea8c5f6ab5e207fc2f521a2cf4a0da9"
-            ],
-            "index": "pypi",
-            "version": "==1.4.2"
         },
         "six": {
             "hashes": [
@@ -48,6 +48,5 @@
             ],
             "version": "==5.0.2"
         }
-    },
-    "develop": {}
+    }
 }
