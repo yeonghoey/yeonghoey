@@ -1,8 +1,10 @@
 language: R
 
 before_install:
-  - sudo pip install --upgrade pip
-  - sudo pip install pipenv
+  - sudo apt-get -qq update
+  - sudo apt-get install -y python3
+  - sudo pip3 install --upgrade pip
+  - sudo pip3 install pipenv
 
 install:
   - make init
