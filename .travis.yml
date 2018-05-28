@@ -11,11 +11,15 @@ before_install:
   - sudo dpkg -i pandoc-2.2.1-1-amd64.deb
   - pip install pipenv
 
+env:
+  global:
+    - MAKEFLAGS="-j 2"
+
 install:
   - make init
 
 script:
-  - make -j4 build
+  - make build
 
 cache:
   directories:
@@ -28,3 +32,4 @@ deploy:
   local-dir: _site
   on:
     branch: master
+
