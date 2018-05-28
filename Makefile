@@ -22,13 +22,13 @@ local_dst_files = \
 	$(patsubst content/%,$(DESTDIR)/%,$(local_src_files))
 
 
-.PHONY: update build dev local clean
-
-update:
-	scripts/update.sh
+.PHONY: build update dev local clean
 
 build: YHY_FILTER_BASEURL = https://github.com/yeonghoey/yeonghoey/raw/master
 build: $(content_dst_files) $(static_dst_files)
+
+update: local
+	scripts/update.sh
 
 dev: local
 	pipenv run python scripts/dev.py
