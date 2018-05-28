@@ -28,4 +28,3 @@ deploy:
   local-dir: _site
   on:
     branch: master
-
