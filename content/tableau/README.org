@@ -2,7 +2,9 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
-- [[#topics][Topics]]
+- [[#how-to][How-to]]
+  - [[#use-level-of-detail-expressions][Use Level of Detail Expressions]]
+  - [[#create-a-dimension-of-top-n-and-others][Create a dimension of Top N and Others]]
 
 * Overview
 #+BEGIN_SRC shell
@@ -10,5 +12,58 @@
 #+END_SRC
 -----
 - https://www.tableau.com/learn/training
+- http://www.tableaureferenceguide.com/
 
-* Topics
+* How-to
+** Use Level of Detail Expressions
+- ~{FIXED [Department] : AVG([Sales])}~ ::
+  the average ~Sales~ per ~Department~
+- ~{INCLUDE [Item] : AVG([Sales])}~ ::
+  the average ~Sales~ at the level of detail defined in the view but includes the dimension ~Item~
+- ~{EXCLUDE [Category] : AVG([Sales])}~ ::
+  the average ~Sales~ at the level of detail defined in the view but does not include the dimension ~Category~
+
+-----
+
+Consider a dataset like:
+#+BEGIN_SRC json
+  {"User": "foo", "Programming Language": "Python"}
+  {"User": "foo", "Programming Language": "R"}
+  {"User": "bar", "Programming Language": "Go"}
+#+END_SRC
+
+Use LOD Expressions to answer **How many users use how many languages?**
+Brief steps are as follows:
+
+[[file:_img/screenshot_2018-05-29_15-15-28.png]]
+
+[[file:_img/screenshot_2018-05-29_15-18-03.png]]
+
+[[file:_img/screenshot_2018-05-29_15-19-59.png]]
+
+[[file:_img/screenshot_2018-05-29_15-23-23.png]]
+
+-----
+- http://vizpainter.com/my-favorite-tableau-9-0-feature/
+- https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_calculatedfields_lod.html
+
+** Create a dimension of Top N and Others
+To achieve this, we need to create a set first, and ~IF~ expression with it.
+
+[[file:_img/screenshot_2018-05-29_15-29-58.png]]
+
+First off, exclude ~NULL~ entries.
+[[file:_img/screenshot_2018-05-29_15-32-41.png]]
+
+[[file:_img/screenshot_2018-05-29_15-36-52.png]]
+
+You can test the set whether or not to work expectedly:
+[[file:_img/screenshot_2018-05-29_15-37-18.png]]
+
+[[file:_img/screenshot_2018-05-29_15-35-34.png]]
+
+[[file:_img/screenshot_2018-05-29_15-38-27.png]]
+
+
+-----
+- https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sets_topn.html
