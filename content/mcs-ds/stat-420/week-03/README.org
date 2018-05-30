@@ -1,0 +1,9 @@
+#+TITLE: STAT 420: Week 3
+
+* Table of Contents :TOC_2_gh:
+- [[#sampling-distributions][Sampling Distributions]]
+  - [[#gauss-markov-theorem][Gauss-Markov Theorem]]
+
+* Sampling Distributions
+** Gauss-Markov Theorem
+[[file:_img/screenshot_2018-05-30_20-10-27.png]]
