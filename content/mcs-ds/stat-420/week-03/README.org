@@ -3,7 +3,42 @@
 * Table of Contents :TOC_2_gh:
 - [[#sampling-distributions][Sampling Distributions]]
   - [[#gauss-markov-theorem][Gauss-Markov Theorem]]
+  - [[#sampling-distributions-1][Sampling Distributions]]
+  - [[#simulating-sampling-distributions][Simulating Sampling Distributions]]
 
 * Sampling Distributions
 ** Gauss-Markov Theorem
 [[file:_img/screenshot_2018-05-30_20-10-27.png]]
+
+[[file:_img/screenshot_2018-05-30_21-04-49.png]]
+
+[[file:_img/screenshot_2018-05-30_21-05-57.png]]
+
+- Best       :: Least variance
+- Linear     :: Linear combination of the random $Yi$.
+- Unbiased   :: $E[\hat{\beta}]$ is correct on average.
+- Estimators :: make estimates
+
+[[file:_img/screenshot_2018-05-30_21-19-04.png]]
+
+[[file:_img/screenshot_2018-05-30_21-13-08.png]]
+
+[[file:_img/screenshot_2018-05-30_21-14-19.png]]
+** Sampling Distributions
+[[file:_img/screenshot_2018-05-30_21-31-15.png]]
+
+[[file:_img/screenshot_2018-05-30_21-32-25.png]]
+
+[[file:_img/screenshot_2018-05-30_21-35-21.png]]
+
+** Simulating Sampling Distributions
+[[file:_img/screenshot_2018-05-30_21-39-17.png]]
+
+Note that $Yi$ is a conditional random variable, which means that it is dependent on a certion $x_i$ datasets.
+
+DO NOT grow a vector in R. It takes more computational cost.
+Prepare the vector with desired size in advance.
+
+[[file:_img/screenshot_2018-05-30_22-15-14.png]]
+
+[[file:_img/screenshot_2018-05-30_22-16-53.png]]
