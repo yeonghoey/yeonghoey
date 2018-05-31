@@ -6,12 +6,8 @@ resource "aws_s3_bucket" "main" {
   bucket = "${local.bucket}"
 
   cors_rule {
-    allowed_headers = ["*"]
     allowed_methods = ["GET"]
     allowed_origins = ["*"]
-    # For pdf.js, SEE: https://github.com/mozilla/pdf.js/issues/3150#issuecomment-71365390
-    expose_headers = ["Accept-Ranges", "Content-Range", "Content-Encoding", "Content-Length"]
-    max_age_seconds = 3000
   }
 
   versioning {
