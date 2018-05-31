@@ -40,7 +40,7 @@ I decided to care the last book, because he acclaimed the book a lot in many per
 [[file:_img/screenshot_2018-05-16_15-08-57.png]]
 
 ** 1.1.2. Overview of Visualization
-: YEONGHOEY_PDF[4by3] _slides/1.1.2.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.1.2.pdf
 
 Types of visualization:
 - Mathematical
@@ -56,14 +56,14 @@ Modes of visualization:
 
 * Lesson 1-2: Graphics, Drawing, and Photorealism
 ** 1.2.1. 2-D Graphics
-: YEONGHOEY_PDF[4by3] _slides/1.2.1.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.2.1.pdf
 
 - Vector vs Raster
 - Hierarchical Coordinate Systems
 - Canvas to Screen Transformation
 
 ** 1.2.2. 2-D Drawing
-: YEONGHOEY_PDF[4by3] _slides/1.2.2.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.2.2.pdf
 - SVG: Scalable Vector Graphics
 
 [[file:_img/screenshot_2018-05-18_19-22-30.png]]
@@ -71,7 +71,7 @@ Modes of visualization:
 [[file:_img/screenshot_2018-05-18_19-23-18.png]]
 
 ** 1.2.3. 3-D Graphics
-: YEONGHOEY_PDF[4by3] _slides/1.2.3.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.2.3.pdf
 
 [[file:_img/screenshot_2018-05-18_19-25-37.png]]
 
@@ -86,7 +86,7 @@ Modes of visualization:
 - Pixel Processing  :: figures out what colors should be on the pixels from prior step.
 
 ** 1.2.4. Photorealism
-: YEONGHOEY_PDF[4by3] _slides/1.2.4.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.2.4.pdf
 
 Depth cues
 - Occlusion    :: the strongest depth cue
@@ -96,7 +96,7 @@ Depth cues
 - Stereopsis   :: useful when other cues are unavailable
 
 ** 1.2.5. Non-Photorealism
-: YEONGHOEY_PDF[4by3] _slides/1.2.5.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.2.5.pdf
 
 - based on psychology of perception
 - based on contours
@@ -104,20 +104,20 @@ Depth cues
 
 * Lesson 1-3: Humans and Visualization
 ** 1.3.1. The Human
-: YEONGHOEY_PDF[4by3] _slides/1.3.1.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.3.1.pdf
 
 ** 1.3.2. Memory
-: YEONGHOEY_PDF[4by3] _slides/1.3.2.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.3.2.pdf
 
 ** 1.3.3. Reasoning
-: YEONGHOEY_PDF[4by3] _slides/1.3.3.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.3.3.pdf
 
 - Deductive Reasoning :: Concluding
 - Inductive Reasoning :: Generalizing
 - Abductive Reasoning :: Modeling
 
 ** 1.3.4. The Human Retina
-: YEONGHOEY_PDF[4by3] _slides/1.3.4.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.3.4.pdf
 
 - Rods  :: brightness, we have more in our peripehral vision
 - Cones :: color, we have more near our center of vision
@@ -132,7 +132,7 @@ We tend to focus better on warmer colors
 - http://ibbiologyhelp.com/OptionA/A3perceptionofstimuli.html
 
 ** 1.3.5. Perceiving Two Dimensions
-: YEONGHOEY_PDF[4by3] _slides/1.3.5.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.3.5.pdf
 
 - Lateral Inhibition :: accentuate and exaggerates differences in space and time.
 
@@ -141,7 +141,7 @@ We tend to focus better on warmer colors
 [[file:_img/screenshot_2018-05-18_20-33-22.png]]
 
 ** 1.3.6. Perceiving Perspective
-: YEONGHOEY_PDF[4by3] _slides/1.3.6.pdf
+: YEONGHOEY_PDF[16by9] _slides/1.3.6.pdf
 - Our perception of size of an object is influenced by our perception of the distnace to the object.
 - Avoid the incorporation of artificial 3d elements in the presentation of 2d data.
 
