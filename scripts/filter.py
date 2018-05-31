@@ -15,13 +15,12 @@ DEBUG = environ.get('YHY_FILTER_DEBUG') is not None
 # =============================================================================
 SRC = environ['YHY_FILTER_SRC']
 BASE = environ['YHY_FILTER_BASE']
-CONTEXT_PATH = dirname(SRC)
+CONTEXT_PATH = re.sub(r'^content/', '', dirname(SRC))
 
 
-def basepath(url, raw=True):
+def basepath(url):
     if BASE:
-        type_ = 'raw' if raw else 'blob'
-        return '/'.join([BASE, type_, 'master', CONTEXT_PATH, url])
+        return '/'.join([BASE, CONTEXT_PATH, url])
     else:
         return url
 
