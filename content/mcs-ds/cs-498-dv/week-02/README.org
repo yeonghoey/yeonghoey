@@ -17,7 +17,7 @@
 
 * Lesson 2-1: Data, Mapping, and Charts
 ** 2.1.1. Data
-: YEONGHOEY_PDF[80x60] _slides/2.1.1.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.1.1.pdf
 
 - Ordinal: We only know something is bigger than the other, but we don't know how much bigger it is.
 
@@ -25,7 +25,7 @@ I'm not familiar with Data Warehouses. So I found a concept image ([[https://www
 [[file:_img/screenshot_2018-05-23_11-13-11.png]]
 
 ** 2.1.2. Mapping
-: YEONGHOEY_PDF[80x60] _slides/2.1.2.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.1.2.pdf
 
 [[file:_img/screenshot_2018-05-21_11-53-08.png]]
 (Listed in Preferred Order)
@@ -33,25 +33,25 @@ I'm not familiar with Data Warehouses. So I found a concept image ([[https://www
 - Color features are hard to be perceived how much one thing is stronger than the other, but they are easily distinguished, so it's effective for Ordinal data.
 
 ** 2.1.3. Charts
-: YEONGHOEY_PDF[80x60] _slides/2.1.3.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.1.3.pdf
 
 
 [[file:_img/screenshot_2018-05-21_11-58-56.png]]
 
 * Lesson 2-2: Glyphs, Parallel Coordinates, and Stacked Graphs
 ** 2.2.1. Glyphs: Part 1
-: YEONGHOEY_PDF[80x60] _slides/2.2.1.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.2.1.pdf
 
 [[file:_img/screenshot_2018-05-21_21-02-13.png]]
 
 ** 2.2.2. Glyphs: Part 2
-: YEONGHOEY_PDF[80x60] _slides/2.2.1.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.2.1.pdf
 
 ** 2.2.2. Parallel Coordinates
-: YEONGHOEY_PDF[80x60] _slides/2.2.2.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.2.2.pdf
 
 ** 2.2.3. Stacked Graphs: Part 1
-: YEONGHOEY_PDF[80x60] _slides/2.2.3.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.2.3.pdf
 
 [[file:_img/screenshot_2018-05-21_21-23-36.png]]
 
@@ -61,11 +61,11 @@ I'm not familiar with Data Warehouses. So I found a concept image ([[https://www
 
 
 ** 2.2.3. Stacked Graphs: Part 2
-: YEONGHOEY_PDF[80x60] _slides/2.2.3.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.2.3.pdf
 
 * Lesson 2-3: Tufte's Design Rules and Using Color
 ** 2.3.1. Tufte's Design Rules
-: YEONGHOEY_PDF[80x60] _slides/2.3.1.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.3.1.pdf
 
 [[file:_img/screenshot_2018-05-21_21-43-38.png]]
 - Instead of interpolating or something, let the viewer reason about the missing data.
@@ -80,7 +80,7 @@ I'm not familiar with Data Warehouses. So I found a concept image ([[https://www
 [[file:_img/screenshot_2018-05-21_21-51-36.png]]
 
 ** 2.3.2. Using Color
-: YEONGHOEY_PDF[80x60] _slides/2.3.2.pdf
+: YEONGHOEY_PDF[16by9] _slides/2.3.2.pdf
 
 - Prefer HSV over RGB
 - Hues are good for representing Nominal variables
