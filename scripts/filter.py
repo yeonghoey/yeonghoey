@@ -93,7 +93,7 @@ def handle_pdf(key, value, format, meta):
             ratio = d['ratio']
             return pf.RawBlock(format, dedent(f'''\
             <div class="embed-responsive embed-responsive-{ratio}">
-                <iframe class="embed-responsive-item"
+                <iframe class="p-1 embed-responsive-item"
                         src="/ViewerJS/#{src}"
                         type="application/pdf"
                         allowfullscreen
