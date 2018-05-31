@@ -11,8 +11,8 @@ import pandocfilters as pf
 DEBUG = environ.get('YHY_FILTER_DEBUG') is not None
 
 # =============================================================================
-
-
+# Common utils for filtering
+# =============================================================================
 SRC = environ['YHY_FILTER_SRC']
 BASE = environ['YHY_FILTER_BASE']
 CONTEXT_PATH = dirname(SRC)
@@ -27,6 +27,8 @@ def basepath(url, raw=True):
 
 
 # =============================================================================
+# Handle functions
+# =============================================================================
 # When `handle_<function>` returns:
 # pf.Foo : replace (spans as spans, divs as divs only)
 #   None : do nohting
@@ -34,6 +36,10 @@ def basepath(url, raw=True):
 # =============================================================================
 
 
+# =============================================================================
+# Print handler parameters
+# FIXME: Is there any clear way?
+# =============================================================================
 def handle_debug(*args):
     print(file=stderr)
     names = 'key value format meta'.split()
@@ -44,8 +50,9 @@ def handle_debug(*args):
 
 
 # =============================================================================
-
-
+# Fix basepath for images
+# FIXME: process only relative link images
+# =============================================================================
 def handle_image(key, value, format, meta):
     if key == 'Image':
         attr, inlines, target = value
@@ -54,8 +61,8 @@ def handle_image(key, value, format, meta):
 
 
 # =============================================================================
-
-
+# Remove org-tags like :TOC_2_gh:
+# =============================================================================
 def handle_notag(key, value, format, meta):
     if key == 'Span':
         attr, inlines = value
@@ -65,7 +72,9 @@ def handle_notag(key, value, format, meta):
 
 
 # =============================================================================
-# YEONGHOEY_PDF[<width>x<height>] <src>
+# Embed pdf files, customized syntax is following:
+# : YEONGHOEY_PDF[<width>x<height>] <src>
+# =============================================================================
 YEONGHOEY_PDF = re.compile(r'''^YEONGHOEY_PDF
                                (?:\[(?P<width>[0-9%]+)x(?P<height>[0-9%]+)\])?
                                [ ]
