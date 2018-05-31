@@ -8,13 +8,13 @@ from textwrap import dedent
 import pandocfilters as pf
 
 
-DEBUG = environ.get('YHY_FILTER_DEBUG') is not None
+BASE = environ['YEONGHOEY_FILTER_BASE']
+DEBUG = environ.get('YEONGHOEY_FILTER_DEBUG') is not None
+SRC = environ['YEONGHOEY_FILTER_SRC']
 
 # =============================================================================
 # Common utils for filtering
 # =============================================================================
-SRC = environ['YHY_FILTER_SRC']
-BASE = environ['YHY_FILTER_BASE']
 CONTEXT_PATH = re.sub(r'^content/', '', dirname(SRC))
 
 
@@ -92,10 +92,12 @@ def handle_pdf(key, value, format, meta):
             height = d['height']
             src = basepath(d['src'])
             return pf.RawBlock(format, dedent(f'''\
-            <embed src="{src}"
-                   type="application/pdf"
-                   width="{width}"
-                   height="{height}">
+            <object data="{src}"
+                    type="application/pdf"
+                    width="{width}"
+                    height="{height}">
+              <a href="{src}">{src}</a>
+            </object>
             '''))
 
 

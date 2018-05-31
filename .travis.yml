@@ -10,16 +10,16 @@ git:
 env:
   global:
     - MAKEFLAGS="-j 2"
-    - YHY_PANDOC_VER='2.2.1'
-    - YHY_PANDOC_DEB="pandoc-${YHY_PANDOC_VER}-1-amd64.deb"
+    - YEONGHOEY_PANDOC_VER='2.2.1'
+    - YEONGHOEY_PANDOC_DEB="pandoc-${YEONGHOEY_PANDOC_VER}-1-amd64.deb"
 
 before_install:
   - pip install pipenv
-  - wget "https://github.com/jgm/pandoc/releases/download/${YHY_PANDOC_VER}/${YHY_PANDOC_DEB}"
+  - wget "https://github.com/jgm/pandoc/releases/download/${YEONGHOEY_PANDOC_VER}/${YEONGHOEY_PANDOC_DEB}"
   - sudo dpkg -i "${YHY_PANDOC_DEB}"
 
 install:
-  - make init
+  - make ci
 
 script:
   - make build

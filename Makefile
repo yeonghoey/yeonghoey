@@ -2,66 +2,68 @@ SHELL = /bin/bash
 DESTDIR = _site
 PANDOC = pandoc
 
-export YHY_FILTER_SRC
-export YHY_FILTER_BASE = https://media.yeonghoey.com
+MEDIA_TYPES = png jpg jpeg gif pdf
 
-content_src = content/%/README.org
-content_dst = $(DESTDIR)/%/index.html
-content_src_files = $(shell find content -type f -name 'README.org')
-content_dst_files = \
-	$(patsubst $(content_src),$(content_dst),$(content_src_files))
+# ==============================================================================
+# Run `pandoc` from `content/**/README.org to `_site/**/index.html`
+# ==============================================================================
+CONTENT_SRC = content/%/README.org
+CONTENT_DST = $(DESTDIR)/%/index.html
+CONTENT_SRC_FILES = $(shell find 'content' -type f -name 'README.org')
+CONTENT_DST_FILES = \
+	$(patsubst $(CONTENT_SRC),$(CONTENT_DST),$(CONTENT_SRC_FILES))
 
-static_src = static/%
-static_dst = $(DESTDIR)/%
-static_src_files = $(shell find static -type f)
-static_dst_files = \
-	$(patsubst $(static_src),$(static_dst),$(static_src_files))
+$(CONTENT_DST): export YEONGHOEY_FILTER_BASE = https://media.yeonghoey.com
+$(CONTENT_DST): export YEONGHOEY_FILTER_SRC = $<
+$(CONTENT_DST): $(CONTENT_SRC)
+	mkdir -p "$(dir $@)"
+	pipenv run $(PANDOC) \
+  --standalone \
+  --mathjax \
+  --css '/pandoc.css' \
+  --filter 'scripts/filter.py' \
+  --output '$@' \
+  '$<'
 
 
-.PHONY: init dev build local sync clean
+# ==============================================================================
+# Copy `static/**` to `$(DESTDIR)/`
+# ==============================================================================
+STATIC_SRC = static/%
+STATIC_DST = $(DESTDIR)/%
+STATIC_SRC_FILES = $(shell find static -type f)
+STATIC_DST_FILES = \
+	$(patsubst $(STATIC_SRC),$(STATIC_DST),$(STATIC_SRC_FILES))
+
+$(STATIC_DST): $(STATIC_SRC)
+	mkdir -p "$(dir $@)"
+	cp '$<' '$@'
+
+
+# ==============================================================================
+# PHONY targets
+# ==============================================================================
+.PHONY: init ci dev sync build clean
 
 init:
 	pipenv install --dev
+	pipenv run aws s3 sync 's3://yeonghoey-media' 'content'
 
-dev: local
+ci:
+	pipenv install
+
+dev: sync build
 	pipenv run python scripts/dev.py
 
-build: $(content_dst_files) $(static_dst_files)
-
-local: $(content_dst_files) $(static_dst_files) sync
+build: $(CONTENT_DST_FILES) $(STATIC_DST_FILES)
 
 sync:
   # upload
 	pipenv run aws s3 sync \
-		'content' \
-		's3://yeonghoey-media' \
-		--exclude "*" \
-		--include "*.png" \
-		--include "*.jpg" \
-		--include "*.jpeg" \
-		--include "*.gif" \
-		--include "*.pdf"
-
-  # download
-	pipenv run aws s3 sync \
-		's3://yeonghoey-media' \
-		'content'
+  'content' \
+  's3://yeonghoey-media' \
+  --exclude '*' \
+  $(patsubst %,--include '*.%',$(MEDIA_TYPES))
 
 clean:
 	-rm -rf $(DESTDIR)/*
-
-$(content_dst): YHY_FILTER_SRC = $<
-$(content_dst): $(content_src)
-	mkdir -p "$(dir $@)"
-	@env | grep '^YHY_'
-	pipenv run $(PANDOC) \
-		--standalone \
-		--mathjax \
-		--css '/pandoc.css' \
-		--filter 'scripts/filter.py' \
-		--output '$@' \
-		'$<'
-
-$(static_dst): $(static_src)
-	mkdir -p "$(dir $@)"
-	cp '$<' '$@'
