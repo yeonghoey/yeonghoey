@@ -72,7 +72,7 @@ def handle_notag(key, value, format, meta):
 
 # =============================================================================
 # Embed pdf files, customized syntax is following:
-# <ratio> is one of `21by9`, `16by9`, `4by3` `1by1
+# <ratio> is one of `21by9`, `4by3`, `4by3` `1by1
 # : YEONGHOEY_PDF[<ratio>] <src>
 # =============================================================================
 YEONGHOEY_PDF = re.compile(r'''^YEONGHOEY_PDF
@@ -92,7 +92,7 @@ def handle_pdf(key, value, format, meta):
             src = basepath(d['src'])
             ratio = d['ratio']
             return pf.RawBlock(format, dedent(f'''\
-            <div class="embed-responsive embed-responsive-{ratio}">
+            <div class="w-75 embed-responsive embed-responsive-{ratio}">
                 <iframe class="embed-responsive-item"
                         src="/ViewerJS/#{src}"
                         type="application/pdf"
