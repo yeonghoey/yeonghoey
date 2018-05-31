@@ -95,7 +95,8 @@ def handle_pdf(key, value, format, meta):
             <iframe src="/ViewerJS/#{src}"
                     type="application/pdf"
                     style="width: {width}vmin; height: {height}vmin;"
-                    allowfullscreen>
+                    allowfullscreen
+                    webkitallowfullscreen>
               <a href="{src}">{src}</a>
             </iframe>
             '''))
