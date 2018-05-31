@@ -75,7 +75,7 @@ def handle_notag(key, value, format, meta):
 # : YEONGHOEY_PDF[<width>x<height>] <src>
 # =============================================================================
 YEONGHOEY_PDF = re.compile(r'''^YEONGHOEY_PDF
-                               (?:\[(?P<width>[0-9%]+)x(?P<height>[0-9%]+)\])?
+                               (?:\[(?P<width>[0-9]+)x(?P<height>[0-9]+)\])?
                                [ ]
                                (?P<src>.+)$''', re.VERBOSE)
 
@@ -87,15 +87,15 @@ def handle_pdf(key, value, format, meta):
 
         match = YEONGHOEY_PDF.match(code)
         if match is not None:
-            d = match.groupdict(default='100%')
+            d = match.groupdict()
             width = d['width']
             height = d['height']
             src = basepath(d['src'])
             return pf.RawBlock(format, dedent(f'''\
             <iframe src="/ViewerJS/#{src}"
                     type="application/pdf"
-                    width="{width}"
-                    height="{height}">
+                    style="width: {width}vmin; height: {height}vmin;"
+                    allowfullscreen>
               <a href="{src}">{src}</a>
             </iframe>
             '''))
