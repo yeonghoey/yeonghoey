@@ -6,8 +6,12 @@ resource "aws_s3_bucket" "main" {
   bucket = "${local.bucket}"
 
   cors_rule {
+    allowed_headers = ["*"]
     allowed_methods = ["GET"]
     allowed_origins = ["*"]
+    # For pdf.js, SEE: https://github.com/mozilla/pdf.js/issues/3150#issuecomment-71365390
+    expose_headers = ["Accept-Ranges", "Content-Range", "Content-Encoding", "Content-Length"]
+    max_age_seconds = 3000
   }
 
   versioning {
@@ -55,7 +59,7 @@ resource "aws_cloudfront_distribution" "main" {
 
   default_cache_behavior {
     viewer_protocol_policy = "redirect-to-https"
-    allowed_methods        = ["GET", "HEAD"]
+    allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = "${local.bucket}"
 
