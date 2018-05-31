@@ -5,6 +5,16 @@ locals {
 resource "aws_s3_bucket" "main" {
   bucket = "${local.bucket}"
 
+  versioning {
+    enabled = true
+  }
+
+  lifecycle_rule {
+    noncurrent_version_expiration {
+      days = 7
+    }
+  }
+
   policy = <<EOF
 {
   "Version":"2012-10-17",

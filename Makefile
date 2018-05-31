@@ -60,7 +60,9 @@ dev: sync build
 build: $(CONTENT_DST_FILES) $(STATIC_DST_FILES)
 
 sync:
-	pipenv run aws s3 sync 's3://yeonghoey-media' 'content'
+	pipenv run aws s3 sync \
+  's3://yeonghoey-media' \
+  'content'
 	pipenv run aws s3 sync \
   'content' \
   's3://yeonghoey-media' \
