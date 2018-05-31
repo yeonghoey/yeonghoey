@@ -72,10 +72,11 @@ def handle_notag(key, value, format, meta):
 
 # =============================================================================
 # Embed pdf files, customized syntax is following:
-# : YEONGHOEY_PDF[<width>x<height>] <src>
+# <ratio> is one of `21by9`, `16by9`, `4by3` `1by1
+# : YEONGHOEY_PDF[<ratio>] <src>
 # =============================================================================
 YEONGHOEY_PDF = re.compile(r'''^YEONGHOEY_PDF
-                               (?:\[(?P<width>[0-9]+)x(?P<height>[0-9]+)\])?
+                               \[(?P<ratio>[^]]+)\]
                                [ ]
                                (?P<src>.+)$''', re.VERBOSE)
 
@@ -88,17 +89,18 @@ def handle_pdf(key, value, format, meta):
         match = YEONGHOEY_PDF.match(code)
         if match is not None:
             d = match.groupdict()
-            width = d['width']
-            height = d['height']
             src = basepath(d['src'])
+            ratio = d['ratio']
             return pf.RawBlock(format, dedent(f'''\
-            <iframe src="/ViewerJS/#{src}"
-                    type="application/pdf"
-                    style="width: {width}vmin; height: {height}vmin;"
-                    allowfullscreen
-                    webkitallowfullscreen>
-              <a href="{src}">{src}</a>
-            </iframe>
+            <div class="embed-responsive embed-responsive-{ratio}">
+                <iframe class="embed-responsive-item"
+                        src="/ViewerJS/#{src}"
+                        type="application/pdf"
+                        allowfullscreen
+                        webkitallowfullscreen>
+                <a href="{src}">{src}</a>
+                </iframe>
+            </div>
             '''))
 
 

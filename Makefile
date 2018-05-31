@@ -21,6 +21,7 @@ $(CONTENT_DST): $(CONTENT_SRC)
   --standalone \
   --mathjax \
   --css '/pandoc.css' \
+  --include-in-header 'includes/bootstrap.html' \
   --filter 'scripts/filter.py' \
   --output '$@' \
   '$<'
