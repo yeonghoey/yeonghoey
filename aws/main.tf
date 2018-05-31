@@ -67,7 +67,7 @@ resource "aws_cloudfront_distribution" "main" {
   enabled         = true
   is_ipv6_enabled = true
   comment         = "${local.bucket}"
-  aliases         = ["${local.domain}"]
+  aliases         = ["media.${local.domain}"]
   price_class     = "PriceClass_200"
 }
 
