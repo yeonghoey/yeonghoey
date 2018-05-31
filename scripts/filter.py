@@ -92,12 +92,12 @@ def handle_pdf(key, value, format, meta):
             height = d['height']
             src = basepath(d['src'])
             return pf.RawBlock(format, dedent(f'''\
-            <object data="{src}"
+            <iframe src="{src}"
                     type="application/pdf"
                     width="{width}"
                     height="{height}">
               <a href="{src}">{src}</a>
-            </object>
+            </iframe>
             '''))
 
 
