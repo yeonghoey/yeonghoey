@@ -5,6 +5,11 @@ locals {
 resource "aws_s3_bucket" "main" {
   bucket = "${local.bucket}"
 
+  cors_rule {
+    allowed_methods = ["GET"]
+    allowed_origins = ["*"]
+  }
+
   versioning {
     enabled = true
   }
