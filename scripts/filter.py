@@ -92,7 +92,7 @@ def handle_pdf(key, value, format, meta):
             height = d['height']
             src = basepath(d['src'])
             return pf.RawBlock(format, dedent(f'''\
-            <iframe src="{src}"
+            <iframe src="/ViewerJS/#{src}"
                     type="application/pdf"
                     width="{width}"
                     height="{height}">
