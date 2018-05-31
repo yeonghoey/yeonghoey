@@ -43,7 +43,7 @@ $(STATIC_DST): $(STATIC_SRC)
 # ==============================================================================
 # PHONY targets
 # ==============================================================================
-.PHONY: init ci update dev sync build clean
+.PHONY: init ci update dev sync sync-down sync-up prune build clean
 
 init:
 	pipenv install --dev
@@ -59,15 +59,23 @@ dev: sync build
 
 build: $(CONTENT_DST_FILES) $(STATIC_DST_FILES)
 
-sync:
+sync: sync-down sync-up
+
+sync-down:
 	pipenv run aws s3 sync \
   's3://yeonghoey-media' \
   'content'
+
+sync-up:
 	pipenv run aws s3 sync \
   'content' \
   's3://yeonghoey-media' \
   --exclude '*' \
-  $(patsubst %,--include '*.%',$(MEDIA_TYPES))
+  $(patsubst %,--include '*.%',$(MEDIA_TYPES)) \
+  $(YEONGHOEY_SYNCFLAGS)
+
+prune: YEONGHOEY_SYNCFLAGS = --delete --dryrun
+prune: sync-up
 
 clean:
 	-rm -rf $(DESTDIR)/*
