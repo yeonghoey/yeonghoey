@@ -5,7 +5,6 @@ python:
 
 git:
   depth: 3
-  lfs_skip_smudge: true
 
 env:
   global:
@@ -16,7 +15,7 @@ env:
 before_install:
   - pip install pipenv
   - wget "https://github.com/jgm/pandoc/releases/download/${YEONGHOEY_PANDOC_VER}/${YEONGHOEY_PANDOC_DEB}"
-  - sudo dpkg -i "${YHY_PANDOC_DEB}"
+  - sudo dpkg -i "${YEONGHOEY_PANDOC_DEB}"
 
 install:
   - make ci
