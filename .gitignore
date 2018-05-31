@@ -135,3 +135,10 @@ _site/
 
 # Crash log files
 crash.log
+
+# Media files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
