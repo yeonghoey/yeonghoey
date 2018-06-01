@@ -9,6 +9,7 @@
 - [[#interval-estimation][Interval Estimation]]
   - [[#confidence-intervals-for-regression-coefficients][Confidence Intervals for Regression Coefficients]]
   - [[#confidence-intervals-for-mean-response][Confidence Intervals for Mean Response]]
+  - [[#prediction-intervals][Prediction Intervals]]
 
 * Sampling Distributions
 ** Gauss-Markov Theorem
@@ -82,3 +83,11 @@ $\alpha = 0.05$ is default and most widely used.
 [[file:_img/screenshot_2018-06-01_15-20-39.png]]
 
 [[file:_img/screenshot_2018-06-01_15-22-37.png]]
+** Prediction Intervals
+[[file:_img/screenshot_2018-06-01_15-25-17.png]]
+
+[[file:_img/screenshot_2018-06-01_15-26-29.png]]
+
+[[file:_img/screenshot_2018-06-01_15-29-25.png]]
+
+[[file:_img/screenshot_2018-06-01_15-30-11.png]]
