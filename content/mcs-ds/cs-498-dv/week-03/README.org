@@ -5,6 +5,8 @@
   - [[#311-graphs-and-networks][3.1.1. Graphs and Networks]]
   - [[#312-embedding-planar-graphs][3.1.2. Embedding Planar Graphs]]
   - [[#313-graph-visualization][3.1.3 Graph Visualization]]
+  - [[#314-graph-visualization][3.1.4 Graph Visualization]]
+  - [[#compute-a-planar-graph-layout-with-numpy][Compute a Planar Graph Layout with NumPy]]
 
 * Lesson 3-1: Grapsh, Graph Visualization, and Tree Maps
 ** 3.1.1. Graphs and Networks
@@ -15,3 +17,78 @@
 
 ** 3.1.3 Graph Visualization
 : YEONGHOEY_PDF[16by9] _slides/3.1.3.pdf
+
+** 3.1.4 Graph Visualization
+: YEONGHOEY_PDF[16by9] _slides/3.1.4.pdf
+
+** Compute a Planar Graph Layout with NumPy
+- Tutte's algorithm
+
+[[file:_img/screenshot_2018-06-01_22-35-29.png]]
+
+#+BEGIN_SRC emacs-lisp :session pipenv :results output silent :exports none
+  (pipenv-activate)
+#+END_SRC
+
+#+BEGIN_SRC python :session pipenv :results output silent
+  import numpy as np
+#+END_SRC
+
+#+BEGIN_SRC python :session pipenv :results output silent
+  A = np.array([
+               [   1,    0,    0,    0,    0,     0],
+               [   0,    1,    0,    0,    0,     0],
+               [   0,    0,    1,    0,    0,     0],
+               [-1/3,    0,    0,    1,  -1/3, -1/3],
+               [   0, -1/3,    0, -1/3,     1, -1/3],
+               [   0,    0, -1/3, -1/3,  -1/3,    1],
+               ])
+#+END_SRC
+
+#+BEGIN_SRC python :session pipenv :results output silent
+  b = np.array([
+               [ 0, 0],
+               [ 0, 1],
+               [ 1, 1],
+               [ 0, 0],
+               [ 0, 0],
+               [ 0, 0],
+               ])
+#+END_SRC
+
+#+BEGIN_SRC python :session pipenv :results output
+  v = np.linalg.solve(A, b)
+  print(v)
+#+END_SRC
+
+#+RESULTS:
+: [[0.   0.  ]
+:  [0.   1.  ]
+:  [1.   1.  ]
+:  [0.25 0.5 ]
+:  [0.25 0.75]
+:  [0.5  0.75]]
+
+#+BEGIN_SRC dot :cmd neato :file _img/planar.png :exports both
+  graph G {
+    graph [dpi = 200 ];
+    node [width=0.2,height=0.2,fixedsize=true];
+    1 [pos="   0,    0!"];
+    2 [pos="   0,    1!"];
+    3 [pos="   1,    1!"];
+    4 [pos="0.25, 0.50!"];
+    5 [pos="0.25, 0.75!"];
+    6 [pos="0.50, 0.75!"];
+    1 -- 2
+    1 -- 4
+    2 -- 3
+    2 -- 5
+    3 -- 6
+    4 -- 5
+    4 -- 6
+    5 -- 6
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/planar.png]]
