@@ -11,6 +11,8 @@
   - [[#confidence-intervals-for-mean-response][Confidence Intervals for Mean Response]]
   - [[#prediction-intervals][Prediction Intervals]]
   - [[#interval-estimates-in-r][Interval Estimates in R]]
+- [[#hypothesis-testing][Hypothesis Testing]]
+  - [[#hypothesis-testing-for-regression-coefficients][Hypothesis Testing for Regression Coefficients]]
 
 * Sampling Distributions
 ** Gauss-Markov Theorem
@@ -106,3 +108,19 @@ $\alpha = 0.05$ is default and most widely used.
 [[file:_img/screenshot_2018-06-01_15-51-12.png]]
 
 [[file:_img/screenshot_2018-06-01_15-51-46.png]]
+* Hypothesis Testing
+** Hypothesis Testing for Regression Coefficients
+[[file:_img/screenshot_2018-06-01_16-34-09.png]]
+
+[[file:_img/screenshot_2018-06-01_16-35-19.png]]
+
+[[file:_img/screenshot_2018-06-01_16-38-01.png]]
+
+[[file:_img/screenshot_2018-06-01_16-39-30.png]]
+
+- Low $P$-Value gives us *evidence against the null hypothesis*.
+
+[[file:_img/screenshot_2018-06-01_16-43-32.png]]
+
+- $\alpha$ stands for Significance
+- FTR stands for /Fail to Reject/ the hypothesis.
