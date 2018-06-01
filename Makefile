@@ -57,6 +57,7 @@ $(STATIC_DST): $(DESTDIR)/%: static/%
 
 init:
 	pipenv install --dev
+	cp scripts/pre-push .git/hooks/
 
 ci:
 	pipenv install
