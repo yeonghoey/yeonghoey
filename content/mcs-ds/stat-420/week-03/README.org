@@ -6,6 +6,7 @@
   - [[#sampling-distributions-1][Sampling Distributions]]
   - [[#simulating-sampling-distributions][Simulating Sampling Distributions]]
   - [[#t-distribution][$t$ Distribution]]
+- [[#interval-estimation][Interval Estimation]]
 
 * Sampling Distributions
 ** Gauss-Markov Theorem
@@ -44,3 +45,14 @@ Prepare the vector with desired size in advance.
 
 - $SD$ :: The actual $\sigma^2$, but we don't really know the exact value
 - $SE$ :: The estimate of $SE$
+
+[[file:_img/screenshot_2018-06-01_14-47-35.png]]
+
+[[file:_img/screenshot_2018-06-01_14-50-01.png]]
+
+[[file:_img/screenshot_2018-06-01_14-52-51.png]]
+
+As the degrees of freedom increases, $t$ distribution becomes more like standard normal distribution.
+Because the degrees of freedom is $n - 2$, as the sample size increases, we are a little bit confident in our estimation.
+
+* Interval Estimation
