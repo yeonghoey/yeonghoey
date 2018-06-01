@@ -75,3 +75,10 @@ $\alpha = 0.05$ is default and most widely used.
 
 [[file:_img/screenshot_2018-06-01_15-16-38.png]]
 ** Confidence Intervals for Mean Response
+[[file:_img/screenshot_2018-06-01_15-18-17.png]]
+
+[[file:_img/screenshot_2018-06-01_15-19-50.png]]
+
+[[file:_img/screenshot_2018-06-01_15-20-39.png]]
+
+[[file:_img/screenshot_2018-06-01_15-22-37.png]]
