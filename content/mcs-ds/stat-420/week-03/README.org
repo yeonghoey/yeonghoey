@@ -13,6 +13,7 @@
   - [[#interval-estimates-in-r][Interval Estimates in R]]
 - [[#hypothesis-testing][Hypothesis Testing]]
   - [[#hypothesis-testing-for-regression-coefficients][Hypothesis Testing for Regression Coefficients]]
+  - [[#significance-of-regression-test][Significance of Regression Test]]
 
 * Sampling Distributions
 ** Gauss-Markov Theorem
@@ -124,3 +125,15 @@ $\alpha = 0.05$ is default and most widely used.
 
 - $\alpha$ stands for Significance
 - FTR stands for /Fail to Reject/ the hypothesis.
+** Significance of Regression Test
+[[file:_img/screenshot_2018-06-01_16-46-22.png]]
+
+[[file:_img/screenshot_2018-06-01_16-49-01.png]]
+
+[[file:_img/screenshot_2018-06-01_16-51-28.png]]
+
+[[file:_img/screenshot_2018-06-01_16-53-51.png]]
+
+[[file:_img/screenshot_2018-06-01_16-56-14.png]]
+
+[[file:_img/screenshot_2018-06-01_16-57-21.png]]
