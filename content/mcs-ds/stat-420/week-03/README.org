@@ -14,6 +14,7 @@
 - [[#hypothesis-testing][Hypothesis Testing]]
   - [[#hypothesis-testing-for-regression-coefficients][Hypothesis Testing for Regression Coefficients]]
   - [[#significance-of-regression-test][Significance of Regression Test]]
+  - [[#hypothesis-testing-in-r][Hypothesis Testing in R]]
 
 * Sampling Distributions
 ** Gauss-Markov Theorem
@@ -137,3 +138,7 @@ $\alpha = 0.05$ is default and most widely used.
 [[file:_img/screenshot_2018-06-01_16-56-14.png]]
 
 [[file:_img/screenshot_2018-06-01_16-57-21.png]]
+** Hypothesis Testing in R
+[[file:_img/screenshot_2018-06-01_17-03-50.png]]
+
+[[file:_img/screenshot_2018-06-01_17-07-03.png]]
