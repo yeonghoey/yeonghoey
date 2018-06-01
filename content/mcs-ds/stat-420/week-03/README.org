@@ -7,6 +7,8 @@
   - [[#simulating-sampling-distributions][Simulating Sampling Distributions]]
   - [[#t-distribution][$t$ Distribution]]
 - [[#interval-estimation][Interval Estimation]]
+  - [[#confidence-intervals-for-regression-coefficients][Confidence Intervals for Regression Coefficients]]
+  - [[#confidence-intervals-for-mean-response][Confidence Intervals for Mean Response]]
 
 * Sampling Distributions
 ** Gauss-Markov Theorem
@@ -56,3 +58,20 @@ As the degrees of freedom increases, $t$ distribution becomes more like standard
 Because the degrees of freedom is $n - 2$, as the sample size increases, we are a little bit confident in our estimation.
 
 * Interval Estimation
+** Confidence Intervals for Regression Coefficients
+[[file:_img/screenshot_2018-06-01_15-05-18.png]]
+
+[[file:_img/screenshot_2018-06-01_15-06-33.png]]
+
+[[file:_img/screenshot_2018-06-01_15-07-40.png]]
+
+[[file:_img/screenshot_2018-06-01_15-09-40.png]]
+
+$\alpha = 0.05$ is default and most widely used.
+
+[[file:_img/screenshot_2018-06-01_15-13-22.png]]
+
+[[file:_img/screenshot_2018-06-01_15-15-21.png]]
+
+[[file:_img/screenshot_2018-06-01_15-16-38.png]]
+** Confidence Intervals for Mean Response
