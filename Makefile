@@ -11,8 +11,8 @@ MEDIA_TYPES = png jpg jpeg gif pdf
 CONTENT_SRC = $(shell find 'content' -type f -name 'README.org')
 CONTENT_DST = $(CONTENT_SRC:content/%/README.org=$(DESTDIR)/%/index.html)
 
-export YEONGHOEY_FILTER_BASE
 export YEONGHOEY_FILTER_SRC
+export YEONGHOEY_FILTER_MEDIA
 $(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
 $(CONTENT_DST): $(DESTDIR)/%/index.html : content/%/README.org
 	mkdir -p "$(dir $@)"
@@ -20,7 +20,7 @@ $(CONTENT_DST): $(DESTDIR)/%/index.html : content/%/README.org
 	pipenv run $(PANDOC) \
   --standalone \
   --mathjax \
-  --css '/pandoc.css' \
+  --css '/_css/pandoc.css' \
   --include-in-header 'includes/bootstrap.html' \
   --filter 'scripts/filter.py' \
   --output '$@' \
@@ -65,10 +65,10 @@ ci:
 update:
 	git pull --rebase --autostash
 
-build: YEONGHOEY_FILTER_BASE = https://media.yeonghoey.com
+build: YEONGHOEY_FILTER_MEDIA = https://media.yeonghoey.com
 build: $(CONTENT_DST) $(STATIC_DST)
 
-local: YEONGHOEY_FILTER_BASE =
+local: YEONGHOEY_FILTER_MEDIA =
 local: $(CONTENT_DST) $(STATIC_DST) $(LOCAL_DST)
 
 sync: sync-down sync-up

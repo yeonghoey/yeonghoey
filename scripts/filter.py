@@ -8,21 +8,23 @@ from textwrap import dedent
 import pandocfilters as pf
 
 
-BASE = environ.get('YEONGHOEY_FILTER_BASE')
 DEBUG = environ.get('YEONGHOEY_FILTER_DEBUG') is not None
+
 SRC = environ['YEONGHOEY_FILTER_SRC']
+MEDIA = environ.get('YEONGHOEY_FILTER_MEDIA')
 
 # =============================================================================
-# Common utils for filtering
+# URL fix utils
 # =============================================================================
-CONTEXT_PATH = re.sub(r'^content/', '', dirname(SRC))
+CONTEXT = re.sub(r'^content/', '', dirname(SRC))
 
 
-def basepath(url):
-    if BASE:
-        return '/'.join([BASE, CONTEXT_PATH, url])
-    else:
-        return url
+def media(url):
+    return absurl(url, base=MEDIA)
+
+
+def absurl(url, base=None):
+    return '/'.join([base or '', CONTEXT, url])
 
 
 # =============================================================================
@@ -49,14 +51,14 @@ def handle_debug(*args):
 
 
 # =============================================================================
-# Fix basepath for images
+# Fix url for images
 # FIXME: process only relative link images
 # =============================================================================
 def handle_image(key, value, format, meta):
     if key == 'Image':
         attr, inlines, target = value
         url, title = target
-        return pf.Image(attr, inlines, (basepath(url), title))
+        return pf.Image(attr, inlines, (media(url), title))
 
 
 # =============================================================================
@@ -89,12 +91,12 @@ def handle_pdf(key, value, format, meta):
         match = YEONGHOEY_PDF.match(code)
         if match is not None:
             d = match.groupdict()
-            src = basepath(d['src'])
+            src = media(d['src'])
             ratio = d['ratio']
             return pf.RawBlock(format, dedent(f'''\
             <div class="embed-responsive embed-responsive-{ratio}">
                 <iframe class="p-1 embed-responsive-item"
-                        src="/ViewerJS/#{src}"
+                        src="/_vendor/ViewerJS/#{src}"
                         type="application/pdf"
                         allowfullscreen
                         webkitallowfullscreen>
