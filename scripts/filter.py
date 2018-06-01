@@ -8,7 +8,7 @@ from textwrap import dedent
 import pandocfilters as pf
 
 
-BASE = environ['YEONGHOEY_FILTER_BASE']
+BASE = environ.get('YEONGHOEY_FILTER_BASE')
 DEBUG = environ.get('YEONGHOEY_FILTER_DEBUG') is not None
 SRC = environ['YEONGHOEY_FILTER_SRC']
 

@@ -7,16 +7,16 @@ MEDIA_TYPES = png jpg jpeg gif pdf
 # ==============================================================================
 # Run `pandoc` from `content/**/README.org to `_site/**/index.html`
 # ==============================================================================
-CONTENT_SRC = content/%/README.org
-CONTENT_DST = $(DESTDIR)/%/index.html
-CONTENT_SRC_FILES = $(shell find 'content' -type f -name 'README.org')
-CONTENT_DST_FILES = \
-	$(patsubst $(CONTENT_SRC),$(CONTENT_DST),$(CONTENT_SRC_FILES))
 
-$(CONTENT_DST): export YEONGHOEY_FILTER_BASE = https://media.yeonghoey.com
-$(CONTENT_DST): export YEONGHOEY_FILTER_SRC = $<
-$(CONTENT_DST): $(CONTENT_SRC)
+CONTENT_SRC = $(shell find 'content' -type f -name 'README.org')
+CONTENT_DST = $(CONTENT_SRC:content/%/README.org=$(DESTDIR)/%/index.html)
+
+export YEONGHOEY_FILTER_BASE
+export YEONGHOEY_FILTER_SRC
+$(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
+$(CONTENT_DST): $(DESTDIR)/%/index.html : content/%/README.org
 	mkdir -p "$(dir $@)"
+	@env | grep YEONGHOEY_
 	pipenv run $(PANDOC) \
   --standalone \
   --mathjax \
@@ -28,15 +28,24 @@ $(CONTENT_DST): $(CONTENT_SRC)
 
 
 # ==============================================================================
+# Make symlinks of content local directories (prefixed with '_' like '_img')
+# for dev server
+# ==============================================================================
+LOCAL_SRC = $(shell find content -type d -name '_*')
+LOCAL_DST = $(LOCAL_SRC:content/%=$(DESTDIR)/%)
+
+$(LOCAL_DST): $(DESTDIR)/%: content/%
+	mkdir -p "$(dir $@)"
+	ln -sf '$(abspath $<)' '$@'
+
+
+# ==============================================================================
 # Copy `static/**` to `$(DESTDIR)/`
 # ==============================================================================
-STATIC_SRC = static/%
-STATIC_DST = $(DESTDIR)/%
-STATIC_SRC_FILES = $(shell find static -type f)
-STATIC_DST_FILES = \
-	$(patsubst $(STATIC_SRC),$(STATIC_DST),$(STATIC_SRC_FILES))
+STATIC_SRC = $(shell find 'static' -type f)
+STATIC_DST = $(STATIC_SRC:static/%=$(DESTDIR)/%)
 
-$(STATIC_DST): $(STATIC_SRC)
+$(STATIC_DST): $(DESTDIR)/%: static/%
 	mkdir -p "$(dir $@)"
 	cp '$<' '$@'
 
@@ -44,7 +53,7 @@ $(STATIC_DST): $(STATIC_SRC)
 # ==============================================================================
 # PHONY targets
 # ==============================================================================
-.PHONY: init ci update dev sync sync-down sync-up prune build clean
+.PHONY: init ci update build local sync sync-down sync-up prune dev clean
 
 init:
 	pipenv install --dev
@@ -55,10 +64,11 @@ ci:
 update:
 	git pull --rebase --autostash
 
-dev: sync build
-	pipenv run python scripts/dev.py
+build: YEONGHOEY_FILTER_BASE = https://media.yeonghoey.com
+build: $(CONTENT_DST) $(STATIC_DST)
 
-build: $(CONTENT_DST_FILES) $(STATIC_DST_FILES)
+local: YEONGHOEY_FILTER_BASE =
+local: $(CONTENT_DST) $(STATIC_DST) $(LOCAL_DST)
 
 sync: sync-down sync-up
 
@@ -77,6 +87,9 @@ sync-up:
 
 prune: YEONGHOEY_SYNCFLAGS = --delete --dryrun
 prune: sync-up
+
+dev: local
+	pipenv run python scripts/dev.py
 
 clean:
 	-rm -rf $(DESTDIR)/*
