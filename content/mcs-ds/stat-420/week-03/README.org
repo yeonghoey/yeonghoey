@@ -243,6 +243,7 @@ $\alpha = 0.05$ is default and most widely used.
 [[file:_img/screenshot_2018-06-01_16-43-32.png]]
 
 - $\alpha$ stands for Significance level
+- It seems that $p <= \alpha$ is more popular.
 - FTR stands for /Fail to Reject/ the hypothesis.
 
 ** Significance of Regression Test
