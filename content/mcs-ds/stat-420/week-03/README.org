@@ -246,6 +246,10 @@ $\alpha = 0.05$ is default and most widely used.
 - It seems that $p <= \alpha$ is more popular.
 - FTR stands for /Fail to Reject/ the hypothesis.
 
+#+BEGIN_QUOTE
+So if the p-value is less than alpha, we say that we reject the null hypothesis. So a very, very small p-value means that if we assu,me the null hypothesis is true, there's a small probability that we obtained the test statistic that we saw or something more extreme just due to chance. Now conversely if the p-value is greater than alpha we say that we fail to reject the null. So we're saying we fail to reject instead of saying that we accept, to illustrate the idea that, just because we have this large p-value doesn't mean the null hypothesis is true. It just doesn't mean that we have enough evidence against it to reject.
+#+END_QUOTE
+
 ** Significance of Regression Test
 [[file:_img/screenshot_2018-06-01_16-46-22.png]]
 
