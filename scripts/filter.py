@@ -96,10 +96,9 @@ def handle_pdf(key, value, format, meta):
             return pf.RawBlock(format, dedent(f'''\
             <div class="embed-responsive embed-responsive-{ratio}">
                 <iframe class="p-1 embed-responsive-item"
-                        src="/_vendor/ViewerJS/#{src}"
+                        src="{src}"
                         type="application/pdf"
-                        allowfullscreen
-                        webkitallowfullscreen>
+                        allowfullscreen>
                 <a href="{src}">{src}</a>
                 </iframe>
             </div>
