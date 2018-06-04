@@ -10,10 +10,10 @@
 
 * Lesson 4-1: Visualization Systems and Database Visualization
 ** 4.1.1. Visualization Systems
-: YEONGHOEY_PDF[16by9] _slides/4.1.1.pdf
+[[file:_slides/4.1.1.pdf::16by9]]
 
 ** 4.1.2. The Information Visualization Mantra
-: YEONGHOEY_PDF[16by9] _slides/4.1.2.pdf
+[[file:_slides/4.1.2.pdf::16by9]]
 
 1. Overview the whole dataset.
 2. Zoom and filter the dataset to pick out a curious problem.
@@ -50,7 +50,7 @@ Examples as follows:
   [[file:_img/screenshot_2018-06-04_15-46-42.png]] 
 
 ** 4.1.3. Database Visualization
-: YEONGHOEY_PDF[16by9] _slides/4.1.3.pdf
+[[file:_slides/4.1.3.pdf::16by9]]
 
 - Pivoting
 
@@ -58,4 +58,4 @@ Examples as follows:
 
 * Lesson 4-2: Visualization System Design
 ** 4.2.1. Visualization System Design
-: YEONGHOEY_PDF[16by9] _slides/4.2.1.pdf
+[[file:_slides/4.2.1.pdf::16by9]]

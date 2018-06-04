@@ -15,16 +15,16 @@
 
 * Lesson 3-1: Grapsh, Graph Visualization, and Tree Maps
 ** 3.1.1. Graphs and Networks
-: YEONGHOEY_PDF[16by9] _slides/3.1.1.pdf
+[[file:_slides/3.1.1.pdf::16by9]]
 
 ** 3.1.2. Embedding Planar Graphs
-: YEONGHOEY_PDF[16by9] _slides/3.1.2.pdf
+[[file:_slides/3.1.2.pdf::16by9]]
 
 ** 3.1.3 Graph Visualization
-: YEONGHOEY_PDF[16by9] _slides/3.1.3.pdf
+[[file:_slides/3.1.3.pdf::16by9]]
 
 ** 3.1.4 Graph Visualization
-: YEONGHOEY_PDF[16by9] _slides/3.1.4.pdf
+[[file:_slides/3.1.4.pdf::16by9]]
 
 ** Compute a Planar Graph Layout with NumPy
 - Tutte's algorithm
@@ -100,11 +100,11 @@
 
 * Lesson 3-2: Principal Component Analysis and Multidimensional Scaling
 ** 3.2.1. Principal Component Analysis
-: YEONGHOEY_PDF[16by9] _slides/3.2.1.pdf
+[[file:_slides/3.2.1.pdf::16by9]]
 
 ** 3.2.2. Multidimensional Scaling
-: YEONGHOEY_PDF[16by9] _slides/3.2.2.pdf
+[[file:_slides/3.2.2.pdf::16by9]]
 
 * Lesson 3-3: Packing
 ** 3.3.1. Packing
-: YEONGHOEY_PDF[16by9] _slides/3.3.1.pdf
+[[file:_slides/3.3.1.pdf::16by9]]
