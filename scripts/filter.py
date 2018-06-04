@@ -85,16 +85,14 @@ YEONGHOEY_PDF = re.compile(r'''^YEONGHOEY_PDF
 
 def handle_pdf(key, value, format, meta):
     assert format == 'html'
-    if key == 'CodeBlock':
-        attr, code = value
-
-        match = YEONGHOEY_PDF.match(code)
-        if match is not None:
-            d = match.groupdict()
-            src = media(d['src'])
-            ratio = d['ratio']
-            return pf.RawBlock(format, dedent(f'''\
-            <div class="embed-responsive embed-responsive-{ratio}">
+    if key == 'Link':
+        attr, inlines, target = value
+        url, title = target
+        src, _, ratio = url.rpartition('::')
+        if src.endswith('.pdf') and ratio in ('21by9', '16by9', '4by3', '1by1'):
+            src = media(src)
+            return pf.RawInline(format, dedent(f'''\
+            <div class="w-75 embed-responsive embed-responsive-{ratio}">
                 <iframe class="p-1 embed-responsive-item"
                         src="{src}"
                         type="application/pdf"
