@@ -73,16 +73,9 @@ def handle_notag(key, value, format, meta):
 
 
 # =============================================================================
-# Embed pdf files, customized syntax is following:
+# Embed pdf files, use `[[file:<path>.pdf::<ratio>]]`
 # <ratio> is one of `21by9`, `16by9`, `4by3` `1by1
-# : YEONGHOEY_PDF[<ratio>] <src>
 # =============================================================================
-YEONGHOEY_PDF = re.compile(r'''^YEONGHOEY_PDF
-                               \[(?P<ratio>[^]]+)\]
-                               [ ]
-                               (?P<src>.+)$''', re.VERBOSE)
-
-
 def handle_pdf(key, value, format, meta):
     assert format == 'html'
     if key == 'Link':
