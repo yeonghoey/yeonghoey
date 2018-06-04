@@ -1,0 +1,55 @@
+#+TITLE: CS 498: Week 4
+
+* Table of Contents :TOC_2_gh:
+- [[#lesson-4-1-visualization-systems-and-database-visualization][Lesson 4-1: Visualization Systems and Database Visualization]]
+  - [[#411-visualization-systems][4.1.1. Visualization Systems]]
+  - [[#412-the-information-visualization-mantra][4.1.2. The Information Visualization Mantra]]
+  - [[#413-database-visualization][4.1.3. Database Visualization]]
+
+* Lesson 4-1: Visualization Systems and Database Visualization
+** 4.1.1. Visualization Systems
+: YEONGHOEY_PDF[16by9] _slides/4.1.1.pdf
+
+** 4.1.2. The Information Visualization Mantra
+: YEONGHOEY_PDF[16by9] _slides/4.1.2.pdf
+
+1. Overview the whole dataset.
+2. Zoom and filter the dataset to pick out a curious problem.
+3. Provide details only on demand.
+
+Examples as follows:
+
+- Use logarithmic scale.
+
+  [[file:_img/screenshot_2018-06-04_15-02-11.png]]
+
+  [[file:_img/screenshot_2018-06-04_15-02-32.png]]
+
+- Edit axis bound
+
+  [[file:_img/screenshot_2018-06-04_15-03-04.png]]
+
+  [[file:_img/screenshot_2018-06-04_15-03-34.png]]
+
+- Zoom in some clumps 
+
+  [[file:_img/screenshot_2018-06-04_15-29-38.png]]
+
+- Fishey Distortion
+
+  [[file:_img/screenshot_2018-06-04_15-39-01.png]] 
+
+- Filter
+
+  [[file:_img/screenshot_2018-06-04_15-43-59.png]]
+
+- Details on Demand
+
+  [[file:_img/screenshot_2018-06-04_15-46-42.png]] 
+
+** 4.1.3. Database Visualization
+: YEONGHOEY_PDF[16by9] _slides/4.1.3.pdf
+
+- Pivoting
+
+  [[file:_img/screenshot_2018-06-04_17-36-03.png]]
