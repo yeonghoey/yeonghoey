@@ -5,6 +5,8 @@
   - [[#411-visualization-systems][4.1.1. Visualization Systems]]
   - [[#412-the-information-visualization-mantra][4.1.2. The Information Visualization Mantra]]
   - [[#413-database-visualization][4.1.3. Database Visualization]]
+- [[#lesson-4-2-visualization-system-design][Lesson 4-2: Visualization System Design]]
+  - [[#421-visualization-system-design][4.2.1. Visualization System Design]]
 
 * Lesson 4-1: Visualization Systems and Database Visualization
 ** 4.1.1. Visualization Systems
@@ -53,3 +55,7 @@ Examples as follows:
 - Pivoting
 
   [[file:_img/screenshot_2018-06-04_17-36-03.png]]
+
+* Lesson 4-2: Visualization System Design
+** 4.2.1. Visualization System Design
+: YEONGHOEY_PDF[16by9] _slides/4.2.1.pdf
