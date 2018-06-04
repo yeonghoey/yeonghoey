@@ -3,7 +3,39 @@
 * Table of Contents :TOC_2_gh:
 - [[#multiple-linear-regression][Multiple Linear Regression]]
   - [[#multiple-linear-regression-model][Multiple Linear Regression Model]]
+  - [[#interpreting-the-mlr-model][Interpreting the MLR Model]]
+  - [[#mlr-in-r][MLR in R]]
 
 * Multiple Linear Regression
 ** Multiple Linear Regression Model
 [[file:_img/screenshot_2018-06-04_20-00-04.png]]
+
+[[file:_img/screenshot_2018-06-04_22-04-06.png]]
+
+[[file:_img/screenshot_2018-06-04_22-07-47.png]]
+
+[[file:_img/screenshot_2018-06-04_22-10-07.png]]
+
+[[file:_img/screenshot_2018-06-04_22-13-10.png]]
+
+- $Y$ can be called the /Design Matrix/ or the /Model Matrix/
+
+[[file:_img/screenshot_2018-06-04_22-15-02.png]]
+
+[[file:_img/screenshot_2018-06-04_22-17-04.png]]
+
+[[file:_img/screenshot_2018-06-04_22-17-54.png]]
+
+[[file:_img/screenshot_2018-06-04_22-19-45.png]]
+** Interpreting the MLR Model
+*** Model
+[[file:_img/screenshot_2018-06-04_22-23-46.png]]
+
+*** Fitted Model
+[[file:_img/3ef2e5112abc5be410468427006f23b798292a85.png]]
+
+[[file:_img/d01fdcc993813016ccfd2c99066ef7a734d2079a.png]]
+
+[[file:_img/8423a15322e0aee93f81e2f5903ec650856151d1.png]]
+** MLR in R
+[[file:_img/30dabd5cfc551b7b60438801d5e1a59a4240ae70.png]]
