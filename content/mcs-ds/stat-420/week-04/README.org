@@ -1,10 +1,27 @@
 #+TITLE: STAT 420: Week 4
 
 * Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
 - [[#multiple-linear-regression][Multiple Linear Regression]]
   - [[#multiple-linear-regression-model][Multiple Linear Regression Model]]
   - [[#interpreting-the-mlr-model][Interpreting the MLR Model]]
   - [[#mlr-in-r][MLR in R]]
+- [[#inference-for-multiple-linear-regression][Inference for Multiple Linear Regression]]
+  - [[#sampling-distribution][Sampling Distribution]]
+  - [[#simulation][Simulation]]
+  - [[#single-parameter-tests][Single Parameter Tests]]
+  - [[#interval-estimation][Interval Estimation]]
+  - [[#intervals-and-test-for-mlr-in-r][Intervals and Test for MLR in R]]
+- [[#nested-models][Nested Models]]
+  - [[#significance-of-regression][Significance of Regression]]
+  - [[#general-nested-models][General Nested Models]]
+  - [[#nested-models-in-r][Nested Models in R]]
+- [[#additional-optional-videos][Additional Optional Videos]]
+  - [[#model-building][Model Building]]
+  - [[#explanation-vs-prediction][Explanation vs Prediction]]
+
+* Overview
+- http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html
 
 * Multiple Linear Regression
 ** Multiple Linear Regression Model
@@ -39,3 +56,434 @@
 [[file:_img/8423a15322e0aee93f81e2f5903ec650856151d1.png]]
 ** MLR in R
 [[file:_img/30dabd5cfc551b7b60438801d5e1a59a4240ae70.png]]
+
+#+BEGIN_SRC R :session :results output :exports both
+  autompg = read.table(
+    "http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data",
+    quote = "\"",
+    comment.char = "",
+    stringsAsFactors = FALSE)
+                                          # give the dataframe headers
+  colnames(autompg) = c("mpg", "cyl", "disp", "hp", "wt", "acc", "year", "origin", "name")
+                                          # remove missing data, which is stored as "?"
+  autompg = subset(autompg, autompg$hp != "?")
+                                          # remove the plymouth reliant, as it causes some issues
+  autompg = subset(autompg, autompg$name != "plymouth reliant")
+                                          # give the dataset row names, based on the engine, year and name
+  rownames(autompg) = paste(autompg$cyl, "cylinder", autompg$year, autompg$name)
+                                          # remove the variable for name, as well as origin
+  autompg = subset(autompg, select = c("mpg", "cyl", "disp", "hp", "wt", "acc", "year"))
+                                          # change horsepower from character to numeric
+  autompg$hp = as.numeric(autompg$hp)
+                                          # check final structure of data
+  str(autompg)
+#+END_SRC
+
+#+RESULTS:
+: 'data.frame':	390 obs. of  7 variables:
+:  $ mpg : num  18 15 18 16 17 15 14 14 14 15 ...
+:  $ cyl : int  8 8 8 8 8 8 8 8 8 8 ...
+:  $ disp: num  307 350 318 304 302 429 454 440 455 390 ...
+:  $ hp  : num  130 165 150 150 140 198 220 215 225 190 ...
+:  $ wt  : num  3504 3693 3436 3433 3449 ...
+:  $ acc : num  12 11.5 11 12 10.5 10 9 8.5 10 8.5 ...
+:  $ year: int  70 70 70 70 70 70 70 70 70 70 ...
+
+#+BEGIN_SRC R :session :results output :exports both
+  mpg_model = lm(mpg ~ wt + year, data = autompg)
+  coef(mpg_model)
+#+END_SRC
+
+#+RESULTS:
+:   (Intercept)            wt          year 
+: -14.637641945  -0.006634876   0.761401955
+
+#+BEGIN_SRC R :session :results output :exports both
+  n = nrow(autompg)
+  p = length(coef(mpg_model))
+  X = cbind(rep(1, n), autompg$wt, autompg$year)
+  y = autompg$mpg
+
+  (beta_hat = solve(t(X) %*% X) %*% t(X) %*% y)
+#+END_SRC
+
+#+RESULTS:
+:               [,1]
+: [1,] -14.637641945
+: [2,]  -0.006634876
+: [3,]   0.761401955
+
+#+BEGIN_SRC R :session :results output :exports both
+  y_hat = X %*% beta_hat
+  e = y - y_hat
+  sqrt(sum(e ^ 2) / (n - p))
+  summary(mpg_model)$sigma
+#+END_SRC
+
+#+RESULTS:
+: [1] 3.431367
+: [1] 3.431367
+* Inference for Multiple Linear Regression
+** Sampling Distribution
+[[file:_img/4c70330e0c8380a0e330c053b6dc62823a61fbf7.png]]
+
+[[file:_img/be02e9b5168d6c97dd242fce06aa7af6769438cd.png]]
+
+[[file:_img/3e81fa4e5125437cf727aca709b89685180aeb6d.png]]
+
+- MVN :: $Y$ is a multivariate normal distribution.
+
+[[file:_img/00c12f934d0644ff5c96c45f77a585e02c136e32.png]]
+
+[[file:_img/b6bd95a2a56c494b66c7a89e7c50af39333d799b.png]]
+
+[[file:_img/435eb651491d5356b4d1bc1efd6f6486ed9e3a6e.png]]
+** Simulation
+#+BEGIN_SRC R :session :results output :exports both
+  set.seed(1337)
+  n = 100 # sample size
+  p = 3
+
+  beta_0 = 5
+  beta_1 = -2
+  beta_2 = 6
+  sigma  = 4
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC R :session :results output :exports both
+  x0 = rep(1, n)
+  x1 = sample(seq(1, 10, length = n))
+  x2 = sample(seq(1, 10, length = n))
+  X = cbind(x0, x1, x2)
+  C = solve(t(X) %*% X)
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC R :session :results output :exports both
+  num_sims = 10000
+  y        = rep(0, n)
+  sim_data = data.frame(x1, x2, y)
+  beta_hat_2 = rep(0, num_sims)
+  for(i in 1:num_sims) {
+    eps           = rnorm(n, mean = 0 , sd = sigma)
+    sim_data$y    = beta_0 * x0 + beta_1 * x1 + beta_2 * x2 + eps
+    fit           = lm(y ~ x1 + x2, data = sim_data)
+    beta_hat_2[i] = coef(fit)[3]
+  }
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC R :session :results output :exports both
+  mean(beta_hat_2)
+  var(beta_hat_2)
+#+END_SRC
+
+#+RESULTS:
+: [1] 5.99871
+: [1] 0.02360853
+
+#+BEGIN_SRC R :session :file _img/beta_hat_2.png :results graphics :width 640 :height 480 :exports both
+  hist(beta_hat_2, prob = TRUE, breaks = 20, 
+       xlab = expression(hat(beta)[2]), main = "", border = "dodgerblue")
+  curve(dnorm(x, mean = beta_2, sd = sqrt(sigma ^ 2 * C[2 + 1, 2 + 1])), 
+        col = "darkorange", add = TRUE, lwd = 3)
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/beta_hat_2.png]]
+
+
+#+BEGIN_SRC R :session :results output :exports both
+  sim_beta_hat_2 = function() {
+    eps = rnorm(n, mean = 0 , sd = sigma)
+    y   = beta_0 * x0 + beta_1 * x1 + beta_2 * x2 + eps
+    fit = lm(y ~ x1 + x2)
+    coef(fit)[3]
+  }
+
+  # Do things repeatedly
+  beta_hat_2_alt = replicate(n = num_sims, sim_beta_hat_2())
+  mean(beta_hat_2_alt)
+  var(beta_hat_2_alt)
+#+END_SRC
+
+#+RESULTS:
+: [1] 5.997824
+: [1] 0.0242292
+
+#+BEGIN_SRC R :session :results output :exports both
+  system.time(
+    replicate(n = num_sims, sim_beta_hat_2())
+  )
+#+END_SRC
+
+#+RESULTS:
+:    user  system elapsed 
+:   6.400   0.027   6.607
+** Single Parameter Tests
+[[file:_img/cea3bd30c8a2d28b608044a52e5a1229f835872f.png]]
+
+[[file:_img/68c85e1fc26e3bf0c875c42439a22797a9157230.png]]
+
+[[file:_img/16f78d51e31d8a9f6310af46c26f747d34779a0d.png]]
+
+** Interval Estimation
+[[file:_img/ab52dfca73676566ad07a5023211ed11a8a057a2.png]]
+
+[[file:_img/e2e5f9affe71d10d138a79b36cbfb22a42a41467.png]]
+
+[[file:_img/d7481895f2bdc330f04f9663c7d1a4b18fb43fcd.png]]
+
+[[file:_img/9e8d3b6168202fe80f99c7e2eb1569ee95903c88.png]]
+
+#+BEGIN_QUOTE
+- The confidence interval for the mean
+- The prediction interval for a new observation
+#+END_QUOTE
+** Intervals and Test for MLR in R
+#+BEGIN_SRC R :session :results output :exports both
+  summary(mpg_model)
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+
+Call:
+lm(formula = mpg ~ wt + year, data = autompg)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-8.852 -2.292 -0.100  2.039 14.325 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -1.464e+01  4.023e+00  -3.638 0.000312 ***
+wt          -6.635e-03  2.149e-04 -30.881  < 2e-16 ***
+year         7.614e-01  4.973e-02  15.312  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.431 on 387 degrees of freedom
+Multiple R-squared:  0.8082,	Adjusted R-squared:  0.8072 
+F-statistic: 815.6 on 2 and 387 DF,  p-value: < 2.2e-16
+#+end_example
+
+#+BEGIN_SRC R :session :results output :exports both
+  confint(mpg_model, level = 0.99)
+#+END_SRC
+
+#+RESULTS:
+:                     0.5 %       99.5 %
+: (Intercept) -25.052563681 -4.222720208
+: wt           -0.007191036 -0.006078716
+: year          0.632680051  0.890123859
+
+#+BEGIN_SRC R :session :results output :exports both
+  new_cars = data.frame(wt = c(3500, 5000), year = c(76, 81))
+  predict(mpg_model, newdata = new_cars, interval = "confidence", level = 0.99)
+  predict(mpg_model, newdata = new_cars, interval = "prediction", level = 0.99)
+#+END_SRC
+
+#+RESULTS:
+:        fit     lwr      upr
+: 1 20.00684 19.4712 20.54248
+: 2 13.86154 12.3341 15.38898
+:        fit       lwr      upr
+: 1 20.00684 11.108294 28.90539
+: 2 13.86154  4.848751 22.87432
+
+#+BEGIN_SRC R :session :file _img/extrapolation.png :width 640 :results graphics :exports both
+  plot(year ~ wt, data = autompg, pch = 20, col = "dodgerblue", cex = 1.5)
+  points(new_cars, col = "darkorange", cex = 3, pch = "X")
+#+END_SRC
+
+#+RESULTS:
+[[file:_img/extrapolation.png]]
+
+#+BEGIN_SRC R :session :results output :exports both
+  confint(mpg_model, level = 0.99, parm = "wt")
+
+  est = summary(mpg_model)$coef["wt", "Estimate"]
+  se = summary(mpg_model)$coef["wt", "Std. Error"]
+  df = nrow(autompg) - length(coef(mpg_model))
+  cv = qt(0.005, df, lower.tail = FALSE)
+  c(est - cv*se, est + cv*se)
+#+END_SRC
+
+#+RESULTS:
+:           0.5 %       99.5 %
+: wt -0.007191036 -0.006078716
+: [1] -0.007191036 -0.006078716
+* Nested Models
+** Significance of Regression
+[[file:_img/c4415666dd603400685c66f77d7c5b8dedec64ca.png]]
+
+[[file:_img/41e25740e2a0be9e6b70d7ce78bdff6dcb172d52.png]]
+
+[[file:_img/b3cdf497397e8125fbd1646f8027f0b31638e336.png]]
+
+[[file:_img/201cac377970de815c8b2e1db8e17ee3c44ea17e.png]]
+
+[[file:_img/5132d179e8a5004ee4de619c7f1792ab244b9e34.png]]
+
+[[file:_img/f255dc8329e7723b49c55b30f67354f6ee1f8f64.png]]
+
+[[file:_img/2e3bb56619f4c182d42dae0ca7e44bf620dbbe35.png]]
+** General Nested Models
+- If $p$ > $q$, $p$ model is more complex
+
+[[file:_img/f79b99f326dd49c791456d7ce303f1b6a76a0dde.png]]
+
+[[file:_img/5bd6b70a20b451f3c6f14beacc5c207216e3563e.png]]
+
+[[file:_img/3299b83658b4142edd62cbae1126c631b694e054.png]]
+
+[[file:_img/bfda31fbe22f22638bd429d380ee4b9980fb8d20.png]]
+
+[[file:_img/72405b665a8e8fc167b355b0ed91a765fb260116.png]]
+
+[[file:_img/039e4e6aaa20bf567da4499ad4b9e1b7d4930f0a.png]]
+** Nested Models in R
+\begin{aligned}
+H_0: Y_i &= \beta_0 + \epsilon_i\\
+H_1: Y_i &= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i
+\end{aligned}
+
+#+BEGIN_SRC R :session :results output :exports both
+  null_mpg_model = lm(mpg ~ 1, data = autompg)
+  full_mpg_model = lm(mpg ~ wt + year, data = autompg)
+  anova(null_mpg_model, full_mpg_model)
+#+END_SRC
+
+#+RESULTS:
+: Analysis of Variance Table
+: 
+: Model 1: mpg ~ 1
+: Model 2: mpg ~ wt + year
+:   Res.Df     RSS Df Sum of Sq      F    Pr(>F)    
+: 1    389 23761.7                                  
+: 2    387  4556.6  2     19205 815.55 < 2.2e-16 ***
+: ---
+: Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+#+BEGIN_SRC R :session :results output :exports both
+  summary(full_mpg_model)
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+
+Call:
+lm(formula = mpg ~ wt + year, data = autompg)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-8.852 -2.292 -0.100  2.039 14.325 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -1.464e+01  4.023e+00  -3.638 0.000312 ***
+wt          -6.635e-03  2.149e-04 -30.881  < 2e-16 ***
+year         7.614e-01  4.973e-02  15.312  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.431 on 387 degrees of freedom
+Multiple R-squared:  0.8082,	Adjusted R-squared:  0.8072 
+F-statistic: 815.6 on 2 and 387 DF,  p-value: < 2.2e-16
+#+end_example
+
+#+BEGIN_SRC R :session :results output :exports both
+  null_mpg_model = lm(mpg ~ wt + year, data = autompg)
+  # full_mpg_model = lm(mpg ~ wt + year + cyl + disp + hp + acc, data = autompg)
+  full_mpg_model = lm(mpg ~ ., data = autompg)
+  anova(null_mpg_model, full_mpg_model)
+#+END_SRC
+
+#+RESULTS:
+: Analysis of Variance Table
+: 
+: Model 1: mpg ~ wt + year
+: Model 2: mpg ~ cyl + disp + hp + wt + acc + year
+:   Res.Df    RSS Df Sum of Sq      F Pr(>F)
+: 1    387 4556.6                           
+: 2    383 4530.5  4     26.18 0.5533 0.6967
+
+#+BEGIN_SRC R :session :results output :exports both
+  f_value = anova(null_mpg_model, full_mpg_model)[2, "F"]
+  n = length(residuals(full_mpg_model))
+  p = length(coef(full_mpg_model))
+  q = length(coef(null_mpg_model))
+  df1 = p - q
+  df2 = n - p
+  pf(f_value, df1, df2, lower.tail = FALSE)
+#+END_SRC
+
+#+RESULTS:
+: [1] 0.6967249
+
+$t$ test and $F$ test are equivalent when null model is nested and $p - q = 1$:
+
+#+BEGIN_SRC R :session :results output :exports both
+  null_mpg_model = lm(mpg ~ wt + year, data = autompg)
+  full_mpg_model = lm(mpg ~ wt + year + acc, data = autompg)
+#+END_SRC
+
+#+RESULTS:
+
+First, the $p$ values are the same:
+
+#+BEGIN_SRC R :session :results output :exports both
+  anova(null_mpg_model, full_mpg_model)[2, "Pr(>F)"]
+  coef(summary(full_mpg_model))["acc", "Pr(>|t|)"]
+#+END_SRC
+
+#+RESULTS:
+: [1] 0.3715681
+: [1] 0.3715681
+
+Also, $t^2 = F$:
+
+#+BEGIN_SRC R :session :results output :exports both
+  F = anova(null_mpg_model, full_mpg_model)[2, "F"]
+  F
+  t = coef(summary(full_mpg_model))["acc", "t value"]
+  t ^ 2
+#+END_SRC
+
+#+RESULTS:
+: [1] 0.8002768
+: [1] 0.8002768
+* Additional Optional Videos
+** Model Building
+[[file:_img/c83e6bc60c8744af7047b534f13a5567f6a74860.png]]
+
+[[file:_img/658d2750c7212b625bd75fe0876667714462389b.png]]
+
+[[file:_img/4d129792843b40367d8d48d82fe9fe17b04c08d8.png]]
+
+[[file:_img/515e86acdbbfcaafd817564eee74fbe042ddba34.png]]
+
+[[file:_img/4f22052a65feb1b9204ac4fa79f11a746e30ab6c.png]]
+
+[[file:_img/ba41eb02ecd71de6510466e9753bc24aede63170.png]]
+
+[[file:_img/37bccbdea2454563bf1f787442a0e1aee0d8e070.png]]
+** Explanation vs Prediction
+[[file:_img/777750fdc97a949143c2cd2b8fb2dff2e8c89113.png]]
+
+[[file:_img/117e7f2c6f69daaa5b25d44d1d65b43e6bff3ac3.png]]
+
+[[file:_img/0fbf09f4ae28a4620de94b32b08cc0a48bb1c58a.png]]
+
+- Is there a statistically significant difference between these two things?
+- If there's not, we're going to prefer the orange smaller model because it's a lot easier to explain
+  the relationship between $x_2$ and $y$ than the relationship between $x_1$ and $x_2$ and $y$.
+
+[[file:_img/217478d93054530cb15edbe596bb791af28dc827.png]]
+
+[[file:_img/63a5f4ffc1107313297a62823b69edf7fbe9e1cb.png]]
