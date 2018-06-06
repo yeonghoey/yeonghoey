@@ -83,12 +83,11 @@ def handle_pdf(key, value, format, meta):
         url, title = target
         src, _, ratio = url.rpartition('::')
         _, ext = splitext(src)
-        if ext == '.pdf' and ratio in ('21by9', '16by9', '4by3', '1by1'):
+        if ext == '.pdf' and ratio in ('16by9', '4by3'):
             src = media(src)
             return pf.RawInline(format, dedent(f'''\
-            <div class="w-75 embed-responsive embed-responsive-{ratio}">
-                <iframe class="p-1 embed-responsive-item"
-                        src="{src}"
+            <div class="embed embed-{ratio}">
+                <iframe src="{src}"
                         type="application/pdf"
                         allowfullscreen>
                 <a href="{src}">{src}</a>
