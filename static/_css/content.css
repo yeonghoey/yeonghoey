@@ -1,41 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
 .content {
   font-family: 'Nanum Gothic', sans-serif;
-  box-sizing: border-box;
+  max-width: 960px;
   padding: 0.5em;
-  width: 75%;
   margin: auto;
+
 }
 
 pre {
   font-family: 'Source Sans Pro', sans-serif;
-  padding: 1em;
-  background: #f0f0f0;
+  padding: 0.5em;
+  background-color: #f0f0f0;
 }
 
 header h1 {
-  font-size: 4em;
+  font-size: 3em;
+  margin: 1em 0;
 }
 
-h1 {
-  font-size: 2em;
+h1, h2, h3, h4, h5, h6 {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid black;
+  margin: 2em 0 1em 0;
 }
 
-h2 {
-  font-size: 1.5em;
-}
-
-h3 {
-  font-size: 1.17em;
-}
-
-h4 {
-  font-size: 1.12em;
-}
-
-h5 {
-  font-size: .83em;
-}
-
-h6 {
-  font-size: .75em;
-}
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+h4 { font-size: 1.12em; }
+h5 { font-size: .83em; }
+h6 { font-size: .75em; }
