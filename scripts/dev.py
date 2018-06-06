@@ -37,7 +37,9 @@ def touch():
 server = Server()
 
 for p in chain(Path('scripts').glob('**'),
-               Path('static').glob('**')):
+               Path('templates').glob('**'),
+               Path('static').glob('**'),
+               Path('.').glob('Makefile')):
     server.watch(str(p), touch)
 
 for p in chain(Path('content').glob('**/README.org')):
