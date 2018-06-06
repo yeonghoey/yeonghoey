@@ -20,8 +20,8 @@ $(CONTENT_DST): $(DESTDIR)/%/index.html : content/%/README.org
 	pipenv run $(PANDOC) \
   --standalone \
   --mathjax \
-  --css '/_css/pandoc.css' \
   --include-in-header 'includes/bootstrap.html' \
+  --include-in-header 'includes/styles.html' \
   --filter 'scripts/filter.py' \
   --output '$@' \
   '$<'
