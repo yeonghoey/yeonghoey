@@ -38,6 +38,7 @@ server = Server()
 
 for p in chain(Path('scripts').glob('**'),
                Path('templates').glob('**'),
+               Path('includes').glob('**'),
                Path('static').glob('**'),
                Path('.').glob('Makefile')):
     server.watch(str(p), touch)
