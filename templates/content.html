@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="$lang$">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -54,24 +54,24 @@ $for(include-before)$
   $include-before$
 $endfor$
 
-  <div class="content">
+<div class="content">
 $if(title)$
-    <header>
-      <h1 class="title">$title$</h1>
+<header>
+<h1 class="title">$title$</h1>
 $if(subtitle)$
-      <p class="subtitle">$subtitle$</p>
+<p class="subtitle">$subtitle$</p>
 $endif$
 $for(author)$
-      <p class="author">$author$</p>
+<p class="author">$author$</p>
 $endfor$
 $if(date)$
-      <p class="date">$date$</p>
+<p class="date">$date$</p>
 $endif$
-    </header>
+</header>
 $endif$
 
-    $body$
-  </div>
+$body$
+</div>
 
 $for(include-after)$
   $include-after$
