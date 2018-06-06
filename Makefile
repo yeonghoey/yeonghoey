@@ -21,7 +21,8 @@ $(CONTENT_DST): $(DESTDIR)/%/index.html : content/%/README.org
   --standalone \
   --mathjax \
   --template='templates/content.html' \
-  --css='/_css/pandoc.css' \
+  --css='/_css/content.css' \
+  --include-in-header='includes/fonts.html' \
   --filter='scripts/filter.py' \
   --output='$@' \
   '$<'

@@ -1,0 +1,41 @@
+.content {
+  font-family: 'Nanum Gothic', sans-serif;
+  box-sizing: border-box;
+  padding: 0.5em;
+  width: 75%;
+  margin: auto;
+}
+
+pre {
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 1em;
+  background: #f0f0f0;
+}
+
+header h1 {
+  font-size: 4em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h4 {
+  font-size: 1.12em;
+}
+
+h5 {
+  font-size: .83em;
+}
+
+h6 {
+  font-size: .75em;
+}
