@@ -28,8 +28,11 @@ header h1 {
   margin: 0;
 }
 
-pre {
+pre, code {
   font-family: 'Roboto Mono', monospace;
+}
+
+pre {
   padding: 0.5em;
   background-color: #f0f0f0;
 }
