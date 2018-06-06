@@ -1,5 +1,5 @@
 from os import environ
-from os.path import dirname
+from os.path import dirname, splitext
 from pprint import pprint
 import re
 from sys import stderr
@@ -82,7 +82,8 @@ def handle_pdf(key, value, format, meta):
         attr, inlines, target = value
         url, title = target
         src, _, ratio = url.rpartition('::')
-        if src.endswith('.pdf') and ratio in ('21by9', '16by9', '4by3', '1by1'):
+        _, ext = splitext(src)
+        if ext == '.pdf' and ratio in ('21by9', '16by9', '4by3', '1by1'):
             src = media(src)
             return pf.RawInline(format, dedent(f'''\
             <div class="w-75 embed-responsive embed-responsive-{ratio}">
