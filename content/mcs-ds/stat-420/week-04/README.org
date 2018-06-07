@@ -351,11 +351,17 @@ At least one of the predictors has a significant linear relationship with the re
 
 [[file:_img/3299b83658b4142edd62cbae1126c631b694e054.png]]
 
+The alternative $H_1$ is, like as above, at least one of these parameters above is non-zero.
+
 [[file:_img/bfda31fbe22f22638bd429d380ee4b9980fb8d20.png]]
 
 [[file:_img/72405b665a8e8fc167b355b0ed91a765fb260116.png]]
 
+- Reject $H_0$ :: We prefer the larger model
+- Fail to reject $H_0$ :: We prefer the smaller model
+
 [[file:_img/039e4e6aaa20bf567da4499ad4b9e1b7d4930f0a.png]]
+
 ** Nested Models in R
 \begin{aligned}
 H_0: Y_i &= \beta_0 + \epsilon_i\\
