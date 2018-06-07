@@ -19,7 +19,7 @@
   - [[#webbrowser][webbrowser]]
 - [[#terminology][Terminology]]
 - [[#topics][Topics]]
-  - [[#__new__-vs-__init__][__new__ vs __init__]]
+  - [[#__new__-vs-__init__][~__new__~ vs ~__init__~]]
   - [[#comparison][Comparison]]
   - [[#comparison-of-three-values][Comparison of three values]]
   - [[#double-underscores][Double underscores]]
@@ -677,16 +677,16 @@ In contrast, their *operator based counterparts require their arguments to be se
 
 * Terminology
 * Topics
-** __new__ vs __init__
-- https://docs.python.org/2/reference/datamodel.html#basic-customization
-- https://stackoverflow.com/questions/674304/pythons-use-of-new-and-init
+** ~__new__~ vs ~__init__~
 - ~__init__~ is called after the instance has been created (by ~__new__~), but before it is returned to the caller.
 - In general, you shouldn't need to override ~__new__~ unless you're subclassing an immutable type like ~str~, ~int~, ~unicode~ or ~tuple~.
 
-** Comparison
-- https://docs.python.org/2/library/stdtypes.html#comparisons
-- http://michael-yxf.appspot.com/?p=251002
+:REFERENCES:
+- https://docs.python.org/2/reference/datamodel.html#basic-customization
+- https://stackoverflow.com/questions/674304/pythons-use-of-new-and-init
+:END:
 
+** Comparison
 #+BEGIN_SRC python
   >>> a = ['0', 9999, {}, [], False, ()]
   >>> a.sort()
@@ -698,6 +698,11 @@ In contrast, their *operator based counterparts require their arguments to be se
 CPython implementation detail: Objects of different types except numbers are ordered by their type names;
 objects of the same types that don't support proper comparison are ordered by their address.
 #+END_QUOTE
+
+:REFERENCES:
+- https://docs.python.org/2/library/stdtypes.html#comparisons
+- http://michael-yxf.appspot.com/?p=251002
+:END:
 
 ** Comparison of three values
 #+BEGIN_SRC python
