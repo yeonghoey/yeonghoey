@@ -109,7 +109,7 @@ img,
 .embed {
   max-width: 75%;
   height: auto;
-  box-shadow: 0 0 1em #f0f0f0;
+  border: 0.5em solid #f0f0f0;
 }
 
 /* iframe aspect ratio support */
