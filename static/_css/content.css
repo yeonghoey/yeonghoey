@@ -29,12 +29,24 @@ header h1 {
   margin: 0;
 }
 
-code, kbd, samp {
+/* code inline */
+code {
   font-family: 'Roboto Mono', monospace;
   font-size: 0.75em;
-  padding: 0.2em 0.3em;
+  padding: 0.2em 0.4em;
   border-radius: 0.2em;
-  background-color: #f0f0f0;
+  background-color: #d7ccc8;
+}
+
+/* code block */
+.sourceCode {
+  border-radius: 0.3em;
+  background-color: #eeeeee;
+}
+
+.example {
+  border-radius: 0.3em;
+  background-color: #cfd8dc;
 }
 
 pre {
@@ -44,12 +56,8 @@ pre {
 
 pre code {
   font-size: 1em;
+  background-color: inherit;
   padding: 0;
-}
-
-.sourceCode, .example {
-  border-radius: 0.3em;
-  background-color: #f0f0f0;
 }
 
 .embed {
