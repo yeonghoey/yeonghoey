@@ -104,20 +104,26 @@ table td {
   list-style-type: none;
 }
 
+/* image */
+img {
+  max-width: 75%;
+  height: auto;
+}
+
 /* iframe aspect ratio support */
 .embed {
   position: relative;
   display: block;
   overflow: hidden;
-  width: 100%;
+  width: 75%;
 }
 
 .embed-16by9 {
-  padding: calc(100% * 9 / 16) 0 0 0;
+  padding: calc(75% * 9 / 16) 0 0 0;
 }
 
 .embed-4by3 {
-  padding: calc(100% * 3 / 4) 0 0 0;
+  padding: calc(75% * 3 / 4) 0 0 0;
 }
 
 .embed iframe {
