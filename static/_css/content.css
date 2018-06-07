@@ -50,8 +50,9 @@ code {
 }
 
 /* code block */
-.sourceCode,
-.example {
+.example,
+.shell,
+.sourceCode {
   border-radius: 0.3em;
   background-color: #f0f0f0;
 }
@@ -59,12 +60,14 @@ code {
 pre {
   font-family: 'Roboto Mono', monospace;
   padding: 0.75em 1em;
+  overflow: auto;
 }
 
 pre code {
   font-size: 1em;
   background-color: inherit;
   padding: 0;
+  white-space: pre;
 }
 
 /* striped table */
