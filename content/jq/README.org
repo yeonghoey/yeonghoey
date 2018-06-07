@@ -1,7 +1,4 @@
 * jq
-- https://stedolan.github.io/jq/manual/
-- https://jqplay.org/
-
 #+BEGIN_SRC json
   [{"name": "apple", "price": 10}, {"name": "orange", "price": 20}]
 #+END_SRC
@@ -18,3 +15,7 @@
   {"orange": 20}
 #+END_SRC
 
+:REFERENCES:
+- https://stedolan.github.io/jq/manual/
+- https://jqplay.org/
+:END:

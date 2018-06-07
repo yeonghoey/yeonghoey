@@ -11,26 +11,35 @@
 
 * How-to
 ** Modify EBS Volume
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html?icmpid=docs_ec2_console
-
 1. Do Actions -> Modify Volume.
 2. Change settings, like size.
 3. Run ~sudo resize2fs /dev/xvda1~ to resize the running file system
 
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html?icmpid=docs_ec2_console
+:END:
+
 ** Enable ENA on Ubuntu
+:REFERENCES:
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html
+:END:
 
 * Topics
 ** Key Pairs 
 *** Fingerprint
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
 - Created the key pair using AWS: the fingerprint is calculated using ~SHA-1~
 - Imported a public key: the fingerprint is calculated using ~MD5~
 
-** Status Checks
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
+:END:
 
+** Status Checks
 [[file:_img/screenshot_2017-02-19_14-15-08.png]]
+
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html
+:END:
 
 *** System Status Checks
 #+BEGIN_QUOTE
@@ -57,13 +66,18 @@ require your involvement to repair. (...)
 - Incompatible kernel
 
 ** Enhanced Networking on Linux
+:REFERENCES:
 - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html#enabling_enhanced_networking
+:END:
 
 *** Single-root IO virtualization(SR-IOV)
-- https://en.wikipedia.org/wiki/Single-root_input/output_virtualization
 - SR-IOV is a network interface that allows the isolation of the PCI Express resources for manageability and performance reasons.
 - Reduces CPU utilization for processing network traffic
 - Reduces latency path
 - Increases throughput
 
 [[file:_img/screenshot_2017-07-13_19-27-04.png]]
+
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Single-root_input/output_virtualization
+:END:

@@ -15,7 +15,6 @@
 * Topics
 * How-to
 ** Resolve a conflict
-
 - On ~master~ branch ::
 #+BEGIN_SRC python
   print 'foo'
@@ -45,5 +44,6 @@
 - ~X~ or ~x~ in Quick Help   :: Stands for ~A~ or ~B~, ~a~ or ~b~.
 
 * Links
+:REFERENCES:
 - https://magit.vc/manual/magit/#Top
-
+:END:

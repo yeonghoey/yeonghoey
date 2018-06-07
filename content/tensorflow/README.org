@@ -17,8 +17,6 @@
 * Overview
 * Reference
 ** placeholder
-- https://www.tensorflow.org/api_docs/python/tf/placeholder
-
 #+BEGIN_SRC python
   x = tf.placeholder(tf.float32, shape=(1024, 1024))
   y = tf.matmul(x, x)
@@ -30,9 +28,11 @@
     print(sess.run(y, feed_dict={x: rand_array}))  # Will succeed.
 #+END_SRC
 
-** get_variable
-- https://www.tensorflow.org/api_docs/python/tf/get_variable
+:REFERENCES:
+- https://www.tensorflow.org/api_docs/python/tf/placeholder
+:END:
 
+** get_variable
 #+BEGIN_SRC python
   def foo():
     with tf.variable_scope("foo", reuse=tf.AUTO_REUSE):
@@ -44,21 +44,30 @@
   assert v1 == v2
 #+END_SRC
 
-** train.AdamOptimizer
-- https://www.tensorflow.org/api_docs/python/tf/train/AdamOptimizer
-- https://stackoverflow.com/questions/33788989/tensorflow-using-adam-optimizer
+:REFERENCES:
+- https://www.tensorflow.org/api_docs/python/tf/get_variable
+:END:
 
+** train.AdamOptimizer
 #+BEGIN_SRC python
   train_op = tf.train.AdamOptimizer(learning_rate=kjjkk1e-4).minimize(cross_entropy)
 #+END_SRC
 
+:REFERENCES:
+- https://www.tensorflow.org/api_docs/python/tf/train/AdamOptimizer
+- https://stackoverflow.com/questions/33788989/tensorflow-using-adam-optimizer
+:END:
+
 ** xavier_initializer
-- https://www.tensorflow.org/api_docs/python/tf/contrib/layers/xavier_initializer
 - An initializer for a weight matrix.
 
 #+BEGIN_SRC python
   tf.get_variable("W", [3, 3, 3, 8], initializer=tf.contrib.layers.xavier_initializer())
 #+END_SRC
+
+:REFERENCES:
+- https://www.tensorflow.org/api_docs/python/tf/contrib/layers/xavier_initializer
+:END:
 
 ** sess.run
 #+BEGIN_SRC python

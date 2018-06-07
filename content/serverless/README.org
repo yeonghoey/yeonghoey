@@ -53,14 +53,16 @@ Subcommands:
 
 * Reference
 ** serverless.yml
+:REFERENCES:
 - https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
+:END:
 
 ** serverless-domain-manager
+:REFERENCES:
 - https://github.com/amplify-education/serverless-domain-manager#installing
+:END:
 
 ** serverless-dynamodb-local
-- https://github.com/99xt/serverless-dynamodb-local
-
 #+BEGIN_SRC shell
   sls dynamodb install
   sls dynamodb start
@@ -89,16 +91,20 @@ Subcommands:
   ]
 #+END_SRC
 
-** serverless-python-requirements
-- https://github.com/UnitedIncome/serverless-python-requirements
-- https://serverless.com/blog/serverless-python-packaging/
+:REFERENCES:
+- https://github.com/99xt/serverless-dynamodb-local
+:END:
 
+** serverless-python-requirements
 - ~dockerizePip: non-linux~ for making Lambda compatible packaging
 - Supports ~Pipenv~ by default
 
-** serverless-wsgi
-- https://github.com/logandk/serverless-wsgi
+:REFERENCES:
+- https://github.com/UnitedIncome/serverless-python-requirements
+- https://serverless.com/blog/serverless-python-packaging/
+:END:
 
+** serverless-wsgi
 #+BEGIN_SRC yaml
   service: example
 
@@ -135,10 +141,12 @@ Subcommands:
    ,* Debugger PIN: 109-942-480
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://github.com/logandk/serverless-wsgi
+:END:
+
 * Topics
 ** Services
-- https://serverless.com/framework/docs/providers/aws/guide/services/
-
 #+BEGIN_EXAMPLE
   users/
     serverless.yml # Contains 4 functions that do Users CRUD operations and the Users database
@@ -152,6 +160,10 @@ Subcommands:
   serverless create --template aws-nodejs --path myService
 #+END_SRC
 
+:REFERENCES:
+- https://serverless.com/framework/docs/providers/aws/guide/services/
+:END:
+
 *** serverless.yml
 - Declare a Serverless service
 - Define one or more functions in the service
@@ -162,7 +174,6 @@ Subcommands:
 - Allow events listed in the events section to automatically create the resources required for the event upon deployment
 - Allow flexible configuration using Serverless Variables
 ** Functions
-- https://serverless.com/framework/docs/providers/aws/guide/functions/
 - Your functions can either inherit their settings from the ~provider~ property.
 
 #+BEGIN_SRC yaml
@@ -190,14 +201,16 @@ Subcommands:
         TABLE_NAME: tableName2 # overrides
 #+END_SRC
 
+:REFERENCES:
+- https://serverless.com/framework/docs/providers/aws/guide/functions/
+:END:
+
 ** Events
+:REFERENCES:
 - https://serverless.com/framework/docs/providers/aws/guide/events/
+:END:
 
 ** Resources
-- https://serverless.com/framework/docs/providers/aws/guide/resources/
-- https://github.com/serverless/serverless/issues/3184
-- https://github.com/serverless/serverless/issues/3545
-
 - Based on [[https://github.com/serverless/serverless/blob/master/lib/plugins/aws/lib/naming.js#L48][getStackName]], though not explicitly documented, it seems that every stack is related to ~stage~
 - ~!<Function>~ syntax is not supported
 
@@ -212,17 +225,24 @@ Subcommands:
     variableSyntax: "\\${(?!AWS::)([ :a-zA-Z0-9._,\\-\\/\\(\\)]+?)}"
 #+END_SRC
 
-** Deploying
-- https://serverless.com/framework/docs/providers/aws/guide/deploying/
+:REFERENCES:
+- https://serverless.com/framework/docs/providers/aws/guide/resources/
+- https://github.com/serverless/serverless/issues/3184
+- https://github.com/serverless/serverless/issues/3545
+:END:
 
+** Deploying
 #+BEGIN_SRC shell
   serverless deploy --verbose                      # uses AWS CloudFormation Stack Update
   serverless deploy function --function myFunction # updates AWS Lambda only
   serverless deploy --stage production --region eu-central-1
 #+END_SRC
-** Variables
-- https://serverless.com/framework/docs/providers/aws/guide/variables/
 
+:REFERENCES:
+- https://serverless.com/framework/docs/providers/aws/guide/deploying/
+:END:
+
+** Variables
 #+BEGIN_SRC yaml
   x: ${env:NAME}                 # Environment Variables
   x: ${env:NAME, 'temp'}         # default
@@ -233,9 +253,11 @@ Subcommands:
   x: ${file(../config.yml):name} # js, json or yaml, can be json object or equivalents
 #+END_SRC
 
-** Packaging
-- https://serverless.com/framework/docs/providers/aws/guide/packaging/
+:REFERENCES:
+- https://serverless.com/framework/docs/providers/aws/guide/variables/
+:END:
 
+** Packaging
 #+BEGIN_SRC shell
   serverless package
   serverless package --package my-artifacts
@@ -268,12 +290,18 @@ At first it will apply the globs defined in ~exclude~. After that it'll add all 
     ],
 #+END_SRC
 
-** IAM
-- https://serverless.com/framework/docs/providers/aws/guide/iam/
+:REFERENCES:
+- https://serverless.com/framework/docs/providers/aws/guide/packaging/
+:END:
 
+** IAM
 #+BEGIN_QUOTE
 As those statements will be merged into the CloudFormation template, you can use ~Join~, ~Ref~ or any other CloudFormation method or feature.
 #+END_QUOTE
+
+:REFERENCES:
+- https://serverless.com/framework/docs/providers/aws/guide/iam/
+:END:
 
 *** Additional Policies on the generated policies
 - provider.iamRoleStatements  :: Define additional policies in the CloudFormation format
@@ -308,7 +336,6 @@ As those statements will be merged into the CloudFormation template, you can use
         - { 'Fn::Join': [':', ['arn:aws:iam:', { Ref: 'AWSAccountId' }, 'some/path']] }
 #+END_SRC
 *** Completely custom roles
-
 #+BEGIN_QUOTE
 Using this way means that ~iamRoleStatements~ you've defined on the provider level won't be applied anymore.
 Furthermore, you need to provide the corresponding permissions for your Lambdas logs and stream events.
@@ -327,20 +354,23 @@ Furthermore, you need to provide the corresponding permissions for your Lambdas 
 #+END_SRC
 
 ** Plugins
+:REFERENCES:
 - https://github.com/serverless/plugins
+:END:
 
 * How-to
 ** Deploy Flask App
-- https://serverless.com/blog/serverless-python-packaging/
-- https://serverless.com/blog/flask-python-rest-api-serverless-lambda-dynamodb/
-
 #+BEGIN_SRC shell
   npm init -f
   npm install --save-dev serverless-wsgi serverless-python-requirements
 #+END_SRC
-** Set Custom Domains
-- https://serverless.com/blog/serverless-api-gateway-domain/
 
+:REFERENCES:
+- https://serverless.com/blog/serverless-python-packaging/
+- https://serverless.com/blog/flask-python-rest-api-serverless-lambda-dynamodb/
+:END:
+
+** Set Custom Domains
 #+BEGIN_SRC shell
   $ npm install serverless-domain-manager --save-dev
 #+END_SRC
@@ -379,6 +409,11 @@ you'll need to specify the certificate name with a ~certificateName~ property un
       stage: ${opt:stage}
       createRoute53Record: true
 #+END_SRC
+
+:REFERENCES:
+- https://serverless.com/blog/serverless-api-gateway-domain/
+:END:
+
 ** Enable CORS
 :REFERENCES:
 - https://serverless.com/framework/docs/providers/aws/events/apigateway/#enabling-cors

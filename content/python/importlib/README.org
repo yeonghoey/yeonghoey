@@ -16,11 +16,16 @@ Programmatic importing of modules should use ~import_module()~ instead of this f
 #+BEGIN_QUOTE
 If you simply want to import a module (potentially within a package) by name, use ~importlib.import_module()~.
 #+END_QUOTE
------
+
+:REFERENCES:
+
 - https://docs.python.org/3/library/functions.html#__import__
+:END:
 
 ** import_module
 : importlib.import_module(name, package=None)
 - acts as a simplifying wrapper around ~importlib.__import__()~.
------
+
+:REFERENCES:
 - https://docs.python.org/3/library/importlib.html#importlib.import_module
+:END:

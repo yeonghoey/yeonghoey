@@ -1,6 +1,4 @@
 * pgrep
-- https://www.poftut.com/pgrep-pkill-command-tutorial-examples-linux/
-
 #+BEGIN_SRC shell
   pgrep pytho
   pgrep -u root ssh  # root user's ssh
@@ -23,3 +21,6 @@
   2166 nginx: worker process
 #+END_SRC
 
+:REFERENCES:
+- https://www.poftut.com/pgrep-pkill-command-tutorial-examples-linux/
+:END:

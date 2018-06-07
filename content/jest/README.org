@@ -40,8 +40,10 @@
   expect(mockFunc).toMatchSnapshot();
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://facebook.github.io/jest/docs/en/expect.html
+:END:
 
 ** [[https://facebook.github.io/jest/docs/en/asynchronous.html][Testing Asynchronous Code]]
 - Use ~done~ ::
@@ -242,7 +244,9 @@
 ** [[https://facebook.github.io/jest/docs/en/jest-platform.html][Jest Platform]]
 ** [[https://facebook.github.io/jest/docs/en/jest-community.html][Jest Community]]
 ** [[https://facebook.github.io/jest/docs/en/more-resources.html][More Resources]]
+:REFERENCES:
 - https://github.com/facebook/jest/tree/master/examples
+:END:
 
 * Guides
 ** [[https://facebook.github.io/jest/docs/en/snapshot-testing.html][Snapshot Testing]]

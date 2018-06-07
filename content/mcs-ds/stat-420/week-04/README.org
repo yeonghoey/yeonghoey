@@ -21,7 +21,9 @@
   - [[#explanation-vs-prediction][Explanation vs Prediction]]
 
 * Overview
+:REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html
+:END:
 
 * Multiple Linear Regression
 ** Multiple Linear Regression Model

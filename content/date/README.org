@@ -1,7 +1,4 @@
 * date
-- https://www.gnu.org/software/coreutils/manual/html_node/Options-for-date.html
-- https://www.gnu.org/software/coreutils/manual/html_node/Examples-of-date.html
-
 #+BEGIN_SRC shell
   date -u
   #     └─ --utc
@@ -35,3 +32,7 @@
   # 2017-08-18T08:12:49+00:00
 #+END_SRC
 
+:REFERENCES:
+- https://www.gnu.org/software/coreutils/manual/html_node/Options-for-date.html
+- https://www.gnu.org/software/coreutils/manual/html_node/Examples-of-date.html
+:END:

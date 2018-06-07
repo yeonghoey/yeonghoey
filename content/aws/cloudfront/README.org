@@ -64,10 +64,12 @@ Price Classes let you reduce your delivery prices by excluding Amazon CloudFront
 3. Set the identity to the cloudfront distribution.
 
 ** Zone ID of CloudFront Distributions
+It's globally a single one, which is ~Z2FDTNDATAQYW2~
+
+:REFERENCES:
 - https://github.com/hashicorp/terraform/issues/6489
 - https://docs.aws.amazon.com/general/latest/gr/rande.html#cf_region
-
-It's globally a single one, which is ~Z2FDTNDATAQYW2~
+:END:
 
 * How-to
 ** Use custom domain and its ACM (AWS Certificate Manager)
@@ -90,11 +92,14 @@ If you want to use ACM for both apex domain and subdomains, you should specify a
 when you create ACM
  
 ** Redirect HTTP to HTTPS
-- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html
-
 Within Behaviros tab:
 
 [[file:_img/screenshot_2018-03-10_00-08-51.png]]
+
+:REFERENCES:
+- https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html
+:END:
+
 ** Invalidate objects (Web Dist Only)
 [[file:_img/screenshot_2018-05-06_03-13-24.png]]
 
@@ -109,5 +114,6 @@ Or you can use ~awscli~ as follows:
 - An invalidation path can be for a single object (such as ~/images/logo.jpg~) or for multiple objects (such as ~/images/*~).
 - A path that includes the ~*~ wildcard counts as one path even if it causes CloudFront to invalidate thousands of objects.
 
------
+:REFERENCES:
 - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#PayingForInvalidation
+:END:

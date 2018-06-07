@@ -26,14 +26,16 @@
  - [[#links][Links]]
 
 * Beginner's Guide
-- http://nginx.org/en/docs/beginners_guide.html
-
 #+BEGIN_SRC shell
   $ nginx -s stop   # fast shutdown
   $ nginx -s quit   # graceful shutdown
   $ nginx -s reload # reloading the configuration file
   $ nginx -s reopen # reopening the log files
 #+END_SRC
+
+:REFERENCES:
+- http://nginx.org/en/docs/beginners_guide.html
+:END:
 
 ** Processes
 - one master process and several worker processes
@@ -48,10 +50,11 @@
 
 * Reference
 ** core
+:REFERENCES:
 - http://nginx.org/en/docs/ngx_core_module.html
+:END:
 
 *** events
-- http://nginx.org/en/docs/ngx_core_module.html#events
 - Where directives relating connection processing are placed
 
 #+BEGIN_EXAMPLE
@@ -62,16 +65,23 @@
   }
 #+END_EXAMPLE
 
+:REFERENCES:
+- http://nginx.org/en/docs/ngx_core_module.html#events
+:END:
+
 *** include
-- http://nginx.org/en/docs/ngx_core_module.html#include
 - Directives in files are inlcuded in the current context
 
 #+BEGIN_EXAMPLE
   include mime.types;
   include vhosts/*.conf;
 #+END_EXAMPLE
+
+:REFERENCES:
+- http://nginx.org/en/docs/ngx_core_module.html#include
+:END:
+
 *** worker_processes
-- http://nginx.org/en/docs/ngx_core_module.html#worker_processes
 - Setting it to the number of available CPU cores would be a good start
 - The value ~auto~ will try to autodetect it
 
@@ -79,11 +89,16 @@
   worker_processes auto;
 #+END_EXAMPLE
 
+:REFERENCES:
+- http://nginx.org/en/docs/ngx_core_module.html#worker_processes
+:END:
+
 ** http
+:REFERENCES:
 - http://nginx.org/en/docs/http/ngx_http_core_module.html
+:END:
 
 *** location
-- http://nginx.org/en/docs/http/ngx_http_core_module.html#location
 - The matching is performed against a *normalized* URI,
 - *normalized* URI
   - Decoding the text encoded in the “%XX” form
@@ -129,8 +144,12 @@
   /images/1.gif            -> D
   /documents/1.jpg         -> E
 #+END_EXAMPLE
+
+:REFERENCES:
+- http://nginx.org/en/docs/http/ngx_http_core_module.html#location
+:END:
+
 *** types
-- http://nginx.org/en/docs/http/ngx_http_core_module.html#types
 - Maps file name extensions to MIME types of responses
 
 #+BEGIN_EXAMPLE
@@ -141,10 +160,12 @@
   }
 #+END_EXAMPLE
 
+:REFERENCES:
+- http://nginx.org/en/docs/http/ngx_http_core_module.html#types
+:END:
+
 ** proxy
 *** proxy_pass
-- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
-
 If the ~proxy_pass~ directive is specified with a URI, then when a request is passed to the server,
 the part of a *normalized* request URI matching the location is replaced by a URI specified in the directive:
 #+BEGIN_EXAMPLE
@@ -167,27 +188,36 @@ or the full normalized request URI is passed when processing the changed URI:
 In this case, the URI specified in the directive is ignored and
 the full changed request URI is passed to the server.
 
+:REFERENCES:
+- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass
+:END:
+
 *** proxy_redirect
-- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_redirect
 - Sets the text that should be changed in the ~Location~ and ~Refresh~ header fields of a proxied server response
 #+BEGIN_EXAMPLE
   # will rewrite this string to “Location: http://frontend/one/some/uri/”.
   proxy_redirect http://localhost:8000/two/ http://frontend/one/;
 #+END_EXAMPLE
 
+:REFERENCES:
+- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_redirect
+:END:
+
 *** proxy_hide_header
-- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_hide_header
 - By default, nginx does not pass the header fields ~Date~, ~Server~, ~X-Pad~, and ~X-Accel-...~ from the response of a proxied server to a client.
 - The proxy_hide_header directive sets additional fields that will not be passed
 - [[http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass_header][proxy_pass_header]] for the opposite
 
+:REFERENCES:
+- http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_hide_header
+:END:
+
 ** rewrite
+:REFERENCES:
 - http://nginx.org/en/docs/http/ngx_http_rewrite_module.html
+:END:
 
 *** rewrite
-- http://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite
-- https://serverfault.com/questions/379675/nginx-reverse-proxy-url-rewrite
-
 #+BEGIN_EXAMPLE
   location  /foo {
     rewrite /foo(.*) /$1  break;
@@ -197,9 +227,13 @@ the full changed request URI is passed to the server.
   }
 #+END_EXAMPLE
 
+:REFERENCES:
+- http://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite
+- https://serverfault.com/questions/379675/nginx-reverse-proxy-url-rewrite
+:END:
+
 * Details
 ** site-enabled, site-available
-- https://serverfault.com/questions/527630/what-is-the-different-usages-for-sites-available-vs-the-conf-d-directory-for-ngi
 - The ~sites-available~ folder is for storing all of your vhost configurations, whether or not they're currently enabled.
 - The ~sites-enabled~ folder contains symlinks to files in the ~sites-available~ folder. This allows you to selectively disable vhosts by removing the symlink.
 - ~sites-~ are from Apache HTTP Server convention
@@ -213,11 +247,12 @@ the full changed request URI is passed to the server.
   include /etc/nginx/sites-enabled/*;
 #+END_SRC
 
+:REFERENCES:
+- https://serverfault.com/questions/527630/what-is-the-different-usages-for-sites-available-vs-the-conf-d-directory-for-ngi
+:END:
+
 * Use Cases
 ** Reverse Proxy with preserving request host
-- https://www.nginx.com/resources/admin-guide/reverse-proxy/
-- http://stackoverflow.com/questions/5834025/how-to-preserve-request-url-with-nginx-proxy-pass
-
 It seems that some hosts use ~Host~ header to redirect the client.
 nginx passes ~$proxy_host~, which contains the address of proxied server, by default.
 
@@ -244,12 +279,22 @@ By this, nginx keep clients communicating with it.
   }
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.nginx.com/resources/admin-guide/reverse-proxy/
+- http://stackoverflow.com/questions/5834025/how-to-preserve-request-url-with-nginx-proxy-pass
+:END:
+
 ** Server Block Examples
-- https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/
 - Same as ~Virtual Host~ of Apache
 
+:REFERENCES:
+- https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/
+:END:
+
 * Links
+:REFERENCES:
 - http://wiki.nginx.org/pitfalls
 - http://wiki.nginx.org/configuration
 - https://github.com/perusio/nginx_ensite
 - https://github.com/nginx-boilerplate/nginx-boilerplate
+:END:

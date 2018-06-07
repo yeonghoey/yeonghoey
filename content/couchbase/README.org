@@ -17,8 +17,6 @@
 
 * Reference
 ** internalSettings
-- https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html
-
 #+BEGIN_SRC shell
   $ curl -u Administrator:password -v http://localhost:8091/internalSettings
   {
@@ -37,9 +35,11 @@
   }
 #+END_SRC
 
-* Terminology
-- https://developer.couchbase.com/documentation/server/4.6/architecture/terminology.html
+:REFERENCES:
+- https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html
+:END:
 
+* Terminology
 - Node        :: A single Couchbase Server instance
 - Cluster     :: A collection of nodes that are accessed and managed as a single group.
 - Bucket      :: A logical container for a related set of items
@@ -54,15 +54,21 @@
 - Node lifecycle ::
 [[file:_img/screenshot_2017-08-22_23-54-23.png]]
 
+:REFERENCES:
+- https://developer.couchbase.com/documentation/server/4.6/architecture/terminology.html
+:END:
+
 * Topics
 ** Document Expiration
-- https://developer.couchbase.com/documentation/server/3.x/developer/dev-guide-3.0/doc-expiration.html
-- https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html
-
 - ~TTL~ in *seconds* if it's *30 days or less*
 - ~TTL~ in *Unix time* if it's *over 30 days*
 - Couchbase runs a process named ~expiry pager~ periodically to clean up expired items
 - ~Expire pager~ runs every ~60~ minutes by default(can be configured through [[https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html][exp_pager_stime]])
+
+:REFERENCES:
+- https://developer.couchbase.com/documentation/server/3.x/developer/dev-guide-3.0/doc-expiration.html
+- https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html
+:END:
 
 * How-to
 ** Failover
@@ -80,10 +86,12 @@
 - After putting back the node, select one of recovery strategy and click ~Rebalance~.
 
 ** Reset couchbase password
-- https://developer.couchbase.com/documentation/server/3.x/admin/CLI/cbreset_password_tool.html
-
 #+BEGIN_SRC shell
   /opt/couchbase/bin/cbreset_password
 #+END_SRC
+
+:REFERENCES:
+- https://developer.couchbase.com/documentation/server/3.x/admin/CLI/cbreset_password_tool.html
+:END:
 
 * Links

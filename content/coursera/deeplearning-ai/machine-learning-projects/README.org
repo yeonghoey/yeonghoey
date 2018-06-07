@@ -1,9 +1,11 @@
 #+TITLE: Structuring Machine Learning Projects
 
 * Overview
-- https://www.coursera.org/learn/machine-learning-projects
-
 The third course of Deep Learning Specialization in Coursera.
 
 - Week 1 :: [[week1][ML Strategy (1)]]
 - Week 2 :: [[week2][ML Strategy (2)]]
+
+:REFERENCES:
+- https://www.coursera.org/learn/machine-learning-projects
+:END:

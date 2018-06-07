@@ -12,9 +12,12 @@
 * Reference
 ** .eslintrc.js
 You can also use ~eslintConfig~ field in ~package.json~
------
+
+:REFERENCES:
+
 - https://eslint.org/docs/user-guide/configuring
 - https://eslint.org/docs/rules/
+:END:
 
 ** .eslintignore
 #+BEGIN_EXAMPLE
@@ -24,15 +27,21 @@ You can also use ~eslintConfig~ field in ~package.json~
   /*.js
   /test/unit/coverage/
 #+END_EXAMPLE
------
+
+:REFERENCES:
+
 - https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories
+:END:
 
 ** Rules
 - ~0~ or ~off~   :: turn the rule off
 - ~1~ or ~warn~  :: turn the rule on as a warning (doesn’t affect exit code)
 - ~2~ or ~error~ :: turn the rule on as an error (exit code is 1 when triggered)
------
+
+:REFERENCES:
+
 - https://eslint.org/docs/user-guide/configuring#configuring-rules
+:END:
 
 * Topics
 ** Disable no-unused-vars on arguments
@@ -43,10 +52,15 @@ You can also use ~eslintConfig~ field in ~package.json~
   // But, for readability, it is more important to explicitly specify args.
   'no-unused-vars': ['error', { 'args': 'none' }],
 #+END_SRC
------
+
+:REFERENCES:
+
 - https://eslint.org/docs/rules/no-unused-vars#args
 - https://blog.javascripting.com/2015/09/07/fine-tuning-airbnbs-eslint-config/
+:END:
 
 * Links
+:REFERENCES:
 - https://github.com/airbnb/javascript
 - https://www.npmjs.com/package/eslint-config-airbnb
+:END:

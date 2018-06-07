@@ -52,10 +52,12 @@
 #+END_SRC
 
 * Reference
+[[file:_img/screenshot_2017-10-18_10-53-35.png]]
+
+:REFERENCES:
 - https://docs.gitlab.com/ee/ci/yaml/
 - https://docs.gitlab.com/ee/ci/docker/README.html
-
-[[file:_img/screenshot_2017-10-18_10-53-35.png]]
+:END:
 
 ** before_script
 - Used to define the command that should be run before all jobs.
@@ -87,8 +89,6 @@
 - Alias for [[#stages][stages]]
 
 ** variables
-- https://docs.gitlab.com/ee/ci/variables/README.html
-
 - *All variables are set as environment variables* in the build environment
 - These variables can be later used in all executed commands and scripts.
 [[file:_img/screenshot_2017-10-18_11-05-41.png]]
@@ -112,6 +112,10 @@ Note: Integers (as well as strings) are legal both for variable's name and value
 
 [[file:_img/screenshot_2017-10-18_11-03-25.png]]
 
+:REFERENCES:
+- https://docs.gitlab.com/ee/ci/variables/README.html
+:END:
+
 ** cache
 #+BEGIN_QUOTE
 By default caching is enabled and shared between pipelines and jobs, starting from GitLab 9.0
@@ -131,7 +135,6 @@ By default caching is enabled and shared between pipelines and jobs, starting fr
 #+END_SRC 
 
 ** Jobs
-
 - https://docs.gitlab.com/ee/ci/yaml/#jobs
 
 #+BEGIN_SRC yaml
@@ -156,9 +159,6 @@ By default caching is enabled and shared between pipelines and jobs, starting fr
 [[file:_img/screenshot_2017-10-18_11-16-43.png]]
 
 *** only and except
-- https://docs.gitlab.com/ee/ci/yaml/#only-and-except-simplified
-
-
 [[file:_img/screenshot_2017-10-18_11-18-02.png]]
 
 [[file:_img/screenshot_2017-10-18_11-18-33.png]]
@@ -173,6 +173,10 @@ By default caching is enabled and shared between pipelines and jobs, starting fr
     except:
       - branches
 #+END_SRC
+
+:REFERENCES:
+- https://docs.gitlab.com/ee/ci/yaml/#only-and-except-simplified
+:END:
 
 *** Job variables
 - it overrides the global YAML job variables and predefined ones
@@ -205,7 +209,6 @@ By default caching is enabled and shared between pipelines and jobs, starting fr
 [[file:_img/screenshot_2017-10-18_11-26-47.png]]
 
 *** dependencies
-
 - Used in conjunction with ~artifacts~ and allows you to define the ~artifacts~ to pass between different jobs.
 
 #+BEGIN_QUOTE
@@ -268,9 +271,12 @@ Note that artifacts from all previous stages are passed by default.
 * Terminology
 * Topics
 ** cache vs artifacts,dependencies
-- https://gitlab.com/gitlab-org/gitlab-runner/issues/1232
 - ~artifacts~ are created during a run and *can be used by the following JOBS* of that very same currently active run.
 - ~caches~ *can be used by following RUNS* of that very same JOB (a script in a stage, like 'build' in my example).
+
+:REFERENCES:
+- https://gitlab.com/gitlab-org/gitlab-runner/issues/1232
+:END:
 
 * How-to
 * Links

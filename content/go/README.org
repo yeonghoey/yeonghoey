@@ -35,8 +35,6 @@ message strings should not be capitalized and newlines should be avoided.
 #+END_SRC
 
 * Documenting Packages
-- https://blog.golang.org/godoc-documenting-go-code
-
 #+BEGIN_SRC go
   // Fprint formats using the default formats for its operands and writes to w.
   // Spaces are added between operands when neither is a string.
@@ -49,3 +47,7 @@ gopl book says:
 Go doc comments are always complete sentences, and the first sentence is
 usually a summary that starts with the name being declared.
 #+END_QUOTE
+
+:REFERENCES:
+- https://blog.golang.org/godoc-documenting-go-code
+:END:

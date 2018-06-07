@@ -5,12 +5,12 @@
  - [[#using-git-lfs-pull][Using git lfs pull]]
 
 * Reference Links
+:REFERENCES:
 - https://github.com/git-lfs/git-lfs/wiki/Tutorial
 - https://help.github.com/articles/configuring-git-large-file-storage/
+:END:
 
 * Using git lfs pull
-- https://shuhrat.github.io/programming/git-lfs-tips-and-tricks.html
-
 ~git lfs pull~ downloads lfs files as batch, but works on *current local branch*.
 But when executing ~git pull~ to update local branch,
 *LFS* automatically missing files separately. This is really slow.
@@ -35,3 +35,7 @@ To make smudge and process skip downloading:
 
 You can manually edit the config or use ~--skip-smudge~ flag when ~git lfs install~,
 like ~$ git lfs install --skip-smudge~.
+
+:REFERENCES:
+- https://shuhrat.github.io/programming/git-lfs-tips-and-tricks.html
+:END:

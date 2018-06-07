@@ -30,14 +30,16 @@
 
 * Reference
 ** Setup
-- https://docs.datadoghq.com/guides/basic_agent_usage/ubuntu/
-
 #+BEGIN_SRC shell
   DD_API_KEY=<your-api-key> bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)"
 
   # Just install without DD_API_KEY
   DD_API_KEY=x DD_INSTALL_ONLY=true bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/dd-agent/master/packaging/datadog-agent/source/install_agent.sh)"
 #+END_SRC
+
+:REFERENCES:
+- https://docs.datadoghq.com/guides/basic_agent_usage/ubuntu/
+:END:
 
 ** Management
 #+BEGIN_SRC shell
@@ -64,7 +66,6 @@
 #+END_SRC
 
 ** Host Naming
-- https://docs.datadoghq.com/hostnames/
 - Datadog uniquely identify hosts by ~hostname~
 - Host name cadidates (order of priority)
   1. ~agent-hostname~: If a host name is explicitly set in the Agent configuration file.
@@ -90,8 +91,11 @@
   hostname: mymachine.mydomain
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://docs.datadoghq.com/hostnames/
+:END:
+
 ** Tags
-- https://docs.datadoghq.com/guides/tagging/
 - Tags can be both only ~name~ values or ~key:value~ pairs.
 - Tags under ~integrations~ only takes effect integrations dashboard
 
@@ -110,7 +114,13 @@
     - role:sobotka
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://docs.datadoghq.com/guides/tagging/
+:END:
+
 ** Metrics
+:REFERENCES:
 - https://docs.datadoghq.com/integrations/system/
+:END:
 
 * Topics

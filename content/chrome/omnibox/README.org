@@ -9,7 +9,6 @@ Incidentally, *did you know that you can search on whatever search engine
 you like there?* Let me explain how.
 
 * Search Engines configuration
-
 Open *Search Engines* menu:
 
 [[file:_img/screenshot_2016-12-27_00-21-54.png]]
@@ -20,7 +19,6 @@ A window like the following will show up:
 [[file:_img/screenshot_2016-12-27_00-22-14.png]]
 
 * How it works
-
 There are 3 columns in the *Other search engines*.
 You may have some search engine definitions in there,
 because Chrome automatically identifies and registers search engines there.
@@ -32,7 +30,6 @@ Let's take a look at how each element cooperates:
 [[file:_img/screenshot_2016-12-27_00-23-08.png]]
 
 * Find the Search String
-
 To find *Search Strings* for your favorite search engines,
 you need to do simple experiments.
 
@@ -51,7 +48,6 @@ http://symbolhound.com/?q=%s (*Search String*)
 #+END_QUOTE
 
 * My Search Engines configuration
-
 I listed my *Search Engines* configuration for those who feel frustrated with
 *Search Strings*:
 
@@ -70,7 +66,6 @@ I listed my *Search Engines* configuration for those who feel frustrated with
 #+END_EXAMPLE
 
 * Bookmark Search Chrome Extension
-
 [[https://chrome.google.com/webstore/detail/bookmark-search/hhmokalkpaiacdofbcddkogifepbaijk][Bookmark Search]] is an extension that uses *Omnibox*.
 Like other custom search engines, you can trigger it with the *Keyword*, ~bm~.
 
@@ -85,7 +80,6 @@ it shows the list of my bookmarks related to *Python*.
 I can open reference documents in just a single step with this extension.
 
 * Summary
-
 It may seem that this work is just to save a single step.
 
 However, how many times do you search in a day?

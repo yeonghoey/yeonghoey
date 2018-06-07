@@ -42,7 +42,9 @@
 
 * Reference
 ** SQL and HiveQL
+:REFERENCES:
 - http://docs.aws.amazon.com/athena/latest/ug/language-reference.html
+:END:
 
 * Terminology
 * Topics

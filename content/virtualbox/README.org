@@ -8,9 +8,11 @@
 * Windows
 * Linux
 ** VirtualBox extension for Ubuntu Guest
-- https://askubuntu.com/questions/367248/how-to-install-virtualbox-from-command-line
-
 #+BEGIN_SRC shell
   # Ubuntu 16.04 or above
   sudo apt install virtualbox virtualbox-ext-pack
 #+END_SRC
+
+:REFERENCES:
+- https://askubuntu.com/questions/367248/how-to-install-virtualbox-from-command-line
+:END:

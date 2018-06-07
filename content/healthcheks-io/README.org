@@ -6,9 +6,11 @@
 - [[#slack-integration][Slack Integration]]
 
 * Login
-- https://healthchecks.io
-
 [[file:_img/screenshot_2017-10-25_11-10-47.png]]
+
+:REFERENCES:
+- https://healthchecks.io
+:END:
 
 * Setup
 [[file:_img/screenshot_2017-10-25_11-12-14.png]]
@@ -21,6 +23,8 @@
 #+END_SRC
 
 * Slack Integration
-- https://healthchecks.io/integrations/add_slack/
-
 [[file:_img/screenshot_2017-10-25_11-13-56.png]]
+
+:REFERENCES:
+- https://healthchecks.io/integrations/add_slack/
+:END:

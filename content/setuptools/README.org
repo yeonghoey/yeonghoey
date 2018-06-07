@@ -9,19 +9,21 @@
 - [[#setuppy-minimal][setup.py (minimal)]]
 
 * Which tool should use?
-- http://stackoverflow.com/questions/6344076/differences-between-distribute-distutils-setuptools-and-distutils2
-
 #+BEGIN_QUOTE
 So in conclusion, out of all these options, I would recommend Setuptools, unless your requirements are very basic and you only need Distutils. Setuptools works very well with Virtualenv and Pip, tools that I highly recommend. Virtualenv and Pip could both be considered official, as they're part of PyPA, and Python 3 now ships ensurepip (which helps you install pip on some systems).
 #+END_QUOTE
 
+:REFERENCES:
+- http://stackoverflow.com/questions/6344076/differences-between-distribute-distutils-setuptools-and-distutils2
+:END:
+
 * Python Packaging User Guide
+:REFERENCES:
 - https://packaging.python.org/
 - https://github.com/pypa/sampleproject
+:END:
 
 * setup.py
-- https://packaging.python.org/distributing/#setup-args
-
 #+BEGIN_SRC python
   from setuptools import setup, find_packages
 
@@ -113,17 +115,22 @@ So in conclusion, out of all these options, I would recommend Setuptools, unless
 #+END_SRC
 
 
-** install_requires vs requirements.txt
-- https://packaging.python.org/requirements/#requirements-files
-- https://caremad.io/posts/2013/07/setup-vs-requirement/
+:REFERENCES:
+- https://packaging.python.org/distributing/#setup-args
+:END:
 
+** install_requires vs requirements.txt
 ~install_requires~ is mostly required when the project is a python library.
 For just a python application, it seems okay to just have ~requirements.txt~.
 
 [[file:_img/screenshot_2017-01-29_09-46-07.png]]
 
+:REFERENCES:
+- https://packaging.python.org/requirements/#requirements-files
+- https://caremad.io/posts/2013/07/setup-vs-requirement/
+:END:
+
 ** scripts vs console_scripts
-- http://python-packaging.readthedocs.io/en/latest/command-line-scripts.html
 #+BEGIN_EXAMPLE
   funniest/
       funniest/
@@ -161,6 +168,11 @@ For just a python application, it seems okay to just have ~requirements.txt~.
       ...
   )
 #+END_SRC
+
+:REFERENCES:
+- http://python-packaging.readthedocs.io/en/latest/command-line-scripts.html
+:END:
+
 * setup.py (minimal)
 #+BEGIN_SRC python
   from setuptools import setup

@@ -25,7 +25,6 @@
 
 * Setting up your Machine Learning Application
 ** Train / Dev / Test sets
-
 - https://stackoverflow.com/questions/2976452/whats-is-the-difference-between-train-validation-and-test-set-in-neural-netwo
 
 [[file:_img/screenshot_2017-10-14_09-22-34.png]]

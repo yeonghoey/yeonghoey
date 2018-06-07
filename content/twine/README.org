@@ -30,6 +30,7 @@ Here are some environment variables:
 - ~TWINE_REPOSITORY_URL~ :: the repository URL to use.
 - ~TWINE_CERT~ :: custom CA certificate to use for repositories with self-signed or untrusted certificates.
 
------
+:REFERENCES:
 - https://pypi.org/project/twine/
 - https://twine.readthedocs.io/en/latest/
+:END:

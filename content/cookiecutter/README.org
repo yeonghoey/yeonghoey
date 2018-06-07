@@ -4,8 +4,6 @@
 - [[#overview][Overview]]
 
 * Overview
-- https://github.com/audreyr/cookiecutter#a-pantry-full-of-cookiecutters
-
 #+BEGIN_SRC shell
   # You'll be prompted to enter values.
   # Create your Python package in the current working directory.
@@ -14,3 +12,7 @@
   # Can just use the 'gh' prefix
   cookiecutter gh:audreyr/cookiecutter-pypackage
 #+END_SRC
+
+:REFERENCES:
+- https://github.com/audreyr/cookiecutter#a-pantry-full-of-cookiecutters
+:END:

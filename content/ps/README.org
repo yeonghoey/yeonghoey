@@ -6,7 +6,6 @@
 
 * Reference
 ** -o keywords
-
 #+BEGIN_SRC shell
   # select fields
   $ ps -o pgid
@@ -20,6 +19,8 @@
   836   836
   838   838
 #+END_SRC
------
+
+:REFERENCES:
 - https://ss64.com/bash/ps.html
 - https://ss64.com/bash/ps_keywords.html
+:END:

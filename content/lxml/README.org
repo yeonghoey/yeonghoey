@@ -6,8 +6,6 @@
   - [[#remove-all-tags-except-their-texts][Remove all tags except their texts]]
 
 * Overview
-- http://lxml.de/tutorial.html
-
 #+BEGIN_SRC python
   from lxml import etree
   s = "<root>data</root>"
@@ -21,10 +19,12 @@
   tree = etree.parse(some_file_or_file_like_object)
 #+END_SRC
 
+:REFERENCES:
+- http://lxml.de/tutorial.html
+:END:
+
 * How-to
 ** Remove all tags except their texts
-- http://lxml.de/api/lxml.html.clean.Cleaner-class.html
-
 #+BEGIN_SRC python
   import lxml
   from lxml.html.clean import Cleaner
@@ -32,3 +32,7 @@
   cleaner.remove_tags = ['p']
   remove_tags:
 #+END_SRC
+
+:REFERENCES:
+- http://lxml.de/api/lxml.html.clean.Cleaner-class.html
+:END:

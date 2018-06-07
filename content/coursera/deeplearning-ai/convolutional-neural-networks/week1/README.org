@@ -102,7 +102,6 @@ I don't know if anyone knows that that's the real underlying reason that max poo
 [[file:_img/screenshot_2017-11-11_12-19-53.png]]
 
 * Practice questions
-
 * Programming assignments
 ** Convolutional Model: step by step
 [[file:_img/screenshot_2017-11-11_22-13-40.png]]

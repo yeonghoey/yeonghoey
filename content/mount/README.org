@@ -1,6 +1,4 @@
 * mount
-- http://unix.stackexchange.com/questions/91960/can-anyone-explain-the-output-of-mount
-
 #+BEGIN_SRC shell
   $ sudo mount
   /dev/sda2 on / type ext4 (rw)
@@ -23,3 +21,7 @@
 | ~file~    | he mount point for the filesystem.                   |
 | ~vfstype~ | the type of the filesystem.                          |
 | ~mntopts~ | the mount options associated with the filesystem.    |
+
+:REFERENCES:
+- http://unix.stackexchange.com/questions/91960/can-anyone-explain-the-output-of-mount
+:END:

@@ -10,12 +10,11 @@
   - [[#configure-https-using-aws-certificate-manager][Configure HTTPS using AWS Certificate Manager]]
 
 * Settings
+:REFERENCES:
 - https://github.com/Miserlou/Zappa#advanced-settings
+:END:
 
 ** exclude
-- https://github.com/Miserlou/Zappa/blob/cf8d09f7f286048e66c1f4da505876e2ea19c903/zappa/core.py#L197
-- https://github.com/Miserlou/Zappa/issues/692
-
 Default excludes:
 #+BEGIN_SRC python
   ZIP_EXCLUDES = [
@@ -31,26 +30,34 @@ There is no way to exclude relative paths to the project currently.
 
 Actually, even ~ZIP_EXCLUDES~ has improper patterns!
 
+:REFERENCES:
+- https://github.com/Miserlou/Zappa/blob/cf8d09f7f286048e66c1f4da505876e2ea19c903/zappa/core.py#L197
+- https://github.com/Miserlou/Zappa/issues/692
+:END:
+
 * Topics
 ** Packaging by Zappa
-- https://github.com/Miserlou/Zappa/blob/cf8d09f7f286048e66c1f4da505876e2ea19c903/zappa/core.py#L507
-
 It seems that Zappa packages all files in the current working directory.
 So, it doesn't need to ~pip install .~ to include the project code.
 
-** slim_handler
-- https://github.com/Miserlou/zappa-blog/blob/master/posts/slim-handler.md
+:REFERENCES:
+- https://github.com/Miserlou/Zappa/blob/cf8d09f7f286048e66c1f4da505876e2ea19c903/zappa/core.py#L507
+:END:
 
+** slim_handler
 #+BEGIN_QUOTE
 When the slim handler is called on a cold start,
 it downloads the large project zip from S3 and unzips it in Lambda’s shared ~/tmp~ space.
 All subsequent calls to that warm Lambda share the ~/tmp~ space and have access to the project files;
 so it is possible for the file to only download once if the Lambda stays warm.
 #+END_QUOTE
+
+:REFERENCES:
+- https://github.com/Miserlou/zappa-blog/blob/master/posts/slim-handler.md
+:END:
+
 * How-to
 ** Configure HTTPS using AWS Certificate Manager
-- https://github.com/Miserlou/Zappa#ssl-certification
-
 Because CloudFront requires ACM in ~us-east-1~, Zappa is also under this restriction.
 So, make sure to use the proper region when registering ACM.
 
@@ -66,3 +73,7 @@ I'm not sure whether it is safe to publish aws arn in a public git repository.
 #+BEGIN_SRC shell
   $ zappa certify
 #+END_SRC
+
+:REFERENCES:
+- https://github.com/Miserlou/Zappa#ssl-certification
+:END:

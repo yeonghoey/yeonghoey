@@ -30,7 +30,6 @@ Set ~lock.conf~ on the server for specifying files to make exclusive
 #+END_EXAMPLE
 
 * Change-Checkin 
-
 #+BEGIN_QUOTE
 Take into account that *by default Plastic will write all the files as read-only.* We do this to enforce the check-out / check-in cycle
 #+END_QUOTE
@@ -57,4 +56,3 @@ The counterpart of git's ~.gitignore~
   ,*/bin*
   ,*/build*
 #+END_EXAMPLE
-

@@ -56,11 +56,6 @@
 * Reference
 ** Builtins
 *** command
-- https://ss64.com/bash/command.html
-- https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
-- https://askubuntu.com/questions/512770/what-is-use-of-command-command
-
-
 #+BEGIN_SRC shell
   # If there is a shell function named `ls', running `command ls' within the function
   # will execute the external `command ls' instead of calling the function `ls' recursively.
@@ -77,13 +72,18 @@
   1
 #+END_SRC
 
+:REFERENCES:
+- https://ss64.com/bash/command.html
+- https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+- https://askubuntu.com/questions/512770/what-is-use-of-command-command
+:END:
+
 *** declare
 - ~-x~ :: export
 ----
 - https://ss64.com/bash/declare.html
 
 *** export
-- https://ss64.com/bash/export.html
 - Mark each *name to be passed to child processes* in the environment.
 - It doesn't matter whether you set a variable before ~export~ or vice versa.
 
@@ -95,10 +95,11 @@
   # -p   Display output in a form that can be reused as input.
 #+END_SRC
 
-*** readonly
-- https://bash.cyberciti.biz/guide/Readonly_command
-- https://ss64.com/bash/readonly.html
+:REFERENCES:
+- https://ss64.com/bash/export.html
+:END:
 
+*** readonly
 #+BEGIN_SRC shell
   readonly var
   readonly var=value
@@ -117,10 +118,12 @@
   declare -r VAR=foo # bash
 #+END_SRC
 
-*** set
-- https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
-- https://github.com/jlevy/the-art-of-command-line
+:REFERENCES:
+- https://bash.cyberciti.biz/guide/Readonly_command
+- https://ss64.com/bash/readonly.html
+:END:
 
+*** set
 #+BEGIN_SRC shell
   set -e # Exit immediately when a command fails
   set -x # Print a trace of simple commands
@@ -139,9 +142,12 @@
 - ~-u~ for preventing unset
 - ~-o pipefail~ for errors within pipes
 
-**** set -x for a line
-- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
+:REFERENCES:
+- https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+- https://github.com/jlevy/the-art-of-command-line
+:END:
 
+**** set -x for a line
 #+BEGIN_SRC shell
   set -x
   command
@@ -150,6 +156,10 @@
   # or simply
   ( set -x; command )
 #+END_SRC
+
+:REFERENCES:
+- http://stackoverflow.com/questions/13195655/bash-set-x-without-it-being-printed
+:END:
 
 *** trap
 #+BEGIN_SRC shell
@@ -164,16 +174,14 @@
   trap 'cmd' DEBUG  # at every line
   trap 'cmd' ERR    # on error. 'set -e' is more preferred
 #+END_SRC
------
+
+:REFERENCES:
+
 - https://ss64.com/bash/trap.html
+:END:
 
 ** Keywords
 *** array
-- https://www.gnu.org/software/bash/manual/bashref.html#Arrays
-- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
-- https://www.cyberciti.biz/faq/bash-iterate-array/
-- https://unix.stackexchange.com/questions/252368/is-there-a-reason-why-the-first-element-of-a-zsh-array-is-indexed-by-1-instead-o
-
 - Declare an array variable ::
 #+BEGIN_SRC shell
   name[subscript]=value
@@ -228,9 +236,14 @@
   fi
 #+END_SRC
 
-*** case
-- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html
+:REFERENCES:
+- https://www.gnu.org/software/bash/manual/bashref.html#Arrays
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
+- https://www.cyberciti.biz/faq/bash-iterate-array/
+- https://unix.stackexchange.com/questions/252368/is-there-a-reason-why-the-first-element-of-a-zsh-array-is-indexed-by-1-instead-o
+:END:
 
+*** case
 #+BEGIN_SRC shell
   case "$1" in
     start)
@@ -246,11 +259,11 @@
   esac
 #+END_SRC
 
+:REFERENCES:
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_03.html
+:END:
+
 *** for
-- https://www.cyberciti.biz/faq/bash-for-loop/
-- https://google.github.io/styleguide/shell.xml?showone=Loops#Loops
-
-
 - Put ~; do~ and ~; then~ on the same line as the ~while~, ~for~ or ~if~.
 - Use a for loop if you are confident that the input will not contain spaces or special characters (usually, this means not user input).
 
@@ -291,14 +304,12 @@
   done
 #+END_SRC
 
+:REFERENCES:
+- https://www.cyberciti.biz/faq/bash-for-loop/
+- https://google.github.io/styleguide/shell.xml?showone=Loops#Loops
+:END:
+
 *** function
-- http://tldp.org/LDP/abs/html/functions.html
-- http://tldp.org/LDP/abs/html/complexfunct.html
-- http://ryanstutorials.net/bash-scripting-tutorial/bash-functions.php
-- https://google.github.io/styleguide/shell.xml?showone=Function_Comments#Function_Comments
-- http://stackoverflow.com/questions/18042279/how-to-exit-a-function-in-bash
-
-
 #+BEGIN_SRC shell
   print_something() {
       echo Hello $1
@@ -378,10 +389,15 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
   echo 'bye' # NOT printed
 #+END_SRC
 
-*** if
-- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
-- http://mywiki.wooledge.org/BashFAQ/031
+:REFERENCES:
+- http://tldp.org/LDP/abs/html/functions.html
+- http://tldp.org/LDP/abs/html/complexfunct.html
+- http://ryanstutorials.net/bash-scripting-tutorial/bash-functions.php
+- https://google.github.io/styleguide/shell.xml?showone=Function_Comments#Function_Comments
+- http://stackoverflow.com/questions/18042279/how-to-exit-a-function-in-bash
+:END:
 
+*** if
 #+BEGIN_SRC shell
   if commands; then
     commands
@@ -445,10 +461,13 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 
 [[file:_img/screenshot_2017-08-26_11-35-09.png]]
 
+:REFERENCES:
+- http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html
+- http://mywiki.wooledge.org/BashFAQ/031
+:END:
+
 ** Others
 *** Special Parameters ($#, $$, $*, $@, etc.)
-- https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html
-
 - ~$*~ :: positional parameters
 - ~$@~ :: positional parameters
 - ~$#~ :: number of positional parameters
@@ -459,9 +478,11 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 - ~$0~ :: name of the shell or shell script.
 - ~$_~ :: ?
 
+:REFERENCES:
+- https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html
+:END:
+
 *** $@ or $*
-- http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
-- https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
 - Use ~​"$@"​~ for most cases
 
 #+BEGIN_SRC shell
@@ -492,16 +513,22 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
   arg  3
 #+END_SRC
 
-*** Arithmetic Expansion
-- https://www.gnu.org/software/bash/manual/bashref.html#Arithmetic-Expansion
-- https://www.gnu.org/software/bash/manual/bashref.html#Shell-Arithmetic
+:REFERENCES:
+- http://stackoverflow.com/questions/12314451/accessing-bash-command-line-args-vs
+- https://www.gnu.org/software/bash/manual/bashref.html#Special-Parameters
+:END:
 
+*** Arithmetic Expansion
 #+BEGIN_SRC shell
   $(( expression ))
 #+END_SRC
 
+:REFERENCES:
+- https://www.gnu.org/software/bash/manual/bashref.html#Arithmetic-Expansion
+- https://www.gnu.org/software/bash/manual/bashref.html#Shell-Arithmetic
+:END:
+
 *** Brace Expansion
-- https://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion
 - Performed before any other expansions
 - Any characters special to other expansions are preserved in the result
 
@@ -512,6 +539,10 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
   $ mkdir /usr/local/src/bash/{old,new,dist,bugs}
   $ chown root /usr/{ucb/{ex,edit},lib/{ex?.?*,how_ex}}
 #+END_SRC
+
+:REFERENCES:
+- https://www.gnu.org/software/bash/manual/bashref.html#Brace-Expansion
+:END:
 
 *** Escaping quotes
 **** Escaping double quotes
@@ -535,8 +566,6 @@ your ~return 1~ or any other number besides ~0~, your entire script will exit.
 #+END_SRC
 
 **** Escaping single quotes within a single quoted string
-- https://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
-
 #+BEGIN_EXAMPLE
    alias rxvt='urxvt -fg '"'"'#111111'"'"' -bg '"'"'#111111'"'"
    #                     ^^^^^       ^^^^^     ^^^^^       ^^^^
@@ -555,17 +584,22 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   echo $'Can\'t do that'
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/1250079/how-to-escape-single-quotes-within-single-quoted-strings
+:END:
+
 *** Filename Expansion
-- https://www.gnu.org/software/bash/manual/bashref.html#Filename-Expansion
 - ~*~     :: Matches any string, including the null string.
 - ~**~    :: Matches all files and zero or more directories and subdirectories.
 - ~**/~   :: Matches all subdirectories.
 - ~?~     :: Matches any single character.
 - ~[...]~ :: Matches any one of the enclosed characters.
 
-*** Here document
-- https://en.wikipedia.org/wiki/Here_document
+:REFERENCES:
+- https://www.gnu.org/software/bash/manual/bashref.html#Filename-Expansion
+:END:
 
+*** Here document
 #+BEGIN_SRC shell
   tr a-z A-Z << END_TEXT
   one two three
@@ -635,8 +669,11 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   EOF
 #+END_SRC
 
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Here_document
+:END:
+
 *** Here strings
-- https://en.wikipedia.org/wiki/Here_document#Here_strings
 - The key difference from here documents is that, in here documents, the delimiters are on separate lines;
 
 #+BEGIN_SRC shell
@@ -659,9 +696,11 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   one two three
 #+END_SRC
 
-*** History Expansion
-- http://www.thegeekstuff.com/2011/08/bash-history-expansion
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Here_document#Here_strings
+:END:
 
+*** History Expansion
 #+BEGIN_SRC shell
   $ history
   1 tar cvf etc.tar /etc/
@@ -716,11 +755,11 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   $ ls -l !!:$:p  # print without executing it
 #+END_SRC
 
-*** Process Substitution
-- https://www.gnu.org/software/bash/manual/bashref.html#Process-Substitution
-- http://tldp.org/LDP/abs/html/process-sub.html
-- https://en.wikipedia.org/wiki/Process_substitution
+:REFERENCES:
+- http://www.thegeekstuff.com/2011/08/bash-history-expansion
+:END:
 
+*** Process Substitution
 - ~<(command)~ ::
   Runs command and make its output appear as a file.
 
@@ -737,9 +776,13 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   HELLO, WORLD  # file part of tee (process substitution)
 #+END_SRC
 
-*** Redirection
-- http://tldp.org/LDP/abs/html/io-redirection.html
+:REFERENCES:
+- https://www.gnu.org/software/bash/manual/bashref.html#Process-Substitution
+- http://tldp.org/LDP/abs/html/process-sub.html
+- https://en.wikipedia.org/wiki/Process_substitution
+:END:
 
+*** Redirection
 #+BEGIN_SRC shell
   $ : > foo.txt  # truncate
   $ > foo.txt    # same as above, but some shells don't support
@@ -779,13 +822,22 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
   #  Random access, by golly.
 #+END_SRC
 
+:REFERENCES:
+- http://tldp.org/LDP/abs/html/io-redirection.html
+:END:
+
 *** Shebang
-- https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/10383546#10383546
 - Use ~#!/usr/bin/env bash~ for portability ::
   *Different *nixes* put ~bash~ in different places, and using ~/usr/bin/env~ is a workaround to run the *first bash found on the PATH*.
 
+:REFERENCES:
+- https://stackoverflow.com/questions/10376206/what-is-the-preferred-bash-shebang/10383546#10383546
+:END:
+
 *** Shell Parameter Expansion
+:REFERENCES:
 - https://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion
+:END:
 
 **** unset and null testing expansions
 - [[unset-null-examples.sh]]
@@ -963,8 +1015,6 @@ But in this way, we loses bash's literal meaning. Other meta character like =\n=
 
 * Topics
 ** Subtlety of Following Symlinks
-- https://unix.stackexchange.com/questions/31114/find-usage-with-l
-
 The general rule is,
 
 - if a command operates on links (i.e. directory entries, which are pointers to inodes) ::
@@ -995,11 +1045,18 @@ The general rule is,
   # 'b' is a copy of the actual file ('a')
 #+END_SRC
 
+:REFERENCES:
+- https://unix.stackexchange.com/questions/31114/find-usage-with-l
+:END:
+
 ** Usage of dash (-) in place of a filename, like 'cat -'
-- https://unix.stackexchange.com/questions/16357/usage-of-dash-in-place-of-a-filename
 Using ~-~ as a filename to mean ~stdin~ / ~stdout~ is a convention that a lot of programs use.
 It is not a special property of the filename.
 If you want to use a file named as ~-~, you should pass the argument like ~./-~.
+
+:REFERENCES:
+- https://unix.stackexchange.com/questions/16357/usage-of-dash-in-place-of-a-filename
+:END:
 
 * How-to
 ** Change hostname
@@ -1010,8 +1067,6 @@ If you want to use a file named as ~-~, you should pass the argument like ~./-~.
 #+END_SRC
 
 ** Delete all broken symbolic links
-- https://stackoverflow.com/questions/22097130/delete-all-broken-symbolic-links-with-a-line
-
 #+BEGIN_SRC shell
   find -L "$HOME" -maxdepth 1 -type l -exec rm {} +
   #     │              │            │             └─ cause 'rm path1 path2' not 'rm path1' 'rm path2'
@@ -1021,17 +1076,21 @@ If you want to use a file named as ~-~, you should pass the argument like ~./-~.
   #     └─ follow symlinks, the link itself if the link target doens't exist
 #+END_SRC
 
-** Delete empty directories recursively
-- https://unix.stackexchange.com/questions/46322/how-can-i-recursively-delete-empty-directories-in-my-home-directory
+:REFERENCES:
+- https://stackoverflow.com/questions/22097130/delete-all-broken-symbolic-links-with-a-line
+:END:
 
+** Delete empty directories recursively
 #+BEGIN_SRC shell
   find . -type d -empty -print
   find . -type d -empty -delete
 #+END_SRC
 
-** Empty the contents of a file
-- https://unix.stackexchange.com/questions/88808/empty-the-contents-of-a-file
+:REFERENCES:
+- https://unix.stackexchange.com/questions/46322/how-can-i-recursively-delete-empty-directories-in-my-home-directory
+:END:
 
+** Empty the contents of a file
 #+BEGIN_SRC shell
   > filename                   # clever
   cp /dev/null filename        # naive
@@ -1040,19 +1099,22 @@ If you want to use a file named as ~-~, you should pass the argument like ~./-~.
   truncate filename --size 0   # explicit
 #+END_SRC
 
-** Force exit code 0 in spite of error
-- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
+:REFERENCES:
+- https://unix.stackexchange.com/questions/88808/empty-the-contents-of-a-file
+:END:
 
+** Force exit code 0 in spite of error
 #+BEGIN_SRC shell
   set -euo pipefail
   <command> || true
   echo 'Prints even if <command> fails'
 #+END_SRC
 
-** Get the source directory
-- http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
-- https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
+:REFERENCES:
+- https://unix.stackexchange.com/questions/118217/chmod-silent-mode-how-force-exit-code-0-in-spite-of-error
+:END:
 
+** Get the source directory
 #+BEGIN_SRC shell
   DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 #+END_SRC
@@ -1060,10 +1122,12 @@ If you want to use a file named as ~-~, you should pass the argument like ~./-~.
 ~${BASH_SOURCE[0]}~ can also be used when the script is sourced, where ~$0~ can't be used.
 Repalce ~BASH_SOURCE~ with ~$0~ for zsh, taking account of the [[http://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source][limitation]].
 
-** Glob dotfiles
-- http://stackoverflow.com/questions/20895502/bash-asterisk-omits-files-that-start-with
-- http://unix.stackexchange.com/questions/89749/cp-hidden-files-with-glob-patterns
+:REFERENCES:
+- http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
+- https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
+:END:
 
+** Glob dotfiles
 You can't just match dotfiles(whose names start with ~.~) with the wildcard(~*~).
 There are some workarounds:
 #+BEGIN_SRC shell
@@ -1078,8 +1142,12 @@ There are some workarounds:
   $ cp foo/*(D) .
 #+END_SRC
 
+:REFERENCES:
+- http://stackoverflow.com/questions/20895502/bash-asterisk-omits-files-that-start-with
+- http://unix.stackexchange.com/questions/89749/cp-hidden-files-with-glob-patterns
+:END:
+
 ** Pipe stderr, and not stdout?
-- https://stackoverflow.com/questions/2342826/how-to-pipe-stderr-and-not-stdout
 - Redirect ~stderr~ to ~stdout~
 - Redirect ~stdout~ to ~/dev/null~
 
@@ -1087,45 +1155,55 @@ There are some workarounds:
   command 2>&1 >/dev/null | grep 'something'
 #+END_SRC
 
-** Prevent partially downloaded scripts from executing
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
+:REFERENCES:
+- https://stackoverflow.com/questions/2342826/how-to-pipe-stderr-and-not-stdout
+:END:
 
+** Prevent partially downloaded scripts from executing
 #+BEGIN_SRC shell
   {
       # Your code here
   }
 #+END_SRC
 
-** Prompt a user for yes/no
-- http://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias/3231821#3231821
-- http://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
+:REFERENCES:
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+:END:
 
+** Prompt a user for yes/no
 #+BEGIN_SRC shell
   read -p "Are you sure you want to continue? <y/N> " prompt
   if [[ "$prompt" =~ [yY](es)* ]]; then
   fi
 #+END_SRC
 
-** Run python simple web server for sharing files
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
+:REFERENCES:
+- http://stackoverflow.com/questions/3231804/in-bash-how-to-add-are-you-sure-y-n-to-any-command-or-alias/3231821#3231821
+- http://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
+:END:
 
+** Run python simple web server for sharing files
 #+BEGIN_SRC shell
   python -m SimpleHTTPServer 7777
   python3 -m http.server 7777
 #+END_SRC
 
-** Temporarily move to a different working directory via subshell
+:REFERENCES:
 - https://github.com/jlevy/the-art-of-command-line#everyday-use
+:END:
 
+** Temporarily move to a different working directory via subshell
 #+BEGIN_SRC shell
   # do something in current dir
   (cd /some/other/dir && other-command)
   # continue in original dir
 #+END_SRC
 
-** Test whether a command exists
-- https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+:REFERENCES:
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+:END:
 
+** Test whether a command exists
 #+BEGIN_SRC shell
   $ command -v 'curl'
   /usr/bin/curl
@@ -1137,8 +1215,11 @@ There are some workarounds:
   1
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+:END:
+
 ** Trim a variable
-- https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
 - See also [[#shell-parameter-expansion][Shell Parameter Expansion]]
 
 #+BEGIN_SRC shell
@@ -1153,16 +1234,20 @@ There are some workarounds:
   }
 #+END_SRC
 
-** Use command output as a file
-- https://github.com/jlevy/the-art-of-command-line#everyday-use
+:REFERENCES:
+- https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+:END:
 
+** Use command output as a file
 #+BEGIN_SRC shell
   diff /etc/hosts <(ssh somehost cat /etc/hosts)
 #+END_SRC
 
-** Useful One-liners
-- https://github.com/jlevy/the-art-of-command-line#one-liners
+:REFERENCES:
+- https://github.com/jlevy/the-art-of-command-line#everyday-use
+:END:
 
+** Useful One-liners
 #+BEGIN_SRC shell
   cat a b | sort | uniq > c        # c is a union b
   cat a b | sort | uniq -d > c     # c is a intersect b
@@ -1175,13 +1260,19 @@ There are some workarounds:
   awk '{ x += $3 } END { print x }' myfile
 #+END_SRC
 
-** Wait until a port available
-- https://unix.stackexchange.com/questions/5277/how-do-i-tell-a-script-to-wait-for-a-process-to-start-accepting-requests-on-a-po
+:REFERENCES:
+- https://github.com/jlevy/the-art-of-command-line#one-liners
+:END:
 
+** Wait until a port available
 #+BEGIN_SRC shell
   # Wait until 3306 port available
   while ! nc -z localhost 3306; do sleep 3; done
 #+END_SRC
+
+:REFERENCES:
+- https://unix.stackexchange.com/questions/5277/how-do-i-tell-a-script-to-wait-for-a-process-to-start-accepting-requests-on-a-po
+:END:
 
 ** Kill all background processes when the shell script exits
 #+BEGIN_SRC shell
@@ -1202,11 +1293,15 @@ There are some workarounds:
 - However, shells like ~bash~ set the signal mask of ~SIG_IGN~ to ~SIGINT~ and ~SIGQUIT~
 - So, by using ~trap~, send ~TERM~ to subprocess manually when the parent script exits
 - If the subprocess handles ~SIGINT~ manually, it would receive both signals of ~SIGINT~ and ~SIGTERM~
------
+
+:REFERENCES:
+
 - https://spin.atomicobject.com/2017/08/24/start-stop-bash-background-process/
 - https://stackoverflow.com/questions/360201/how-do-i-kill-background-processes-jobs-when-my-shell-script-exits
+:END:
 
 * Links
+:REFERENCES:
 - https://github.com/jlevy/the-art-of-command-line
 - https://google.github.io/styleguide/shell.xml
 - https://github.com/progrium/bashstyle
@@ -1214,4 +1309,4 @@ There are some workarounds:
 - https://github.com/alebcay/awesome-shell
 - http://www.commandlinefu.com/
 - https://github.com/alrra/dotfiles
-
+:END:

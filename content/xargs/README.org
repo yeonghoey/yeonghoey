@@ -1,8 +1,4 @@
 * xargs
-- http://www.thegeekstuff.com/2013/12/xargs-examples
-- http://www.unixmantra.com/2013/12/xargs-all-in-one-tutorial-guide.html
-- https://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/
-
 #+BEGIN_SRC shell
   $ echo 1 2 3 4 | xargs echo
 
@@ -47,3 +43,9 @@
   # Delete files whose names contain 'conflicted'
   $ find . -name '*conflicted*' -print0 | xargs -0 rm
 #+END_SRC
+
+:REFERENCES:
+- http://www.thegeekstuff.com/2013/12/xargs-examples
+- http://www.unixmantra.com/2013/12/xargs-all-in-one-tutorial-guide.html
+- https://www.cyberciti.biz/faq/linux-unix-bsd-xargs-construct-argument-lists-utility/
+:END:

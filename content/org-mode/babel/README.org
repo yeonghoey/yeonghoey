@@ -32,10 +32,12 @@
 - ~#+NAME:~ :: optional, can be refered with the name from some other elements in the document
 - ~#+HEADER:~ :: put headers in separated lines
 
------
+:REFERENCES:
+
 - http://orgmode.org/manual/Structure-of-code-blocks.html
 - http://orgmode.org/worg/org-contrib/babel/languages.html
 - https://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments
+:END:
 
 * Switches
 -----
@@ -63,10 +65,13 @@
     ,#+BEGIN_SRC emacs-lisp :results both
     ,#+END_SRC
   #+END_SRC
------
+
+:REFERENCES:
+
 - http://orgmode.org/manual/Specific-header-arguments.html#Specific-header-arguments
+:END:
 
 ** :results
-
------
+:REFERENCES:
 - https://orgmode.org/manual/results.html
+:END:

@@ -84,12 +84,13 @@
   - all elements withn modules references their own [[https://vuex.vuejs.org/en/modules.html#module-local-state][localState]] by default.
   - Note [[https://vuex.vuejs.org/en/modules.html#module-local-state][rootState]], [[https://vuex.vuejs.org/en/modules.html#namespacing][namespace]] for interactions between the store and other modules
 
------
+:REFERENCES:
+
 - https://github.com/vuejs/vuex/blob/dev/examples/counter-hot/store/index.js
 - https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/store/index.js
+:END:
 
 * vuex-persistedstate
-
 #+BEGIN_SRC js
   // Persists all vuex states in localStorage
   export default new Vuex.Store({
@@ -122,5 +123,7 @@
     },
   });
 #+END_SRC
------
+
+:REFERENCES:
 - https://github.com/robinvdvleuten/vuex-persistedstate
+:END:

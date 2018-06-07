@@ -98,9 +98,11 @@ Applies some defaults for pages, fonts, tables, etc.
   </a>
 #+END_SRC
 
------
+:REFERENCES:
 - https://lipis.github.io/bootstrap-social/
 - https://github.com/lipis/bootstrap-social
+:END:
+
 ** bootstrap-vue
 #+BEGIN_SRC shell
   npm i bootstrap-vue
@@ -115,5 +117,7 @@ Applies some defaults for pages, fonts, tables, etc.
 
   Vue.use(BootstrapVue);
 #+END_SRC
------
+
+:REFERENCES:
 - https://bootstrap-vue.js.org/docs
+:END:

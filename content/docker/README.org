@@ -11,12 +11,11 @@
 * Overview
 * Reference
 ** Dockerfile
+:REFERENCES:
 - https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+:END:
 
 *** LABEL
-- https://docs.docker.com/engine/reference/builder/#label
-- https://docs.docker.com/engine/userguide/labels-custom-metadata/
-
 #+BEGIN_EXAMPLE
   LABEL <key>=<value> <key>=<value> <key>=<value> ...
 #+END_EXAMPLE
@@ -39,6 +38,11 @@
         other="value3"
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://docs.docker.com/engine/reference/builder/#label
+- https://docs.docker.com/engine/userguide/labels-custom-metadata/
+:END:
+
 *** MAINTAINER (deprecated)
 - Use ~LABEL~
 
@@ -47,8 +51,6 @@
 #+END_EXAMPLE
 
 *** RUN
-- https://docs.docker.com/engine/reference/builder/#run
-
 - ~RUN <command>~
   - shell form, the command is run in a shell, which by default is /bin/sh -c on Linux or cmd /S /C on Windows)
   - You can use a ~\~ (backslash) to continue a single ~RUN~ instruction onto the next line.
@@ -74,16 +76,21 @@
    && rm -rf /var/lib/apt/lists/*
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://docs.docker.com/engine/reference/builder/#run
+:END:
+
 *** CMD
-- https://docs.docker.com/engine/reference/builder/#cmd
 - ~CMD ["executable","param1","param2"]~ (exec form, this is the preferred form)
 - ~CMD ["param1","param2"]~ (as default parameters to ENTRYPOINT)
 - ~CMD command param1 param2~ (shell form)
 - The main purpose of a CMD is to provide defaults for an executing container
 
-*** COPY
-- https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy
+:REFERENCES:
+- https://docs.docker.com/engine/reference/builder/#cmd
+:END:
 
+*** COPY
 - If you have multiple ~Dockerfile~ steps that use different files from your context, ~COPY~ them individually, rather than all at once.
   This will ensure that each step’s build cache is only invalidated (forcing the step to be re-run) if the specifically required files change.
 
@@ -93,28 +100,34 @@
   COPY . /tmp/
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy
+:END:
+
 * Terminology
 * Topics
 ** Dockerfile: ADD vs COPY
-- https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy
-- https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-copy-and-add-commands-in-a-dockerfile
-
 - Although ~ADD~ and ~COPY~ are functionally similar, generally speaking, ~COPY~ is preferred. 
 
 - ~ADD~ allows ~<src>~ to be an URL
 - If the ~<src>~ parameter of ~ADD~ is an archive in a recognised compression format, it will be unpacked
 
+:REFERENCES:
+- https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy
+- https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-copy-and-add-commands-in-a-dockerfile
+:END:
+
 * How-to
 ** Install docker with a single command
-- https://get.docker.com/
-
 #+BEGIN_SRC shell
   curl -sSL https://get.docker.com/ | sh
 #+END_SRC
 
-** Install docker on Amazon Linux instance
-- http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
+:REFERENCES:
+- https://get.docker.com/
+:END:
 
+** Install docker on Amazon Linux instance
 #+BEGIN_SRC shell
   sudo yum update -y
   sudo yum install -y docker
@@ -122,10 +135,11 @@
   sudo usermod -a -G docker ec2-user
 #+END_SRC
 
-** Access internet from containers when private DNS intrudes
-- https://github.com/moby/moby/issues/13381#issuecomment-159836002
-- https://github.com/docker/docker/issues/9889
+:REFERENCES:
+- http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
+:END:
 
+** Access internet from containers when private DNS intrudes
 In private network with private DNS, the network administrator often blocks access to common DNS like ~8.8.8.8~.
 This may cause to block access to internet within the docker container.
 
@@ -144,6 +158,11 @@ To fix it, add following lines to ~/lib/systemd/system/docker.service~:
   EnvironmentFile=-/etc/default/docker
   ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://github.com/moby/moby/issues/13381#issuecomment-159836002
+- https://github.com/docker/docker/issues/9889
+:END:
 
 * Links
 - [[https://github.com/wsargent/docker-cheat-sheet#table-of-contents][docker-cheat-sheet]]

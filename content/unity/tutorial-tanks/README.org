@@ -11,8 +11,6 @@
 - [[#audio-mixing][Audio Mixing]]
 
 * Scene Setup 
-- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081
-
 [[file:_img/screenshot_2017-04-29_17-16-54.png]]
 
 [[file:_img/screenshot_2017-04-29_17-18-10.png]]
@@ -32,10 +30,12 @@
 [[file:_img/screenshot_2017-04-29_17-34-22.png]]
 
 [[file:_img/screenshot_2017-04-29_17-35-32.png]]
+
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/scene-setup?playlist=20081
+:END:
+
 * Tank Creation & Control
-- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-creation-control?playlist=20081
-
-
 [[file:_img/screenshot_2017-04-29_17-40-28.png]]
 
 [[file:_img/screenshot_2017-04-29_17-43-56.png]]
@@ -122,9 +122,12 @@
 [[file:_img/screenshot_2017-04-29_18-33-53.png]]
 
 [[file:_img/screenshot_2017-04-29_18-38-27.png]]
-* Camera Control
-- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/camera-control?playlist=20081
 
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-creation-control?playlist=20081
+:END:
+
+* Camera Control
 [[file:_img/screenshot_2017-04-29_18-43-36.png]]
 
 [[file:_img/screenshot_2017-04-29_18-44-09.png]]
@@ -206,10 +209,12 @@
 - ~InverseTransformPoint~ : Transforms position from world space to local space.
 
 [[file:_img/screenshot_2017-04-29_19-03-41.png]]
+
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/camera-control?playlist=20081
+:END:
+
 * Tank Health
-- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081
-
-
 [[file:_img/screenshot_2017-04-29_22-40-48.png]]
 
 [[file:_img/screenshot_2017-04-29_22-41-35.png]]
@@ -330,9 +335,12 @@
       }
   }
 #+END_SRC
-* Shell Creation
-- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/shell-creation?playlist=20081
 
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/tank-health?playlist=20081
+:END:
+
+* Shell Creation
 [[file:_img/screenshot_2017-04-29_23-15-29.png]]
 
 [[file:_img/screenshot_2017-04-29_23-18-16.png]]
@@ -406,9 +414,12 @@
 [[file:_img/screenshot_2017-04-29_23-30-53.png]]
 
 [[file:_img/screenshot_2017-04-29_23-33-14.png]]
-* Firing Shells
-- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/firing-shells?playlist=20081
 
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/shell-creation?playlist=20081
+:END:
+
+* Firing Shells
 [[file:_img/screenshot_2017-04-29_23-36-56.png]]
 
 [[file:_img/screenshot_2017-04-29_23-38-07.png]]
@@ -424,9 +435,12 @@
 [[file:_img/screenshot_2017-04-29_23-48-14.png]]
 
 [[file:_img/screenshot_2017-04-30_00-10-13.png]]
-* Game Managers
-- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/game-managers?playlist=20081
 
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/firing-shells?playlist=20081
+:END:
+
+* Game Managers
 [[file:_img/screenshot_2017-04-30_07-39-29.png]]
 
 [[file:_img/screenshot_2017-04-30_07-40-28.png]]
@@ -560,9 +574,12 @@ GameManager:
       yield return m_EndWait;
   }
 #+END_SRC
-* Audio Mixing
-- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/audio-mixing?playlist=20081
 
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/game-managers?playlist=20081
+:END:
+
+* Audio Mixing
 [[file:_img/screenshot_2017-04-30_08-32-24.png]]
 
 [[file:_img/screenshot_2017-04-30_08-32-54.png]]
@@ -582,3 +599,7 @@ GameManager:
 [[file:_img/screenshot_2017-04-30_08-49-40.png]]
 
 [[file:_img/screenshot_2017-04-30_08-50-47.png]]
+
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/tanks-tutorial/audio-mixing?playlist=20081
+:END:

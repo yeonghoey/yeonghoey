@@ -46,5 +46,6 @@ So, apply a hash function as following:
   v = Verify(m, s, pk) => R(s, pk) == H(m)
 #+END_EXAMPLE
 
------
+:REFERENCES:
 - https://www.cs.cornell.edu/courses/cs5430/2015sp/notes/rsa_sign_vs_dec.php
+:END:

@@ -1,6 +1,4 @@
 * grep
-- https://www.gnu.org/software/grep/manual/grep.html#Usage
-
 #+BEGIN_SRC shell
   $ tail *.txt
   ==> foo.txt <==
@@ -76,3 +74,7 @@
   $ grep -Z baz foobar.tar.gz; echo $?
   1
 #+END_SRC
+
+:REFERENCES:
+- https://www.gnu.org/software/grep/manual/grep.html#Usage
+:END:

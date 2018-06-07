@@ -19,9 +19,11 @@
 ** QPlainTextEdit
 - Use ~setPlainText()~ to set a text.
 
------
+:REFERENCES:
+
 - https://stackoverflow.com/questions/30408982/how-to-settext-for-qplaintextedit
 - https://stackoverflow.com/questions/17466046/qtextedit-vs-qplaintextedit
+:END:
 
 * Terminology
 * Topics
@@ -55,12 +57,15 @@ It won't work as some dynamic things.
       pass
 #+END_SRC
 
------
+:REFERENCES:
+
 - http://doc.qt.io/qt-5/qwidget.html#event
 - https://stackoverflow.com/questions/16721557/how-to-detect-if-a-window-has-been-activated
+:END:
 
 * Links
+:REFERENCES:
 - https://wiki.qt.io/Qt_for_Beginners
 - http://pyqt.sourceforge.net/Docs/PyQt5/sip-classes.html
 - https://www.ics.com/designpatterns/book/spacers.html
-
+:END:

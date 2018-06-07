@@ -24,18 +24,20 @@ And from there I sort of split it up piece by piece and we work from big to smal
 #+END_QUOTE
 
 ** Quiz: Styling Up
-- https://css-tricks.com/how-css-selectors-work/
-- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference 
-
 [[file:_img/screenshot_2017-01-27_08-05-31.png]] 
 
+:REFERENCES:
+- https://css-tricks.com/how-css-selectors-work/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/Reference 
+:END:
+
 ** Quiz: Using Semantic Tags
+:REFERENCES:
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning
 - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#The_HTML5_Outline_Algorithm
+:END:
 
 ** Quiz: The Box Revisited
-- http://assignments.udacity-extras.appspot.com/courses/html-css/samples/box-model.html
-
 [[file:_img/screenshot_2017-01-27_08-13-19.png]]
 
 #+BEGIN_SRC css
@@ -49,9 +51,11 @@ And from there I sort of split it up piece by piece and we work from big to smal
 
 [[file:_img/screenshot_2017-01-27_08-23-13.png]]
 
-** Positioning Boxes
-- https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+:REFERENCES:
+- http://assignments.udacity-extras.appspot.com/courses/html-css/samples/box-model.html
+:END:
 
+** Positioning Boxes
 #+BEGIN_SRC css
   .app {
       display: -webkit-flex;
@@ -59,10 +63,17 @@ And from there I sort of split it up piece by piece and we work from big to smal
   }
 #+END_SRC
 
+:REFERENCES:
+- https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+:END:
+
 ** Code, Test, Refine
 [[file:_img/screenshot_2017-01-27_09-00-00.png]]
 
 ** Quiz: Verifying HTML and CSS
+:REFERENCES:
 - http://validator.w3.org/#validate_by_input
 - http://jigsaw.w3.org/css-validator/#validate_by_input
+:END:
+
 * CSS Frameworks, Responsive Layouts

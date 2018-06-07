@@ -213,8 +213,6 @@ https://github.com/apache/spark/tree/master/examples/src/main/scala/org/apache/s
 * Terminology
 * Topics
 ** How schema merging works
-- https://spark.apache.org/docs/latest/sql-programming-guide.html#schema-merging
-
 There were no clear documentation about how the merging schema across files works.
 There are only some the general guidelines of growing schema: Append only, no modification.
 
@@ -426,6 +424,10 @@ The conclusion is following:
   spark.read.option("mergeSchema", true).parquet("data{1,2}").show()
   // Caused by: org.apache.spark.SparkException: Failed to merge incompatible data types StringType and IntegerType
 #+END_SRC
+
+:REFERENCES:
+- https://spark.apache.org/docs/latest/sql-programming-guide.html#schema-merging
+:END:
 
 * How-to
 * Links

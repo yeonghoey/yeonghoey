@@ -14,7 +14,6 @@
 * Overview
 * Reference
 ** __dirname
-- https://nodejs.org/docs/latest/api/modules.html#modules_dirname
 - The directory name of the current module. 
 #+BEGIN_SRC javascript
   console.log(__dirname);
@@ -24,16 +23,20 @@
   // Prints: /Users/mjr
 #+END_SRC
 
-** path
-- https://nodejs.org/api/path.html
+:REFERENCES:
+- https://nodejs.org/docs/latest/api/modules.html#modules_dirname
+:END:
 
+** path
 #+BEGIN_SRC javascript
   const path = require('path');
 #+END_SRC
 
-*** resolve
-- https://nodejs.org/api/path.html#path_path_resolve_paths
+:REFERENCES:
+- https://nodejs.org/api/path.html
+:END:
 
+*** resolve
 The given sequence of paths is processed from *right to left*, with each subsequent path prepended *until an absolute path is constructed.*
 #+BEGIN_SRC javascript
   path.resolve('/foo/bar', './baz');
@@ -47,11 +50,17 @@ The given sequence of paths is processed from *right to left*, with each subsequ
   // this returns '/home/myself/node/wwwroot/static_files/gif/image.gif'
 #+END_SRC
 
+:REFERENCES:
+- https://nodejs.org/api/path.html#path_path_resolve_paths
+:END:
+
 * Topics
 ** exports vs. module.exports
-- https://stackoverflow.com/questions/7137397/module-exports-vs-exports-in-node-js
-
 [[file:_img/screenshot_2018-03-04_01-03-44.png]]
+
+:REFERENCES:
+- https://stackoverflow.com/questions/7137397/module-exports-vs-exports-in-node-js
+:END:
 
 * How-to
 * Links

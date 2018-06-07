@@ -1,8 +1,10 @@
 * curl
-- https://ec.haxx.se/usingcurl-returns.html
-
 #+BEGIN_SRC shell
   # return exit code 22 when url not found or
   # HTTP error code being 400 or above
   curl --fail <url>
 #+END_SRC
+
+:REFERENCES:
+- https://ec.haxx.se/usingcurl-returns.html
+:END:

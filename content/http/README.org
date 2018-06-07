@@ -35,43 +35,58 @@
 when a user clicks a hyperlink in a web browser, the browser sends a request to the server holding the destination webpage.
 The request includes the referer field, which indicates the last page the user was on (the one where they clicked the link).
 #+END_QUOTE
------
+
+:REFERENCES:
+
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer
 - https://en.wikipedia.org/wiki/HTTP_referer
 - https://isc.sans.edu/forums/diary/When+does+your+browser+send+a+Referer+header+or+not/16433/
+:END:
 
 * Response status codes
 ** 204 No Content
 - Designates that the client *doesn't need to go away from its current page.*
------
+
+:REFERENCES:
+
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
+:END:
 
 ** 401 Unauthorized
 #+BEGIN_QUOTE
 “you aren’t authenticated–either not authenticated at all or authenticated incorrectly–but please reauthenticate and try again.”
 #+END_QUOTE
 
------
+:REFERENCES:
+
 - https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses
+:END:
 
 ** 403 Forbidden
 #+BEGIN_QUOTE
 “I’m sorry. I know who you are–I believe who you say you are–but you just don’t have permission to access this resource. Maybe if you ask the system administrator nicely, you’ll get permission. But please don’t bother me again until your predicament changes.”
 #+END_QUOTE
 
------
+:REFERENCES:
+
 - https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses
+:END:
 
 ** 409 Conflict
 - When ~PUT~ request cannot be completed because of a conflict with the current state of the resource.
 - It can be okay as a response of ~POST~, but not common because ~POST~ request as a creation would generally cause no conflicts.
 
------
+:REFERENCES:
+
 - https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
+:END:
 
 * Topics
 ** Cache Control
+:REFERENCES:
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+:END:
+
 *** Request
 #+BEGIN_EXAMPLE
   Cache-Control: max-age=<seconds>
@@ -97,14 +112,16 @@ The request includes the referer field, which indicates the last page the user w
 #+END_EXAMPLE
 
 ** Cookies
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
-- https://stackoverflow.com/questions/1336126/does-every-web-request-send-the-browser-cookies
-
 #+BEGIN_QUOTE
 Yes, as long as the URL requested is within the same domain and path defined in the cookie
 (and all of the other restrictions -- secure, httponly, not expired, etc) hold,
 then the cookie will be sent for every request.
 #+END_QUOTE
+
+:REFERENCES:
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+- https://stackoverflow.com/questions/1336126/does-every-web-request-send-the-browser-cookies
+:END:
 
 *** Set-Cookie
 #+BEGIN_EXAMPLE
@@ -116,8 +133,6 @@ then the cookie will be sent for every request.
 - HttpOnly :: The cookies that are set cannot be retrieved with JS. Only be sent to the designated server.
 
 ** Accept vs. Content-Type
-- https://webmasters.stackexchange.com/questions/31212/difference-between-the-accept-and-content-type-http-headers
-
 #+BEGIN_QUOTE
 ~Accept~ header is used by HTTP clients to tell the server what content types they'll accept.
 The server will then send back a response, which will include a ~Content-Type~ header
@@ -126,10 +141,11 @@ telling the client what the content type of the returned content actually is.
 
 The ~Content-Type~ header on HTTP Request is for the payload of ~POST~ or ~PUT~, which tells the server how the payload is formed.
 
-** When is the Authorization header automatically sent by the browser?
-- https://stackoverflow.com/questions/15427650/when-is-the-authorization-header-automatically-sent-by-the-browser
-- https://security.stackexchange.com/questions/172637/will-authorization-bearer-in-request-header-fix-csrf-attacks
+:REFERENCES:
+- https://webmasters.stackexchange.com/questions/31212/difference-between-the-accept-and-content-type-http-headers
+:END:
 
+** When is the Authorization header automatically sent by the browser?
 Only types like ~Basic~, ~NTLM~ of ~Authorization~ header is sent automatically by browser in following cases:
 #+BEGIN_QUOTE
 The ~Authorization~ header field allows a user agent to authenticate itself with an origin server --
@@ -142,9 +158,12 @@ A ~Bearer~ token in the ~Authorization~ header necessarily requires being added 
 because *the browser will never include it*
 #+END_QUOTE
 
-** Basic access authentication
-- https://en.wikipedia.org/wiki/Basic_access_authentication
+:REFERENCES:
+- https://stackoverflow.com/questions/15427650/when-is-the-authorization-header-automatically-sent-by-the-browser
+- https://security.stackexchange.com/questions/172637/will-authorization-bearer-in-request-header-fix-csrf-attacks
+:END:
 
+** Basic access authentication
 #+BEGIN_QUOTE
 Because the BA field(~Authorization: Basic~) has to be sent in the header of *each HTTP request*,
 the web browser needs to cache credentials for a reasonable period of time to avoid constantly prompting the user for their username and password.
@@ -152,15 +171,21 @@ Caching policy differs between browsers.
 Microsoft Internet Explorer by default caches them for 15 minutes.[1]
 #+END_QUOTE
 
-** Web Storage vs. Cookies
-- https://auth0.com/docs/security/store-tokens
-- https://stackoverflow.com/questions/35291573/csrf-protection-with-json-web-tokens
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Basic_access_authentication
+:END:
 
+** Web Storage vs. Cookies
 Does your authn token protect anything to do with money?
 - You'll probably want the cookie httpOnly secure option.
 
 Is the level of effort required to implement CSRF protection not worth the assets it's protecting?
 - Then the Web Storage might be the right place.
+
+:REFERENCES:
+- https://auth0.com/docs/security/store-tokens
+- https://stackoverflow.com/questions/35291573/csrf-protection-with-json-web-tokens
+:END:
 
 *** Web Storage
 There are two types of Web Storage:
@@ -179,9 +204,11 @@ Disadvantages compared to Web Storages:
 - vulnerable to CSRF attacks
 
 ** CORS (Cross Origin Resource Sharing)
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
-
 CORS is for invocations of the [[https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest][XMLHttpRequest]] or [[https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API][Fetch API]], and other resources like images and fonts.
+
+:REFERENCES:
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+:END:
 
 *** Simple Requests
 With some limited conditions, CORS works as normal requests by just adding some headers 
@@ -189,8 +216,6 @@ like ~Origin~ on requests and ~Access-Control-Allow-Origin~ on responses.
 This type of requests is usually a kind of read access, like ~GET~, ~HEAD~, ~POST~
 
 *** Preflighted Requests
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS
-
 If some requests is unable to comply the simple requests conditions, it should go with Preflighted Requests.
 With this process, the client sends an ~OPTION~ request first, and make the actual request using the ~OPTION~ response.
 This type of requests is usually a kind of write access, like ~PUT~, ~DELETE~
@@ -204,10 +229,11 @@ Here is an example respond of the ~OPTION~ request.
   Access-Control-Max-Age: 86400
 #+END_EXAMPLE
 
-*** XMLHttpRequest.withCredentials and Access-Control-Allow-Credentials
-- https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials
-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
+:REFERENCES:
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/OPTIONS
+:END:
 
+*** XMLHttpRequest.withCredentials and Access-Control-Allow-Credentials
 If ~withCredentials~ is set to ~true~ on the request, the CORS request will send cookies, ~Authorization~ header, etc.
 
 ~Access-Control-Allow-Credentials~: When used as part of a response to a preflight request,
@@ -217,11 +243,12 @@ it won't provide the actual response.
 
 The cookie created through this process will be treated as the third party cookie.
 
-*** Same-origin policy
-- https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
-- https://security.stackexchange.com/questions/8264/why-is-the-same-origin-policy-so-important
-- https://en.wikipedia.org/wiki/Same-origin_policy
+:REFERENCES:
+- https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
+:END:
 
+*** Same-origin policy
 #+BEGIN_QUOTE
 The same-origin policy is a key mechanism implemented within browsers
 that is designed to keep content that came from different origins
@@ -231,6 +258,12 @@ from interfering with each other.
 Without Same-origin policy, any JS code would access other domains resources. 
 
 [[file:_img/screenshot_2018-03-19_01-16-27.png]]
+
+:REFERENCES:
+- https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+- https://security.stackexchange.com/questions/8264/why-is-the-same-origin-policy-so-important
+- https://en.wikipedia.org/wiki/Same-origin_policy
+:END:
 
 *** JSONP
 :REFERENCES:
@@ -249,8 +282,6 @@ JSON with Padding. A way to circumvent Same-origin policy before the adoption of
 #+END_SRC
 
 ** XSS (Cross-site scripting)
-- https://en.wikipedia.org/wiki/Cross-site_scripting
-
 An attacker observes that target website contains a reflected XSS vulnerability:
 1. Search feature: If no results were found, the page will display the url with the query term, like http://bobssite.org?q=term.
 2. Submit a search query with a term like ~<script type='text/javascript'>alert('xss');</script>~
@@ -259,9 +290,11 @@ An attacker observes that target website contains a reflected XSS vulnerability:
 5. The attacker sends an e-mail which contains a link to the forged url.
 6. The victim gets the link and executes the attackers script.
 
-** CSRF (Cross-site request forgery)
-- https://en.wikipedia.org/wiki/Cross-site_request_forgery
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Cross-site_scripting
+:END:
 
+** CSRF (Cross-site request forgery)
 Force a ~.torrent~ file download:
 1. uTorrent's web console is accessible at ~localhost:8080~
 2. Forge a url make uTorrent download ~backdoor.torrent~ automatically
@@ -269,9 +302,11 @@ Force a ~.torrent~ file download:
 3. Inject the forged url as ~<img>~ tag like: ~<img src="<url>">~
 4. The victim opens the page containg the tag and download ~backdoor.torrent~ inadvertently.
 
-** URL vs URI vs URN
-- https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Cross-site_request_forgery
+:END:
 
+** URL vs URI vs URN
 | Name (Uniform Resource -) | Example                                 | Note                                                                                                         |
 |---------------------------+-----------------------------------------+--------------------------------------------------------------------------------------------------------------|
 | ~URI~ (Identifier)        | ~https://www.google.co.kr/search?q=uri~ |                                                                                                              |
@@ -280,11 +315,21 @@ Force a ~.torrent~ file download:
 
 [[file:_img/screenshot_2017-06-03_15-46-11.png]]
 
+:REFERENCES:
+- https://stackoverflow.com/questions/176264/what-is-the-difference-between-a-uri-a-url-and-a-urn
+:END:
+
 ** Valid URL characters
 [[file:_img/screenshot_2018-05-11_12-49-59.png]]
------
+
+:REFERENCES:
+
 - https://stackoverflow.com/questions/7109143/what-characters-are-valid-in-a-url
+:END:
 
 ** Endpoint
-- https://stackoverflow.com/questions/9807382/what-is-a-web-service-endpoint
 - A web ~endpoint~ is ~URL~ that another program would use to communicate with your program.
+
+:REFERENCES:
+- https://stackoverflow.com/questions/9807382/what-is-a-web-service-endpoint
+:END:

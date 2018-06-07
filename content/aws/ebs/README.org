@@ -12,14 +12,15 @@
 - [[#links][Links]]
 
 * Reference
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
-
 [[file:_img/screenshot_2017-07-13_19-12-16.png]]
-* How-to
 
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
+:END:
+
+* How-to
 * Topics
 ** EBS-Optimized Instances
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html
 - To *ensure sustained reliable network bandwidth* between your EC2 instance and your EBS volumes:
   - To launch the EC2 instance as *EBS-optimized* 
   - To choose an instance type with *10 Gigabit network connectivity*(like ~r4.8xtype~).
@@ -35,8 +36,11 @@ When EBS-Optimized, Each instance can acquire IO Performance following:
  
 [[file:_img/screenshot_2017-07-13_21-07-37.png]]
 
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html
+:END:
+
 ** Monitor I/O Characteristics with CloudWatch
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html
 - BurstBalance: burst bucket balance for ~gp2~, ~st1~, and ~sc1~ 
 - VolumeQueueLength: To make sure your application is not trying to drive more IOPS than you have provisioned
 - VolumeReadBytes
@@ -46,22 +50,28 @@ When EBS-Optimized, Each instance can acquire IO Performance following:
 
 [[file:_img/screenshot_2017-07-13_21-22-51.png]]
 
-** gp2: I/O Credits and Burst Performance
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html
+:END:
 
+** gp2: I/O Credits and Burst Performance
 [[file:_img/screenshot_2017-07-13_18-43-16.png]]
 
 [[file:_img/screenshot_2017-07-13_18-45-08.png]]
+
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+:END:
+
 ** io1: For the best per-I/O latency experience
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
 We recommend that you provision an IOPS-to-GiB ratio *greater than 2:1*.
 For example, a 2,000 IOPS volume *should be smaller than 1,000 GiB*.
 
-** io1: Within 10 percent of the provisioned IOPS performance?
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
-- https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-KRgqrSoF3amTY4XOAat/confused_about_provisioned_iop
-- https://forums.aws.amazon.com/message.jspa?messageID=742320
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops
+:END:
 
+** io1: Within 10 percent of the provisioned IOPS performance?
 - Ambiguous wording
 
 #+BEGIN_QUOTE
@@ -74,6 +84,14 @@ I think the document's wrong. They should edit it like "within 90%".
 It's more like this: 99.9% of the time over the year, AWS will deliver within 4000 IOPS +(?)/- 10%.
 #+END_QUOTE
 
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+- https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-KRgqrSoF3amTY4XOAat/confused_about_provisioned_iop
+- https://forums.aws.amazon.com/message.jspa?messageID=742320
+:END:
+
 * Links
+:REFERENCES:
 - https://www.slideshare.net/AmazonWebServices/overview-and-best-practices-for-amazon-elastic-block-store-september-2016-webinar-series
 - https://www.slideshare.net/AmazonWebServices/deep-dive-maximizing-ec2-and-ebs-performance
+:END:

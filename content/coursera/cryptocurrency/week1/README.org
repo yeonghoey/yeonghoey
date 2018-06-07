@@ -64,7 +64,6 @@
 [[file:_img/screenshot_2017-10-06_14-42-50.png]]
 
 ** Self study to understand more
-- http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#merkle_trees
 - Most explanations are vaguely couch, but it seems that **the data blocks should be ordered**, otherwise the hashes will be different,
   Because the values are concatenated in the order of data blocks.
 - Most expalnations says the merkle tree can save the retrival of data as ~O(log n)~, but I wondered how.
@@ -74,6 +73,11 @@
   and indexing it to calculate hashes.
 
 [[file:_img/screenshot_2017-10-06_16-12-52.png]]
+
+:REFERENCES:
+- http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#merkle_trees
+:END:
+
 * Digital Signatures
 [[file:_img/screenshot_2017-10-08_09-42-38.png]]
 

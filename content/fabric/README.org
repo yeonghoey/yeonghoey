@@ -5,8 +5,6 @@
  - [[#reference-links][Reference Links]]
 
 * Usage 
-- http://docs.fabfile.org/en/1.13/usage/fab.html
-
 #+BEGIN_SRC python
   from fabric.api import run
 
@@ -34,6 +32,12 @@
   $ fab -f '/path/to/my/fabfile.py' -H system1 new_user:username=myusername,admin=yes
 #+END_SRC
 
+:REFERENCES:
+- http://docs.fabfile.org/en/1.13/usage/fab.html
+:END:
+
 * Reference Links
+:REFERENCES:
 - http://docs.fabfile.org/en/1.13/
 - http://fabtools.readthedocs.io/en/0.19.0/
+:END:

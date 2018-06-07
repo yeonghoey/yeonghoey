@@ -40,8 +40,6 @@
 * Reference
 ** decorator
 *** class decorator
-- https://www.python.org/dev/peps/pep-3129/
-
 #+BEGIN_SRC python
   class A:
     pass
@@ -53,9 +51,11 @@
     pass
 #+END_SRC
 
-** dict
-- https://docs.python.org/2/library/stdtypes.html#mapping-types-dict
+:REFERENCES:
+- https://www.python.org/dev/peps/pep-3129/
+:END:
 
+** dict
 #+BEGIN_EXAMPLE
   dict()
   dict(mapping)
@@ -89,8 +89,14 @@
       In either case, this is followed by: for k in F: D[k] = F[k]
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://docs.python.org/2/library/stdtypes.html#mapping-types-dict
+:END:
+
 *** items, iteritems, viewitems
+:REFERENCES:
 - https://stackoverflow.com/questions/10458437/what-is-the-difference-between-dict-items-and-dict-iteritems
+:END:
 
 **** Py2
 - ~items()~: returns a list of tuples(copied elements)
@@ -121,8 +127,6 @@
 - ~dict.items()~ == ~dict.viewitems()~ of Py2
 
 ** docstring
-- https://www.python.org/dev/peps/pep-0257/
-- http://epydoc.sourceforge.net/manual-docstring.html
 - [[sphinx.org][Sphinx]] reStructuredText based .
 - [[docstring-google.py][Google]] and [[docstring-numpy.py][Numpy]] Styles
 
@@ -133,11 +137,19 @@ Specific syntax for variable docstring:
   x = 22  #: docstring for x
 #+END_SRC
 
+:REFERENCES:
+- https://www.python.org/dev/peps/pep-0257/
+- http://epydoc.sourceforge.net/manual-docstring.html
+:END:
+
 ** exceptions
-- https://docs.python.org/2/library/exceptions.html
-- https://docs.python.org/2/faq/design.html#how-fast-are-exceptions
 - ~else:~ must be placed after ~except:~, which block will be executed if no exception raised
 - ~finally:~ will always be executed whether any exception raised or not
+
+:REFERENCES:
+- https://docs.python.org/2/library/exceptions.html
+- https://docs.python.org/2/faq/design.html#how-fast-are-exceptions
+:END:
 
 *** How fast are exceptions?
 - A ~try~ / ~except~ block is extremely efficient if no exceptions are raised
@@ -159,8 +171,6 @@ or the empty string when there were no arguments.
 ~BaseException.args~: The tuple of arguments given to the exception constructor.
 
 *** Built-in Exceptions
-- https://docs.python.org/2/library/exceptions.html
-
 #+BEGIN_EXAMPLE
   BaseException
    +-- SystemExit
@@ -214,20 +224,29 @@ or the empty string when there were no arguments.
        +-- BytesWarning
 #+END_EXAMPLE
 
-**** SystemExit
-- https://docs.python.org/2/library/exceptions.html#exceptions.SystemExit
+:REFERENCES:
+- https://docs.python.org/2/library/exceptions.html
+:END:
 
+**** SystemExit
 #+BEGIN_SRC python
   raise SystemExit()       # exit status: 0
   raise SystemExit(99)     # exit status: 99
   raise SystemExit('foo')  # print 'foo', exit status: 1
 #+END_SRC
 
+:REFERENCES:
+- https://docs.python.org/2/library/exceptions.html#exceptions.SystemExit
+:END:
+
 *** raise MyException vs raise MyException()
-- http://stackoverflow.com/questions/16706956/is-there-a-difference-between-raise-exception-and-raise-exception-without
 - The short answer is that both ~raise MyException~ and ~raise MyException()~ do the same thing.
 - This first form auto instantiates your exception.
 - So, use ~raise MyException~ when there are no arguments.
+
+:REFERENCES:
+- http://stackoverflow.com/questions/16706956/is-there-a-difference-between-raise-exception-and-raise-exception-without
+:END:
 
 *** Catching multiple exceptions
 Because ~except TypeError,e~ is equivalent to ~exception TypeError as e~, you must use ~tuple~ to catch multiple exceptions
@@ -237,13 +256,14 @@ like ~except (TypeError, ValueError) as e~
 - Normally, ~KeyboardInterrupt~ is raised by the python defined ~default_int_handler~ for ~SIGINT~ ([[https://hg.python.org/cpython/file/6eefdf0fade6/Modules/signalmodule.c#l603][code]])
 - However, if signal mask contains ~SIG_IGN~, it won't, which means, There would be no ~KeyboardInterrupt~.
 - Most shell like ~bash~ set the signal mask of ~SIG_IGN~ to ~SIGINT~ and ~SIGQUIT~ when it runs the process background (like ~$ cmd &~)
------
+
+:REFERENCES:
+
 - https://stackoverflow.com/questions/40775054/capturing-sigint-using-keyboardinterrupt-exception-works-in-terminal-not-in-scr
+:END:
 
 ** import
 *** Absolute import vs implicit, explicit relative import
-- https://www.python.org/dev/peps/pep-0328/
-- https://stackoverflow.com/questions/4209641/absolute-vs-explicit-relative-import-of-python-module
 - ~from __future__ import absolute_import~ for ~py2~
 - Default in ~py3~
 
@@ -281,9 +301,12 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
   import .bar
 #+END_SRC
 
+:REFERENCES:
+- https://www.python.org/dev/peps/pep-0328/
+- https://stackoverflow.com/questions/4209641/absolute-vs-explicit-relative-import-of-python-module
+:END:
+
 *** Import in function
-- https://stackoverflow.com/questions/128478/should-python-import-statements-always-be-at-the-top-of-a-module
-- https://stackoverflow.com/questions/11990556/python-how-to-make-global-imports-from-a-function
 - ~import~ will cache the module. So ~import in function~ won't cause reload and severe overhead.
 - But ~import in function~ would still have addtional overhead for checking and resolving the cache, etc.
 - So, use ~import in function~ only for optional library support or resolving circular dependency problem.
@@ -295,8 +318,12 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
       import math
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/128478/should-python-import-statements-always-be-at-the-top-of-a-module
+- https://stackoverflow.com/questions/11990556/python-how-to-make-global-imports-from-a-function
+:END:
+
 *** Submodules related from
-- https://docs.python.org/3/tutorial/modules.html#packages
 - ~from package import item~ ::
   1. Tests whether the ~item~ is defined in the package;
   2. If not, it assumes it is a module and attempts to load it.
@@ -305,23 +332,28 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
   1. Each item except for the last must be a package
   2. The last item can be a module or a package but *can’t be a class or function or variable defined in the previous item.*
 
+:REFERENCES:
+- https://docs.python.org/3/tutorial/modules.html#packages
+:END:
+
 *** Sorting imports
+:REFERENCES:
 - https://pypi.python.org/pypi/isort
 - https://stackoverflow.com/questions/20762662/whats-the-correct-way-to-sort-python-import-x-and-from-x-import-y-statement
+:END:
 
 ** itertools
-- https://docs.python.org/2/library/itertools.html
-
 #+BEGIN_SRC python
   # Generates a break or new group every time the value of the key function changes
   [k for k, g in groupby('AAAABBBCCDAABBB')]   # --> A B C D A B
   [list(g) for k, g in groupby('AAAABBBCCD')]  # --> AAAA BBB CC D
 #+END_SRC
 
-** list
-- https://docs.python.org/2/library/stdtypes.html#mutable-sequence-types
-- https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange
+:REFERENCES:
+- https://docs.python.org/2/library/itertools.html
+:END:
 
+** list
 #+BEGIN_EXAMPLE
   x in s
   x not in s
@@ -351,15 +383,21 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
   L.sort(cmp=None, key=None, reverse=False)   stable sort *IN PLACE*; cmp(x, y) -> -1, 0, 1
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://docs.python.org/2/library/stdtypes.html#mutable-sequence-types
+- https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange
+:END:
+
 ** logging
+[[file:_img/screenshot_2017-06-30_22-28-31.png]]
+
+:REFERENCES:
 - https://docs.python.org/2/library/logging.html
 - https://docs.python.org/2/howto/logging.html#logging-basic-tutorial
 - https://docs.python.org/2/howto/logging-cookbook.html#logging-cookbook
+:END:
 
-[[file:_img/screenshot_2017-06-30_22-28-31.png]]
 ** multiprocessing
-- https://docs.python.org/2/library/multiprocessing.html
-
 #+BEGIN_SRC python :results output
   from multiprocessing import Pool
   import time
@@ -390,8 +428,11 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
 : 3
 : 3
 
+:REFERENCES:
+- https://docs.python.org/2/library/multiprocessing.html
+:END:
+
 ** re
-- https://docs.python.org/2/library/re.html
 #+BEGIN_EXAMPLE
   The special characters are:
       "."      Matches any character except a newline.
@@ -465,9 +506,11 @@ To import ~foo/bar.py~, there are two ways. One is absoulte import and the other
       U  UNICODE     Make \w, \W, \b, \B, dependent on the Unicode locale.
 #+END_EXAMPLE
 
-** set
-- https://docs.python.org/2/library/stdtypes.html#set-types-set-frozenset
+:REFERENCES:
+- https://docs.python.org/2/library/re.html
+:END:
 
+** set
 #+BEGIN_EXAMPLE
   x in set
   x not in set
@@ -505,10 +548,12 @@ In contrast, their *operator based counterparts require their arguments to be se
 ~set('abc') == frozenset('abc')~ returns ~True~ and so does ~set('abc') in set([frozenset('abc')])~.
 #+END_QUOTE
 
+:REFERENCES:
+- https://docs.python.org/2/library/stdtypes.html#set-types-set-frozenset
+:END:
+
 ** str
 ** string
-- https://docs.python.org/2/library/stdtypes.html#string-methods
-
 #+BEGIN_EXAMPLE
   S.capitalize() -> string
   S.center(width[, fillchar]) -> string             fillchar=' '
@@ -550,9 +595,11 @@ In contrast, their *operator based counterparts require their arguments to be se
   S.zfill(width) -> string                          zero padding for numeric string
 #+END_EXAMPLE
 
-*** format
-- https://pyformat.info/
+:REFERENCES:
+- https://docs.python.org/2/library/stdtypes.html#string-methods
+:END:
 
+*** format
 #+BEGIN_SRC python
   >>> '%s %s' % ('one', 'two')
   >>> '{} {}'.format('one', 'two')    # one two
@@ -661,9 +708,11 @@ In contrast, their *operator based counterparts require their arguments to be se
   >>> '{:open-the-pod-bay-doors}'.format(HAL9000())  # I'm afraid I can't do that.
 #+END_SRC
 
-** webbrowser
-- https://docs.python.org/2/library/webbrowser.html
+:REFERENCES:
+- https://pyformat.info/
+:END:
 
+** webbrowser
 #+BEGIN_SRC shell
   # Open an url in a new tab(-t)
   $ python -m webbrowser -t "http://www.python.org"
@@ -674,6 +723,10 @@ In contrast, their *operator based counterparts require their arguments to be se
   import webbrowser
   webbrowser.open_new_tab('http://yeonghoey.com')
 #+END_SRC
+
+:REFERENCES:
+- https://docs.python.org/2/library/webbrowser.html
+:END:
 
 * Terminology
 * Topics
@@ -714,12 +767,12 @@ objects of the same types that don't support proper comparison are ordered by th
   10 >= z >= 2
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://stackoverflow.com/questions/13792604/usage-of-the-operator-for-three-objects/13792615#13792615
+:END:
 
 ** Double underscores
-- https://docs.python.org/2/reference/datamodel.html
-- https://docs.python.org/2/library/stdtypes.html#special-attributes
 - Also called ~dunder~, ~special methods~, ~magic methods~
 - [[https://www.python.org/dev/peps/pep-0008/#id36][PEP8]] guides to never use these style names for custom uses.
 
@@ -902,10 +955,12 @@ objects of the same types that don't support proper comparison are ordered by th
   if not, it should be set to its parent package or empty when it's a top-level module
   This value is used to calculate explicit relative imports
 
-** EAFP, LBYL
-- https://docs.python.org/3/glossary.html#term-eafp
-- https://docs.python.org/3/glossary.html#term-lbyl
+:REFERENCES:
+- https://docs.python.org/2/reference/datamodel.html
+- https://docs.python.org/2/library/stdtypes.html#special-attributes
+:END:
 
+** EAFP, LBYL
 #+BEGIN_SRC python
   # EAFP (Easier to ask for forgiveness than permission)
   try:
@@ -924,9 +979,12 @@ objects of the same types that don't support proper comparison are ordered by th
 This issue can be solved with locks or by using the *EAFP* approach.
 #+END_QUOTE
 
-** Final class
-- http://stackoverflow.com/questions/2825364/final-classes-in-python-3-x-something-guido-isnt-telling-me
+:REFERENCES:
+- https://docs.python.org/3/glossary.html#term-eafp
+- https://docs.python.org/3/glossary.html#term-lbyl
+:END:
 
+** Final class
 #+BEGIN_SRC python
   class Final(type):
       def __new__(cls, name, bases, classdict):
@@ -941,11 +999,11 @@ This issue can be solved with locks or by using the *EAFP* approach.
       __metaclass__ = Final
 #+END_SRC
 
+:REFERENCES:
+- http://stackoverflow.com/questions/2825364/final-classes-in-python-3-x-something-guido-isnt-telling-me
+:END:
+
 ** Meta Class
-- https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/
-- http://eli.thegreenplace.net/2011/08/14/python-metaclasses-by-example
-- https://stackoverflow.com/questions/6966772/using-the-call-method-of-a-metaclass-instead-of-new
-- https://docs.python.org/2/library/functions.html#type
 - Subclasses inherit the metaclass
 
 #+BEGIN_SRC python :results output
@@ -1036,9 +1094,14 @@ This issue can be solved with locks or by using the *EAFP* approach.
 
 [[file:_img/screenshot_2017-06-30_22-02-40.png]]
 
-** Descriptor
-- https://docs.python.org/2/howto/descriptor.html
+:REFERENCES:
+- https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/
+- http://eli.thegreenplace.net/2011/08/14/python-metaclasses-by-example
+- https://stackoverflow.com/questions/6966772/using-the-call-method-of-a-metaclass-instead-of-new
+- https://docs.python.org/2/library/functions.html#type
+:END:
 
+** Descriptor
 #+BEGIN_SRC python
   descr.__get__(self, obj, type=None) # -> value
   descr.__set__(self, obj, value)     # -> None
@@ -1074,6 +1137,10 @@ This issue can be solved with locks or by using the *EAFP* approach.
 - ~__getattribute__()~ is only available with new style classes and objects
 - ~object.__getattribute__()~ and ~type.__getattribute__()~ make different calls to ~__get__()~.
 
+:REFERENCES:
+- https://docs.python.org/2/howto/descriptor.html
+:END:
+
 *** Functions and Methods
 For classes, method definitions are just functions.
 For instances, these functions need to be bound to the instance.
@@ -1087,12 +1154,13 @@ To support method calls, functions include the ~__get__()~ method for binding me
           return types.MethodType(self, obj, objtype)
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://docs.python.org/3/howto/descriptor.html#functions-and-methods
 - https://stackoverflow.com/questions/1015307/python-bind-an-unbound-method
+:END:
 
 *** Data descriptors vs. non-data descriptors
-- https://stackoverflow.com/questions/13007179/python-data-and-non-data-descriptors
 - Data descriptor: defines both ~__get__()~ and ~__set__()~
 - Non-data descriptor: defines only ~__get__()~
 
@@ -1125,9 +1193,11 @@ To support method calls, functions include the ~__get__()~ method for binding me
   'eggs'
 #+END_SRC
 
-** __getattr__ vs. __getattribute__
-- https://stackoverflow.com/questions/3278077/difference-between-getattr-vs-getattribute
+:REFERENCES:
+- https://stackoverflow.com/questions/13007179/python-data-and-non-data-descriptors
+:END:
 
+** __getattr__ vs. __getattribute__
 #+BEGIN_SRC python
   class Foo(object):
       def __getattr__(self, name):
@@ -1159,14 +1229,20 @@ To support method calls, functions include the ~__get__()~ method for binding me
 - ~Descriptor~ handling is done in the default ~__getattribute__~ implementation
 - ~__getattr__~ is good for fallback implementation for missing attributes.
 
-** getattr, setattr, Why need them?
-- https://stackoverflow.com/questions/19123707/why-use-setattr-and-getattr-built-ins
+:REFERENCES:
+- https://stackoverflow.com/questions/3278077/difference-between-getattr-vs-getattribute
+:END:
 
+** getattr, setattr, Why need them?
 #+BEGIN_SRC python
   somevar = 'foo'
   getattr(x, somevar)
   getattr(x, somevar, 0)  # also can specify default value
 #+END_SRC
+
+:REFERENCES:
+- https://stackoverflow.com/questions/19123707/why-use-setattr-and-getattr-built-ins
+:END:
 
 ** Source Code Encodings
 - [[https://www.python.org/dev/peps/pep-0263/][PEP 263]]
@@ -1208,18 +1284,22 @@ To support method calls, functions include the ~__get__()~ method for binding me
           return s.getsockname()[1]
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://stackoverflow.com/questions/1365265/on-localhost-how-do-i-pick-a-free-port-number/1365284
+:END:
 
 ** Read a file except the first line
-- https://stackoverflow.com/questions/4796764/read-file-from-line-2-or-skip-header-row
-
 #+BEGIN_SRC python
   with open(fname) as f:
       next(f)
       for line in f:
           #do something
 #+END_SRC
+
+:REFERENCES:
+- https://stackoverflow.com/questions/4796764/read-file-from-line-2-or-skip-header-row
+:END:
 
 ** Convert a list to a dictionary
 #+BEGIN_SRC python
@@ -1232,13 +1312,18 @@ To support method calls, functions include the ~__get__()~ method for binding me
   izip(*())  #consumes the two iterators creating a tuple
   dict()     #puts the tuples into key,value of the dictionary
 #+END_SRC
------
+
+:REFERENCES:
+
 - https://stackoverflow.com/questions/4576115/convert-a-list-to-a-dictionary-in-python
+:END:
 
 ** Get a reference to the current module?
 #+BEGIN_SRC python
   import sys
   current_module = sys.modules[__name__]
 #+END_SRC
------
+
+:REFERENCES:
 - https://stackoverflow.com/questions/1676835/python-how-do-i-get-a-reference-to-a-module-inside-the-module-itself
+:END:

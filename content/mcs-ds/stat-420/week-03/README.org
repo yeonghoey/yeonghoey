@@ -272,4 +272,6 @@ So if the p-value is less than alpha, we say that we reject the null hypothesis.
 
 [[file:_img/screenshot_2018-06-01_17-07-03.png]]
 * Links
+:REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/inference-for-simple-linear-regression.html
+:END:

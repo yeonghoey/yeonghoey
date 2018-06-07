@@ -9,17 +9,17 @@
 
 * Command
 ** read
-- http://vim.wikia.com/wiki/Append_output_of_an_external_command
-
 #+BEGIN_EXAMPLE
   :read !ls     # Put the output of 'ls' at cursor position
   :$read !date  # Put the output of 'data' at the last line
 #+END_EXAMPLE
 
+:REFERENCES:
+- http://vim.wikia.com/wiki/Append_output_of_an_external_command
+:END:
+
 * Details
 ** Fold
-- http://vimcasts.org/episodes/how-to-fold/
-
 | command | effect                              |
 |---------+-------------------------------------|
 | ~za~    | toggle current fold open/closed     |
@@ -34,6 +34,10 @@
 | ~zr~	  | increase ~foldlevel~ by one         |
 | ~zm~	  | reduce ~foldlevel~ by one           |
 | ~zv~    | expand folds to reveal cursor       |
+
+:REFERENCES:
+- http://vimcasts.org/episodes/how-to-fold/
+:END:
 
 ** Get the name of the current file
 #+BEGIN_EXAMPLE

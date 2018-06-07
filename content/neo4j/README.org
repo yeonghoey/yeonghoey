@@ -41,7 +41,6 @@ Nodes can have *one or more* labels.
 - ~NULL~ can be modeled by the absence of a key.
 
 * Uniqueness
-
 #+BEGIN_SRC cypher
   CREATE ({name: "Finn"}) -[:FRIEND]-> ({name: "Jake"}) -[:FRIEND]-> ({name: "Rainicorn"})
 #+END_SRC
@@ -84,9 +83,7 @@ You need to divide up MATCH clause to have /Finn/ included:
 #+END_SRC
 
 * Cheat sheet
-
 ** Basics
-
 #+BEGIN_SRC cypher
   (a:User)-->(b)
   (a:User:Admin)-->(b)
@@ -106,7 +103,6 @@ You need to divide up MATCH clause to have /Finn/ included:
 #+END_SRC
 
 ** CREATE, MERGE, DELETE
-
 #+BEGIN_SRC cypher
   CREATE (n:Person { name : 'Andres', title : 'Developer' })
   
@@ -138,7 +134,6 @@ You need to divide up MATCH clause to have /Finn/ included:
 #+END_SRC
 
 ** SET, REMOVE, FOREACH
-
 #+BEGIN_SRC cypher
   MATCH (n { name: 'Andres' })
   SET n.surname = 'Taylor'
@@ -154,7 +149,6 @@ You need to divide up MATCH clause to have /Finn/ included:
 #+END_SRC
 
 ** Indexes and constraints
-
 #+BEGIN_SRC cypher
   CREATE INDEX ON :Person(name)
   
@@ -167,7 +161,6 @@ You need to divide up MATCH clause to have /Finn/ included:
 #+END_SRC
 
 ** WHERE
-
 #+BEGIN_SRC cypher
   WHERE n:Swedish
   WHERE exists(n.belt)
@@ -189,7 +182,6 @@ You need to divide up MATCH clause to have /Finn/ included:
 #+END_SRC
 
 ** SKIP, LIMIT
-
 #+BEGIN_SRC cypher
   // Return middle two
   MATCH (n)
@@ -200,7 +192,6 @@ You need to divide up MATCH clause to have /Finn/ included:
 #+END_SRC
 
 ** Others
-
 #+BEGIN_SRC cypher
   MATCH (me:Person)-->(friend:Person)-->(friend_of_friend:Person)
   WHERE me.name = 'A'
@@ -229,5 +220,3 @@ You need to divide up MATCH clause to have /Finn/ included:
 - [[http://neo4j.com/docs/][Neo4j Documentation]]
 - [[https://neo4j.com/docs/developer-manual/current/][Neo4j Developer Manual]]
 - [[https://neo4j.com/docs/api/python-driver/current/][Neo4j Bolt Driver for Python]]
-
-

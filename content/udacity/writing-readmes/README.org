@@ -7,9 +7,12 @@
   - [[#quiz-documenting-a-growing-codebase][Quiz: Documenting A Growing Codebase]]
 
 * Udacity
-- https://www.udacity.com/course/writing-readmes--ud777
 - Nothing but license things new to me, but it covers important subjects
 - Takes about an hour
+
+:REFERENCES:
+- https://www.udacity.com/course/writing-readmes--ud777
+:END:
 
 * Writing READMES
 ** Anatomy of a README
@@ -20,6 +23,9 @@
 [[file:_img/screenshot_2017-01-27_14-22-02.png]]
 
 ** Quiz: Documenting A Growing Codebase
-- https://choosealicense.com/
  
 [[file:_img/screenshot_2017-01-27_14-23-31.png]]
+
+:REFERENCES:
+- https://choosealicense.com/
+:END:

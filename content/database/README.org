@@ -14,8 +14,6 @@
 * Terminology
 * Topics
 ** Cardinality
-- https://en.wikipedia.org/wiki/Cardinality_(data_modeling)
-
 #+BEGIN_QUOTE
 In the relational model, tables can be related as any of
 "one-to-many", "many-to-many", "one-to-zero-or-one", etc..
@@ -28,6 +26,10 @@ This is said to be the *cardinality* of a given table in relation to another.
 | one-to-one (optional on one side)     | person ←→ driving license | 1         | 0..1 or ? |
 | many-to-one                           | person ←→ birth place     | 1..* or + | 1         |
 | many-to-many (optional on both sides) | person ←→ book            | 0..* or * | 0..* or * |
+
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Cardinality_(data_modeling)
+:END:
 
 * How-to
 * Links

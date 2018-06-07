@@ -46,8 +46,6 @@
 - ~AAAA~ records for IPv6
 
 ** CNAME
-- https://stackoverflow.com/questions/655235/is-root-domain-cname-to-other-domain-allowed-by-dns-rfc
-
 #+BEGIN_EXAMPLE
   www         IN  CNAME   server1
 #+END_EXAMPLE
@@ -56,6 +54,10 @@
 - Comes with *some performance losses* because they require an additional query to the server
 - Recommended to provide an alias for a resource outside of the current zone.
 - It's impossible to make ~CNAME~ on the ~root~ domain(without subdomain, like ~example.com~)
+
+:REFERENCES:
+- https://stackoverflow.com/questions/655235/is-root-domain-cname-to-other-domain-allowed-by-dns-rfc
+:END:
 
 ** ALIAS
 - Some DNS providers like AWS Route 53 provides customized ~ALIAS~ records
@@ -91,7 +93,9 @@
 - Used define a name associated with an IP address
 
 * References
+:REFERENCES:
 - http://www.learndns.com/pdf/dns101.pdf
 - https://www.digitalocean.com/community/tutorials/an-introduction-to-dns-terminology-components-and-concepts
 - http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html
 - https://serverfault.com/questions/419402/similarities-and-differences-between-cname-record-and-route-53-alias-record
+:END:

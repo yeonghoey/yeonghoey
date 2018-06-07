@@ -1,6 +1,4 @@
 * tee
-- https://shapeshed.com/unix-tee/
-
 #+BEGIN_SRC shell
   $ echo 'foo' | tee foo.txt
   foo
@@ -26,3 +24,7 @@
   # 'tee' can be used to work around this
   $ echo "foo" | sudo tee -a file
 #+END_SRC
+
+:REFERENCES:
+- https://shapeshed.com/unix-tee/
+:END:

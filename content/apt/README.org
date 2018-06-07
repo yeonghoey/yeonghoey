@@ -31,23 +31,26 @@
   #+END_EXAMPLE
 
 *** /var/lib/apt/lists/*
-- https://askubuntu.com/questions/179955/var-lib-apt-lists-huge-in-12-04
 - Files for the list of packages, downloaded from Ubuntu servers.
 - The size of the files is over MBs, people generally delete these files when building a Docker image.
+
+:REFERENCES:
+- https://askubuntu.com/questions/179955/var-lib-apt-lists-huge-in-12-04
+:END:
 
 * Terminology
 * Topics
 ** apt vs apt-get
-- https://askubuntu.com/questions/445384/what-is-the-difference-between-apt-and-apt-get
-
 #+BEGIN_QUOTE
 The ~apt~ command is meant to be pleasant for end users and does not need to be backward compatible like apt-get(8).
 #+END_QUOTE
 
+:REFERENCES:
+- https://askubuntu.com/questions/445384/what-is-the-difference-between-apt-and-apt-get
+:END:
+
 * How-to
 ** Install java8
-- http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/
-
 #+BEGIN_SRC shell
   sudo add-apt-repository ppa:webupd8team/java
   sudo apt-get update
@@ -58,5 +61,9 @@ The ~apt~ command is meant to be pleasant for end users and does not need to be 
 
   sudo update-alternatives --config java
 #+END_SRC
+
+:REFERENCES:
+- http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa/
+:END:
 
 * Links

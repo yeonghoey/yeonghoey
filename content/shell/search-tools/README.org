@@ -16,8 +16,6 @@ Most search tools like ~ag~ and ~rg~ comply with ~.ignore~, which is formatted s
 Tools will ignore targets specified in ~.ignore~
 
 ** Expressions
-- https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
-
 | ~.~          |                                                                                            |
 | ~?~          |                                                                                            |
 | ~*~          |                                                                                            |
@@ -53,8 +51,14 @@ Tools will ignore targets specified in ~.ignore~
 - Meta-characters like ~?~, ~+~, ~{~, ~|~, ~(~, ~)~ should be escaped with backslash
   - ~egrep~ or ~grep -E~ will make these characters have meta meaning by default.
 
+:REFERENCES:
+- https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions
+:END:
+
 ** Meta Characters that require escaping when using as literal characters
+:REFERENCES:
 - https://stackoverflow.com/questions/399078/what-special-characters-must-be-escaped-in-regular-expressions
+:END:
 
 *** PCRE, ERE, and other compatibles
 - Tools like ~ag~, ~rg~, ~egrep~, ~grep -E~
@@ -70,10 +74,16 @@ Tools will ignore targets specified in ~.ignore~
 
 * Tools
 ** ag(The Silver Searcher)
+:REFERENCES:
 - https://github.com/ggreer/the_silver_searcher 
+:END:
 
 ** rg(ripgrep)
+:REFERENCES:
 - https://github.com/BurntSushi/ripgrep
+:END:
 
 * Links
+:REFERENCES:
 - https://regex101.com/
+:END:

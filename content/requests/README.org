@@ -12,8 +12,6 @@
   - [[#prepared-requests][Prepared Requests]]
 
 * Quickstart
-- http://docs.python-requests.org/en/master/user/quickstart/
-
 #+BEGIN_SRC python
   import requests
   r = requests.get('http://httpbin.org/get', params={'key':'value'})
@@ -32,9 +30,15 @@
   r.history
 #+END_SRC
 
+:REFERENCES:
+- http://docs.python-requests.org/en/master/user/quickstart/
+:END:
+
 * Reference
 ** request
+:REFERENCES:
 - http://docs.python-requests.org/en/master/api/#requests.request
+:END:
 
 *** Parameters
 - data ::
@@ -51,7 +55,9 @@
   a tuple of ~(<type>, <credentials>)~. Overrides ~headers['Authorization']~
 
 ** response
+:REFERENCES:
 - http://docs.python-requests.org/en/master/api/#requests.Response
+:END:
 
 *** Members
 - text           :: content in ~unicode~
@@ -62,8 +68,6 @@
 - json(**kwargs) :: ~kwargs~: Optional arguments that ~json.loads~ takes.
 * Topics
 ** Session Objects
-- http://docs.python-requests.org/en/master/user/advanced/#session-objects
-
 #+BEGIN_SRC python
   s = requests.Session()
 
@@ -89,9 +93,11 @@
       s.get('http://httpbin.org/cookies/set/sessioncookie/123456789')
 #+END_SRC
 
-** Prepared Requests
-- http://docs.python-requests.org/en/master/user/advanced/#prepared-requests
+:REFERENCES:
+- http://docs.python-requests.org/en/master/user/advanced/#session-objects
+:END:
 
+** Prepared Requests
 #+BEGIN_SRC python
   from requests import Request, Session
 
@@ -116,3 +122,7 @@
 
   print(resp.status_code)
 #+END_SRC
+
+:REFERENCES:
+- http://docs.python-requests.org/en/master/user/advanced/#prepared-requests
+:END:

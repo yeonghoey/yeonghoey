@@ -10,9 +10,12 @@
 #+BEGIN_SRC shell
   brew cask install tableau-public
 #+END_SRC
------
+
+:REFERENCES:
+
 - https://www.tableau.com/learn/training
 - http://www.tableaureferenceguide.com/
+:END:
 
 * How-to
 ** Use Level of Detail Expressions
@@ -23,7 +26,7 @@
 - ~{EXCLUDE [Category] : AVG([Sales])}~ ::
   the average ~Sales~ at the level of detail defined in the view but does not include the dimension ~Category~
 
------
+:REFERENCES:
 
 Consider a dataset like:
 #+BEGIN_SRC json
@@ -44,8 +47,10 @@ Brief steps are as follows:
 [[file:_img/screenshot_2018-05-29_15-23-23.png]]
 
 -----
+
 - http://vizpainter.com/my-favorite-tableau-9-0-feature/
 - https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_calculatedfields_lod.html
+:END:
 
 ** Create a dimension of Top N and Others
 To achieve this, we need to create a set first, and ~IF~ expression with it.
@@ -65,5 +70,6 @@ You can test the set whether or not to work expectedly:
 [[file:_img/screenshot_2018-05-29_15-38-27.png]]
 
 
------
+:REFERENCES:
 - https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sets_topn.html
+:END:

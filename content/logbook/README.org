@@ -6,7 +6,9 @@
    - [[#testhandler][TestHandler]]
 
 * Handlers
+:REFERENCES:
 - http://logbook.readthedocs.io/en/stable/api/handlers.html
+:END:
 
 ** Basics
 #+BEGIN_SRC python
@@ -22,8 +24,6 @@
 #+END_SRC
 
 ** TestHandler
-- http://logbook.readthedocs.io/en/stable/unittesting.html
-
 #+BEGIN_SRC python
   import logbook
   import unittest
@@ -60,3 +60,7 @@
   >>> handler.has_warning('Hello World', channel='Testing')
   >>> handler.has_warning(channel='Testing')
 #+END_SRC
+
+:REFERENCES:
+- http://logbook.readthedocs.io/en/stable/unittesting.html
+:END:

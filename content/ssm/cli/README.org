@@ -73,7 +73,9 @@
 #+BEGIN_SRC shell
   aws ssm delete-parameter --name "/var/x"
 #+END_SRC
------
+
+:REFERENCES:
 - https://docs.aws.amazon.com/cli/latest/reference/ssm/put-parameter.html
 - https://docs.aws.amazon.com/cli/latest/reference/ssm/get-parameter.html
 - https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cli.html
+:END:

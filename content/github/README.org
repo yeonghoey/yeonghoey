@@ -10,13 +10,15 @@
 - [[#reserved-usernames][Reserved usernames]]
 
 * REST API v3
-- https://developer.github.com/v3/
-
 By default using ~https://api.github.com~, you request to v3 API.
 To specify the version explicitly:
 #+BEGIN_EXAMPLE
   Accept: application/vnd.github.v3+json
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://developer.github.com/v3/
+:END:
 
 ** Auth
 - [[https://developer.github.com/v3/guides/basics-of-authentication/][Guide]]
@@ -28,8 +30,6 @@ To specify the version explicitly:
 - You can specify only one ~redirect_uri~
 
 *** Validate OAuth token
-- https://developer.github.com/v3/oauth_authorizations/#check-an-authorization
-
 #+BEGIN_SRC http
   # Use Basic Auth with:
   # username: <client_id>
@@ -37,20 +37,33 @@ To specify the version explicitly:
   GET /applications/:client_id/tokens/:access_token
 #+END_SRC
 
+:REFERENCES:
+- https://developer.github.com/v3/oauth_authorizations/#check-an-authorization
+:END:
+
 * GitHub Markup
+:REFERENCES:
 - https://github.com/github/markup
 - https://github.com/gjtorikian/commonmarker
 - https://github.com/wallyqs/org-ruby
+:END:
 
 * GitHub Pages
 ** Types
-- https://help.github.com/articles/user-organization-and-project-pages/
   
 [[file:_img/screenshot_2017-01-27_14-44-36.png]]
 
+:REFERENCES:
+- https://help.github.com/articles/user-organization-and-project-pages/
+:END:
+
 ** Setting up a custom domain of AWS Route 53
-- https://help.github.com/articles/setting-up-an-apex-domain/
   
+
+:REFERENCES:
+- https://help.github.com/articles/setting-up-an-apex-domain/
+:END:
+
 *** Set a custom domain on your repo settings 
 [[file:_img/screenshot_2017-01-08_18-24-19.png]]
 
@@ -60,23 +73,35 @@ To specify the version explicitly:
 
 [[file:_img/screenshot_2018-05-11_15-27-59.png]]
 
------
+:REFERENCES:
+
 - https://help.github.com/articles/setting-up-an-apex-domain/
+:END:
 
 **** Create CNAME record for ~www~
-- https://help.github.com/articles/about-supported-custom-domains/#www-subdomains
-
 [[file:_img/screenshot_2017-01-08_18-30-36.png]]
+
+:REFERENCES:
+- https://help.github.com/articles/about-supported-custom-domains/#www-subdomains
+:END:
 
 **** Enfore HTTPS
 [[file:_img/screenshot_2018-05-11_15-30-12.png]]
 - If you update the existing custom domain page, you should reset it first.
------
+
+:REFERENCES:
+
 - https://blog.github.com/2018-05-01-github-pages-custom-domains-https/#configuring-your-domain
+:END:
 
 *** For Custom Subdomain
-- https://help.github.com/articles/setting-up-a-custom-subdomain/
-
 [[file:_img/screenshot_2017-02-15_07-49-08.png]]
+
+:REFERENCES:
+- https://help.github.com/articles/setting-up-a-custom-subdomain/
+:END:
+
 * Reserved usernames
+:REFERENCES:
 - https://github.com/shouldbee/reserved-usernames/blob/master/reserved-usernames.csv
+:END:

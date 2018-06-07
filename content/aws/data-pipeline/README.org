@@ -128,4 +128,3 @@ Within an object, fields prefixed with ~my~ are custom fields.
 #+END_SRC
 With enclosing field names with ~#{}~, we can reference its values.  
 There are also some functions and operators to tweak the values.
-

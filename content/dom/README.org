@@ -18,8 +18,9 @@
     }
   #+END_SRC
 
------
+:REFERENCES:
 - https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation
 - https://stackoverflow.com/questions/5963669/whats-the-difference-between-event-stoppropagation-and-event-preventdefault
 - https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation
 - https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+:END:

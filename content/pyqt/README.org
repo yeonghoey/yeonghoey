@@ -4,5 +4,7 @@
 - [[#links][Links]]
 
 * Links
+:REFERENCES:
 - http://pyqt.sourceforge.net/Docs/PyQt5/introduction.html#license
 - http://pyqt.sourceforge.net/Docs/PyQt5/sip-classes.html
+:END:

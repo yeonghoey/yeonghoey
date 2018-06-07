@@ -19,9 +19,11 @@
   - binary files are instances of [[https://docs.python.org/3.6/library/io.html#io.BytesIO][BytesIO]]
   - text files are instances of [[https://docs.python.org/3.6/library/io.html#io.StringIO][StringIO]]
 
------
+:REFERENCES:
+
 - https://docs.python.org/2/library/io.html#io.open
 - https://docs.python.org/3.6/glossary.html#term-file-object
+:END:
 
 * readline
 - ~f.readline()~ reads a single line from the file
@@ -44,12 +46,16 @@ An useful idiom is:
   ls = f.readlines()
 #+END_SRC
 
------
+:REFERENCES:
 - https://docs.python.org/3.6/tutorial/inputoutput.html#methods-of-file-objects
+:END:
+
 * When the buffer is flushed?
 - when the buffer gets too small for all pending data;
 - when ~flush()~ is called;
 - when a ~seek()~ is requested (for ~BufferedRandom~ objects);
 - when the ~BufferedWriter~ object is closed or destroyed.
------
+
+:REFERENCES:
 - https://docs.python.org/2/library/io.html#io.BufferedWriter
+:END:

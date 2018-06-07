@@ -22,14 +22,18 @@
 * Terminology
 * Topics
 ** OAuth 2.0
-- https://developers.google.com/identity/protocols/OAuth2
-
 [[file:_img/screenshot_2018-01-11_16-09-28.png]]
+
+:REFERENCES:
+- https://developers.google.com/identity/protocols/OAuth2
+:END:
 
 * How-to
 ** Authenticate access
+:REFERENCES:
 - http://google-cloud-python.readthedocs.io/en/latest/core/auth.html
 - https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login
+:END:
 
 *** API access in services
 - Create service account credentials
@@ -60,4 +64,6 @@
 #+END_SRC
 
 * Links
+:REFERENCES:
 - https://googlecloudplatform.github.io/google-cloud-python/latest/core/auth.html
+:END:

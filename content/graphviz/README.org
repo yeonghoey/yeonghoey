@@ -6,6 +6,8 @@
 
 * Concepts
 ** Layouts
-- http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html
-
 [[file:_img/screenshot_2017-06-11_10-13-52.png]]
+
+:REFERENCES:
+- http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html
+:END:

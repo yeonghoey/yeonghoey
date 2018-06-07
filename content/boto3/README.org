@@ -16,9 +16,6 @@
 - [[#links][Links]]
 
 * Concepts
-- https://boto3.readthedocs.io/en/latest/guide/index.html#general-feature-guides
-- https://boto3.readthedocs.io/en/latest/guide/collections.html
-
 | Feature     | Description                                           |
 |-------------+-------------------------------------------------------|
 | Resources   | a high level, object oriented interface               |
@@ -32,12 +29,12 @@ Boto 3 is built atop of a library called [[https://pypi.python.org/pypi/botocore
 It is recommended to *create a resource instance for each thread*
 in a multithreaded application rather than sharing a single instance among the threads
 
-** Client vs Resource
-- http://boto3.readthedocs.io/en/latest/reference/core/boto3.html
-- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client
-- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource
-- http://boto3.readthedocs.io/en/latest/_modules/boto3.html#resource
+:REFERENCES:
+- https://boto3.readthedocs.io/en/latest/guide/index.html#general-feature-guides
+- https://boto3.readthedocs.io/en/latest/guide/collections.html
+:END:
 
+** Client vs Resource
 #+BEGIN_SRC python
   import boto3
   # Create a low-level client with the service name
@@ -58,6 +55,13 @@ in a multithreaded application rather than sharing a single instance among the t
 #+BEGIN_SRC python
   boto3.resource('sqs', region_name='ap-northeast1')
 #+END_SRC
+
+:REFERENCES:
+- http://boto3.readthedocs.io/en/latest/reference/core/boto3.html
+- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client
+- http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource
+- http://boto3.readthedocs.io/en/latest/_modules/boto3.html#resource
+:END:
 
 ** Paginators
 #+BEGIN_SRC python
@@ -91,9 +95,12 @@ in a multithreaded application rather than sharing a single instance among the t
   # Access the raw client within a resource
   client = resource.meta.client
 #+END_SRC
------
+
+:REFERENCES:
+
 - http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client
 - http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource
+:END:
 
 ** Waiters
 :REFERENCES:
@@ -136,12 +143,14 @@ in a multithreaded application rather than sharing a single instance among the t
   except iam.exceptions.EntityAlreadyExistsException:
       pass # Handle error here
 #+END_SRC
------
+
+:REFERENCES:
+
 - https://stackoverflow.com/questions/33068055/boto3-python-and-how-to-handle-errors
 - http://botocore.readthedocs.io/en/latest/client_upgrades.html#error-handling
+:END:
 
 * EC2
-- https://boto3.readthedocs.io/en/latest/reference/services/ec2.html
 - [[https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Instance][EC2.Instance]] (for instance attributes)
 - [[https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource][EC2.ServiceResource]] (for entry access)
 - [[https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource.instances][EC2.ServiceResource.instances]] (for filtering instances)
@@ -182,6 +191,10 @@ in a multithreaded application rather than sharing a single instance among the t
 
   print instance.private_ip_address  # For more attributes, SEE: EC2.Instance
 #+END_SRC
+
+:REFERENCES:
+- https://boto3.readthedocs.io/en/latest/reference/services/ec2.html
+:END:
 
 * CloudFormation
 :REFERENCES:
@@ -268,5 +281,7 @@ Query results are always sorted by the sort key value. If the data type of the s
 #+END_SRC
 
 * Links
+:REFERENCES:
 - https://boto3.readthedocs.io/en/latest/index.html
 - https://boto3.readthedocs.io/en/latest/reference/services/index.html
+:END:

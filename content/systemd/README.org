@@ -52,15 +52,19 @@
 - [[#links][Links]]
 
 * Overview
-- https://en.wikipedia.org/wiki/Systemd
-- https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
-
 [[file:_img/screenshot_2017-11-09_15-47-44.png]]
 
 
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Systemd
+- https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
+:END:
+
 * Reference
+:REFERENCES:
 - https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files
 - https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal
+:END:
 
 * Units
 ** Syntax
@@ -103,16 +107,20 @@
 | ~/etc/systemd/system~ | overrides (unit files which take precedence) |
 
 * Special units
-- https://www.freedesktop.org/software/systemd/man/systemd.special.html
-
 | Target           | description                                                                               |
 |------------------+-------------------------------------------------------------------------------------------|
 | ~default.target~ | Usually, this should be aliased (symlinked) to ~multi-user.target~ or ~graphical.target~. |
 
 [[file:_img/screenshot_2017-11-26_09-40-34.png]]
 
+:REFERENCES:
+- https://www.freedesktop.org/software/systemd/man/systemd.special.html
+:END:
+
 * Sections
+:REFERENCES:
 - https://www.freedesktop.org/software/systemd/man/systemd.directives.html
+:END:
 
 ** Unit
 - The first section found in most unit files
@@ -132,12 +140,13 @@
 *** After
 *** Condition...
 *** Assert...
-
 ** Service
+- Defines configuration that is only applicable for services
+
+:REFERENCES:
 - https://www.freedesktop.org/software/systemd/man/systemd.service.html#Options
 - https://www.freedesktop.org/software/systemd/man/systemd.service.html#Command%20lines
-
-- Defines configuration that is only applicable for services
+:END:
 
 *** Type
 - how to manage services. ~simple~ is default, ~forking~ for services which fork, ~oneshot~ for shot-lived process
@@ -194,7 +203,6 @@ When enabling ~sshd.service~, systemd adds it to ~multi-user.target~ by followin
 *** Alias
 *** Also
 *** DefaultInstance
-
 * Commands
 ** systemctl
 #+BEGIN_SRC shell
@@ -234,17 +242,17 @@ When enabling ~sshd.service~, systemd adds it to ~multi-user.target~ by followin
 
 * Topics
 ** Is it expected for systemd to start disabled services?
-- https://stackoverflow.com/questions/39086459/is-it-expected-for-systemd-to-start-disabled-services
-
 #+BEGIN_QUOTE
 The ~systemctl enable~ and ~systemctl disable~ operations *configure auto-starting* of a unit.
 #+END_QUOTE
 
 So, starting a unit without enabling it is valid.
 
-** What is STATE from 'systemctl list-unit-files'?
-- https://www.linux.com/learn/understanding-and-using-systemd
+:REFERENCES:
+- https://stackoverflow.com/questions/39086459/is-it-expected-for-systemd-to-start-disabled-services
+:END:
 
+** What is STATE from 'systemctl list-unit-files'?
 #+BEGIN_SRC shell
   $ systemctl list-unit-files --type=service
   UNIT FILE              STATE
@@ -258,6 +266,10 @@ So, starting a unit without enabling it is valid.
 - ~disabled~ :: it does not.
 - ~static~   :: the service is missing the ~[Install]~ section in its init script,
    so you cannot enable or disable it. Static services are usually dependencies of other services, and are controlled automatically. 
+
+:REFERENCES:
+- https://www.linux.com/learn/understanding-and-using-systemd
+:END:
 
 * How-to
 * Links

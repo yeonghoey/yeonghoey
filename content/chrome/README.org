@@ -16,8 +16,6 @@
 
 * Developer Tools
 ** Debugging
-- https://javascript.info/debugging-chrome
-
 [[file:_img/screenshot_2018-03-03_06-22-25.png]]
 
 [[file:_img/screenshot_2018-03-03_06-23-18.png]]
@@ -34,37 +32,52 @@
 
 [[file:_img/screenshot_2018-03-03_06-27-06.png]]
 
+:REFERENCES:
+- https://javascript.info/debugging-chrome
+:END:
+
 ** Storages and Cookies
 [[file:_img/screenshot_2017-06-03_18-01-12.png]]
 
 ** View HTTP headers
-- http://stackoverflow.com/questions/4423061/view-http-headers-in-google-chrome
-
 [[file:_img/screenshot_2017-02-04_12-28-25.png]]
+
+:REFERENCES:
+- http://stackoverflow.com/questions/4423061/view-http-headers-in-google-chrome
+:END:
 
 ** Computed Style Pane
 - All but the top-most one will be “cancelled out” in the trace, which is *denoted by a strike-through type.*
 [[file:_img/screenshot_2018-05-10_17-26-59.png]]
 
------
+:REFERENCES:
+
 - https://developer.chrome.com/devtools/docs/elements-styles?csw=1#computed_style
+:END:
 
 * Use Cases
 ** Allow file access from local files
-- http://blog.derraab.com/2013/05/30/start-google-chrome-with-local-file-access-on-mac-os-x/
-
 #+BEGIN_SRC shell
   open /Applications/Google\ Chrome.app --args --allow-file-access-from-files
 #+END_SRC
 
-** Run with an intital incognito window
-- https://www.tekrevue.com/tip/incognito-mode-shortcut/
+:REFERENCES:
+- http://blog.derraab.com/2013/05/30/start-google-chrome-with-local-file-access-on-mac-os-x/
+:END:
 
+** Run with an intital incognito window
 #+BEGIN_EXAMPLE
   "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -incognito
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.tekrevue.com/tip/incognito-mode-shortcut/
+:END:
+
 ** Server DNS address could not be found
-- https://productforums.google.com/forum/#!topic/chrome/0qkak_17qb0
 - Try within *Incognito Mode*
 - If it works, open ~chrome://net-internals/#dns~, then click the button ~Clear Host Cache~
+
+:REFERENCES:
+- https://productforums.google.com/forum/#!topic/chrome/0qkak_17qb0
+:END:

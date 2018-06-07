@@ -5,8 +5,6 @@
  - [[#links][Links]]
 
 * Inline Markup
-- http://docutils.sourceforge.net/docs/user/rst/quickref.html#inline-markup
-
 #+BEGIN_SRC rst
   ,*emphasis*
   ,**strong emphasis**
@@ -22,6 +20,12 @@
   http://docutils.sf.net/
 #+END_SRC
 
+:REFERENCES:
+- http://docutils.sourceforge.net/docs/user/rst/quickref.html#inline-markup
+:END:
+
 * Links
+:REFERENCES:
 - http://docutils.sourceforge.net/docs/user/rst/quickref.html
 - https://pythonhosted.org/an_example_pypi_project/sphinx.html#restructured-text-rest-resources
+:END:

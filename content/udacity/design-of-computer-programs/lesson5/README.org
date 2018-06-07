@@ -87,7 +87,6 @@ By this way, he could write the next state as one-liner, without losing readabil
 Even though his solution is a simple one-liner, I think my solution is more readable.
 
 ** Quiz: Play Pig
-
 [[file:_img/screenshot_2016-12-26_11-05-43.png]]
 
 *** My Solution

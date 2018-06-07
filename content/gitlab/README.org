@@ -13,21 +13,25 @@
 * Overview
 * Reference
 ** Config file paths
-- https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/configuration.md
-- https://gitlab.com/gitlab-org/gitlab-runner/blob/master/docs/configuration/advanced-configuration.md
-
 | ~/etc/gitlab/gitlab.rb~          | General configs     |
 | ~/etc/gitlab-runner/config.toml~ | Runner (CI) configs |
+
+:REFERENCES:
+- https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/doc/settings/configuration.md
+- https://gitlab.com/gitlab-org/gitlab-runner/blob/master/docs/configuration/advanced-configuration.md
+:END:
 
 * Terminology
 * Topics
 * How-to
 ** Restart GitLab
-- https://docs.gitlab.com/ee/administration/restart_gitlab.html
-
 #+BEGIN_SRC shell
   # Omnibus GitLab restart
   sudo gitlab-ctl restart
 #+END_SRC
+
+:REFERENCES:
+- https://docs.gitlab.com/ee/administration/restart_gitlab.html
+:END:
 
 * Links

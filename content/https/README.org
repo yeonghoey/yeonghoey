@@ -20,12 +20,15 @@ How Client verifies the certificate is based on Chain of Trust, as following:
 
 Signatures are verified as following:
 [[file:_img/screenshot_2018-05-13_18-04-12.png]]
------
+
+:REFERENCES:
 - [[/cryptography]]
 - [[https://www.cgi.com/files/white-papers/cgi_whpr_35_pki_e.pdf]]
+
 - https://www.youtube.com/watch?v=4nGrOpo0Cuc
 - https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&actp=CROSSLINK&id=SO16297
 - https://commons.wikimedia.org/wiki/File:Digital_Signature_diagram.svg
+:END:
 
 * Topics
 ** SSL vs TLS
@@ -33,8 +36,11 @@ Signatures are verified as following:
 - TLS was introduced in 1999 as a new version of SSL and was based on SSL 3.0
 - Both SSL 2.0 and 3.0 have been deprecated by the IETF (1.0 was never released)
 - When it comes to your servers, you should only have TLS protocols enabled.
------
+
+:REFERENCES:
+
 - https://www.globalsign.com/en/blog/ssl-vs-tls-difference/
+:END:
 
 ** SNI
 - SNI stands for Server Name Indication, and the successor to VIP (Virtual IP Transition)

@@ -8,17 +8,21 @@
 
 * Reference
 ** LocalProxy
-- http://werkzeug.pocoo.org/docs/0.14/local/#werkzeug.local.LocalProxy
-
 #+BEGIN_SRC python
   session = LocalProxy(lambda: get_current_request().session)
 #+END_SRC
 
+:REFERENCES:
+- http://werkzeug.pocoo.org/docs/0.14/local/#werkzeug.local.LocalProxy
+:END:
+
 * Topics
 ** Context Locals
-- http://werkzeug.pocoo.org/docs/0.14/local/
-
 #+BEGIN_QUOTE
 Werkzeug provides its own implementation of local data storage called ~werkzeug.local~.
 This approach provides a similar functionality to thread ~locals~ but also works with ~greenlets~.
 #+END_QUOTE
+
+:REFERENCES:
+- http://werkzeug.pocoo.org/docs/0.14/local/
+:END:

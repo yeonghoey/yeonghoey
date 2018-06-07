@@ -6,7 +6,9 @@
 
 * Parameter Store
 ** Reference
+:REFERENCES:
 - https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about
+:END:
 
 *** Name
 - ~a-zA-Z0-9_.-/~

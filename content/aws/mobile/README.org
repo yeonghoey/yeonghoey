@@ -1,4 +1,3 @@
-
 #+TITLE: AWS Mobile
 
 * Table of Contents :TOC_3_gh:
@@ -8,12 +7,12 @@
 - [[#links][Links]]
 
 * aws-amplify
+:REFERENCES:
 - https://github.com/aws/aws-amplify/blob/master/docs/media/developer_guide.md
 - https://aws.github.io/aws-amplify/api/
+:END:
 
 * awsmobile-cli
-- https://github.com/aws/awsmobile-cli
-
 #+BEGIN_EXAMPLE
 
   Success! your project is now initialized with awsmobilejs
@@ -48,13 +47,19 @@ It seems that ~<project>/awsmobilejs/backend/mobile-hub-project.yml~ defines the
 However, I couldn't find any reference guide to write it by myself.
 So, I think the best way to configure the backed is to use the web console UI, and ~awsmobile pull~ to sync.
 
-** Configure API for accessing DynamoDB
-- https://docs.aws.amazon.com/aws-mobile/latest/developerguide/web-access-databases.html
+:REFERENCES:
+- https://github.com/aws/awsmobile-cli
+:END:
 
+** Configure API for accessing DynamoDB
 - You should access your dynamodb with Cloud API.
 
 #+BEGIN_SRC shell
   awsmobile cloud-api enable --prompt
 #+END_SRC
+
+:REFERENCES:
+- https://docs.aws.amazon.com/aws-mobile/latest/developerguide/web-access-databases.html
+:END:
 
 * Links

@@ -6,7 +6,6 @@
 - [[#rs256-vs-hs256-jwksjson][RS256 vs. HS256, jwks.json]]
 
 * Overview
-- https://jwt.io/
 - ~jwt~ comprises ~HEADER~, ~PAYLOAD~, ~SIGNATURE~.
 - Generally, its base64 encoded string is used as tokens.
 - The recipient of jwt tokens should validate its signature.
@@ -14,17 +13,22 @@
 - Mostly used as ~id token~ of OpenID Connect.
 - There are a wide variety of libraries to handle ~jwt~ across programming languages.
 
-* Validation Process
-- https://auth0.com/docs/api-auth/tutorials/verify-access-token
+:REFERENCES:
+- https://jwt.io/
+:END:
 
+* Validation Process
 1. Verify the signature
 2. Validate Claims
   1. Token expiration (~exp~) :: Normally, it's Unix timestamp.
   2. Token issuer (~iss~) :: the auth provider like ~Auth0~, ~AWS Cognito~ etc.
   3. Token audience (~aud~) :: the resource server or its uri. Like ~https://resource-server.com/user~
 
+:REFERENCES:
+- https://auth0.com/docs/api-auth/tutorials/verify-access-token
+:END:
+
 * RS256 vs. HS256, jwks.json
-- https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
 - There are two popular ways to sign ~jwt~, ~RS256~ and ~HS256~
 - ~RS256~ is asymmetric, which means that it uses public/private key pair.
 - ~RS256~ is generally recommended.
@@ -34,3 +38,7 @@
 
 - ~jwks.json~ is one way to manage public keys which are used when issuing ~jwt~.
 - ~jwks.json~ is provided by identity providers for third parties to validate ~jwt~
+
+:REFERENCES:
+- https://stackoverflow.com/questions/39239051/rs256-vs-hs256-whats-the-difference
+:END:

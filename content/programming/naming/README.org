@@ -27,9 +27,12 @@
 
 * Contrasts
 ** existing vs. extant
-- https://forum.wordreference.com/threads/extant-vs-existing.2986681/
 - ~existing~ could be relatively new.
 - ~extant~ means something that has existed for a long time, that has not been destroyed. 
+
+:REFERENCES:
+- https://forum.wordreference.com/threads/extant-vs-existing.2986681/
+:END:
 
 ** indices vs. indexes
 - ~indices~: a plural form of a scientific number
@@ -40,10 +43,13 @@
 - ~schduled_at~: for a specific time
 
 ** version vs. revision
-- http://www.product-lifecycle-management.com/plm-revision-version.htm
 - ~version~ is mostly used in software
 - ~revision~ is a noun form of ~revise~, more general
 - In some sense, ~reivision~ stands for a major release, while ~version~ stands for small changes.
+
+:REFERENCES:
+- http://www.product-lifecycle-management.com/plm-revision-version.htm
+:END:
 
 ** min,max vs. first,last vs. begin,end
 - [ ~min~, ~max~ ]: inclusive limits

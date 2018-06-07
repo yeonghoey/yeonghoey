@@ -12,8 +12,6 @@
 - [[#building-our-2d-ufo-game][Building our 2D UFO Game]]
 
 * Introduction to 2D UFO Project
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/introduction-2d-ufo-project?playlist=25844
-
 [[file:_img/screenshot_2017-04-25_00-55-14.png]]
 
 [[file:_img/screenshot_2017-04-25_00-55-53.png]]
@@ -24,9 +22,11 @@
 
 [[file:_img/screenshot_2017-04-25_00-57-45.png]]
 
-* Setting Up The Play Field
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/setting-play-field?playlist=25844
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/introduction-2d-ufo-project?playlist=25844
+:END:
 
+* Setting Up The Play Field
 [[file:_img/screenshot_2017-04-25_01-11-53.png]]
 
 [[file:_img/screenshot_2017-04-25_01-12-27.png]]
@@ -48,9 +48,11 @@ The layer at bottom(Player, in this case) are rendered last
 
 [[file:_img/screenshot_2017-04-25_01-26-59.png]]
 
-* Controlling the Player
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/controlling-player?playlist=25844
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/setting-play-field?playlist=25844
+:END:
 
+* Controlling the Player
 [[file:_img/screenshot_2017-04-27_08-31-38.png]]
 
 Keep the file name and class name consistent.
@@ -82,9 +84,11 @@ Keep the file name and class name consistent.
   }
 #+END_SRC
 
-* Adding Collision
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/adding-collision?playlist=25844
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/controlling-player?playlist=25844
+:END:
 
+* Adding Collision
 k
 [[file:_img/screenshot_2017-04-28_08-31-02.png]]
 
@@ -103,9 +107,11 @@ k
 Box colliders we added overlap each other,
 but doesn't collide because they don't have any riigd body.
 
-* Following the Player with the Camera
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/following-player-camera?playlist=25844
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/adding-collision?playlist=25844
+:END:
 
+* Following the Player with the Camera
 [[file:_img/screenshot_2017-04-28_08-42-40.png]]
 
 While the Player Game Object rotates,
@@ -135,9 +141,11 @@ the Camera Object, a child of Player, also rotates.
   }
 #+END_SRC
 
-* Creating Collectable Objects
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/creating-collectable-objects?playlist=25844
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/following-player-camera?playlist=25844
+:END:
 
+* Creating Collectable Objects
 [[file:_img/screenshot_2017-04-29_16-26-09.png]]
 
 https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
@@ -155,8 +163,11 @@ https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
   }
 #+END_SRC
 
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/creating-collectable-objects?playlist=25844
+:END:
+
 * Picking Up Collectables
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/picking-collectables?playlist=25844
 - file:///Applications/Unity/Unity.app/Contents/Documentation/en/Manual/class-CircleCollider2D.html
 - file:///Applications/Unity/Unity.app/Contents/Documentation/en/ScriptReference/Collider2D.OnTriggerEnter2D.html
 - https://docs.unity3d.com/ScriptReference/GameObject-tag.html
@@ -182,9 +193,11 @@ https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
 
 [[file:_img/screenshot_2017-04-29_16-49-24.png]]
 
-* Counting Collectables and Displaying Score
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/counting-collectables-and-displaying-score?playlist=25844
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/picking-collectables?playlist=25844
+:END:
 
+* Counting Collectables and Displaying Score
 [[file:_img/screenshot_2017-04-29_16-53-07.png]]
 
 [[file:_img/screenshot_2017-04-29_16-56-15.png]]
@@ -203,7 +216,14 @@ https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
       countText.text = "Count: " + count.ToString ();
   }
 #+END_SRC
-* Building our 2D UFO Game
-- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/building-our-2d-ufo-game?playlist=25844
 
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/counting-collectables-and-displaying-score?playlist=25844
+:END:
+
+* Building our 2D UFO Game
 [[file:_img/screenshot_2017-04-29_17-10-39.png]]
+
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/building-our-2d-ufo-game?playlist=25844
+:END:

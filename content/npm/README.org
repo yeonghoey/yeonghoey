@@ -72,8 +72,11 @@
 #+BEGIN_SRC shell
   npm update underscore
 #+END_SRC
------
+
+:REFERENCES:
+
 - https://docs.npmjs.com/cli/update
+:END:
 
 ** list
 #+BEGIN_SRC shell
@@ -115,9 +118,6 @@ To change ~prefix~:
 - It seems that it's because of compatability for some OS not propgates signals to the process group or something.
 
 * package.json
-- https://docs.npmjs.com/files/package.json
-- https://docs.npmjs.com/getting-started/using-a-package.json
-
 #+BEGIN_SRC json
   {
     ...
@@ -136,19 +136,28 @@ npm will pull in the highest version of the package it can find *where the only 
 
 ~private: true~ to prevent accidental publication of private repositories.
 
-** package-lock.json
-- https://medium.com/@Quigley_Ja/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8
+:REFERENCES:
+- https://docs.npmjs.com/files/package.json
+- https://docs.npmjs.com/getting-started/using-a-package.json
+:END:
 
+** package-lock.json
 ~package.json~ can trump ~package-lock.json~ whenever a newer version is found for a dependency in ~package.json~.
 If you want to pin your dependencies effectively, you now must specify the versions without prefix,
 that means you need to write them as ~1.2.0~ instead of ~~1.2.0~ or ~^1.2.0~.
 
-** files
-- https://docs.npmjs.com/files/package.json#files
+:REFERENCES:
+- https://medium.com/@Quigley_Ja/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8
+:END:
 
+** files
 1. If the files array is omitted, everything except automatically-excluded files will be included in your publish.
 2. If you name a folder in the array, then it will also include the files inside that folder
    (unless they would be ignored by another rule in this section.).
+
+:REFERENCES:
+- https://docs.npmjs.com/files/package.json#files
+:END:
 
 *** Inlcuded by default
 - package.json
@@ -175,8 +184,6 @@ that means you need to write them as ~1.2.0~ instead of ~~1.2.0~ or ~^1.2.0~.
 - package-lock.json (use shrinkwrap instead)
 
 ** scripts
-- https://docs.npmjs.com/misc/scripts
-
 #+BEGIN_QUOTE
 Additionally, arbitrary scripts can be executed by running ~npm run-script <stage>~.
 Pre and post commands with matching names will be run for those as well (e.g. ~premyscript~, ~myscript~, ~postmyscript~)
@@ -193,9 +200,11 @@ It seems that people often use ~<verb>:<sub>~ for custom scripts like:
   }
 #+END_SRC
 
-** semver
-- https://docs.npmjs.com/misc/semver
+:REFERENCES:
+- https://docs.npmjs.com/misc/scripts
+:END:
 
+** semver
 #+BEGIN_EXAMPLE
   # Tilde Ranges: Allows patch level changes
   ~1.2.3 := >=1.2.3 <1.3.0
@@ -204,18 +213,21 @@ It seems that people often use ~<verb>:<sub>~ for custom scripts like:
   ^1.2.3 := >=1.2.3 <2.0.0
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://docs.npmjs.com/misc/semver
+:END:
+
 * How-to
 ** publish
+:REFERENCES:
 - https://docs.npmjs.com/getting-started/publishing-npm-packages
+:END:
 
 ** List globally installed packages
 : npm list --global --depth=0
 
 * Topics
 ** dependencies, devDependencies, peerDependencies
-- https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies
-- https://nodejs.org/en/blog/npm/peer-dependencies/
-
 - ~dependencies~ are installed on both:
   - ~npm install~ from a directory that contains ~package.json~
   - ~npm install $package~ on any other directory
@@ -229,9 +241,16 @@ It seems that people often use ~<verb>:<sub>~ for custom scripts like:
   - Causes error if a different verion of peer dependency installed
   - Not automatically installed
 
-** Scoped packages
-- https://docs.npmjs.com/misc/scope
+:REFERENCES:
+- https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies
+- https://nodejs.org/en/blog/npm/peer-dependencies/
+:END:
 
+** Scoped packages
 #+BEGIN_EXAMPLE
   @somescope/somepackagename
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://docs.npmjs.com/misc/scope
+:END:

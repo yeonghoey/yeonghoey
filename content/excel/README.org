@@ -6,7 +6,10 @@
 
 * Use Cases
 ** Import Data from Text based files like CSV, TSV
-- https://blog.cometdocs.com/how-to-export-gmail-contacts-to-excel
 - Only ~CRLF~ line endings work
 
 [[file:_img/screenshot_2017-06-03_18-54-10.png]]
+
+:REFERENCES:
+- https://blog.cometdocs.com/how-to-export-gmail-contacts-to-excel
+:END:

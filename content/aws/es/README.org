@@ -9,8 +9,10 @@
 - [[#links][Links]]
 
 * Overview
+:REFERENCES:
 - http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/what-is-amazon-elasticsearch-service.html#aes-choosing-version
 - https://aws.amazon.com/elasticsearch-service/pricing/
+:END:
 
 * Reference
 * Terminology

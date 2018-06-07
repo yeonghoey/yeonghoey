@@ -13,9 +13,6 @@
 
 * Reference
 ** Column
-- http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column
-- http://docs.sqlalchemy.org/en/latest/core/type_basics.html
-
 #+BEGIN_SRC python
   # use a type with arguments
   Column('data', String(50))
@@ -40,10 +37,12 @@
 
 - ~Column~ can have positional arugments of [[http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.SchemaItem][SchemaItem]], such as ~Constraint~, ~ForeignKey~, ~Sequence~, etc.
 
-*** String, Text
-- http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.String.params.convert_unicode
-- http://docs.sqlalchemy.org/en/latest/core/engines.html#sqlalchemy.create_engine.params.convert_unicode 
+:REFERENCES:
+- http://docs.sqlalchemy.org/en/latest/core/metadata.html#sqlalchemy.schema.Column
+- http://docs.sqlalchemy.org/en/latest/core/type_basics.html
+:END:
 
+*** String, Text
 #+BEGIN_SRC python
   # will assume that input is to be passed as Python unicode objects,
   # and results returned as Python unicode objects
@@ -51,9 +50,12 @@
   String(convert_unicode=True)
 #+END_SRC
 
+:REFERENCES:
+- http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.String.params.convert_unicode
+- http://docs.sqlalchemy.org/en/latest/core/engines.html#sqlalchemy.create_engine.params.convert_unicode 
+:END:
+
 *** Float
-- http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.Float
-- https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
 - For mysql, set ~precision~ to ~53~ cause to make the column as double
 
 #+BEGIN_SRC python
@@ -61,11 +63,12 @@
   Column(Float(precision=53))
 #+END_SRC
 
-** Declarative API
-- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/index.html
-- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html
-- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/basic_use.html
+:REFERENCES:
+- http://docs.sqlalchemy.org/en/latest/core/type_basics.html#sqlalchemy.types.Float
+- https://dev.mysql.com/doc/refman/5.5/en/floating-point-types.html
+:END:
 
+** Declarative API
 #+BEGIN_SRC python
   from sqlalchemy import Column, Integer, String
   from sqlalchemy.ext.declarative import declarative_base
@@ -78,16 +81,23 @@
       name =  Column(String(50))
 #+END_SRC
 
+:REFERENCES:
+- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/index.html
+- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/api.html
+- http://docs.sqlalchemy.org/en/latest/orm/extensions/declarative/basic_use.html
+:END:
+
 ** functions
+:REFERENCES:
 - http://docs.sqlalchemy.org/en/latest/core/tutorial.html#functions
+:END:
 
 ** Query
+:REFERENCES:
 - http://docs.sqlalchemy.org/en/latest/orm/query.html#sqlalchemy.orm.query.Query
+:END:
 
 ** Session
-- http://docs.sqlalchemy.org/en/latest/orm/session_basics.html
-- http://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.Session
-
 ~Session.begin()~ returns a ~SessionTransaction~ object:
 #+BEGIN_SRC python
   class SessionTransaction(object):
@@ -120,13 +130,17 @@ So, we can use like this (code from [[http://docs.sqlalchemy.org/en/rel_0_9/orm/
       item2.bar = 'foo'
 #+END_SRC
 
+:REFERENCES:
+- http://docs.sqlalchemy.org/en/latest/orm/session_basics.html
+- http://docs.sqlalchemy.org/en/latest/orm/session_api.html#sqlalchemy.orm.session.Session
+:END:
+
 *** Session.begin()
 - [[https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/session.py#L793][Session.begin]]
 - [[https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/session.py#L556][SessionTransaction.__exit__]]
 - Returns ~SessionTransaction~. It implements ~__exit__~, which calls ~session.commit~ when levaving the block.
 
 *** Session.commit() vs Session.flush()
-- http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit
 - A Session object is basically an ongoing transaction of changes to a database
 - ~session.commit()~ commits (persists) those changes to the database.
 - ~flush()~ is always called as part of a call to ~commit()~
@@ -162,16 +176,22 @@ So, we can use like this (code from [[http://docs.sqlalchemy.org/en/rel_0_9/orm/
   print s2.query(Foo).all()  # Output: [<Foo('A')>]
 #+END_SRC
 
+:REFERENCES:
+- http://stackoverflow.com/questions/4201455/sqlalchemy-whats-the-difference-between-flush-and-commit
+:END:
+
 *** scoped_session
-- http://docs.sqlalchemy.org/en/latest/orm/contextual.html
-- https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/scoping.py#L30
 - ~scoped_session~ is used for ensuring one ~session~ for a scope
 - ~scoped_session~ uses ~sessionmaker~
 - For ~scopefunc~, ~threading.local()~ is used by default.
 - Can be used like ~Session~, by [[https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/scoping.py#L151][dynamic things]].
 
+:REFERENCES:
+- http://docs.sqlalchemy.org/en/latest/orm/contextual.html
+- https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/orm/scoping.py#L30
+:END:
+
 ** hybrid_property
-- http://docs.sqlalchemy.org/en/latest/orm/mapped_sql_expr.html
 #+BEGIN_SRC python
   from sqlalchemy.ext.hybrid import hybrid_property
 
@@ -191,9 +211,12 @@ Can use ~fullname~ like other columns:
   some_user = session.query(User).filter(User.fullname == "John Smith").first()
 #+END_SRC
 
+:REFERENCES:
+- http://docs.sqlalchemy.org/en/latest/orm/mapped_sql_expr.html
+:END:
+
 * How-to
 ** Prefix all tables under a declarative_base
-- https://stackoverflow.com/questions/38245145/how-to-set-common-prefix-for-all-tables-in-sqlalchemy
 - Overriding both ~cls.__tablename__~ along with ~dict_['__tablename__']~ is required
   because ~DeclarativeMeta~ refers the attributes of ~cls~ during initialization.
 
@@ -219,3 +242,6 @@ Can use ~fullname~ like other columns:
       ...
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/38245145/how-to-set-common-prefix-for-all-tables-in-sqlalchemy
+:END:

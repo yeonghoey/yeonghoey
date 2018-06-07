@@ -1,6 +1,4 @@
 * Docker Machine
-- https://docs.docker.com/machine/get-started/#create-a-machine
-
 #+BEGIN_SRC shell
   docker-machine create --driver virtualbox default
 #+END_SRC
@@ -17,3 +15,7 @@
    # Run this command to configure your shell:
    # eval "$(docker-machine env default)"
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://docs.docker.com/machine/get-started/#create-a-machine
+:END:

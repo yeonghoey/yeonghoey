@@ -11,7 +11,6 @@
 - [[#links][Links]]
 
 * Overview
-
 #+BEGIN_SRC dot :file img/overview-example.png :exports both
   digraph G {
     subgraph cluster0 {
@@ -46,8 +45,6 @@
 * Terminology
 * Topics
 ** Language Syntax
-- http://www.graphviz.org/doc/info/lang.html
-
 #+BEGIN_EXAMPLE
   graph	:	[ strict ] (graph | digraph) [ ID ] '{' stmt_list '}'
   stmt_list	:	[ stmt [ ';' ] stmt_list ]
@@ -90,6 +87,11 @@
   - A line beginning with a ~#~ character is considered a line output from a C preprocessor
   - e.g., ~# 34~ to indicate ~line 34~, and discarded
   
+
+:REFERENCES:
+- http://www.graphviz.org/doc/info/lang.html
+:END:
+
 ** Subgraphs and Clusters
 #+BEGIN_SRC dot
   A -> {B C}
@@ -112,7 +114,10 @@ is equivalent to
 
 * How-to
 * Links
+  
+
+:REFERENCES:
 - http://www.graphviz.org/pdf/dotguide.pdf
 - http://www.graphviz.org/doc/info/attrs.html
 - http://www.graphviz.org/doc/info/shapes.html
-  
+:END:

@@ -12,8 +12,6 @@
 * Overview
 * Reference
 ** Conditional Replacement
-- https://apps.ankiweb.net/docs/manual.html#conditional-replacement
-
 #+BEGIN_EXAMPLE
   This text is always shown.
 
@@ -25,6 +23,10 @@
   This text is only shown if FieldName is empty
   {{/FieldName}}
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://apps.ankiweb.net/docs/manual.html#conditional-replacement
+:END:
 
 * Terminology
 * Topics

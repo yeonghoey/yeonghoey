@@ -8,7 +8,6 @@
 
 * How-to
 ** Test a cluster correctly configured
-- https://coreos.com/etcd/docs/latest/v2/api.html
 - Use statistics API to test the current cluster's status
 
 
@@ -73,6 +72,10 @@
     }
   }
 #+END_SRC
+
+:REFERENCES:
+- https://coreos.com/etcd/docs/latest/v2/api.html
+:END:
 
 * Reference
 * Topics

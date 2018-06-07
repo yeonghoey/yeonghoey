@@ -17,13 +17,13 @@
 - [[#adding-mobile-controls][Adding Mobile Controls]]
 
 * Project Introduction
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150
-
 [[file:_img/screenshot_2017-04-30_19-16-38.png]]
 
-* Player and Enemy Animations
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-and-enemy-animations?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150
+:END:
 
+* Player and Enemy Animations
 [[file:_img/screenshot_2017-04-30_19-19-04.png]]
 
 [[file:_img/screenshot_2017-04-30_19-24-35.png]]
@@ -41,9 +41,12 @@
 [[file:_img/screenshot_2017-04-30_20-31-20.png]]
 
 [[file:_img/screenshot_2017-04-30_20-32-41.png]]
-* Creating the Tile Prefabs
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-tile-prefabs?playlist=17150
 
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-and-enemy-animations?playlist=17150
+:END:
+
+* Creating the Tile Prefabs
 [[file:_img/screenshot_2017-04-30_20-41-58.png]]
 
 [[file:_img/screenshot_2017-04-30_20-42-09.png]]
@@ -52,9 +55,11 @@
 
 [[file:_img/screenshot_2017-04-30_20-50-38.png]]
 
-* Writing the Board Manager
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-board-manager?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-tile-prefabs?playlist=17150
+:END:
 
+* Writing the Board Manager
 #+BEGIN_SRC csharp
   using System.Collections;
   using System.Collections.Generic;
@@ -149,9 +154,11 @@
   }
 #+END_SRC
 
-* Writing the Game Manager
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-board-manager?playlist=17150
+:END:
 
+* Writing the Game Manager
 #+BEGIN_SRC csharp
   using UnityEngine;
   using System.Collections;
@@ -221,9 +228,11 @@
   }
 #+END_SRC
 
-* Moving Object Script
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/moving-object-script?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager?playlist=17150
+:END:
 
+* Moving Object Script
 #+BEGIN_SRC csharp
   using UnityEngine;
   using System.Collections;
@@ -293,9 +302,11 @@
   }
 #+END_SRC
 
-* Creating Destructible Walls
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-destructible-walls?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/moving-object-script?playlist=17150
+:END:
 
+* Creating Destructible Walls
 #+BEGIN_SRC csharp
   using UnityEngine;
   using System.Collections;
@@ -324,9 +335,11 @@
   }
 #+END_SRC
 
-* Player Animator Controller
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-animator-controller?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-destructible-walls?playlist=17150
+:END:
 
+* Player Animator Controller
 [[file:_img/screenshot_2017-04-30_21-26-44.png]]
 
 [[file:_img/screenshot_2017-04-30_21-28-00.png]]
@@ -338,9 +351,11 @@
 
 [[file:_img/screenshot_2017-04-30_21-31-09.png]]
 
-* Writing the Player Script
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-player-script?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-animator-controller?playlist=17150
+:END:
 
+* Writing the Player Script
 #+BEGIN_SRC csharp
   using UnityEngine;
   using System.Collections;
@@ -453,9 +468,11 @@
   }
 #+END_SRC
 
-* Writing the Enemy Script
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-enemy-script?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-player-script?playlist=17150
+:END:
 
+* Writing the Enemy Script
 #+BEGIN_SRC csharp
   using UnityEngine;
   using System.Collections;
@@ -508,9 +525,11 @@
   }
 #+END_SRC
 
-* Enemy Animator Controller
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/enemy-animator-controller?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-enemy-script?playlist=17150
+:END:
 
+* Enemy Animator Controller
 [[file:_img/screenshot_2017-04-30_21-54-23.png]]
 
 [[file:_img/screenshot_2017-04-30_21-54-36.png]]
@@ -602,9 +621,11 @@
 I don't know why these had not worked.
 But It worked after restarting it.
 
-* Adding UI & Level Transitions
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-ui-level-transitions?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/enemy-animator-controller?playlist=17150
+:END:
 
+* Adding UI & Level Transitions
 [[file:_img/screenshot_2017-04-30_22-37-29.png]]
 
 
@@ -736,9 +757,11 @@ But It worked after restarting it.
 
 [[file:_img/screenshot_2017-04-30_23-03-13.png]]
 
-* Audio and Sound Manager
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/audio-and-sound-manager?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-ui-level-transitions?playlist=17150
+:END:
 
+* Audio and Sound Manager
 #+BEGIN_SRC csharp
   using UnityEngine;
   using System.Collections;
@@ -799,9 +822,11 @@ But It worked after restarting it.
   }
 #+END_SRC
 
-* Adding Mobile Controls
-- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-mobile-controls?playlist=17150
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/audio-and-sound-manager?playlist=17150
+:END:
 
+* Adding Mobile Controls
 #+BEGIN_SRC csharp
   #elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE
 
@@ -827,3 +852,7 @@ But It worked after restarting it.
 
   #endif
 #+END_SRC
+
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-mobile-controls?playlist=17150
+:END:

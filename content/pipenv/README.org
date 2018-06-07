@@ -2,8 +2,6 @@
 
 * Overview
 ** Commands
-- https://github.com/pypa/pipenv#-usage
-
 #+BEGIN_SRC shell
   pipenv --python 3.6          # specify python version for venv
   pipenv --where               # output project path
@@ -24,6 +22,10 @@
 
 - When executing ~pipenv shell or pipenv run~, ~.env~ is loaded
 
+:REFERENCES:
+- https://github.com/pypa/pipenv#-usage
+:END:
+
 ** Pipfile
 #+BEGIN_SRC toml
   [[source]]
@@ -42,5 +44,7 @@
 ** pipenv install
 - ~pipenv install~ just installs only packages defined in ~[packages]~
 - ~pipenv install --dev~ installs packages in ~[dev-packages]~ *along with* packges in ~[packages]~
------
+
+:REFERENCES:
 - https://docs.pipenv.org/#pipenv-install
+:END:

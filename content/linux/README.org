@@ -11,13 +11,14 @@
 - [[#links][Links]]
 
 * Overview
-- http://www.brendangregg.com/linuxperf.html
-
 [[file:_img/screenshot_2017-08-16_20-34-39.png]]
+
+:REFERENCES:
+- http://www.brendangregg.com/linuxperf.html
+:END:
+
 * Topics
 ** Inode Structure
-- http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file
-
 [[file:_img/screenshot_2017-03-02_22-48-52.png]]
 
 #+BEGIN_QUOTE
@@ -50,9 +51,12 @@ information about other metadata structures (metadata of metadata).
   Change: 2017-03-02 18:20:00.503961613 +0000
   Birth: -
 #+END_SRC
-** NUMA
-- https://en.wikipedia.org/wiki/Non-uniform_memory_access
 
+:REFERENCES:
+- http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file
+:END:
+
+** NUMA
 Non-uniform memory access.
 
 #+BEGIN_QUOTE
@@ -63,6 +67,10 @@ avoiding the performance hit when several processors attempt to address the same
 #+END_QUOTE
 
 [[file:_img/screenshot_2017-08-20_01-26-42.png]]
+
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Non-uniform_memory_access
+:END:
 
 * How-to
 ** Config swap spaces/files
@@ -83,9 +91,6 @@ avoiding the performance hit when several processors attempt to address the same
 #+END_SRC
 
 ** Mount a Volume
-- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
-- https://en.wikipedia.org/wiki/Fstab
-
 #+BEGIN_SRC shell
   # view your available disk devices and their mount points
   [root]$ lsblk
@@ -131,9 +136,12 @@ avoiding the performance hit when several processors attempt to address the same
   [root]$ mount -a
 #+END_SRC
 
-*** lost+found
-- http://unix.stackexchange.com/questions/18154/what-is-the-purpose-of-the-lostfound-folder-in-linux-and-unix
+:REFERENCES:
+- http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
+- https://en.wikipedia.org/wiki/Fstab
+:END:
 
+*** lost+found
 #+BEGIN_QUOTE
 The thing is, the file had a name and location once, but that information is no longer available.
 So ~fsck~ deposits the file in a specific directory, called ~lost+found~
@@ -151,7 +159,12 @@ because it preallocates a bit of space for ~fsck~ to deposit files there. (...)
 If you accidentally delete ~lost+found~, *don't re-create it with* ~mkdir~, *use* ~mklost+found~ *if available*.
 #+END_QUOTE
 
+:REFERENCES:
+- http://unix.stackexchange.com/questions/18154/what-is-the-purpose-of-the-lostfound-folder-in-linux-and-unix
+:END:
+
 * Links
+:REFERENCES:
 - https://www.gnu.org/prep/maintain/html_node/index.html
 - https://www.gnu.org/prep/standards/html_node/index.html
-
+:END:

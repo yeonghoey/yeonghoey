@@ -1,9 +1,4 @@
 * WSGI
-- http://wsgi.readthedocs.io/en/latest/
-- https://www.python.org/dev/peps/pep-3333/
-- https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface
-
-
 - Server(gateway) executes application(framework) code.
 - Middleware exists to relay messages between the server and the application.
 
@@ -16,3 +11,9 @@
       start_response('200 OK', [('Content-Type', 'text/plain')])
       yield 'Hello, World\n'
 #+END_SRC
+
+:REFERENCES:
+- http://wsgi.readthedocs.io/en/latest/
+- https://www.python.org/dev/peps/pep-3333/
+- https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface
+:END:

@@ -14,8 +14,6 @@
 #+END_SRC
 
 ** Integration with webpack
-- https://babeljs.io/docs/setup/#installation
-
 #+BEGIN_SRC shell
   npm install --save-dev babel-loader babel-core
 #+END_SRC
@@ -30,15 +28,17 @@
   }
 #+END_SRC
 
+:REFERENCES:
+- https://babeljs.io/docs/setup/#installation
+:END:
+
 * Options
+:REFERENCES:
 - https://babeljs.io/docs/usage/api/#options
 - https://babeljs.io/docs/usage/babelrc/
+:END:
 
 * Plugins
-- https://babeljs.io/docs/plugins/#transform-plugins
-- https://babeljs.io/docs/plugins/#syntax-plugins
-- https://babeljs.io/docs/plugins/#pluginpreset-paths
-
 - If the plugin is on ~npm~, you can pass in the name of the plugin and ~babel~ will check that it’s installed in ~node_modules~
 - ~"plugins": ["babel-plugin-myPlugin"]~
 
@@ -52,12 +52,22 @@
 - Plugin ordering is first to last.
 - Preset ordering is reversed (last to first).
 
+:REFERENCES:
+- https://babeljs.io/docs/plugins/#transform-plugins
+- https://babeljs.io/docs/plugins/#syntax-plugins
+- https://babeljs.io/docs/plugins/#pluginpreset-paths
+:END:
+
 * Presets
+:REFERENCES:
 - https://babeljs.io/docs/plugins/#presets
+:END:
 
 ** env
-- https://babeljs.io/docs/plugins/preset-env/
-- https://kangax.github.io/compat-table/es6/
-
 Babel preset that automatically determines the Babel plugins you need based on your supported environments.
 Install with ~@babel/preset-env~, NOT ~babel-preset-env~
+
+:REFERENCES:
+- https://babeljs.io/docs/plugins/preset-env/
+- https://kangax.github.io/compat-table/es6/
+:END:

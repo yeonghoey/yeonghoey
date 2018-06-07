@@ -12,13 +12,15 @@
 * Overview
 * Reference
 ** MediaPlayer
-- https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.MediaPlayer-class.html
-
 #+BEGIN_SRC python
   import vlc
   player = vlc.MediaPlayer(filepath)
   player.play()
 #+END_SRC
+
+:REFERENCES:
+- https://www.olivieraubert.net/vlc/python-ctypes/doc/vlc.MediaPlayer-class.html
+:END:
 
 * Terminology
 * Topics

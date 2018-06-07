@@ -7,7 +7,6 @@
 
 * Guides
 ** Getting Started
-- https://github.com/vuejs/vue-test-utils
 #+BEGIN_SRC shell
   npm install --save-dev @vue/test-utils
   npm install --save-dev @vue/server-test-utils # For server side rendering
@@ -32,5 +31,9 @@
     // and your adventure with the Vue Test Utils begins
     console.log(wrapper)
   #+END_SRC
+
+:REFERENCES:
+- https://github.com/vuejs/vue-test-utils
+:END:
 
 ** [[https://vue-test-utils.vuejs.org/en/guides/using-with-vuex.html][Using with Vuex]]

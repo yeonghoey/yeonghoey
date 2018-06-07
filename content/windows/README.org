@@ -17,19 +17,23 @@ I'm currently using Windows 10.  Most notes are tested against it.
 #+END_EXAMPLE
 
 * OpenVPN GUI
-- http://superuser.com/questions/547396/arguments-to-connect-using-open-vpn-windows-client
-
 #+BEGIN_EXAMPLE
 openvpn-gui.exe --connect "client.ovpn" --config_dir "C:\Users\Foo\Documents\protected_crypto_data"
 #+END_EXAMPLE
 
-* VcXsrv
-- https://sourceforge.net/projects/vcxsrv/
+:REFERENCES:
+- http://superuser.com/questions/547396/arguments-to-connect-using-open-vpn-windows-client
+:END:
 
+* VcXsrv
 Winodws X server for running ~Spacemacs~.
 
 I had been using ~Xming~, but it hung occasionally.
 I found ~VcXsrv~ which is compiled with VC++ 2012, faster and more reliable.
+
+:REFERENCES:
+- https://sourceforge.net/projects/vcxsrv/
+:END:
 
 ** Options
 #+BEGIN_EXAMPLE

@@ -57,7 +57,6 @@ also hides unintended *affordances* by /encapsulations/.  They place
 *constraints* for making things hard to fail.
 
 * Mapping and Feedback
-
 *Mapping* relates to the layout of controls and displays.  Consider a situation
 in which you are tasked with stage lighting.  There are lots of lights and you must continually turn
 some of them on and off at exact moments.  The problem is
@@ -142,7 +141,6 @@ of scrolling up and down with ~Up~ and ~Down~, pushing and popping contexts with
 I immediately understood how it works.  I enjoyed the experience.
 
 * requests and urllib2
-
 If you used ~python~ for web client, you probably wrote the program with ~requests~ library,
 which is a *de facto* standard in python community.
 

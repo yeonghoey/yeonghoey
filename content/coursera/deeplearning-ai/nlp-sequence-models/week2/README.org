@@ -106,7 +106,6 @@
 
 * Practice questions
 ** Quiz: Natural Language Porcessing & Word Embeddings
-
 [[file:_img/screenshot_2018-02-12_16-26-15.png]]
 
 [[file:_img/screenshot_2018-02-12_16-42-34.png]]

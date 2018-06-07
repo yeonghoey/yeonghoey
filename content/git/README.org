@@ -51,7 +51,6 @@
 * Reference
 ** add
 *** intent-to-add
-- https://robots.thoughtbot.com/intent-to-add
 - ~git add --intent-to-add~, the specified untracked files will be added to the index, *but without content.*
 
 #+BEGIN_SRC shell
@@ -72,8 +71,14 @@
   git add --intent-to-add --all
 #+END_SRC
 
+:REFERENCES:
+- https://robots.thoughtbot.com/intent-to-add
+:END:
+
 ** branch
+:REFERENCES:
 - http://railsware.com/blog/2014/08/11/git-housekeeping-tutorial-clean-up-outdated-branches-in-local-and-remote-repositories/
+:END:
 
 *** Cleanup branches
 #+BEGIN_SRC shell
@@ -105,9 +110,6 @@
 #+END_SRC
 
 ** clone
-- https://stackoverflow.com/questions/1911109/how-to-clone-a-specific-git-branch
-- https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision
-
 #+BEGIN_SRC shell
   # Clone only 'gh-pages' branch of 'note.git' repo into './notes-gh-pages'
   git clone --branch gh-pages --single-branch https://github.com/yeonghoey/yeonghoey.git yeonghoey-gh-pages
@@ -119,13 +121,21 @@
   git clone --depth=1 'https://github.com/yeonghoey/yeonghoey.git'
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/1911109/how-to-clone-a-specific-git-branch
+- https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision
+:END:
+
 ** config
-- https://git-scm.com/docs/git-config/2.13.1
 - About the contents of ~.git/config~
 
 | ~branch.<name>.remote~     | Tells which remote to ~git fetch~ from and ~git push~ to                   |
 | ~branch.<name>.pushRemote~ | Overrides ~branch.<name>.remote~ for pushing                               |
 | ~remote.pushDefault~       | Overrides ~branch.<name>.remote~, overridden by ~branch.<name>.pushRemote~ |
+
+:REFERENCES:
+- https://git-scm.com/docs/git-config/2.13.1
+:END:
 
 ** diff
 #+BEGIN_SRC shell
@@ -135,7 +145,9 @@
 #+END_SRC
 
 ** flow
+:REFERENCES:
 - http://danielkummer.github.io/git-flow-cheatsheet/index.html
+:END:
 
 *** git flow release finish
 Make sure the local ~develop~ and ~master~ branches are fresh.
@@ -145,14 +157,18 @@ When trigger ~finish~, the merge flow is following:
 3. merges ~master~ into ~develop~
 
 *** When it comes to code review
-- http://softwareengineering.stackexchange.com/questions/187723/code-review-with-git-flow-and-github
-
 ~git flow feature finish~ just merges into develop without code review.
 To work around this, just don't use ~finish~ but make a pull request
 and delete the branch manually after it merged.
 
+:REFERENCES:
+- http://softwareengineering.stackexchange.com/questions/187723/code-review-with-git-flow-and-github
+:END:
+
 ** gitignore
+:REFERENCES:
 - https://www.atlassian.com/git/tutorials/gitignore#git-ignore-patterns
+:END:
 
 ** list-tree
 #+BEGIN_SRC shell
@@ -162,7 +178,6 @@ and delete the branch manually after it merged.
 
 ** log
 *** Find deleted files
-- http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history
 #+BEGIN_SRC shell
   git log --all --full-history -- **/thefile.*
   git log --all --full-history -- <path-to-file>  # if you know the exact path
@@ -174,8 +189,15 @@ and delete the branch manually after it merged.
   # There won't exist the file in <SHA> because it has been deleted.
   git checkout <SHA>^ -- <path-to-file>
 #+END_SRC
+
+:REFERENCES:
+- http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history
+:END:
+
 ** ls-files
+:REFERENCES:
 - https://stackoverflow.com/questions/3538144/how-do-you-git-show-untracked-files-that-do-not-exist-in-gitignore
+:END:
 
 *** List untracked files
 #+BEGIN_SRC shell
@@ -215,8 +237,6 @@ You should delete them with your text editor once you resolve the conflict.
 #+END_QUOTE
 
 ** pull
-- http://stackoverflow.com/questions/30208928/can-git-pull-automatically-stash-and-pop-pending-changes
-
 #+BEGIN_SRC shell
   git pull --rebase --autostash # git pull accepts '--autostash' from 2.9
 #+END_SRC
@@ -226,30 +246,38 @@ You should delete them with your text editor once you resolve the conflict.
   git rebase --autostash
 #+END_SRC
 
+:REFERENCES:
+- http://stackoverflow.com/questions/30208928/can-git-pull-automatically-stash-and-pop-pending-changes
+:END:
+
 ** rebase
-- https://git-scm.com/docs/git-rebase#git-rebase
 - ~--autosquash~ is only valid when the ~--interactive~ option is used.
+
+:REFERENCES:
+- https://git-scm.com/docs/git-rebase#git-rebase
+:END:
 
 ** rev-parse
 *** Get git root directory
-- http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
-
 #+BEGIN_SRC shell
   git rev-parse --show-toplevel
 #+END_SRC
 
-** rm
-- http://stackoverflow.com/questions/6964297/untrack-files-from-git
+:REFERENCES:
+- http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command
+:END:
 
+** rm
 #+BEGIN_SRC shell
   # Untrack <file> recursively
   $ git rm -r --cached <file>
 #+END_SRC
 
-** submodule
-- https://git-scm.com/book/en/v2/Git-Tools-Submodules
-- https://chrisjean.com/git-submodules-adding-using-removing-and-updating/
+:REFERENCES:
+- http://stackoverflow.com/questions/6964297/untrack-files-from-git
+:END:
 
+** submodule
 #+BEGIN_SRC shell
   # This will add .gitmodules to the repo
   git submodule add git@github.com:yeonghoey/notes.git
@@ -281,10 +309,13 @@ To remove a submodule from the project, following steps required:
   git rm --cached <submodule-path>
 #+END_SRC
 
+:REFERENCES:
+- https://git-scm.com/book/en/v2/Git-Tools-Submodules
+- https://chrisjean.com/git-submodules-adding-using-removing-and-updating/
+:END:
+
 ** tag
 *** Basics
-- https://git-scm.com/book/en/v2/Git-Basics-Tagging
-
 #+BEGIN_SRC shell
   $ git tag
   v0.1
@@ -306,16 +337,21 @@ To remove a submodule from the project, following steps required:
   $ git push origin --tags # all local tags to remote
 #+END_SRC
 
-*** Prune local git tags that don't exist on remote
-- https://demisx.github.io/git/2014/11/02/git-prune-local-tags-dont-exist-remote.html
+:REFERENCES:
+- https://git-scm.com/book/en/v2/Git-Basics-Tagging
+:END:
 
+*** Prune local git tags that don't exist on remote
 #+BEGIN_SRC shell
   $ git tag -l | xargs git tag -d # remove all local tags
   $ git fetch -t                  # fetch remote tags
 #+END_SRC
-** worktree
-- https://stacktoheap.com/blog/2016/01/19/using-multiple-worktrees-with-git/
 
+:REFERENCES:
+- https://demisx.github.io/git/2014/11/02/git-prune-local-tags-dont-exist-remote.html
+:END:
+
+** worktree
 #+BEGIN_SRC shell
   # Basics
   $ git fetch
@@ -333,10 +369,12 @@ To remove a submodule from the project, following steps required:
 - Based on ~origin/master~
 - ~--detach~ makes the working copy detached. (Just commmit, not the branch)
 
+:REFERENCES:
+- https://stacktoheap.com/blog/2016/01/19/using-multiple-worktrees-with-git/
+:END:
+
 * Topics
 ** Git Attributes
-- https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes
-
 *Git Attributes* is a customization interface which tools like *Git LFS* implemented on.
 
 [[file:_img/screenshot_2017-05-04_11-48-09.png]]
@@ -357,18 +395,22 @@ In ~.gitconfig~:
     required = true
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes
+:END:
+
 * How-to
 ** Clone the latest revision
-- https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision
-
 #+BEGIN_SRC shell
   # Clone just the latest revision
   git clone --depth=1 'https://github.com/yeonghoey/yeonghoey.git'
 #+END_SRC
 
-** Commit only when there's something staged
-- http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error
+:REFERENCES:
+- https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision
+:END:
 
+** Commit only when there's something staged
 #+BEGIN_SRC shell
 if ! git diff --quiet --cached; then
   git commit
@@ -378,24 +420,29 @@ fi
 git diff --quiet --cached || git commit
 #+END_SRC
 
-** Get the short hash
-- https://stackoverflow.com/questions/5694389/get-the-short-git-version-hash
+:REFERENCES:
+- http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error
+:END:
 
+** Get the short hash
 #+BEGIN_SRC shell
   git rev-parse --short HEAD
 #+END_SRC
 
-** List all TODOs written by a specific user
-- https://stackoverflow.com/questions/25039242/how-to-list-all-my-todo-messages-in-the-current-git-managed-code-base
+:REFERENCES:
+- https://stackoverflow.com/questions/5694389/get-the-short-git-version-hash
+:END:
 
+** List all TODOs written by a specific user
 #+BEGIN_SRC shell
   git grep -l TODO | xargs -n1 git blame -f -n -w | grep "$(git config user.name)" | grep TODO | sed "s/.\{9\}//" | sed "s/(.*)[[:space:]]*//"
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/25039242/how-to-list-all-my-todo-messages-in-the-current-git-managed-code-base
+:END:
+
 ** Purge files including their histories
-- https://help.github.com/articles/removing-sensitive-data-from-a-repository/
-
-
 - BFG Repo-Cleaner
 - https://rtyley.github.io/bfg-repo-cleaner/
 
@@ -407,10 +454,11 @@ git reflog expire --expire=now --all && git gc --prune=now --aggressive
 git push
 #+END_SRC
 
-** Resolve conflicts
-- https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
-- https://backlogtool.com/git-guide/en/stepup/stepup2_8.html
+:REFERENCES:
+- https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+:END:
 
+** Resolve conflicts
 #+BEGIN_EXAMPLE
 If you have questions, please
 <<<<<<< HEAD
@@ -419,6 +467,11 @@ open an issue
 ask your question in IRC.
 >>>>>>> branch-a
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/
+- https://backlogtool.com/git-guide/en/stepup/stepup2_8.html
+:END:
 
 *** Check the conflict causing commits
 #+BEGIN_SRC shell
@@ -440,8 +493,6 @@ $ git add guide.md
 #+END_SRC
 
 *** Resolve conflicts with ours or theirs
-- https://stackoverflow.com/questions/10697463/resolve-git-merge-conflicts-in-favor-of-their-changes-during-a-pull/
-
 - Before triggering merge ::
 #+BEGIN_SRC shell
   git merge -X theirs
@@ -460,6 +511,10 @@ $ git add guide.md
   git add .
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/10697463/resolve-git-merge-conflicts-in-favor-of-their-changes-during-a-pull/
+:END:
+
 *** Continue with the resolved resulte
 - Case1 :: commit when merging
 #+BEGIN_SRC shell
@@ -472,19 +527,23 @@ $ git add guide.md
 #+END_SRC
 
 ** Run commands while not in a git directory
-- http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory
-
 #+BEGIN_SRC shell
 git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 #+END_SRC
+
+:REFERENCES:
+- http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory
+:END:
 
 ** Delete empty directories within a repository
 #+BEGIN_SRC shell
   find . -type d -empty -not -path './.git/**' -delete
 #+END_SRC
------
+
+:REFERENCES:
 - [[/find]]
 
 * Links
+:REFERENCES:
 - https://github.com/git-tips/tips
-
+:END:

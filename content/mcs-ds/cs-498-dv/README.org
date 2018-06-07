@@ -20,13 +20,17 @@
 
 [[file:_img/screenshot_2018-05-15_13-10-35.png]] 
 
------
+:REFERENCES:
 - https://www.coursera.org/learn/cs-498-dv/supplement/DQjww/syllabus
+:END:
+
 * Resources
 [[file:_img/screenshot_2018-05-15_13-12-45.png]]
 
------
+:REFERENCES:
 - https://www.coursera.org/learn/cs-498-dv/supplement/ijZAO/resources
+:END:
+
 * Contents
 - [[./week-01/README.org][Week 1]]
 - [[./week-02/README.org][Week 2]]

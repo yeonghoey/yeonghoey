@@ -38,12 +38,13 @@ Typically contains:
 - one or more heading elements (~<h1>~ - ~<h6>~)
 - logo or icon
 - authorship information
------
+
+:REFERENCES:
+
 - https://www.w3schools.com/tags/tag_header.asp
+:END:
 
 ** style
-- https://www.w3schools.com/tags/att_style_scoped.asp
-
 - scoped ::
 #+BEGIN_SRC html
   <div>
@@ -56,6 +57,11 @@ Typically contains:
   <p>This is a paragraph.</p>
   </div>
 #+END_SRC
+
+:REFERENCES:
+- https://www.w3schools.com/tags/att_style_scoped.asp
+:END:
+
 ** video
 #+BEGIN_SRC html
   <video autoplay controls>
@@ -71,18 +77,22 @@ Supports:
 Attributes:
 - ~width~, ~height~ :: seems to use the source size if not specified
 
------
+:REFERENCES:
+
 - https://www.w3schools.com/tags/tag_video.asp
+:END:
 
 * Topics
 ** ARIA
 - Stands for Accessible Rich Internet Applications
 - For making web applications more accessible to people with disabilities.
------
+
+:REFERENCES:
+
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+:END:
 
 ** attributes vs properties
-
 #+BEGIN_SRC html
   <input id="the-input" type="text" value="Name:">
 #+END_SRC
@@ -98,33 +108,44 @@ Attributes:
     elem.value // uses elem.attributes.value as the initial value
   #+END_SRC
 
------
+:REFERENCES:
 - https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html#answer-6004028
+:END:
+
 ** Quotes for attribute values
 - Quotes are optional, but it's recommended to consistently use double quotes.
 - In other words, quoting *doesn't* mean that the type of value is string or something.
 #+BEGIN_SRC html
   <iframe src="www.example.com" width="100%"></iframe>
 #+END_SRC
------
+
+:REFERENCES:
+
 - https://stackoverflow.com/questions/13056683/html-attribute-with-without-quotes
+:END:
 
 ** Boolean Attribute
 - *The presence of a boolean attribute* on an element represents the ~true~ value
 - *The values "true" and "false" are not allowed* on boolean attributes.
------
+
+:REFERENCES:
 - https://stackoverflow.com/questions/4139786/what-does-it-mean-in-html-5-when-an-attribute-is-a-boolean-attribute
+:END:
+
 ** Form Validation
 [[file:_img/screenshot_2018-05-11_11-51-53.png]]
 
------
+:REFERENCES:
+
 - https://webdesign.tutsplus.com/tutorials/html5-form-validation-with-the-pattern-attribute--cms-25145
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation#Validating_forms_using_JavaScript
+:END:
 
 ** Semantic Tags
 [[file:_img/screenshot_2018-05-11_12-24-57.png]]
 
------
+:REFERENCES:
 - http://html5doctor.com/lets-talk-about-semantics/
 - https://www.w3schools.com/html/html5_semantic_elements.asp
 - https://stackoverflow.com/questions/17272019/why-to-use-html5-semantic-tag-instead-of-div
+:END:

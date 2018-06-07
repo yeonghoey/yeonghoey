@@ -54,8 +54,6 @@
 #+END_SRC
 
 ** option
-- http://click.pocoo.org/5/options/
-
 #+BEGIN_SRC python
   @click.option('--n', default=1)
   @click.option('--pos', nargs=2, type=float)
@@ -68,10 +66,11 @@
   @click.option('--username', envvar='USERNAME')
 #+END_SRC
 
-** param_decls
-- http://click.pocoo.org/5/parameters/#parameter-names
-- http://click.pocoo.org/5/api/#parameters
+:REFERENCES:
+- http://click.pocoo.org/5/options/
+:END:
 
+** param_decls
 - ~Parameter~ is the base class of ~option~ and ~argument~.
 - Positional arguments of ~option~ and ~argument~ become ~param_decl~
 - If a string is added *without any dashes*, it becomes the parameter name.
@@ -88,10 +87,18 @@
   def foo(vvv):
 #+END_SRC
 
+:REFERENCES:
+- http://click.pocoo.org/5/parameters/#parameter-names
+- http://click.pocoo.org/5/api/#parameters
+:END:
+
 ** Path
 : class click.Path(exists=False, file_okay=True, dir_okay=True, writable=False, readable=True, resolve_path=False)
------
+
+:REFERENCES:
+
 - http://click.pocoo.org/5/api/#click.Path
+:END:
 
 ** callback
 #+BEGIN_SRC python
@@ -112,8 +119,10 @@
 - ~param~ is the ~Parameter~ object
 - ~value~ is the actaul value
 
------
+:REFERENCES:
+
 - http://click.pocoo.org/5/advanced/#parameter-modifications
+:END:
 
 * Samples
 ** Arguments
@@ -126,8 +135,11 @@
   @click.argument('src', envvar='SRC', type=click.File('r'))
   @click.argument('files', nargs=-1, type=click.Path())
 #+END_SRC
------
+
+:REFERENCES:
+
 - http://click.pocoo.org/5/arguments/
+:END:
 
 * How-to
 ** Handle exceptions

@@ -20,8 +20,6 @@
 
 * How-to
 ** Set cookies
-- http://selenium-python.readthedocs.io/navigating.html#cookies
-
 #+BEGIN_SRC python
   # Go to the correct domain
   driver.get("http://www.example.com")
@@ -34,5 +32,11 @@
   driver.get_cookies()
 #+END_SRC
 
+:REFERENCES:
+- http://selenium-python.readthedocs.io/navigating.html#cookies
+:END:
+
 * Links
+:REFERENCES:
 - http://selenium-python.readthedocs.io/
+:END:

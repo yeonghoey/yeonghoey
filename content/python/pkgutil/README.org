@@ -23,6 +23,8 @@
   >>> list(pkgutil.iter_modules(['a']))
   [ModuleInfo(module_finder=FileFinder('a'), name='b', ispkg=True)]
 #+END_SRC
------
+
+:REFERENCES:
 - https://docs.python.org/3/library/pkgutil.html#pkgutil.iter_modules
 - https://github.com/python/cpython/blob/master/Lib/pkgutil.py#L110
+:END:

@@ -1,7 +1,4 @@
 * sort
-- http://ss64.com/bash/sort.html
-- http://www.skorks.com/2010/05/sort-files-like-a-master-with-the-linux-sort-command-bash/
-
 #+BEGIN_SRC shell
   sort -nr numbers.txt # descending numeric order
   sort -k3 output.txt  # key3, omitting the first and second fields.
@@ -24,3 +21,8 @@
   192.168.0.5
   192.168.0.25
 #+END_SRC
+
+:REFERENCES:
+- http://ss64.com/bash/sort.html
+- http://www.skorks.com/2010/05/sort-files-like-a-master-with-the-linux-sort-command-bash/
+:END:

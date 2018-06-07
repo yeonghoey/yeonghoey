@@ -23,8 +23,10 @@
   print(child.exitstatus, child.signalstatus)
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://pexpect.readthedocs.io/en/stable/index.html
+:END:
 
 * run
 : pexpect.run(command, timeout=30, withexitstatus=False, events=None, extra_args=None, logfile=None, cwd=None, env=None, **kwargs)
@@ -35,8 +37,10 @@
   pexpect.run('scp foo user@example.com:.', events={'(?i)password': mypassword})
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.run
+:END:
 
 * spawn
 - [[https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.spawn.expect][spawn]] ::

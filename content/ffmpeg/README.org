@@ -8,8 +8,6 @@
 
 * How-to
 ** Encode HTML5 compatible videos
-- https://gist.github.com/yellowled/1439610
-
 #+BEGIN_SRC shell
   # webm
   ffmpeg -i IN -f webm -vcodec libvpx -acodec libvorbis -ab 128000 -crf 22 -s 640x360 OUT.webm
@@ -21,10 +19,17 @@
   ffmpeg2theora IN -o OUT.ogv -x 640 -y 360 --videoquality 5 --audioquality 0  --frontend
 #+END_SRC
 
+:REFERENCES:
+- https://gist.github.com/yellowled/1439610
+:END:
+
 * Use Cases
 ** Extracting audio from video
-- http://stackoverflow.com/questions/9913032/ffmpeg-to-extract-audio-from-video
  
 #+BEGIN_EXAMPLE
   ffmpeg -i "video.mp4" -vn -codec:a libmp3lame -qscale:a 3 "audio.mp3"
 #+END_EXAMPLE
+
+:REFERENCES:
+- http://stackoverflow.com/questions/9913032/ffmpeg-to-extract-audio-from-video
+:END:

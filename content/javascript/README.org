@@ -45,11 +45,11 @@
 - [[#links][Links]]
 
 * Syntax
+:REFERENCES:
 - https://javascript.info/javascript-specials
+:END:
 
 ** for
-- https://javascript.info/while-for
-
 #+BEGIN_SRC javascript
   outer: for (let i = 0; i < 3; i++) {
 
@@ -66,9 +66,11 @@
   alert('Done!');
 #+END_SRC
 
-** function
-- https://javascript.info/function-expressions-arrows
+:REFERENCES:
+- https://javascript.info/while-for
+:END:
 
+** function
 #+BEGIN_SRC javascript
   function sayHi() {
     alert( "Hello" );
@@ -117,18 +119,22 @@
   };
 #+END_SRC
 
-*** hoisting
-- https://gist.github.com/maxogden/4bed247d9852de93c94c
+:REFERENCES:
+- https://javascript.info/function-expressions-arrows
+:END:
 
+*** hoisting
 There is also function hoisting. A crude timeline of how JS gets executed:
 1. Parse the scope and detect all function definitions
 2. Execute the code top-to-bottom with all functions found in step 1 available as variables. following cases are exceptions:
    - Assignments are not evaluated until the code is executed.
    - Wrapping a function in parenthesis (~()~) is a quick way to convert a function definition into a function expression
 
-** switch
-- https://javascript.info/switch
+:REFERENCES:
+- https://gist.github.com/maxogden/4bed247d9852de93c94c
+:END:
 
+** switch
 #+BEGIN_SRC javascript
   switch(x) {
   case 'value1':  // if (x === 'value1')
@@ -146,9 +152,11 @@ There is also function hoisting. A crude timeline of how JS gets executed:
 #+END_SRC
 - The value of x is checked for a *strict equality*
 
-** function
-- https://javascript.info/rest-parameters-spread-operator
+:REFERENCES:
+- https://javascript.info/switch
+:END:
 
+** function
 #+BEGIN_SRC javascript
   function sumAll(...args) { // args is the name for the array
     let sum = 0;
@@ -214,9 +222,11 @@ There is also function hoisting. A crude timeline of how JS gets executed:
   alert( worker.slow(2) ); // works, doesn't call the original (cached)
 #+END_SRC
 
-** class
-- https://javascript.info/class
+:REFERENCES:
+- https://javascript.info/rest-parameters-spread-operator
+:END:
 
+** class
 #+BEGIN_SRC javascript
   class MyClass {
     constructor(...) {
@@ -329,11 +339,11 @@ The proof of the fact:
   alert( rabbit instanceof Rabbit ); // true
 #+END_SRC
 
-** imports, exports
-- https://github.com/mbeaudru/modern-js-cheatsheet#imports--exports
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
-- https://stackoverflow.com/questions/42711175/what-does-the-symbol-do-in-javascript-imports
+:REFERENCES:
+- https://javascript.info/class
+:END:
 
+** imports, exports
 #+BEGIN_SRC javascript
   // mathConstants.js
   export const pi = 3.14;
@@ -373,14 +383,20 @@ The proof of the fact:
 - Imports which start with ~@~ (like ~import @/components/component~) means root of the project.
   - This is generally customized as ~resolve.alias~ field within ~webpack.config.js~.
 
-* Types
-- https://javascript.info/instanceof
+:REFERENCES:
+- https://github.com/mbeaudru/modern-js-cheatsheet#imports--exports
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+- https://stackoverflow.com/questions/42711175/what-does-the-symbol-do-in-javascript-imports
+:END:
 
+* Types
 [[file:_img/screenshot_2018-03-03_10-35-34.png]]
 
-** Object
-- https://javascript.info/object
+:REFERENCES:
+- https://javascript.info/instanceof
+:END:
 
+** Object
 #+BEGIN_SRC javascript
   let user = new Object(); // "object constructor" syntax
 
@@ -454,6 +470,10 @@ The proof of the fact:
 
 [[file:_img/screenshot_2018-03-03_08-49-20.png]]
 
+:REFERENCES:
+- https://javascript.info/object
+:END:
+
 ** Arrays
 :REFERENCES:
 - https://javascript.info/array
@@ -500,8 +520,6 @@ Use ~map()~ / ~every()~ / ~filter()~ / ~find()~ / ~findIndex()~ / ~reduce()~ / ~
 #+END_SRC
 
 ** Iterator
-- https://javascript.info/iterable
-
 #+BEGIN_SRC javascript
   let range = {
     from: 1,
@@ -533,8 +551,12 @@ Use ~map()~ / ~every()~ / ~filter()~ / ~find()~ / ~findIndex()~ / ~reduce()~ / ~
     alert(num); // 1, then 2, 3, 4, 5
   }
 #+END_SRC
+
+:REFERENCES:
+- https://javascript.info/iterable
+:END:
+
 ** Map
-- https://javascript.info/map-set-weakmap-weakset
 - The main difference with ~Object~ is that *Map allows keys of any type*.
 
 #+BEGIN_SRC javascript
@@ -560,12 +582,11 @@ Use ~map()~ / ~every()~ / ~filter()~ / ~find()~ / ~findIndex()~ / ~reduce()~ / ~
   }
 #+END_SRC
 
+:REFERENCES:
+- https://javascript.info/map-set-weakmap-weakset
+:END:
+
 ** String
-- https://www.w3schools.com/jsref/jsref_obj_string.asp
-- https://stackoverflow.com/questions/242813/when-to-use-double-or-single-quotes-in-javascript 
-- https://javascript.info/string
-
-
 - Single and double quotes are literally same (except escaping)
 - It seems that *single quotes are preferred* in the most famous libraries.
 - Backticks are used for string interpolation.
@@ -587,9 +608,13 @@ Use ~map()~ / ~every()~ / ~filter()~ / ~find()~ / ~findIndex()~ / ~reduce()~ / ~
   `;
 #+END_SRC
 
-** Symbol
-- https://javascript.info/symbol
+:REFERENCES:
+- https://www.w3schools.com/jsref/jsref_obj_string.asp
+- https://stackoverflow.com/questions/242813/when-to-use-double-or-single-quotes-in-javascript 
+- https://javascript.info/string
+:END:
 
+** Symbol
 #+BEGIN_SRC javascript
   // “Symbol” value represents a unique identifier.
   // The first argument is a description("id", in this case), useful for debugging
@@ -719,10 +744,13 @@ So, as the result, the value of this is only passed the right way if the functio
   let john = User("John"); // redirects call to new User
   alert(john.name); // John
 #+END_SRC
+
+:REFERENCES:
+- https://javascript.info/symbol
+:END:
+
 * Reference
 ** Global functions
-- https://javascript.info/global-object
-
 #+BEGIN_SRC javascript
   alert("Hello");
 
@@ -736,9 +764,11 @@ So, as the result, the value of this is only passed the right way if the functio
   alert("user" in window); // false
 #+END_SRC
 
-*** alert, prompt, confirm
-- https://javascript.info/alert-prompt-confirm
+:REFERENCES:
+- https://javascript.info/global-object
+:END:
 
+*** alert, prompt, confirm
 #+BEGIN_SRC javascript
   alert("Hello");
 
@@ -749,15 +779,20 @@ So, as the result, the value of this is only passed the right way if the functio
   alert( isBoss ); // true if OK is pressed
 #+END_SRC
 
+:REFERENCES:
+- https://javascript.info/alert-prompt-confirm
+:END:
+
 *** encodeURI, encodeURIComponent, decodeURI, decodeURIComponent
-- https://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-instead-of-encodeuri-encodeuricomponent
 - ~escape~, ~unescape~ are deprecated
 - The difference between ~-URI~ and ~-URIComponent~ is following:
 [[file:_img/screenshot_2017-06-03_21-15-23.png]]
 
-*** setTimeout, setInterval
-- https://javascript.info/settimeout-setinterval
+:REFERENCES:
+- https://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-instead-of-encodeuri-encodeuricomponent
+:END:
 
+*** setTimeout, setInterval
 #+BEGIN_SRC javascript
   function sayHi() {
     alert('Hello');
@@ -781,16 +816,20 @@ Some use cases of ~setTimeout(...,0)~:
 - To split CPU-hungry tasks into pieces, so that the script doesn’t “hang”
 - To let the browser do something else while the process is going on (paint the progress bar).
 
+:REFERENCES:
+- https://javascript.info/settimeout-setinterval
+:END:
+
 * Topics
 ** 'use strict';
-- https://javascript.info/strict-mode
-
 Strict mode is declared by adding ~​'use strict';​~ to the beginning of a script or a function.
 Always use it. It's a kind of *modern mode*
 
-** let, const, var
-- https://javascript.info/var
+:REFERENCES:
+- https://javascript.info/strict-mode
+:END:
 
+** let, const, var
 - ~let~ and ~const~ behave exactly the same way in terms of Lexical Environments.
 
 - ~var~ has no block scope ::
@@ -813,9 +852,11 @@ Always use it. It's a kind of *modern mode*
   }
 #+END_SRC
 
-** Type Conversions
-- https://javascript.info/type-conversions
+:REFERENCES:
+- https://javascript.info/var
+:END:
 
+** Type Conversions
 #+BEGIN_SRC javascript
   alert( Number("   123   ") ); // 123
   alert( Number("123z") );      // NaN (error reading a number at "z")
@@ -829,6 +870,10 @@ Always use it. It's a kind of *modern mode*
   alert( '1' + 2 );             // '12' (string to the left)
 #+END_SRC
 
+:REFERENCES:
+- https://javascript.info/type-conversions
+:END:
+
 ** Check for an undefined or null variable
 #+BEGIN_SRC js
   if (some_variable == null){
@@ -838,8 +883,11 @@ Always use it. It's a kind of *modern mode*
 In general it is recommended to use ~=~ instead of ~==~.
 The proposed solution is an exception to this rule.
 The JSHint syntax checker even provides the ~eqnull~ option for this reason.
------
+
+:REFERENCES:
+
 - https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-null-variable-in-javascript
+:END:
 
 ** Comparisons
 #+BEGIN_SRC javascript
@@ -865,23 +913,24 @@ The JSHint syntax checker even provides the ~eqnull~ option for this reason.
 - Don’t use comparisons ~>=~ ~>~ ~<~ ~<=~ with a variable which may be ~null~ / ~undefined~
 
 ** Style Guides
+:REFERENCES:
 - https://javascript.info/coding-style
 - https://github.com/rwaldron/idiomatic.js
 - https://google.github.io/styleguide/javascriptguide.xml
+:END:
 
 ** Garbage collection
-- https://javascript.info/garbage-collection
-- http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection
-
-
 - Mark and sweep
 - Generational collection
 - Incremental collection
 - Idle-time collection
 
-** Destructuring
-- https://javascript.info/destructuring-assignment
+:REFERENCES:
+- https://javascript.info/garbage-collection
+- http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection
+:END:
 
+** Destructuring
 #+BEGIN_SRC javascript
   // let [firstName, surname] = arr;
   let firstName = arr[0];
@@ -1185,6 +1234,10 @@ The JSHint syntax checker even provides the ~eqnull~ option for this reason.
   alert(rabbit.constructor === Rabbit); // false
 #+END_SRC
 
+:REFERENCES:
+- https://javascript.info/destructuring-assignment
+:END:
+
 ** Prototypes
 :REFERENCES:
 - https://javascript.info/native-prototypes
@@ -1218,8 +1271,6 @@ To do that, we should create a plain object(without default ~Object.prototype~) 
 #+END_SRC
 
 ** Inheritance
-- https://javascript.info/class-patterns
-
 #+BEGIN_SRC javascript
   // Same Animal as before
   function Animal(name) {
@@ -1250,9 +1301,11 @@ To do that, we should create a plain object(without default ~Object.prototype~) 
 
 [[file:_img/screenshot_2018-03-03_10-22-32.png]]
 
-** Mixins
-- https://javascript.info/mixins
+:REFERENCES:
+- https://javascript.info/class-patterns
+:END:
 
+** Mixins
 #+BEGIN_SRC javascript
   // mixin
   let sayHiMixin = {
@@ -1282,9 +1335,11 @@ To do that, we should create a plain object(without default ~Object.prototype~) 
 Please note that the call to the parent method super.say() from sayHiMixin looks for the method in the prototype of that mixin, not the class.
 #+END_QUOTE
 
-** Error handling
-- https://javascript.info/try-catch
+:REFERENCES:
+- https://javascript.info/mixins
+:END:
 
+** Error handling
 #+BEGIN_SRC javascript
   try {
     // code...
@@ -1314,6 +1369,10 @@ Please note that the call to the parent method super.say() from sayHiMixin looks
   }
 #+END_SRC
 
+:REFERENCES:
+- https://javascript.info/try-catch
+:END:
+
 ** window.location
 Some keywords are optional, but there is a general guideline for compatibility:
 - ~window.location~ ::
@@ -1323,22 +1382,23 @@ Some keywords are optional, but there is a general guideline for compatibility:
 - ~window.location.replace(url);~ :;
   When redirecting, but want to remove the current page from the browser history, use 
 
------
+:REFERENCES:
+
 - https://stackoverflow.com/questions/2383401/javascript-setting-location-href-versus-location
 - https://stackoverflow.com/questions/42918837/removing-current-page-from-browser-history
+:END:
 
 * DOM
-- https://javascript.info/dom-navigation
-- https://javascript.info/basic-dom-node-properties
-
 [[file:_img/screenshot_2018-03-03_10-47-56.png]]
 
 [[file:_img/screenshot_2018-03-03_10-49-05.png]]
 
+:REFERENCES:
+- https://javascript.info/dom-navigation
+- https://javascript.info/basic-dom-node-properties
+:END:
+
 * Page lifecycle
-- https://javascript.info/onload-ondomcontentloaded
-
-
 - ~DOMContentLoaded~ event triggers on document when DOM is ready. We can apply JavaScript to elements at this stage.
   - All scripts are executed except those that are external with ~async~ or ~defer~
   - Images and other resources may still continue loading.
@@ -1352,9 +1412,11 @@ Some keywords are optional, but there is a general guideline for compatibility:
   - ~interactive~ – the document is parsed, happens at about the same time as ~DOMContentLoaded~, but before it.
   - ~complete~ – the document and resources are loaded, happens at about the same time as ~window.onload~, but before it.
 
-* Promise
-- https://javascript.info/promise-basics
+:REFERENCES:
+- https://javascript.info/onload-ondomcontentloaded
+:END:
 
+* Promise
 #+BEGIN_SRC javascript
   let promise = new Promise(function(resolve, reject) {
     // executor (the producing code, "singer")
@@ -1405,9 +1467,11 @@ Some keywords are optional, but there is a general guideline for compatibility:
   let value = await promise;
 #+END_SRC
 
-* Events
-- https://javascript.info/introduction-browser-events
+:REFERENCES:
+- https://javascript.info/promise-basics
+:END:
 
+* Events
 #+BEGIN_SRC html
   <input value="Click me" onclick="alert('Click!')" type="button">
 
@@ -1449,10 +1513,12 @@ Some keywords are optional, but there is a general guideline for compatibility:
 
 [[file:_img/screenshot_2018-03-03_13-20-38.png]]
 
+:REFERENCES:
+- https://javascript.info/introduction-browser-events
+:END:
+
 * How-to
 ** Parse URI
-- https://gist.github.com/jlong/2428561
-
 #+BEGIN_SRC javascript
   var parser = document.createElement('a');
   parser.href = "http://example.com:3000/pathname/?search=test#hash";
@@ -1466,11 +1532,11 @@ Some keywords are optional, but there is a general guideline for compatibility:
   parser.host;     // => "example.com:3000"
 #+END_SRC
 
+:REFERENCES:
+- https://gist.github.com/jlong/2428561
+:END:
+
 ** Put <script>
-- https://javascript.info/hello-world
-- http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
-
-
 - As a rule, only the simplest scripts are put into HTML. 
 - The benefit of a separate file is that the browser will download it and then store in its cache.
 - If ~src~ is set, the script content is ignored.
@@ -1487,6 +1553,12 @@ Some keywords are optional, but there is a general guideline for compatibility:
 - If the script relies upon or is relied upon by another script then use ~defer~.
 - If the script is small and is relied upon by an ~async~ script then use an ~inline script~ with no attributes placed above the ~async~ scripts.
 
-* Links
-- https://javascript.info/ 
+:REFERENCES:
+- https://javascript.info/hello-world
+- http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
+:END:
 
+* Links
+:REFERENCES:
+- https://javascript.info/ 
+:END:

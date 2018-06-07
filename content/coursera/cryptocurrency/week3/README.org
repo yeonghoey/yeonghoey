@@ -168,4 +168,3 @@ and serve as a commitment that Bitcoin, the first block was obviously mined afte
 [[file:_img/screenshot_2017-10-22_22-44-00.png]]
 
 [[file:_img/screenshot_2017-10-22_22-44-23.png]]
-

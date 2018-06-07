@@ -1,6 +1,4 @@
 * pkill
-- https://en.wikipedia.org/wiki/Signal_(IPC)
-
 - Same as [[../pgrep][pgrep]], but kills matching processes
 - Default singal is ~SIGTERM~
 - ~kill -l~ to list signal names
@@ -9,3 +7,7 @@
   pkill -9 python     # You can also specify singal
   pkill -INT -f dynamodb
 #+END_SRC
+
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Signal_(IPC)
+:END:

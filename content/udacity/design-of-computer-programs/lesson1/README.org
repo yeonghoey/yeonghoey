@@ -26,16 +26,20 @@
 
 * Lesson 1
 ** Outlining The Problem
-- https://en.wikipedia.org/wiki/List_of_poker_hand_categories
-
 [[file:_img/screenshot_2017-01-09_12-52-17.png]]
 
-** Quiz: Testing
-- https://wiki.python.org/moin/UsingAssertionsEffectively
+:REFERENCES:
+- https://en.wikipedia.org/wiki/List_of_poker_hand_categories
+:END:
 
+** Quiz: Testing
   
   
 [[file:_img/screenshot_2017-01-09_12-59-54.png]]
+
+:REFERENCES:
+- https://wiki.python.org/moin/UsingAssertionsEffectively
+:END:
 
 ** Back To Hand Rank
 [[file:_img/screenshot_2017-01-10_12-49-42.png]]

@@ -31,7 +31,6 @@
 #+END_SRC
 
 *** Functions
-- https://www.packer.io/docs/templates/engine.html#functions
 - ~build_name~ :: The name of the build being run.
 - ~build_type~ :: The type of the builder being used currently.
 - ~isotime [FORMAT]~ :: UTC time, which can be formatted. See more examples below in the [[https://www.packer.io/docs/templates/engine.html#isotime-function-format-reference][isotime format reference]].
@@ -42,6 +41,10 @@
 - ~uuid~ :: Returns a random UUID.
 - ~upper~ :: Uppercases the string.
 - ~user~ :: Specifies a user variable.
+
+:REFERENCES:
+- https://www.packer.io/docs/templates/engine.html#functions
+:END:
 
 *** Variables
 - ~{{function}}~ :: The result of the function
@@ -68,4 +71,6 @@
 * Topics
 * How-to
 * Links
+:REFERENCES:
 - https://github.com/hashicorp/packer/tree/master/examples
+:END:

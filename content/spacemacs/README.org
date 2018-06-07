@@ -21,12 +21,15 @@
 
 * Emacs
 ** Indirect Buffers
-- https://www.gnu.org/software/emacs/manual/html_node/emacs/Indirect-Buffers.html
 #+BEGIN_QUOTE
 An indirect buffer shares the text of some other buffer,
 which is called the base buffer of the indirect buffer.
 In some ways it is a buffer analogue of a symbolic link between files.
 #+END_QUOTE
+
+:REFERENCES:
+- https://www.gnu.org/software/emacs/manual/html_node/emacs/Indirect-Buffers.html
+:END:
 
 ** Regex
 + https://www.emacswiki.org/emacs/RegularExpression
@@ -70,10 +73,12 @@ I want non-fuzzy searches sometimes. I tried to set ~dotspacemacs-helm-use-fuzzy
 Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems to work as expected.
 
 ** Save/Load layouts and workspaces
-- https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#saveload-layouts-into-a-file
-
 - Save :: ~SPC l s~
 - Load :: ~SPC l L~
+
+:REFERENCES:
+- https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#saveload-layouts-into-a-file
+:END:
 
 * Layers
 ** auto-completion
@@ -85,7 +90,6 @@ Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems 
 #+END_SRC
 
 **** Organization
-- https://joaotavora.github.io/yasnippet/snippet-organization.html
 #+BEGIN_EXAMPLE
   snippets
   |-- c-mode
@@ -102,9 +106,11 @@ Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems 
       `-- time
 #+END_EXAMPLE
 
-**** Writing
-- https://joaotavora.github.io/yasnippet/snippet-development.html
+:REFERENCES:
+- https://joaotavora.github.io/yasnippet/snippet-organization.html
+:END:
 
+**** Writing
 #+BEGIN_EXAMPLE
   # name: mysnippet
   # key: my_
@@ -132,8 +138,11 @@ Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems 
 - A tapstop can show up multiple times, which mirrors the first occurance
 - Mirrors can be transformed with ~${2:$(elisp-code)~, with ~yas-text~ place holder
 
+:REFERENCES:
+- https://joaotavora.github.io/yasnippet/snippet-development.html
+:END:
+
 ** csharp
-- https://github.com/OmniSharp/omnisharp-emacs
 - ~SPC m s s~ to start omnisharp
 - Select ~*.sln~ file on the project root for unity3d
 
@@ -141,9 +150,11 @@ Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems 
   brew install omnisharp/omnisharp-roslyn/omnisharp-mono
 #+END_SRC
 
+:REFERENCES:
+- https://github.com/OmniSharp/omnisharp-emacs
+:END:
+
 ** restclient
-- https://github.com/pashky/restclient.el
-- https://github.com/zweifisch/ob-http
 - Lines starting with # are considered comments AND also act as separators.
 - ~SPC m s~ to send
 - ~SPC m y~ to copy as curl command
@@ -160,6 +171,12 @@ Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems 
     "key": "value"
   }
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://github.com/pashky/restclient.el
+- https://github.com/zweifisch/ob-http
+:END:
+
 *** ob-http
 #+BEGIN_EXAMPLE
   ,#+BEGIN_SRC http :pretty
@@ -175,9 +192,6 @@ Instead, I found that escaping all whitespaces(use ~\_~, instaned of ~_~) seems 
 
 * Customization
 ** Visual Pastes
-- http://emacs.stackexchange.com/questions/14940/emacs-doesnt-paste-in-evils-visual-mode-with-every-os-clipboard/15054#15054
-- https://github.com/syl20bnr/spacemacs/issues/5070#issuecomment-184464650
-
 Enable evil-visual pastes from system clipbaoard
 #+BEGIN_SRC emacs-lisp
   (fset 'evil-visual-update-x-selection 'ignore)
@@ -193,9 +207,13 @@ It's *NOT* recommended if you use cut and paste routine.
 
   (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
 #+END_SRC
-** EditorConfig
-- https://www.johbo.com/2016/supporting-editorconfig-in-spacemacs.html
 
+:REFERENCES:
+- http://emacs.stackexchange.com/questions/14940/emacs-doesnt-paste-in-evils-visual-mode-with-every-os-clipboard/15054#15054
+- https://github.com/syl20bnr/spacemacs/issues/5070#issuecomment-184464650
+:END:
+
+** EditorConfig
 It seems that ~Spacemacs~ uses ~EditorConfig~ implicitly. To make it explicit:
 #+BEGIN_SRC emacs-lisp
   dotspacemacs-additional-packages '(editorconfig)
@@ -205,10 +223,17 @@ It seems that ~Spacemacs~ uses ~EditorConfig~ implicitly. To make it explicit:
   )
 #+END_SRC
 
+:REFERENCES:
+- https://www.johbo.com/2016/supporting-editorconfig-in-spacemacs.html
+:END:
+
 * Use Cases
 ** How to Fix 'Evaluation of code disabled'
-- https://github.com/syl20bnr/spacemacs/issues/7641
 - Simply run ~:spacemacs/recompile-elpa~ and restart emacs
+
+:REFERENCES:
+- https://github.com/syl20bnr/spacemacs/issues/7641
+:END:
 
 * How-to
 ** Enable navigation by visual lines?

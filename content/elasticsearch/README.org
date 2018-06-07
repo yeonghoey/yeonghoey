@@ -30,16 +30,15 @@
 * Reference
 ** APIs
 *** <index>
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
-
 #+BEGIN_SRC shell
   curl -X DELETE 'localhost:9200/twitter?pretty'
 #+END_SRC
 
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html
+:END:
+
 *** _bulk
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/bulk.html
-
-
 - Every line must end with a newline character (\n), *including the last line*.
 - The lines *cannot contain unescaped newline characters*, as they would interfere with parsing.
 
@@ -76,9 +75,11 @@ One thousand 1KB documents is very different from one thousand 1MB documents.
 *A good bulk size to start playing with is around 5-15MB in size*
 #+END_QUOTE
 
-*** _cat
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cat_api.html
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/bulk.html
+:END:
 
+*** _cat
 #+BEGIN_SRC shell
   curl 'http://localhost:9200/_cat/indices?v'
   #                                        └─ enable headers
@@ -99,18 +100,22 @@ One thousand 1KB documents is very different from one thousand 1MB documents.
   green  open   logs-live-v2-2017-08-17  GVqhRMk7TsWB0KjUUqwTQw   5   1  225820075            0    164.4gb         82.2gb
 #+END_EXAMPLE
 
-*** _cluster
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cat_api.html
+:END:
 
+*** _cluster
 #+BEGIN_SRC shell
   curl 'http://localhost:9200/_cluster/health'
   curl 'http://localhost:9200/_cluster/health?level=indices'
   curl 'http://localhost:9200/_cluster/stats'
 #+END_SRC
 
-*** _nodes
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_cluster_health.html
+:END:
 
+*** _nodes
 #+BEGIN_SRC shell
   curl 'http://localhost:9200/_nodes/stats'
 #+END_SRC
@@ -130,9 +135,11 @@ One thousand 1KB documents is very different from one thousand 1MB documents.
            ],
 #+END_SRC
 
-*** _template
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html
+:END:
 
+*** _template
 #+BEGIN_SRC shell
   curl -XPUT "$ES_ENDPOINT/_template/my-logging" --fail \
        -H 'Content-Type: application/json' -d'
@@ -155,9 +162,11 @@ One thousand 1KB documents is very different from one thousand 1MB documents.
   '
 #+END_SRC
 
-** Query string syntax
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+:END:
 
+** Query string syntax
 #+BEGIN_EXAMPLE
   apple                                  # search "apple" in the default field(which is '_all' by default)
 
@@ -203,6 +212,10 @@ One thousand 1KB documents is very different from one thousand 1MB documents.
   # reserved characters (You should escape these characters with '\' if you want to search them literally)
   + - = && || > < ! ( ) { } [ ] ^ " ~ * ? : \ /  
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax
+:END:
 
 * Topics
 ** Understanding Cluster
@@ -262,8 +275,6 @@ but we can override that and provide our own custom routing value, such as ~foru
 #+END_EXAMPLE
 
 ** Inverted Index
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html
-
 #+BEGIN_EXAMPLE
   Term  | Doc 1 | Doc 2 | Doc 3 | ...
   ------------------------------------
@@ -272,6 +283,10 @@ but we can override that and provide our own custom routing value, such as ~foru
   quick |   X   |   X   |       | ...
   the   |   X   |       |  X    | ...
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/inverted-index.html
+:END:
 
 *** Terms are normalized
 - ~Quick~ can be lowercased to become ~quick~.
@@ -288,10 +303,13 @@ so both the indexed text and the query string must be normalized into the same f
 This process of tokenization and normalization is called *analysis*.
 
 *** Analysis and Analyzers
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/analysis-intro.html
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html
 - Tokenizing a block of text into individual terms suitable for use in an inverted index
 - Normalizing these terms into a standard form to improve their *searchability* or *recall*
+
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/analysis-intro.html
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html
+:END:
 
 **** Kinds of analyzers
 - Standard 
@@ -401,9 +419,6 @@ A quorum is ~(number of master-eligible nodes / 2) + 1~.
 - [[https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#compressed_oops][Don't Cross 32GB]] 
 
 ** Manage the change of mappings
-- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html
-- https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html
   - Don't follw this way manually. There is a [[https://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-reindex.html][Reindex API]].
 
 There seems to be a conflict between the use case of ~index templates~ and ~index aliases~.
@@ -413,5 +428,11 @@ ex) ~myindex-v1-2017-08-15~, ~myindex-v2-2017-08-16~, etc.
 
 In this way, you can query for common fields across indexes
 even if the mapping has been changed through index wildcard queries.
+
+:REFERENCES:
+- https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-templates.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/index-aliases.html
+- https://www.elastic.co/guide/en/elasticsearch/guide/current/reindex.html
+:END:
 
 * Links

@@ -20,7 +20,6 @@
 
 * Overview
 ** Commandline Usage
-
 #+BEGIN_SRC shell
     pytest --version   # shows where pytest was imported from
     pytest --fixtures  # show available builtin function arguments
@@ -62,14 +61,14 @@
   pytest --durations=10  # To get a list of the slowest 10 test durations
 #+END_SRC
 
------
+:REFERENCES:
+
 - http://doc.pytest.org/en/latest/usage.html
 - https://docs.pytest.org/en/2.8.7/capture.html
+:END:
 
 * Reference
 ** approx
-- https://docs.pytest.org/en/latest/builtin.html#pytest.approx
-
 #+BEGIN_SRC python
   >>> from pytest import approx
   >>> 0.1 + 0.2 == approx(0.3)
@@ -77,6 +76,10 @@
   >>> (0.1 + 0.2, 0.2 + 0.4) == approx((0.3, 0.6))
   True
 #+END_SRC
+
+:REFERENCES:
+- https://docs.pytest.org/en/latest/builtin.html#pytest.approx
+:END:
 
 ** fixture
 :REFERENCES:
@@ -201,9 +204,6 @@ In this case, the fixture ~a~ is called only once for each run of ~test_x~
 #+END_SRC
 
 ** mark
-- https://docs.pytest.org/en/latest/mark.html#mark
-- https://docs.pytest.org/en/latest/parametrize.html#parametrizemark
-
 #+BEGIN_SRC python
   import pytest
   @pytest.mark.parametrize("test_input,expected", [
@@ -215,9 +215,12 @@ In this case, the fixture ~a~ is called only once for each run of ~test_x~
       assert eval(test_input) == expected
 #+END_SRC
 
-** monkeypatch
-- https://docs.pytest.org/en/latest/monkeypatch.html
+:REFERENCES:
+- https://docs.pytest.org/en/latest/mark.html#mark
+- https://docs.pytest.org/en/latest/parametrize.html#parametrizemark
+:END:
 
+** monkeypatch
 - ~monkeypatch.setattr/delattr/delitem/delenv()~ *all by default raise an Exception* if the target does not exist.
   Pass ~raising=False~ if you want to skip this check.
 
@@ -242,10 +245,11 @@ In this case, the fixture ~a~ is called only once for each run of ~test_x~
       monkeypatch.undo()  # undo all changes
 #+END_SRC
 
-** raises
-- https://docs.pytest.org/en/latest/builtin.html?highlight=raises#pytest.raises
-- https://docs.pytest.org/en/latest/_modules/_pytest/_code/code.html#ExceptionInfo
+:REFERENCES:
+- https://docs.pytest.org/en/latest/monkeypatch.html
+:END:
 
+** raises
 #+BEGIN_SRC python
   import pytest
 
@@ -263,9 +267,12 @@ In this case, the fixture ~a~ is called only once for each run of ~test_x~
       assert exc_info.match('maximum recursion' )
 #+END_SRC
 
-** fail
-- http://stackoverflow.com/questions/20274987/how-to-use-pytest-to-check-that-error-is-not-raised
+:REFERENCES:
+- https://docs.pytest.org/en/latest/builtin.html?highlight=raises#pytest.raises
+- https://docs.pytest.org/en/latest/_modules/_pytest/_code/code.html#ExceptionInfo
+:END:
 
+** fail
 #+BEGIN_SRC python
   def test_foo3():
       try:
@@ -274,9 +281,12 @@ In this case, the fixture ~a~ is called only once for each run of ~test_x~
           pytest.fail("Unexpected MyError ..")
 #+END_SRC
 
+:REFERENCES:
+- http://stackoverflow.com/questions/20274987/how-to-use-pytest-to-check-that-error-is-not-raised
+:END:
+
 * Topics
 ** rootdir
-
 #+BEGIN_QUOTE
 The rootdir is used a reference directory for constructing test addresses (“nodeids”) and can be used also by plugins for storing per-testrun information.
 #+END_QUOTE
@@ -297,7 +307,7 @@ The rootdir is used a reference directory for constructing test addresses (“no
 - https://docs.pytest.org/en/latest/goodpractices.html#test-discovery
 :END:
 
------
+:REFERENCES:
 
 Useful if you have many functional tests or for other reasons want to keep tests separate from actual application code (often a good idea):
 #+BEGIN_EXAMPLE
@@ -341,10 +351,13 @@ Useful if you have direct relation between (unit-)test and application modules a
   ptw --onpass "say passed" --onfail "say failed"
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://github.com/joeyespo/pytest-watch
+:END:
 
 * Links
+:REFERENCES:
 - http://plugincompat.herokuapp.com/
 - https://docs.pytest.org/en/latest/builtin.html?highlight=raises#_pytest._code.ExceptionInfo
-
+:END:

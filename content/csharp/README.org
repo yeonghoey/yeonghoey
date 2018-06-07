@@ -46,24 +46,24 @@
   - [[#invoke-a-method-with-reflection][Invoke a method with Reflection]]
 
 * C#, .Net and Mono
+[[file:_img/screenshot_2017-05-02_22-07-04.png]]
+
+:REFERENCES:
 - https://en.wikipedia.org/wiki/C_Sharp_(programming_language)
 - http://www.mono-project.com/docs/about-mono/compatibility/
-
-[[file:_img/screenshot_2017-05-02_22-07-04.png]]
+:END:
 
 * Reference
 ** Accessibility Levels
-- https://msdn.microsoft.com/en-us/library/ba0a1yw2.aspx
-
 [[file:_img/screenshot_2017-05-03_11-10-34.png]]
 
 [[file:_img/screenshot_2017-05-03_11-12-35.png]]
 
-** Array
-- http://csharp.net-informations.com/collection/csharp-array.htm
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/arrays/multidimensional-arrays
-- http://stackoverflow.com/questions/2044591/what-is-the-difference-between-array-getlength-and-array-length
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/ba0a1yw2.aspx
+:END:
 
+** Array
 #+BEGIN_SRC csharp
   int[] array = new int[] {10, 20, 30, 40};
   for (int i = 0; i < array.Length; i++)
@@ -102,13 +102,21 @@
   Console.WriteLine(a.GetLength(2));     // 12
 #+END_SRC
 
+:REFERENCES:
+- http://csharp.net-informations.com/collection/csharp-array.htm
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/arrays/multidimensional-arrays
+- http://stackoverflow.com/questions/2044591/what-is-the-difference-between-array-getlength-and-array-length
+:END:
+
 ** ArrayList
-- http://stackoverflow.com/questions/2309694/arraylist-vs-list-in-c-sharp
 - ~ArrayList~ simply stores object references.
 - ~ArrayList~ belongs to the days that C# didn't have generics. It's deprecated in favor of ~List<T>~
 
+:REFERENCES:
+- http://stackoverflow.com/questions/2309694/arraylist-vs-list-in-c-sharp
+:END:
+
 ** as
-- https://msdn.microsoft.com/en-us/library/cscsdfbt.aspx
 - if the conversion isn't possible, ~as~ returns null instead of raising an exception.
 
 #+BEGIN_SRC csharp
@@ -152,8 +160,12 @@
     5:not a string
   ,*/
 #+END_SRC
+
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/cscsdfbt.aspx
+:END:
+
 ** Attributes
-- http://stackoverflow.com/questions/20346/what-are-attributes-in-net
 - Metadata. Data about your objects/methods/properties.
 - Attributes are used heavily with reflection.
 
@@ -190,16 +202,22 @@
   }
 #+END_SRC
 
+:REFERENCES:
+- http://stackoverflow.com/questions/20346/what-are-attributes-in-net
+:END:
+
 ** const
-- https://msdn.microsoft.com/en-us/library/e6w8fe1b.aspx
-- http://stackoverflow.com/questions/408192/why-cant-i-have-public-static-const-string-s-stuff-in-my-class
 - The initializer of a constant local or a constant field must be
   a constant expression that can be implicitly converted to the target type
 - A constant expression is an expression that *can be fully evaluated at compile time*
 - A ~const~ object is always ~static~.
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/e6w8fe1b.aspx
+- http://stackoverflow.com/questions/408192/why-cant-i-have-public-static-const-string-s-stuff-in-my-class
+:END:
+
 ** delegate
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/delegate
 - A ~delegate~ is a reference type that can be used to encapsulate a named or an anonymous method.
 
 #+BEGIN_SRC csharp
@@ -244,8 +262,12 @@
       // cube: 83.740234375
   }
 #+END_SRC
+
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/delegate
+:END:
+
 ** event
-- http://csharpindepth.com/Articles/Chapter2/Events.aspx
 - Think of events a bit like properties.
 - Events are pairs of methods
 #+BEGIN_SRC csharp
@@ -283,9 +305,11 @@
 - A ~delegate~ variable backed by a property
 - A ~delegate~ variable with ~AddXXXHandler~ and ~RemoveXXXHandler~ methods
 
-** foreach
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/foreach-in
+:REFERENCES:
+- http://csharpindepth.com/Articles/Chapter2/Events.aspx
+:END:
 
+** foreach
 #+BEGIN_SRC csharp
   int[,] numbers2D = new int[3, 2] { { 9, 99 }, { 3, 33 }, { 5, 55 } };
   // Or use the short form:
@@ -298,16 +322,20 @@
   // Output: 9 99 3 33 5 55
 #+END_SRC
 
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/foreach-in
+:END:
+
 ** Int32, Int64
-- https://stackoverflow.com/questions/651956/sizeofint-on-x64
 - Both ~long~ and ~pointer~ are 64-bits
 - On all platforms, ~int~ is *32-bits* and ~long~ is *64-bits*
 - You can see this in the names of the underlying types ~System.Int32~ and ~System.Int64~.
 
-** Lambda Expressions
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions
-- http://stackoverflow.com/questions/10538924/c-sharp-style-lambdas-or-x
+:REFERENCES:
+- https://stackoverflow.com/questions/651956/sizeofint-on-x64
+:END:
 
+** Lambda Expressions
 #+BEGIN_SRC csharp
   (x, y) => x == y;
   (int x, string s) => s.Length > x;
@@ -321,10 +349,12 @@
   _ => 10
 #+END_SRC
 
-** List<T>
-- https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx
-- http://csharp.net-informations.com/collection/list.htm
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/statements-expressions-operators/lambda-expressions
+- http://stackoverflow.com/questions/10538924/c-sharp-style-lambdas-or-x
+:END:
 
+** List<T>
 #+BEGIN_SRC csharp
   List<string> colors = new List<string>();
   colors.Add("Red");
@@ -368,8 +398,16 @@
   arrlist.Clear ();
 #+END_SRC
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx
+- http://csharp.net-informations.com/collection/list.htm
+:END:
+
 ** Method Parameter Keywords
+:REFERENCES:
 - https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/method-parameters
+:END:
+
 *** params
 - To specify a method parameter that takes a variable number of arguments
 - Can send a comma-separated list of arguments of the type
@@ -490,7 +528,6 @@
 #+END_SRC
 
 ** Named and Optional Arguments
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/classes-and-structs/named-and-optional-arguments
 - A default value must be one of the following types of expressions:
   - a constant expression;
   - an expression of the form ~new ValType()~, where ~ValType~ is a value type, such as an ~enum~ or a ~struct~;
@@ -545,9 +582,11 @@
   }
 #+END_SRC
 
-** null
-- https://msdn.microsoft.com/en-us/library/dn986595.aspx
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/classes-and-structs/named-and-optional-arguments
+:END:
 
+** null
 #+BEGIN_SRC csharp
   // Traditional null check
   var handler = this.PropertyChanged;
@@ -575,14 +614,19 @@
   int y = x ?? -1;
 #+END_SRC
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/dn986595.aspx
+:END:
+
 ** Nullable<T>
-- https://msdn.microsoft.com/en-us/library/1t3y8s4s.aspx
 - The syntax ~T?~ is shorthand for ~Nullable<T>~,
   where ~T~ is a value type. The two forms are interchangeable.
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/1t3y8s4s.aspx
+:END:
+
 ** Properties
-- https://msdn.microsoft.com/en-us/library/w86s7x04.aspx
-- https://msdn.microsoft.com/en-us/library/bb384054.aspx
 - ~set~ accessor resembles a method whose return type is ~void~.
   It uses an implicit parameter called ~value~
 
@@ -619,8 +663,12 @@
   public string FirstName { get; set; } = "Jane";
 #+END_SRC
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/w86s7x04.aspx
+- https://msdn.microsoft.com/en-us/library/bb384054.aspx
+:END:
+
 ** PropertyInfo
-- https://msdn.microsoft.com/en-us/library/system.reflection.propertyinfo.aspx
 #+BEGIN_SRC csharp
   var ps = typeof(DevSettings).GetProperties();
   foreach (PropertyInfo p in ps)
@@ -635,8 +683,11 @@
   }
 #+END_SRC
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/system.reflection.propertyinfo.aspx
+:END:
+
 ** readonly
-- https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx
 - A ~const~ field can only be initialized at the declaration of the field.
 - A ~readonly~ field can be initialized either at the declaration or in a constructor
 
@@ -660,10 +711,11 @@ it's inherently static while a readonly field can be either static or instance.
     }
 #+END_SRC
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx
+:END:
+
 ** Static Class and Static Class Members
-- https://msdn.microsoft.com/en-us/library/79b3xss3.aspx
-- https://msdn.microsoft.com/en-us/library/k9x6w0hc.aspx
-- http://stackoverflow.com/questions/3681055/is-the-order-of-static-class-initialization-in-c-sharp-deterministic
 - C# does not support static local variables
 - Static members are initialized
   - before the static member is accessed for the first time
@@ -701,18 +753,26 @@ it's inherently static while a readonly field can be either static or instance.
       }
     }
 #+END_SRC
-** string
-- http://stackoverflow.com/questions/7074/what-is-the-difference-between-string-and-string-in-c
-- http://stackoverflow.com/questions/5418324/how-can-i-format-a-number-into-a-string-with-leading-zeros
-- http://blog.stevex.net/string-formatting-in-csharp/
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/79b3xss3.aspx
+- https://msdn.microsoft.com/en-us/library/k9x6w0hc.aspx
+- http://stackoverflow.com/questions/3681055/is-the-order-of-static-class-initialization-in-c-sharp-deterministic
+:END:
+
+** string
 ~string~ is an alias in C# for ~System.String~.
 So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
 
 [[file:_img/screenshot_2017-05-21_17-49-27.png]]
 
+:REFERENCES:
+- http://stackoverflow.com/questions/7074/what-is-the-difference-between-string-and-string-in-c
+- http://stackoverflow.com/questions/5418324/how-can-i-format-a-number-into-a-string-with-leading-zeros
+- http://blog.stevex.net/string-formatting-in-csharp/
+:END:
+
 ** this
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/this
 - To qualify members hidden by similar names
 - To pass an object as a parameter to other methods
 - To declare indexers
@@ -733,17 +793,22 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
       set { array[param] = value; }
   }
 #+END_SRC
-** ToString
-- https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
 
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/this
+:END:
+
+** ToString
 #+BEGIN_SRC csharp
   float score = 100.12345;
   Debug.Log(score.ToString("F2"));  # Fixed point, prints "100.12"
 #+END_SRC
 
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx
+:END:
+
 ** typeof
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/typeof
-- http://stackoverflow.com/questions/5482844/how-to-compare-types
 - The ~typeof~ operator cannot be overloaded.
 
 #+BEGIN_SRC csharp
@@ -757,9 +822,12 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
   typeField == typeof(DateTime);
 #+END_SRC
 
-** using
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/using-directive
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/typeof
+- http://stackoverflow.com/questions/5482844/how-to-compare-types
+:END:
 
+** using
 #+BEGIN_SRC csharp
   // To allow the use of types in a namespace so that you do not have to qualify
   using System.Text;
@@ -771,10 +839,12 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
   using Project = PC.MyCompany.Project;
 #+END_SRC
 
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/using-directive
+:END:
+
 * Compiler Options
 ** define
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/compiler-options/define-compiler-option
-- http://stackoverflow.com/questions/709463/c-sharp-macro-definitions-in-preprocessor
 - *Only conditional compilation* and pragmas are supported.
 
 #+BEGIN_SRC csharp
@@ -796,11 +866,13 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
   }
 #+END_SRC
 
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/compiler-options/define-compiler-option
+- http://stackoverflow.com/questions/709463/c-sharp-macro-definitions-in-preprocessor
+:END:
+
 * Details
 ** Value Types and Reference Types
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/types/index
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/reference-tables-for-types 
-
 [[file:_img/screenshot_2017-05-06_11-00-02.png]]
 
 - There are two categories of value types: ~struct~ and ~enum~.
@@ -808,12 +880,13 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
 - Unlike with reference types, you *cannot derive a new type from a value type*.
 - However, like reference types, ~structs~ can implement interfaces.
 - A type that is defined as a ~class~, ~delegate~, ~array~, or ~interface~ is a reference type.
+
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/types/index
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/language-reference/keywords/reference-tables-for-types 
+:END:
+
 ** abstract, virtual, override, sealed
-- https://msdn.microsoft.com/en-us/library/6tcf2h8w.aspx
-- http://stackoverflow.com/questions/6162451/the-difference-between-virtual-override-new-and-sealed-override
-- http://www.dotnetfunda.com/articles/show/2961/abstract-sealed-and-override-modifiers-in-csharp
-
-
 - The ~abstract~ modifier indicates that the thing being modified has a missing or incomplete implementation.
 - The ~virtual~ keyword is used to modify a method, property, indexer, or event declaration and allow for it to be overridden in a derived class.
 - By default, methods are *non-virtual*. You *cannot override* a non-virtual method.
@@ -822,9 +895,13 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
 
 [[file:_img/screenshot_2017-05-05_16-52-37.png]]
 
-** C# Coding Conventions
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/inside-a-program/coding-conventions
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/6tcf2h8w.aspx
+- http://stackoverflow.com/questions/6162451/the-difference-between-virtual-override-new-and-sealed-override
+- http://www.dotnetfunda.com/articles/show/2961/abstract-sealed-and-override-modifiers-in-csharp
+:END:
 
+** C# Coding Conventions
 #+BEGIN_SRC csharp
   var currentPerformanceCounterCategory = new System.Diagnostics.
       PerformanceCounterCategory();
@@ -904,8 +981,11 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
   // if you add a static member with the same name to the derived class.
 #+END_SRC
 
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/inside-a-program/coding-conventions
+:END:
+
 ** Creating delegates manually vs using Action/Func delegates
-- http://stackoverflow.com/questions/4482613/creating-delegates-manually-vs-using-action-func-delegates
 - The advantage is clarity. By giving the type an explicit name it is more clear to the reader what it does.
 - You can specify ~ref~ / ~out~ parameters unlike the other two generic delegates.
 - Can have optional parameters.
@@ -916,17 +996,23 @@ So technically, there is no difference. It's like ~int~ vs. ~System.Int32~.
   private Action<string,int> ChangeListAction;
 #+END_SRC
 
+:REFERENCES:
+- http://stackoverflow.com/questions/4482613/creating-delegates-manually-vs-using-action-func-delegates
+:END:
+
 * Use Cases
 ** Can I make local vairalbes constant?
-- http://stackoverflow.com/questions/2054761/how-to-declare-a-local-constant-in-c
 -
 In short, No. Because:
 
 - ~const~ only for expressions can be evaluated at compile time
 - ~readonly~ only works on class level
-** Can I handle inputs in FixedUpdate?
-- http://answers.unity3d.com/questions/620981/input-and-applying-physics-update-or-fixedupdate.html
 
+:REFERENCES:
+- http://stackoverflow.com/questions/2054761/how-to-declare-a-local-constant-in-c
+:END:
+
+** Can I handle inputs in FixedUpdate?
 *General Rule*:
 - Input should be in ~Update~,
   so that there is no chance of having a frame in which you miss the player input
@@ -937,9 +1023,11 @@ In short, No. Because:
 - Camera movement should be in ~LateUpdate~,
   so that it reflects the positions of any objects that may have moved in the current frame
 
-** Gaussian Random
-- https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
+:REFERENCES:
+- http://answers.unity3d.com/questions/620981/input-and-applying-physics-update-or-fixedupdate.html
+:END:
 
+** Gaussian Random
 #+BEGIN_SRC csharp
   // Box–Muller transform
   // https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
@@ -951,6 +1039,10 @@ In short, No. Because:
 		  return (mu + sigma * z0);
 	  }
 #+END_SRC
+
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
+:END:
 
 ** General Structure of a C# Program
 #+BEGIN_SRC csharp
@@ -994,12 +1086,14 @@ In short, No. Because:
 #+END_SRC
 
 ** Increment operator: Post vs Pre?
-- http://stackoverflow.com/questions/467322/is-there-any-performance-difference-between-i-and-i-in-c
 - The semantic is not different from C ++
 - Thanks to the compiler, In short, *there will be no difference* in the runtime for control variables
 
+:REFERENCES:
+- http://stackoverflow.com/questions/467322/is-there-any-performance-difference-between-i-and-i-in-c
+:END:
+
 ** Main Method
-- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/main-and-command-args/index
 #+BEGIN_SRC csharp
   static void Main()
   {
@@ -1020,10 +1114,12 @@ In short, No. Because:
       return 0;
   }
 #+END_SRC
-** Get property name inside setter
-- https://msdn.microsoft.com/ko-kr/library/system.reflection.methodbase.aspx
-- http://stackoverflow.com/questions/1044519/get-property-name-inside-setter
 
+:REFERENCES:
+- https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/main-and-command-args/index
+:END:
+
+** Get property name inside setter
 #+BEGIN_SRC csharp
   using System.Reflection
 
@@ -1039,9 +1135,13 @@ In short, No. Because:
 Use ~string.Substring(4)~ to remoe ~get_~ or ~set_~:
 
 [[file:_img/screenshot_2017-05-14_14-25-09.png]]
+
+:REFERENCES:
+- https://msdn.microsoft.com/ko-kr/library/system.reflection.methodbase.aspx
+- http://stackoverflow.com/questions/1044519/get-property-name-inside-setter
+:END:
+
 ** Invoke a method with Reflection
-- https://msdn.microsoft.com/en-us/library/8zz808e6
-- https://www.dotnetperls.com/getmethod
 - Must specify parameter types for resolving ambiguity.
 - ~BindingFlags.Instance~ and ~BindingFlags.NonPublic~ required for a private instance method
 
@@ -1060,3 +1160,8 @@ Use ~string.Substring(4)~ to remoe ~get_~ or ~set_~:
   }
 
 #+END_SRC
+
+:REFERENCES:
+- https://msdn.microsoft.com/en-us/library/8zz808e6
+- https://www.dotnetperls.com/getmethod
+:END:

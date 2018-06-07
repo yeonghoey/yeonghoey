@@ -5,9 +5,6 @@
  - [[#links][Links]]
 
 * Docstring Examples
-- https://pythonhosted.org/an_example_pypi_project/sphinx.html
-- https://pythonhosted.org/an_example_pypi_project/pkgcode.html
-
 #+BEGIN_SRC rst
   I really like the :mod:`threading` module which has the
   :class:`threading.Thread` class.
@@ -136,6 +133,13 @@
           return baz
 #+END_SRC
 
+:REFERENCES:
+- https://pythonhosted.org/an_example_pypi_project/sphinx.html
+- https://pythonhosted.org/an_example_pypi_project/pkgcode.html
+:END:
+
 * Links
+:REFERENCES:
 - http://www.sphinx-doc.org/en/stable/domains.html
 - http://www.sphinx-doc.org/en/stable/rest.html
+:END:

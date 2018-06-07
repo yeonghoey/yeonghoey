@@ -4,8 +4,6 @@
 - [[#overview][Overview]]
 
 * Overview
-- https://github.com/awslabs/git-secrets#options
-
 #+BEGIN_SRC shell
   brew install git-secrets
 #+END_SRC
@@ -20,3 +18,7 @@
   git secrets --scan
   git secrets --scan-history
 #+END_SRC
+
+:REFERENCES:
+- https://github.com/awslabs/git-secrets#options
+:END:

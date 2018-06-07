@@ -7,9 +7,12 @@
   - [[#wait_until_exists][wait_until_exists]]
 
 * Types
-- http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#ref-valid-dynamodb-types
 - Use ~boto3.dynamodb.conditions.Key~ and ~boto3.dynamodb.conditions.Attr~ when making API requests.
 - You can use ~|~ and ~&~ to compose these condition objects.
+
+:REFERENCES:
+- http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#ref-valid-dynamodb-types
+:END:
 
 * Examples
 ** update_item
@@ -26,10 +29,12 @@
 
 - An expression attribute value(the key of ~attrs~ dict) must begin with ~:~ and be followed by one or more alphanumeric characters.
 
------
+:REFERENCES:
 - https://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Table.update_item
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.UpdateExpressions.html
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeValues.html
+:END:
+
 ** wait_until_exists
 [[http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Table.wait_until_exists][table.wait_until_exists()]] doesn't expose the waiter parameters.
 To manually do the operation using client:
@@ -40,5 +45,6 @@ To manually do the operation using client:
   setattr(g, attr, table)
 #+END_SRC
 
------
+:REFERENCES:
 - http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists
+:END:

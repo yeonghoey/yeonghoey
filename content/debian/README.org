@@ -29,9 +29,6 @@
 
 * Reference
 ** dch (debchange)
-- https://stackoverflow.com/questions/18957811/debian-packages-on-xubuntu-install-debchange-dch
-- https://askubuntu.com/questions/579323/dch-non-interactive-mode
-
 #+BEGIN_SRC shell
   sudo apt-get install devscripts
 #+END_SRC
@@ -55,12 +52,20 @@
 
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/18957811/debian-packages-on-xubuntu-install-debchange-dch
+- https://askubuntu.com/questions/579323/dch-non-interactive-mode
+:END:
+
 ** .deb files
-- https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
 - an [[https://en.wikipedia.org/wiki/Ar_(Unix)][ar]] archive, contains:
   - ~debian-binary~  :: version of the deb file format, ~"2.0\n"~
   - ~control.tar.gz~ :: metadata about the package
   - ~data.tar.gz~    :: data files of the package
+
+:REFERENCES:
+- https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
+:END:
 
 ** dpkg
 - ~-i~, ~--install~ ~<package-file...>~ ::
@@ -73,16 +78,19 @@
   6. Configure the package. See ~--configure~ for detailed information about how this is done.
 
 ** postinst
+:REFERENCES:
 - https://askubuntu.com/questions/101962/script-to-only-execute-during-first-install-of-a-package
+:END:
 
 * Terminology
-
 * Topics
 * How-to
 ** Create a debian pacakge
-- https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
-
 [[file:_img/screenshot_2017-10-10_16-27-53.png]]
+
+:REFERENCES:
+- https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
+:END:
 
 *** Source package
 - One source package can generate several binary packages
@@ -102,8 +110,6 @@
   - ~changelog~ :: history of the Debian package
 
 *** debian/changelog
-- https://www.debian.org/doc/debian-policy/#debian-changelog-debian-changelog
-
 - Lists the Debian pacakging changes
 - Gives the current version of the package
 - [[file:_img/screenshot_2017-10-10_16-39-43.png]]
@@ -115,9 +121,11 @@
    -- Lucas Nussbaum <lucas@debian.org>	Wed, 15 Sep 2010 18:13:44 +0200
 #+END_EXAMPLE
 
-*** debian/control
-- https://www.debian.org/doc/debian-policy/#source-package-control-files-debian-control
+:REFERENCES:
+- https://www.debian.org/doc/debian-policy/#debian-changelog-debian-changelog
+:END:
 
+*** debian/control
 - Package metadata like ::
   Package name, section, priority, maintainer, uploaders,
   build-dependencies, dependencies, description, homepage
@@ -138,9 +146,16 @@
   Wget is a network utility to retrieve files from the Web
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.debian.org/doc/debian-policy/#source-package-control-files-debian-control
+:END:
+
 *** debin/rules
-- https://www.debian.org/doc/debian-policy/#main-building-script-debian-rules
 - Makefile
+
+:REFERENCES:
+- https://www.debian.org/doc/debian-policy/#main-building-script-debian-rules
+:END:
 
 *** debian/compat
 - Use ~9~
@@ -166,19 +181,29 @@
 [[file:_img/screenshot_2017-10-10_16-55-53.png]]
 
 *** Patch systems 
-- http://pkg-perl.alioth.debian.org/howto/quilt.html
 - Recommended built-in patch system: ~3.0 (quilt)~
 
+:REFERENCES:
+- http://pkg-perl.alioth.debian.org/howto/quilt.html
+:END:
+
 *** Doing things during installation and removal
-- https://www.debian.org/doc/debian-policy/#maintainer-scripts
 - Create/remove system users, start/stop services, manage alternatives
 - Done in maintainer scripts, ~preinst~, ~postinst~, ~prerm~, ~postrm~
 
+:REFERENCES:
+- https://www.debian.org/doc/debian-policy/#maintainer-scripts
+:END:
+
 *** Packaging with a VCS
-- http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.html
 - Use ~git-buildpackage~
 
+:REFERENCES:
+- http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/gbp.html
+:END:
+
 * Links
+:REFERENCES:
 - https://www.debian.org/doc/manuals/maint-guide/
 - https://www.debian.org/doc/devel-manuals
-
+:END:

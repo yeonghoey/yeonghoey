@@ -59,5 +59,7 @@ With this simple blog post, I got concepts of rust memory management.
 The core of this architecture is making ~C++~ memory management techniques run in compile .
 
 * Link
+:REFERENCES:
 - http://pcwalton.github.io/blog/2013/03/18/an-overview-of-memory-management-in-rust/
 - https://github.com/rust-lang/rfcs/blob/master/text/0059-remove-tilde.md
+:END:

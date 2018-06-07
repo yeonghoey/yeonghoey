@@ -105,7 +105,6 @@ So take log to the probabilities
 
 * Practice questions
 ** Quiz: Sequence models & Attention mechanism
-
 [[file:_img/screenshot_2018-02-14_21-16-26.png]]
 
 * Programming assignments

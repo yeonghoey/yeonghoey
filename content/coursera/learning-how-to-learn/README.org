@@ -1,7 +1,9 @@
 #+TITLE: Learning How to Learn: Powerful mental tools to help you master tough subjects
 
 * Overview
+:REFERENCES:
 - https://www.coursera.org/learn/learning-how-to-learn
+:END:
 
 * What is Learning?
 [[file:_img/screenshot_2017-11-28_22-28-02.png]]

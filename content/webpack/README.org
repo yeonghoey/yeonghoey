@@ -22,8 +22,6 @@
   - [[#dependencies-vs-devdependencies][dependencies vs devDependencies]]
 
 * Concepts
-- https://webpack.js.org/concepts/
-
 #+BEGIN_SRC javascript
   const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
   const webpack = require('webpack'); //to access built-in plugins
@@ -53,6 +51,10 @@
 - ~output~ tells webpack where to emit the bundles it creates and how to name these files.
 - ~module~ (loaders) is used to more than just JavaScript files
 - ~plugins~ can be leveraged to perform a wider range of tasks.
+
+:REFERENCES:
+- https://webpack.js.org/concepts/
+:END:
 
 * Entry
 #+BEGIN_SRC javascript
@@ -88,27 +90,32 @@
 #+END_SRC
 
 * Loaders
-- https://webpack.js.org/concepts/loaders/
-- https://webpack.js.org/loaders/
-- https://webpack.js.org/configuration/module/#module-rules
-
 Loaders can be chained by passing multiple loaders,
 which will be applied from *right to left* (last to first configured).
 
-** css-loader
-- https://github.com/webpack-contrib/css-loader
+:REFERENCES:
+- https://webpack.js.org/concepts/loaders/
+- https://webpack.js.org/loaders/
+- https://webpack.js.org/configuration/module/#module-rules
+:END:
 
+** css-loader
 The ~css-loader~ interprets ~@import~ and ~url()~ like ~import/require()~ and will resolve them.
 Actually do nothing with it.
 
+:REFERENCES:
+- https://github.com/webpack-contrib/css-loader
+:END:
+
 ** style-loader
-- https://github.com/webpack-contrib/style-loader
-- https://stackoverflow.com/questions/34039826/webpack-style-loader-vs-css-loader
 - Adds CSS to the DOM by injecting a ~<style>~ tag
 
-** babel-loader
-- https://github.com/babel/babel-loader
+:REFERENCES:
+- https://github.com/webpack-contrib/style-loader
+- https://stackoverflow.com/questions/34039826/webpack-style-loader-vs-css-loader
+:END:
 
+** babel-loader
 - Note the version compatibility
 
 #+BEGIN_SRC shell
@@ -119,9 +126,11 @@ Actually do nothing with it.
   npm install babel-loader babel-core babel-preset-env webpack
 #+END_SRC
 
-* Plugins
-- https://webpack.js.org/concepts/plugins/
+:REFERENCES:
+- https://github.com/babel/babel-loader
+:END:
 
+* Plugins
 #+BEGIN_SRC javascript
   function ConsoleLogOnBuildWebpackPlugin() {
 
@@ -136,9 +145,11 @@ Actually do nothing with it.
   };
 #+END_SRC
 
-** HtmlWebpackPlugin
-- https://webpack.js.org/plugins/html-webpack-plugin/
+:REFERENCES:
+- https://webpack.js.org/concepts/plugins/
+:END:
 
+** HtmlWebpackPlugin
 Automatically generate a ~html~ file for serving your bundle. Within ~dist/index.html~:
 #+BEGIN_SRC html
   <!DOCTYPE html>
@@ -152,6 +163,10 @@ Automatically generate a ~html~ file for serving your bundle. Within ~dist/index
     </body>
   </html>
 #+END_SRC
+
+:REFERENCES:
+- https://webpack.js.org/plugins/html-webpack-plugin/
+:END:
 
 ** DefinePlugin
 :REFERENCES:
@@ -182,23 +197,27 @@ Automatically generate a ~html~ file for serving your bundle. Within ~dist/index
     ...
   ]
 #+END_SRC
------
+
+:REFERENCES:
+
 - https://github.com/johnagan/clean-webpack-plugin
+:END:
 
 * CLI
-- https://webpack.js.org/api/cli/
-
 #+BEGIN_SRC shell
   webpack [--config webpack.config.js]
 #+END_SRC
 
+:REFERENCES:
+- https://webpack.js.org/api/cli/
+:END:
+
 * Configuration
+:REFERENCES:
 - https://webpack.js.org/configuration/
+:END:
 
 ** mode
-- https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a
-- https://medium.com/webpack/webpack-4-released-today-6cdb994702d4
-
 webpack 4 now ships with two sets of defaults. ~development~ and ~production~.
 These are the two values to which mode can be set to.
 
@@ -207,9 +226,12 @@ These are the two values to which mode can be set to.
   webpack --mode production
 #+END_SRC
 
-* Development
-- https://webpack.js.org/guides/development/
+:REFERENCES:
+- https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a
+- https://medium.com/webpack/webpack-4-released-today-6cdb994702d4
+:END:
 
+* Development
 #+BEGIN_SRC json
       "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -229,11 +251,20 @@ Or,
       },
 #+END_SRC
 
+:REFERENCES:
+- https://webpack.js.org/guides/development/
+:END:
+
 * Production
+:REFERENCES:
 - https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9
+:END:
+
 * Topics
 ** dependencies vs devDependencies
 Theoretically speaking, Since a webpack project builds a kind of package as a product,
 all dependencies required to build the project must be installed as ~dependencies~, not ~devDependencies~.
------
+
+:REFERENCES:
 - https://github.com/webpack/webpack/issues/520
+:END:

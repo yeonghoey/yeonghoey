@@ -20,7 +20,8 @@
 
 [[file:_img/screenshot_2018-05-25_11-41-59.png]]
 
------
+:REFERENCES:
 - https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 - https://rmarkdown.rstudio.com/authoring_rcodechunks.html
 - https://yihui.name/knitr/options/
+:END:

@@ -10,8 +10,6 @@
 
 * Reference
 ** Configure
-- http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
-
 #+BEGIN_SRC shell
   # when '--profile' omitted, considered it as 'default'
   $ aws configure --profile user2
@@ -26,12 +24,19 @@
   aws ec2 describe-instances --output table --region us-west-1
 #+END_SRC
 
+:REFERENCES:
+- http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+:END:
+
 ** CLI Skeleton and CLI Input JSON
 1. Run a command only with ~--generate-cli-skeleton~ flag
 2. Save the output as a file like ~params.json~, and fill it with actual values
 3. Run the command with ~--cli-input-json file://params.json~
------
+
+:REFERENCES:
+
 - https://docs.aws.amazon.com/cli/latest/userguide/generate-cli-skeleton.html
+:END:
 
 ** Output Flags
 - ~--output json~  :: Default
@@ -101,8 +106,10 @@ You can also filter the output with ~--query~ flag. This feature is implemented 
   aws ec2 describe-volumes --query 'Volumes[?AvailabilityZone==`us-west-2a`]'
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://docs.aws.amazon.com/cli/latest/userguide/controlling-output.html
+:END:
 
 * ec2
 :REFERENCES:

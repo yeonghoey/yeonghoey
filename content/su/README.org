@@ -1,6 +1,4 @@
 * su
-- http://www.linfo.org/su.html
-
 #+BEGIN_SRC shell
   # if <user> is not specified, 'root' is used;
   sudo su
@@ -18,3 +16,6 @@
   sudo su -c 'ls /usr' root
 #+END_SRC
 
+:REFERENCES:
+- http://www.linfo.org/su.html
+:END:

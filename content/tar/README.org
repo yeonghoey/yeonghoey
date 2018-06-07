@@ -1,7 +1,4 @@
 * tar
-- http://www.tecmint.com/18-tar-command-examples-in-linux/
-- http://askubuntu.com/questions/122141/whats-the-difference-between-tar-gz-and-gz-or-tar-7z-and-7z
-
 | flag      | mnemonic         |
 |-----------+------------------|
 | ~-c~      | create           |
@@ -12,7 +9,7 @@
 | ~-C DIR~  | change directory |
 | ~-f FILE~ | target file      |
 
------
+:REFERENCES:
 #+BEGIN_SRC shell
   $ cd /tmp
   $ tree target
@@ -121,3 +118,6 @@
 #+BEGIN_EXAMPLE
   x target/a.txt
 #+END_EXAMPLE
+- http://www.tecmint.com/18-tar-command-examples-in-linux/
+- http://askubuntu.com/questions/122141/whats-the-difference-between-tar-gz-and-gz-or-tar-7z-and-7z
+:END:

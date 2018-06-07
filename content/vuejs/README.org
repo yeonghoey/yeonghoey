@@ -77,8 +77,6 @@ These properties and methods are prefixed with ~$~ to differentiate from proxied
 #+END_SRC
 
 ** Lifecycle
-- https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
-
 #+BEGIN_QUOTE
 Don’t use arrow functions on an options property or callback, such as ~created: () => console.log(this.a)~ or ~vm.$watch('a', newValue => this.myMethod())~. Since arrow functions are bound to the parent context, this will not be the Vue instance as you’d expect, often resulting in errors
 #+END_QUOTE
@@ -86,8 +84,14 @@ Don’t use arrow functions on an options property or callback, such as ~created
 [[file:_img/screenshot_2018-03-07_11-48-43.png]]
 [[file:_img/screenshot_2018-03-07_11-04-42.png]]
 
+:REFERENCES:
+- https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
+:END:
+
 *** mounted
+:REFERENCES:
 - https://vuejs.org/v2/api/#mounted
+:END:
 
 ** computed and watch
 :REFERENCES:
@@ -367,9 +371,11 @@ Non-string templates are things when you use Vue.js within actual ~.html~ files,
 This HTML will be controlled by the browser before Vue can work with it,
 and therefore Vue is limited by the caveats explained in the linked documentation
 
------
+:REFERENCES:
+
 - https://vuejs.org/v2/guide/components-registration.html#Name-Casing
 - https://forum.vuejs.org/t/confused-about-dom-template-and-string-template/1797/2
+:END:
 
 ** Global Components
 #+BEGIN_SRC html
@@ -496,8 +502,10 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
   })
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://vuejs.org/v2/guide/components.html#Props
+:END:
 
 ** [[https://v1.vuejs.org/guide/components.html#Single-Slot][Slots]]
 The content between child component tags is passed to where ~<slot>~ tags placed within the child component.
@@ -544,8 +552,10 @@ You can refer the element above with following:
   this.$refs.hello
 #+END_SRC
 
------
+:REFERENCES:
+
 - https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-Child-Component-Instances-amp-Child-Elements 
+:END:
 
 ** Events
 - For compatability, just use a [[https://stackoverflow.com/questions/42441952/vue-js-custom-event-naming][lower-cased event name all smashed together]], like ~mycustomevent~
@@ -602,8 +612,6 @@ If you use vue template is easier to configure:
 #+END_SRC
 
 ** Use axios with Vue.js
-- http://vuejs.kr/update/2017/01/04/http-request-with-axios/
-
 #+BEGIN_SRC javascript
   import Vue from 'vue'
   import App from './App'
@@ -615,6 +623,10 @@ If you use vue template is easier to configure:
   // Or, just import axios in each component
 #+END_SRC
 
+:REFERENCES:
+- http://vuejs.kr/update/2017/01/04/http-request-with-axios/
+:END:
+
 * Topics
 ** v-if vs v-show
 #+BEGIN_QUOTE
@@ -622,8 +634,10 @@ Generally speaking, ~v-if~ has higher toggle costs while ~v-show~ has higher ini
 So prefer ~v-show~ if you need to toggle something very often, and prefer ~v-if~ if the condition is unlikely to change at runtime.
 #+END_QUOTE
 
------
+:REFERENCES:
+
 - https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
+:END:
 
 * Testing
 - Components ::

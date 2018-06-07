@@ -4,8 +4,6 @@
  - [[#basic-setting-up-for-ubuntu-sharing-the-whole-home-directory][Basic setting up for Ubuntu, sharing the whole home directory]]
 
 * Basic setting up for Ubuntu, sharing the whole home directory
-- https://help.ubuntu.com/lts/serverguide/samba-fileserver.html
-
 #+BEGIN_SRC shell
   sudo apt-get install samba
 #+END_SRC
@@ -45,3 +43,7 @@ Configure ~/etc/samba/smb.conf~. Keep most settings default, just edit ~Share De
   # Restart samba service
   sudo systemctl restart smbd.service, nmbd.service
 #+END_SRC
+
+:REFERENCES:
+- https://help.ubuntu.com/lts/serverguide/samba-fileserver.html
+:END:

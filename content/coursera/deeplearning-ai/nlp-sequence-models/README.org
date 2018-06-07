@@ -4,8 +4,10 @@
 - [[#overview][Overview]]
 
 * Overview
-- https://www.coursera.org/learn/nlp-sequence-models
-
 - Week 1 :: [[week1][Recurrent Neural Networks]]
 - Week 2 :: [[week2][Natural Language Processing & Word Embeddings]]
 - Week 3 :: [[week3][Sequence models & Attention mechanism]]
+
+:REFERENCES:
+- https://www.coursera.org/learn/nlp-sequence-models
+:END:

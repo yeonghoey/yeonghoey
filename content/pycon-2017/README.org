@@ -12,17 +12,17 @@
 
 * 5 ways to deploy your Python web app in 2017 - Andrew T Baker
 ** ngrok
-- https://ngrok.com/
-
 [[file:_img/screenshot_2017-07-06_07-59-54.png]]
 
 [[file:_img/screenshot_2017-07-06_08-00-17.png]]
 
 [[file:_img/screenshot_2017-07-06_08-00-46.png]]
 
-** Heroku
-- https://www.heroku.com/
+:REFERENCES:
+- https://ngrok.com/
+:END:
 
+** Heroku
 [[file:_img/screenshot_2017-07-06_08-01-22.png]]
 
 [[file:_img/screenshot_2017-07-06_08-01-50.png]]
@@ -31,35 +31,38 @@
 
 [[file:_img/screenshot_2017-07-06_08-02-35.png]]
 
-** Serverless(Zappa)
-- https://github.com/Miserlou/Zappa
+:REFERENCES:
+- https://www.heroku.com/
+:END:
 
+** Serverless(Zappa)
 [[file:_img/screenshot_2017-07-06_08-03-11.png]]
 
 [[file:_img/screenshot_2017-07-06_08-03-31.png]]
 
-** Virtual Machines
-- https://cloud.google.com/compute/
+:REFERENCES:
+- https://github.com/Miserlou/Zappa
+:END:
 
+** Virtual Machines
 [[file:_img/screenshot_2017-07-06_08-04-00.png]]
 
 [[file:_img/screenshot_2017-07-06_08-04-31.png]]
 
-** Docker
-- https://www.docker.com/
+:REFERENCES:
+- https://cloud.google.com/compute/
+:END:
 
+** Docker
 [[file:_img/screenshot_2017-07-06_08-05-20.png]]
 
 [[file:_img/screenshot_2017-07-06_08-05-54.png]]
 
-* Awesome Command Line Tools - Amjith Ramanujam
-- https://youtu.be/hJhZhLg3obk
-- http://bpython-interpreter.org/
-- http://click.pocoo.org/5/
-- https://github.com/amjith/fuzzyfinder
-- https://github.com/jonathanslenders/python-prompt-toolkit
-- http://mycli.net/
+:REFERENCES:
+- https://www.docker.com/
+:END:
 
+* Awesome Command Line Tools - Amjith Ramanujam
 [[file:_img/screenshot_2017-07-03_12-53-58.png]]
 
 [[file:_img/screenshot_2017-07-03_12-54-20.png]]
@@ -70,9 +73,16 @@
 
 [[file:_img/screenshot_2017-07-03_12-56-17.png]]
 
-* Cython as a Game Changer for Efficiency - Alex Orlov
-- https://youtu.be/_1MSX7V28Po
+:REFERENCES:
+- https://youtu.be/hJhZhLg3obk
+- http://bpython-interpreter.org/
+- http://click.pocoo.org/5/
+- https://github.com/amjith/fuzzyfinder
+- https://github.com/jonathanslenders/python-prompt-toolkit
+- http://mycli.net/
+:END:
 
+* Cython as a Game Changer for Efficiency - Alex Orlov
 - For performance problem:
 
 [[file:_img/screenshot_2017-07-06_07-51-02.png]]
@@ -91,17 +101,25 @@
 
 [[file:_img/screenshot_2017-07-06_07-55-45.png]]
 
-* How documentation works, and how to make it work for your project - Daniele Procida
-- https://youtu.be/azf6yzuJt54
-- https://www.divio.com/en/blog/documentation/
+:REFERENCES:
+- https://youtu.be/_1MSX7V28Po
+:END:
 
+* How documentation works, and how to make it work for your project - Daniele Procida
 [[file:_img/screenshot_2017-07-04_12-59-41.png]]
 
 [[file:_img/screenshot_2017-07-04_12-59-58.png]]
 
+:REFERENCES:
+- https://youtu.be/azf6yzuJt54
+- https://www.divio.com/en/blog/documentation/
+:END:
+
 * Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger
+:REFERENCES:
 - https://youtu.be/npw4s1QTmPg
 - https://dl.dropboxusercontent.com/u/3967849/sfmu2/_build/html/recipe.html
+:END:
 
 ** Intro
 [[file:_img/screenshot_2017-06-25_18-53-21.png]]
@@ -171,7 +189,9 @@
 [[file:_img/screenshot_2017-06-25_19-01-51.png]]
 
 * Static Types for Python - Jukka Lehtosalo, David Fisher
+:REFERENCES:
 - https://www.youtube.com/watch?v=7ZbwZgrXnwY
+:END:
 
 ** Motivation
 [[file:_img/screenshot_2017-06-30_10-23-57.png]]
@@ -219,11 +239,11 @@
 [[file:_img/screenshot_2017-06-30_10-33-20.png]]
 
 * The Gilectomy How's It Going - Larry Hastings
+:REFERENCES:
 - https://www.youtube.com/watch?v=pLqv11ScGsQ
+:END:
 
 * The Python Visualization Landscape - Jake VanderPlas 
-- https://youtu.be/FytuB8nFHPQ
-
 [[file:_img/screenshot_2017-08-23_23-07-05.png]]
 
 [[file:_img/screenshot_2017-08-23_23-07-37.png]]
@@ -261,3 +281,7 @@
 [[file:_img/screenshot_2017-08-23_23-14-32.png]]
 
 [[file:_img/screenshot_2017-08-23_23-14-53.png]]
+
+:REFERENCES:
+- https://youtu.be/FytuB8nFHPQ
+:END:

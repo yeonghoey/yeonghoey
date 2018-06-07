@@ -22,7 +22,6 @@ For Lambda or HTTP proxy integrations, you can still set up the required ~OPTION
 #+END_QUOTE
 
 ** Deployments
-- https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html
 - Deployment :: assoicated with a stage
 - Stage :: a snapshot of API
   - adjusting the default account-level
@@ -31,22 +30,30 @@ For Lambda or HTTP proxy integrations, you can still set up the required ~OPTION
   - Stages enable robust version control of your API
 - [[https://docs.aws.amazon.com/apigateway/latest/developerguide/canary-release.html][Canary release]] :: updated version on the same stage
 
+:REFERENCES:
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html
+:END:
+
 *** Throttling
+:REFERENCES:
 - https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
+:END:
 
 *** Caching
+:REFERENCES:
 - https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
+:END:
 
 *** Logging
 *** Variables
-- https://docs.aws.amazon.com/apigateway/latest/developerguide/stage-variables.html
 - Using stage variables you can configure an API deployment stage to interact with different backend endpoints.
 - When you call your ~beta~ endpoint, API Gateway uses the stage variable for the ~beta~ stage, and calls a different web host (for example, ~beta.example.com~)
 
-** Proxy
-- https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-request.html
-- https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
+:REFERENCES:
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/stage-variables.html
+:END:
 
+** Proxy
 #+BEGIN_QUOTE
 With the Lambda proxy integration, when a client submits an API request,
 API Gateway passes to the integrated Lambda function the raw request as-is.
@@ -103,3 +110,8 @@ The desired output format is:
       "body": "..."
   }
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-request.html
+- https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
+:END:

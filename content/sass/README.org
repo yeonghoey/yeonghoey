@@ -170,8 +170,11 @@
     #{$attr}-color: blue;
   }
 #+END_SRC
------
+
+:REFERENCES:
+
 - http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
+:END:
 
 * Topics
 ** ~.sass~ vs ~.scss~
@@ -194,5 +197,7 @@ Use ~calc()~ from CSS standards or use interpolation(~#{$var}~) as following:
     width:         calc(#{$a} - #{$b});
   }
 #+END_SRC
------
+
+:REFERENCES:
 - https://stackoverflow.com/questions/13274599/sass-calculate-percent-minus-px
+:END:

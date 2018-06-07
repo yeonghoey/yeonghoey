@@ -45,7 +45,6 @@
 
 * Reference
 ** Animation Window
-- https://docs.unity3d.com/Manual/EditingCurves.html
 - *Add Property*: *must select GameObject in Hierarchy window*
 - *Samples*: Frames per second
 
@@ -60,9 +59,11 @@
 
 [[file:_img/screenshot_2017-05-05_10-57-37.png]]
 
-*** Animation Event
-- https://docs.unity3d.com/Manual/animeditor-AnimationEvents.html
+:REFERENCES:
+- https://docs.unity3d.com/Manual/EditingCurves.html
+:END:
 
+*** Animation Event
 #+BEGIN_SRC csharp
   // This C# function can be called by an Animation Event
   public void PrintFloat (float theValue) {
@@ -72,9 +73,11 @@
 
 [[file:_img/screenshot_2017-05-02_11-03-03.png]]
 
-** Animator Window
-- https://docs.unity3d.com/Manual/AnimationParameters.html
+:REFERENCES:
+- https://docs.unity3d.com/Manual/animeditor-AnimationEvents.html
+:END:
 
+** Animator Window
 [[file:_img/screenshot_2017-05-02_15-32-27.png]]
 
 #+BEGIN_SRC csharp
@@ -110,14 +113,18 @@
   }
 #+END_SRC
 
-*** Animation States
-- https://docs.unity3d.com/Manual/class-State.html
+:REFERENCES:
+- https://docs.unity3d.com/Manual/AnimationParameters.html
+:END:
 
+*** Animation States
 [[file:_img/screenshot_2017-05-02_13-37-43.png]]
 
-*** Animation Transitions
-- https://docs.unity3d.com/Manual/class-Transition.html
+:REFERENCES:
+- https://docs.unity3d.com/Manual/class-State.html
+:END:
 
+*** Animation Transitions
 [[file:_img/screenshot_2017-05-02_18-22-28.png]]
 
 - *Exit Time*: Normalized Time;
@@ -132,9 +139,11 @@
 - *Target transition* to adjust the Transition Offset.
 - *Preview playback marker* to scrub through the animation blend in the preview window at the bottom of the Inspector.
 
-*** State Machine
-- https://docs.unity3d.com/Manual/StateMachineTransitions.html
+:REFERENCES:
+- https://docs.unity3d.com/Manual/class-Transition.html
+:END:
 
+*** State Machine
 [[file:_img/screenshot_2017-05-02_16-59-20.png]]
 
 #+BEGIN_QUOTE
@@ -147,9 +156,11 @@ What I experimented:
 - If in a sub-state machine,
   goes out on the edge of the representative node in the parent state machine
 
-*** StateMachineBehaviour
-- https://docs.unity3d.com/kr/current/ScriptReference/StateMachineBehaviour.html
+:REFERENCES:
+- https://docs.unity3d.com/Manual/StateMachineTransitions.html
+:END:
 
+*** StateMachineBehaviour
 [[file:_img/screenshot_2017-05-02_16-56-15.png]]
 
 #+BEGIN_SRC csharp
@@ -187,21 +198,25 @@ What I experimented:
   }
 #+END_SRC
 
-** Application
-- https://docs.unity3d.com/ScriptReference/Application.html
-- https://docs.unity3d.com/ScriptReference/SystemLanguage.html
-- https://docs.unity3d.com/ScriptReference/RuntimePlatform.html
+:REFERENCES:
+- https://docs.unity3d.com/kr/current/ScriptReference/StateMachineBehaviour.html
+:END:
 
+** Application
 #+BEGIN_SRC csharp
   // Many other runtime informations
   Application.systemLanguage;
   Application.platform;
 #+END_SRC
 
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/Application.html
+- https://docs.unity3d.com/ScriptReference/SystemLanguage.html
+- https://docs.unity3d.com/ScriptReference/RuntimePlatform.html
+:END:
+
 ** Attributes
 *** HideInInspector
-- https://docs.unity3d.com/ScriptReference/HideInInspector.html
-
 #+BEGIN_SRC csharp
   public class ExampleClass : MonoBehaviour {
       [HideInInspector]
@@ -209,9 +224,11 @@ What I experimented:
   }
 #+END_SRC
 
-*** SerializeField
-- https://docs.unity3d.com/ScriptReference/SerializeField.html
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/HideInInspector.html
+:END:
 
+*** SerializeField
 #+BEGIN_SRC csharp
   public class SomePerson : MonoBehaviour
   {
@@ -228,9 +245,11 @@ What I experimented:
   }
 #+END_SRC
 
-** Collider 2D
-- https://docs.unity3d.com/ScriptReference/Collider2D.html
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/SerializeField.html
+:END:
 
+** Collider 2D
 #+BEGIN_SRC csharp
   void OnTriggerEnter2D(Collider2D other) {
 		  if (other.CompareTag ("Bullet")) {
@@ -238,27 +257,37 @@ What I experimented:
 		  }
   }
 #+END_SRC
+
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/Collider2D.html
+:END:
+
 ** Coroutine
-- https://docs.unity3d.com/Manual/Coroutines.html
-- http://answers.unity3d.com/questions/755196/yield-return-null-vs-yield-return-waitforendoffram.html
 - Coroutines have virtually no performance overhead.
 - ~StartCoroutine~ function always returns immediately,
 - ~yield return <something>~ to make coroutine resume after ~<something>~
 - ~yield break~ to stop the coroutine
 - SEE: [[#execution-order][Execution Order]]
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/Coroutines.html
+- http://answers.unity3d.com/questions/755196/yield-return-null-vs-yield-return-waitforendoffram.html
+:END:
+
 ** EditorWindow
-- https://docs.unity3d.com/Manual/editor-EditorWindows.html
-- https://docs.unity3d.com/ScriptReference/EditorWindow.html
 - General Use case:
   - ~void OnGUI()~ for updating UI
   - ~void OnEnable()~ for restoring values (called when the editor loads)
   - ~void OnDisable()~ for saving values (called when the editor loses its focus)
   - To update during the runtime, saving and restoring on ~OnGUI()~
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/editor-EditorWindows.html
+- https://docs.unity3d.com/ScriptReference/EditorWindow.html
+:END:
+
 ** GameObject
 *** Create Empty with Code
-- https://docs.unity3d.com/ScriptReference/GameObject-ctor.html
 - ~Transform~ is always added to the GameObject that is being created.
 
 #+BEGIN_SRC csharp
@@ -268,37 +297,51 @@ What I experimented:
   player.AddComponent<BoxCollider>();
 #+END_SRC
 
-*** FindWithTag
-- https://docs.unity3d.com/ScriptReference/GameObject.FindWithTag.html
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/GameObject-ctor.html
+:END:
 
+*** FindWithTag
 #+BEGIN_SRC csharp
   respawn = GameObject.FindWithTag("Respawn");
 #+END_SRC
-** Input
-- https://docs.unity3d.com/ScriptReference/Input-anyKey.html
 
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/GameObject.FindWithTag.html
+:END:
+
+** Input
 #+BEGIN_SRC csharp
   if (Input.anyKey)
       Debug.Log("A key or mouse click has been detected");
 #+END_SRC
 
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/Input-anyKey.html
+:END:
+
 ** Main Window
+:REFERENCES:
 - https://docs.unity3d.com/Manual/UnityHotkeys.html
+:END:
 
 ** Mathf
-- https://docs.unity3d.com/ScriptReference/Mathf.PingPong.html
-
 #+BEGIN_SRC csharp
   // PingPongs the value t, so that it is never larger than length and never smaller than 0.
   // The returned value will move back and forth between 0 and length.
   public static float PingPong(float t, float length);
 #+END_SRC
+
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/Mathf.PingPong.html
+:END:
+
 ** Object
+:REFERENCES:
 - https://docs.unity3d.com/ScriptReference/Object.html
+:END:
 
 *** Instantiate
-- https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
-
 - If cloning a ~Component~ then the ~GameObject~ it is attached to will also be cloned
 - All child objects and components will also be cloned
 
@@ -318,16 +361,21 @@ What I experimented:
   public static Object Instantiate(Object original, Vector3 position, Quaternion rotation, Transform parent);
 #+END_SRC
 
-**** Instantiated GameObject
-- http://answers.unity3d.com/questions/839444/instantation-and-use-of-gameobject-in-same-frame.html
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
+:END:
 
+**** Instantiated GameObject
 1. Before Instantiate
 2. Awake of Instantiated GameObject
 3. After Instantiate
 4. Start of Instantiated GameObject
 
+:REFERENCES:
+- http://answers.unity3d.com/questions/839444/instantation-and-use-of-gameobject-in-same-frame.html
+:END:
+
 *** Destroy
-- https://docs.unity3d.com/ScriptReference/Object.Destroy.html
 - If obj is a ~Component~ it will remove the component from the ~GameObject~ and destroy it.
 - Actual object destruction is always delayed until after the current Update loop,
   but will always be done before rendering.
@@ -336,10 +384,11 @@ What I experimented:
   public static void Destroy(Object obj, float t = 0.0F);
 #+END_SRC
 
-** Particle System
-- https://docs.unity3d.com/Manual/PartSysMainModule.html
-- https://gist.github.com/AlexTiTanium/5676482
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/Object.Destroy.html
+:END:
 
+** Particle System
 ~Time.timeScale~ independent ~ParticleSystem~:
 #+BEGIN_SRC csharp
   using UnityEngine;
@@ -365,25 +414,36 @@ What I experimented:
   }
 #+END_SRC
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/PartSysMainModule.html
+- https://gist.github.com/AlexTiTanium/5676482
+:END:
+
 ** Physics 2D
-- https://docs.unity3d.com/Manual/Physics2DReference.html
-
-
 - A Kinematic Rigidbody 2D *does not* collide with other Kinematic Rigidbody 2Ds or with Static Rigidbody 2Ds;
   it only collides with Dynamic Rigidbody 2Ds.
 
 [[file:_img/screenshot_2017-05-01_10-20-38.png]]
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/Physics2DReference.html
+:END:
+
 ** Platform dependent compilation
-- https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
 [[file:_img/screenshot_2017-05-08_22-23-18.png]]
 
-** Prefabs
-- https://docs.unity3d.com/Manual/Prefabs.html
-- To make it clear when a property has been *overridden*, it is shown in the inspector *with its name label in boldface*
-** Random
-- https://docs.unity3d.com/ScriptReference/Random.html
+:REFERENCES:
+- https://docs.unity3d.com/Manual/PlatformDependentCompilation.html
+:END:
 
+** Prefabs
+- To make it clear when a property has been *overridden*, it is shown in the inspector *with its name label in boldface*
+
+:REFERENCES:
+- https://docs.unity3d.com/Manual/Prefabs.html
+:END:
+
+** Random
 #+BEGIN_SRC csharp
   // min [inclusive] and max [inclusive]
   public static float Range(float min, float max);
@@ -399,15 +459,20 @@ What I experimented:
   public static Color ColorHSV();
 #+END_SRC
 
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/Random.html
+:END:
+
 ** OnBecameVisible/Invisible
-- https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameVisible.html
-- https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameInvisible.html
 - When running in the editor, *scene view cameras will also cause this function to be called*
 - ~OnBecameInvisible~ is only called the *object had been visible*
 
-** ScriptableObject
-- https://unity3d.com/kr/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameVisible.html
+- https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameInvisible.html
+:END:
 
+** ScriptableObject
 [[file:_img/screenshot_2017-05-14_11-04-32.png]]
 
 [[file:_img/screenshot_2017-05-14_11-05-22.png]]
@@ -418,16 +483,20 @@ What I experimented:
 
 [[file:_img/screenshot_2017-05-14_11-08-15.png]]
 
+:REFERENCES:
+- https://unity3d.com/kr/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects
+:END:
+
 ** SendMessage
-- https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html
-- http://answers.unity3d.com/questions/23384/c-getting-a-return-from-sendmessage.html
 - Calls the method named ~methodName~ on every ~MonoBehaviour~ in the ~GameObject~.
 - It's not possible to get a return value from ~SendMessage~ or ~BroadcastMessage~
 
-** Special Folders
-- https://docs.unity3d.com/Manual/SpecialFolders.html
-- https://docs.unity3d.com/Manual/ScriptCompileOrderFolders.html
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html
+- http://answers.unity3d.com/questions/23384/c-getting-a-return-from-sendmessage.html
+:END:
 
+** Special Folders
 | Folder                            | Description                         |
 |-----------------------------------+-------------------------------------|
 | ~Assets~                          | The main folder of assets           |
@@ -439,8 +508,15 @@ What I experimented:
 | ~Assets/Standard Assets~          |                                     |
 | ~Assets/StreamingAssets~          |                                     |
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/SpecialFolders.html
+- https://docs.unity3d.com/Manual/ScriptCompileOrderFolders.html
+:END:
+
 ** Sprites
+:REFERENCES:
 - https://docs.unity3d.com/Manual/Sprites.html
+:END:
 
 *** Packer
 - file:///Applications/Unity/Unity.app/Contents/Documentation/en/Manual/SpritePacker.html
@@ -453,17 +529,19 @@ What I experimented:
 [[file:_img/screenshot_2017-05-02_09-56-05.png]]
 
 ** Time
-- https://docs.unity3d.com/ScriptReference/Time.html
 - Use [[https://docs.unity3d.com/ScriptReference/Time-timeScale.html][Time.timeScale]] for slow motion effects.
 - Use [[https://docs.unity3d.com/ScriptReference/Time-realtimeSinceStartup.html][Time.realtimeSinceStartup]] to avoid the effect of ~Time.timeScale~.
   Otherwise, should use [[https://docs.unity3d.com/ScriptReference/Time-realtimeSinceStartup.html][Time.time]] instead
+
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/Time.html
+:END:
 
 * Details
 ** Use Emacs as the script editor
 [[file:_img/screenshot_2017-05-07_13-28-22.png]]
 
 ** Mono(.Net) Compatibility
-- http://answers.unity3d.com/questions/1334261/unity-560f3-where-is-net-46-support.html
 - Currently, It looks like that ~C# 6.0~ (~.Net 4.6~) only supported for Windows target
 - For other platforms, only supports ~.Net 2.0~
 
@@ -471,40 +549,51 @@ What I experimented:
 
 [[file:_img/screenshot_2017-05-02_22-00-41.png]]
 
-** Execution Order
-- https://docs.unity3d.com/Manual/ExecutionOrder.html
+:REFERENCES:
+- http://answers.unity3d.com/questions/1334261/unity-560f3-where-is-net-46-support.html
+:END:
 
+** Execution Order
 [[file:_img/screenshot_2017-05-02_16-38-10.png]]
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/ExecutionOrder.html
+:END:
+
 ** Awake vs Start
-- http://answers.unity3d.com/questions/8794/Difference-of-assigning-a-variable-outside-any-function-in-Awake-or-in-Start.html?_ga=1.171475872.1885432898.1491733403
 - ~Awake~ and ~Start~ are called only once in thier lifetime
 - ~Awake~ is called when the script instance is being loaded(whther or not the script ~enabled~)
 - ~Start~ is called on the frame when a script is enabled(before ~Update~)
 - ~Awake~ is called on all objects in the scene before any object's ~Start~ is called.
 
+:REFERENCES:
+- http://answers.unity3d.com/questions/8794/Difference-of-assigning-a-variable-outside-any-function-in-Awake-or-in-Start.html?_ga=1.171475872.1885432898.1491733403
+:END:
+
 ** Layer vs Sorting Layer
-- http://answers.unity3d.com/questions/726726/which-is-the-difference-between-layer-and-sorting.html
 - *Layers* can be used for selective rendering from cameras or ignoring raycasts
 - *Sorting Layers* and *Order in Layer* are to determine the render order of sprites in a scene.
 - *Lower numbers are rendered first*
 
 [[file:_img/screenshot_2017-05-02_10-00-27.png]]
 
-** HideInInspector vs NonSerialized vs SerializeField
-- http://answers.unity3d.com/questions/549814/using-serializefield-vs-public.html
-- http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html
-- http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html
+:REFERENCES:
+- http://answers.unity3d.com/questions/726726/which-is-the-difference-between-layer-and-sorting.html
+:END:
 
+** HideInInspector vs NonSerialized vs SerializeField
 [[file:_img/screenshot_2017-05-06_12-26-40.png]]
 - Things can only be visible in the inspector if they are serialized.
 - If something is not serialized it will never show up in the inspector.
 - ~HideInInspector~ attribute make it invisible in the inspector but still allow each instance of a SerializeField to hold its own default value.
 
-** Serialization
-- https://docs.unity3d.com/Manual/script-Serialization.html
-- https://blogs.unity3d.com/kr/2014/06/24/serialization-in-unity/
+:REFERENCES:
+- http://answers.unity3d.com/questions/549814/using-serializefield-vs-public.html
+- http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html
+- http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html
+:END:
 
+** Serialization
 Many of *unity* features build ontop of the serialization system:
 - Storing data stored in your scripts
 - Inspector window
@@ -527,24 +616,33 @@ Many of *unity* features build ontop of the serialization system:
   }
 #+END_SRC
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/script-Serialization.html
+- https://blogs.unity3d.com/kr/2014/06/24/serialization-in-unity/
+:END:
+
 ** C# classes need to have its own script with the class' name?
-- http://answers.unity3d.com/questions/497914/does-every-c-class-need-to-have-its-own-script-wit.html
 - Only ~MonoBehavior~, ~ScriptableObject~, and the children of either MUST have their own files
 - Unity magic (adding classes as Components, etc..) requires the class be alone in a file, with the same name. 
 
+:REFERENCES:
+- http://answers.unity3d.com/questions/497914/does-every-c-class-need-to-have-its-own-script-wit.html
+:END:
+
 ** PlayerPrefs vs EditorPrefs
-- https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
-- https://docs.unity3d.com/ScriptReference/EditorPrefs.html
 - ~PlayerPrefs~: Stores and accesses player preferences between game sessions.
 - ~EditorPrefs~: Stores and accesses Unity editor preferences.
 - ~PlayerPrefs~ is in ~UnityEngine~, while ~EditorPrefs~ is in ~UnityEditor~
 - ~PlayerPrefs~ is used for the game player's preferences and stored in the local device.
 - ~EditorPrefs~ is the only one namesace across projects, within the development environment.
 
+:REFERENCES:
+- https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
+- https://docs.unity3d.com/ScriptReference/EditorPrefs.html
+:END:
+
 * Use Cases
 ** Pixel Perfect
-- https://blogs.unity3d.com/2015/06/19/pixel-perfect-2d/
-
 [[file:_img/screenshot_2017-05-02_17-07-54.png]]
 
 So on a screen height of ~1080~ with orthographic size of ~5~,
@@ -558,22 +656,35 @@ Therefore if your Sprite’s *Pixels Per Unit (PPU)* settings is ~108~, it will 
   Orthographic size = ((Vert Resolution)/(PPUScale * PPU)) * 0.5
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://blogs.unity3d.com/2015/06/19/pixel-perfect-2d/
+:END:
+
 ** Make Input Axis discrete
-- https://docs.unity3d.com/Manual/ConventionalGameInput.html
 - ~GetAxis()~ things have a joy-stick like input handling
 - By tweaking ~Gravity~, ~Dead~, ~Sensitivity~, can make axes work just like buttons or keys.
 
 [[file:_img/screenshot_2017-05-02_16-46-41.png]]
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/ConventionalGameInput.html
+:END:
+
 ** WebGL doen't work in chrome locally
-- https://docs.unity3d.com/Manual/webgl-building.html
 - Use Unity’s ~Build & Run~ command; the file is then temporarily hosted in a local web server and opened from a local host URL.
 - Run Chrome with the ~--allow-file-access-from-files~ command line option which allows it to load content from local file URLs.
 
+:REFERENCES:
+- https://docs.unity3d.com/Manual/webgl-building.html
+:END:
+
 ** Use Transform.up in 2D as forward
+In 2D, you want to do your *rotation in the Z-axis*, and instead of ~.forward~ use ~.up~ or ~.right~
+
+:REFERENCES:
 - https://docs.unity3d.com/ScriptReference/Transform-up.html
 - http://answers.unity3d.com/questions/797202/finding-forward-in-2d-rigid-body.html
-In 2D, you want to do your *rotation in the Z-axis*, and instead of ~.forward~ use ~.up~ or ~.right~
+:END:
 
 * Troubleshootings
 ** Coroutine named Main

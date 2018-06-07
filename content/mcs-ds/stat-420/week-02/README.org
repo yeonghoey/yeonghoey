@@ -18,7 +18,9 @@
   - [[#simulating-slr-in-r][Simulating SLR in R]]
 
 * Simple Linear Regression
+:REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html
+:END:
 
 ** Models
 [[file:_img/screenshot_2018-05-21_16-43-40.png]]
@@ -111,8 +113,11 @@ So,
 
 - Interpolation and Extrapolation
 - The further we get away from the dataset, the less confident we are in our fitted model.
-- -----
+
+:REFERENCES:
+
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#least-squares-approach
+:END:
 
 ** Simple Linear Regression Model
 [[file:_img/screenshot_2018-05-21_17-26-37.png]]
@@ -208,8 +213,10 @@ We then say that ~65%~ of the observed variability in stopping distance is expla
 
 [[file:_img/screenshot_2018-05-21_19-46-39.png]]
 
------
+:REFERENCES:
+
 - https://en.wikipedia.org/wiki/Coefficient_of_determination
+:END:
 
 ** Maximum Likelihood
 [[file:_img/screenshot_2018-05-24_21-00-09.png]]
@@ -243,8 +250,11 @@ The first two equations above are the same as least squares.
 [[file:_img/screenshot_2018-05-21_19-51-14.png]]
 
 [[file:_img/screenshot_2018-05-21_19-52-32.png]]
------
+
+:REFERENCES:
+
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#maximum-likelihood-estimation-mle-approach
+:END:
 
 ** The lm() Function
 - ~lm()~ stands for ~linear model~.
@@ -270,8 +280,11 @@ The first two equations above are the same as least squares.
   predict(stop_dist_model, newdata = data.frame(speed = c(8, 21, 50)))
   predict(stop_dist_model)
 #+END_SRC
------
+
+:REFERENCES:
+
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#the-lm-function
+:END:
 
 * SLR in R
 ** Simulation
@@ -337,5 +350,6 @@ The first two equations above are the same as least squares.
 #+RESULTS:
 [[file:_img/sim_slr.png]]
 
------
+:REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html#simulating-slr
+:END:

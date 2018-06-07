@@ -15,8 +15,6 @@
 * Overview
 * Reference
 ** argmax
-- https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.argmax.html
-
 #+BEGIN_SRC python
   >>> a = np.arange(6).reshape(2,3)
   >>> a
@@ -30,16 +28,20 @@
   array([2, 2])
 #+END_SRC
 
-** zeros
-- https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.zeros.html
+:REFERENCES:
+- https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.argmax.html
+:END:
 
+** zeros
 : numpy.zeros(shape, dtype=float, order='C')
+
+:REFERENCES:
+- https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.zeros.html
+:END:
 
 * Terminology
 * Topics
 ** Dimensions
-- http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/arrays.html
-
 [[file:_img/screenshot_2017-09-21_23-00-36.png]]
 
 #+BEGIN_SRC python
@@ -60,9 +62,11 @@
   (2, 1)
 #+END_SRC
 
-** Slicing and Indexing
-- https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html
+:REFERENCES:
+- http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/arrays.html
+:END:
 
+** Slicing and Indexing
 - ~i:j:k~ where ~i~ is the starting index, ~j~ is the stopping index, and ~k~ is the step (~k != 0~).
 
 #+BEGIN_SRC python
@@ -93,6 +97,9 @@
   - For the first one, both slicing(~1:2~, ~3:4~) operates over the first dim, whereas
     for the second one, both slicing works on the first and second dim respectively.
 
+:REFERENCES:
+- https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html
+:END:
+
 * How-to
 * Links
-

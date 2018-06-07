@@ -11,9 +11,6 @@
 - [[#links][Links]]
 
 * Overview
-- https://developer.couchbase.com/documentation/server/4.6/views/views-intro.html
-- https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html
-
 [[file:_img/screenshot_2017-08-16_18-54-27.png]]
 
 [[file:_img/screenshot_2017-08-16_19-25-50.png]]
@@ -29,13 +26,14 @@
 - All ~views~ are output in a *sorted* order according to the content and structure of the key.
   Keys using a numeric value are sorted numerically, for ~strings~, ~UTF-8~ is used.
 
+:REFERENCES:
+- https://developer.couchbase.com/documentation/server/4.6/views/views-intro.html
+- https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html
+:END:
+
 * How-to
 * Reference
 ** maxParallelIndexers
-- https://developer.couchbase.com/documentation/server/3.x/admin/Misc/Trbl-blockedIndexer.html
-- https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html
-
-
 - Each ~design document~ maps to one ~indexer~
 - Couchbase Server limits the maximum number of ~indexers~ that can run in parallel.
 - There are two types of indexers: ~main indexers~ and ~replica indexers~.
@@ -58,9 +56,16 @@ Couchbase makes no recommendations for tuning beyond the default settings.
   curl -x GET  -u Administrator:password http://localhost:8091/internalSettings
 #+END_SRC
 
+:REFERENCES:
+- https://developer.couchbase.com/documentation/server/3.x/admin/Misc/Trbl-blockedIndexer.html
+- https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html
+:END:
+
 * Topics
 ** Index updates
+:REFERENCES:
 - https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html
+:END:
 
 *** stale=ok
 - The current index is used as the basis for the query and the results are returned accordingly.
@@ -89,6 +94,7 @@ Couchbase makes no recommendations for tuning beyond the default settings.
 
 * Terminology
 * Links
+:REFERENCES:
 - https://developer.couchbase.com/documentation/server/4.6/architecture/incremental-map-reduce-views.html
 - https://developer.couchbase.com/documentation/server/4.6/views/views-writing-views.html
-
+:END:

@@ -5,11 +5,11 @@
   - [[#formatted-stirng-literals][Formatted stirng literals]]
 
 * 3.6
+:REFERENCES:
 - https://docs.python.org/3/whatsnew/3.6.html
+:END:
 
 ** Formatted stirng literals
-- https://www.python.org/dev/peps/pep-0498/
-
 #+BEGIN_SRC python
   >>> name = "Fred"
   >>> f"He said his name is {name}."
@@ -20,3 +20,7 @@
   >>> f"result: {value:{width}.{precision}}"  # nested fields
   'result:      12.35'
 #+END_SRC
+
+:REFERENCES:
+- https://www.python.org/dev/peps/pep-0498/
+:END:

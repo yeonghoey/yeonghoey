@@ -124,7 +124,6 @@ Moreover, give an explicit name(~words~) is more clear.
 [[file:_img/screenshot_2017-01-03_07-57-24.png]]
 
 ** Row Plays
-
 [[file:_img/screenshot_2017-01-03_08-01-10.png]]
 
 [[file:_img/screenshot_2017-01-03_08-03-38.png]]
@@ -195,7 +194,6 @@ Great way to define 2d array
 It seems that he skipped to explain this code because it's rather too complicated.
 
 ** Quiz: All Plays
-
 *** My Solution
 #+BEGIN_SRC python
   def all_plays(hand, board):
@@ -391,7 +389,6 @@ It just simplifies the logic and improves the readability.
 ~j~ is better than ~n~,  I don't know why, but it was just hard to think of that name.
 
 * Office Hours 6
-
 [[file:_img/screenshot_2017-01-04_22-02-11.png]]
 
 [[file:_img/screenshot_2017-01-04_22-04-37.png]]

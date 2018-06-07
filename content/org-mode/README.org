@@ -21,10 +21,6 @@
   - [[#automatically-save-buffers-after-refiling-and-archiving][Automatically Save buffers after refiling and archiving]]
 
 * Settings
-- https://github.com/fniessen/refcard-org-mode
-- http://orgmode.org/manual/Structural-markup-elements.html
-- http://orgmode.org/manual/Export-settings.html
-
 #+BEGIN_EXAMPLE
   ,#+TITLE:  Org Document Settings Cheatsheet
   ,#+AUTHOR: Yeongho Kim
@@ -85,19 +81,24 @@
   ,#+OPTIONS: ':t author:nil date:nil email:nil num:nil
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://github.com/fniessen/refcard-org-mode
+- http://orgmode.org/manual/Structural-markup-elements.html
+- http://orgmode.org/manual/Export-settings.html
+:END:
+
 ** Omitting #+TITLE
-- http://orgmode.org/manual/Document-title.html#Document-title
 #+BEGIN_QUOTE
 If you are exporting only a subtree,
 *its heading will become the title of the document.
 If the subtree has a property EXPORT_TITLE, that will take precedence.
 #+END_QUOTE
 
-* Markup
-- http://orgmode.org/manual/Markup.html#Markup
-- http://ergoemacs.org/emacs/emacs_org_markup.html
-- http://orgmode.org/manual/External-links.html#External-links
+:REFERENCES:
+- http://orgmode.org/manual/Document-title.html#Document-title
+:END:
 
+* Markup
 #+BEGIN_EXAMPLE
     ,* 1st level heading
     ,** this is 2nd level heading
@@ -144,13 +145,20 @@ If the subtree has a property EXPORT_TITLE, that will take precedence.
     (start the example lines with a colon followed by a space.)
 #+END_EXAMPLE
 
+:REFERENCES:
+- http://orgmode.org/manual/Markup.html#Markup
+- http://ergoemacs.org/emacs/emacs_org_markup.html
+- http://orgmode.org/manual/External-links.html#External-links
+:END:
+
 ** code(~~) vs verbatim(==)
-- http://stackoverflow.com/questions/18991981/difference-between-code-and-verbatim-in-org-mode
 - There are some differences in ~Latex~ related things, but *identical others*.
 
-** Can't stylize part of a word
-- http://stackoverflow.com/questions/1218238/how-to-make-part-of-a-word-bold-in-org-mode
+:REFERENCES:
+- http://stackoverflow.com/questions/18991981/difference-between-code-and-verbatim-in-org-mode
+:END:
 
+** Can't stylize part of a word
 #+BEGIN_QUOTE
 Org-mode relies on heuristics to distinguish emphasis from
 normal text, and one of the most important parts of this
@@ -158,9 +166,11 @@ heuristics method is *assuming that emphasis is on whole words*,
 delimited by whitespace or punctuation.
 #+END_QUOTE
 
-* Easy Templates
-- http://orgmode.org/manual/Easy-Templates.html
+:REFERENCES:
+- http://stackoverflow.com/questions/1218238/how-to-make-part-of-a-word-bold-in-org-mode
+:END:
 
+* Easy Templates
 #+BEGIN_EXAMPLE
   s #+BEGIN_SRC ... #+END_SRC
   e #+BEGIN_EXAMPLE ... #+END_EXAMPLE
@@ -176,6 +186,10 @@ delimited by whitespace or punctuation.
   i #+INDEX: line
   I #+INCLUDE: lin
 #+END_EXAMPLE
+
+:REFERENCES:
+- http://orgmode.org/manual/Easy-Templates.html
+:END:
 
 * Babel
 For about ~#+BEGIN_SRC~, see [[./babel]]
@@ -203,14 +217,13 @@ use [[/org-babel/latex]] instead of native org-mode's LaTeX supprot.
   x=\sqrt{b}
   \end{equation}
 #+END_EXAMPLE
------
+
+:REFERENCES:
+
 - http://orgmode.org/manual/LaTeX-export.html#LaTeX-export
+:END:
 
 * Export
-- http://orgmode.org/manual/Exporting.html
-- http://stackoverflow.com/questions/13363267/how-to-remove-footer-details-in-org-mode-html-export
-- https://www.gnu.org/software/emacs/manual/html_node/org/Images-in-HTML-export.html
-
 #+BEGIN_EXAMPLE
   ,#+OPTIONS: author:nil html-postamble:nil num:nil timestamp:nil toc:nil
 
@@ -232,25 +245,35 @@ use [[/org-babel/latex]] instead of native org-mode's LaTeX supprot.
 based on th current editor color theme. To customize for editor free exporting, set it to ~css~ like above
 and specify your custom ~css~
 
-* Image
-- http://stackoverflow.com/questions/11670654/how-to-resize-images-in-org-mode
-- http://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html
+:REFERENCES:
+- http://orgmode.org/manual/Exporting.html
+- http://stackoverflow.com/questions/13363267/how-to-remove-footer-details-in-org-mode-html-export
+- https://www.gnu.org/software/emacs/manual/html_node/org/Images-in-HTML-export.html
+:END:
 
+* Image
 #+BEGIN_EXAMPLE
   ,#+ATTR_HTML: width="100px"
   ,#+ATTR_ORG: :width 100
   [[~/images/example.jpg]]
 #+END_EXAMPLE
 
-* Agenda
-- http://orgmode.org/manual/Capture-templates.html#Capture-templates
+:REFERENCES:
+- http://stackoverflow.com/questions/11670654/how-to-resize-images-in-org-mode
+- http://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html
+:END:
 
+* Agenda
 #+BEGIN_EXAMPLE
   <2006-11-01 Wed>
   [2006-11-01 Wed]  # inactive timestamps, they do not trigger an entry to show up in the agenda.
 #+END_EXAMPLE
+
+:REFERENCES:
+- http://orgmode.org/manual/Capture-templates.html#Capture-templates
+:END:
+
 * Capture
-- http://orgmode.org/manual/Template-expansion.html#Template-expansion 
 #+BEGIN_SRC emacs-lisp
   (setq-default
    org-capture-templates `(("c" "Create a task"
@@ -260,35 +283,44 @@ and specify your custom ~css~
    )
 #+END_SRC
 
+:REFERENCES:
+- http://orgmode.org/manual/Template-expansion.html#Template-expansion 
+:END:
+
 * Add-ons
 ** toc-org
-- https://github.com/snosov1/toc-org
-
 #+BEGIN_EXAMPLE
   :TOC_2:
   :TOC_2_gh:   (github style, [[#heading][heading]])
   :TOC_2_org:  (org style,    [[heading][heading]])
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://github.com/snosov1/toc-org
+:END:
+
 ** org-reveal
-- https://github.com/yjwen/org-reveal/
-- https://github.com/hakimel/reveal.js/
 - ~, e R B~ to generate and preview
 - ~#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/~
 - ~#+REVEAL_THEME: <theme>~ :: [[https://github.com/hakimel/reveal.js/tree/master/css/theme][reveal.js/css/theme]] 
 
+:REFERENCES:
+- https://github.com/yjwen/org-reveal/
+- https://github.com/hakimel/reveal.js/
+:END:
+
 ** ox-twbs
-- https://github.com/marsmining/ox-twbs
 - Export org as HTML compatible with Twitter Bootstrap.
 - I tried to use this, but *there were some inconsistencies*. I don't use it now.
   - Some colors are indistinguishable.
   - Image links are broken if I segregate htmls from orgs
 
+:REFERENCES:
+- https://github.com/marsmining/ox-twbs
+:END:
+
 * Use Cases
 ** Automatically Save buffers after refiling and archiving
-- https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
-- http://stackoverflow.com/questions/5520302/what-do-each-of-these-stand-for-after-the-save-file-prompt-y-n-q-c
-
 #+BEGIN_SRC emacs-lisp
     ;; Save org files automatically after arranging items
     (defun my-org-save-all-org-buffers (old-function &rest args)
@@ -297,3 +329,8 @@ and specify your custom ~css~
     (advice-add 'org-refile :after 'my-org-save-all-org-buffers)
     (advice-add 'org-archive :after 'my-org-save-all-org-buffers)
 #+END_SRC
+
+:REFERENCES:
+- https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers
+- http://stackoverflow.com/questions/5520302/what-do-each-of-these-stand-for-after-the-save-file-prompt-y-n-q-c
+:END:

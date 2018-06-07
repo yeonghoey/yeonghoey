@@ -5,15 +5,21 @@
 
 * Coupling vs Cohesion
 ** Coupling
-- https://en.wikipedia.org/wiki/Coupling_(computer_programming)
 - A change in one module usually *forces a ripple effect* of changes in other modules.
 - Assembly of modules might require more effort and/or time due to the increased inter-module dependency.
 - A particular module might be harder to reuse and/or test because dependent modules must be included.
 
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Coupling_(computer_programming)
+:END:
+
 ** Cohesion
-- https://en.wikipedia.org/wiki/Cohesion_(computer_science)
 - *Functional cohesion* is superior
 - Communicational and sequential cohesion are very good
+
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Cohesion_(computer_science)
+:END:
 
 *** Functional Cohesion
 - A module are goruped because they all contribute to a single well-defined task of the module 

@@ -775,8 +775,10 @@ $b
 #+RESULTS:
 [[file:_img/plot.png]]
 
------
+:REFERENCES:
+
 - http://daviddalpiaz.github.io/appliedstats/summarizing-data.html
+:END:
 
 * RMarkdown
 There are a header of meta informantion for the document

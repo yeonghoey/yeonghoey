@@ -5,8 +5,6 @@
  - [[#links][Links]]
 
 * JSON Structure
-- https://google.github.io/styleguide/jsoncstyleguide.xml#JSON_Structure_&_Reserved_Property_Names
-
 #+BEGIN_EXAMPLE
   object {
     string apiVersion?;
@@ -61,5 +59,11 @@
   }*;
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://google.github.io/styleguide/jsoncstyleguide.xml#JSON_Structure_&_Reserved_Property_Names
+:END:
+
 * Links
+:REFERENCES:
 - https://google.github.io/styleguide/jsoncstyleguide.xml
+:END:

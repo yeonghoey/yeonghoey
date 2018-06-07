@@ -4,8 +4,6 @@
 - [[#overwatch-gameplay-architecture-and-netcode]['Overwatch' Gameplay Architecture and Netcode]]
 
 * 'Overwatch' Gameplay Architecture and Netcode
-- http://schedule.gdconf.com/session/overwatch-gameplay-architecture-and-netcode
-
 [[file:_img/screenshot_2017-09-04_07-28-15.png]]
 
 [[file:_img/screenshot_2017-09-04_07-29-23.png]]
@@ -52,3 +50,7 @@
 [[file:_img/screenshot_2017-09-04_08-00-50.png]]
 
 [[file:_img/screenshot_2017-09-04_08-03-40.png]]
+
+:REFERENCES:
+- http://schedule.gdconf.com/session/overwatch-gameplay-architecture-and-netcode
+:END:

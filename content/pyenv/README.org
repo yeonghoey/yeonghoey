@@ -14,7 +14,9 @@
   - [[#fix-common-build-problems][Fix common build problems]]
 
 * Reference
+:REFERENCES:
 - https://github.com/pyenv/pyenv/blob/master/COMMANDS.md
+:END:
 
 ** local
 - Written in ~$PWD/.python-version~
@@ -81,7 +83,6 @@
 #+END_EXAMPLE
 
 ** virtualenv
-- https://github.com/pyenv/pyenv-virtualenv#usage
 - If eval ~"$(pyenv virtualenv-init -)"~ is configured in the shell, ~pyenv-virtualenv~ will automatically activate/deactivate virtualenvs
   based on ~.python-version~ file.
 
@@ -105,6 +106,13 @@
 
   $ pyenv uninstall my-virtual-env
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://github.com/pyenv/pyenv-virtualenv#usage
+:END:
+
 * How-to
 ** Fix common build problems
+:REFERENCES:
 - https://github.com/pyenv/pyenv/wiki/Common-build-problems
+:END:

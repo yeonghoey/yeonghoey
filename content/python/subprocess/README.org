@@ -19,8 +19,10 @@
 
 - Added in Python 3.5. For older versions, use [[https://docs.python.org/3/library/subprocess.html#subprocess.call][subprocess.call()]] instead.
 
------
+:REFERENCES:
+
 - https://docs.python.org/3/library/subprocess.html#subprocess.run
+:END:
 
 * Invoke a non-blocking process
 #+BEGIN_SRC python
@@ -31,7 +33,7 @@
 
 - Not using ~Popen.communicate()~ or ~call()~ will result in a zombie process.
 
------
+:REFERENCES:
 - [[https://stackoverflow.com/questions/2760652/how-to-kill-or-avoid-zombie-processes-with-subprocess-module]]
 
 * Using PIPE
@@ -55,7 +57,7 @@ Use ~communicate()~ rather than ~.stdin.write~, ~.stdout.read~ or ~.stderr.read~
 to avoid deadlocks due to any of the other OS pipe buffersfilling up and blocking the child process.
 #+END_QUOTE
 
------
+:REFERENCES:
 - [[https://docs.python.org/3/library/subprocess.html#subprocess.Popen.communicate]]
 
 * When to use shell=True
@@ -65,9 +67,11 @@ to avoid deadlocks due to any of the other OS pipe buffersfilling up and blockin
   - The command can use environment variables, globs, pipes.
   - *It's very dangerous, not recommended.*
 
------
+:REFERENCES:
 - [[http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module]]
 
 * References
+:REFERENCES:
 - https://docs.python.org/2/library/subprocess.html
 - http://stackoverflow.com/questions/89228/calling-an-external-command-in-python
+:END:

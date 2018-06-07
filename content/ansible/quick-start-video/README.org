@@ -1,7 +1,4 @@
 * Ansible Quick Start Video
-- https://www.ansible.com/quick-start-video
-- http://docs.ansible.com/ansible/modules_by_category.html
-
 [[file:_img/screenshot_2017-05-08_14-53-11.png]]
 
 [[file:_img/screenshot_2017-05-08_14-53-51.png]]
@@ -25,3 +22,8 @@
 [[file:_img/screenshot_2017-05-08_14-58-46.png]]
 
 [[file:_img/screenshot_2017-05-08_14-59-37.png]]
+
+:REFERENCES:
+- https://www.ansible.com/quick-start-video
+- http://docs.ansible.com/ansible/modules_by_category.html
+:END:

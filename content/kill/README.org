@@ -15,7 +15,8 @@
   $ kill -INT -$(ps -o pgid= $PID | grep -o '[0-9]*')
 #+END_SRC
 
------
+:REFERENCES:
 - https://en.wikipedia.org/wiki/Signal_(IPC)
 - https://linux.die.net/man/1/kill
 - http://fibrevillage.com/sysadmin/237-ways-to-kill-parent-and-child-processes-in-one-command
+:END:

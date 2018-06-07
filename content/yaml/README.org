@@ -56,5 +56,6 @@ If you want to make an effect like inheritance:
       d: 20
 #+END_SRC
 
------
+:REFERENCES:
 - https://stackoverflow.com/questions/14184971/more-complex-inheritance-in-yaml
+:END:

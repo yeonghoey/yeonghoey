@@ -5,9 +5,6 @@
 - [[#private-ipv4-address-spaces][Private IPv4 address spaces]]
 
 * List of Locales
-- https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-- http://www.roseindia.net/tutorials/I18N/locales-list.shtml
-
 | Description                        | Code       |
 |------------------------------------+------------|
 | Albanian (Albania)	               | 	sq_AL    |
@@ -162,8 +159,15 @@
 | Ukrainian	                        | 	uk       |
 | Vietnamese (Vietnam)	             | 	vi_VN    |
 | Vietnamese	                       | 	vi       |
+
+:REFERENCES:
+- https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+- http://www.roseindia.net/tutorials/I18N/locales-list.shtml
+:END:
+
 * Private IPv4 address spaces
-- https://en.wikipedia.org/wiki/Private_network
-
-
 [[file:_img/screenshot_2017-06-12_19-04-42.png]]
+
+:REFERENCES:
+- https://en.wikipedia.org/wiki/Private_network
+:END:

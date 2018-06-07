@@ -46,8 +46,6 @@
 * Reference
 ** Configurations
 *** backend
-- https://www.terraform.io/docs/backends/types/s3.html
-
 #+BEGIN_SRC terraform
   resource "aws_s3_bucket" "bucket" {
     bucket = "my-bucket"
@@ -77,17 +75,22 @@
   }
 #+END_SRC
 
-*** path
-- https://www.terraform.io/docs/configuration/interpolation.html#path-information
+:REFERENCES:
+- https://www.terraform.io/docs/backends/types/s3.html
+:END:
 
+*** path
 #+BEGIN_EXAMPLE
   source_file = "${path.cwd}/main.py"   # Path to the current working directory
   source_file = "${path.root}/main.py"  # Path to the root module
   source_file = "${path.module}/main.py" # Path to the current module
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.terraform.io/docs/configuration/interpolation.html#path-information
+:END:
+
 *** depends_on
-- https://www.terraform.io/intro/getting-started/dependencies.html#implicit-and-explicit-dependencies
 - ~depends_on~ parameter which is available on any resource
 
 #+BEGIN_EXAMPLE
@@ -101,8 +104,11 @@
   }
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.terraform.io/intro/getting-started/dependencies.html#implicit-and-explicit-dependencies
+:END:
+
 *** element
-- https://www.terraform.io/docs/configuration/interpolation.html#element-list-index-
 - if ~index~ is greater than ~len(list)~, ~index~ modulo ~len(list)~ is used
 
 #+BEGIN_EXAMPLE
@@ -111,10 +117,11 @@
   }
 #+END_EXAMPLE
 
-*** ignore_changes
-- https://www.terraform.io/docs/configuration/resources.html
-- https://github.com/hashicorp/terraform/issues/4944
+:REFERENCES:
+- https://www.terraform.io/docs/configuration/interpolation.html#element-list-index-
+:END:
 
+*** ignore_changes
 There was a problem when I defined multiple ~aws_eip~ s which are associated to ~aws_instance~ s.
 
 #+BEGIN_EXAMPLE
@@ -141,8 +148,13 @@ To work around this, use ~ignore_changes~
     }
   }
 #+END_EXAMPLE
+
+:REFERENCES:
+- https://www.terraform.io/docs/configuration/resources.html
+- https://github.com/hashicorp/terraform/issues/4944
+:END:
+
 *** null_resource
-- https://www.terraform.io/docs/provisioners/null_resource.html
 - Allows to run provionsers not directly associated with a single existing resource
 
 #+BEGIN_SRC terraform
@@ -170,17 +182,22 @@ To work around this, use ~ignore_changes~
   }
 #+END_SRC
 
+:REFERENCES:
+- https://www.terraform.io/docs/provisioners/null_resource.html
+:END:
+
 *** local-exec
-- https://www.terraform.io/docs/provisioners/local-exec.html
 #+BEGIN_EXAMPLE
   provisioner "local-exec" {
     command = "run.sh ${var.args}"
   }
 #+END_EXAMPLE
 
-*** remote-exec
-- https://www.terraform.io/docs/provisioners/remote-exec.html
+:REFERENCES:
+- https://www.terraform.io/docs/provisioners/local-exec.html
+:END:
 
+*** remote-exec
 #+BEGIN_EXAMPLE
   connection {
     type        = "ssh"
@@ -196,8 +213,11 @@ To work around this, use ~ignore_changes~
   }
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.terraform.io/docs/provisioners/remote-exec.html
+:END:
+
 *** archive_file
-- https://www.terraform.io/docs/providers/archive/d/archive_file.html
 - Useful to provision resources which require zip files.
 #+BEGIN_EXAMPLE
   data "archive_file" "code" {
@@ -213,8 +233,11 @@ To work around this, use ~ignore_changes~
   }
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.terraform.io/docs/providers/archive/d/archive_file.html
+:END:
+
 *** template_file
-- https://www.terraform.io/docs/providers/template/index.html
 - Use ~$$~ in ~template~ to escape ~$~
 
 #+BEGIN_EXAMPLE
@@ -227,8 +250,14 @@ To work around this, use ~ignore_changes~
   }
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.terraform.io/docs/providers/template/index.html
+:END:
+
 ** Commands
+:REFERENCES:
 - https://www.terraform.io/docs/commands/index.html
+:END:
 
 *** plan
 #+BEGIN_SRC shell
@@ -251,8 +280,6 @@ To work around this, use ~ignore_changes~
 
 *** state
 **** mv
-- https://www.terraform.io/docs/commands/state/mv.html
-
 #+BEGIN_SRC shell
   # from ./terraform.tfstate:aws_instance.main
   # to new/terraform.tfstate:aws_instance.server
@@ -261,8 +288,11 @@ To work around this, use ~ignore_changes~
             aws_instance.server
 #+END_SRC
 
+:REFERENCES:
+- https://www.terraform.io/docs/commands/state/mv.html
+:END:
+
 *** taint
-- https://github.com/yeonghoey/notes/tree/master/terraform#taint
 - You can taint resources within modules
 - It looks like that tainting a whole module is currently impossible
 
@@ -271,8 +301,11 @@ To work around this, use ~ignore_changes~
   terraform taint -module=my_module aws_instance.main                                                                              1 ↵
 #+END_SRC
 
+:REFERENCES:
+- https://github.com/yeonghoey/notes/tree/master/terraform#taint
+:END:
+
 *** force-unlcok
-- https://www.terraform.io/docs/commands/force-unlock.html
 - ~LockID~ will be printed out when commands fail
 
 #+BEGIN_SRC shell
@@ -293,6 +326,10 @@ To work around this, use ~ignore_changes~
 #+BEGIN_SRC shell
   terraform force-unlock "abcdef01-ef34-abcd-5678-abc123def456"
 #+END_SRC
+
+:REFERENCES:
+- https://www.terraform.io/docs/commands/force-unlock.html
+:END:
 
 * Terminology
 * Topics
@@ -330,8 +367,6 @@ you can reference existing security groups, VPCs, and the like by defining them 
 - Use ~-var-file~ flag to specify other ~.tfvars~ files
 
 ** Resource Addressing
-- https://www.terraform.io/docs/commands/state/addressing.html
-
 #+BEGIN_EXAMPLE
   [module path][resource spec]
   module.A.module.B.module.C...
@@ -347,9 +382,11 @@ you can reference existing security groups, VPCs, and the like by defining them 
   aws_instance.web
 #+END_EXAMPLE
 
-** Interpolation
-- https://www.terraform.io/docs/configuration/interpolation.html
+:REFERENCES:
+- https://www.terraform.io/docs/commands/state/addressing.html
+:END:
 
+** Interpolation
 #+BEGIN_EXAMPLE
   ${self.private_ip_address}  # attributes of their own
   ${aws_instance.web.id}
@@ -359,16 +396,25 @@ you can reference existing security groups, VPCs, and the like by defining them 
   .. and many more including some functions
 #+END_EXAMPLE
 
+:REFERENCES:
+- https://www.terraform.io/docs/configuration/interpolation.html
+:END:
+
 ** Limitations
 *** No dynamic interpolation over count
+:REFERENCES:
 - https://github.com/hashicorp/terraform/issues/1497#issuecomment-105874601
+:END:
 
 **** Update
-- https://github.com/hashicorp/terraform/pull/11482
 - Interpolations other than ~computing required~ can be used for ~count~.
 - Now
   : count = "${length(var.other_List)}"
   is valid.
+
+:REFERENCES:
+- https://github.com/hashicorp/terraform/pull/11482
+:END:
 
 **** Previous limitation
 For now, you can't use interpolation for referencing other resources
@@ -396,10 +442,11 @@ before the primary graph walk, which means we can't support "computed" counts ri
 #+END_QUOTE
 
 *** No integer variable
+:REFERENCES:
 - https://github.com/hashicorp/terraform/issues/6254
+:END:
 
 *** No list of maps
-- https://github.com/hashicorp/terraform/issues/7705
 - The type of most mapping arguments are actually the list of maps
 
 #+BEGIN_EXAMPLE
@@ -422,14 +469,20 @@ Because the actual schema is:
 		  Schema: map[string]*schema.Schema{
 #+END_SRC
 
+:REFERENCES:
+- https://github.com/hashicorp/terraform/issues/7705
+:END:
+
 ** Modules
-- https://www.terraform.io/docs/modules/create.html
 - When you run ~terraform apply~, the current working directory holding the Terraform files is called the *root module*.
 - With *Local File Paths*, Terraform will *create a symbolic link to the original directory.* Therefore, any changes are automatically available.
 
+:REFERENCES:
+- https://www.terraform.io/docs/modules/create.html
+:END:
+
 * How-to
 ** Make manual modifications on remote backeded tfstates
-
 - https://www.terraform.io/docs/commands/state/pull.html
 - https://www.terraform.io/docs/commands/state/push.html
 
@@ -445,15 +498,18 @@ Because the actual schema is:
 #+END_SRC
 
 ** Migrate existing AWS Infra with terraforming
+:REFERENCES:
 - https://github.com/dtan4/terraforming
+:END:
 
 ** Generate documents automatically
-- https://github.com/segmentio/terraform-docs
-
 This simple tool automatically generates markdown or json document based on ~variable~ and ~output~ blocks.
-** Use multiple providers (or AWS regions)
-- https://www.terraform.io/docs/configuration/providers.html#multiple-provider-instances
 
+:REFERENCES:
+- https://github.com/segmentio/terraform-docs
+:END:
+
+** Use multiple providers (or AWS regions)
 #+BEGIN_SRC terraform
 
   provider "aws" {
@@ -472,5 +528,9 @@ This simple tool automatically generates markdown or json document based on ~var
     # ...
   }
 #+END_SRC
+
+:REFERENCES:
+- https://www.terraform.io/docs/configuration/providers.html#multiple-provider-instances
+:END:
 
 * Links

@@ -78,7 +78,6 @@ Even if I had considerted that, I wouldnt have associated it
 with the instrcutions.
 
 ** Slow Solution
-
 [[file:_img/screenshot_2017-01-18_12-42-32.png]]
 
 His code is read naturally.  He doesn't seem to care about the implementation constraints.
@@ -167,8 +166,6 @@ They are exactly same.
 I need to become more frinedly with ~re~ module.
 
 ** Testing
-
-
 [[file:_img/screenshot_2017-01-21_15-16-15.png]]
 
 *** Feedback
@@ -184,7 +181,6 @@ I need to become more frinedly with ~re~ module.
 [[file:_img/screenshot_2017-01-21_20-04-38.png]]
 
 ** Quiz: Compile Word
-
 [[file:_img/screenshot_2017-01-21_20-06-50.png]]
 
 *** My Old Solution

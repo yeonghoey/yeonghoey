@@ -2,5 +2,7 @@
 #+BEGIN_SRC org
   ,#+BEGIN_SRC dot :file img/small-graph.png :exports results
 #+END_SRC
------
+
+:REFERENCES:
 - http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-dot.html
+:END:

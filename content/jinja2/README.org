@@ -22,7 +22,9 @@
   - [[#sandbox][Sandbox]]
 
 * Syntax
+:REFERENCES:
 - http://jinja.pocoo.org/docs/2.10/templates/
+:END:
 
 ** Variables
 #+BEGIN_EXAMPLE
@@ -32,8 +34,6 @@
 - Both work the same whether 'foo' is a dict or an object.
 
 ** Filters
-- http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters
-
 #+BEGIN_EXAMPLE
      {{ name|striptags|title }}
   == {{ title(striptags(name)) }}
@@ -42,9 +42,11 @@
   == {{ str.join(', ', listx) }}
 #+END_EXAMPLE
 
-** Tests
-- http://jinja.pocoo.org/docs/2.10/templates/#builtin-tests
+:REFERENCES:
+- http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters
+:END:
 
+** Tests
 #+BEGIN_EXAMPLE
   {% if variable is defined %}
       value of variable: {{ variable }}
@@ -52,6 +54,10 @@
       variable is not defined
   {% endif %}
 #+END_EXAMPLE
+
+:REFERENCES:
+- http://jinja.pocoo.org/docs/2.10/templates/#builtin-tests
+:END:
 
 ** Comments
 #+BEGIN_EXAMPLE
@@ -141,8 +147,6 @@
 - ~{{ super() }}~ gives back the results of the parent block
 
 ** Block Nesting and Scope
-- http://jinja.pocoo.org/docs/2.10/templates/#block-nesting-and-scope
-
 #+BEGIN_EXAMPLE
   {% for item in seq %}
       <li>{% block loop_item scoped %}{{ item }}{% endblock %}</li>
@@ -151,9 +155,11 @@
 
 - In some cases, ~scoped~ keyword required
 
-** For
-- http://jinja.pocoo.org/docs/2.10/templates/#for
+:REFERENCES:
+- http://jinja.pocoo.org/docs/2.10/templates/#block-nesting-and-scope
+:END:
 
+** For
 #+BEGIN_EXAMPLE
   <ul>
   {% for user in users %}
@@ -179,6 +185,10 @@
 #+END_EXAMPLE
 
 - Note ~recursive~ and ~loop()~
+
+:REFERENCES:
+- http://jinja.pocoo.org/docs/2.10/templates/#for
+:END:
 
 ** Macros
 #+BEGIN_EXAMPLE
@@ -317,8 +327,6 @@
 
 * Topics
 ** Environment
-- http://jinja.pocoo.org/docs/2.10/api/#jinja2.Environment
-
 #+BEGIN_SRC python
   from jinja2 import Environment, PackageLoader, select_autoescape
   env = Environment(
@@ -331,9 +339,11 @@
 - Configures things like ~{%~, ~{{~, ~{#~
 - Consider ~Environment~ as a factory of templates
 
-** Sandbox
-- http://jinja.pocoo.org/docs/2.10/sandbox/
+:REFERENCES:
+- http://jinja.pocoo.org/docs/2.10/api/#jinja2.Environment
+:END:
 
+** Sandbox
 #+BEGIN_SRC python
   # Assuming env is a SandboxedEnvironment
   >>> env.from_string("{{ func.func_code }}").render(func=lambda: None)
@@ -347,3 +357,6 @@
 - Can be used to evaluate untrusted code.
 - If the template tries to access insecure code a ~SecurityError~ is raised
 
+:REFERENCES:
+- http://jinja.pocoo.org/docs/2.10/sandbox/
+:END:

@@ -155,9 +155,11 @@
 [[file:_img/screenshot_2018-02-22_08-54-31.png]]
 ** CSS Visual Rules
 *** Font Family
-- https://www.cssfontstack.com/
-
 [[file:_img/screenshot_2018-02-24_15-07-30.png]]
+
+:REFERENCES:
+- https://www.cssfontstack.com/
+:END:
 
 *** Font Weight
 [[file:_img/screenshot_2018-02-24_15-09-40.png]]
@@ -179,11 +181,13 @@
 [[file:_img/screenshot_2018-02-24_15-20-59.png]]
 
 *** Borders
-- https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
-
 [[file:_img/screenshot_2018-02-24_15-23-09.png]]
 
 The default border is ~medium none color~
+
+:REFERENCES:
+- https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+:END:
 
 *** Border Radius
 [[file:_img/screenshot_2018-02-24_15-26-02.png]]
@@ -222,7 +226,6 @@ The default border is ~medium none color~
 [[file:_img/screenshot_2018-02-24_16-26-54.png]]
 ** Changing the Box Model
 *** Box Model: Content-Box
-
 [[file:_img/screenshot_2018-02-25_11-53-17.png]]
 
 (Default)
@@ -273,15 +276,19 @@ The default border is ~medium none color~
 * Color
 ** CSS Color
 *** Hexademical
+:REFERENCES:
 - https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+:END:
 
 *** RGB Colors
 [[file:_img/screenshot_2018-02-25_23-43-17.png]]
 
 *** Hue, Saturation, and Lightness
-- http://dba.med.sc.edu/price/irf/Adobe_tg/models/images/hsl_top.JPG
-
 [[file:_img/screenshot_2018-02-26_11-01-06.png]]
+
+:REFERENCES:
+- http://dba.med.sc.edu/price/irf/Adobe_tg/models/images/hsl_top.JPG
+:END:
 
 *** Opacity and Alpha
 [[file:_img/screenshot_2018-02-26_11-04-45.png]]
@@ -327,9 +334,11 @@ The default border is ~medium none color~
 [[file:_img/screenshot_2018-02-26_11-40-15.png]]
 
 *** Linking Fonts I
-- https://fonts.google.com/
-
 [[file:_img/screenshot_2018-02-26_11-44-52.png]]
+
+:REFERENCES:
+- https://fonts.google.com/
+:END:
 
 *** Linking Fonts II
 [[file:_img/screenshot_2018-02-26_11-45-36.png]]
@@ -338,15 +347,19 @@ The default border is ~medium none color~
 [[file:_img/screenshot_2018-02-26_11-50-24.png]]
 
 *** Font-Face III
-- https://www.fontsquirrel.com/
-
 [[file:_img/screenshot_2018-02-26_11-53-25.png]]
+
+:REFERENCES:
+- https://www.fontsquirrel.com/
+:END:
 
 * CSS Grid
 ** CSS Grid Essentials
 *** Introduction to Grids
+:REFERENCES:
 - https://www.whatsmybrowser.org/
 - https://caniuse.com/#feat=css-grid
+:END:
 
 *** Creating a Grid
 [[file:_img/screenshot_2018-02-26_14-03-40.png]]
@@ -389,9 +402,11 @@ The default border is ~medium none color~
 [[file:_img/screenshot_2018-02-26_14-44-12.png]]
 
 *** Multiple Row Items
-- https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start
-
 [[file:_img/screenshot_2018-02-26_14-45-57.png]]
+
+:REFERENCES:
+- https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start
+:END:
 
 *** Grid Row
 [[file:_img/screenshot_2018-02-26_14-47-59.png]]
@@ -419,13 +434,15 @@ The default border is ~medium none color~
 [[file:_img/screenshot_2018-02-26_15-10-55.png]]
 
 *** Justify Items
-- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout#Justifying_Items_on_the_Inline_or_Row_Axis
-
 [[file:_img/screenshot_2018-02-26_15-14-57.png]]
 
 [[file:_img/screenshot_2018-02-26_15-15-45.png]]
 
 [[file:_img/screenshot_2018-02-26_15-17-34.png]]
+
+:REFERENCES:
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout#Justifying_Items_on_the_Inline_or_Row_Axis
+:END:
 
 *** Justify Content
 [[file:_img/screenshot_2018-02-26_15-19-58.png]]

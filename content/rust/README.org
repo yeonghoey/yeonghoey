@@ -6,8 +6,6 @@
 
 * Concepts
 ** Ownership
-- https://doc.rust-lang.org/book/second-edition/ch04-01-what-is-ownership.html
-
 #+BEGIN_SRC rust
   let s1 = String::from("hello");
   let s2 = s1;
@@ -183,3 +181,7 @@ At any given time, *you can have either but not both of*:
 #+END_EXAMPLE
 
 -  if we have an immutable reference to something, we cannot also take a mutable reference.
+
+:REFERENCES:
+- https://doc.rust-lang.org/book/second-edition/ch04-01-what-is-ownership.html
+:END:

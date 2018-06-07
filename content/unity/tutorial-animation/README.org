@@ -4,8 +4,6 @@
  - [[#animator-scripting][Animator Scripting]]
 
 * Animator Scripting
-- https://unity3d.com/learn/tutorials/topics/animation/animator-scripting?playlist=17099
-
 #+BEGIN_SRC csharp
   using UnityEngine;
   using System.Collections;
@@ -36,3 +34,7 @@
       }
   }
 #+END_SRC
+
+:REFERENCES:
+- https://unity3d.com/learn/tutorials/topics/animation/animator-scripting?playlist=17099
+:END:

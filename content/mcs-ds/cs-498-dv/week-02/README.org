@@ -93,5 +93,6 @@ I'm not familiar with Data Warehouses. So I found a concept image ([[https://www
 
 [[file:_img/screenshot_2018-05-21_22-06-34.png]]
 
------
+:REFERENCES:
 - http://colorbrewer2.org/
+:END:

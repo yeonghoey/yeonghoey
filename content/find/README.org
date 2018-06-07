@@ -1,6 +1,4 @@
 * find
-- https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find
-
 - ~-L~  ::
   - causes ~find~ to follow symlinks for all properties *except the name*
   - Because the name cannot be ignored when doing directory search
@@ -10,6 +8,10 @@
 
 - ~--empty~ ::
   - True if the current file or directory is empty.
+
+:REFERENCES:
+- https://stackoverflow.com/questions/6085156/using-semicolon-vs-plus-with-exec-in-find
+:END:
 
 * How-to
 ** [[https://stackoverflow.com/questions/2810838/finding-empty-directories-unix][Find and delete empty directories]]

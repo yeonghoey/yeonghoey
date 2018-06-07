@@ -6,4 +6,6 @@
 
 * How-to
 ** Ignore files
+:REFERENCES:
 - http://projectile.readthedocs.io/en/latest/usage/#ignoring-files
+:END:

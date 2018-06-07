@@ -11,17 +11,22 @@
 
 * Reference
 ** zeppelin-env.sh
-- https://github.com/apache/zeppelin/blob/master/conf/zeppelin-env.sh.template
-
 #+BEGIN_SRC shell
   # Double the memory for zeppelin itself
   # '-XX:MaxPermSize=512m' is omitted because it's deprecated in Java8
   export ZEPPELIN_MEM='-Xms2048m -Xmx2048m'
 #+END_SRC
 
+:REFERENCES:
+- https://github.com/apache/zeppelin/blob/master/conf/zeppelin-env.sh.template
+:END:
+
 ** Dynamic Form
-- https://zeppelin.apache.org/docs/0.7.1/manual/dynamicform.html
 - [[https://github.com/apache/zeppelin/blob/master/spark/src/main/java/org/apache/zeppelin/spark/ZeppelinContext.java][GitHub Code Reference]]
+
+:REFERENCES:
+- https://zeppelin.apache.org/docs/0.7.1/manual/dynamicform.html
+:END:
 
 *** Text input form
 #+BEGIN_EXAMPLE
@@ -82,8 +87,6 @@
 
 * Topics
 ** Interpreter mode
-- https://medium.com/@leemoonsoo/apache-zeppelin-interpreter-mode-explained-bae0525d0555
-
 - ~Shared~ mode shares both ~SparkContext~ and ~Scala REPL~
 [[file:_img/screenshot_2017-07-24_19-04-03.png]]
 
@@ -93,13 +96,18 @@
 - In ~Isolated~ mode, each ~Note~ has its own ~SparkContext~ and ~Scala REPL~.
 [[file:_img/screenshot_2017-07-24_19-04-38.png]]
 
+:REFERENCES:
+- https://medium.com/@leemoonsoo/apache-zeppelin-interpreter-mode-explained-bae0525d0555
+:END:
+
 * How-to
 ** Install Interpreters
-- https://zeppelin.apache.org/docs/0.7.1/manual/interpreterinstallation.html
-
 #+BEGIN_SRC shell
   ./bin/install-interpreter.sh --all
   ./bin/install-interpreter.sh --name md,shell,jdbc,python
   ./bin/install-interpreter.sh --list
 #+END_SRC
 
+:REFERENCES:
+- https://zeppelin.apache.org/docs/0.7.1/manual/interpreterinstallation.html
+:END:

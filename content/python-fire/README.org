@@ -4,5 +4,7 @@
  - [[#links][Links]]
 
 * Links
+:REFERENCES:
 - https://github.com/google/python-fire
 - https://github.com/google/python-fire/blob/master/doc/guide.md
+:END:

@@ -12,8 +12,6 @@
 - [[#programmatic-navigation][Programmatic Navigation]]
 
 * <router-link>
-- https://router.vuejs.org/en/api/router-link.html
-
 Is preferred over ~<a href="...">~
 
 #+BEGIN_SRC html
@@ -38,8 +36,11 @@ Is preferred over ~<a href="...">~
     <router-link :to="{ path: 'register', query: { plan: 'private' }}">Register</router-link>
 #+END_SRC
 
+:REFERENCES:
+- https://router.vuejs.org/en/api/router-link.html
+:END:
+
 * <router-view>
-- https://router.vuejs.org/en/api/router-view.html
 - A functional component that renders the matched component for the given path.
 - Can use mutliple routes by [[https://router.vuejs.org/en/essentials/named-views.html][named-views]]
 - Use ~:key~ to force rerender when the path is changed
@@ -47,9 +48,11 @@ Is preferred over ~<a href="...">~
   <router-view :key="$route.fullPath"></router-view>
 #+END_SRC
 
-* history mode
-- https://router.vuejs.org/en/essentials/history-mode.html
+:REFERENCES:
+- https://router.vuejs.org/en/api/router-view.html
+:END:
 
+* history mode
 #+BEGIN_SRC javascript
   const router = new VueRouter({
     mode: 'history',
@@ -61,6 +64,10 @@ Is preferred over ~<a href="...">~
 Since our app is a single page client side app, without a proper server configuration,
 the users will get a 404 error if they access http://oursite.com/user/id directly in their browser.
 #+END_QUOTE
+
+:REFERENCES:
+- https://router.vuejs.org/en/essentials/history-mode.html
+:END:
 
 * Matching
 :REFERENCES:
@@ -82,8 +89,6 @@ In such a case the matching priority is determined by the order of route definit
 #+END_QUOTE
 
 * The Route object
-- https://router.vuejs.org/en/api/route-object.html
-
 #+BEGIN_SRC javascript
 
   // For pattern '/:user', '/yeonghoey?test=no"
@@ -91,11 +96,19 @@ In such a case the matching priority is determined by the order of route definit
   $route.query.test === 'no';
 #+END_SRC
 
+:REFERENCES:
+- https://router.vuejs.org/en/api/route-object.html
+:END:
+
 * Route Meta Fields
+:REFERENCES:
 - https://router.vuejs.org/en/advanced/meta.html
+:END:
 
 * Navigation Guards
+:REFERENCES:
 - https://router.vuejs.org/en/advanced/navigation-guards.html
+:END:
 
 * Passing Props
 :REFERENCES:
@@ -107,4 +120,6 @@ When ~props~ is set to ~true~, the ~route.params~ will be set as the component p
 #+END_QUOTE
 
 * Programmatic Navigation
+:REFERENCES:
 - https://router.vuejs.org/en/essentials/navigation.html
+:END:

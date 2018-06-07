@@ -19,7 +19,7 @@ If there are more than three to five items on the page(of course it depends on t
 *see which of the separate elements can be grouped together* into close proximity
 to become one visual unit
 
------
+:REFERENCES:
 
 + *To organize*
 + Items relating to each other *should be grouped together*
@@ -45,7 +45,7 @@ the invisible line that connects the text is much stronger
 because it has a hard vertical edge to follow.
 This give *left- and right-aligned text a cleaner and more dramatic look.*
 
------
+:REFERENCES:
 
 [[file:_img/screenshot_2017-03-15_09-05-21.png]]
 
@@ -92,7 +92,7 @@ however, there is "trapped" white space, and the white space is an awkward shape
 * Repetition
 [[file:_img/screenshot_2017-03-16_08-24-22.png]]
 
------
+:REFERENCES:
 
 + *To unify and to add visual interest*
 + Avoid repeating the element *so much that it becomes annoying or overwhelming.*
@@ -112,7 +112,7 @@ clarify the hierarchy, guide a reader around the page, and provide a focus.
 
 If two elements are sort of different *but not really, then you don't have contrast, you have conflict*.
 
------
+:REFERENCES:
 
 [[file:_img/screenshot_2017-03-16_08-49-26.png]]
 
@@ -128,14 +128,13 @@ If two elements are sort of different *but not really, then you don't have contr
 -----
 
 * Color
-
 [[file:_img/screenshot_2017-04-02_14-00-46.png]]
 
 | Primary colors   | [[file:_img/screenshot_2017-04-02_10-45-36.png]] |
 | Secondary colors | [[file:_img/screenshot_2017-04-02_10-46-38.png]] |
 | Tertiary colors  | [[file:_img/screenshot_2017-04-02_10-48-56.png]] |
 
------
+:REFERENCES:
 
 
 
@@ -207,13 +206,12 @@ that are going to be printed by a printing press onto something physical.
 -----
 
 * Type Basics
-
 [[file:_img/screenshot_2017-04-02_16-34-38.png]]
 
 *Concordant*: use only one type family without much variety in style, size, weight, and so on.
 Most concordant designs tend to be rather calm and formal.
 
------
+:REFERENCES:
 
 [[file:_img/screenshot_2017-04-02_16-34-58.png]]
 
@@ -240,10 +238,9 @@ Most often you will *strengthen the effect by combining and emphasizing the diff
 -----
 
 * Type Categories
-
 [[file:_img/screenshot_2017-04-02_16-39-27.png]]
 
------
+:REFERENCES:
 
 [[file:_img/screenshot_2017-04-02_16-41-10.png]]
 
@@ -287,10 +284,9 @@ and there is a font for any whim you wish to express.
 -----
 
 * Type Contrasts
-
 [[file:_img/screenshot_2017-04-02_17-16-18.png]]
 
------
+:REFERENCES:
 
 [[file:_img/screenshot_2017-04-02_16-54-14.png]]
 
@@ -351,7 +347,6 @@ such as graphics or lines, to emphasize or contrast the direction.
 -----
 
 * Typography
-
 | One space after .       | Putting two spaces is old-style               | =Put one space._After punctuation.= |
 | Typographer quote marks | No typewriter quotation marks                 | '  "  (6 and 9 shapes)              |
 | Apostrophes             | 〃                                            | 〃                                  |
@@ -363,7 +358,7 @@ such as graphics or lines, to emphasize or contrast the direction.
 | . following styled text | should be in the same style                   | =*Yes.*=, not =*No*.=               |
 | . in or out parentheses | whether content is a part of sentence or not  | =Blah(something).= =Blah(Blah.)=    |
 
------
+:REFERENCES:
 
 *Either indent new paragraphs or use extra space between paragraphs, not both*.
 Following the logic of the above, *first paragraph following a heading or subhead does not need an indent*.
@@ -397,7 +392,6 @@ Generally create the visual impression that there is *the same amount of space o
 -----
 
 * Print Works
-
 (This chapter are written roughly because I'm not directly releated to this sorts of works)
 
 [[file:_img/screenshot_2017-04-02_15-12-31.png]]
@@ -408,7 +402,7 @@ to tie them all together
 One of the most important features of an identity package or branding follows
 *the Principle of Repetition*
 
------
+:REFERENCES:
 
 [[file:_img/screenshot_2017-04-02_15-14-12.png]]
 

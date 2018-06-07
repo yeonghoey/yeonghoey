@@ -21,15 +21,17 @@
 * Overview
 * Reference
 ** Front Matter
+:REFERENCES:
 - https://gohugo.io/content-management/front-matter/#front-matter-variables
+:END:
 
 ** Shortcodes
+:REFERENCES:
 - https://gohugo.io/content-management/shortcodes/
+:END:
 
 ** Templating
 *** Syntax
-- https://gohugo.io/templates/lookup-order/
-
 Hugo uses Go’s ~html/template~ and ~text/template~ libraries as the basis for the templating.
 
 ~{{ . }}~ stands for the context variable.
@@ -90,11 +92,19 @@ Hugo uses Go’s ~html/template~ and ~text/template~ libraries as the basis for 
   {{ with .Params.title }}<h4>{{ . }}</h4>{{ end }}
 #+END_SRC
 
+:REFERENCES:
+- https://gohugo.io/templates/lookup-order/
+:END:
+
 *** Functions
+:REFERENCES:
 - https://gohugo.io/functions
+:END:
 
 *** Variables
+:REFERENCES:
 - https://gohugo.io/variables
+:END:
 
 * Terminology
 * Topics
@@ -132,11 +142,11 @@ When you want to customize the file above which is provided by the theme, you ca
 #+END_EXAMPLE
 
 ** Path
+:REFERENCES:
 - https://gohugo.io/content-management/organization/#path-breakdown-in-hugo
+:END:
 
 ** Taxonomies
-- https://gohugo.io/content-management/taxonomies/
-
 #+BEGIN_EXAMPLE
   Actor                    <- Taxonomy
       Bruce Willis         <- Term
@@ -168,6 +178,10 @@ Add taxonomies to content with front matter:
   project_url = "https://github.com/gohugoio/hugo"
   +++
 #+END_SRC
+
+:REFERENCES:
+- https://gohugo.io/content-management/taxonomies/
+:END:
 
 * How-to
 * Links

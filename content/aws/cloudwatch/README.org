@@ -6,8 +6,6 @@
 
 * Concepts
 ** Metrics
-- http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html
-
 Metrics consist of  ~Minimum~, ~Maximum~, ~Sum~, ~Average~, ~SampleCount~, ~pNN.NN~.
 To interpret them clearly, we need to know the *sampling rate*.
 Mostly, the metrics of AWS resources explicitly state their *sampling rate* on their documentation.
@@ -20,3 +18,7 @@ Basic (*five-minute*) monitoring is enabled by default.
 #+BEGIN_QUOTE
 The metrics that you configure for your streams are automatically collected and pushed to CloudWatch *every minute*.
 #+END_QUOTE
+
+:REFERENCES:
+- http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html
+:END:

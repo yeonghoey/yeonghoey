@@ -61,7 +61,6 @@ and as you do so you slowly gain intuition as well about the hyper parameters th
 [[file:_img/screenshot_2017-10-04_08-24-10.png]]
 * Programming Assignments
 ** Building your Deep Neural Network: Step by Step
-
 [[file:_img/screenshot_2017-10-06_05-46-31.png]]
 
 [[file:_img/screenshot_2017-10-06_05-47-48.png]]

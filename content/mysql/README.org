@@ -22,11 +22,11 @@
 - [[#links][Links]]
 
 * Overview
+:REFERENCES:
 - https://en.wikibooks.org/wiki/MySQL/CheatSheet
+:END:
 
 ** CLI
-- http://stackoverflow.com/questions/1602904/how-do-you-run-a-single-query-through-mysql-from-the-command-line
-
 #+BEGIN_SRC shell
   mysql -h <host> -u <user> -p<passwd>
   mysql -h <host> -u <user> -p
@@ -44,6 +44,10 @@
   mysqlcheck --all-databases
   mysqlcheck --all-databases --fast
 #+END_SRC
+
+:REFERENCES:
+- http://stackoverflow.com/questions/1602904/how-do-you-run-a-single-query-through-mysql-from-the-command-line
+:END:
 
 ** SELECT
 #+BEGIN_SRC sql
@@ -226,7 +230,6 @@
 
 * Reference
 ** DROP TABLE
-- https://dev.mysql.com/doc/refman/5.6/en/drop-table.html
 - ~RESTRICT~ and ~CASCADE~ are permitted to make porting easier. In MySQL 5.6, *they do nothing*.
 
 #+BEGIN_SRC sql
@@ -235,16 +238,21 @@
       [RESTRICT | CASCADE]
 #+END_SRC
 
+:REFERENCES:
+- https://dev.mysql.com/doc/refman/5.6/en/drop-table.html
+:END:
+
 * Topics
 ** Database? Schema?
-- http://stackoverflow.com/questions/11618277/difference-between-schema-database-in-mysql
 - ~CREATE SCHEMA~ is a synonym for ~CREATE DATABASE~
 - Most other database solutions make a distinction.
   Usually a ~schema~ is a collection of ~tables~ and a ~database~ is a collection of ~schemas~.
 
-** DATETIME vs TIMESTAMP
-- http://stackoverflow.com/questions/409286/should-i-use-field-datetime-or-timestamp
+:REFERENCES:
+- http://stackoverflow.com/questions/11618277/difference-between-schema-database-in-mysql
+:END:
 
+** DATETIME vs TIMESTAMP
 | ~TIMESTAMP~                               | ~DATETIME~                                             |
 |-------------------------------------------+--------------------------------------------------------|
 | 4 bytes                                   | 8 bytes                                                |
@@ -252,9 +260,11 @@
 | A specific point in time                  | A specific date and time in calender                   |
 | Mostly for logging                        | Mostly for domain data like reservation, reminder etc. |
 
+:REFERENCES:
+- http://stackoverflow.com/questions/409286/should-i-use-field-datetime-or-timestamp
+:END:
+
 ** Foreign key constraint
-- http://www.sqlines.com/mysql/set_foreign_key_checks
-- https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_foreign_key_checks
 - Dropping a table whose column is referenced as a foreign key by another table can fail
 - ~SET FOREIGN_KEY_CHECKS = 0;~ to ignore the constraint
 - It's not recommended for a general use
@@ -290,6 +300,11 @@
   INSERT INTO cities VALUES ('Boston', 'MA');
   -- Query OK, 1 row affected (0.03 sec)
 #+END_SRC
+
+:REFERENCES:
+- http://www.sqlines.com/mysql/set_foreign_key_checks
+- https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_foreign_key_checks
+:END:
 
 * How-to
 * Links

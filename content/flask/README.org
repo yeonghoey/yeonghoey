@@ -114,8 +114,6 @@ Certain configuration values are also forwarded to the Flask object so you can r
 #+END_SRC
 
 ** Flask
-- http://flask.pocoo.org/docs/0.12/api/#application-object
-
 #+BEGIN_SRC python
   app = Flask('yourapplication')
   app = Flask(__name__.split('.')[0])
@@ -126,25 +124,31 @@ If you are using a single module, ~name~ is always the correct value.
 If you however are using a package, it’s usually recommended to *hardcode the name of your package* there.
 #+END_QUOTE
 
-** g
-- http://flask.pocoo.org/docs/0.12/api/#flask.g
-- http://flask.pocoo.org/docs/0.12/tutorial/dbcon/
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#application-object
+:END:
 
+** g
 #+BEGIN_QUOTE
 Stored on the application context and no longer on the request context which means it becomes available
 if only the application context is bound and not yet a request.
 #+END_QUOTE
 
-** jsonify
-- http://flask.pocoo.org/docs/0.12/api/#flask.json.jsonify
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#flask.g
+- http://flask.pocoo.org/docs/0.12/tutorial/dbcon/
+:END:
 
+** jsonify
 : flask.json.jsonify(*args, **kwargs)
 1. Dumps the arguments. Pack multipe arugments as ~args~ into JSON array, ~kwargs~ into JSON object.
 2. Create ~Response~ object with ~Content-Type~ of ~application/json~
 
-** open_resource
-- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.open_resource
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#flask.json.jsonify
+:END:
 
+** open_resource
 #+BEGIN_EXAMPLE
   /myapplication.py
   /schema.sql
@@ -166,9 +170,11 @@ The name of the package is used to resolve resources from inside the package or 
       do_something_with(contents)
 #+END_SRC
 
-** redirect
-- http://flask.pocoo.org/docs/0.10/api/#flask.redirect
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.open_resource
+:END:
 
+** redirect
 : flask.redirect(location, code=302, Response=None)
 
 #+BEGIN_SRC python
@@ -177,12 +183,18 @@ The name of the package is used to resolve resources from inside the package or 
       return redirect(url_for('login'))
 #+END_SRC
 
-** render_template
-- http://flask.pocoo.org/docs/0.12/api/#flask.render_template
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.10/api/#flask.redirect
+:END:
 
+** render_template
 : flask.render_template(template_name_or_list, **context)
 
 - context :: the variables that should be available in the context of the template.
+
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#flask.render_template
+:END:
 
 ** request
 #+BEGIN_SRC python
@@ -198,14 +210,14 @@ Use ~request.get_json()~, which is later added for consistency, instead of ~requ
   request.get_json(force=False, silent=False, cache=True)
 #+END_SRC
 
------
+:REFERENCES:
+
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request.args
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request.get_json
+:END:
 
 ** MultiDict
-- http://werkzeug.pocoo.org/docs/0.12/datastructures/#werkzeug.datastructures.MultiDict
-
 #+BEGIN_SRC python
   >>> d = TypeConversionDict(foo='42', bar='blub')
   >>> d.get('foo', type=int)
@@ -214,8 +226,11 @@ Use ~request.get_json()~, which is later added for consistency, instead of ~requ
   -1
 #+END_SRC
 
-** route
+:REFERENCES:
+- http://werkzeug.pocoo.org/docs/0.12/datastructures/#werkzeug.datastructures.MultiDict
+:END:
 
+** route
 #+BEGIN_SRC python
   @app.route('/users/', defaults={'page': 1})
   @app.route('/users/page/<int:page>')
@@ -230,15 +245,14 @@ Use ~request.get_json()~, which is later added for consistency, instead of ~requ
 | subdomain	 | specifies the rule for the subdomain in case subdomain matching is in use. If not specified the default subdomain is assumed.                                                                                                                                                                                                                                                                                 |
 | **options	 | the options to be forwarded to the underlying Rule object. A change to Werkzeug is handling of method options. methods is a list of methods this rule should be limited to (GET, POST etc.). By default a rule just listens for GET (and implicitly HEAD). Starting with Flask 0.6, OPTIONS is implicitly added and handled by the standard request handling. They have to be specified as keyword arguments. |
 
------
+:REFERENCES:
+
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.route
 - http://flask.pocoo.org/docs/0.12/api/#url-route-registrations
 - http://werkzeug.pocoo.org/docs/0.14/routing/#werkzeug.routing.Rule
+:END:
 
 ** url_for
-- http://flask.pocoo.org/docs/0.12/api/#flask.url_for
-- http://flask.pocoo.org/docs/0.12/quickstart/#url-building
-
 #+BEGIN_SRC python
   flask.url_for(endpoint, **values)
 #+END_SRC
@@ -261,6 +275,11 @@ This is better than hard-coded URLs as following reasons:
 1. Reversing is often more descriptive
 2. URL building will handle escaping
 3. If your application is placed outside the URL root
+
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#flask.url_for
+- http://flask.pocoo.org/docs/0.12/quickstart/#url-building
+:END:
 
 ** test_client
 #+BEGIN_SRC python
@@ -287,17 +306,18 @@ You have to manually serialize dict to json and specify ~content_type~ as follow
               data=json.dumps(d))
 #+END_SRC
 
------
+:REFERENCES:
+- [[http://werkzeug.pocoo.org/docs/0.14/test/#werkzeug.test.EnvironBuilder][Request parameters]]
+- [[http://werkzeug.pocoo.org/docs/0.14/wrappers/#werkzeug.wrappers.BaseResponse][Response reference]]
+
 - http://flask.pocoo.org/docs/0.12/testing/
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.test_client
 - http://flask.pocoo.org/docs/0.12/api/#flask.testing.FlaskClient
 - http://werkzeug.pocoo.org/docs/0.14/test/#werkzeug.test.Client
-- [[http://werkzeug.pocoo.org/docs/0.14/test/#werkzeug.test.EnvironBuilder][Request parameters]]
-- [[http://werkzeug.pocoo.org/docs/0.14/wrappers/#werkzeug.wrappers.BaseResponse][Response reference]]
+:END:
 
 * Topics
 ** Application Context
-- http://flask.pocoo.org/docs/0.12/appcontext/
 - Since one of the pillars of Flask’s design is that you can have more than one application in the same Python process.
 
 #+BEGIN_SRC python
@@ -329,10 +349,11 @@ You have to manually serialize dict to json and specify ~content_type~ as follow
   db = LocalProxy(get_db)
 #+END_SRC
 
-** Blueprints
-- http://flask.pocoo.org/docs/0.12/blueprints/
-- http://flask.pocoo.org/docs/0.12/api/#flask.Blueprint
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/appcontext/
+:END:
 
+** Blueprints
 : flask.Blueprint(name, import_name, ...)
 
 - ~name~        :: Use as the prefix of the blueprint routes
@@ -363,9 +384,12 @@ You have to manually serialize dict to json and specify ~content_type~ as follow
   app.register_blueprint(simple_page, url_prefix='/pages')
 #+END_SRC
 
-*** Access config within Blueprints
-- https://stackoverflow.com/questions/18214612/how-to-access-app-config-in-a-blueprint
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/blueprints/
+- http://flask.pocoo.org/docs/0.12/api/#flask.Blueprint
+:END:
 
+*** Access config within Blueprints
 Use ~flask.current_app~,
 but be careful that ~current_app~ is only accessible under the request context.:
 #+BEGIN_SRC python
@@ -376,9 +400,11 @@ but be careful that ~current_app~ is only accessible under the request context.:
 #+END_SRC
 
 
-** Commands
-- http://flask.pocoo.org/docs/0.12/tutorial/dbinit/#tutorial-dbinit
+:REFERENCES:
+- https://stackoverflow.com/questions/18214612/how-to-access-app-config-in-a-blueprint
+:END:
 
+** Commands
 #+BEGIN_SRC python
   @app.cli.command('initdb')
   def initdb_command():
@@ -389,8 +415,11 @@ but be careful that ~current_app~ is only accessible under the request context.:
   $ flask initdb
 #+END_SRC
 
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/tutorial/dbinit/#tutorial-dbinit
+:END:
+
 ** Cookies
-- http://flask.pocoo.org/docs/0.12/quickstart/#cookies
 #+BEGIN_SRC python
   request.cookies.get('username')
 #+END_SRC
@@ -400,13 +429,18 @@ but be careful that ~current_app~ is only accessible under the request context.:
   resp.set_cookie('username', 'the username')
 #+END_SRC
 
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/quickstart/#cookies
+:END:
+
 ** HTTP Methods
-- http://flask.pocoo.org/docs/0.12/quickstart/#http-methods
 - OPTIONS :: Starting with Flask 0.6, this is implemented for you automatically.
 
-** Message Flashing
-- http://flask.pocoo.org/docs/0.12/patterns/flashing/#message-flashing-pattern
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/quickstart/#http-methods
+:END:
 
+** Message Flashing
 #+BEGIN_SRC python
   flash('You were successfully logged in')
   return redirect(url_for('index'))
@@ -420,6 +454,10 @@ The template cotains following code:
 #+BEGIN_SRC html
   {% with messages = get_flashed_messages() %}
 #+END_SRC
+
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/patterns/flashing/#message-flashing-pattern
+:END:
 
 ** Redirects and Errors
 - Exceptions generated by flask are subclasses of ~werkzeug.exceptions.HTTPException~
@@ -441,13 +479,14 @@ The template cotains following code:
       return render_template('page_not_found.html'), 404
 #+END_SRC
 
------
+:REFERENCES:
+
+
 - http://flask.pocoo.org/docs/1.0/quickstart/#redirects-and-errors
 - http://werkzeug.pocoo.org/docs/0.14/exceptions/
-
+:END:
 
 ** Request Context
-- http://flask.pocoo.org/docs/0.12/reqcontext/
 - The request context internally works like a stack
 
 #+BEGIN_SRC python
@@ -460,14 +499,19 @@ The template cotains following code:
           return response(environ, start_response)
 #+END_SRC
 
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/reqcontext/
+:END:
+
 ** Responses
-- http://flask.pocoo.org/docs/0.12/quickstart/#about-responses
-
-
 1. response object :: just return
 2. string :: create a response object with it
 3. tuple  :: ~(response, status, headers)~ or ~(response, headers)~, ~headers~ can be a ~list~ or a ~dict~.
 4. WSGI application :: covert it to a response object.
+
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/quickstart/#about-responses
+:END:
 
 ** Routing
 :REFERENCES:
@@ -517,9 +561,6 @@ Trailing slashs:
 - ~/test/<path:code>~ :: `code` can include ~/~
 
 ** Sessions
-- http://flask.pocoo.org/docs/0.12/quickstart/#sessions
-- http://flask.pocoo.org/docs/0.12/api/#sessions
-- https://stackoverflow.com/questions/34118093/flask-permanent-session-where-to-define-them
 - [[https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key][How SECRET_KEY works]]
 
 #+BEGIN_QUOTE
@@ -555,10 +596,13 @@ The way Flask does this is by using a signed cookie.
   Just take that thing and copy/paste it into your code and you're done.
 #+END_SRC
 
-** Signals
-- http://flask.pocoo.org/docs/0.12/signals/
-- http://flask.pocoo.org/docs/0.12/api/#core-signals-list
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/quickstart/#sessions
+- http://flask.pocoo.org/docs/0.12/api/#sessions
+- https://stackoverflow.com/questions/34118093/flask-permanent-session-where-to-define-them
+:END:
 
+** Signals
 #+BEGIN_SRC python
   from flask import template_rendered
   from contextlib import contextmanager
@@ -594,15 +638,24 @@ The way Flask does this is by using a signed cookie.
       print 'Template %s is rendered with %s' % (template.name, context)
 #+END_SRC
 
-** Static Files
-- http://flask.pocoo.org/docs/0.12/quickstart/#static-files
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/signals/
+- http://flask.pocoo.org/docs/0.12/api/#core-signals-list
+:END:
 
+** Static Files
 #+BEGIN_SRC python
   url_for('static', filename='style.css')
 #+END_SRC
 
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/quickstart/#static-files
+:END:
+
 ** Templates
+:REFERENCES:
 - http://flask.pocoo.org/docs/0.12/templating/
+:END:
 
 *** Standard Contexts
 - ~config~
@@ -625,7 +678,6 @@ so make sure to disable escaping with ~|safe~ before Flask 0.10 if you intend to
 #+END_SRC
 * Patterns
 ** Application Factories
-- http://flask.pocoo.org/docs/0.12/patterns/appfactories/
 - More flexible, more organized, but more complicated
 
 #+BEGIN_SRC python
@@ -643,6 +695,11 @@ so make sure to disable escaping with ~|safe~ before Flask 0.10 if you intend to
 
       return app
 #+END_SRC
+
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/patterns/appfactories/
+:END:
+
 * Extensions
 ** flask-cors
 :REFERENCES:

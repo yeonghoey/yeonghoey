@@ -48,10 +48,14 @@
 ** Quiz: Regular Expressions Review - Quiz 1
 [[file:_img/screenshot_2017-01-22_16-18-18.png]]
 ** Regular Expressions Review - Part 3
-- http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html
 [[file:_img/screenshot_2017-01-22_16-23-11.png]]
 
 [[file:_img/screenshot_2017-01-22_16-26-12.png]]
+
+:REFERENCES:
+- http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html
+:END:
+
 ** Language
 [[file:_img/screenshot_2017-01-22_16-28-46.png]]
 ** Regular Expressions
