@@ -9,22 +9,6 @@ from livereload.handlers import LiveReloadHandler
 
 
 work_paths = set()
-on_message = LiveReloadHandler.on_message
-
-
-def on_message_ex(self, message):
-    # Intercept the event and record the working path
-    url = json.loads(message).get('url')
-    if url is not None:
-        path = urlparse(url).path
-        # Remove leadling '/'
-        work_paths.add(path[1:])
-
-    # Call the original one
-    return on_message(self, message)
-
-
-LiveReloadHandler.on_message = on_message_ex
 
 
 def touch():
@@ -32,6 +16,26 @@ def touch():
         work_files = [join('content', p, 'README.org') for p in work_paths]
         targets = ' '.join(f"'{f}'" for f in work_files)
         shell(f'touch {targets}')()
+
+
+on_message = LiveReloadHandler.on_message
+
+
+def on_message_ex(self, message):
+    # Intercept the event and record the working path
+    url = json.loads(message).get('url')
+    if url is not None:
+        # Remove leadling '/'
+        path = urlparse(url).path[1:]
+        if path not in work_paths:
+            work_paths.add(path)
+            touch()
+
+    # Call the original one
+    return on_message(self, message)
+
+
+LiveReloadHandler.on_message = on_message_ex
 
 
 server = Server()
