@@ -337,7 +337,10 @@ F-statistic: 815.6 on 2 and 387 DF,  p-value: < 2.2e-16
 #+BEGIN_QUOTE
 At least one of the predictors has a significant linear relationship with the response.
 #+END_QUOTE
+
+:REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html#significance-of-regression
+:END:
 
 ** General Nested Models
 - If $p$ > $q$, $p$ model is more complex
