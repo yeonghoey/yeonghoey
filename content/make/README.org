@@ -33,7 +33,6 @@
   - [[#filter-out-patterntext][$(filter-out pattern…,text)]]
 - [[#how-to][How-to]]
   - [[#manage-background-processes][Manage background processes]]
-- [[#links][Links]]
 
 * Overview
 Simple usage of [[https://github.com/requests/requests/blob/master/Makefile][requests]]:
@@ -67,22 +66,29 @@ Simple usage of [[https://github.com/requests/requests/blob/master/Makefile][req
     cd docs && make html
     @echo "\033[95m\n\nBuild successful! View the docs homepage at docs/_build/html/index.html.\n\033[0m"
 #+END_SRC
------
+
+:REFERENCES:
+- https://www.gnu.org/software/make/manual/make.html
 - https://www.gnu.org/software/make/manual/make.html#Features-of-GNU-make
+:END:
 
 * Topics
 ** Makefile
 The file name can be one of ~GNUmakefile~, ~makefile~ and ~Makefile~, but
 ~Makefile~ is mostly recommended.
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/html_node/Makefile-Names.html
+:END:
 
 *** Include
 - Include other makefiles
 - Static file names, wildcards, variables are all supported:
   : include foo *.mk $(bar)
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/html_node/Include.html#Include
+:END:
 
 *** Evaluation
 #+BEGIN_SRC makefile
@@ -121,9 +127,10 @@ You can take advantage of ~.SECONDEXPANSION~ special rule and ~$$~ to defer expa
   #   main.o try.o test.o
 #+END_SRC
 
------
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Variable-Assignment
 - https://www.gnu.org/software/make/manual/make.html#Secondary-Expansion-1
+:END:
 
 *** Wildcard
 - Wildcard expansions within the definitions of targets and prerequisites are done by ~make~
@@ -131,8 +138,9 @@ You can take advantage of ~.SECONDEXPANSION~ special rule and ~$$~ to defer expa
 - Variables don't just expand wildcards, *they expand only when they are used in targets or prerequisites*
 - To explicitly expand the wildcard in a variable, Use ~$(wildcard var)~
 
------
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Wildcard-Examples-1
+:END:
 
 *** Parallel Execution
 - ~-j~ or ~--jobs~
@@ -152,9 +160,10 @@ To force some targets to run parallel:
 
 - ~--output-sync~ option is not supported the default macOS ~make~ (GNU Make 3.81)
 
------
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/html_node/Parallel.html
 - https://www.gnu.org/software/make/manual/html_node/Parallel-Output.html
+:END:
 
 *** Recursive Use of make
 #+BEGIN_SRC makefile
@@ -164,8 +173,10 @@ To force some targets to run parallel:
 - ~$(MAKE)~ is the path of ~make~ executable that is invoked
 - Some flags for ~make~ is passed automatically through ~MAKEFLAGS~
 - The options ~-C~, ~-f~, ~-o~, and ~-W~ are not put into ~MAKEFLAGS~; 
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/html_node/Recursion.html
+:END:
 
 ** Rules
 #+BEGIN_SRC makefile
@@ -198,15 +209,18 @@ When execute the command ~make <target>~:
    1. Process the rule's prerequisites
    2. Run its own recipe if some of its prerequisites are newer than its own target.
 
------
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/html_node/Introduction.html
+:END:
 
 *** Multiple Rules for One Target
 - All the prerequisites mentioned in all the rules are *merged* into one list
 - There can only be one recipe to be executed for a file.
 - When there are serverl recipes for a file, ~make~ uses the last one given and prints an error message.
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Multiple-Rules-for-One-Target
+:END:
 
 *** Static Pattern Rules
 #+BEGIN_SRC makefile
@@ -221,8 +235,9 @@ When execute the command ~make <target>~:
 - ~$<~ is the automatic variable that hold the name matched by ~%~
 - ~$@~ is the automatic variable that hold the name of the target
 
------
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Syntax-of-Static-Pattern-Rules
+:END:
 
 *** Implicit Rules
 - Each implicit rule has a target pattern and prerequisite patterns
@@ -242,11 +257,13 @@ when x.c, y.c and z.c all exist will execute:
   rm -f y.o
   rm -f z.o
 #+END_SRC
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Using-Implicit-Rules
 - https://www.gnu.org/software/make/manual/make.html#Catalogue-of-Rules
 - https://www.gnu.org/software/make/manual/make.html#Variables-Used-by-Implicit-Rules
 - https://www.gnu.org/software/make/manual/make.html#Implicit-Rule-Search-Algorithm
+:END:
 
 *** Pattern Rules
 - A pattern rule contains the character ~%~ (exactly one of them) in the target
@@ -256,13 +273,17 @@ when x.c, y.c and z.c all exist will execute:
   # provided that n.c exists or can be made.
   %.o : %.c ; recipe…
 #+END_SRC
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Defining-and-Redefining-Pattern-Rules
+:END:
 
 ** Targets
 - There are special built-in target names to adjust ~make~ behaviors
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Special-Targets
+:END:
 
 *** Phony Targets
 - Prevent the name collision between files and actions
@@ -286,8 +307,10 @@ when x.c, y.c and z.c all exist will execute:
 
   foo: baz
 #+END_SRC
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Phony-Targets-1
+:END:
 
 ** Prerequisites
 - Normal ::
@@ -339,9 +362,11 @@ when x.c, y.c and z.c all exist will execute:
   $ make x
   touch z
 #+END_EXAMPLE
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Types-of-Prerequisites
 - https://stackoverflow.com/questions/24821611/order-only-prerequisites-not-working-correctly-in-gnu-make
+:END:
 
 *** VPATH
 #+BEGIN_SRC makefile
@@ -357,8 +382,10 @@ when x.c, y.c and z.c all exist will execute:
   vpath %.c # clear out for %.c
   vpath     # clear out for all
 #+END_SRC
------
-- https://www.gnu.org/software/make/manual/make.html#VPATH_003a-Search-Path-for-All-Prerequisites 
+
+:REFERENCES:
+- https://www.gnu.org/software/make/manual/make.html#VPATH_003a-Search-Path-for-All-Prerequisites
+:END:
 
 ** Recipes
 *** Echoing
@@ -368,8 +395,10 @@ when x.c, y.c and z.c all exist will execute:
 #+BEGIN_SRC makefile
   @echo About to make distribution files
 #+END_SRC
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Recipe-Echoing
+:END:
 
 *** Shell for Recipe
 - ~SHELL = <path-to-shell>~
@@ -377,9 +406,10 @@ when x.c, y.c and z.c all exist will execute:
 - ~.ONESHELL:~ to do all invokations in a shell
 - Unlike most variables, the variable ~SHELL~ is never set from the environment.
 
------
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Using-One-Shell
 - https://www.gnu.org/software/make/manual/make.html#Choosing-the-Shell-1
+:END:
 
 *** Errors in Recipes
 #+BEGIN_SRC makefile
@@ -387,8 +417,10 @@ when x.c, y.c and z.c all exist will execute:
           -rm -f *.o
 #+END_SRC
 - To ignore errors in a recipe line, write a ~-~ at the beginning of the line’s text
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Errors-in-Recipes
+:END:
 
 *** Canned Recipes
 When the same sequence of commands is useful in making various targets:
@@ -481,12 +513,13 @@ When the same sequence of commands is useful in making various targets:
   prog: a.o b.o
 #+END_SRC
 
------
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#How-to-Use-Variables
 - https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors
 - https://www.gnu.org/software/make/manual/make.html#Other-Special-Variables
 - https://www.gnu.org/software/make/manual/make.html#Automatic-Variables-1
 - https://www.gnu.org/software/make/manual/html_node/Target_002dspecific.html
+:END:
 
 ** Conditionals
 #+BEGIN_SRC makefile
@@ -500,15 +533,19 @@ When the same sequence of commands is useful in making various targets:
           $(CC) -o foo $(objects) $(normal_libs)
   endif
 #+END_SRC
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Conditional-Parts-of-Makefiles
+:END:
 
 ** Functions
 #+BEGIN_SRC makefile
   $(function arguments)
 #+END_SRC
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/html_node/Functions.html#Functions
+:END:
 
 *** Define custom functions
 - There is no explicit function definition, but it can be mimicked using [[https://www.gnu.org/software/make/manual/html_node/Multi_002dLine.html#Multi_002dLine][define]] directive along with [[https://www.gnu.org/software/make/manual/html_node/Call-Function.html#Call-Function][$(call variable,param,param,…)]]
@@ -523,15 +560,18 @@ When the same sequence of commands is useful in making various targets:
 #+END_SRC
 
 ** CLI
------
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#How-to-Run-make
 - https://www.gnu.org/software/make/manual/make.html#Summary-of-Options
+:END:
 
 ** Conventions
 - Every Makefile should contain this line:
   : SHELL = /bin/sh
------
+
+:REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#General-Conventions-for-Makefiles
+:END:
 
 * Reference
 ** [[https://www.gnu.org/software/make/manual/html_node/Text-Functions.html][$(filter-out pattern…,text)]]
@@ -561,6 +601,3 @@ When the same sequence of commands is useful in making various targets:
     -kill -INT -$(PGID)
     -rm 'db.pid'
 #+END_SRC
-
-* Links
-- https://www.gnu.org/software/make/manual/make.html
