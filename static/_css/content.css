@@ -104,10 +104,12 @@ table td {
   list-style-type: none;
 }
 
-/* image */
-img {
+/* media */
+img,
+.embed {
   max-width: 75%;
   height: auto;
+  box-shadow: 0 0 1em #f0f0f0;
 }
 
 /* iframe aspect ratio support */
@@ -115,7 +117,6 @@ img {
   position: relative;
   display: block;
   overflow: hidden;
-  width: 75%;
 }
 
 .embed-16by9 {
