@@ -62,7 +62,6 @@
 #+END_SRC
 
 :REFERENCES:
-
 - http://doc.pytest.org/en/latest/usage.html
 - https://docs.pytest.org/en/2.8.7/capture.html
 :END:
@@ -307,7 +306,7 @@ The rootdir is used a reference directory for constructing test addresses (“no
 - https://docs.pytest.org/en/latest/goodpractices.html#test-discovery
 :END:
 
-:REFERENCES:
+-----
 
 Useful if you have many functional tests or for other reasons want to keep tests separate from actual application code (often a good idea):
 #+BEGIN_EXAMPLE

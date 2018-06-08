@@ -20,7 +20,6 @@
 - Added in Python 3.5. For older versions, use [[https://docs.python.org/3/library/subprocess.html#subprocess.call][subprocess.call()]] instead.
 
 :REFERENCES:
-
 - https://docs.python.org/3/library/subprocess.html#subprocess.run
 :END:
 
@@ -35,6 +34,7 @@
 
 :REFERENCES:
 - [[https://stackoverflow.com/questions/2760652/how-to-kill-or-avoid-zombie-processes-with-subprocess-module]]
+:END:
 
 * Using PIPE
 - Always use ~communicate()~, Don't use ~wait()~
@@ -59,6 +59,7 @@ to avoid deadlocks due to any of the other OS pipe buffersfilling up and blockin
 
 :REFERENCES:
 - [[https://docs.python.org/3/library/subprocess.html#subprocess.Popen.communicate]]
+:END:
 
 * When to use shell=True
 - with ~shell=False~, the first argument should be *a list*.
@@ -69,6 +70,7 @@ to avoid deadlocks due to any of the other OS pipe buffersfilling up and blockin
 
 :REFERENCES:
 - [[http://stackoverflow.com/questions/30830642/when-to-use-shell-true-for-python-subprocess-module]]
+:END:
 
 * References
 :REFERENCES:

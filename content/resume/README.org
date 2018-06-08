@@ -21,8 +21,7 @@
 
 * Experience
 #+LATEX: \vspace{-4ex}
-
-:REFERENCES:
+-----
 #+LATEX: \vspace{-4ex}
 
 ** [[http://company.nexon.com/Eng/][NEXON Korea]] | Data/DevOps Engineer | June 2016 – Present
@@ -53,8 +52,7 @@ I developed an intelligent matchmaking system for [[http://bf.nexon.com][Bubble 
 
 * Skills
 #+LATEX: \vspace{-4ex}
-
-:REFERENCES:
+-----
 #+LATEX: \vspace{-4ex}
 
 ** Advanced
@@ -69,8 +67,7 @@ I developed an intelligent matchmaking system for [[http://bf.nexon.com][Bubble 
 
 * Education
 #+LATEX: \vspace{-4ex}
-
-:REFERENCES:
+-----
 #+LATEX: \vspace{-4ex}
 
 ** Hanyang University, Seoul | 2014

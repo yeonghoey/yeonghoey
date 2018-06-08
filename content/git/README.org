@@ -542,6 +542,7 @@ git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 
 :REFERENCES:
 - [[/find]]
+:END:
 
 * Links
 :REFERENCES:
