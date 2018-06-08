@@ -46,16 +46,19 @@
 [[file:_img/screenshot_2018-06-04_22-17-54.png]]
 
 [[file:_img/screenshot_2018-06-04_22-19-45.png]]
+
 ** Interpreting the MLR Model
-*** Model
+- $\beta_0$ :: the estimated average ~foo~ is ~<value>~, for zero values of $x_i$, $x_j$, $x_k$.
+- $\beta_i$ :: the estimated average change in ~foo~ for an increase in ~bar~ ($x_i$) is ~<value>~, for fixed values of $x_j$, $x_k$.
+
 [[file:_img/screenshot_2018-06-04_22-23-46.png]]
 
-*** Fitted Model
 [[file:_img/3ef2e5112abc5be410468427006f23b798292a85.png]]
 
 [[file:_img/d01fdcc993813016ccfd2c99066ef7a734d2079a.png]]
 
 [[file:_img/8423a15322e0aee93f81e2f5903ec650856151d1.png]]
+
 ** MLR in R
 [[file:_img/30dabd5cfc551b7b60438801d5e1a59a4240ae70.png]]
 
@@ -329,6 +332,8 @@ F-statistic: 815.6 on 2 and 387 DF,  p-value: < 2.2e-16
 [[file:_img/b3cdf497397e8125fbd1646f8027f0b31638e336.png]]
 
 [[file:_img/201cac377970de815c8b2e1db8e17ee3c44ea17e.png]]
+
+- $SSE / (n - p)$ is called MSE, Mean Squared Error.
 
 [[file:_img/5132d179e8a5004ee4de619c7f1792ab244b9e34.png]]
 
