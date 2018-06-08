@@ -13,17 +13,13 @@
 #+LATEX: \vspace{-22ex}
 
 #+ATTR_LATEX: :environment itemize :options [itemindent=34.5em,label=\null,itemsep=-1ex]
+- github.com/yeonghoey
 - yeonghoey@gmail.com
 - yeonghoey.com
-- github.com/yeonghoey
 
 #+LATEX: \vspace{-8ex}
 
 * Experience
-#+LATEX: \vspace{-4ex}
------
-#+LATEX: \vspace{-4ex}
-
 ** [[http://company.nexon.com/Eng/][NEXON Korea]] | Data/DevOps Engineer | June 2016 – Present
 I was in charge of infrastructure for [[https://durango.nexon.com/en][Durango: Wild Lands]], a seamless open world /MMORPG/.
 
@@ -51,10 +47,6 @@ I developed an intelligent matchmaking system for [[http://bf.nexon.com][Bubble 
 - Optimized network performance to cope with severe network conditions on localization for Indonesia.
 
 * Skills
-#+LATEX: \vspace{-4ex}
------
-#+LATEX: \vspace{-4ex}
-
 ** Advanced
 #+ATTR_LATEX: :environment itemize :options [label=$\circ$,itemsep=-0.5ex]
 - ~Python~, ~Bash~, ~Scala~, ~C++~
@@ -66,10 +58,6 @@ I developed an intelligent matchmaking system for [[http://bf.nexon.com][Bubble 
 - ~Docker~, ~Amazon Aurora~, ~MySQL~, ~Redis~
 
 * Education
-#+LATEX: \vspace{-4ex}
------
-#+LATEX: \vspace{-4ex}
-
 ** Hanyang University, Seoul | 2014
 #+ATTR_LATEX: :environment itemize :options [label=$\circ$,itemsep=-0.5ex]
 - B.A in /Philosophy/
