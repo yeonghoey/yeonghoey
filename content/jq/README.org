@@ -1,4 +1,5 @@
-* jq
+#+TITLE: jq
+
 #+BEGIN_SRC json
   [{"name": "apple", "price": 10}, {"name": "orange", "price": 20}]
 #+END_SRC

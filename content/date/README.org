@@ -1,4 +1,5 @@
-* date
+#+TITLE: date
+
 #+BEGIN_SRC shell
   date -u
   #     └─ --utc

@@ -1,4 +1,5 @@
-* lsof
+#+TITLE: lsof
+
 #+BEGIN_SRC shell
   lsof         # files opened by processes
   lsof -i      # opened internet sockets

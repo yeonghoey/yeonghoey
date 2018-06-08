@@ -1,4 +1,5 @@
-* Ansible Quick Start Video
+#+TITLE: Ansible Quick Start Video
+
 [[file:_img/screenshot_2017-05-08_14-53-11.png]]
 
 [[file:_img/screenshot_2017-05-08_14-53-51.png]]

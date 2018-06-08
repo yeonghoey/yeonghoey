@@ -1,4 +1,5 @@
-* pkill
+#+TITLE: pkill
+
 - Same as [[../pgrep][pgrep]], but kills matching processes
 - Default singal is ~SIGTERM~
 - ~kill -l~ to list signal names

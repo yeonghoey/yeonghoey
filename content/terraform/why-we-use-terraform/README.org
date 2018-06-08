@@ -1,4 +1,5 @@
-* Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation
+#+TITLE: Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation
+
 - [2016-12-29 Thu]
 - https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.7fsvtvl2v
 

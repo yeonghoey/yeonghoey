@@ -1,4 +1,5 @@
-* Python
+#+TITLE: Python
+
 #+BEGIN_SRC org
   ,#+BEGIN_SRC python :results output
     print "Hello, world!"

@@ -1,4 +1,5 @@
-* su
+#+TITLE: su
+
 #+BEGIN_SRC shell
   # if <user> is not specified, 'root' is used;
   sudo su

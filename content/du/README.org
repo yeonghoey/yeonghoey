@@ -1,4 +1,5 @@
-* du
+#+TITLE: du
+
 #+BEGIN_SRC shell
   $ du
   0       ./temp

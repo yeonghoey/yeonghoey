@@ -1,4 +1,5 @@
-* xargs
+#+TITLE: xargs
+
 #+BEGIN_SRC shell
   $ echo 1 2 3 4 | xargs echo
 

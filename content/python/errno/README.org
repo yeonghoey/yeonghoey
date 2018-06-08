@@ -1,4 +1,5 @@
-* errno
+#+TITLE: errno
+
 #+BEGIN_SRC python
   errno.errorcode[x] #    name like 'EINVAL'
   os.strerror(code)  # message like 'Invalid argument'

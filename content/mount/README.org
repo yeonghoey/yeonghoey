@@ -1,4 +1,5 @@
-* mount
+#+TITLE: mount
+
 #+BEGIN_SRC shell
   $ sudo mount
   /dev/sda2 on / type ext4 (rw)

@@ -1,4 +1,5 @@
-* kill
+#+TITLE: kill
+
 #+BEGIN_SRC shell
   # List signal names
   $ kill -l

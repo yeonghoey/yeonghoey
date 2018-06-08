@@ -1,4 +1,5 @@
-* head
+#+TITLE: head
+
 - ~-<N>~ is an old style, concise.
 - ~-n <N>~ is a new style, explicit and more functional.
 

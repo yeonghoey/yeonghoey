@@ -1,4 +1,5 @@
-* tee
+#+TITLE: tee
+
 #+BEGIN_SRC shell
   $ echo 'foo' | tee foo.txt
   foo

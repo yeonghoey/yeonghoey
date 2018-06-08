@@ -1,4 +1,5 @@
-* http
+#+TITLE: http
+
 #+BEGIN_SRC python
   >>> from http import HTTPStatus
   >>> HTTPStatus.OK

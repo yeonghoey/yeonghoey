@@ -1,4 +1,5 @@
-* Spark Configurations(driver-memory, executor-memory, cores, etc)
+#+TITLE: Spark Configurations(driver-memory, executor-memory, cores, etc)
+
 http://www.slideshare.net/AmazonWebServices/bdt309-data-science-best-practices-for-apache-spark-on-amazon-emr
 
 [[file:_img/screenshot_2016-12-11_14-24-52.png]]

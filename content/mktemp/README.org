@@ -1,4 +1,5 @@
-* mktemp
+#+TITLE: mktemp
+
 #+BEGIN_SRC shell
   $ mktemp
   /tmp/tmp.rBNuGr7Glt

@@ -1,4 +1,5 @@
-* WSGI
+#+TITLE: WSGI
+
 - Server(gateway) executes application(framework) code.
 - Middleware exists to relay messages between the server and the application.
 

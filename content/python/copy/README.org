@@ -1,4 +1,5 @@
-* copy
+#+TITLE: copy
+
 #+BEGIN_SRC python
   copy.copy(x)      # shallow
   copy.deepcopy(x)

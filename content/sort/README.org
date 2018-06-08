@@ -1,4 +1,5 @@
-* sort
+#+TITLE: sort
+
 #+BEGIN_SRC shell
   sort -nr numbers.txt # descending numeric order
   sort -k3 output.txt  # key3, omitting the first and second fields.

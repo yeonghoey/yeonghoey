@@ -1,4 +1,5 @@
-* find
+#+TITLE: find
+
 - ~-L~  ::
   - causes ~find~ to follow symlinks for all properties *except the name*
   - Because the name cannot be ignored when doing directory search

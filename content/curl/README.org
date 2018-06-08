@@ -1,4 +1,5 @@
-* curl
+#+TITLE: curl
+
 #+BEGIN_SRC shell
   # return exit code 22 when url not found or
   # HTTP error code being 400 or above

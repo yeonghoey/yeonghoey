@@ -1,4 +1,5 @@
-* Graphviz
+#+TITLE: Graphviz
+
 #+BEGIN_SRC org
   ,#+BEGIN_SRC dot :file img/small-graph.png :exports results
 #+END_SRC

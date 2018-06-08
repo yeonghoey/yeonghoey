@@ -1,4 +1,5 @@
-* tar
+#+TITLE: tar
+
 | flag      | mnemonic         |
 |-----------+------------------|
 | ~-c~      | create           |

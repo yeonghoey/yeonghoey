@@ -1,4 +1,5 @@
-* Programming Assignment: Scrooge Coin
+#+TITLE: Programming Assignment: Scrooge Coin
+
 To run tests:
 #+BEGIN_SRC shell
   javac ScroogeCoin.java && java -ea ScroogeCoin

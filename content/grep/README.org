@@ -1,4 +1,5 @@
-* grep
+#+TITLE: grep
+
 #+BEGIN_SRC shell
   $ tail *.txt
   ==> foo.txt <==

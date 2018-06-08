@@ -1,4 +1,5 @@
-* watch
+#+TITLE: watch
+
 #+BEGIN_SRC shell
   watch ls        # run 'ls' every 2 seconds (default)
   watch -d ls     # highlight differences

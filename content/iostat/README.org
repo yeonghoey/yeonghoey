@@ -1,4 +1,5 @@
-* iostat
+#+TITLE: iostat
+
 #+BEGIN_SRC shell
   iostat -xmdz 1
   #       ││││ └─ repeat every 1 second
