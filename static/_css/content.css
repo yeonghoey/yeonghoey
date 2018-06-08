@@ -107,7 +107,7 @@ table td {
 /* media */
 img,
 .embed {
-  max-width: 75%;
+  max-width: 100%;
   height: auto;
   border: 0.5em solid #f0f0f0;
 }
@@ -120,11 +120,11 @@ img,
 }
 
 .embed-16by9 {
-  padding: calc(75% * 9 / 16) 0 0 0;
+  padding: calc(100% * 9 / 16) 0 0 0;
 }
 
 .embed-4by3 {
-  padding: calc(75% * 3 / 4) 0 0 0;
+  padding: calc(100% * 3 / 4) 0 0 0;
 }
 
 .embed iframe {
