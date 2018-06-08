@@ -24,7 +24,6 @@ Signatures are verified as following:
 :REFERENCES:
 - [[/cryptography]]
 - [[https://www.cgi.com/files/white-papers/cgi_whpr_35_pki_e.pdf]]
-
 - https://www.youtube.com/watch?v=4nGrOpo0Cuc
 - https://knowledge.symantec.com/support/ssl-certificates-support/index?page=content&actp=CROSSLINK&id=SO16297
 - https://commons.wikimedia.org/wiki/File:Digital_Signature_diagram.svg
@@ -38,7 +37,6 @@ Signatures are verified as following:
 - When it comes to your servers, you should only have TLS protocols enabled.
 
 :REFERENCES:
-
 - https://www.globalsign.com/en/blog/ssl-vs-tls-difference/
 :END:
 

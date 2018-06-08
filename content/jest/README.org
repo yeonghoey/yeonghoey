@@ -41,7 +41,6 @@
 #+END_SRC
 
 :REFERENCES:
-
 - https://facebook.github.io/jest/docs/en/expect.html
 :END:
 

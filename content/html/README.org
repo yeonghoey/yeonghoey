@@ -40,7 +40,6 @@ Typically contains:
 - authorship information
 
 :REFERENCES:
-
 - https://www.w3schools.com/tags/tag_header.asp
 :END:
 
@@ -78,7 +77,6 @@ Attributes:
 - ~width~, ~height~ :: seems to use the source size if not specified
 
 :REFERENCES:
-
 - https://www.w3schools.com/tags/tag_video.asp
 :END:
 
@@ -88,7 +86,6 @@ Attributes:
 - For making web applications more accessible to people with disabilities.
 
 :REFERENCES:
-
 - https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
 :END:
 
@@ -120,7 +117,6 @@ Attributes:
 #+END_SRC
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/13056683/html-attribute-with-without-quotes
 :END:
 
@@ -136,7 +132,6 @@ Attributes:
 [[file:_img/screenshot_2018-05-11_11-51-53.png]]
 
 :REFERENCES:
-
 - https://webdesign.tutsplus.com/tutorials/html5-form-validation-with-the-pattern-attribute--cms-25145
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation#Validating_forms_using_JavaScript
 :END:

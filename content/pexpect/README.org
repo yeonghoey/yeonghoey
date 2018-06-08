@@ -24,7 +24,6 @@
 #+END_SRC
 
 :REFERENCES:
-
 - https://pexpect.readthedocs.io/en/stable/index.html
 :END:
 
@@ -38,7 +37,6 @@
 #+END_SRC
 
 :REFERENCES:
-
 - https://pexpect.readthedocs.io/en/stable/api/pexpect.html#pexpect.run
 :END:
 

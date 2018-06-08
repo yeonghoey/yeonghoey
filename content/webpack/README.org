@@ -199,7 +199,6 @@ Automatically generate a ~html~ file for serving your bundle. Within ~dist/index
 #+END_SRC
 
 :REFERENCES:
-
 - https://github.com/johnagan/clean-webpack-plugin
 :END:
 

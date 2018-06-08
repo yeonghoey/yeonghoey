@@ -176,7 +176,6 @@
 #+END_SRC
 
 :REFERENCES:
-
 - https://ss64.com/bash/trap.html
 :END:
 
@@ -1295,7 +1294,6 @@ There are some workarounds:
 - If the subprocess handles ~SIGINT~ manually, it would receive both signals of ~SIGINT~ and ~SIGTERM~
 
 :REFERENCES:
-
 - https://spin.atomicobject.com/2017/08/24/start-stop-bash-background-process/
 - https://stackoverflow.com/questions/360201/how-do-i-kill-background-processes-jobs-when-my-shell-script-exits
 :END:

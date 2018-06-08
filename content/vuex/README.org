@@ -85,7 +85,6 @@
   - Note [[https://vuex.vuejs.org/en/modules.html#module-local-state][rootState]], [[https://vuex.vuejs.org/en/modules.html#namespacing][namespace]] for interactions between the store and other modules
 
 :REFERENCES:
-
 - https://github.com/vuejs/vuex/blob/dev/examples/counter-hot/store/index.js
 - https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/store/index.js
 :END:

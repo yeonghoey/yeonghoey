@@ -63,7 +63,6 @@ Insert some text before the content of each ~<p>~ element:
 [[file:_img/screenshot_2018-05-10_16-43-38.png]]
 
 :REFERENCES:
-
 - https://css-tricks.com/almanac/properties/a/align-items/
 :END:
 
@@ -81,7 +80,6 @@ Insert some text before the content of each ~<p>~ element:
 #+END_SRC
 
 :REFERENCES:
-
 - https://www.abeautifulsite.net/box-sizing-border-box-explained
 :END:
 
@@ -115,7 +113,6 @@ Order:
    Whichever one appears last wins.
 
 :REFERENCES:
-
 - https://www.w3.org/TR/CSS21/cascade.html#cascade
 - https://stackoverflow.com/questions/9459062/in-which-order-do-css-stylesheets-override
 :END:
@@ -289,7 +286,6 @@ Examples for using media queries as breakpoints:
 #+END_SRC
 
 :REFERENCES:
-
 - https://www.w3schools.com/css/css_rwd_mediaqueries.asp
 :END:
 
@@ -303,7 +299,6 @@ Examples for using media queries as breakpoints:
   To center a element *with a known width*
 
 :REFERENCES:
-
 - https://teamtreehouse.com/community/text-align-center-margin-auto-which-one-is-better
 :END:
 
@@ -311,7 +306,6 @@ Examples for using media queries as breakpoints:
 [[file:_img/screenshot_2018-05-11_12-55-03.png]]
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/12242472/css-may-i-right-align-an-element-by-margin-0-0-0-auto
 :END:
 

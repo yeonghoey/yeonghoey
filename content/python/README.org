@@ -258,7 +258,6 @@ like ~except (TypeError, ValueError) as e~
 - Most shell like ~bash~ set the signal mask of ~SIG_IGN~ to ~SIGINT~ and ~SIGQUIT~ when it runs the process background (like ~$ cmd &~)
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/40775054/capturing-sigint-using-keyboardinterrupt-exception-works-in-terminal-not-in-scr
 :END:
 
@@ -768,7 +767,6 @@ objects of the same types that don't support proper comparison are ordered by th
 #+END_SRC
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/13792604/usage-of-the-operator-for-three-objects/13792615#13792615
 :END:
 
@@ -1155,7 +1153,6 @@ To support method calls, functions include the ~__get__()~ method for binding me
 #+END_SRC
 
 :REFERENCES:
-
 - https://docs.python.org/3/howto/descriptor.html#functions-and-methods
 - https://stackoverflow.com/questions/1015307/python-bind-an-unbound-method
 :END:
@@ -1285,7 +1282,6 @@ To support method calls, functions include the ~__get__()~ method for binding me
 #+END_SRC
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/1365265/on-localhost-how-do-i-pick-a-free-port-number/1365284
 :END:
 
@@ -1314,7 +1310,6 @@ To support method calls, functions include the ~__get__()~ method for binding me
 #+END_SRC
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/4576115/convert-a-list-to-a-dictionary-in-python
 :END:
 

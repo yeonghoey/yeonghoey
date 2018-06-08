@@ -20,7 +20,6 @@
   - text files are instances of [[https://docs.python.org/3.6/library/io.html#io.StringIO][StringIO]]
 
 :REFERENCES:
-
 - https://docs.python.org/2/library/io.html#io.open
 - https://docs.python.org/3.6/glossary.html#term-file-object
 :END:

@@ -211,7 +211,6 @@ Use ~request.get_json()~, which is later added for consistency, instead of ~requ
 #+END_SRC
 
 :REFERENCES:
-
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request.args
 - http://flask.pocoo.org/docs/0.12/api/#flask.Request.get_json
@@ -246,7 +245,6 @@ Use ~request.get_json()~, which is later added for consistency, instead of ~requ
 | **options	 | the options to be forwarded to the underlying Rule object. A change to Werkzeug is handling of method options. methods is a list of methods this rule should be limited to (GET, POST etc.). By default a rule just listens for GET (and implicitly HEAD). Starting with Flask 0.6, OPTIONS is implicitly added and handled by the standard request handling. They have to be specified as keyword arguments. |
 
 :REFERENCES:
-
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.route
 - http://flask.pocoo.org/docs/0.12/api/#url-route-registrations
 - http://werkzeug.pocoo.org/docs/0.14/routing/#werkzeug.routing.Rule
@@ -309,7 +307,6 @@ You have to manually serialize dict to json and specify ~content_type~ as follow
 :REFERENCES:
 - [[http://werkzeug.pocoo.org/docs/0.14/test/#werkzeug.test.EnvironBuilder][Request parameters]]
 - [[http://werkzeug.pocoo.org/docs/0.14/wrappers/#werkzeug.wrappers.BaseResponse][Response reference]]
-
 - http://flask.pocoo.org/docs/0.12/testing/
 - http://flask.pocoo.org/docs/0.12/api/#flask.Flask.test_client
 - http://flask.pocoo.org/docs/0.12/api/#flask.testing.FlaskClient
@@ -480,8 +477,6 @@ The template cotains following code:
 #+END_SRC
 
 :REFERENCES:
-
-
 - http://flask.pocoo.org/docs/1.0/quickstart/#redirects-and-errors
 - http://werkzeug.pocoo.org/docs/0.14/exceptions/
 :END:

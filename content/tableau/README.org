@@ -12,7 +12,6 @@
 #+END_SRC
 
 :REFERENCES:
-
 - https://www.tableau.com/learn/training
 - http://www.tableaureferenceguide.com/
 :END:
@@ -26,8 +25,6 @@
 - ~{EXCLUDE [Category] : AVG([Sales])}~ ::
   the average ~Sales~ at the level of detail defined in the view but does not include the dimension ~Category~
 
-:REFERENCES:
-
 Consider a dataset like:
 #+BEGIN_SRC json
   {"User": "foo", "Programming Language": "Python"}
@@ -36,39 +33,14 @@ Consider a dataset like:
 #+END_SRC
 
 Use LOD Expressions to answer **How many users use how many languages?**
-Brief steps are as follows:
 
-[[file:_img/screenshot_2018-05-29_15-15-28.png]]
-
-[[file:_img/screenshot_2018-05-29_15-18-03.png]]
-
-[[file:_img/screenshot_2018-05-29_15-19-59.png]]
-
-[[file:_img/screenshot_2018-05-29_15-23-23.png]]
-
------
-
+:REFERENCES:
 - http://vizpainter.com/my-favorite-tableau-9-0-feature/
 - https://onlinehelp.tableau.com/current/pro/desktop/en-us/calculations_calculatedfields_lod.html
 :END:
 
 ** Create a dimension of Top N and Others
-To achieve this, we need to create a set first, and ~IF~ expression with it.
-
-[[file:_img/screenshot_2018-05-29_15-29-58.png]]
-
-First off, exclude ~NULL~ entries.
-[[file:_img/screenshot_2018-05-29_15-32-41.png]]
-
-[[file:_img/screenshot_2018-05-29_15-36-52.png]]
-
-You can test the set whether or not to work expectedly:
-[[file:_img/screenshot_2018-05-29_15-37-18.png]]
-
-[[file:_img/screenshot_2018-05-29_15-35-34.png]]
-
-[[file:_img/screenshot_2018-05-29_15-38-27.png]]
-
+- To achieve this, we need to create a set first, and ~IF~ expression with it.
 
 :REFERENCES:
 - https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sets_topn.html

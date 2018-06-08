@@ -25,7 +25,6 @@
 - Homework Assignments :: If the deadline has not yet passed, we'll remove your existing submission so you can replace it.
 
 :REFERENCES:
-
 - https://www.coursera.org/learn/stat-420/supplement/x0NPf/syllabus
 :END:
 

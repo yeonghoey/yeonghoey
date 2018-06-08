@@ -74,7 +74,6 @@ To specify the version explicitly:
 [[file:_img/screenshot_2018-05-11_15-27-59.png]]
 
 :REFERENCES:
-
 - https://help.github.com/articles/setting-up-an-apex-domain/
 :END:
 
@@ -90,7 +89,6 @@ To specify the version explicitly:
 - If you update the existing custom domain page, you should reset it first.
 
 :REFERENCES:
-
 - https://blog.github.com/2018-05-01-github-pages-custom-domains-https/#configuring-your-domain
 :END:
 

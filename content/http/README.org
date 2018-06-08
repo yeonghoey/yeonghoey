@@ -37,7 +37,6 @@ The request includes the referer field, which indicates the last page the user w
 #+END_QUOTE
 
 :REFERENCES:
-
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer
 - https://en.wikipedia.org/wiki/HTTP_referer
 - https://isc.sans.edu/forums/diary/When+does+your+browser+send+a+Referer+header+or+not/16433/
@@ -48,7 +47,6 @@ The request includes the referer field, which indicates the last page the user w
 - Designates that the client *doesn't need to go away from its current page.*
 
 :REFERENCES:
-
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
 :END:
 
@@ -58,7 +56,6 @@ The request includes the referer field, which indicates the last page the user w
 #+END_QUOTE
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses
 :END:
 
@@ -68,7 +65,6 @@ The request includes the referer field, which indicates the last page the user w
 #+END_QUOTE
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses
 :END:
 
@@ -77,7 +73,6 @@ The request includes the referer field, which indicates the last page the user w
 - It can be okay as a response of ~POST~, but not common because ~POST~ request as a creation would generally cause no conflicts.
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
 :END:
 
@@ -323,7 +318,6 @@ Force a ~.torrent~ file download:
 [[file:_img/screenshot_2018-05-11_12-49-59.png]]
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/7109143/what-characters-are-valid-in-a-url
 :END:
 

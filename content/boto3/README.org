@@ -97,7 +97,6 @@ in a multithreaded application rather than sharing a single instance among the t
 #+END_SRC
 
 :REFERENCES:
-
 - http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client
 - http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource
 :END:
@@ -145,7 +144,6 @@ in a multithreaded application rather than sharing a single instance among the t
 #+END_SRC
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/33068055/boto3-python-and-how-to-handle-errors
 - http://botocore.readthedocs.io/en/latest/client_upgrades.html#error-handling
 :END:

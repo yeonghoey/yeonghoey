@@ -96,7 +96,6 @@
 : class click.Path(exists=False, file_okay=True, dir_okay=True, writable=False, readable=True, resolve_path=False)
 
 :REFERENCES:
-
 - http://click.pocoo.org/5/api/#click.Path
 :END:
 
@@ -120,7 +119,6 @@
 - ~value~ is the actaul value
 
 :REFERENCES:
-
 - http://click.pocoo.org/5/advanced/#parameter-modifications
 :END:
 
@@ -137,7 +135,6 @@
 #+END_SRC
 
 :REFERENCES:
-
 - http://click.pocoo.org/5/arguments/
 :END:
 

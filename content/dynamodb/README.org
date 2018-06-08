@@ -158,7 +158,6 @@ Preventing Overwrites by using condition-expression
 References for operators like ~attribute_not_exists~ are [[https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.OperatorsAndFunctions.html][here]].
 
 :REFERENCES:
-
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html
 - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html
 :END:

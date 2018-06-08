@@ -51,7 +51,6 @@
 [[file:_img/screenshot_2018-05-10_17-26-59.png]]
 
 :REFERENCES:
-
 - https://developer.chrome.com/devtools/docs/elements-styles?csw=1#computed_style
 :END:
 

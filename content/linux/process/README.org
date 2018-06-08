@@ -24,7 +24,6 @@
   - Since ~init~ periodically calls ~wait()~ for terminated child processes, orphan processes won't remain as zombies.
 
 :REFERENCES:
-
 - https://en.wikipedia.org/wiki/Parent_process
 - https://stackoverflow.com/questions/20688982/zombie-process-vs-orphan-process
 :END:
@@ -49,7 +48,6 @@
     - has no controlling terminal.
 
 :REFERENCES:
-
 - https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html
 - https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix
 - http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html
@@ -74,7 +72,6 @@ As a result:
 - The actual process becomes an orphan process, which means it won't remain as a zombie.
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/881388/what-is-the-reason-for-performing-a-double-fork-when-creating-a-daemon
 :END:
 

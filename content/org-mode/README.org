@@ -219,7 +219,6 @@ use [[/org-babel/latex]] instead of native org-mode's LaTeX supprot.
 #+END_EXAMPLE
 
 :REFERENCES:
-
 - http://orgmode.org/manual/LaTeX-export.html#LaTeX-export
 :END:
 

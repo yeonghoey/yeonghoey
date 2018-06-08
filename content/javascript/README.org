@@ -885,7 +885,6 @@ The proposed solution is an exception to this rule.
 The JSHint syntax checker even provides the ~eqnull~ option for this reason.
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-null-variable-in-javascript
 :END:
 
@@ -1383,7 +1382,6 @@ Some keywords are optional, but there is a general guideline for compatibility:
   When redirecting, but want to remove the current page from the browser history, use 
 
 :REFERENCES:
-
 - https://stackoverflow.com/questions/2383401/javascript-setting-location-href-versus-location
 - https://stackoverflow.com/questions/42918837/removing-current-page-from-browser-history
 :END:

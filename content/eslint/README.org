@@ -14,7 +14,6 @@
 You can also use ~eslintConfig~ field in ~package.json~
 
 :REFERENCES:
-
 - https://eslint.org/docs/user-guide/configuring
 - https://eslint.org/docs/rules/
 :END:
@@ -29,7 +28,6 @@ You can also use ~eslintConfig~ field in ~package.json~
 #+END_EXAMPLE
 
 :REFERENCES:
-
 - https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories
 :END:
 
@@ -39,7 +37,6 @@ You can also use ~eslintConfig~ field in ~package.json~
 - ~2~ or ~error~ :: turn the rule on as an error (exit code is 1 when triggered)
 
 :REFERENCES:
-
 - https://eslint.org/docs/user-guide/configuring#configuring-rules
 :END:
 
@@ -54,7 +51,6 @@ You can also use ~eslintConfig~ field in ~package.json~
 #+END_SRC
 
 :REFERENCES:
-
 - https://eslint.org/docs/rules/no-unused-vars#args
 - https://blog.javascripting.com/2015/09/07/fine-tuning-airbnbs-eslint-config/
 :END:

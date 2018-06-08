@@ -34,7 +34,6 @@
 3. Run the command with ~--cli-input-json file://params.json~
 
 :REFERENCES:
-
 - https://docs.aws.amazon.com/cli/latest/userguide/generate-cli-skeleton.html
 :END:
 
@@ -107,7 +106,6 @@ You can also filter the output with ~--query~ flag. This feature is implemented 
 #+END_SRC
 
 :REFERENCES:
-
 - https://docs.aws.amazon.com/cli/latest/userguide/controlling-output.html
 :END:
 

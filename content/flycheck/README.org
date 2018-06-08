@@ -18,7 +18,6 @@ That was the problem. But there was no way I could fix it.
 So I concluded to slightly modify the flycheck-only-error causing line.
 
 :REFERENCES:
-
 - https://github.com/flycheck/flycheck/issues/767
 - https://github.com/flycheck/flycheck/blob/master/flycheck.el#L8838
 :END:

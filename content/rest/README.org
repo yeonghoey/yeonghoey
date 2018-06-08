@@ -203,7 +203,6 @@ I'm a big fan of the approach that Stripe has taken to API versioning - the URL 
 - Failed :: ~400 Bad Request~, body contains explanation in a natual language
 
 :REFERENCES:
-
 - https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2
 - https://stackoverflow.com/questions/797834/should-a-restful-put-operation-return-something 
 :END:

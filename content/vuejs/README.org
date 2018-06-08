@@ -372,7 +372,6 @@ This HTML will be controlled by the browser before Vue can work with it,
 and therefore Vue is limited by the caveats explained in the linked documentation
 
 :REFERENCES:
-
 - https://vuejs.org/v2/guide/components-registration.html#Name-Casing
 - https://forum.vuejs.org/t/confused-about-dom-template-and-string-template/1797/2
 :END:
@@ -503,7 +502,6 @@ The API for a Vue component comes in three parts - ~props~, ~events~, and ~slots
 #+END_SRC
 
 :REFERENCES:
-
 - https://vuejs.org/v2/guide/components.html#Props
 :END:
 
@@ -553,7 +551,6 @@ You can refer the element above with following:
 #+END_SRC
 
 :REFERENCES:
-
 - https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-Child-Component-Instances-amp-Child-Elements 
 :END:
 
@@ -635,7 +632,6 @@ So prefer ~v-show~ if you need to toggle something very often, and prefer ~v-if~
 #+END_QUOTE
 
 :REFERENCES:
-
 - https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show
 :END:
 
