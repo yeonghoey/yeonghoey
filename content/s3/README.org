@@ -19,11 +19,6 @@
 
 * Topics
 ** IAM Policy vs. ACL
-:REFERENCES:
-- https://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/
-- https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#acl-access-policy-permission-mapping
-:END:
-
 Overall: Can use both. But ~IAM~ is preferable, since it is more modern one.
 
 #+BEGIN_QUOTE
@@ -36,6 +31,10 @@ If you want to manage permissions on individual objects within a bucket, S3 ACLs
 
 - Union of all the IAM policies, S3 bucket policies, and S3 ACLs that apply.
 
+:REFERENCES:
+- https://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/
+- https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#acl-access-policy-permission-mapping
+:END:
 
 ** Server Side Encryption
 #+BEGIN_QUOTE

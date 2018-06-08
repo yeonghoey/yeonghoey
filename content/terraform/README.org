@@ -483,9 +483,6 @@ Because the actual schema is:
 
 * How-to
 ** Make manual modifications on remote backeded tfstates
-- https://www.terraform.io/docs/commands/state/pull.html
-- https://www.terraform.io/docs/commands/state/push.html
-
 #+BEGIN_SRC shell
   # Download the backended tfstate
   $ terraform state pull > terraform.tfstate
@@ -496,6 +493,11 @@ Because the actual schema is:
   # Push the modified tfstate back
   $ terraform state push terraform.tfstate
 #+END_SRC
+
+:REFERENCES:
+- https://www.terraform.io/docs/commands/state/pull.html
+- https://www.terraform.io/docs/commands/state/push.html
+:END:
 
 ** Migrate existing AWS Infra with terraforming
 :REFERENCES:

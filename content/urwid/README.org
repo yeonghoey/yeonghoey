@@ -78,7 +78,6 @@
 - ~Pile~ and ~ListBox~ are both for stacking widgets vertically.
 - Only ~ListBox~ can scroll widgets.
 
-
 :REFERENCES:
 - http://urwid.org/manual/widgets.html
 :END:

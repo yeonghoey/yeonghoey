@@ -67,15 +67,6 @@
 #+END_SRC
 * Reference
 ** Config
-:REFERENCES:
-- http://flask.pocoo.org/docs/0.12/api/#flask.Config
-- http://flask.pocoo.org/docs/0.12/config/#builtin-configuration-values
-- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.default_config
-- http://flask.pocoo.org/docs/0.12/api/#flask.Config.from_mapping
-:END:
-
-
-
 - Load from a ~.cfg~ file
 - The configuration files themselves are actual Python files.
 - Only values in uppercase are actually stored in the config object later on.
@@ -112,6 +103,13 @@ Certain configuration values are also forwarded to the Flask object so you can r
   app.config.from_envvar('YOURAPPLICATION_SETTINGS') # overrides
   app.config.from_mapping({'ABC': 'test'})
 #+END_SRC
+
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#flask.Config
+- http://flask.pocoo.org/docs/0.12/config/#builtin-configuration-values
+- http://flask.pocoo.org/docs/0.12/api/#flask.Flask.default_config
+- http://flask.pocoo.org/docs/0.12/api/#flask.Config.from_mapping
+:END:
 
 ** Flask
 #+BEGIN_SRC python
@@ -396,7 +394,6 @@ but be careful that ~current_app~ is only accessible under the request context.:
       num = app.config["INFO"]
 #+END_SRC
 
-
 :REFERENCES:
 - https://stackoverflow.com/questions/18214612/how-to-access-app-config-in-a-blueprint
 :END:
@@ -509,12 +506,6 @@ The template cotains following code:
 :END:
 
 ** Routing
-:REFERENCES:
-- http://flask.pocoo.org/docs/0.12/api/#url-route-registrations
-- http://flask.pocoo.org/docs/0.12/quickstart/#routing
-- http://flask.pocoo.org/snippets/76/
-:END:
-
 #+BEGIN_SRC python
   @app.route('/')
   def index():
@@ -554,6 +545,12 @@ Trailing slashs:
 - routes defined with trailing slash    :: ~/projects~ is redirected to ~/projects/~
 - routes defined without trailing slash :: ~/about/~ goes to ~404~
 - ~/test/<path:code>~ :: `code` can include ~/~
+
+:REFERENCES:
+- http://flask.pocoo.org/docs/0.12/api/#url-route-registrations
+- http://flask.pocoo.org/docs/0.12/quickstart/#routing
+- http://flask.pocoo.org/snippets/76/
+:END:
 
 ** Sessions
 - [[https://stackoverflow.com/questions/22463939/demystify-flask-app-secret-key][How SECRET_KEY works]]
@@ -624,7 +621,6 @@ The way Flask does this is by using a signed cookie.
       assert len(context['items']) == 10
 #+END_SRC
 
-- http://pythonhosted.org/blinker/#blinker.base.Signal.connect_via
 #+BEGIN_SRC python
   from flask import template_rendered
 
@@ -636,6 +632,7 @@ The way Flask does this is by using a signed cookie.
 :REFERENCES:
 - http://flask.pocoo.org/docs/0.12/signals/
 - http://flask.pocoo.org/docs/0.12/api/#core-signals-list
+- http://pythonhosted.org/blinker/#blinker.base.Signal.connect_via
 :END:
 
 ** Static Files
@@ -697,11 +694,6 @@ so make sure to disable escaping with ~|safe~ before Flask 0.10 if you intend to
 
 * Extensions
 ** flask-cors
-:REFERENCES:
-- https://github.com/corydolphin/flask-cors
-- https://flask-cors.corydolphin.com/en/latest/api.html#extension
-:END:
-
 The settings for CORS are determined in the following order
 
 1. Resource level settings (e.g when passed as a dictionary)
@@ -720,3 +712,8 @@ The settings for CORS are determined in the following order
   def list_users():
     return "user example"
 #+END_SRC
+
+:REFERENCES:
+- https://github.com/corydolphin/flask-cors
+- https://flask-cors.corydolphin.com/en/latest/api.html#extension
+:END:
