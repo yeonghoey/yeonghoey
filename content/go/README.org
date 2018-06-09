@@ -1,30 +1,38 @@
 #+TITLE: go
 
 * Table of Contents :TOC_1_gh:
-- [[#error][error]]
-- [[#log][log]]
-- [[#range][range]]
-- [[#documenting-packages][Documenting Packages]]
+- [[#command][Command]]
+- [[#language][Language]]
+- [[#topics][Topics]]
 
-* error
+* Command
+** godoc
+#+BEGIN_SRC shell
+  godoc -http=:6060
+#+END_SRC
+
+:REFERENCES:
+- https://godoc.org/golang.org/x/tools/cmd/godoc
+:END:
+
+
+* Language
+** error
 #+BEGIN_SRC go
   fmt.Errorf("parsing %s as HTML: %v", url, err)
 #+END_SRC
 
-gopl book says:
 #+BEGIN_QUOTE
 Because error messages are frequently chained together,
 message strings should not be capitalized and newlines should be avoided.
 #+END_QUOTE
 
-* log
+** log
 #+BEGIN_SRC go
   log.Fatalf("Site is down: %v\n", err)
 #+END_SRC
 
-* range
-+ https://gobyexample.com/range
-
+** range
 #+BEGIN_SRC go
   slice, kvs := []int{...}, map[string]string{...}
   for _, num := range nums {}  // if idx not needed
@@ -34,7 +42,21 @@ message strings should not be capitalized and newlines should be avoided.
   for i, c := range "go" {}    // 'c' is 'rune' of the string
 #+END_SRC
 
-* Documenting Packages
+:REFERENCES:
+- https://gobyexample.com/range
+:END:
+
+* Topics
+** GOPATH
+** Documenting Packages
+- A comment immediately preceding a ~pacakge~ declaration is considered the document for the package
+#+BEGIN_SRC go
+  // Package sort provides primitives for sorting slices and user-defined
+  // collections.
+  package sort
+#+END_SRC
+
+- Go doc comments are always complete sentences, and the first sentence is usually a summary that starts with the name being declared.
 #+BEGIN_SRC go
   // Fprint formats using the default formats for its operands and writes to w.
   // Spaces are added between operands when neither is a string.
@@ -42,12 +64,15 @@ message strings should not be capitalized and newlines should be avoided.
   func Fprint(w io.Writer, a ...interface{}) (n int, err error) {
 #+END_SRC
 
-gopl book says:
-#+BEGIN_QUOTE
-Go doc comments are always complete sentences, and the first sentence is
-usually a summary that starts with the name being declared.
-#+END_QUOTE
+- Comments that are not adjacent to a top-level declaration are omitted from godoc's output, with one notable exception.
+- Top-level comments that begin with the word "BUG(who)” are recognized as known bugs, and included in the "Bugs” section of the package documentation.
+
+#+BEGIN_SRC go
+  // BUG(r): The rule Title uses for word boundaries does not handle Unicode punctuation properly.
+#+END_SRC
 
 :REFERENCES:
+- http://www.gopl.io/ Book, 10.7.4
 - https://blog.golang.org/godoc-documenting-go-code
+- https://golang.org/src/encoding/gob/doc.go
 :END:
