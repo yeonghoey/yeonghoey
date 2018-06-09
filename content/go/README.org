@@ -49,6 +49,15 @@ message strings should not be capitalized and newlines should be avoided.
 * Topics
 ** GOPATH
 ** Documenting Packages
+
+ToHTML Rules from https://golang.org/pkg/go/doc/#ToHTML:
+- Each span of unindented non-blank lines is converted into a single paragraph.
+- A span that consists of a single line, is followed by another paragraph span, begins with a capital letter, and contains no punctuation is formatted as a heading.
+- A span of indented lines is converted into a <pre> block, with the common indent prefix removed.
+- URLs in the comment text are converted into links;
+- Go identifiers that appear in the words map are italicized
+
+Package documentation rules:
 - A comment immediately preceding a ~pacakge~ declaration is considered the document for the package
 #+BEGIN_SRC go
   // Package sort provides primitives for sorting slices and user-defined
@@ -71,8 +80,13 @@ message strings should not be capitalized and newlines should be avoided.
   // BUG(r): The rule Title uses for word boundaries does not handle Unicode punctuation properly.
 #+END_SRC
 
+- ~Example<Name>~ functions in ~<name>_test.go~ are included as examples
+
 :REFERENCES:
 - http://www.gopl.io/ Book, 10.7.4
+- https://golang.org/pkg/go/doc/#ToHTML
 - https://blog.golang.org/godoc-documenting-go-code
+- https://godoc.org/github.com/fluhus/godoc-tricks
+- https://golang.org/pkg/testing/#hdr-Examples
 - https://golang.org/src/encoding/gob/doc.go
 :END:
