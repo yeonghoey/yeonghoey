@@ -1,20 +1,9 @@
 #+TITLE: go
 
 * Table of Contents :TOC_1_gh:
-- [[#command][Command]]
 - [[#language][Language]]
+- [[#command][Command]]
 - [[#topics][Topics]]
-
-* Command
-** godoc
-#+BEGIN_SRC shell
-  godoc -http=:6060
-#+END_SRC
-
-:REFERENCES:
-- https://godoc.org/golang.org/x/tools/cmd/godoc
-:END:
-
 
 * Language
 ** error
@@ -46,8 +35,74 @@ message strings should not be capitalized and newlines should be avoided.
 - https://gobyexample.com/range
 :END:
 
+* Command
+** go get
+#+BEGIN_SRC shell
+  go get     # when getting a github repo, it uses `git clone'
+  go get -t  # also test dependencies
+#+END_SRC
+
+** godoc
+#+BEGIN_SRC shell
+  godoc -http=:6060
+#+END_SRC
+
+:REFERENCES:
+- https://godoc.org/golang.org/x/tools/cmd/godoc
+:END:
+
 * Topics
 ** GOPATH
+The ~GOPATH~ environment variable specifies the location of your workspace.
+- The default value is  ~$HOME/go~
+- Put ~export PATH=$PATH:$(go env GOPATH)/bin~ to rc files for convenience.
+- Read details with ~go help gopath~.
+
+:REFERENCES:
+- https://golang.org/doc/code.html
+:END:
+
+** Workspaces
+- Go programmers typically keep all their Go code in a single workspace.
+- A workspace contains many version control repositories (managed by Git, for example).
+- Each repository contains one or more packages.
+- Each package consists of one or more Go source files in a single directory.
+- The path to a package's directory determines its import path.
+
+A workspace is a directory hierarchy with three directories at its root:
+
+- ~src~ contains Go source files,
+- ~pkg~ contains package objects, and
+- ~bin~ contains executable commands.
+
+#+BEGIN_EXAMPLE
+  bin/
+      hello   # command executable
+      outyet  # command executable
+  pkg/
+      linux_amd64/
+          github.com/golang/example/
+              stringutil.a  # package object
+  src/
+    github.com/golang/example/
+      .git/           # Git repository metadata
+      hello/
+        hello.go      # command source
+      outyet/
+        main.go       # command source
+        main_test.go  # test source
+
+    golang.org/x/image/
+      .git/
+      bmp/
+        reader.go
+        writer.go
+#+END_EXAMPLE
+
+:REFERENCES:
+- https://golang.org/doc/code.html
+:END:
+
 ** Documenting Packages
 
 ToHTML Rules from https://golang.org/pkg/go/doc/#ToHTML:
