@@ -46,15 +46,24 @@ code {
   font-size: 0.9em;
   padding: 0.1em 0.2em;
   border-radius: 0.2em;
-  background-color: #f0f0f0;
+  background-color: #eeeeee;
 }
 
 /* code block */
-.example,
-.shell,
+pre,
 .sourceCode {
   border-radius: 0.3em;
-  background-color: #f0f0f0;
+  background-color: #eeeeee;
+}
+
+/* result output block */
+pre + pre.example,
+.sourceCode + pre.example {
+  background-color: #cfd8dc;
+}
+
+pre.example + pre.example {
+  background-color: #eeeeee;
 }
 
 pre {
@@ -78,7 +87,7 @@ table {
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #f0f0f0;
+  background-color: #eeeeee;
 }
 
 table th {
@@ -109,7 +118,7 @@ img,
 .embed {
   max-width: 100%;
   height: auto;
-  border: 0.5em solid #f0f0f0;
+  border: 0.5em solid #eeeeee;
 }
 
 /* iframe aspect ratio support */
