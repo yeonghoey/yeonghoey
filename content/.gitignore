@@ -1,1 +1,8 @@
 .Rhistory
+
+# Media files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
