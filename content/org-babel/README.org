@@ -5,6 +5,8 @@
 - [[#switches][Switches]]
 - [[#headers][Headers]]
   - [[#results][:results]]
+- [[#how-to][How-to]]
+  - [[#fix-invalid-function-org-babel-header-args-safe-fn][Fix ~Invalid function: org-babel-header-args-safe-fn~]]
 
 * Overview
 #+BEGIN_SRC org
@@ -72,4 +74,9 @@
 ** :results
 :REFERENCES:
 - https://orgmode.org/manual/results.html
+:END:
+* How-to
+** Fix ~Invalid function: org-babel-header-args-safe-fn~
+:REFERENCES:
+- https://github.com/syl20bnr/spacemacs/issues/3314
 :END:
