@@ -166,8 +166,7 @@ If an ~ClickException~ is raised, invoke the ~ClickException.show()~ method on i
 
 - For ~zsh~:
 #+BEGIN_SRC shell
-  autoload bashcompinit
-  bashcompinit
+  autoload -Uz bashcompinit && bashcompinit
   eval "$(_YHY_COMPLETE=source yhy)"
 #+END_SRC
 
