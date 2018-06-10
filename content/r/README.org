@@ -27,6 +27,7 @@
   - [[#oo-systems][OO Systems]]
   - [[#the-recycling-rule-of-mixed-vector-and-array-arithmetic][The Recycling Rule of Mixed vector and array arithmetic]]
 - [[#how-to][How-to]]
+  - [[#order-factor-elements][Order factor elements]]
   - [[#remove-na-values-from-a-vector][Remove NA values from a vector]]
 
 * Basics
@@ -798,6 +799,27 @@ Here is how inheritance works:
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Mixed-vector-and-array-arithmetic_002e-The-recycling-rule
 :END:
 * How-to
+** Order factor elements
+#+BEGIN_SRC R
+  > mydata$Treatment
+  [1] L M H L M H
+  Levels: H L M
+
+  > as.integer(mydata$Treatment)
+  [1] 2 3 1 2 3 1
+
+  > factor(mydata$Treatment,c("L","M","H"))
+  [1] L M H L M H                               # <-- not changed
+  Levels: L M H                                 # <-- changed
+
+  > as.integer(factor(mydata$Treatment,c("L","M","H")))
+  [1] 1 2 3 1 2 3                               # <-- changed
+#+END_SRC
+
+:REFERENCES:
+- https://stackoverflow.com/questions/4260698/r-ordering-in-boxplot
+:END:
+
 ** Remove NA values from a vector
 - Most functions working with vectors have ~na.rm~ boolean parameter.
 - When ~na.rm~ is ~TRUE~, the functions filter ~NA~
