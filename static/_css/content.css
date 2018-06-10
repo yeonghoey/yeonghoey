@@ -80,6 +80,13 @@ pre code {
   white-space: pre;
 }
 
+blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: #757575;
+  border-left: 4px solid #eeeeee;
+}
+
 /* simplified table */
 table {
   margin: 1em 0;
