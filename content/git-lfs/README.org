@@ -1,16 +1,30 @@
 #+TITLE: Git LFS
 
-* Table of Contents :TOC_1_gh:
-- [[#reference-links][Reference Links]]
-- [[#using-git-lfs-pull][Using git lfs pull]]
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+- [[#topics][Topics]]
+  - [[#using-git-lfs-pull][Using git lfs pull]]
 
-* Reference Links
+* Overview
+#+BEGIN_SRC shell
+  git lfs install
+  git lfs track "design.psd"
+  git lfs track "*.mov"
+#+END_SRC
+
+- ~.gitattributes~ is updated as following:
+#+BEGIN_EXAMPLE
+  design.psd filter=lfs diff=lfs merge=lfs -text
+  ,*.mov filter=lfs diff=lfs merge=lfs -text
+#+END_EXAMPLE
+
 :REFERENCES:
 - https://github.com/git-lfs/git-lfs/wiki/Tutorial
 - https://help.github.com/articles/configuring-git-large-file-storage/
 :END:
 
-* Using git lfs pull
+* Topics
+** Using git lfs pull
 ~git lfs pull~ downloads lfs files as batch, but works on *current local branch*.
 But when executing ~git pull~ to update local branch,
 *LFS* automatically missing files separately. This is really slow.
