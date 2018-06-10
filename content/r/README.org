@@ -32,7 +32,7 @@
 * Basics
 - R is case sensitive
 - Symbols: ~[A-Za-z][.0-9A-Za-z_]*~ or ~[.]([A-Za-z][.0-9A-Za-z_]*)?~
-- Strings can be expressed by ~'~ or ~"~. ~"~ is preferred.
+- ~character~ can be expressed by ~'foo~ or ~"foo"~ . Usually ~"foo"~ is preferred.
 - Commands are separated either by a semi-colon(~;~) or by a newline(~\n~).
 - Commands can be grouped by braces(~{}~)
 - Comments can be put almost everywhere, staring with ~#~
