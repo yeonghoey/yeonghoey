@@ -80,19 +80,16 @@ pre code {
   white-space: pre;
 }
 
-/* striped table */
+/* simplified table */
 table {
   margin: 1em 0;
   padding: 0.75em 1em;
   border-collapse:collapse;
-}
-
-tbody tr:nth-child(odd) {
   background-color: #eeeeee;
 }
 
 table th {
-  font-size: 1.33em;
+  font-family: 'Roboto Condensed', sans-serif;
   padding: 0.5em 1em;
 }
 
