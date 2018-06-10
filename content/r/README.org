@@ -27,6 +27,7 @@
   - [[#oo-systems][OO Systems]]
   - [[#the-recycling-rule-of-mixed-vector-and-array-arithmetic][The Recycling Rule of Mixed vector and array arithmetic]]
 - [[#how-to][How-to]]
+  - [[#format-numeric-as-percent][Format numeric as percent]]
   - [[#assert-conditions][Assert conditions]]
   - [[#order-factor-elements][Order factor elements]]
   - [[#remove-na-values-from-a-vector][Remove NA values from a vector]]
@@ -800,6 +801,18 @@ Here is how inheritance works:
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Mixed-vector-and-array-arithmetic_002e-The-recycling-rule
 :END:
 * How-to
+** Format numeric as percent
+#+BEGIN_SRC R :session :results output :exports both
+  scales::percent(0.95)
+#+END_SRC
+
+#+RESULTS:
+: [1] "95%"
+
+:REFERENCES:
+- https://stackoverflow.com/questions/7145826/how-to-format-a-number-as-percentage-in-r
+:END:
+
 ** Assert conditions
 Use ~stopifnot()~.
 
