@@ -1,0 +1,27 @@
+#+TITLE: org-babel: R
+
+* Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
+
+* Overview
+#+BEGIN_SRC elisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((R . t)))
+#+END_SRC
+
+#+BEGIN_SRC org
+  ,#+BEGIN_SRC R :session :results output :exports both
+  $0
+  ,#+END_SRC
+#+END_SRC
+
+#+BEGIN_SRC org
+  ,#+BEGIN_SRC R :session :file _img/filename.png :results graphics :exports both
+  $0
+  ,#+END_SRC
+#+END_SRC
+
+:REFERENCES:
+- https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-R.html
+:END:
