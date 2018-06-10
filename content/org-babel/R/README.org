@@ -12,13 +12,11 @@
 
 #+BEGIN_SRC org
   ,#+BEGIN_SRC R :session :results output :exports both
-  $0
   ,#+END_SRC
 #+END_SRC
 
 #+BEGIN_SRC org
   ,#+BEGIN_SRC R :session :file _img/filename.png :results graphics :exports both
-  $0
   ,#+END_SRC
 #+END_SRC
 
