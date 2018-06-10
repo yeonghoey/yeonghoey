@@ -1,8 +1,8 @@
 #+TITLE: Git LFS
 
 * Table of Contents :TOC_1_gh:
- - [[#reference-links][Reference Links]]
- - [[#using-git-lfs-pull][Using git lfs pull]]
+- [[#reference-links][Reference Links]]
+- [[#using-git-lfs-pull][Using git lfs pull]]
 
 * Reference Links
 :REFERENCES:
