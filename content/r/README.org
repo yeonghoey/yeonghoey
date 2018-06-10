@@ -26,6 +26,8 @@
 - [[#topics][Topics]]
   - [[#oo-systems][OO Systems]]
   - [[#the-recycling-rule-of-mixed-vector-and-array-arithmetic][The Recycling Rule of Mixed vector and array arithmetic]]
+- [[#how-to][How-to]]
+  - [[#remove-na-values-from-a-vector][Remove NA values from a vector]]
 
 * Basics
 - R is case sensitive
@@ -794,4 +796,13 @@ Here is how inheritance works:
 
 :REFERENCES:
 - https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Mixed-vector-and-array-arithmetic_002e-The-recycling-rule
+:END:
+* How-to
+** Remove NA values from a vector
+- Most functions working with vectors have ~na.rm~ boolean parameter.
+- When ~na.rm~ is ~TRUE~, the functions filter ~NA~
+- Otherwise, ~d <- d[!is.na(d)]~
+
+:REFERENCES:
+- https://stackoverflow.com/questions/7706876/remove-na-values-from-a-vector
 :END:
