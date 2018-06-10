@@ -1,8 +1,6 @@
 ** zsh-completions
 - https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
 
-** autoload
-- https://stackoverflow.com/questions/12570749/zsh-completion-difference
 ** TODO <2018-01-29 Mon> ZSH AUTO_CD
 off
 

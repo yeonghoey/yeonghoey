@@ -1,18 +1,44 @@
 #+TITLE: zsh
 
 * Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
+- [[#zshbuiltins][zshbuiltins]]
+  - [[#autoload-and-fpath][~autoload~ and ~fpath~]]
 - [[#links][Links]]
 
-* Overview
-* Reference
-* Terminology
-* Topics
-* How-to
+* zshbuiltins
+** ~autoload~ and ~fpath~
+- ~fpath~ is a array of directories which contain function files to be autoloaded
+#+BEGIN_SRC shell :results output :exports both
+  print -l $fpath
+#+END_SRC
+
+#+RESULTS:
+: /usr/local/share/zsh/site-functions
+: /usr/local/Cellar/zsh/5.4.2_3/share/zsh/functions
+
+- What ~autoload~ does is to mark that name as being a function rather than an external program.
+- The function has to be in a file on its own, with the filename the same as the function name.
+- In general, you should be using ~autoload -Uz <filename>~
+
+#+BEGIN_SRC shell
+  autoload -Uz compinit
+  #         │└─ usual alias expansion during reading will be suppressed
+  #         └── force use zsh-style autoload not KSH
+#+END_SRC
+
+If you want to use ~compinit~, you should call ~autoload~ for it before using it, otherwise
+the name ~compinit~ will be simply an unknown command. This goes a common idiom as following:
+#+BEGIN_SRC shell
+  autoload -Uz compinit && compinit
+#+END_SRC
+
+:REFERENCES:
+- https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh
+- https://stackoverflow.com/questions/30840651/what-does-autoload-do-in-zsh
+- https://stackoverflow.com/questions/12570749/zsh-completion-difference
+- http://bewatermyfriend.org/p/2012/003/
+:END:
+
 * Links
 :REFERENCES:
 - http://zsh.sourceforge.net/Guide/zshguide06.html
