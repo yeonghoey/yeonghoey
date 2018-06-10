@@ -5,6 +5,7 @@
 - [[#switches][Switches]]
 - [[#headers][Headers]]
   - [[#results][:results]]
+  - [[#session][:session]]
 - [[#how-to][How-to]]
   - [[#fix-invalid-function-org-babel-header-args-safe-fn][Fix ~Invalid function: org-babel-header-args-safe-fn~]]
 
@@ -75,6 +76,17 @@
 :REFERENCES:
 - https://orgmode.org/manual/results.html
 :END:
+** :session
+Specify to make source code blocks share sessions.
+
+- ~:session none~ (default) :: the block gets a new session
+- ~:session~ :: the session name is derived from the source language identifier.
+- ~:session <name>~ :: blocks with the same name share the session
+
+:REFERENCES:
+- https://orgmode.org/manual/session.html#session
+:END:
+
 * How-to
 ** Fix ~Invalid function: org-babel-header-args-safe-fn~
 :REFERENCES:
