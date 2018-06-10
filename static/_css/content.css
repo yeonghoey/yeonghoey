@@ -52,6 +52,7 @@ code {
 /* code block */
 pre,
 .sourceCode {
+  margin: 1em 0;
   border-radius: 0.3em;
   background-color: #eeeeee;
 }
@@ -81,7 +82,7 @@ pre code {
 
 /* striped table */
 table {
-  margin: 2em 3em;
+  margin: 1em 0;
   padding: 0.75em 1em;
   border-collapse:collapse;
 }
