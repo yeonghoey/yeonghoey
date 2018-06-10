@@ -235,11 +235,22 @@
   fi
 #+END_SRC
 
+- Join elements
+#+BEGIN_SRC shell :results output :exports both
+  readonly X=('foo' 'bar' 'baz')
+  readonly Y="$(IFS=','; echo "${X[*]}")"
+  echo "${Y}"
+#+END_SRC
+
+#+RESULTS:
+: foo,bar,baz
+
 :REFERENCES:
 - https://www.gnu.org/software/bash/manual/bashref.html#Arrays
 - http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_10_02.html
 - https://www.cyberciti.biz/faq/bash-iterate-array/
 - https://unix.stackexchange.com/questions/252368/is-there-a-reason-why-the-first-element-of-a-zsh-array-is-indexed-by-1-instead-o
+- https://stackoverflow.com/questions/1527049/join-elements-of-an-array
 :END:
 
 *** case
