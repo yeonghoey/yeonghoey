@@ -3,6 +3,8 @@
 * Table of Contents :TOC_2_gh:
 - [[#overview][Overview]]
 - [[#reference][Reference]]
+- [[#how-to][How-to]]
+  - [[#put-current-date-in-the-yaml-meta-header][Put current date in the YAML meta header]]
 
 * Overview
 [[file:_img/screenshot_2018-05-25_11-34-04.png]]
@@ -24,4 +26,14 @@
 - https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 - https://rmarkdown.rstudio.com/authoring_rcodechunks.html
 - https://yihui.name/knitr/options/
+:END:
+* How-to
+** Put current date in the YAML meta header
+#+BEGIN_SRC markdown
+  date: "`r format(Sys.time(), '%d %B, %Y')`"
+#+END_SRC
+
+:REFERENCES:
+- https://stackoverflow.com/questions/23449319/yaml-current-date-in-rmarkdown
+- https://www.rdocumentation.org/packages/base/versions/3.5.0/topics/strptime
 :END:
