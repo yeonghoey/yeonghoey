@@ -46,6 +46,7 @@
     - [[#continue-with-the-resolved-resulte][Continue with the resolved resulte]]
   - [[#run-commands-while-not-in-a-git-directory][Run commands while not in a git directory]]
   - [[#delete-empty-directories-within-a-repository][Delete empty directories within a repository]]
+  - [[#use-dropbox-as-a-private-repository][Use Dropbox as a private repository]]
 - [[#links][Links]]
 
 * Reference
@@ -542,6 +543,21 @@ git -C ~/foo status  # equivalent to (cd ~/foo && git status)
 
 :REFERENCES:
 - [[/find]]
+:END:
+
+** Use Dropbox as a private repository
+#+BEGIN_SRC shell
+  mkdir -p ~/Dropbox/Repos
+  cd ~/Dropbox/Repos
+  git init --bare project.git
+#+END_SRC
+
+#+BEGIN_SRC shell
+  git clone ~/Dropbox/Repos/project.git
+#+END_SRC
+
+:REFERENCES:
+- https://stackoverflow.com/questions/1960799/using-git-and-dropbox-together-effectively
 :END:
 
 * Links
