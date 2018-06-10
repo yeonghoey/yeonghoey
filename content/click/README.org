@@ -12,6 +12,7 @@
   - [[#arguments][Arguments]]
 - [[#how-to][How-to]]
   - [[#handle-exceptions][Handle exceptions]]
+  - [[#support-auto-complete][Support auto complete]]
 
 * Overview
 #+BEGIN_SRC python
@@ -157,3 +158,20 @@ If an ~ClickException~ is raised, invoke the ~ClickException.show()~ method on i
 - ~UsageError~
 - ~BadParameter~
 - ~FileError~
+** Support auto complete
+- To support auto complete of ~yhy~ command in ~bash~, put the following line to your rc file.
+#+BEGIN_SRC shell
+  eval "$(_YHY_COMPLETE=source yhy)"
+#+END_SRC
+
+- For ~zsh~:
+#+BEGIN_SRC shell
+  autoload bashcompinit
+  bashcompinit
+  eval "$(_YHY_COMPLETE=source yhy)"
+#+END_SRC
+
+:REFERENCES:
+- http://click.pocoo.org/5/bashcomplete/
+- https://github.com/pallets/click/issues/323
+:END:
