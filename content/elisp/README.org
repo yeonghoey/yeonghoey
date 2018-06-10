@@ -1,17 +1,18 @@
 #+TITLE: Emacs Lisp
 
 * Table of Contents                                                :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#setq][setq]]
-- [[#topics][Topics]]
-  - [[#char-syntax][Char Syntax]]
-  - [[#local-variableslet][Local Variables(let)]]
-  - [[#interactive][Interactive]]
-  - [[#snippets][Snippets]]
-  - [[#argument-list][Argument List]]
+- [[#language][Language]]
+  - [[#setq][~setq~]]
+  - [[#ch][~?<ch>~]]
+  - [[#default-directory][~default-directory~]]
+  - [[#let][~let~]]
+  - [[#interactive][~(interactive)~]]
+  - [[#argument-list][Argument-List]]
+- [[#snippets][Snippets]]
+  - [[#my-trans-en-ko][~my-trans-en-ko~]]
 
-* Reference
-** setq
+* Language
+** ~setq~
 #+BEGIN_SRC emacs-lisp
   (setq-local xxx ...)
 #+END_SRC
@@ -31,8 +32,7 @@ If a variable is buffer-local:
 - https://emacs.stackexchange.com/questions/24940/what-does-setq-local-do-and-when-should-i-use-it
 :END:
 
-* Topics
-** Char Syntax
+** ~?<ch>~
 - Prefix ~?~ before a character.
 
 #+BEGIN_SRC emacs-lisp
@@ -50,11 +50,31 @@ If a variable is buffer-local:
   ?\d ⇒ 127               ; delete character, DEL
 #+END_SRC
 
+#+BEGIN_SRC elisp :exports both
+  ?Q
+#+END_SRC
+
+#+RESULTS:
+: 81
+
 :REFERENCES:
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Basic-Char-Syntax.html
 :END:
 
-** Local Variables(let)
+** ~default-directory~
+#+BEGIN_SRC elisp :exports both
+  default-directory
+#+END_SRC
+
+#+RESULTS:
+: /Users/yeonghoey/repos/yeonghoey/content/emacs-lisp/
+
+:REFERENCES:
+- https://stackoverflow.com/questions/28196228/emacs-how-to-get-directory-of-current-buffer
+:END:
+
+** ~let~
+- Use ~let~ for local variables
  
 #+BEGIN_SRC emacs-lisp
   (setq y 2)
@@ -75,28 +95,12 @@ If a variable is buffer-local:
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Local-Variables.html
 :END:
 
-** Interactive
- 
-
+** ~(interactive)~
 :REFERENCES:
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Using-Interactive.html
 :END:
 
-** Snippets
-*** my-trans-en-ko
-#+BEGIN_SRC emacs-lisp
-  (defun my-trans-en-ko (start end)
-    (interactive "r")
-    (let* ((text (buffer-substring-no-properties start end))
-           (command (format "trans -brief -to en+ko '%s'" text))
-           (output (shell-command-to-string command))
-           )
-      (kill-new output)
-      (message output))
-    )
-#+END_SRC
-
-** Argument List
+** Argument-List
 #+BEGIN_SRC emacs-lisp
   (a b &optional c d &rest e)
 #+END_SRC
@@ -122,3 +126,17 @@ If a variable is buffer-local:
 :REFERENCES:
 - https://www.gnu.org/software/emacs/manual/html_node/elisp/Argument-List.html
 :END:
+
+* Snippets
+** ~my-trans-en-ko~
+#+BEGIN_SRC emacs-lisp
+  (defun my-trans-en-ko (start end)
+    (interactive "r")
+    (let* ((text (buffer-substring-no-properties start end))
+           (command (format "trans -brief -to en+ko '%s'" text))
+           (output (shell-command-to-string command))
+           )
+      (kill-new output)
+      (message output))
+    )
+#+END_SRC
