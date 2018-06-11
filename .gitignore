@@ -123,8 +123,9 @@ hs_err_pid*
 # OS Specific
 .DS_Store
 
-# Generated Site
+# Generated Files
 _site/
+_temp/
 
 # Local .terraform directories
 **/.terraform/*

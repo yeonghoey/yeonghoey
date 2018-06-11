@@ -1,8 +1,41 @@
 SHELL = /bin/bash
 DESTDIR = _site
+TEMPDIR = _temp
 PANDOC = pandoc
 
 MEDIA_TYPES = png jpg jpeg gif pdf
+
+# ==============================================================================
+# Pandoc Recipe
+# ==============================================================================
+export YEONGHOEY_FILTER_SRC
+export YEONGHOEY_FILTER_MEDIA
+
+define run-pandoc
+mkdir -p "$(dir $@)"
+@env | grep 'YEONGHOEY_'
+pipenv run $(PANDOC) \
+--standalone \
+--mathjax \
+--template='templates/content.html' \
+--css='/_css/content.css' \
+--include-in-header='includes/fonts.html' \
+--filter='scripts/filter.py' \
+--output='$@' \
+'$<'
+endef
+
+# ==============================================================================
+# Generate /index.html
+# ==============================================================================
+
+$(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
+$(DESTDIR)/index.html : $(TEMPDIR)/index.org
+	$(run-pandoc)
+
+$(TEMPDIR)/index.org: templates/index.org scripts/index.py
+	mkdir -p "$(dir $@)"
+	pipenv run python 'scripts/index.py' '$@'
 
 # ==============================================================================
 # Run `pandoc` from `content/**/README.org to `_site/**/index.html`
@@ -11,21 +44,9 @@ MEDIA_TYPES = png jpg jpeg gif pdf
 CONTENT_SRC = $(shell find 'content' -type f -name 'README.org')
 CONTENT_DST = $(CONTENT_SRC:content/%/README.org=$(DESTDIR)/%/index.html)
 
-export YEONGHOEY_FILTER_SRC
-export YEONGHOEY_FILTER_MEDIA
 $(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
 $(CONTENT_DST): $(DESTDIR)/%/index.html : content/%/README.org
-	mkdir -p "$(dir $@)"
-	@env | grep 'YEONGHOEY_'
-	pipenv run $(PANDOC) \
-  --standalone \
-  --mathjax \
-  --template='templates/content.html' \
-  --css='/_css/content.css' \
-  --include-in-header='includes/fonts.html' \
-  --filter='scripts/filter.py' \
-  --output='$@' \
-  '$<'
+	$(run-pandoc)
 
 
 # ==============================================================================
@@ -67,10 +88,10 @@ update:
 	git pull --rebase --autostash
 
 build: YEONGHOEY_FILTER_MEDIA = https://media.yeonghoey.com
-build: $(CONTENT_DST) $(STATIC_DST)
+build: $(DESTDIR)/index.html $(CONTENT_DST) $(STATIC_DST)
 
 local: YEONGHOEY_FILTER_MEDIA =
-local: $(CONTENT_DST) $(STATIC_DST) $(LOCAL_DST)
+local: $(DESTDIR)/index.html $(CONTENT_DST) $(STATIC_DST) $(LOCAL_DST)
 
 sync: sync-down sync-up
 
