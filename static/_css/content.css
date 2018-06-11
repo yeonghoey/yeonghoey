@@ -43,7 +43,7 @@ nav ul#children li {
   nav ul#children {
     display: inline-block;
     float: left;
-    width: 140px;
+    width: calc((100% - 960px) / 2);;
   }
 }
 
