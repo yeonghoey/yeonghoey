@@ -42,6 +42,7 @@
 - [[#how-to][How-to]]
   - [[#parse-uri][Parse URI]]
   - [[#put-script][Put <script>]]
+  - [[#add-breadcrumb][Add breadcrumb]]
 - [[#links][Links]]
 
 * Syntax
@@ -1556,6 +1557,39 @@ Some keywords are optional, but there is a general guideline for compatibility:
 - http://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html
 :END:
 
+** Add breadcrumb
+#+BEGIN_SRC html
+  <div id="breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+    </ol>
+  </div>
+#+END_SRC
+
+#+BEGIN_SRC javascript
+  let pathname = window.location.pathname;
+  let segments = pathname.split('/').filter(x => x != '');
+  let hrefs = segments.reduce((arr, seg) => {
+    let prev = arr.length > 0 ? arr[arr.length-1] : '';
+    let href = prev + '/' + seg;
+    arr.push(href);
+    return arr;
+  }, []);
+  let lis = segments.map((seg, i) => {
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    let t = document.createTextNode(seg);
+    a.setAttribute('href', hrefs[i]);
+    a.appendChild(t);
+    li.appendChild(a);
+    return li;
+  });
+  let breadcrumb = document.getElementById('breadcrumb');
+  let ol = breadcrumb.getElementsByTagName('ol')[0];
+  lis.forEach(li => ol.appendChild(li));
+  let aTags = ol.getElementsByTagName('a');
+  aTags[aTags.length-1].removeAttribute('href');
+#+END_SRC
 * Links
 :REFERENCES:
 - https://javascript.info/ 
