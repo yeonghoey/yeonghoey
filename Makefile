@@ -98,27 +98,25 @@ $(PUBLISH_DST): % : content/%/README.org
 # ==============================================================================
 # PHONY targets
 # ==============================================================================
-.PHONY: init ci update build publish local sync s3pull s3push prune dev clean
-
-init:
-	pipenv install --dev
-	cp scripts/pre-push .git/hooks/
+.PHONY: ci build init local dev publish s3pull s3push clean
 
 ci:
 	pipenv install
 
-update:
-	git pull --rebase --autostash
-
 build: YEONGHOEY_FILTER_MEDIA = https://media.yeonghoey.com
 build: $(DESTDIR)/index.html $(CONTENT_DST) $(STATIC_DST)
 
-publish: $(PUBLISH_DST)
+init: s3pull
+	pipenv install --dev
+	cp scripts/pre-push .git/hooks/
 
 local: YEONGHOEY_FILTER_MEDIA =
 local: $(DESTDIR)/index.html $(CONTENT_DST) $(STATIC_DST) $(LOCAL_DST)
 
-sync: s3pull s3push
+dev: local
+	pipenv run python scripts/dev.py
+
+publish: $(PUBLISH_DST)
 
 s3pull:
 	pipenv run aws s3 sync \
@@ -127,12 +125,6 @@ s3pull:
 
 s3push:
 	$(call run-s3push)
-
-prune: YEONGHOEY_SYNCFLAGS = --delete --dryrun
-prune: sync-up
-
-dev: local
-	pipenv run python scripts/dev.py
 
 clean:
 	-rm -rf $(DESTDIR)/*
