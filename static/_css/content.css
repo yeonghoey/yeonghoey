@@ -41,6 +41,14 @@ header h1 {
   margin: 0;
 }
 
+/* image */
+img {
+  max-width: 100%;
+  height: auto;
+  padding: 0.5em;
+  background-color: #eeeeee;
+}
+
 /* code inline */
 code {
   font-family: 'Roboto Mono', monospace;
@@ -58,19 +66,6 @@ pre,
   background-color: #eeeeee;
 }
 
-/* result output block */
-pre + p > img,
-pre + pre.example,
-.sourceCode + p > img,
-.sourceCode + pre.example {
-  background-color: #cfd8dc;
-}
-
-pre.example + p > img,
-pre.example + pre.example {
-  background-color: #eeeeee;
-}
-
 pre {
   font-family: 'Roboto Mono', monospace;
   padding: 0.75em 1em;
@@ -84,6 +79,19 @@ pre code {
   white-space: pre;
 }
 
+/* Differentiate result output block */
+pre[data-exports=both] + p > img,
+pre[data-exports=both] + pre.example,
+pre[data-exports=results] + p > img,
+pre[data-exports=results] + pre.example,
+.sourceCode[data-exports=both] + p > img,
+.sourceCode[data-exports=both] + pre.example,
+.sourceCode[data-exports=results] + p > img,
+.sourceCode[data-exports=results] + pre.example {
+  background-color: #cfd8dc;
+}
+
+/* GitHub style blockquote */
 blockquote {
   margin: 0;
   padding: 0 1em;
@@ -122,20 +130,14 @@ table td {
   list-style-type: none;
 }
 
-/* media */
-img,
-.embed {
-  max-width: 100%;
-  height: auto;
-  padding: 0.5em;
-  background-color: #eeeeee;
-}
-
+/* embed */
 /* iframe aspect ratio support */
 .embed {
   position: relative;
   display: block;
   overflow: hidden;
+  max-width: 100%;
+  height: auto;
 }
 
 .embed-16by9 {
