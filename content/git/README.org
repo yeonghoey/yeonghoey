@@ -145,6 +145,10 @@
   git diff --name-only # Show only names of changed files
 #+END_SRC
 
+:REFERENCES:
+- https://stackoverflow.com/questions/9903541/finding-diff-between-current-and-last-versions/9903611
+:END:
+
 ** flow
 :REFERENCES:
 - http://danielkummer.github.io/git-flow-cheatsheet/index.html
