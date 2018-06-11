@@ -1,3 +1,4 @@
+from collections import deque
 from itertools import chain
 import json
 from os.path import join
@@ -8,7 +9,7 @@ from livereload import Server, shell
 from livereload.handlers import LiveReloadHandler
 
 
-work_paths = set()
+work_paths = deque(maxlen=3)
 
 
 def make():
@@ -34,7 +35,7 @@ def on_message_ex(self, message):
         # Remove leadling '/'
         path = urlparse(url).path[1:]
         if path and path not in work_paths:
-            work_paths.add(path)
+            work_paths.append(path)
             refresh()
 
     # Call the original one
