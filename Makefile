@@ -16,7 +16,7 @@ export YEONGHOEY_FILTER_MEDIA
 $(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
 $(CONTENT_DST): $(DESTDIR)/%/index.html : content/%/README.org
 	mkdir -p "$(dir $@)"
-	@env | grep YEONGHOEY_
+	@env | grep 'YEONGHOEY_'
 	pipenv run $(PANDOC) \
   --standalone \
   --mathjax \
