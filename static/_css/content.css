@@ -4,6 +4,7 @@
 
 .content {
   font-family: 'Roboto', sans-serif;
+  color: #212121;
   line-height: 1.6;
   max-width: 960px;
   padding: 0.5em;
@@ -21,11 +22,11 @@ h6 {
 }
 
 h1 {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #212121;
 }
 
 h2 {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #212121;
 }
 
 h1 { font-size: 2em; }
