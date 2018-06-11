@@ -1003,7 +1003,6 @@ This issue can be solved with locks or by using the *EAFP* approach.
 
 ** Meta Class
 - Subclasses inherit the metaclass
-
 #+BEGIN_SRC python :results output
   class Meta(type):
       def __new__(meta, name, bases, class_dict):
