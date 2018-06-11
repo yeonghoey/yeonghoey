@@ -1,6 +1,39 @@
 * {
   box-sizing: border-box;
 }
+body {
+  display: block;
+  margin : 0;
+}
+
+#breadcrumb {
+  font-family: 'Roboto', sans-serif;
+  color: #212121;
+  width: 100%;
+  padding: 0.5em;
+  margin: 0 0 1em 0;
+  background-color: #eeeeee;
+}
+
+#breadcrumb ol {
+  margin: 0;
+  padding: 0;
+  list-style: none inside;
+}
+
+#breadcrumb li {
+  display: inline-block;
+}
+
+#breadcrumb li + li::before {
+  content: "/";
+  padding: 0 0.5em;
+}
+
+#breadcrumb ol:last-child {
+  content: "/";
+  padding: 0 0.5em;
+}
 
 .content {
   font-family: 'Roboto', sans-serif;

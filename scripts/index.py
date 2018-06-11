@@ -17,18 +17,16 @@ for src in Path('content').glob('**/README.org'):
     node = root
     for s in segments:
         node = node[s]
-    node['__self__'] = path
 
 
-def walk(node, level=0):
-    elems = sorted((k, v) for k, v in node.items() if k != '__self__')
+def walk(node, parent='.', level=0):
+    elems = sorted((k, v) for k, v in node.items())
     for name, subs in elems:
         indent = ' ' * level
-        path = subs.get('__self__')
-        link = (f'[[./{path}][{name}]]' if path else
-                f'{name}')
+        path = f'{parent}/{name}'
+        link = f'[[{path}][{name}]]'
         yield f'{indent}- {link}'
-        yield from walk(subs, level + 1)
+        yield from walk(subs, path, level + 1)
 
 
 with open('README.org') as f:

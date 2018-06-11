@@ -20,6 +20,7 @@ pipenv run $(PANDOC) \
 --template='templates/content.html' \
 --css='/_css/content.css' \
 --include-in-header='includes/fonts.html' \
+--include-before-body='includes/breadcrumb.html' \
 --filter='scripts/filter.py' \
 --output='$@' \
 '$<'
@@ -33,7 +34,7 @@ $(DESTDIR)/index.html: YEONGHOEY_FILTER_SRC = $<
 $(DESTDIR)/index.html: $(TEMPDIR)/index.org
 	$(run-pandoc)
 
-$(TEMPDIR)/index.org: templates/index.org scripts/index.py
+$(TEMPDIR)/index.org::
 	mkdir -p "$(dir $@)"
 	pipenv run python 'scripts/index.py' '$@'
 
