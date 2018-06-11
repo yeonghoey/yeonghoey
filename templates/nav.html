@@ -1,0 +1,18 @@
+<nav>
+  <ol id="breadcrumb">
+  {%- for href, segment in breadcrumb %}
+  {%- if href is none %}
+    <li>{{ segment }}</li>
+  {%- else %}
+    <li><a href="{{ href|e }}" >{{ segment }}</a></li>
+  {%- endif %}
+  {%- endfor %}
+  </ol>
+  {%- if children %}
+  <ul id="children">
+  {%- for name in children %}
+    <li><a href="./{{ name }}">{{ name }}</a></li>
+  {%- endfor %}
+  </ul>
+  {%- endif %}
+</nav>

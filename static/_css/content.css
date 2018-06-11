@@ -1,38 +1,41 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   display: block;
   margin : 0;
 }
 
-#breadcrumb {
+nav {
+  width: 100%;
+  margin: 0 0 1em 0;
+  padding: 0.5em;
   font-family: 'Roboto', sans-serif;
   color: #212121;
-  width: 100%;
-  padding: 0.5em;
-  margin: 0 0 1em 0;
   background-color: #eeeeee;
+  overflow: auto;
 }
 
-#breadcrumb ol {
+nav ol#breadcrumb {
   margin: 0;
   padding: 0;
   list-style: none inside;
 }
 
-#breadcrumb li {
+nav ol#breadcrumb li {
   display: inline-block;
 }
 
-#breadcrumb li + li::before {
+nav ol#breadcrumb li + li::before {
   content: "/";
   padding: 0 0.5em;
 }
 
-#breadcrumb ol:last-child {
-  content: "/";
-  padding: 0 0.5em;
+nav ul#children {
+  margin: 0.5em 0.5em;
+  padding: 0;
+  list-style: none inside;
 }
 
 article {

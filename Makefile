@@ -20,9 +20,9 @@ pipenv run $(PANDOC) \
 --template='templates/content.html' \
 --css='/_css/content.css' \
 --include-in-header='includes/fonts.html' \
---include-before-body='includes/breadcrumb.html' \
 --filter='scripts/filter.py' \
 --output='$@' \
+$(1) \
 '$<'
 endef
 
@@ -44,9 +44,9 @@ endef
 
 $(DESTDIR)/index.html: YEONGHOEY_FILTER_SRC = $<
 $(DESTDIR)/index.html: $(TEMPDIR)/index.org
-	$(run-pandoc)
+	$(call run-pandoc)
 
-$(TEMPDIR)/index.org::
+$(TEMPDIR)/index.org: templates/index.org scripts/index.py
 	mkdir -p "$(dir $@)"
 	pipenv run python 'scripts/index.py' '$@'
 
@@ -55,11 +55,18 @@ $(TEMPDIR)/index.org::
 # ==============================================================================
 
 CONTENT_SRC = $(shell find 'content' -type f -name 'README.org')
+CONTENT_NAV = $(CONTENT_SRC:content/%/README.org=$(TEMPDIR)/%/nav.html)
 CONTENT_DST = $(CONTENT_SRC:content/%/README.org=$(DESTDIR)/%/index.html)
 
+$(CONTENT_NAV): \
+$(TEMPDIR)/%/nav.html : content/%/README.org
+	mkdir -p "$(dir $@)"
+	pipenv run python 'scripts/nav.py' "$@"
+
 $(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
-$(CONTENT_DST): $(DESTDIR)/%/index.html : content/%/README.org
-	$(run-pandoc)
+$(CONTENT_DST): \
+$(DESTDIR)/%/index.html : content/%/README.org $(TEMPDIR)/%/nav.html
+	$(call run-pandoc,--include-before-body=$(word 2,$^))
 
 
 # ==============================================================================
