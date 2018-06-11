@@ -1,6 +1,5 @@
 from collections import defaultdict
 from pathlib import Path
-import re
 from string import Template
 import sys
 
@@ -12,8 +11,7 @@ def tree():
 root = tree()
 
 for src in Path('content').glob('**/README.org'):
-    path = re.sub(r'^content/(.*)/README.org$', r'\1', str(src))
-    segments = path.split('/')
+    segments = src.parts[1:-1]
     node = root
     for s in segments:
         node = node[s]
