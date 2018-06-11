@@ -59,11 +59,14 @@ pre,
 }
 
 /* result output block */
+pre + p > img,
 pre + pre.example,
+.sourceCode + p > img,
 .sourceCode + pre.example {
   background-color: #cfd8dc;
 }
 
+pre.example + p > img,
 pre.example + pre.example {
   background-color: #eeeeee;
 }
@@ -124,7 +127,8 @@ img,
 .embed {
   max-width: 100%;
   height: auto;
-  border: 0.5em solid #eeeeee;
+  padding: 0.5em;
+  background-color: #eeeeee;
 }
 
 /* iframe aspect ratio support */
