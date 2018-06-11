@@ -41,14 +41,19 @@ endef
 # ==============================================================================
 # Generate /index.html
 # ==============================================================================
+INDEX_SRC = README.org templates/index.org content scripts/index.py
 
 $(DESTDIR)/index.html: YEONGHOEY_FILTER_SRC = $<
-$(DESTDIR)/index.html: $(TEMPDIR)/index.org
-	$(call run-pandoc)
+$(DESTDIR)/index.html: $(TEMPDIR)/index.org $(TEMPDIR)/nav.html
+	$(call run-pandoc,--include-before-body=$(word 2,$^))
 
-$(TEMPDIR)/index.org: templates/index.org scripts/index.py
+$(TEMPDIR)/index.org: $(INDEX_SRC)
 	mkdir -p "$(dir $@)"
 	pipenv run python 'scripts/index.py' '$@'
+
+$(TEMPDIR)/nav.html: $(INDEX_SRC)
+	mkdir -p "$(dir $@)"
+	pipenv run python 'scripts/nav.py' "$@"
 
 # ==============================================================================
 # Run `pandoc` from `content/**/README.org to `_site/**/index.html`

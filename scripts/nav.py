@@ -23,9 +23,13 @@ def make_breadcrumb(target):
 
 
 def make_children(target):
-    context = Path('content', *Path(target).parts[1:-1])
-    names = [p.parent.relative_to(context)
-             for p in context.glob('*/README.org')]
+    context = Path(target).parts[1:-1]
+    # skip making child links for /index.html
+    if not context:
+        return []
+    src = Path('content', *context)
+    names = [p.parent.relative_to(src)
+             for p in src.glob('*/README.org')]
     return sorted(names)
 
 
