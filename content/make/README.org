@@ -14,6 +14,7 @@
     - [[#static-pattern-rules][Static Pattern Rules]]
     - [[#implicit-rules][Implicit Rules]]
     - [[#pattern-rules][Pattern Rules]]
+    - [[#double-colon-rules][Double Colon Rules]]
   - [[#targets][Targets]]
     - [[#phony-targets][Phony Targets]]
   - [[#prerequisites][Prerequisites]]
@@ -276,6 +277,15 @@ when x.c, y.c and z.c all exist will execute:
 
 :REFERENCES:
 - https://www.gnu.org/software/make/manual/make.html#Defining-and-Redefining-Pattern-Rules
+:END:
+
+*** Double Colon Rules
+- Normally, one file can be the target of several rules, and in this case, the prerequisites of the rules are merged.
+- When rules are specified with ~::~, the rules and their prerequisites are treated separatedly.
+
+:REFERENCES:
+- https://www.gnu.org/software/make/manual/html_node/Double_002dColon.html
+- https://stackoverflow.com/questions/7891097/what-are-double-colon-rules-in-a-makefile-for
 :END:
 
 ** Targets
