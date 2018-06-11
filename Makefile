@@ -29,8 +29,8 @@ endef
 # Generate /index.html
 # ==============================================================================
 
-$(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
-$(DESTDIR)/index.html : $(TEMPDIR)/index.org
+$(DESTDIR)/index.html: YEONGHOEY_FILTER_SRC = $<
+$(DESTDIR)/index.html: $(TEMPDIR)/index.org
 	$(run-pandoc)
 
 $(TEMPDIR)/index.org: templates/index.org scripts/index.py
