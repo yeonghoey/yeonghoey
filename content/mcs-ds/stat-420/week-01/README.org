@@ -1,6 +1,7 @@
 #+TITLE: STAT 420: Week 1
 
 * Table of Contents :TOC_2_gh:
+- [[#summary][Summary]]
 - [[#r-and-rstudio][R and RStudio]]
   - [[#basic-r][Basic R]]
   - [[#vectors][Vectors]]
@@ -18,6 +19,61 @@
   - [[#basic-statistics-in-r][Basic Statistics in R]]
   - [[#visualization-in-r][Visualization in R]]
 - [[#rmarkdown][RMarkdown]]
+
+* Summary
+[[file:_img/ee5d3d9e3453eb83fffad7622a4e7dba715b4cd1.png]]
+
+[[file:_img/172348435bd62d26121432b33e1890a17d36a100.png]]
+
+[[file:_img/7886104efbefc6b0e6da243d12fce5509facf81a.png]]
+
+[[file:_img/7bdc7227eb011ddb193b53349fb57f710e75df51.png]]
+
+[[file:_img/e065e379d687250f484e2ee7f4f444c7d121364f.png]]
+
+[[file:_img/9ea829832dcc69a4b2850bfd20ba3807311d50d2.png]]
+
+[[file:_img/40bc12aa731950f5dcaf9436f1a655f672dad54f.png]]
+
+[[file:_img/6a52687eca40151837bd2f06501038a24c6157b3.png]]
+
+#+BEGIN_SRC R :session :results output :exports both
+  a = c(1, 2, 3)
+  b = c(2, 2, 2)
+#+END_SRC
+
+#+BEGIN_SRC R :session :results output :exports both
+  crossprod(a, b)   # inner product
+#+END_SRC
+
+#+RESULTS:
+:      [,1]
+: [1,]   12
+
+#+BEGIN_SRC R :session :results output :exports both
+  tcrossprod(a, b)  # outer product
+#+END_SRC
+
+#+RESULTS:
+:      [,1] [,2] [,3]
+: [1,]    2    2    2
+: [2,]    4    4    4
+: [3,]    6    6    6
+
+#+BEGIN_SRC R :session :results output :exports both
+  C = matrix(c(1, 2, 3, 4, 5, 6), 2, 3)
+  D = matrix(c(2, 2, 2, 2, 2, 2), 2, 3)
+  all.equal(crossprod(C, D), t(C) %*% D)
+#+END_SRC
+
+#+RESULTS:
+: [1] TRUE
+
+:REFERENCES:
+- http://daviddalpiaz.github.io/appliedstats/introduction-to-r.html#basic-calculations
+- http://daviddalpiaz.github.io/appliedstats/data-and-programming.html#data-structures
+- http://daviddalpiaz.github.io/appliedstats/data-and-programming.html#logical-operators
+:END:
 
 * R and RStudio
 ** Basic R
