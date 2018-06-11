@@ -27,6 +27,18 @@ pipenv run $(PANDOC) \
 endef
 
 # ==============================================================================
+# S3 Push Recipe
+# ==============================================================================
+define run-s3push
+pipenv run aws s3 sync \
+'content/$(1)' \
+'s3://yeonghoey-media/$(1)' \
+--exclude '*' \
+$(patsubst %,--include '*.%',$(MEDIA_TYPES)) \
+$(YEONGHOEY_SYNCFLAGS)
+endef
+
+# ==============================================================================
 # Generate /index.html
 # ==============================================================================
 
@@ -74,9 +86,19 @@ $(STATIC_DST): $(DESTDIR)/%: static/%
 
 
 # ==============================================================================
+# Publish changed content's media files
+# ==============================================================================
+CHANGED_FILES = $(shell git diff --name-only origin/master..HEAD)
+PUBLISH_SRC = $(filter content/%/README.org,$(CHANGED_FILES))
+PUBLISH_DST = $(PUBLISH_SRC:content/%/README.org=%)
+$(PUBLISH_DST): % : content/%/README.org
+	$(call run-s3push,$@)
+
+
+# ==============================================================================
 # PHONY targets
 # ==============================================================================
-.PHONY: init ci update build local sync sync-down sync-up prune dev clean
+.PHONY: init ci update build publish local sync s3pull s3push prune dev clean
 
 init:
 	pipenv install --dev
@@ -91,23 +113,20 @@ update:
 build: YEONGHOEY_FILTER_MEDIA = https://media.yeonghoey.com
 build: $(DESTDIR)/index.html $(CONTENT_DST) $(STATIC_DST)
 
+publish: $(PUBLISH_DST)
+
 local: YEONGHOEY_FILTER_MEDIA =
 local: $(DESTDIR)/index.html $(CONTENT_DST) $(STATIC_DST) $(LOCAL_DST)
 
-sync: sync-down sync-up
+sync: s3pull s3push
 
-sync-down:
+s3pull:
 	pipenv run aws s3 sync \
   's3://yeonghoey-media' \
   'content'
 
-sync-up:
-	pipenv run aws s3 sync \
-  'content' \
-  's3://yeonghoey-media' \
-  --exclude '*' \
-  $(patsubst %,--include '*.%',$(MEDIA_TYPES)) \
-  $(YEONGHOEY_SYNCFLAGS)
+s3push:
+	$(call run-s3push)
 
 prune: YEONGHOEY_SYNCFLAGS = --delete --dryrun
 prune: sync-up

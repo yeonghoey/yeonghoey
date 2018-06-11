@@ -1,2 +1,2 @@
 #!/bin/bash
-make sync
+make -j2 publish
