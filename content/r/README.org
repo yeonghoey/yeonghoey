@@ -1,6 +1,7 @@
 #+TITLE: R
 
 * Table of Contents :TOC_2_gh:
+- [[#overview][Overview]]
 - [[#basics][Basics]]
   - [[#array-matrix][array, matrix]]
   - [[#assign][assign]]
@@ -32,6 +33,20 @@
   - [[#assert-conditions][Assert conditions]]
   - [[#order-factor-elements][Order factor elements]]
   - [[#remove-na-values-from-a-vector][Remove NA values from a vector]]
+
+* Overview
+
+:REFERENCES:
+- https://www.povertyactionlab.org/sites/default/files/r-cheat-sheet.pdf
+:END:
+
+[[file:_img/5637cbaf157434e607527184d848dc7331c0e47a.png]]
+
+[[file:_img/ab67ab3c388482a32d5d4c2233894820336e10e5.png]]
+
+[[file:_img/65cfcd62cc5c4d4e46cb7518a3c54b55e5d85275.png]]
+
+[[file:_img/285cad1c433f2ed8c3590c443ec1e5a42798410f.png]]
 
 * Basics
 - R is case sensitive
