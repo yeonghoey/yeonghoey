@@ -4,11 +4,11 @@
 - [[#overview][Overview]]
 
 * Overview
-- Week 1 :: [[week1][Introduction to Crypto and Cryptocurrencies]]
-- Week 2 :: [[week2][How Bitcoin Achieves Decentralization]]
-- Week 3 :: [[week3][Mechanics of Bitcoin]]
-- Week 4 :: [[week4][How to Store and Use Bitcoins]]
-- Week 5 :: [[week5][Bitcoin Mining]]
+- Week 1 :: [[./week1][Introduction to Crypto and Cryptocurrencies]]
+- Week 2 :: [[./week2][How Bitcoin Achieves Decentralization]]
+- Week 3 :: [[./week3][Mechanics of Bitcoin]]
+- Week 4 :: [[./week4][How to Store and Use Bitcoins]]
+- Week 5 :: [[./week5][Bitcoin Mining]]
 
 :REFERENCES:
 - https://www.coursera.org/learn/cryptocurrency
