@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4edb102a6c42aa0ad6ed9be7bfffb9671a7774596c91325db42f4aa5c78d8df3"
+            "sha256": "35a4bdb4abbf4ce9e64993d42da2e4afe4e58d4363bdcd24d6dd2a51ff7c8585"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,20 @@
         ]
     },
     "default": {
+        "jinja2": {
+            "hashes": [
+                "sha256:74c935a1b8bb9a3947c50a54766a969d4846290e1e788ea44c1392163723c3bd",
+                "sha256:f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
+            ],
+            "index": "pypi",
+            "version": "==2.10"
+        },
+        "markupsafe": {
+            "hashes": [
+                "sha256:a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
+            ],
+            "version": "==1.0"
+        },
         "pandocfilters": {
             "hashes": [
                 "sha256:b3dd70e169bb5449e6bc6ff96aea89c5eea8c5f6ab5e207fc2f521a2cf4a0da9"
@@ -27,18 +41,18 @@
     "develop": {
         "awscli": {
             "hashes": [
-                "sha256:9a593c8294c15171aacac3959a05d4bcee9709846425df48729b7e50a78aa101",
-                "sha256:d02877b580144b23e1a0f0541fc21aa5d9693d46daaa56ca73cb87e72de53863"
+                "sha256:43f8356056dd15f3000d49e70498547993d1d5dd0226a710abacb6c4c4c0d2ea",
+                "sha256:d06f0aa24e1b671a00d108f75dfca5b052f9b4c0cafe3cc9668d63158e240b7e"
             ],
             "index": "pypi",
-            "version": "==1.15.30"
+            "version": "==1.15.35"
         },
         "botocore": {
             "hashes": [
-                "sha256:1f6d0a135c9505e0840b675e6bd6b556c85df2e63212ac6850f77edf9f68311a",
-                "sha256:8dac26094f3dbebd2849c0774f050daad3f1abf1b35fad7525916a36372fe009"
+                "sha256:15bd5b023348b1b51caa8b2e70c99945031cc80b2610c3b4ed351774d04ab95d",
+                "sha256:7529de3954989d8433d65d9c57013f2109099a1b7d64f6a6f9e53c2ad6f9a06b"
             ],
-            "version": "==1.10.30"
+            "version": "==1.10.35"
         },
         "colorama": {
             "hashes": [
