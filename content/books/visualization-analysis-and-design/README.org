@@ -9,6 +9,7 @@
 * Table of Contents :TOC_2_gh:
 - [[#chapter-1-whats-vis-and-why-do-it][Chapter 1. What's Vis, and Why Do It?]]
 - [[#chapter-2-what-data-abstraction][Chapter 2. What: Data Abstraction]]
+- [[#chapter-3-why-task-abstraction][Chapter 3. Why: Task Abstraction]]
 
 * Chapter 1. What's Vis, and Why Do It?
 #+BEGIN_QUOTE
@@ -30,3 +31,37 @@ Analyzing existing systems is a good stepping stone to designing new ones.
 
 * Chapter 2. What: Data Abstraction
 [[file:_img/6bce364771ef30a157942576766409d646b18cb0.png]]
+
+[[file:_img/d3a46f18ae1af1ea3c57cfc01f1c3d45446e7478.png]]
+
+#+BEGIN_QUOTE
+The workd /dataset/ is singular. In vis the word /data/ is commonly used as a singular mass noun as well.
+#+END_QUOTE
+
+[[file:_img/323e43db5f27ba3cc24b8133ba0927116c384fbb.png]]
+
+#+BEGIN_QUOTE
+In many instances determining which attributes are independent keys versus dependent values is the goal of the vis process,
+rather than its starting point.
+#+END_QUOTE
+
+* Chapter 3. Why: Task Abstraction
+[[file:_img/bc6a48406643bfc273b54dd7503668f793ccb669.png]]
+
+#+BEGIN_QUOTE
+Transforming task descriptions from domain-specific language into abstract form allows you to reason about similarities and differences between them.
+#+END_QUOTE
+
+[[file:_img/c978ade5d7ae80b6eec48f3943e122074103a20a.png]]
+
+:REFERENCES:
+- http://www.babynamewizard.com/
+:END:
+
+[[file:_img/71332d268f9d3421f0458f445aa993793ed61af4.png]]
+
+[[file:_img/c76f873755d3ef19687184b660d4d7b78c0630d0.png]]
+
+[[file:_img/0595ad34440a646f02908e8bba83db3acd8229e3.png]]
+
+[[file:_img/0cf4ec91a640e5e5f3a23a90cf4c85e6857b09fe.png]]
