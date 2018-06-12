@@ -1,0 +1,28 @@
+#+TITLE: Visualization Analysis and Design
+
+:REFERENCES:
+- https://www.crcpress.com/Visualization-Analysis-and-Design/Munzner/p/book/9781466508910
+:END:
+
+* Table of Contents :TOC_2_gh:
+- [[#chapter-1-whats-vis-and-why-do-it][Chapter 1. What's Vis, and Why Do It?]]
+
+* Chapter 1. What's Vis, and Why Do It?
+#+BEGIN_QUOTE
+Vis designers must take into account three very different kinds of resource limitations:
+those of computers, of humans, and of displays.
+#+END_QUOTE
+
+[[file:_img/ad92b339c91a0212315ce0afae703a1cf2f9b02f.png]]
+
+- Large known and consideration spacess are crucial to find satisfiable solutions.
+
+[[file:_img/11bb651ad3b88b96b273897f070ffcf6af921f36.png]] 
+
+#+BEGIN_QUOTE
+Analyzing existing systems is a good stepping stone to designing new ones.
+#+END_QUOTE
+
+[[file:_img/e70fd9925cea0a6a0d7b5bffdcc3edbdfb891963.png]]
+
+[[file:_img/6bce364771ef30a157942576766409d646b18cb0.png]]
