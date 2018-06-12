@@ -65,3 +65,16 @@ Transforming task descriptions from domain-specific language into abstract form 
 [[file:_img/0595ad34440a646f02908e8bba83db3acd8229e3.png]]
 
 [[file:_img/0cf4ec91a640e5e5f3a23a90cf4c85e6857b09fe.png]]
+
+
+#+BEGIN_QUOTE
+In a vis showing a complex network or tree, it is useful to be able to filter out most of the complexity by drawing a simpler picture that
+communicates the key aspects of its topological structure. One way to support this kind of summarization is to calculate a new derived attribute
+that measures the importance of each node in the graph and filter based on that attribute.
+#+END_QUOTE
+
+[[file:_img/3d059dc8f6a75edb5a194b552d1cc5d3fe5a5a2d.png]]
+
+[[file:_img/6978e539d83dc8525e761cf633f50b683c5d9ff1.png]]
+
+[[file:_img/a346cadcfe3f1178a41fff34ff1559e63ee6261d.png]]
