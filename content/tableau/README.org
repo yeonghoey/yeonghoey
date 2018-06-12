@@ -31,12 +31,17 @@ There is a hard limit:
 
 Consider a dataset like:
 #+BEGIN_SRC json
-  {"User": "foo", "Programming Language": "Python"}
-  {"User": "foo", "Programming Language": "R"}
-  {"User": "bar", "Programming Language": "Go"}
+  {"Developer": "foo", "Language": "Python"}
+  {"Developer": "foo", "Language": "R"}
+  {"Developer": "bar", "Language": "Go"}
 #+END_SRC
 
 Use LOD Expressions to answer **How many users use how many languages?**
+
+[[file:_img/cb2c27efe03040ed3400164c84bd4e5c016482d3.png]]
+
+
+[[file:_img/5ab3bb9c20032357a5f8bfeb3513b99c6374c4fb.png]]
 
 :REFERENCES:
 - http://vizpainter.com/my-favorite-tableau-9-0-feature/
@@ -45,6 +50,19 @@ Use LOD Expressions to answer **How many users use how many languages?**
 
 ** Create a dimension of Top N and Others
 - To achieve this, we need to create a set first, and ~IF~ expression with it.
+
+First off, it's better to create a parameter for adjusting ~N~:
+
+[[file:_img/00a236d119495da6fd1ae10eccf13e322c567d85.png]]
+
+[[file:_img/2499aed49c7b31cc87b0013cbb055a581455112b.png]]
+
+[[file:_img/61efa27e114c2245a22b1034578702a90176553e.png]]
+
+[[file:_img/d479e1cd1284ef85e8bdb6d47a7106dd58d97ce7.png]]
+
+You can test whether or not to do correctly by putting the set and the field on Row Shelf:
+[[file:_img/c5c53e5adae3e7b1fa93c0f18186302914b3e724.png]]
 
 :REFERENCES:
 - https://onlinehelp.tableau.com/current/pro/desktop/en-us/sortgroup_sets_topn.html
