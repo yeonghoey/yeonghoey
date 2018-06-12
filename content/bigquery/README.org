@@ -1,3 +1,27 @@
 #+TITLE: Google BigQuery
 
 * Table of Contents :TOC_2_gh:
+- [[#standard-sql][Standard SQL]]
+  - [[#format_timestamp][FORMAT_TIMESTAMP]]
+
+* Standard SQL
+Make sure to uncheck ~Use Legacy SQL~
+
+[[file:_img/5e436997bc86710296972db8399625faf88d140b.png]]
+
+** FORMAT_TIMESTAMP
+#+BEGIN_SRC sql :exports both
+  SELECT FORMAT_TIMESTAMP("%F", TIMESTAMP "2008-12-25 15:30:00", "America/Los_Angeles") AS formatted;
+#+END_SRC
+
+#+BEGIN_EXAMPLE
+  +------------+
+  | formatted  |
+  +------------+
+  | 2008-12-25 |
+  +------------+
+#+END_EXAMPLE
+
+:REFERENCES:
+- https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators#supported-format-elements-for-timestamp
+:END:
