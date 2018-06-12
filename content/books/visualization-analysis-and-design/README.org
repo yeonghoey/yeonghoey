@@ -6,6 +6,7 @@
 
 * Table of Contents :TOC_2_gh:
 - [[#chapter-1-whats-vis-and-why-do-it][Chapter 1. What's Vis, and Why Do It?]]
+- [[#chapter-2-what-data-abstraction][Chapter 2. What: Data Abstraction]]
 
 * Chapter 1. What's Vis, and Why Do It?
 #+BEGIN_QUOTE
@@ -25,4 +26,5 @@ Analyzing existing systems is a good stepping stone to designing new ones.
 
 [[file:_img/e70fd9925cea0a6a0d7b5bffdcc3edbdfb891963.png]]
 
+* Chapter 2. What: Data Abstraction
 [[file:_img/6bce364771ef30a157942576766409d646b18cb0.png]]
