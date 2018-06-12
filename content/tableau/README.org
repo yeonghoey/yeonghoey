@@ -11,6 +11,10 @@
   brew cask install tableau-public
 #+END_SRC
 
+There is a hard limit:
+
+[[file:_img/7e6732c8c133ff1110e32394b0252be02676b8a8.png]]
+
 :REFERENCES:
 - https://www.tableau.com/learn/training
 - http://www.tableaureferenceguide.com/
