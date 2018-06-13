@@ -17,14 +17,18 @@ mkdir -p "$(dir $@)"
 pipenv run $(PANDOC) \
 --standalone \
 --mathjax \
-$(patsubst $(DESTDIR)/%,--css='%',$(SCSS_DST)) \
+$(cssflags) \
 --template='resources/content.html' \
 --include-in-header='resources/fonts.html' \
+--include-before-body='$(navfile)' \
 --filter='scripts/filter.py' \
 --output='$@' \
-$(1) \
 '$<'
 endef
+
+cssflags = $(patsubst $(DESTDIR)%,--css='%',$(SCSS_DST))
+navfile  = $(patsubst $(DESTDIR)%index.html,$(TEMPDIR)%nav.html,$@)
+
 
 # ==============================================================================
 # S3 Push Recipe
@@ -56,7 +60,7 @@ INDEX_SRC = README.org resources/index.org content scripts/index.py
 
 $(DESTDIR)/index.html: YEONGHOEY_FILTER_SRC = $<
 $(DESTDIR)/index.html: $(TEMPDIR)/index.org $(TEMPDIR)/nav.html
-	$(call run-pandoc,--include-before-body=$(word 2,$^))
+	$(run-pandoc)
 
 $(TEMPDIR)/index.org: $(INDEX_SRC)
 	mkdir -p "$(dir $@)"
@@ -82,7 +86,7 @@ $(TEMPDIR)/%/nav.html : content/%/README.org
 $(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
 $(CONTENT_DST): \
 $(DESTDIR)/%/index.html : content/%/README.org $(TEMPDIR)/%/nav.html
-	$(call run-pandoc,--include-before-body=$(word 2,$^))
+	$(run-pandoc)
 
 
 # ==============================================================================
