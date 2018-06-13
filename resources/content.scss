@@ -1,3 +1,11 @@
+$black:  #212121;
+$source: #eeeeee;
+$result: #cfd8dc;
+
+$font-family-heading:   'Roboto Condensed', sans-serif;
+$font-family-base:      'Roboto', sans-serif;
+$font-family-monospace: 'Roboto Mono', monospace;
+
 * {
   box-sizing: border-box;
 }
@@ -5,19 +13,23 @@
 body {
   display: block;
   margin : 0;
+
+  // The default value 'auto' makes code block inconsistent in font sizes on iPhone.
+  // SEE: https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html
+  -webkit-text-size-adjust: 100%;
 }
 
 nav {
   width: 100%;
-  font-family: 'Roboto', sans-serif;
-  color: #212121;
+  font-family: $font-family-base;
+  color: $black;
 }
 
 nav ol#breadcrumb {
   margin: 0;
   padding: 0.5em;
   list-style: none inside;
-  background-color: #eeeeee;
+  background-color: $source;
 }
 
 nav ol#breadcrumb li {
@@ -48,8 +60,8 @@ nav ul#children li {
 }
 
 article {
-  font-family: 'Roboto', sans-serif;
-  color: #212121;
+  font-family: $font-family-base;
+  color: $black;
   line-height: 1.6;
   max-width: 960px;
   padding: 0.5em;
@@ -62,16 +74,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font-family-heading;
   margin: 1.5em 0 0.75em 0;
 }
 
 h1 {
-  border-bottom: 2px solid #212121;
+  border-bottom: 2px solid $black;
 }
 
 h2 {
-  border-bottom: 1px solid #212121;
+  border-bottom: 1px solid $black;
 }
 
 h1 { font-size: 2em; }
@@ -91,17 +103,16 @@ img {
   max-width: 100%;
   height: auto;
   padding: 0.5em;
-  background-color: #eeeeee;
+  background-color: $source;
 }
 
 /* code inline */
 code {
-  font-family: 'Roboto Mono', monospace;
+  font-family: $font-family-monospace;
   font-size: 0.9rem;
-  text-size-adjust: none;
   padding: 0.1em 0.2em;
   border-radius: 0.2em;
-  background-color: #eeeeee;
+  background-color: $source;
 }
 
 /* code block */
@@ -109,13 +120,12 @@ pre,
 .sourceCode {
   margin: 1em 0;
   border-radius: 0.3em;
-  background-color: #eeeeee;
+  background-color: $source;
 }
 
 pre {
-  font-family: 'Roboto Mono', monospace;
+  font-family: $font-family-monospace;
   font-size: 0.9rem;
-  text-size-adjust: none;
   padding: 0.75em 1em;
   overflow: auto;
 }
@@ -135,7 +145,7 @@ pre[data-exports=results] + pre.example,
 .sourceCode[data-exports=both] + pre.example,
 .sourceCode[data-exports=results] + p > img,
 .sourceCode[data-exports=results] + pre.example {
-  background-color: #cfd8dc;
+  background-color: $result;
 }
 
 /* GitHub style blockquote */
@@ -143,7 +153,7 @@ blockquote {
   margin: 0;
   padding: 0 1em;
   color: #757575;
-  border-left: 4px solid #eeeeee;
+  border-left: 4px solid $source;
 }
 
 /* simplified table */
@@ -151,11 +161,11 @@ table {
   margin: 1em 0;
   padding: 0.75em 1em;
   border-collapse:collapse;
-  background-color: #eeeeee;
+  background-color: $source;
 }
 
 table th {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font-family-heading;
   padding: 0.5em 1em;
 }
 
