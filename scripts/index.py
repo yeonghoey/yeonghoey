@@ -30,7 +30,7 @@ def walk(node, parent='.', level=0):
 with open('README.org') as f:
     head = f.read()
 
-with open('templates/index.org') as f:
+with open('resources/index.org') as f:
     template = Template(f.read())
 
 index = '\n'.join(walk(root))

@@ -41,7 +41,7 @@ endef
 # ==============================================================================
 # Generate /index.html
 # ==============================================================================
-INDEX_SRC = README.org templates/index.org content scripts/index.py
+INDEX_SRC = README.org resources/index.org content scripts/index.py
 
 $(DESTDIR)/index.html: YEONGHOEY_FILTER_SRC = $<
 $(DESTDIR)/index.html: $(TEMPDIR)/index.org $(TEMPDIR)/nav.html
