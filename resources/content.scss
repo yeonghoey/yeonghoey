@@ -14,8 +14,8 @@ body {
   display: block;
   margin : 0;
 
-  // The default value 'auto' makes code block inconsistent in font sizes on iPhone.
-  // SEE: https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html
+  // The default value 'auto' makes code block inconsistent in font sizes
+  // on some iOS devices.
   -webkit-text-size-adjust: 100%;
 }
 
