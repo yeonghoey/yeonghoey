@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pandocfilters = "*"
 "jinja2" = "*"
+libsass = "*"
 
 [dev-packages]
 livereload = "*"
