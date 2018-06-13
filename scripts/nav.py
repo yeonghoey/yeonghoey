@@ -33,7 +33,7 @@ def make_children(target):
     return sorted(names)
 
 
-env = Environment(loader=FileSystemLoader('templates'),
+env = Environment(loader=FileSystemLoader('resources'),
                   autoescape=select_autoescape(['html']))
 
 template = env.get_template('nav.html')
