@@ -19,7 +19,7 @@ pipenv run $(PANDOC) \
 --mathjax \
 --template='templates/content.html' \
 --css='/_css/content.css' \
---include-in-header='includes/fonts.html' \
+--include-in-header='resources/fonts.html' \
 --filter='scripts/filter.py' \
 --output='$@' \
 $(1) \
