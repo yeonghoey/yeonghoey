@@ -47,10 +47,9 @@ LiveReloadHandler.on_message = on_message_ex
 
 server = Server()
 
-for p in chain(Path('scripts').glob('**/*'),
-               Path('templates').glob('**/*'),
-               Path('includes').glob('**/*'),
-               Path('static').glob('**/*'),
+for p in chain(Path('static').glob('**/*'),
+               Path('resources').glob('**/*'),
+               Path('scripts').glob('**/*'),
                Path('.').glob('Makefile')):
     server.watch(str(p), refresh)
 
