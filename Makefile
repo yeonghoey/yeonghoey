@@ -17,7 +17,7 @@ mkdir -p "$(dir $@)"
 pipenv run $(PANDOC) \
 --standalone \
 --mathjax \
---css='/_css/content.css' \
+$(patsubst $(DESTDIR)/%,--css='%',$(SCSS_DST)) \
 --template='resources/content.html' \
 --include-in-header='resources/fonts.html' \
 --filter='scripts/filter.py' \
@@ -37,6 +37,17 @@ pipenv run aws s3 sync \
 $(patsubst %,--include '*.%',$(MEDIA_TYPES)) \
 $(YEONGHOEY_SYNCFLAGS)
 endef
+
+# ==============================================================================
+# Compile SCSS
+# ==============================================================================
+SCSS_SRC = $(shell find 'resources' -type f -name '*.scss')
+SCSS_DST = $(SCSS_SRC:resources/%.scss=$(DESTDIR)/_css/%.css)
+$(SCSS_DST):
+$(DESTDIR)/_css/%.css : resources/%.scss
+	mkdir -p "$(dir $@)"
+	sassc $< $@
+
 
 # ==============================================================================
 # Generate /index.html
@@ -116,14 +127,16 @@ ci:
 	pipenv install
 
 build: YEONGHOEY_FILTER_MEDIA = https://media.yeonghoey.com
-build: $(DESTDIR)/index.html $(CONTENT_DST) $(STATIC_DST)
+build: \
+  $(STATIC_DST) $(SCSS_DST) $(DESTDIR)/index.html $(CONTENT_DST)
 
 init: s3pull
 	pipenv install --dev
 	cp scripts/pre-push .git/hooks/
 
 local: YEONGHOEY_FILTER_MEDIA =
-local: $(DESTDIR)/index.html $(CONTENT_DST) $(STATIC_DST) $(LOCAL_DST)
+local: \
+  $(STATIC_DST) $(SCSS_DST) $(DESTDIR)/index.html $(CONTENT_DST) $(LOCAL_DST)
 
 dev: local
 	pipenv run python scripts/dev.py
