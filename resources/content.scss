@@ -109,7 +109,7 @@ img {
 /* code inline */
 code {
   font-family: $font-family-monospace;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   padding: 0.1em 0.2em;
   border-radius: 0.2em;
   background-color: $source;
@@ -128,13 +128,15 @@ pre {
   font-size: 0.9rem;
   padding: 0.75em 1em;
   overflow: auto;
+
+  code {
+    font-size: inherit;
+    padding: 0;
+    background-color: inherit;
+    white-space: pre;
+  }
 }
 
-pre code {
-  background-color: inherit;
-  padding: 0;
-  white-space: pre;
-}
 
 /* Differentiate result output block */
 pre[data-exports=both] + p > img,
