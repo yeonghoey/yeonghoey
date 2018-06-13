@@ -17,8 +17,8 @@ mkdir -p "$(dir $@)"
 pipenv run $(PANDOC) \
 --standalone \
 --mathjax \
---template='templates/content.html' \
 --css='/_css/content.css' \
+--template='resources/content.html' \
 --include-in-header='resources/fonts.html' \
 --filter='scripts/filter.py' \
 --output='$@' \
