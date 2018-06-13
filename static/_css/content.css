@@ -97,7 +97,8 @@ img {
 /* code inline */
 code {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.9em;
+  font-size: 0.9rem;
+  text-size-adjust: none;
   padding: 0.1em 0.2em;
   border-radius: 0.2em;
   background-color: #eeeeee;
@@ -113,12 +114,13 @@ pre,
 
 pre {
   font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+  text-size-adjust: none;
   padding: 0.75em 1em;
   overflow: auto;
 }
 
 pre code {
-  font-size: 0.9em;
   background-color: inherit;
   padding: 0;
   white-space: pre;
@@ -163,7 +165,7 @@ table td {
 
 /* REFERENCE */
 .REFERENCES.drawer {
-  font-size: 0.75em;
+  font-size: 0.75rem;
   overflow: auto;
 }
 
