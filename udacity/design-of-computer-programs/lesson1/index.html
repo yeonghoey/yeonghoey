@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Lesson 1</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/udacity/" >udacity</a></li>
+    <li><a href="/udacity/design-of-computer-programs/" >design-of-computer-programs</a></li>
+    <li>lesson1</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Lesson 1</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#lesson-1-1">Lesson 1</a><ul>
+<li><a href="#outlining-the-problem">Outlining The Problem</a></li>
+<li><a href="#quiz-testing">Quiz: Testing</a></li>
+<li><a href="#back-to-hand-rank">Back To Hand Rank</a></li>
+<li><a href="#quiz-writing-hand-rank">Quiz: Writing Hand Rank</a></li>
+<li><a href="#quiz-fixing-card-rank">Quiz: Fixing Card Rank</a></li>
+<li><a href="#quiz-straight-and-flush">Quiz: Straight And Flush</a></li>
+<li><a href="#quiz-kind-function">Quiz: Kind Function</a></li>
+<li><a href="#quiz-two-pair-function">Quiz: Two Pair Function</a><ul>
+<li><a href="#my-old-solution">My Old Solution</a></li>
+<li><a href="#my-new-solution">My New Solution</a></li>
+<li><a href="#his-solution">His Solution</a></li>
+</ul></li>
+<li><a href="#quiz-ace-low-straight">Quiz: Ace Low Straight</a></li>
+<li><a href="#quiz-allmax">Quiz: Allmax</a><ul>
+<li><a href="#my-old-solution-1">My Old Solution</a></li>
+<li><a href="#my-new-solution-1">My New Solution</a></li>
+<li><a href="#his-solution-1">His Solution</a></li>
+</ul></li>
+<li><a href="#quiz-deal">Quiz: Deal</a><ul>
+<li><a href="#my-old-solution-2">My Old Solution</a></li>
+<li><a href="#my-new-solution-2">My New Solution</a></li>
+<li><a href="#his-solution-2">His Solution</a></li>
+<li><a href="#feedback">Feedback</a></li>
+</ul></li>
+<li><a href="#dimensions-of-programming">Dimensions Of Programming</a></li>
+<li><a href="#refactoring">Refactoring</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+<li><a href="#bonus-shuffling">Bonus: Shuffling</a><ul>
+<li><a href="#quiz-shuffle-runtime">Quiz: Shuffle Runtime</a></li>
+<li><a href="#quiz-is-it-random">Quiz: Is It Random</a></li>
+<li><a href="#testing-shuffles">Testing Shuffles</a><ul>
+<li><a href="#self-proof-for-unifomity-of-shuffle2">Self Proof for unifomity of shuffle2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#problem-set-1">Problem Set 1</a><ul>
+<li><a href="#quiz-jokers-wild">Quiz: Jokers Wild</a><ul>
+<li><a href="#my-old-solution-3">My Old Solution</a></li>
+<li><a href="#my-new-solution-3">My New Solution</a></li>
+<li><a href="#his-solution-3">His Solution</a></li>
+<li><a href="#feedback-1">Feedback</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#office-hours-1">Office Hours 1</a></li>
+</ul>
+</nav>
+
+<h1 id="lesson-1-1">Lesson 1</h1>
+<h2 id="outlining-the-problem">Outlining The Problem</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-09_12-52-17.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_poker_hand_categories" class="uri">https://en.wikipedia.org/wiki/List_of_poker_hand_categories</a></li>
+</ul>
+</div>
+<h2 id="quiz-testing">Quiz: Testing</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-09_12-59-54.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://wiki.python.org/moin/UsingAssertionsEffectively" class="uri">https://wiki.python.org/moin/UsingAssertionsEffectively</a></li>
+</ul>
+</div>
+<h2 id="back-to-hand-rank">Back To Hand Rank</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-10_12-49-42.png" /></p>
+<p>He just uses <code>kind()</code> for testing and getting value and calls multiple times. I'm not sure whether this is a great way, but at least it simplifies the logic.</p>
+<h2 id="quiz-writing-hand-rank">Quiz: Writing Hand Rank</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-11_12-37-06.png" /></p>
+<h2 id="quiz-fixing-card-rank">Quiz: Fixing Card Rank</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-11_12-52-04.png" /></p>
+<h2 id="quiz-straight-and-flush">Quiz: Straight And Flush</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-11_13-06-51.png" /></p>
+<h2 id="quiz-kind-function">Quiz: Kind Function</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-12_12-29-48.png" /></p>
+<h2 id="quiz-two-pair-function">Quiz: Two Pair Function</h2>
+<h3 id="my-old-solution">My Old Solution</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> two_pair(ranks):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    h <span class="op">=</span> kind(<span class="dv">2</span>, ranks)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="cf">if</span> h <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        <span class="cf">return</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    remains <span class="op">=</span> [r <span class="cf">for</span> r <span class="kw">in</span> ranks <span class="cf">if</span> r <span class="op">!=</span> h]</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    l <span class="op">=</span> kind(<span class="dv">2</span>, remains)</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="cf">if</span> l <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">        <span class="cf">return</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="cf">return</span> (h, l)</a></code></pre></div>
+<p>It's so complicated.</p>
+<h3 id="my-new-solution">My New Solution</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">def</span> two_pair(ranks):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    rs <span class="op">=</span> [r <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">set</span>(ranks) <span class="cf">if</span> ranks.count(r) <span class="op">==</span> <span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="cf">return</span> <span class="bu">tuple</span>(<span class="bu">sorted</span>(rs, reverse<span class="op">=</span><span class="va">True</span>)) <span class="cf">if</span> <span class="bu">len</span>(rs) <span class="op">==</span> <span class="dv">2</span> <span class="cf">else</span> <span class="va">None</span></a></code></pre></div>
+<h3 id="his-solution">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-12_12-47-52.png" /> I think my solution is cleaner.</p>
+<h2 id="quiz-ace-low-straight">Quiz: Ace Low Straight</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-12_12-54-40.png" /></p>
+<h2 id="quiz-allmax">Quiz: Allmax</h2>
+<h3 id="my-old-solution-1">My Old Solution</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">def</span> allmax(iterable, key<span class="op">=</span><span class="va">None</span>):</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="co">&quot;Return a list of all items equal to the max of the iterable.&quot;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    l <span class="op">=</span> <span class="bu">list</span>(iterable)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    m <span class="op">=</span> <span class="bu">max</span>(l, key<span class="op">=</span>key)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">    f <span class="op">=</span> <span class="kw">lambda</span> e: key(e) <span class="cf">if</span> key <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> e</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="cf">return</span> [e <span class="cf">for</span> e <span class="kw">in</span> l <span class="cf">if</span> f(e) <span class="op">==</span> f(m)]</a></code></pre></div>
+<h3 id="my-new-solution-1">My New Solution</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">def</span> allmax(iterable, key<span class="op">=</span><span class="va">None</span>):</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="co">&quot;Return a list of all items equal to the max of the iterable.&quot;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    key <span class="op">=</span> key <span class="kw">or</span> (<span class="kw">lambda</span> x: x)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    l <span class="op">=</span> <span class="bu">list</span>(iterable)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">    m <span class="op">=</span> <span class="bu">max</span>(l, key<span class="op">=</span>key)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="cf">return</span> [e <span class="cf">for</span> e <span class="kw">in</span> l <span class="cf">if</span> key(e) <span class="op">==</span> key(m)]</a></code></pre></div>
+<p>One thing I've changed is <code>key</code>, which is written in a simpler way.</p>
+<h3 id="his-solution-1">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-12_13-02-58.png" /> I tried to avoid using an imperative solution. As a result, I chose to iterate the same list twice. But in his solution, he just uses an imperative algorithm.</p>
+<h2 id="quiz-deal">Quiz: Deal</h2>
+<h3 id="my-old-solution-2">My Old Solution</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">def</span> deal(numhands, n<span class="op">=</span><span class="dv">5</span>, deck<span class="op">=</span>mydeck):</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    cards <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="cf">while</span> <span class="bu">len</span>(cards) <span class="op">&lt;</span> numhands<span class="op">*</span>n:</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">        cards.extend(deck)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    random.shuffle(cards)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    result <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    <span class="cf">for</span> h <span class="kw">in</span> <span class="bu">range</span>(numhands):</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">        hand, cards <span class="op">=</span> cards[:n], cards[n:]</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">        result.append(hand)</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">    <span class="cf">return</span> result</a></code></pre></div>
+<h3 id="my-new-solution-2">My New Solution</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">def</span> deal(numhands, n<span class="op">=</span><span class="dv">5</span>, deck<span class="op">=</span>mydeck):</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    d <span class="op">=</span> deck[:]</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    random.shuffle(d)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="cf">return</span> [d[i<span class="op">*</span>n:(i<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>n] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(numhands)]</a></code></pre></div>
+<h3 id="his-solution-2">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-14_22-52-04.png" /></p>
+<h3 id="feedback">Feedback</h3>
+<p>My original solution (written about 3 months ago) is verbose. My new solution is written by now, after I've finished the whole course. I'm surprised that I've written an almost same solution as his, even though I couldn't recall it.</p>
+<h2 id="dimensions-of-programming">Dimensions Of Programming</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_00-40-26.png" /></p>
+<ul>
+<li><em>Elegance is not optional</em>, Richard O'Keefe</li>
+<li><em>The best is the enemy of the good</em>, Voltaire</li>
+<li>Elegance: Clarity, Simplicity, Generality</li>
+</ul>
+<h2 id="refactoring">Refactoring</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_00-43-47.png" /></p>
+<h2 id="summary">Summary</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_00-45-31.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_00-46-14.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_00-48-02.png" /></p>
+<h1 id="bonus-shuffling">Bonus: Shuffling</h1>
+<h2 id="quiz-shuffle-runtime">Quiz: Shuffle Runtime</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_00-55-56.png" /> Consider a case of remaining only one element to be changed. On average, it will take N times to be changed. So for all N elements, it will take O(N<sup>2</sup>)</p>
+<h2 id="quiz-is-it-random">Quiz: Is It Random</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_01-02-46.png" /></p>
+<ul>
+<li><a href="https://www.quora.com/What-is-an-easy-way-to-understand-Knuth-shuffles-algorithm" class="uri">https://www.quora.com/What-is-an-easy-way-to-understand-Knuth-shuffles-algorithm</a></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_01-07-25.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_01-08-08.png" /></p>
+<h2 id="testing-shuffles">Testing Shuffles</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_01-31-10.png" /></p>
+<h3 id="self-proof-for-unifomity-of-shuffle2">Self Proof for unifomity of shuffle2</h3>
+<ul>
+<li>Assume the value of <code>i</code> is always <code>0</code></li>
+<li>Then, the value of <code>deck[0]</code> can be one of all elements, by only changing <code>swapped[0]</code> to <code>True</code>.</li>
+<li>Let's think of <code>deck2</code>, which is shuffled from <code>deck</code>, which is only swapped <code>0th</code> element for <code>nth</code> element.</li>
+<li>The value of <code>deck2[1]</code> also can be one of all elements, by only changing <code>swapped[1]</code> to <code>True</code>.</li>
+<li>This invariant is true for all <code>i</code> in <code>range(n)</code>.</li>
+<li>So, <code>shuffle2</code> works correctly.</li>
+</ul>
+<h1 id="problem-set-1">Problem Set 1</h1>
+<h2 id="quiz-jokers-wild">Quiz: Jokers Wild</h2>
+<h3 id="my-old-solution-3">My Old Solution</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">def</span> best_wild_hand(hand):</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    hands <span class="op">=</span> <span class="bu">set</span>(best_hand(h)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">                <span class="cf">for</span> h <span class="kw">in</span> itertools.product(<span class="op">*</span><span class="bu">map</span>(replaced, hand)))</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="cf">return</span> <span class="bu">max</span>(hands, key<span class="op">=</span>hand_rank)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="kw">def</span> replaced(card):</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    black <span class="op">=</span> [n<span class="op">+</span>c <span class="cf">for</span> n <span class="kw">in</span> <span class="st">&#39;23456789TJQKA&#39;</span> <span class="cf">for</span> c <span class="kw">in</span> <span class="st">&#39;CS&#39;</span>]</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">    red <span class="op">=</span> [n<span class="op">+</span>c <span class="cf">for</span> n <span class="kw">in</span> <span class="st">&#39;23456789TJQKA&#39;</span> <span class="cf">for</span> c <span class="kw">in</span> <span class="st">&#39;DH&#39;</span>]</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">    <span class="cf">if</span> card <span class="op">==</span> <span class="st">&#39;?B&#39;</span>:</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">        <span class="cf">return</span> black</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">    <span class="cf">elif</span> card <span class="op">==</span> <span class="st">&#39;?R&#39;</span>:</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">        <span class="cf">return</span> red</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">        <span class="cf">return</span> [card]</a></code></pre></div>
+<h3 id="my-new-solution-3">My New Solution</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">def</span> best_wild_hand(hand):</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="co">&quot;Try all values for jokers in all 5-card selections.&quot;</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    cases <span class="op">=</span> [case <span class="cf">for</span> picks <span class="kw">in</span> itertools.combinations(hand, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">                  <span class="cf">for</span> case <span class="kw">in</span> explode(picks) <span class="cf">if</span> <span class="bu">len</span>(<span class="bu">set</span>(case)) <span class="op">==</span> <span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="cf">return</span> <span class="bu">max</span>(cases, key<span class="op">=</span>hand_rank)</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="kw">def</span> explode(picks):</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="cf">if</span> <span class="kw">not</span> picks: <span class="cf">return</span> [[]]</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">    card, remains <span class="op">=</span> picks[<span class="dv">0</span>], picks[<span class="dv">1</span>:]</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">    results <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">    <span class="cf">for</span> head <span class="kw">in</span> cases(card):</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">        <span class="cf">for</span> tail <span class="kw">in</span> explode(remains):</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">            results.append([head] <span class="op">+</span> tail)</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="cf">return</span> results</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="kw">def</span> cases(card):</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">    ranks <span class="op">=</span> <span class="st">&#39;23456789TJQKA&#39;</span></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    <span class="cf">return</span> ([r<span class="op">+</span>s <span class="cf">for</span> r <span class="kw">in</span> ranks <span class="cf">for</span> s <span class="kw">in</span> <span class="st">&#39;CS&#39;</span>] <span class="cf">if</span> card <span class="op">==</span> <span class="st">&#39;?B&#39;</span> <span class="cf">else</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">            [r<span class="op">+</span>s <span class="cf">for</span> r <span class="kw">in</span> ranks <span class="cf">for</span> s <span class="kw">in</span> <span class="st">&#39;DH&#39;</span>] <span class="cf">if</span> card <span class="op">==</span> <span class="st">&#39;?R&#39;</span> <span class="cf">else</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">            [card])</a></code></pre></div>
+<h3 id="his-solution-3">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson1/_img/screenshot_2017-01-15_20-04-09.png" /></p>
+<h3 id="feedback-1">Feedback</h3>
+<p>I failed to come up with using <code>itertools.product</code>. But, at least I wrote <code>explode</code> cleanly. The name of <code>replacements</code> is better than <code>cases</code>. I couldn't invent that name.</p>
+<p>His solution has a bug, which replaces jokers to duplicated within a hand.</p>
+<h1 id="office-hours-1">Office Hours 1</h1>
+<blockquote>
+<p>Programming is always this combination of what you have to do yourself and what do you find that people have already done that you can incorporate into your solution</p>
+<p>Every advanced feature that's in a programming language is there because somebody suffered in the past… You've got to understand why this is in the language.</p>
+</blockquote>
+<blockquote>
+<p>One of the rules I use is we're all good and communicating in English, or in our native language whatever it is, so if the code can look like that then we know we're going to be successful in our communication.</p>
+</blockquote>
+<blockquote>
+<p>If we have a description of the domain that we understand, then it makes a lot of sense to start from the top.</p>
+<p>If you don't understand what's going on, then sometimes it makes more sense just to start down at the bottom and build your way up, to say what are the pieces of the domain and how do they fit together?</p>
+<p>You can go in both directions, top down and bottom up.</p>
+<p>The key here is never be afraid to engage in wishful thinking, to say if only I had a function that did the right thing, then I could proceed. You should always be willing to proceed that way.</p>
+</blockquote>
+</article>
+
+</body>
+</html>

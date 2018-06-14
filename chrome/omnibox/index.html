@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Streamlining your search with Chrome Omnibox</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/chrome/" >chrome</a></li>
+    <li>omnibox</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Streamlining your search with Chrome Omnibox</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#omnibox">Omnibox?</a></li>
+<li><a href="#search-engines-configuration">Search Engines configuration</a></li>
+<li><a href="#how-it-works">How it works</a></li>
+<li><a href="#find-the-search-string">Find the Search String</a></li>
+<li><a href="#my-search-engines-configuration">My Search Engines configuration</a></li>
+<li><a href="#bookmark-search-chrome-extension">Bookmark Search Chrome Extension</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</nav>
+
+<h1 id="omnibox">Omnibox?</h1>
+<p><strong>Omnibox</strong> is a nickname for Chrome's address bar. As you know, you can search on Google there when you put text other than URLs.</p>
+<p>Incidentally, <strong>did you know that you can search on whatever search engine you like there?</strong> Let me explain how.</p>
+<h1 id="search-engines-configuration">Search Engines configuration</h1>
+<p>Open <strong>Search Engines</strong> menu:</p>
+<p><img src="https://media.yeonghoey.com/chrome/omnibox/_img/screenshot_2016-12-27_00-21-54.png" /></p>
+<p>A window like the following will show up:</p>
+<p><img src="https://media.yeonghoey.com/chrome/omnibox/_img/screenshot_2016-12-27_00-22-14.png" /></p>
+<h1 id="how-it-works">How it works</h1>
+<p>There are 3 columns in the <strong>Other search engines</strong>. You may have some search engine definitions in there, because Chrome automatically identifies and registers search engines there. You can simply ignore them. Each column signifies <strong>Name</strong>, <strong>Keyword</strong> and <strong>Search String</strong> respectively.</p>
+<p>Let's take a look at how each element cooperates:</p>
+<p><img src="https://media.yeonghoey.com/chrome/omnibox/_img/screenshot_2016-12-27_00-23-08.png" /></p>
+<h1 id="find-the-search-string">Find the Search String</h1>
+<p>To find <strong>Search Strings</strong> for your favorite search engines, you need to do simple experiments.</p>
+<ol>
+<li>Enter search words into the search engine.</li>
+<li>Recognize the words you just entered from the result URL.</li>
+<li>Replace them with <code>%s</code></li>
+</ol>
+<p>Here is an example: (featuring <a href="http://symbolhound.com">SymbolHound</a>)</p>
+<blockquote>
+<p><a href="http://symbolhound.com/" class="uri">http://symbolhound.com/</a> (default)</p>
+<p><a href="http://symbolhound.com/?q=yeongho" class="uri">http://symbolhound.com/?q=yeongho</a> (searched 'yeongho')</p>
+<p><a href="http://symbolhound.com/?q=%s" class="uri">http://symbolhound.com/?q=%s</a> (<strong>Search String</strong>)</p>
+</blockquote>
+<h1 id="my-search-engines-configuration">My Search Engines configuration</h1>
+<p>I listed my <strong>Search Engines</strong> configuration for those who feel frustrated with <strong>Search Strings</strong>:</p>
+<pre class="example"><code>bookmarks     b   chrome://bookmarks/#q=%s
+history       h   chrome://history/?#q=%s
+github        gh  https://github.com/search?q=%s
+google        g   http://www.google.com/search?q=%s
+google image  i   http://www.google.com/search?tbm=isch&amp;q=%s
+naver         n   https://search.naver.com/search.naver?query=%s
+naver endic   e   http://endic.naver.com/search.nhn?query=%s
+naver krdic   k   http://krdic.naver.com/search.nhn?query=%s
+symbolhound   s   http://symbolhound.com/?q=%s
+thesaurus     t   http://www.thesaurus.com/browse/%s
+youtube       y   https://www.youtube.com/results?search_query=%s
+</code></pre>
+<h1 id="bookmark-search-chrome-extension">Bookmark Search Chrome Extension</h1>
+<p><a href="https://chrome.google.com/webstore/detail/bookmark-search/hhmokalkpaiacdofbcddkogifepbaijk">Bookmark Search</a> is an extension that uses <strong>Omnibox</strong>. Like other custom search engines, you can trigger it with the <strong>Keyword</strong>, <code>bm</code>.</p>
+<p>The best thing about it is <strong>auto-completion</strong>. You can open your bookmarks in a single step without knowing the exact bookmark that you desire for.</p>
+<p><img src="https://media.yeonghoey.com/chrome/omnibox/_img/screenshot_2016-12-27_00-25-16.png" /></p>
+<p>I put <code>pyth</code> in there, and it shows the list of my bookmarks related to <strong>Python</strong>. I can open reference documents in just a single step with this extension.</p>
+<h1 id="summary">Summary</h1>
+<p>It may seem that this work is just to save a single step.</p>
+<p>However, how many times do you search in a day? One step save for every single search would be a huge save. In addition to that, ease of search makes you look things up more, which could leads you to working more effectively.</p>
+<p>Happy search!</p>
+</article>
+
+</body>
+</html>

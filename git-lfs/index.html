@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Git LFS</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>git-lfs</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Git LFS</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#using-git-lfs-pull">Using git lfs pull</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<pre class="shell"><code>git lfs install
+git lfs track &quot;design.psd&quot;
+git lfs track &quot;*.mov&quot;
+</code></pre>
+<ul>
+<li><code>.gitattributes</code> is updated as following:</li>
+</ul>
+<pre class="example"><code>design.psd filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/git-lfs/git-lfs/wiki/Tutorial" class="uri">https://github.com/git-lfs/git-lfs/wiki/Tutorial</a></li>
+<li><a href="https://help.github.com/articles/configuring-git-large-file-storage/" class="uri">https://help.github.com/articles/configuring-git-large-file-storage/</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="using-git-lfs-pull">Using git lfs pull</h2>
+<p><code>git lfs pull</code> downloads lfs files as batch, but works on <strong>current local branch</strong>. But when executing <code>git pull</code> to update local branch, <strong>LFS</strong> automatically missing files separately. This is really slow.</p>
+<p><strong>LFS</strong> works on <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes">Git Attributes</a>, which provides a filtering interface by <code>smudge</code> and <code>clean</code>. To prevent <code>git pull</code> from downloading lfs files seprately, make them skip downloading.</p>
+<p><code>$ git lfs install</code> configures <code>lfs</code> like this:</p>
+<pre class="example"><code>[filter &quot;lfs&quot;]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+</code></pre>
+<p>To make smudge and process skip downloading:</p>
+<pre class="example"><code>smudge = git-lfs smudge --skip -- %f
+process = git-lfs filter-process --skip
+</code></pre>
+<p>You can manually edit the config or use <code>--skip-smudge</code> flag when <code>git lfs install</code>, like <code>$ git lfs install --skip-smudge</code>.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://shuhrat.github.io/programming/git-lfs-tips-and-tricks.html" class="uri">https://shuhrat.github.io/programming/git-lfs-tips-and-tricks.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>AWS CloudFormation</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/aws/" >aws</a></li>
+    <li>cloudformation</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">AWS CloudFormation</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#template">Template</a><ul>
+<li><a href="#awstemplateformatversion">AWSTemplateFormatVersion</a></li>
+<li><a href="#parameters">Parameters</a><ul>
+<li><a href="#types">Types</a></li>
+</ul></li>
+<li><a href="#mappings">Mappings</a></li>
+<li><a href="#conditions">Conditions</a></li>
+<li><a href="#transform">Transform</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#outputs">Outputs</a></li>
+</ul></li>
+<li><a href="#functions">Functions</a><ul>
+<li><a href="#getatt">GetAtt</a></li>
+<li><a href="#sub">Sub</a></li>
+</ul></li>
+<li><a href="#resource-types">Resource Types</a><ul>
+<li><a href="#awsdynamodbtable"><code>AWS::DynamoDB::Table</code></a><ul>
+<li><a href="#attributedefinition">AttributeDefinition</a></li>
+<li><a href="#keyschema">KeySchema</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<p><img src="https://media.yeonghoey.com/aws/cloudformation/_img/screenshot_2018-03-23_18-45-46.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.slideshare.net/AmazonWebServices/aws-cloudformation-best-practices" class="uri">https://www.slideshare.net/AmazonWebServices/aws-cloudformation-best-practices</a></li>
+</ul>
+</div>
+<h1 id="template">Template</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="fu">AWSTemplateFormatVersion:</span><span class="at"> </span><span class="st">&quot;version date&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="fu">Description:</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  String</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="fu">Metadata:</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  template metadata</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="fu">Parameters:</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  set of parameters</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="fu">Mappings:</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">  set of mappings</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="fu">Conditions:</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">  set of conditions</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="fu">Transform:</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">  set of transforms</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="fu">Resources:</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">  set of resources</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="fu">Outputs:</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">  set of outputs</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html</a></li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html</a></li>
+</ul>
+</div>
+<h2 id="awstemplateformatversion">AWSTemplateFormatVersion</h2>
+<p>The latest template format version is <code>2010-09-09</code> and is currently the only valid value.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">AWSTemplateFormatVersion:</span><span class="at"> </span><span class="st">&quot;2010-09-09&quot;</span></a></code></pre></div>
+<h2 id="parameters">Parameters</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">Parameters:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="fu">InstanceTypeParameter:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="fu">Type:</span><span class="at"> String</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="fu">Default:</span><span class="at"> t2.micro</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="fu">AllowedValues:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">      <span class="kw">-</span> t2.micro</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">      <span class="kw">-</span> m1.small</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">      <span class="kw">-</span> m1.large</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="fu">Description:</span><span class="at"> Enter t2.micro, m1.small, or m1.large. Default is t2.micro.</span></a></code></pre></div>
+<p>Use the <code>Ref</code> intrinsic function to reference a parameter:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">Ec2Instance:</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="fu">Type:</span><span class="at"> AWS::EC2::Instance</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="fu">Properties:</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="fu">InstanceType:</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">      <span class="fu">Ref:</span><span class="at"> InstanceTypeParameter</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="fu">ImageId:</span><span class="at"> ami-2f726546</span></a></code></pre></div>
+<ul>
+<li>Can have a maximum of 60 parameters</li>
+<li>Must be alphanumeric and unique among all logical names within the template.</li>
+<li>Parameters must be declared and referenced from within the same template.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html</a></li>
+</ul>
+</div>
+<h3 id="types">Types</h3>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>List&lt;Number&gt;</li>
+<li>CommaDelimitedList</li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-specific-parameter-types">AWS-Specific Parameter Types</a></li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types">SSM Parameter Types</a></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#parameters-section-structure-properties-type" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#parameters-section-structure-properties-type</a></li>
+</ul>
+</div>
+<h2 id="mappings">Mappings</h2>
+<ul>
+<li>The keys in mappings must be literal strings. The values can be String or List types.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">Mappings:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="fu">Mapping01:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="fu">Key01:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">      <span class="fu">Name:</span><span class="at"> Value01</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    <span class="fu">Key02:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">      <span class="fu">Name:</span><span class="at"> Value02</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="fu">Key03:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">      <span class="fu">Name:</span><span class="at"> Value03</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu">RegionMap:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="fu">us-east-1:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="fu">&quot;32&quot;:</span><span class="at"> </span><span class="st">&quot;ami-6411e20d&quot;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="fu">&quot;64&quot;:</span><span class="at"> </span><span class="st">&quot;ami-7a11e213&quot;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="fu">us-west-1:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="fu">&quot;32&quot;:</span><span class="at"> </span><span class="st">&quot;ami-c9c7978c&quot;</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="fu">&quot;64&quot;:</span><span class="at"> </span><span class="st">&quot;ami-cfc7978a&quot;</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  <span class="fu">eu-west-1:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="fu">&quot;32&quot;:</span><span class="at"> </span><span class="st">&quot;ami-37c2f643&quot;</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="fu">&quot;64&quot;:</span><span class="at"> </span><span class="st">&quot;ami-31c2f645&quot;</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">  <span class="fu">ap-southeast-1:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    <span class="fu">&quot;32&quot;:</span><span class="at"> </span><span class="st">&quot;ami-66f28c34&quot;</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">    <span class="fu">&quot;64&quot;:</span><span class="at"> </span><span class="st">&quot;ami-60f28c32&quot;</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">  <span class="fu">ap-northeast-1:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">    <span class="fu">&quot;32&quot;:</span><span class="at"> </span><span class="st">&quot;ami-9c03a89d&quot;</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">    <span class="fu">&quot;64&quot;:</span><span class="at"> </span><span class="st">&quot;ami-a003a8a1&quot;</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="fu">Resources:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">  <span class="fu">myEC2Instance:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">    <span class="fu">Type:</span><span class="at"> </span><span class="st">&quot;AWS::EC2::Instance&quot;</span></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20">    <span class="fu">Properties:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">      <span class="fu">ImageId:</span><span class="at"> !FindInMap [RegionMap, !Ref &quot;AWS::Region&quot;, 32]</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">      <span class="fu">InstanceType:</span><span class="at"> m1.small</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html</a></li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html</a></li>
+</ul>
+</div>
+<h2 id="conditions">Conditions</h2>
+<blockquote>
+<p>You might use conditions when you want to reuse a template that can create resources in different contexts, such as a test environment versus a production environment.</p>
+</blockquote>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu">Conditions:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="fu">CreateProdResources:</span><span class="at"> !Equals [ !Ref EnvType, prod ]</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="fu">Resources:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="fu">EC2Instance:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="fu">Type:</span><span class="at"> </span><span class="st">&quot;AWS::EC2::Instance&quot;</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="fu">Properties:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">      <span class="fu">ImageId:</span><span class="at"> !FindInMap [RegionMap, !Ref &quot;AWS::Region&quot;, AMI]</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">  <span class="fu">MountPoint:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">    <span class="fu">Type:</span><span class="at"> </span><span class="st">&quot;AWS::EC2::VolumeAttachment&quot;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="fu">Condition:</span><span class="at"> CreateProdResources</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">    <span class="fu">Properties:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">      <span class="fu">InstanceId:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">        !Ref EC2Instance</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">      <span class="fu">VolumeId:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">        !Ref NewVolume</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">      <span class="fu">Device:</span><span class="at"> /dev/sdh</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">  <span class="fu">NewVolume:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">    <span class="fu">Type:</span><span class="at"> </span><span class="st">&quot;AWS::EC2::Volume&quot;</span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">    <span class="fu">Condition:</span><span class="at"> CreateProdResources</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">    <span class="fu">Properties:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">      <span class="fu">Size:</span><span class="at"> 100</span></a>
+<a class="sourceLine" id="cb7-22" data-line-number="22">      <span class="fu">AvailabilityZone:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">        !GetAtt EC2Instance.AvailabilityZone</a>
+<a class="sourceLine" id="cb7-24" data-line-number="24"><span class="fu">Outputs:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">  <span class="fu">VolumeId:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-26" data-line-number="26">    <span class="fu">Condition:</span><span class="at"> CreateProdResources</span></a>
+<a class="sourceLine" id="cb7-27" data-line-number="27">    <span class="fu">Value:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb7-28" data-line-number="28">      !Ref NewVolume</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html</a></li>
+</ul>
+</div>
+<h2 id="transform">Transform</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS:Serverless</a></li>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a></li>
+</ul>
+<p>A kind of macro feature. For instance, <code>AWS:Include</code> includes templete definitions fromother files:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="fu">Resources:</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="fu">MyBucket:</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="fu">Type:</span><span class="at"> </span><span class="st">&#39;AWS::S3::Bucket&#39;</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="fu">Properties:</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">        <span class="fu">&#39;Fn::Transform&#39;:</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">            <span class="kw">-</span> <span class="fu">Name:</span><span class="at"> </span><span class="st">&#39;AWS::Include&#39;</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">              <span class="fu">Parameters:</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">                <span class="fu">Location:</span><span class="at"> s3://bucket/myBucketName.yaml</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">            <span class="kw">-</span> <span class="fu">Name:</span><span class="at"> </span><span class="st">&#39;AWS::Include&#39;</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">              <span class="fu">Parameters:</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">                <span class="fu">Location:</span><span class="at"> s3://bucket/myBucketAcl.yaml</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html</a></li>
+</ul>
+</div>
+<h2 id="resources">Resources</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu">Resources:</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="fu">Logical ID:</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    <span class="fu">Type:</span><span class="at"> Resource type</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    <span class="fu">Properties:</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">      Set of properties</a></code></pre></div>
+<dl>
+<dt>Logical ID</dt>
+<dd>The logical ID must be alphanumeric (<code>A-Za-z0-9</code>) and unique within the template.
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html</a></li>
+</ul>
+</div>
+<h2 id="outputs">Outputs</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="fu">Outputs:</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="fu">Logical ID:</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="fu">Description:</span><span class="at"> Information about the value</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="fu">Value:</span><span class="at"> Value to return</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">    <span class="fu">Export:</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">      <span class="fu">Name:</span><span class="at"> Value to export</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html</a></li>
+</ul>
+</div>
+<h1 id="functions">Functions</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html</a></li>
+</ul>
+</div>
+<h2 id="getatt">GetAtt</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb11-1" data-line-number="1">!GetAtt logicalNameOfResource.attributeName</a></code></pre></div>
+<h2 id="sub">Sub</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="fu">Name:</span><span class="at"> !Sub</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="kw">-</span> www.$<span class="kw">{</span>Domain<span class="kw">}</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="kw">-</span> <span class="kw">{</span> <span class="fu">Domain:</span><span class="at"> !Ref RootDomainName </span><span class="kw">}</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html</a></li>
+</ul>
+</div>
+<h1 id="resource-types">Resource Types</h1>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource Types</a></li>
+</ul>
+<h2 id="awsdynamodbtable"><code>AWS::DynamoDB::Table</code></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="fu">Type:</span><span class="at"> </span><span class="st">&quot;AWS::DynamoDB::Table&quot;</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="fu">Properties:</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="fu">AttributeDefinitions:</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">    <span class="kw">-</span> AttributeDefinition</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="fu">GlobalSecondaryIndexes:</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">    <span class="kw">-</span> GlobalSecondaryIndexes</a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">  <span class="fu">KeySchema:</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8">    <span class="kw">-</span> KeySchema</a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">  <span class="fu">LocalSecondaryIndexes:</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10">    <span class="kw">-</span> LocalSecondaryIndexes</a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">  <span class="fu">ProvisionedThroughput:</span></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12">    ProvisionedThroughput</a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">  <span class="fu">SSESpecification:</span></a>
+<a class="sourceLine" id="cb13-14" data-line-number="14">    SSESpecification</a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">  <span class="fu">StreamSpecification:</span></a>
+<a class="sourceLine" id="cb13-16" data-line-number="16">    StreamSpecification</a>
+<a class="sourceLine" id="cb13-17" data-line-number="17">  <span class="fu">TableName:</span><span class="at"> String</span></a>
+<a class="sourceLine" id="cb13-18" data-line-number="18">  <span class="fu">Tags:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb13-19" data-line-number="19">    <span class="kw">-</span> Resource Tag</a>
+<a class="sourceLine" id="cb13-20" data-line-number="20">  <span class="fu">TimeToLiveSpecification:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb13-21" data-line-number="21">    TimeToLiveSpecification</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html</a></li>
+</ul>
+</div>
+<h3 id="attributedefinition">AttributeDefinition</h3>
+<p>The <code>AttributeDefinition</code> property type represents an attribute <strong>for describing the key schema</strong> for a DynamoDB table and indexes. <strong>They don't represent the full schema of the table.</strong></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html</a></li>
+</ul>
+</div>
+<h3 id="keyschema">KeySchema</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="fu">KeySchema:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="kw">-</span> <span class="fu">AttributeName:</span><span class="at"> Sales</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">    <span class="fu">KeyType:</span><span class="at"> HASH</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="fu">KeySchema:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="kw">-</span> <span class="fu">AttributeName:</span><span class="at"> Sales</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">    <span class="fu">KeyType:</span><span class="at"> HASH</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">  <span class="kw">-</span> <span class="fu">AttributeName:</span><span class="at"> Artist</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">    <span class="fu">KeyType:</span><span class="at"> RANGE</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html" class="uri">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

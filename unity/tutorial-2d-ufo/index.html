@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>2D UFO</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/unity/" >unity</a></li>
+    <li>tutorial-2d-ufo</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">2D UFO</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#introduction-to-2d-ufo-project">Introduction to 2D UFO Project</a></li>
+<li><a href="#setting-up-the-play-field">Setting Up The Play Field</a></li>
+<li><a href="#controlling-the-player">Controlling the Player</a></li>
+<li><a href="#adding-collision">Adding Collision</a></li>
+<li><a href="#following-the-player-with-the-camera">Following the Player with the Camera</a></li>
+<li><a href="#creating-collectable-objects">Creating Collectable Objects</a></li>
+<li><a href="#picking-up-collectables">Picking Up Collectables</a></li>
+<li><a href="#counting-collectables-and-displaying-score">Counting Collectables and Displaying Score</a></li>
+<li><a href="#building-our-2d-ufo-game">Building our 2D UFO Game</a></li>
+</ul>
+</nav>
+
+<h1 id="introduction-to-2d-ufo-project">Introduction to 2D UFO Project</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_00-55-14.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_00-55-53.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_00-56-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_00-57-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_00-57-45.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/introduction-2d-ufo-project?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/introduction-2d-ufo-project?playlist=25844</a></li>
+</ul>
+</div>
+<h1 id="setting-up-the-play-field">Setting Up The Play Field</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-11-53.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-12-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-16-17.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-17-29.png" /></p>
+<p>The layer at bottom(Player, in this case) are rendered last</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-19-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-19-54.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-20-50.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-25-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-25_01-26-59.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/setting-play-field?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/setting-play-field?playlist=25844</a></li>
+</ul>
+</div>
+<h1 id="controlling-the-player">Controlling the Player</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-27_08-31-38.png" /></p>
+<p>Keep the file name and class name consistent.</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-27_08-37-31.png" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">public</span> <span class="kw">class</span> PlayerController : MonoBehaviour {</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    <span class="kw">public</span> <span class="dt">float</span> speed;</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="kw">private</span> Rigidbody2D rb2d;</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="dt">void</span> <span class="fu">Start</span>()</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    {</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">        rb2d = GetComponent&lt;Rigidbody2D&gt; ();</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    }</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    <span class="dt">void</span> <span class="fu">FixedUpdate</span>()</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    {</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">        <span class="dt">float</span> moveHorizontal = Input.<span class="fu">GetAxis</span> (<span class="st">&quot;Horizontal&quot;</span>);</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">        <span class="dt">float</span> moveVertical = Input.<span class="fu">GetAxis</span> (<span class="st">&quot;Vertical&quot;</span>);</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">        Vector2 movement = <span class="kw">new</span> <span class="fu">Vector2</span> (moveHorizontal, moveVertical);</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">        rb2d.<span class="fu">AddForce</span> (movement * speed);</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">    }</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/controlling-player?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/controlling-player?playlist=25844</a></li>
+</ul>
+</div>
+<h1 id="adding-collision">Adding Collision</h1>
+<p>k <img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-31-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-32-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-33-13.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-34-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-36-50.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-37-09.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-38-22.png" /></p>
+<p>Box colliders we added overlap each other, but doesn't collide because they don't have any riigd body.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/adding-collision?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/adding-collision?playlist=25844</a></li>
+</ul>
+</div>
+<h1 id="following-the-player-with-the-camera">Following the Player with the Camera</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-42-40.png" /></p>
+<p>While the Player Game Object rotates, the Camera Object, a child of Player, also rotates.</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-28_08-44-24.png" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">public</span> <span class="kw">class</span> CameraController : MonoBehaviour {</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="kw">public</span> GameObject player;</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="kw">private</span> Vector3 offset;</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="dt">void</span> <span class="fu">Start</span> ()</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    {</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">        offset = transform.<span class="fu">position</span> - player.<span class="fu">transform</span>.<span class="fu">position</span>;</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">    }</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">    <span class="co">// LateUpdate is called after Update each frame</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">    <span class="dt">void</span> <span class="fu">LateUpdate</span> ()</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">    {</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">        transform.<span class="fu">position</span> = player.<span class="fu">transform</span>.<span class="fu">position</span> + offset;</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">    }</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/following-player-camera?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/following-player-camera?playlist=25844</a></li>
+</ul>
+</div>
+<h1 id="creating-collectable-objects">Creating Collectable Objects</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_16-26-09.png" /></p>
+<p><a href="https://docs.unity3d.com/ScriptReference/Transform.Rotate.html" class="uri">https://docs.unity3d.com/ScriptReference/Transform.Rotate.html</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>.<span class="fu">Generic</span>;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">public</span> <span class="kw">class</span> Rotator : MonoBehaviour {</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="dt">void</span> <span class="fu">Update</span> () {</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">        transform.<span class="fu">Rotate</span> (<span class="kw">new</span> <span class="fu">Vector3</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">45</span>) * Time.<span class="fu">deltaTime</span>);       </a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    }</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/creating-collectable-objects?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/creating-collectable-objects?playlist=25844</a></li>
+</ul>
+</div>
+<h1 id="picking-up-collectables">Picking Up Collectables</h1>
+<ul>
+<li><a href="file:///Applications/Unity/Unity.app/Contents/Documentation/en/Manual/class-CircleCollider2D.html" class="uri">file:///Applications/Unity/Unity.app/Contents/Documentation/en/Manual/class-CircleCollider2D.html</a></li>
+<li><a href="file:///Applications/Unity/Unity.app/Contents/Documentation/en/ScriptReference/Collider2D.OnTriggerEnter2D.html" class="uri">file:///Applications/Unity/Unity.app/Contents/Documentation/en/ScriptReference/Collider2D.OnTriggerEnter2D.html</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/GameObject-tag.html" class="uri">https://docs.unity3d.com/ScriptReference/GameObject-tag.html</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html" class="uri">https://docs.unity3d.com/ScriptReference/GameObject.CompareTag.html</a></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="dt">void</span> <span class="fu">OnTriggerEnter2D</span>(Collider2D other) </a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">{</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">        <span class="kw">if</span> (other.<span class="fu">gameObject</span>.<span class="fu">CompareTag</span> (<span class="st">&quot;PickUp&quot;</span>))</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">        {</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">        other.<span class="fu">gameObject</span>.<span class="fu">SetActive</span> (<span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">        }</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">}</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_16-41-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_16-44-11.png" /></p>
+<ul>
+<li>Select multiple items with cmd+click.</li>
+<li>Disable Sprite Renderer to observe colliders</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_16-47-17.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_16-49-24.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/picking-collectables?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/picking-collectables?playlist=25844</a></li>
+</ul>
+</div>
+<h1 id="counting-collectables-and-displaying-score">Counting Collectables and Displaying Score</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_16-53-07.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_16-56-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_16-57-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_17-03-41.png" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">using</span> UnityEngine.<span class="fu">UI</span>;</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">public</span> Text countText;</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="dt">void</span> <span class="fu">SetCountText</span>()</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">{</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    countText.<span class="fu">text</span> = <span class="st">&quot;Count: &quot;</span> + count.<span class="fu">ToString</span> ();</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/counting-collectables-and-displaying-score?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/counting-collectables-and-displaying-score?playlist=25844</a></li>
+</ul>
+</div>
+<h1 id="building-our-2d-ufo-game">Building our 2D UFO Game</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-ufo/_img/screenshot_2017-04-29_17-10-39.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/building-our-2d-ufo-game?playlist=25844" class="uri">https://unity3d.com/learn/tutorials/projects/2d-ufo-tutorial/building-our-2d-ufo-game?playlist=25844</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

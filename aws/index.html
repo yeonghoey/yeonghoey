@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>AWS</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>aws</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./ami">ami</a></li>
+    <li><a href="./apigateway">apigateway</a></li>
+    <li><a href="./athena">athena</a></li>
+    <li><a href="./certificate-manager">certificate-manager</a></li>
+    <li><a href="./cloudformation">cloudformation</a></li>
+    <li><a href="./cloudfront">cloudfront</a></li>
+    <li><a href="./cloudwatch">cloudwatch</a></li>
+    <li><a href="./cognito">cognito</a></li>
+    <li><a href="./data-pipeline">data-pipeline</a></li>
+    <li><a href="./ebs">ebs</a></li>
+    <li><a href="./ec2">ec2</a></li>
+    <li><a href="./ecs">ecs</a></li>
+    <li><a href="./elb">elb</a></li>
+    <li><a href="./emr">emr</a></li>
+    <li><a href="./es">es</a></li>
+    <li><a href="./iam">iam</a></li>
+    <li><a href="./mobile">mobile</a></li>
+    <li><a href="./tables">tables</a></li>
+    <li><a href="./vpc">vpc</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">AWS</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#environment-variables">Environment Variables</a></li>
+<li><a href="#topic">Topic</a><ul>
+<li><a href="#is-it-safe-to-expose-arn-in-a-public-git-repo">Is it safe to expose ARN in a public git repo?</a></li>
+<li><a href="#tagging">Tagging</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="environment-variables">Environment Variables</h1>
+<pre class="shell"><code>export AWS_ACCESS_KEY_ID=&#39;&#39;
+export AWS_SECRET_ACCESS_KEY=&#39;&#39;
+export AWS_DEFAULT_REGION=&#39;&#39;
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html" class="uri">https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html</a></li>
+</ul>
+</div>
+<h1 id="topic">Topic</h1>
+<h2 id="is-it-safe-to-expose-arn-in-a-public-git-repo">Is it safe to expose ARN in a public git repo?</h2>
+<ul>
+<li>ARNs by themselves generally are fine to publish</li>
+<li>But, it smells bad.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.reddit.com/r/aws/comments/70hqby/is_it_safe_to_expose_aws_arns_in_a_public_git_repo/" class="uri">https://www.reddit.com/r/aws/comments/70hqby/is_it_safe_to_expose_aws_arns_in_a_public_git_repo/</a></li>
+</ul>
+</div>
+<h2 id="tagging">Tagging</h2>
+<ul>
+<li>Use a consistent, standardized, case-sensitive format for tags across all resource types.</li>
+<li>Tag dimensions for manage resource access control, cost tracking, automation, and organization.</li>
+<li>Implement automated tools to help manage resource tags.</li>
+<li>Err on the side of using too many tags rather than too few tags.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/aws/_img/screenshot_2017-06-03_14-58-21.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://aws.amazon.com/ko/answers/account-management/aws-tagging-strategies/" class="uri">https://aws.amazon.com/ko/answers/account-management/aws-tagging-strategies/</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

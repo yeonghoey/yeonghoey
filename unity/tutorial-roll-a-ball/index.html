@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Roll-a-ball</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/unity/" >unity</a></li>
+    <li>tutorial-roll-a-ball</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Roll-a-ball</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#setting-up-the-game">Setting up the Game</a></li>
+<li><a href="#moving-the-player">Moving the Player</a></li>
+<li><a href="#moving-the-camera">Moving the Camera</a></li>
+<li><a href="#setting-up-the-play-area">Setting up the Play Area</a></li>
+<li><a href="#creating-collectable-objects">Creating Collectable Objects</a></li>
+<li><a href="#collecting-the-pick-up-objects">Collecting the Pick Up Objects</a></li>
+<li><a href="#displaying-the-score-and-text">Displaying the Score and Text</a></li>
+<li><a href="#building-the-game">Building the Game</a></li>
+</ul>
+</nav>
+
+<h1 id="setting-up-the-game">Setting up the Game</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_14-41-23.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_14-44-06.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_14-45-10.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_14-45-44.png" /></p>
+<h1 id="moving-the-player">Moving the Player</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_14-48-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_14-49-23.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-04-00.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-03-51.png" /></p>
+<h1 id="moving-the-camera">Moving the Camera</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-05-39.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-09-58.png" /></p>
+<h1 id="setting-up-the-play-area">Setting up the Play Area</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-13-19.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-16-53.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-18-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-19-42.png" /></p>
+<h1 id="creating-collectable-objects">Creating Collectable Objects</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-21-03.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-24-42.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-26-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-27-13.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-27-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-28-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-31-44.png" /></p>
+<p>Drag greenbox to keep parallel with XZ plane</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-39-11.png" /></p>
+<h1 id="collecting-the-pick-up-objects">Collecting the Pick Up Objects</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-42-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-49-01.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-49-47.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-50-19.png" /></p>
+<p>Tags are case sensitive.</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-51-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-54-04.png" /></p>
+<p>There are two types of collider, static and dynamic.</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-56-18.png" /></p>
+<p>Without Rigidbody, Objects are considered as static. Static objects are cached. But our Pick ups are rotating, so every frame, the cache will be updated. It's inefficient. So we need to add Rigidbody to our Pick Ups to prevent from caching.</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-58-52.png" /></p>
+<p>If Is Kinematic checked, Will not react to physics.</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_15-59-10.png" /></p>
+<h1 id="displaying-the-score-and-text">Displaying the Score and Text</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-07-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-08-39.png" /></p>
+<p>All UI elements must be the child of a canvas object to behave correctly.</p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-11-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-12-23.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-15-51.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-16-40.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-16-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-17-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-21-53.png" /></p>
+<h1 id="building-the-game">Building the Game</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-24-38.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-roll-a-ball/_img/screenshot_2017-04-23_16-26-03.png" /></p>
+</article>
+
+</body>
+</html>

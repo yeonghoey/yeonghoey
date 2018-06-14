@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Neural Networks and Deep Learning: Week 2</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/deeplearning-ai/" >deeplearning-ai</a></li>
+    <li><a href="/coursera/deeplearning-ai/neural-networks-deep-learning/" >neural-networks-deep-learning</a></li>
+    <li>week2</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Neural Networks and Deep Learning: Week 2</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#logistic-regression-as-a-neural-network">Logistic Regression as a Neural Network</a><ul>
+<li><a href="#binary-classification">Binary Classification</a></li>
+<li><a href="#logistic-regression">Logistic Regression</a></li>
+<li><a href="#logistic-regression-cost-function">Logistic Regression Cost Function</a></li>
+<li><a href="#gradient-descent">Gradient Descent</a></li>
+<li><a href="#derivatives">Derivatives</a></li>
+<li><a href="#more-derivative-examples">More Derivative Examples</a></li>
+<li><a href="#computation-graph">Computation Graph</a></li>
+<li><a href="#derivatives-with-a-computation-graph">Derivatives with a Computation Graph</a></li>
+<li><a href="#logistic-regression-gradient-descent">Logistic Regression Gradient Descent</a></li>
+<li><a href="#gradient-descent-on-m-examples">Gradient Descent on m Examples</a></li>
+</ul></li>
+<li><a href="#python-and-vectorization">Python and Vectorization</a><ul>
+<li><a href="#vectorization">Vectorization</a></li>
+<li><a href="#more-vectorization-examples">More Vectorization Examples</a></li>
+<li><a href="#vectorizing-logistic-regression">Vectorizing Logistic Regression</a></li>
+<li><a href="#vectorizing-logistic-regressions-gradient-output">Vectorizing Logistic Regression's Gradient Output</a></li>
+<li><a href="#broadcasting-in-python">Broadcasting in Python</a></li>
+<li><a href="#a-note-on-pythonnumpy-vectors">A note on python/numpy vectors</a></li>
+<li><a href="#explanation-of-logistic-regression-cost-function-optional">Explanation of logistic regression cost function (optional)</a></li>
+</ul></li>
+<li><a href="#programming-assignments">Programming Assignments</a><ul>
+<li><a href="#python-basics-with-numpy">Python Basics with numpy</a></li>
+<li><a href="#logistic-regression-with-a-neural-network-mindset">Logistic Regression with a Neural Network mindset</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="logistic-regression-as-a-neural-network">Logistic Regression as a Neural Network</h1>
+<h2 id="binary-classification">Binary Classification</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-14_07-24-18.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-14_07-24-44.png" /></p>
+<h2 id="logistic-regression">Logistic Regression</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-14_07-31-55.png" /></p>
+<h2 id="logistic-regression-cost-function">Logistic Regression Cost Function</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-15_07-34-40.png" /></p>
+<h2 id="gradient-descent">Gradient Descent</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-15_08-47-22.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-15_08-46-52.png" /></p>
+<h2 id="derivatives">Derivatives</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-16_14-41-04.png" /></p>
+<h2 id="more-derivative-examples">More Derivative Examples</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-16_15-30-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-16_15-31-29.png" /></p>
+<h2 id="computation-graph">Computation Graph</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-16_15-32-09.png" /></p>
+<h2 id="derivatives-with-a-computation-graph">Derivatives with a Computation Graph</h2>
+<dl>
+<dt>Calculus</dt>
+<dd>Chain rule
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-16_15-46-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-16_15-47-24.png" /></p>
+<h2 id="logistic-regression-gradient-descent">Logistic Regression Gradient Descent</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-17_13-19-16.png" /></p>
+<h2 id="gradient-descent-on-m-examples">Gradient Descent on m Examples</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-17_13-29-07.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-17_13-27-08.png" /></p>
+<h1 id="python-and-vectorization">Python and Vectorization</h1>
+<h2 id="vectorization">Vectorization</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-17_13-38-39.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-17_13-38-54.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-17_13-39-21.png" /></p>
+<h2 id="more-vectorization-examples">More Vectorization Examples</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-18_08-32-09.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-18_08-32-39.png" /></p>
+<h2 id="vectorizing-logistic-regression">Vectorizing Logistic Regression</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-18_08-41-30.png" /></p>
+<h2 id="vectorizing-logistic-regressions-gradient-output">Vectorizing Logistic Regression's Gradient Output</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-20_08-42-00.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-20_08-42-26.png" /></p>
+<h2 id="broadcasting-in-python">Broadcasting in Python</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-20_08-47-36.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-20_08-45-33.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-20_08-45-51.png" /></p>
+<h2 id="a-note-on-pythonnumpy-vectors">A note on python/numpy vectors</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-20_08-48-48.png" /></p>
+<h2 id="explanation-of-logistic-regression-cost-function-optional">Explanation of logistic regression cost function (optional)</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-20_08-53-24.png" /></p>
+<p>Generally, most algorithms get a loss function and try to minimize it. For <code>P(y|x)</code>, the bigger the better. So, the loss function <code>L</code> is the negative of <code>P(y|x)</code>.</p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-20_09-00-19.png" /></p>
+<h1 id="programming-assignments">Programming Assignments</h1>
+<p>Because I'm not allowed to post my code for the assignments, I'll just put the instructions and summary notes instead.</p>
+<h2 id="python-basics-with-numpy">Python Basics with numpy</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-21_18-16-54.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-21_18-22-10.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-21_18-23-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-21_18-31-13.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-21_22-48-12.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-21_22-55-01.png" /></p>
+<h2 id="logistic-regression-with-a-neural-network-mindset">Logistic Regression with a Neural Network mindset</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_07-34-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_07-36-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_07-35-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_07-37-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_07-46-22.png" /></p>
+<ul>
+<li>The formula of <code>J</code> must be calculated by <code>elementwise multiplication</code>, not <code>dot product</code>.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_08-14-32.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_08-20-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_08-23-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_08-23-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_08-24-26.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/neural-networks-deep-learning/week2/_img/screenshot_2017-09-23_08-25-59.png" /></p>
+</article>
+
+</body>
+</html>

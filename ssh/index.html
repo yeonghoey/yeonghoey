@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>SSH</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>ssh</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">SSH</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#how-ssh-works">How SSH works</a><ul>
+<li><a href="#establishes-a-session-key-with-diffie-hellman-algorithm">Establishes a session key with Diffie-Hellman algorithm</a></li>
+<li><a href="#authenticates-the-users-access">Authenticates the User's Access</a></li>
+</ul></li>
+<li><a href="#fingerprints">Fingerprints</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#get-the-public-key-from-a-private-key">Get the public key from a private key</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="topics">Topics</h1>
+<h2 id="how-ssh-works">How SSH works</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Public-key_cryptography" class="uri">https://en.wikipedia.org/wiki/Public-key_cryptography</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process" class="uri">https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process</a></li>
+</ul>
+</div>
+<h3 id="establishes-a-session-key-with-diffie-hellman-algorithm">Establishes a session key with Diffie-Hellman algorithm</h3>
+<ul>
+<li>Used to encrypt the entire session</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/ssh/_img/screenshot_2017-06-18_10-24-59.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange</a></li>
+</ul>
+</div>
+<h3 id="authenticates-the-users-access">Authenticates the User's Access</h3>
+<p><img src="https://media.yeonghoey.com/ssh/_img/screenshot_2017-06-18_10-28-42.png" /></p>
+<ul>
+<li>This process is mostly by RSA algorithm
+<ul>
+<li>(m<sup>e</sup>)<sup>d</sup>≡ m (mod n)</li>
+<li>(m<sup>d</sup>)<sup>e</sup>≡ m (mod n)</li>
+<li><code>Public key</code> consists of <code>(e, n)</code></li>
+<li><code>Private key</code> consists of <code>(d, n)</code></li>
+<li>Finding <code>d</code> from <code>e</code> and <code>n</code> is hard</li>
+<li><code>e</code> stands for <code>public exponent</code>, and <a href="https://github.com/openssl/openssl/blob/52df25cf2e656146cb3b206d8220124f0417d03f/include/openssl/rsa.h#L46">OpenSSL</a> sets it as <code>65537</code> (<code>0x10001</code>) by default</li>
+</ul></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" class="uri">https://en.wikipedia.org/wiki/RSA_(cryptosystem)</a></li>
+</ul>
+</div>
+<h2 id="fingerprints">Fingerprints</h2>
+<p>If the <strong>fingerprint changes</strong>:</p>
+<ul>
+<li>The machine <strong>has changed their public key</strong> (because <code>public exponent</code> can vary, there can be multiple valid public keys).</li>
+<li>It could also indicate that you are <strong>connecting to a different machine</strong> at the same domain/IP</li>
+<li>It could also indicate that you are <strong>being targeted with a man-in-the-middle attack</strong></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://superuser.com/questions/421997/what-is-a-ssh-key-fingerprint-and-how-is-it-generated" class="uri">https://superuser.com/questions/421997/what-is-a-ssh-key-fingerprint-and-how-is-it-generated</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h2 id="get-the-public-key-from-a-private-key">Get the public key from a private key</h2>
+<pre class="shell"><code>ssh-keygen -f ~/.ssh/id_rsa -y &gt; ~/.ssh/id_rsa.pub
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://serverfault.com/questions/52285/create-a-public-ssh-key-from-the-private-key" class="uri">https://serverfault.com/questions/52285/create-a-public-ssh-key-from-the-private-key</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

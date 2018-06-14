@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Sequence models &amp; Attention mechanism</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/deeplearning-ai/" >deeplearning-ai</a></li>
+    <li><a href="/coursera/deeplearning-ai/nlp-sequence-models/" >nlp-sequence-models</a></li>
+    <li>week3</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Sequence models &amp; Attention mechanism</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#various-sequence-to-sequence-architectures">Various sequence to sequence architectures</a><ul>
+<li><a href="#basic-models">Basic Models</a></li>
+<li><a href="#picking-the-most-likely-sentence">Picking the most likely sentence</a></li>
+<li><a href="#beam-search">Beam Search</a></li>
+<li><a href="#refinements-to-beam-search">Refinements to Beam Search</a></li>
+<li><a href="#error-analysis-in-beam-search">Error analysis in beam search</a></li>
+<li><a href="#bleu-score-optional">Bleu Score (optional)</a></li>
+<li><a href="#attention-model-intuition">Attention Model Intuition</a></li>
+<li><a href="#attention-model">Attention Model</a></li>
+</ul></li>
+<li><a href="#speech-recognition---audio-data">Speech recognition - Audio data</a><ul>
+<li><a href="#speech-recognition">Speech recognition</a></li>
+<li><a href="#trigger-word-detection">Trigger Word Detection</a></li>
+</ul></li>
+<li><a href="#conclusion">Conclusion</a><ul>
+<li><a href="#conclusion-and-thank-you">Conclusion and thank you</a></li>
+</ul></li>
+<li><a href="#practice-questions">Practice questions</a><ul>
+<li><a href="#quiz-sequence-models-attention-mechanism">Quiz: Sequence models &amp; Attention mechanism</a></li>
+</ul></li>
+<li><a href="#programming-assignments">Programming assignments</a><ul>
+<li><a href="#neural-machine-translation">Neural Machine Translation</a></li>
+<li><a href="#trigger-word-detection-1">Trigger word detection</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="various-sequence-to-sequence-architectures">Various sequence to sequence architectures</h1>
+<h2 id="basic-models">Basic Models</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-13_10-12-12.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-13_10-14-44.png" /></p>
+<h2 id="picking-the-most-likely-sentence">Picking the most likely sentence</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-13_10-18-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-13_10-20-21.png" /></p>
+<p>Unlike the language model previously introduced, in machine translation, pick most likely <code>y</code> instead of sampling for consistent results.</p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-13_10-26-51.png" /></p>
+<p>Don't use greedy approach, otherwise <code>Jane is going</code>, which is less succinct in the above example, will always be chosen.</p>
+<h2 id="beam-search">Beam Search</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-13_10-33-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-13_10-41-03.png" /></p>
+<p>In the second step, pick the top 3 again among 30,000 possibilities. Because Beam width is 3, every step needs 3 models.</p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-13_10-44-05.png" /></p>
+<h2 id="refinements-to-beam-search">Refinements to Beam Search</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_08-47-01.png" /></p>
+<p>The actual probability is too small to practically calculate. So take log to the probabilities</p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_08-50-10.png" /></p>
+<h2 id="error-analysis-in-beam-search">Error analysis in beam search</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_08-56-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_08-59-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-01-28.png" /></p>
+<h2 id="bleu-score-optional">Bleu Score (optional)</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-08-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-11-13.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-15-12.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-17-49.png" /></p>
+<h2 id="attention-model-intuition">Attention Model Intuition</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-25-35.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-37-13.png" /></p>
+<h2 id="attention-model">Attention Model</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-43-51.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-50-54.png" /></p>
+<ul>
+<li>Essentially, <code>a^&lt;t, t'&gt;</code> is a softmax function</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_09-52-26.png" /></p>
+<h1 id="speech-recognition---audio-data">Speech recognition - Audio data</h1>
+<h2 id="speech-recognition">Speech recognition</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_19-59-57.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_20-32-30.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_20-36-03.png" /></p>
+<h2 id="trigger-word-detection">Trigger Word Detection</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_20-53-46.png" /></p>
+<h1 id="conclusion">Conclusion</h1>
+<h2 id="conclusion-and-thank-you">Conclusion and thank you</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_20-55-38.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_20-57-36.png" /></p>
+<h1 id="practice-questions">Practice questions</h1>
+<h2 id="quiz-sequence-models-attention-mechanism">Quiz: Sequence models &amp; Attention mechanism</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-16-26.png" /></p>
+<h1 id="programming-assignments">Programming assignments</h1>
+<h2 id="neural-machine-translation">Neural Machine Translation</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-26-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-27-10.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-29-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-30-24.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-31-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-31-39.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-37-20.png" /></p>
+<ul>
+<li><a href="https://keras.io/layers/core/#repeatvector" class="uri">https://keras.io/layers/core/#repeatvector</a></li>
+<li><a href="https://keras.io/layers/merge/#concatenate" class="uri">https://keras.io/layers/merge/#concatenate</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># GRADED FUNCTION: one_step_attention</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">def</span> one_step_attention(a, s_prev):</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">    Performs one step of attention: Outputs a context vector computed as a dot product of the attention weights</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">    &quot;alphas&quot; and the hidden states &quot;a&quot; of the Bi-LSTM.</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">    a -- hidden state output of the Bi-LSTM, numpy-array of shape (m, Tx, 2*n_a)</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">    s_prev -- previous hidden state of the (post-attention) LSTM, numpy-array of shape (m, n_s)</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">    context -- context vector, input of the next (post-attetion) LSTM cell</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">    <span class="co"># Use repeator to repeat s_prev to be of shape (m, Tx, n_s) so that you can concatenate it with all hidden states &quot;a&quot; (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">    s_prev <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">    <span class="co"># Use concatenator to concatenate a and s_prev on the last axis (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">    concat <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">    <span class="co"># Use densor1 to propagate concat through a small fully-connected neural network to compute the &quot;intermediate energies&quot; variable e. (≈1 lines)</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    e <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    <span class="co"># Use densor2 to propagate e through a small fully-connected neural network to compute the &quot;energies&quot; variable energies. (≈1 lines)</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">    energies <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">    <span class="co"># Use &quot;activator&quot; on &quot;energies&quot; to compute the attention weights &quot;alphas&quot; (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">    alphas <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">    <span class="co"># Use dotor together with &quot;alphas&quot; and &quot;a&quot; to compute the context vector to be given to the next (post-attention) LSTM-cell (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">    context <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">    <span class="cf">return</span> context</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_21-45-46.png" /></p>
+<ul>
+<li><a href="https://keras.io/layers/wrappers/#bidirectional" class="uri">https://keras.io/layers/wrappers/#bidirectional</a></li>
+<li><a href="https://keras.io/layers/recurrent/#lstm" class="uri">https://keras.io/layers/recurrent/#lstm</a></li>
+<li>The first parameter of <code>LSTM</code> is the output size</li>
+</ul>
+<p>To produce expected output, modify the cell above as follows:</p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-19-03.png" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># GRADED FUNCTION: model</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">def</span> model(Tx, Ty, n_a, n_s, human_vocab_size, machine_vocab_size):</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">    Tx -- length of the input sequence</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">    Ty -- length of the output sequence</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">    n_a -- hidden state size of the Bi-LSTM</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">    n_s -- hidden state size of the post-attention LSTM</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">    human_vocab_size -- size of the python dictionary &quot;human_vocab&quot;</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">    machine_vocab_size -- size of the python dictionary &quot;machine_vocab&quot;</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">    model -- Keras model instance</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">    <span class="co"># Define the inputs of your model with a shape (Tx,)</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">    <span class="co"># Define s0 and c0, initial hidden state for the decoder LSTM of shape (n_s,)</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">    X <span class="op">=</span> Input(shape<span class="op">=</span>(Tx, human_vocab_size))</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">    s0 <span class="op">=</span> Input(shape<span class="op">=</span>(n_s,), name<span class="op">=</span><span class="st">&#39;s0&#39;</span>)</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">    c0 <span class="op">=</span> Input(shape<span class="op">=</span>(n_s,), name<span class="op">=</span><span class="st">&#39;c0&#39;</span>)</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">    s <span class="op">=</span> s0</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23">    c <span class="op">=</span> c0</a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">    <span class="co"># Initialize empty list of outputs</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">    outputs <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30">    <span class="co"># Step 1: Define your pre-attention Bi-LSTM. Remember to use return_sequences=True. (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb2-31" data-line-number="31">    a <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33">    <span class="co"># Step 2: Iterate for Ty steps</span></a>
+<a class="sourceLine" id="cb2-34" data-line-number="34">    <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="va">None</span>):</a>
+<a class="sourceLine" id="cb2-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36">        <span class="co"># Step 2.A: Perform one step of the attention mechanism to get back the context vector at step t (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb2-37" data-line-number="37">        context <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39">        <span class="co"># Step 2.B: Apply the post-attention LSTM cell to the &quot;context&quot; vector.</span></a>
+<a class="sourceLine" id="cb2-40" data-line-number="40">        <span class="co"># Don&#39;t forget to pass: initial_state = [hidden state, cell state] (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41">        s, _, c <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43">        <span class="co"># Step 2.C: Apply Dense layer to the hidden state output of the post-attention LSTM (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb2-44" data-line-number="44">        out <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb2-46" data-line-number="46">        <span class="co"># Step 2.D: Append &quot;out&quot; to the &quot;outputs&quot; list (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb2-47" data-line-number="47">        <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-48" data-line-number="48"></a>
+<a class="sourceLine" id="cb2-49" data-line-number="49">    <span class="co"># Step 3: Create model instance taking three inputs and returning the list of outputs. (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb2-50" data-line-number="50">    model <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-51" data-line-number="51"></a>
+<a class="sourceLine" id="cb2-52" data-line-number="52">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb2-53" data-line-number="53"></a>
+<a class="sourceLine" id="cb2-54" data-line-number="54">    <span class="cf">return</span> model</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-32-59.png" /></p>
+<ul>
+<li><a href="https://keras.io/optimizers/#adam" class="uri">https://keras.io/optimizers/#adam</a></li>
+<li><a href="https://keras.io/optimizers/#usage-of-optimizers" class="uri">https://keras.io/optimizers/#usage-of-optimizers</a></li>
+<li><a href="https://keras.io/models/model/#compile" class="uri">https://keras.io/models/model/#compile</a></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">### START CODE HERE </span><span class="al">###</span><span class="co"> (≈2 lines)</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">opt <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="va">None</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-37-55.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-40-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-42-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-48-19.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-49-22.png" /></p>
+<h2 id="trigger-word-detection-1">Trigger word detection</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-51-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-53-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-55-14.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-56-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_22-58-16.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-00-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-01-12.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-04-42.png" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># GRADED FUNCTION: is_overlapping</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">def</span> is_overlapping(segment_time, previous_segments):</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">    Checks if the time of a segment overlaps with the times of existing segments.</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">    segment_time -- a tuple of (segment_start, segment_end) for the new segment</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="co">    previous_segments -- a list of tuples of (segment_start, segment_end) for the existing segments</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">    True if the time segment overlaps with any of the existing segments, False otherwise</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">    segment_start, segment_end <span class="op">=</span> segment_time</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">    <span class="co">### START CODE HERE </span><span class="al">###</span><span class="co"> (≈ 4 line)</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">    <span class="co"># Step 1: Initialize overlap as a &quot;False&quot; flag. (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">    overlap <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">    <span class="co"># Step 2: loop over the previous_segments start and end times.</span></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">    <span class="co"># Compare start/end times and set the flag to True if there is an overlap (≈ 3 lines)</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">    <span class="cf">for</span> previous_start, previous_end <span class="kw">in</span> previous_segments:</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">        <span class="cf">if</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">            overlap <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb4-28" data-line-number="28">    <span class="cf">return</span> overlap</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-07-34.png" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># GRADED FUNCTION: insert_audio_clip</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">def</span> insert_audio_clip(background, audio_clip, previous_segments):</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">    Insert a new audio segment over the background noise at a random time step, ensuring that the</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">    audio segment does not overlap with existing segments.</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">    background -- a 10 second background audio recording.</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">    audio_clip -- the audio clip to be inserted/overlaid.</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">    previous_segments -- times where audio segments have already been placed</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">    new_background -- the updated background audio</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17">    <span class="co"># Get the duration of the audio clip in ms</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18">    segment_ms <span class="op">=</span> <span class="bu">len</span>(audio_clip)</a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21">    <span class="co"># Step 1: Use one of the helper functions to pick a random time segment onto which to insert</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22">    <span class="co"># the new audio clip. (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23">    segment_time <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25">    <span class="co"># Step 2: Check if the new segment_time overlaps with one of the previous_segments. If so, keep</span></a>
+<a class="sourceLine" id="cb5-26" data-line-number="26">    <span class="co"># picking new segment_time at random until it doesn&#39;t overlap. (≈ 2 lines)</span></a>
+<a class="sourceLine" id="cb5-27" data-line-number="27">    <span class="cf">while</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb5-28" data-line-number="28">        segment_time <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb5-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb5-30" data-line-number="30">    <span class="co"># Step 3: Add the new segment_time to the list of previous_segments (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb5-31" data-line-number="31">    <span class="va">None</span></a>
+<a class="sourceLine" id="cb5-32" data-line-number="32">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb5-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb5-34" data-line-number="34">    <span class="co"># Step 4: Superpose audio segment and background</span></a>
+<a class="sourceLine" id="cb5-35" data-line-number="35">    new_background <span class="op">=</span> background.overlay(audio_clip, position <span class="op">=</span> segment_time[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb5-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb5-37" data-line-number="37">    <span class="cf">return</span> new_background, segment_time</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-10-37.png" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># GRADED FUNCTION: insert_ones</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">def</span> insert_ones(y, segment_end_ms):</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">    Update the label vector y. The labels of the 50 output steps strictly after the end of the segment</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">    should be set to 1. By strictly we mean that the label of segment_end_y should be 0 while, the</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">    50 followinf labels should be ones.</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">    y -- numpy array of shape (1, Ty), the labels of the training example</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">    segment_end_ms -- the end time of the segment in ms</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">    y -- updated labels</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">    <span class="co"># duration of the background (in terms of spectrogram time-steps)</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">    segment_end_y <span class="op">=</span> <span class="bu">int</span>(segment_end_ms <span class="op">*</span> Ty <span class="op">/</span> <span class="fl">10000.0</span>)</a>
+<a class="sourceLine" id="cb6-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">    <span class="co"># Add 1 to the correct index in the background label (y)</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">    <span class="co">### START CODE HERE </span><span class="al">###</span><span class="co"> (≈ 3 lines)</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="va">None</span>, <span class="va">None</span>):</a>
+<a class="sourceLine" id="cb6-24" data-line-number="24">        <span class="cf">if</span> <span class="va">None</span> <span class="op">&lt;</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb6-25" data-line-number="25">            y[<span class="dv">0</span>, i] <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28">    <span class="cf">return</span> y</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-15-35.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-37-15.png" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># GRADED FUNCTION: create_training_example</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">def</span> create_training_example(background, activates, negatives):</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">    Creates a training example with a given background, activates, and negatives.</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">    background -- a 10 second background audio recording</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">    activates -- a list of audio segments of the word &quot;activate&quot;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">    negatives -- a list of audio segments of random words that are not &quot;activate&quot;</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">    x -- the spectrogram of the training example</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">    y -- the label at each time step of the spectrogram</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">    <span class="co"># Set the random seed</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">    np.random.seed(<span class="dv">18</span>)</a>
+<a class="sourceLine" id="cb7-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">    <span class="co"># Make background quieter</span></a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">    background <span class="op">=</span> background <span class="op">-</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb7-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb7-24" data-line-number="24">    <span class="co"># Step 1: Initialize y (label vector) of zeros (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">    y <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb7-27" data-line-number="27">    <span class="co"># Step 2: Initialize segment times as empty list (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb7-28" data-line-number="28">    previous_segments <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-29" data-line-number="29">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb7-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb7-31" data-line-number="31">    <span class="co"># Select 0-4 random &quot;activate&quot; audio clips from the entire list of &quot;activates&quot; recordings</span></a>
+<a class="sourceLine" id="cb7-32" data-line-number="32">    number_of_activates <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb7-33" data-line-number="33">    random_indices <span class="op">=</span> np.random.randint(<span class="bu">len</span>(activates), size<span class="op">=</span>number_of_activates)</a>
+<a class="sourceLine" id="cb7-34" data-line-number="34">    random_activates <span class="op">=</span> [activates[i] <span class="cf">for</span> i <span class="kw">in</span> random_indices]</a>
+<a class="sourceLine" id="cb7-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb7-36" data-line-number="36">    <span class="co">### START CODE HERE </span><span class="al">###</span><span class="co"> (≈ 3 lines)</span></a>
+<a class="sourceLine" id="cb7-37" data-line-number="37">    <span class="co"># Step 3: Loop over randomly selected &quot;activate&quot; clips and insert in background</span></a>
+<a class="sourceLine" id="cb7-38" data-line-number="38">    <span class="cf">for</span> random_activate <span class="kw">in</span> random_activates:</a>
+<a class="sourceLine" id="cb7-39" data-line-number="39">        <span class="co"># Insert the audio clip on the background</span></a>
+<a class="sourceLine" id="cb7-40" data-line-number="40">        background, segment_time <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-41" data-line-number="41">        <span class="co"># Retrieve segment_start and segment_end from segment_time</span></a>
+<a class="sourceLine" id="cb7-42" data-line-number="42">        segment_start, segment_end <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-43" data-line-number="43">        <span class="co"># Insert labels in &quot;y&quot;</span></a>
+<a class="sourceLine" id="cb7-44" data-line-number="44">        y <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-45" data-line-number="45">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb7-46" data-line-number="46"></a>
+<a class="sourceLine" id="cb7-47" data-line-number="47">    <span class="co"># Select 0-2 random negatives audio recordings from the entire list of &quot;negatives&quot; recordings</span></a>
+<a class="sourceLine" id="cb7-48" data-line-number="48">    number_of_negatives <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb7-49" data-line-number="49">    random_indices <span class="op">=</span> np.random.randint(<span class="bu">len</span>(negatives), size<span class="op">=</span>number_of_negatives)</a>
+<a class="sourceLine" id="cb7-50" data-line-number="50">    random_negatives <span class="op">=</span> [negatives[i] <span class="cf">for</span> i <span class="kw">in</span> random_indices]</a>
+<a class="sourceLine" id="cb7-51" data-line-number="51"></a>
+<a class="sourceLine" id="cb7-52" data-line-number="52">    <span class="co">### START CODE HERE </span><span class="al">###</span><span class="co"> (≈ 2 lines)</span></a>
+<a class="sourceLine" id="cb7-53" data-line-number="53">    <span class="co"># Step 4: Loop over randomly selected negative clips and insert in background</span></a>
+<a class="sourceLine" id="cb7-54" data-line-number="54">    <span class="cf">for</span> random_negative <span class="kw">in</span> random_negatives:</a>
+<a class="sourceLine" id="cb7-55" data-line-number="55">        <span class="co"># Insert the audio clip on the background</span></a>
+<a class="sourceLine" id="cb7-56" data-line-number="56">        background, _ <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-57" data-line-number="57">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb7-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb7-59" data-line-number="59">    <span class="co"># Standardize the volume of the audio clip</span></a>
+<a class="sourceLine" id="cb7-60" data-line-number="60">    background <span class="op">=</span> match_target_amplitude(background, <span class="fl">-20.0</span>)</a>
+<a class="sourceLine" id="cb7-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb7-62" data-line-number="62">    <span class="co"># Export new training example</span></a>
+<a class="sourceLine" id="cb7-63" data-line-number="63">    file_handle <span class="op">=</span> background.export(<span class="st">&quot;train&quot;</span> <span class="op">+</span> <span class="st">&quot;.wav&quot;</span>, <span class="bu">format</span><span class="op">=</span><span class="st">&quot;wav&quot;</span>)</a>
+<a class="sourceLine" id="cb7-64" data-line-number="64">    <span class="bu">print</span>(<span class="st">&quot;File (train.wav) was saved in your directory.&quot;</span>)</a>
+<a class="sourceLine" id="cb7-65" data-line-number="65"></a>
+<a class="sourceLine" id="cb7-66" data-line-number="66">    <span class="co"># Get and plot spectrogram of the new recording (background with superposition of positive and negatives)</span></a>
+<a class="sourceLine" id="cb7-67" data-line-number="67">    x <span class="op">=</span> graph_spectrogram(<span class="st">&quot;train.wav&quot;</span>)</a>
+<a class="sourceLine" id="cb7-68" data-line-number="68"></a>
+<a class="sourceLine" id="cb7-69" data-line-number="69">    <span class="cf">return</span> x, y</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-43-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-45-29.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-45-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-46-43.png" /></p>
+<ul>
+<li><a href="https://keras.io/layers/convolutional/#conv1d" class="uri">https://keras.io/layers/convolutional/#conv1d</a></li>
+<li><a href="https://keras.io/layers/normalization/" class="uri">https://keras.io/layers/normalization/</a></li>
+<li><a href="https://keras.io/activations/" class="uri">https://keras.io/activations/</a></li>
+<li><a href="https://keras.io/layers/core/#dropout" class="uri">https://keras.io/layers/core/#dropout</a></li>
+<li><a href="https://keras.io/layers/recurrent/#gru" class="uri">https://keras.io/layers/recurrent/#gru</a></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># GRADED FUNCTION: model</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">def</span> model(input_shape):</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">    Function creating the model&#39;s graph in Keras.</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">    Argument:</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">    input_shape -- shape of the model&#39;s input data (using Keras conventions)</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">    model -- Keras model instance</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    X_input <span class="op">=</span> Input(shape <span class="op">=</span> input_shape)</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    <span class="co"># Step 1: CONV layer (≈4 lines)</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># CONV1D</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># Batch normalization</span></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># ReLu activation</span></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># dropout (use 0.8)</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb8-24" data-line-number="24">    <span class="co"># Step 2: First GRU Layer (≈4 lines)</span></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># GRU (use 128 units and return the sequences)</span></a>
+<a class="sourceLine" id="cb8-26" data-line-number="26">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># dropout (use 0.8)</span></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># Batch normalization</span></a>
+<a class="sourceLine" id="cb8-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb8-29" data-line-number="29">    <span class="co"># Step 3: Second GRU Layer (≈4 lines)</span></a>
+<a class="sourceLine" id="cb8-30" data-line-number="30">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># GRU (use 128 units and return the sequences)</span></a>
+<a class="sourceLine" id="cb8-31" data-line-number="31">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># dropout (use 0.8)</span></a>
+<a class="sourceLine" id="cb8-32" data-line-number="32">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># Batch normalization</span></a>
+<a class="sourceLine" id="cb8-33" data-line-number="33">    X <span class="op">=</span> <span class="va">None</span>                                 <span class="co"># dropout (use 0.8)</span></a>
+<a class="sourceLine" id="cb8-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb8-35" data-line-number="35">    <span class="co"># Step 4: Time-distributed dense layer (≈1 line)</span></a>
+<a class="sourceLine" id="cb8-36" data-line-number="36">    X <span class="op">=</span> TimeDistributed(Dense(<span class="dv">1</span>, activation <span class="op">=</span> <span class="st">&quot;sigmoid&quot;</span>))(X) <span class="co"># time distributed  (sigmoid)</span></a>
+<a class="sourceLine" id="cb8-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb8-38" data-line-number="38">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb8-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb8-40" data-line-number="40">    model <span class="op">=</span> Model(inputs <span class="op">=</span> X_input, outputs <span class="op">=</span> X)</a>
+<a class="sourceLine" id="cb8-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb8-42" data-line-number="42">    <span class="cf">return</span> model</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-54-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-55-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-56-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-59-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week3/_img/screenshot_2018-02-14_23-59-41.png" /></p>
+</article>
+
+</body>
+</html>

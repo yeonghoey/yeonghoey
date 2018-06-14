@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Program Design</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/programming/" >programming</a></li>
+    <li>design</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Program Design</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#coupling-vs-cohesion">Coupling vs Cohesion</a><ul>
+<li><a href="#coupling">Coupling</a></li>
+<li><a href="#cohesion">Cohesion</a><ul>
+<li><a href="#functional-cohesion">Functional Cohesion</a></li>
+<li><a href="#communicational-cohesion">Communicational Cohesion</a></li>
+<li><a href="#sequential-cohesion">Sequential Cohesion</a></li>
+<li><a href="#procedural-cohesion">Procedural cohesion</a></li>
+<li><a href="#others">Others</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="coupling-vs-cohesion">Coupling vs Cohesion</h1>
+<h2 id="coupling">Coupling</h2>
+<ul>
+<li>A change in one module usually <strong>forces a ripple effect</strong> of changes in other modules.</li>
+<li>Assembly of modules might require more effort and/or time due to the increased inter-module dependency.</li>
+<li>A particular module might be harder to reuse and/or test because dependent modules must be included.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)" class="uri">https://en.wikipedia.org/wiki/Coupling_(computer_programming)</a></li>
+</ul>
+</div>
+<h2 id="cohesion">Cohesion</h2>
+<ul>
+<li><strong>Functional cohesion</strong> is superior</li>
+<li>Communicational and sequential cohesion are very good</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)" class="uri">https://en.wikipedia.org/wiki/Cohesion_(computer_science)</a></li>
+</ul>
+</div>
+<h3 id="functional-cohesion">Functional Cohesion</h3>
+<ul>
+<li>A module are goruped because they all contribute to a single well-defined task of the module</li>
+</ul>
+<pre class="example"><code>open(file)
+read(file)
+close(file)
+</code></pre>
+<h3 id="communicational-cohesion">Communicational Cohesion</h3>
+<ul>
+<li>A module are grouped because they operate on the same data</li>
+</ul>
+<pre class="example"><code>send_mail(mail, message)
+verify_mail(mail)
+get_user(mail)
+get_domain(mail)
+</code></pre>
+<h3 id="sequential-cohesion">Sequential Cohesion</h3>
+<ul>
+<li>A module are grouped because the output from one part is the input to another part like an assembly line</li>
+</ul>
+<pre class="example"><code>read(file) =&gt; content
+parse(content) =&gt; object
+handle(object) =&gt; ...
+</code></pre>
+<h3 id="procedural-cohesion">Procedural cohesion</h3>
+<ul>
+<li>A module are grouped because they always follow a certain sequence of execution</li>
+</ul>
+<pre class="example"><code>check_permission(file)
+open(file)
+is_file_empty(file)
+read(file)
+</code></pre>
+<h3 id="others">Others</h3>
+<ul>
+<li>Temporal: Grouped different things because they are noramlly exectued at the same time
+<ul>
+<li>exception handling, logging, notifiing at one place</li>
+</ul></li>
+<li>Logical: Grouped different things because they seem to do the same thing
+<ul>
+<li>Keyboard and Mouse handlers</li>
+<li>SNS messages and emails</li>
+</ul></li>
+</ul>
+</article>
+
+</body>
+</html>

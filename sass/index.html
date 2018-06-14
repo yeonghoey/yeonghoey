@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Sass</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>sass</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title"><a href="https://sass-lang.com/guide">Sass</a></h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#guide">Guide</a><ul>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#nesting">Nesting</a></li>
+<li><a href="#import">Import</a></li>
+<li><a href="#mixins">Mixins</a></li>
+<li><a href="#extendinheritance">Extend/Inheritance</a></li>
+<li><a href="#operators">Operators</a></li>
+</ul></li>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#interpolation">interpolation</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#sass-vs-.scss"><code>.sass</code> vs <code>.scss</code></a></li>
+<li><a href="#how-to-calculate-units-like-percent-viewport-things">How to calculate units like percent, viewport things?</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="guide">Guide</h1>
+<h2 id="variables">Variables</h2>
+<pre class="scss"><code>$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+</code></pre>
+<h2 id="nesting">Nesting</h2>
+<pre class="scss"><code>nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb3-1" data-line-number="1">nav ul {</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw">margin</span>: <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="kw">padding</span>: <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">list-style</span>: <span class="dv">none</span>;</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">nav li {</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="kw">display</span>: <span class="dv">inline-block</span>;</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">}</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">nav a {</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">  <span class="kw">display</span>: <span class="dv">block</span>;</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">  <span class="kw">padding</span>: <span class="dv">6px</span> <span class="dv">12px</span>;</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">  <span class="kw">text-decoration</span>: <span class="dv">none</span>;</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">}</a></code></pre></div>
+<h2 id="import">Import</h2>
+<ul>
+<li>The underscore in the filename (<code>_reset.scss</code>) lets Sass know that the file is only a partial file and that it should not be generated into a CSS file.</li>
+</ul>
+<pre class="scss"><code>// _reset.scss
+
+html,
+body,
+ul,
+ol {
+  margin:  0;
+  padding: 0;
+}
+</code></pre>
+<pre class="scss"><code>// base.scss
+
+@import &#39;reset&#39;;
+
+body {
+  font: 100% Helvetica, sans-serif;
+  background-color: #efefef;
+}
+</code></pre>
+<h2 id="mixins">Mixins</h2>
+<pre class="scss"><code>@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu">.box</span> {</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">-webkit-border-radius</span>: <span class="dv">10px</span>;</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="kw">-moz-border-radius</span>: <span class="dv">10px</span>;</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  -ms-border-radius: <span class="dv">10px</span>;</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="kw">border-radius</span>: <span class="dv">10px</span>;</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">}</a></code></pre></div>
+<h2 id="extendinheritance">Extend/Inheritance</h2>
+<pre class="scss"><code>// This CSS won&#39;t print because %equal-heights is never extended.
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// This CSS will print because %message-shared is extended.
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+</code></pre>
+<h2 id="operators">Operators</h2>
+<pre class="scss"><code>.container { width: 100%; }
+
+
+article[role=&quot;main&quot;] {
+  float: left;
+  width: 600px / 960px * 100%;
+}
+
+aside[role=&quot;complementary&quot;] {
+  float: right;
+  width: 300px / 960px * 100%;
+}
+</code></pre>
+<h1 id="reference">Reference</h1>
+<h2 id="interpolation">interpolation</h2>
+<pre class="scss"><code>$name: foo;
+$attr: border;
+p.#{$name} {
+  #{$attr}-color: blue;
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_" class="uri">http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="sass-vs-.scss"><code>.sass</code> vs <code>.scss</code></h2>
+<ul>
+<li>So, use <code>.scss</code>, <code>.scss</code> is the official default.</li>
+<li><code>.sass</code> has a concise, indent based syntax, and older one.</li>
+</ul>
+<h2 id="how-to-calculate-units-like-percent-viewport-things">How to calculate units like percent, viewport things?</h2>
+<blockquote>
+<p>Sass has no way of knowing exactly how wide &quot;100%&quot; is in terms of pixels or any other unit.</p>
+</blockquote>
+<p>Use <code>calc()</code> from CSS standards or use interpolation(<code>#{$var}</code>) as following:</p>
+<pre class="scss"><code>$a: 25%;
+$b: 5px;
+
+.foo {
+  width: -webkit-calc(#{$a} - #{$b});
+  width:    -moz-calc(#{$a} - #{$b});
+  width:         calc(#{$a} - #{$b});
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/13274599/sass-calculate-percent-minus-px" class="uri">https://stackoverflow.com/questions/13274599/sass-calculate-percent-minus-px</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

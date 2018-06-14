@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Lesson 4</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/udacity/" >udacity</a></li>
+    <li><a href="/udacity/design-of-computer-programs/" >design-of-computer-programs</a></li>
+    <li>lesson4</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Lesson 4</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#lesson-4-1">Lesson 4</a><ul>
+<li><a href="#water-pouring-problem">Water Pouring Problem</a></li>
+<li><a href="#quiz-combinatorial-complexity">Quiz: Combinatorial Complexity</a></li>
+<li><a href="#quiz-exploring-the-space">Quiz: Exploring The Space</a></li>
+<li><a href="#pouring-solution">Pouring Solution</a></li>
+<li><a href="#doctest">Doctest</a></li>
+<li><a href="#bridge-problem">Bridge Problem</a></li>
+<li><a href="#quiz-bridge-successors">Quiz: Bridge Successors</a><ul>
+<li><a href="#my-old-solution">My Old Solution</a></li>
+<li><a href="#my-new-solution">My New Solution</a></li>
+<li><a href="#his-solution">His Solution</a></li>
+<li><a href="#feedback">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-paths-actions-states">Quiz: Paths Actions States</a><ul>
+<li><a href="#my-old-solution-1">My Old Solution</a></li>
+<li><a href="#his-solution-1">His Solution</a></li>
+<li><a href="#feedback-1">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-improving-the-solution">Quiz: Improving The Solution</a></li>
+<li><a href="#quiz-modify-code">Quiz: Modify Code</a></li>
+<li><a href="#quiz-refactoring-paths">Quiz: Refactoring Paths</a></li>
+<li><a href="#quiz-calculating-costs">Quiz: Calculating Costs</a></li>
+<li><a href="#putting-it-together">Putting It Together</a></li>
+<li><a href="#generalizing">Generalizing</a></li>
+<li><a href="#quiz-missionaries-and-cannibals">Quiz: Missionaries And Cannibals</a></li>
+<li><a href="#quiz-csuccessors">Quiz: Csuccessors</a><ul>
+<li><a href="#my-old-solution-2">My Old Solution</a></li>
+<li><a href="#my-new-solution-1">My New Solution</a></li>
+<li><a href="#his-solution-2">His Solution</a></li>
+<li><a href="#feedback-2">Feedback</a></li>
+</ul></li>
+<li><a href="#mc-problem">Mc Problem</a></li>
+<li><a href="#quiz-shortest-path-search">Quiz: Shortest Path Search</a></li>
+<li><a href="#quiz-lowest-cost-search">Quiz: Lowest Cost Search</a><ul>
+<li><a href="#his-solution-3">His Solution</a></li>
+</ul></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+<li><a href="#problem-set-4">Problem Set 4</a><ul>
+<li><a href="#quiz-refactoring-bsuccessors">Quiz: Refactoring Bsuccessors</a><ul>
+<li><a href="#my-solution">My Solution</a></li>
+<li><a href="#his-solution-4">His Solution</a></li>
+<li><a href="#feedback-3">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-more-pour-problem">Quiz: More Pour Problem</a><ul>
+<li><a href="#my-solution-1">My Solution</a></li>
+<li><a href="#his-solution-5">His Solution</a></li>
+<li><a href="#feedback-4">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-subway-planning">Quiz: Subway Planning</a><ul>
+<li><a href="#my-solution-2">My Solution</a></li>
+<li><a href="#his-solution-6">His Solution</a></li>
+<li><a href="#feedback-5">Feedback</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="lesson-4-1">Lesson 4</h1>
+<h2 id="water-pouring-problem">Water Pouring Problem</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-12_20-03-31.png" /></p>
+<h2 id="quiz-combinatorial-complexity">Quiz: Combinatorial Complexity</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-12_20-04-51.png" /></p>
+<p>Can't tell the number of cases -&gt; <strong>SEARCH</strong> problem</p>
+<h2 id="quiz-exploring-the-space">Quiz: Exploring The Space</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-12_23-37-56.png" /></p>
+<h2 id="pouring-solution">Pouring Solution</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-21_08-51-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-21_08-52-34.png" /></p>
+<h2 id="doctest">Doctest</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-21_08-54-48.png" /></p>
+<h2 id="bridge-problem">Bridge Problem</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-24_07-57-15.png" /></p>
+<h2 id="quiz-bridge-successors">Quiz: Bridge Successors</h2>
+<h3 id="my-old-solution">My Old Solution</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> bsuccessors(state):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Return a dict of {state:action} pairs. A state is a (here, there, t) tuple,</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">    where here and there are frozensets of people (indicated by their times) and/or</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">    the &#39;light&#39;, and t is a number indicating the elapsed time. Action is represented</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">    as a tuple (person1, person2, arrow), where arrow is &#39;-&gt;&#39; for here to there and</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">    &#39;&lt;-&#39; for there to here.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    here, there, t <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="kw">def</span> picks(pos):</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">        <span class="cf">for</span> t <span class="kw">in</span> combinations(pos, <span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">            <span class="cf">yield</span> <span class="bu">set</span>(t)</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">        <span class="cf">for</span> t <span class="kw">in</span> combinations(pos, <span class="dv">3</span>):</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">            <span class="cf">yield</span> <span class="bu">set</span>(t)</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    <span class="kw">def</span> movers(pick):</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">        <span class="cf">return</span> pick <span class="op">-</span> <span class="bu">set</span>([<span class="st">&#39;light&#39;</span>])</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">    <span class="kw">def</span> action(ms, <span class="bu">dir</span>):</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">        <span class="cf">return</span> <span class="bu">tuple</span>(<span class="bu">list</span>(chain(ms, ms))[:<span class="dv">2</span>] <span class="op">+</span> [<span class="bu">dir</span>])</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    succs <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">    <span class="cf">for</span> pick <span class="kw">in</span> picks(here):</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">        <span class="cf">if</span> <span class="st">&#39;light&#39;</span> <span class="kw">in</span> pick:</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">            ms <span class="op">=</span> movers(pick)</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">            state2 <span class="op">=</span> (here <span class="op">-</span> <span class="bu">set</span>(pick), there <span class="op">|</span> <span class="bu">set</span>(pick), t <span class="op">+</span> <span class="bu">max</span>(ms))</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">            succs[state2] <span class="op">=</span> action(ms, <span class="st">&#39;-&gt;&#39;</span>)</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">    <span class="cf">for</span> pick <span class="kw">in</span> picks(there):</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">        <span class="cf">if</span> <span class="st">&#39;light&#39;</span> <span class="kw">in</span> pick:</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">            ms <span class="op">=</span> movers(pick)</a>
+<a class="sourceLine" id="cb1-32" data-line-number="32">            state2 <span class="op">=</span> (here <span class="op">|</span> <span class="bu">set</span>(pick), there <span class="op">-</span> <span class="bu">set</span>(pick), t <span class="op">+</span> <span class="bu">max</span>(ms))</a>
+<a class="sourceLine" id="cb1-33" data-line-number="33">            succs[state2] <span class="op">=</span> action(ms, <span class="st">&#39;&lt;-&#39;</span>)</a>
+<a class="sourceLine" id="cb1-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35">    <span class="cf">return</span> succs</a></code></pre></div>
+<h3 id="my-new-solution">My New Solution</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">def</span> bsuccessors(state):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    here, there, t <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="cf">if</span> <span class="st">&#39;light&#39;</span> <span class="kw">in</span> here:</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">        fi, ti, arrow <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">1</span>, <span class="st">&#39;-&gt;&#39;</span>)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">        fi, ti, arrow <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">0</span>, <span class="st">&#39;&lt;-&#39;</span>)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    candidates <span class="op">=</span> <span class="bu">set</span>((a, b)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">                      <span class="cf">for</span> a <span class="kw">in</span> state[fi]</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">                      <span class="cf">for</span> b <span class="kw">in</span> state[fi]</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">                      <span class="cf">if</span> a <span class="op">!=</span> <span class="st">&#39;light&#39;</span> <span class="kw">and</span> b <span class="op">!=</span> <span class="st">&#39;light&#39;</span>)</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">    succs <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">    <span class="cf">for</span> c <span class="kw">in</span> candidates:</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">        fr_ <span class="op">=</span> state[fi] <span class="op">-</span> <span class="bu">set</span>(c) <span class="op">-</span> <span class="bu">set</span>([<span class="st">&#39;light&#39;</span>])</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">        to_ <span class="op">=</span> state[ti] <span class="op">|</span> <span class="bu">set</span>(c) <span class="op">|</span> <span class="bu">set</span>([<span class="st">&#39;light&#39;</span>])</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">        t_ <span class="op">=</span> t <span class="op">+</span> <span class="bu">max</span>(c)</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">        action <span class="op">=</span> c <span class="op">+</span> (arrow,)</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">        next_ <span class="op">=</span> [<span class="va">None</span>, <span class="va">None</span>, t_]</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">        next_[fi] <span class="op">=</span> fr_</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">        next_[ti] <span class="op">=</span> to_</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">        succs[<span class="bu">tuple</span>(next_)] <span class="op">=</span> action</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">    <span class="cf">return</span> succs</a></code></pre></div>
+<h3 id="his-solution">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-24_08-40-48.png" /></p>
+<h3 id="feedback">Feedback</h3>
+<p>I could mix <code>for expressions</code> and <code>if expressions</code> within a comprehension.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">candidates <span class="op">=</span> <span class="bu">set</span>((a, b)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">                <span class="cf">for</span> a <span class="kw">in</span> state[fi] <span class="cf">if</span> a <span class="kw">is</span> <span class="kw">not</span> <span class="st">&#39;light&#39;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">                <span class="cf">for</span> b <span class="kw">in</span> state[fi] <span class="cf">if</span> b <span class="kw">is</span> <span class="kw">not</span> <span class="st">&#39;light&#39;</span>)</a></code></pre></div>
+<blockquote>
+<p>If you have uncertainties that are going to cross barriers between lots of different functions, then probably you want to nail them(the representations of the problem) down. If you think they're contained, then it's okay to have some uncertainty and be able to explore the exact options later.</p>
+</blockquote>
+<h2 id="quiz-paths-actions-states">Quiz: Paths Actions States</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_11-15-01.png" /></p>
+<h3 id="my-old-solution-1">My Old Solution</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="im">from</span> itertools <span class="im">import</span> izip</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">def</span> pairwise(iterable):</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="co">&quot;s -&gt; (s0, s1), (s2, s3), (s4, s5), ...&quot;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">    a <span class="op">=</span> <span class="bu">iter</span>(iterable)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="cf">return</span> izip(a, a)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="kw">def</span> path_states(path):</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="co">&quot;Return a list of states in this path.&quot;</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">    <span class="cf">return</span> [s <span class="cf">for</span> s, _ <span class="kw">in</span> pairwise(path)]</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="kw">def</span> path_actions(path):</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">    <span class="co">&quot;Return a list of actions in this path.&quot;</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">    <span class="cf">return</span> [a <span class="cf">for</span> _, a <span class="kw">in</span> pairwise(path)]</a></code></pre></div>
+<h3 id="his-solution-1">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_11-17-05.png" /></p>
+<h3 id="feedback-1">Feedback</h3>
+<p>I should think of the problem in easy ways.</p>
+<h2 id="quiz-improving-the-solution">Quiz: Improving The Solution</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_11-28-09.png" /></p>
+<h2 id="quiz-modify-code">Quiz: Modify Code</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_11-34-56.png" /></p>
+<h2 id="quiz-refactoring-paths">Quiz: Refactoring Paths</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_11-39-18.png" /></p>
+<h2 id="quiz-calculating-costs">Quiz: Calculating Costs</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_11-45-14.png" /></p>
+<h2 id="putting-it-together">Putting It Together</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_11-46-30.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_11-46-52.png" /></p>
+<h2 id="generalizing">Generalizing</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_18-22-37.png" /></p>
+<h2 id="quiz-missionaries-and-cannibals">Quiz: Missionaries And Cannibals</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_18-28-06.png" /></p>
+<h2 id="quiz-csuccessors">Quiz: Csuccessors</h2>
+<h3 id="my-old-solution-2">My Old Solution</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">def</span> csuccessors(state):</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Find successors (including those that result in dining) to this</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">    state. But a state where the cannibals can dine has no successors.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    M1, C1, B1, M2, C2, B2 <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    <span class="cf">if</span> M1 <span class="op">&lt;</span> C1 <span class="kw">or</span> M2 <span class="op">&lt;</span> C2:</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">        <span class="cf">return</span> {}</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    <span class="kw">def</span> picks(M, C):</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">        <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">xrange</span>(<span class="bu">min</span>(M<span class="op">+</span><span class="dv">1</span>, <span class="dv">3</span>)):</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">            <span class="cf">for</span> c <span class="kw">in</span> <span class="bu">xrange</span>(<span class="bu">min</span>(C<span class="op">+</span><span class="dv">1</span>, <span class="dv">3</span>)):</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">                <span class="cf">if</span> m <span class="op">+</span> c <span class="op">&lt;=</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">                    <span class="cf">continue</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">                <span class="cf">if</span> m <span class="op">+</span> c <span class="op">&gt;</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">                    <span class="cf">continue</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">                <span class="cf">yield</span> (m, c)</a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17">    <span class="kw">def</span> pick_repr(m, c):</a>
+<a class="sourceLine" id="cb5-18" data-line-number="18">        <span class="cf">return</span> <span class="st">&#39;M&#39;</span><span class="op">*</span>m <span class="op">+</span> <span class="st">&#39;C&#39;</span><span class="op">*</span>c</a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20">    successors <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb5-21" data-line-number="21">    <span class="cf">if</span> B1 <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb5-22" data-line-number="22">        <span class="cf">for</span> m, c <span class="kw">in</span> picks(M1, C1):</a>
+<a class="sourceLine" id="cb5-23" data-line-number="23">            successors[(M1<span class="op">-</span>m, C1<span class="op">-</span>c, B1<span class="dv">-1</span>, M2<span class="op">+</span>m, C2<span class="op">+</span>c, B2<span class="op">+</span><span class="dv">1</span>)] <span class="op">=</span> pick_repr(m, c) <span class="op">+</span> <span class="st">&#39;-&gt;&#39;</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24">    <span class="cf">if</span> B2 <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb5-25" data-line-number="25">        <span class="cf">for</span> m, c <span class="kw">in</span> picks(M2, C2):</a>
+<a class="sourceLine" id="cb5-26" data-line-number="26">            successors[(M1<span class="op">+</span>m, C1<span class="op">+</span>c, B1<span class="op">+</span><span class="dv">1</span>, M2<span class="op">-</span>m, C2<span class="op">-</span>c, B2<span class="dv">-1</span>)] <span class="op">=</span> <span class="st">&#39;&lt;-&#39;</span> <span class="op">+</span> pick_repr(m, c)</a>
+<a class="sourceLine" id="cb5-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb5-28" data-line-number="28">    <span class="cf">return</span> successors</a></code></pre></div>
+<h3 id="my-new-solution-1">My New Solution</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">def</span> csuccessors(state):</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Find successors (including those that result in dining) to this</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">    state. But a state where the cannibals can dine has no successors.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    M1, C1, B1, M2, C2, B2 <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    succs <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="cf">if</span> M1 <span class="op">&lt;</span> C1 <span class="kw">or</span> M2 <span class="op">&lt;</span> C2:</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">        <span class="cf">return</span> succs</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="cf">for</span> m, c <span class="kw">in</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">0</span>, <span class="dv">2</span>), (<span class="dv">1</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">0</span>), (<span class="dv">2</span>, <span class="dv">0</span>)]:</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">        <span class="cf">if</span> B1 <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> m <span class="op">&lt;=</span> M1 <span class="kw">and</span> c <span class="op">&lt;=</span> C1:</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">            succs[(M1<span class="op">-</span>m, C1<span class="op">-</span>c, B1<span class="dv">-1</span>, M2<span class="op">+</span>m, C2<span class="op">+</span>c, B2<span class="op">+</span><span class="dv">1</span>)] <span class="op">=</span> <span class="st">&#39;</span><span class="sc">%s%s</span><span class="st">-&gt;&#39;</span> <span class="op">%</span> (<span class="st">&#39;M&#39;</span><span class="op">*</span>m, <span class="st">&#39;C&#39;</span><span class="op">*</span>c)</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">        <span class="cf">if</span> B2 <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> m <span class="op">&lt;=</span> M2 <span class="kw">and</span> c <span class="op">&lt;=</span> C2:</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">            succs[(M1<span class="op">+</span>m, C1<span class="op">+</span>c, B1<span class="op">+</span><span class="dv">1</span>, M2<span class="op">-</span>m, C2<span class="op">-</span>c, B2<span class="dv">-1</span>)] <span class="op">=</span> <span class="st">&#39;&lt;-</span><span class="sc">%s%s</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="st">&#39;M&#39;</span><span class="op">*</span>m, <span class="st">&#39;C&#39;</span><span class="op">*</span>c)</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">    <span class="cf">return</span> succs</a></code></pre></div>
+<h3 id="his-solution-2">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_19-30-08.png" /></p>
+<h3 id="feedback-2">Feedback</h3>
+<ul>
+<li>My new solution is better than old one, which uses constants, making the logic simple.</li>
+<li>Using the concept of <code>deltas</code> simplifies the logic.</li>
+<li>Defining vector operations like <code>add</code> and <code>sub</code> makes it possible.</li>
+</ul>
+<h2 id="mc-problem">Mc Problem</h2>
+<p>I solved on my own: <em>exercises/mc<sub>problem</sub>.py</em></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_20-02-52.png" /></p>
+<h2 id="quiz-shortest-path-search">Quiz: Shortest Path Search</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_20-19-00.png" /></p>
+<h2 id="quiz-lowest-cost-search">Quiz: Lowest Cost Search</h2>
+<h3 id="his-solution-3">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_20-32-14.png" /></p>
+<h2 id="summary">Summary</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2017-02-25_20-37-16.png" /></p>
+<h1 id="problem-set-4">Problem Set 4</h1>
+<h2 id="quiz-refactoring-bsuccessors">Quiz: Refactoring Bsuccessors</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2016-12-22_16-23-11.png" /></p>
+<h3 id="my-solution">My Solution</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">HERE <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">THERE <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">def</span> bsuccessors3(state):</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    here, there, light <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    ret <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    <span class="cf">if</span> light <span class="kw">is</span> HERE:</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">        choices <span class="op">=</span> [<span class="bu">frozenset</span>([a, b]) <span class="cf">for</span> a <span class="kw">in</span> here <span class="cf">for</span> b <span class="kw">in</span> here]</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">        arrow <span class="op">=</span> <span class="st">&#39;-&gt;&#39;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">        <span class="cf">for</span> ts <span class="kw">in</span> choices:</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">            state <span class="op">=</span> (here <span class="op">-</span> ts, there <span class="op">|</span> ts, THERE)</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">            action <span class="op">=</span> (ts, arrow)</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">            ret[state] <span class="op">=</span> action</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">    <span class="cf">if</span> light <span class="kw">is</span> THERE:</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">        choices <span class="op">=</span> [<span class="bu">frozenset</span>([a, b]) <span class="cf">for</span> a <span class="kw">in</span> there <span class="cf">for</span> b <span class="kw">in</span> there]</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">        arrow <span class="op">=</span> <span class="st">&#39;&lt;-&#39;</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">        <span class="cf">for</span> ts <span class="kw">in</span> choices:</a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">            state <span class="op">=</span> (here <span class="op">|</span> ts, there <span class="op">-</span> ts, HERE)</a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">            action <span class="op">=</span> (ts, arrow)</a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">            ret[state] <span class="op">=</span> action</a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">    <span class="cf">return</span> ret</a></code></pre></div>
+<h3 id="his-solution-4">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2016-12-22_16-26-10.png" /></p>
+<h3 id="feedback-3">Feedback</h3>
+<p>I blindly solved the problem as before, even though the concept changed. I thought that the interface forces me to keep the parameter orders of <code>here</code> and <code>there</code>, which causes to make duplications or to make the logic overly complicated. The answer make a smaller function(<code>bsuccessor3(state, travelers)</code>) to isolate this restriction. it's cleaner than mine.</p>
+<h2 id="quiz-more-pour-problem">Quiz: More Pour Problem</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2016-12-22_16-33-24.png" /></p>
+<h3 id="my-solution-1">My Solution</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">def</span> more_pour_problem(capacities, goal, start<span class="op">=</span><span class="va">None</span>):</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    start <span class="op">=</span> start <span class="kw">or</span> <span class="bu">tuple</span>(<span class="dv">0</span> <span class="cf">for</span> _ <span class="kw">in</span> capacities)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="kw">def</span> update(state, i, v):</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">        <span class="cf">assert</span> <span class="dv">0</span> <span class="op">&lt;=</span> v <span class="op">&lt;=</span> capacities[i]</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">        l <span class="op">=</span> <span class="bu">list</span>(state)</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">        l[i] <span class="op">=</span> v</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">        <span class="cf">return</span> <span class="bu">tuple</span>(l)</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">    <span class="kw">def</span> pour(state, i, j):</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">        total <span class="op">=</span> state[i] <span class="op">+</span> state[j]</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">        vj <span class="op">=</span> <span class="bu">min</span>(total, capacities[j])</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">        vi <span class="op">=</span> <span class="bu">max</span>(total<span class="op">-</span>vj, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">        state2 <span class="op">=</span> update(state, i, vi)</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">        state3 <span class="op">=</span> update(state2, j, vj)</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">        <span class="cf">return</span> state3</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    <span class="kw">def</span> successors(state):</a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">        ret <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">        <span class="cf">for</span> i, _ <span class="kw">in</span> <span class="bu">enumerate</span>(state):</a>
+<a class="sourceLine" id="cb8-21" data-line-number="21">            ret[update(state, i, capacities[i])] <span class="op">=</span> (<span class="st">&#39;fill&#39;</span>, i)</a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">            ret[update(state, i, <span class="dv">0</span>)] <span class="op">=</span> (<span class="st">&#39;empty&#39;</span>, i)</a>
+<a class="sourceLine" id="cb8-23" data-line-number="23">        <span class="cf">for</span> i, _ <span class="kw">in</span> <span class="bu">enumerate</span>(state):</a>
+<a class="sourceLine" id="cb8-24" data-line-number="24">            <span class="cf">for</span> j, _ <span class="kw">in</span> <span class="bu">enumerate</span>(state):</a>
+<a class="sourceLine" id="cb8-25" data-line-number="25">                <span class="cf">if</span> i <span class="op">==</span> j:</a>
+<a class="sourceLine" id="cb8-26" data-line-number="26">                    <span class="cf">continue</span></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">                ret[pour(state, i, j)] <span class="op">=</span> (<span class="st">&#39;pour&#39;</span>, i, j)</a>
+<a class="sourceLine" id="cb8-28" data-line-number="28">        <span class="cf">return</span> ret</a>
+<a class="sourceLine" id="cb8-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb8-30" data-line-number="30">    <span class="kw">def</span> is_goal(state):</a>
+<a class="sourceLine" id="cb8-31" data-line-number="31">        <span class="cf">return</span> goal <span class="kw">in</span> state</a>
+<a class="sourceLine" id="cb8-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb8-33" data-line-number="33">    <span class="cf">return</span> shortest_path_search(start, successors, is_goal)</a></code></pre></div>
+<h3 id="his-solution-5">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2016-12-22_17-16-01.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2016-12-22_17-18-27.png" /></p>
+<h3 id="feedback-4">Feedback</h3>
+<p>His and mine are almost same barring some tricky parts.</p>
+<ol>
+<li><p>Naming</p>
+<ul>
+<li><code>replace</code> is better than <code>update</code>. I think <code>replaced</code> would be even better.</li>
+<li>For returning variable, <code>succ</code> is better than <code>ret</code>. It's more readable within the function.</li>
+</ul></li>
+<li><p>Logic</p>
+<p>To implement <code>pour</code> logic, I calculated <code>total</code> and dispose it to both glasses. He calculated the <code>amount</code> of moving water and add/subtract to/from both glasses. While My way focuses on <strong>how</strong>, his way focuses on <strong>what</strong>. I think his way is more natural.</p></li>
+<li><p>Others</p>
+<ul>
+<li><code>tuple(0 for _ in capacities)</code> vs <code>(0,) * len(capacities)</code></li>
+<li>This <code>replace</code> is more general. Mine premises <code>state</code> is always a tuple.</li>
+</ul></li>
+</ol>
+<h2 id="quiz-subway-planning">Quiz: Subway Planning</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2016-12-22_17-41-44.png" /></p>
+<h3 id="my-solution-2">My Solution</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="im">from</span> collections <span class="im">import</span> defaultdict</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="im">from</span> itertools <span class="im">import</span> combinations, izip, tee</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw">def</span> pairs(iterable):</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">    a, b <span class="op">=</span> tee(iterable)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="bu">next</span>(b)</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="cf">return</span> izip(a, b)</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="kw">def</span> subway(<span class="op">**</span>lines):</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">    neighbors <span class="op">=</span> defaultdict(<span class="bu">dict</span>)</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="cf">for</span> line, spec <span class="kw">in</span> lines.viewitems():</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">        stations <span class="op">=</span> spec.split()</a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">        <span class="cf">for</span> a, b <span class="kw">in</span> pairs(stations):</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">            neighbors[a][b] <span class="op">=</span> line</a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">            neighbors[b][a] <span class="op">=</span> line</a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">    <span class="cf">return</span> neighbors</a>
+<a class="sourceLine" id="cb9-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="kw">def</span> ride(here, there, system<span class="op">=</span>boston):</a>
+<a class="sourceLine" id="cb9-19" data-line-number="19">    <span class="co">&quot;Return a path on the subway system from here to there.&quot;</span></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20">    <span class="kw">def</span> successors(station):</a>
+<a class="sourceLine" id="cb9-21" data-line-number="21">        <span class="cf">return</span> system[station]</a>
+<a class="sourceLine" id="cb9-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb9-23" data-line-number="23">    <span class="kw">def</span> is_goal(station):</a>
+<a class="sourceLine" id="cb9-24" data-line-number="24">        <span class="cf">return</span> station <span class="op">==</span> there</a>
+<a class="sourceLine" id="cb9-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb9-26" data-line-number="26">    <span class="cf">return</span> shortest_path_search(here, successors, is_goal)</a>
+<a class="sourceLine" id="cb9-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb9-28" data-line-number="28"><span class="kw">def</span> longest_ride(system):</a>
+<a class="sourceLine" id="cb9-29" data-line-number="29">    <span class="co">&quot;&quot;&quot;&quot;Return the longest possible &#39;shortest path&#39;</span></a>
+<a class="sourceLine" id="cb9-30" data-line-number="30"><span class="co">    ride between any two stops in the system.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb9-31" data-line-number="31">    longest <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb9-32" data-line-number="32">    <span class="cf">for</span> a, b <span class="kw">in</span> combinations(system.viewkeys(), <span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb9-33" data-line-number="33">        path <span class="op">=</span> ride(a, b, system)</a>
+<a class="sourceLine" id="cb9-34" data-line-number="34">        <span class="cf">if</span> <span class="bu">len</span>(longest) <span class="op">&lt;</span> <span class="bu">len</span>(path):</a>
+<a class="sourceLine" id="cb9-35" data-line-number="35">            longest <span class="op">=</span> path</a>
+<a class="sourceLine" id="cb9-36" data-line-number="36">    <span class="cf">return</span> longest</a></code></pre></div>
+<h3 id="his-solution-6">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2016-12-22_18-14-33.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson4/_img/screenshot_2016-12-22_18-15-09.png" /></p>
+<h3 id="feedback-5">Feedback</h3>
+<p>I'm happy with the fact that my solution is almost same as his one.</p>
+<ol>
+<li><p>Naming</p>
+<ul>
+<li><code>line</code> vs <code>linename</code>: <code>linename</code> is better. It's more explicit</li>
+<li><code>stations</code> vs <code>stops</code>: I'm not a native speaker. I don't know which one is better.</li>
+<li><code>pairs</code> vs <code>overlapping_pairs</code>: <code>overlapping_pairs</code> is better. It's more explicit</li>
+<li><code>neighbors</code> vs <code>successors</code>: <code>successors</code> is better, because the term is used in the algorithm.</li>
+</ul></li>
+<li><p>Logic</p>
+<ul>
+<li>I used <code>collections</code> library heavily. He implemented the same logic with simple primitives.</li>
+<li>I should be familiar with <code>max</code>.</li>
+</ul></li>
+<li><p>Others</p>
+<p>I read a guide about using <code>lambda</code> in python. It advised not to use it almost every time because it doesn't have a name. But I think in this case (in <code>ride</code> implementation), <code>lambda</code> is way better for its simplicity.</p></li>
+</ol>
+</article>
+
+</body>
+</html>

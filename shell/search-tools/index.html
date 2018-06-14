@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Search Tools</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/shell/" >shell</a></li>
+    <li>search-tools</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Search Tools</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#details">Details</a><ul>
+<li><a href="#ignore">.ignore</a></li>
+<li><a href="#expressions">Expressions</a></li>
+<li><a href="#meta-characters-that-require-escaping-when-using-as-literal-characters">Meta Characters that require escaping when using as literal characters</a><ul>
+<li><a href="#pcre-ere-and-other-compatibles">PCRE, ERE, and other compatibles</a></li>
+<li><a href="#bre-posix-basic-regular-expressions">BRE (POSIX Basic Regular Expressions)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#tools">Tools</a><ul>
+<li><a href="#agthe-silver-searcher">ag(The Silver Searcher)</a></li>
+<li><a href="#rgripgrep">rg(ripgrep)</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="details">Details</h1>
+<h2 id="ignore">.ignore</h2>
+<p>Most search tools like <code>ag</code> and <code>rg</code> comply with <code>.ignore</code>, which is formatted same as <code>.gitignore</code>. Tools will ignore targets specified in <code>.ignore</code></p>
+<h2 id="expressions">Expressions</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>.</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>?</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>+</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>{n}</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>{n,}</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>{,m}</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>{n,m}</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>[:upper:]</code></td>
+<td><code>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</code></td>
+</tr>
+<tr class="even">
+<td><code>[:lower:]</code></td>
+<td><code>a b c d e f g h i j k l m n o p q r s t u v w x y z</code></td>
+</tr>
+<tr class="odd">
+<td><code>[:digit:]</code></td>
+<td><code>0 1 2 3 4 5 6 7 8 9</code></td>
+</tr>
+<tr class="even">
+<td><code>[:xdigit:]</code></td>
+<td><code>0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f</code></td>
+</tr>
+<tr class="odd">
+<td><code>[:punct:]</code></td>
+<td><code>! &quot; # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { ¦ } ~</code> (Punctuation characters)</td>
+</tr>
+<tr class="even">
+<td><code>[:blank:]</code></td>
+<td><code>space</code> and <code>tab</code></td>
+</tr>
+<tr class="odd">
+<td><code>[:space:]</code></td>
+<td><code>tab</code>, <code>newline</code>, <code>vertical tab</code>, <code>form feed</code>, <code>carriage return</code>, and <code>space</code></td>
+</tr>
+<tr class="even">
+<td><code>[:alpha:]</code></td>
+<td><code>[:lower:]</code> and <code>[:upper:]</code>; same as <code>[A-Za-z]</code></td>
+</tr>
+<tr class="odd">
+<td><code>[:alnum:]</code></td>
+<td><code>[:alpha:]</code> and <code>[:digit:]</code>, same as <code>[0-9A-Za-z]</code></td>
+</tr>
+<tr class="even">
+<td><code>[:graph:]</code></td>
+<td><code>[:alnum:]</code> and <code>[:punct:]</code> (Graphical characters)</td>
+</tr>
+<tr class="odd">
+<td><code>[:print:]</code></td>
+<td><code>[:alnum:]</code>, <code>[:punct:]</code>, and <code>space</code></td>
+</tr>
+<tr class="even">
+<td><code>[:cntrl:]</code></td>
+<td>Octal codes <code>000</code> through <code>037</code>, and <code>177</code> (DEL)</td>
+</tr>
+<tr class="odd">
+<td><code>\b</code></td>
+<td>Match the empty string at the edge of a word</td>
+</tr>
+<tr class="even">
+<td><code>\B</code></td>
+<td>Match the empty string provided it’s not at the edge of a word.</td>
+</tr>
+<tr class="odd">
+<td><code>\&lt;</code></td>
+<td>Match the empty string at the beginning of word.</td>
+</tr>
+<tr class="even">
+<td><code>\&gt;</code></td>
+<td>Match the empty string at the end of word.</td>
+</tr>
+<tr class="odd">
+<td><code>\w</code></td>
+<td>A synonym for <code>[_[:alnum:]]</code></td>
+</tr>
+<tr class="even">
+<td><code>\W</code></td>
+<td>A synonym for <code>[^_[:alnum:]]</code></td>
+</tr>
+<tr class="odd">
+<td><code>\s</code></td>
+<td>A synonym for <code>[[:space:]]</code></td>
+</tr>
+<tr class="even">
+<td><code>\S</code></td>
+<td>A synonym for <code>[^[:space:]]</code></td>
+</tr>
+<tr class="odd">
+<td><code>(a)\1</code></td>
+<td>Matches <code>aa</code> (Back references)</td>
+</tr>
+<tr class="even">
+<td><code>a(.)¦b\1</code></td>
+<td>will not match <code>ba</code> (Only groups participated in the match can be back-referenced)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>\&lt;</code>, <code>\&gt;</code> is specific, while <code>\b</code> can be placed at both ends</li>
+<li>Meta-characters like <code>?</code>, <code>+</code>, <code>{</code>, <code>|</code>, <code>(</code>, <code>)</code> should be escaped with backslash
+<ul>
+<li><code>egrep</code> or <code>grep -E</code> will make these characters have meta meaning by default.</li>
+</ul></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions" class="uri">https://www.gnu.org/software/grep/manual/grep.html#Regular-Expressions</a></li>
+</ul>
+</div>
+<h2 id="meta-characters-that-require-escaping-when-using-as-literal-characters">Meta Characters that require escaping when using as literal characters</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/399078/what-special-characters-must-be-escaped-in-regular-expressions" class="uri">https://stackoverflow.com/questions/399078/what-special-characters-must-be-escaped-in-regular-expressions</a></li>
+</ul>
+</div>
+<h3 id="pcre-ere-and-other-compatibles">PCRE, ERE, and other compatibles</h3>
+<ul>
+<li>Tools like <code>ag</code>, <code>rg</code>, <code>egrep</code>, <code>grep -E</code></li>
+<li>Common meta characters: <code>.^$*+?()[{\|</code></li>
+<li>Because <code>\</code> is a literal chracter inside character classes, <code>^-]\</code> should be escaped by clever placement
+<ul>
+<li><code>^</code>: Except at the start</li>
+<li><code>]</code>: At the start</li>
+<li><code>-</code>: At the start or the end of the character class</li>
+</ul></li>
+</ul>
+<h3 id="bre-posix-basic-regular-expressions">BRE (POSIX Basic Regular Expressions)</h3>
+<ul>
+<li>Tools like <code>grep</code></li>
+<li>Only basical anchors and glob symbols: <code>.^$*</code></li>
+</ul>
+<h1 id="tools">Tools</h1>
+<h2 id="agthe-silver-searcher">ag(The Silver Searcher)</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/ggreer/the_silver_searcher" class="uri">https://github.com/ggreer/the_silver_searcher</a></li>
+</ul>
+</div>
+<h2 id="rgripgrep">rg(ripgrep)</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/BurntSushi/ripgrep" class="uri">https://github.com/BurntSushi/ripgrep</a></li>
+</ul>
+</div>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://regex101.com/" class="uri">https://regex101.com/</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

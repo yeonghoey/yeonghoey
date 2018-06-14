@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Hugo</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>hugo</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Hugo</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#front-matter">Front Matter</a></li>
+<li><a href="#shortcodes">Shortcodes</a></li>
+<li><a href="#templating">Templating</a><ul>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#variables">Variables</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#directory-structure">Directory Structure</a></li>
+<li><a href="#themes">Themes</a></li>
+<li><a href="#path">Path</a></li>
+<li><a href="#taxonomies">Taxonomies</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<h1 id="reference">Reference</h1>
+<h2 id="front-matter">Front Matter</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://gohugo.io/content-management/front-matter/#front-matter-variables" class="uri">https://gohugo.io/content-management/front-matter/#front-matter-variables</a></li>
+</ul>
+</div>
+<h2 id="shortcodes">Shortcodes</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://gohugo.io/content-management/shortcodes/" class="uri">https://gohugo.io/content-management/shortcodes/</a></li>
+</ul>
+</div>
+<h2 id="templating">Templating</h2>
+<h3 id="syntax">Syntax</h3>
+<p>Hugo uses Go’s <code>html/template</code> and <code>text/template</code> libraries as the basis for the templating.</p>
+<p><code>{{ . }}</code> stands for the context variable. <code>{{ $. }}</code> stands for the global context variable.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode go"><code class="sourceCode go"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// Front matter</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">{{ .Title }}      <span class="co">// built-in</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">{{ .Params.foo }} <span class="co">// user defined</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">// Site configuration</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">{{ .Site.bar }}</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode go"><code class="sourceCode go"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// Methods and Fields are Accessed via dot Notation</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">{{ .Params.bar }}</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">//Parentheses Can be Used to Group Items Together</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">{{ <span class="kw">if</span> or (isset .Params <span class="st">&quot;alt&quot;</span>) (isset .Params <span class="st">&quot;caption&quot;</span>) }} Caption {{ end }}</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">// Variables</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">{{ $address := <span class="st">&quot;123 Main St.&quot;</span>}}</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">{{ $address }}</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">// Includes</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">{{ template <span class="st">&quot;partials/header.html&quot;</span> . }}</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">{{ partial <span class="st">&quot;header.html&quot;</span> . }}</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">// Range</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">{{ <span class="kw">range</span> array }}</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">    {{ . }}</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">{{ end }}</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">{{<span class="kw">range</span> $element := array}}</a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">    {{ $element }}</a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">{{ end }}</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28">{{<span class="kw">range</span> $index, $element := array}}</a>
+<a class="sourceLine" id="cb2-29" data-line-number="29">   {{ $index }}</a>
+<a class="sourceLine" id="cb2-30" data-line-number="30">   {{ $element }}</a>
+<a class="sourceLine" id="cb2-31" data-line-number="31">{{ end }}</a>
+<a class="sourceLine" id="cb2-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="co">// Conditionals</span></a>
+<a class="sourceLine" id="cb2-35" data-line-number="35">{{ <span class="kw">if</span> isset .Params <span class="st">&quot;alt&quot;</span> }}</a>
+<a class="sourceLine" id="cb2-36" data-line-number="36">    {{ index .Params <span class="st">&quot;alt&quot;</span> }}</a>
+<a class="sourceLine" id="cb2-37" data-line-number="37">{{<span class="kw">else</span>}}</a>
+<a class="sourceLine" id="cb2-38" data-line-number="38">    {{ index .Params <span class="st">&quot;caption&quot;</span> }}</a>
+<a class="sourceLine" id="cb2-39" data-line-number="39">{{ end }}</a>
+<a class="sourceLine" id="cb2-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">// With (changes the context &#39;{{ . }}&#39;)</span></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43">{{ with .Params.title }}&lt;h4&gt;{{ . }}&lt;/h4&gt;{{ end }}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://gohugo.io/templates/lookup-order/" class="uri">https://gohugo.io/templates/lookup-order/</a></li>
+</ul>
+</div>
+<h3 id="functions">Functions</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://gohugo.io/functions" class="uri">https://gohugo.io/functions</a></li>
+</ul>
+</div>
+<h3 id="variables">Variables</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://gohugo.io/variables" class="uri">https://gohugo.io/variables</a></li>
+</ul>
+</div>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="directory-structure">Directory Structure</h2>
+<pre class="example"><code>.
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+│   ├─ css
+│   ├─ js
+│   └─ img
+└── themes
+</code></pre>
+<dl>
+<dt><code>archetypes</code></dt>
+<dd>Templetes for new content files
+</dd>
+<dt><code>config.toml</code></dt>
+<dd><a href="https://gohugo.io/getting-started/configuration/#all-variables-toml">All Variables, TOML</a>
+</dd>
+<dt><code>content</code></dt>
+<dd>Each top-level folder in Hugo is considered a <a href="https://gohugo.io/content-management/sections/">content section</a>.
+</dd>
+<dt><code>data</code></dt>
+<dd>Configuration files
+</dd>
+<dt><code>layouts</code></dt>
+<dd>Templetes in the form of <code>.html</code>
+</dd>
+<dt><code>static</code></dt>
+<dd>Static content like images, CSS, Javascript, etc.
+</dd>
+</dl>
+<h2 id="themes">Themes</h2>
+<pre class="example"><code>/themes/&lt;THEME&gt;/static/js/jquery.min.js
+</code></pre>
+<p>When you want to customize the file above which is provided by the theme, you can override it with:</p>
+<pre class="example"><code>/static/js/jquery.min.js
+</code></pre>
+<h2 id="path">Path</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://gohugo.io/content-management/organization/#path-breakdown-in-hugo" class="uri">https://gohugo.io/content-management/organization/#path-breakdown-in-hugo</a></li>
+</ul>
+</div>
+<h2 id="taxonomies">Taxonomies</h2>
+<pre class="example"><code>Actor                    &lt;- Taxonomy
+    Bruce Willis         &lt;- Term
+        The Sixth Sense  &lt;- Value
+        Unbreakable      &lt;- Value
+        Moonrise Kingdom &lt;- Value
+    Samuel L. Jackson    &lt;- Term
+        Unbreakable      &lt;- Value
+        The Avengers     &lt;- Value
+        xXx              &lt;- Value
+</code></pre>
+<p>Define taxonomies in <code>config.toml</code> as <code>singular_key = &quot;plural_value&quot;</code> form:</p>
+<pre class="toml"><code>[taxonomies]
+  tag = &quot;tags&quot;
+  category = &quot;categories&quot;
+  series = &quot;series&quot;
+</code></pre>
+<p>Add taxonomies to content with front matter:</p>
+<pre class="toml"><code>+++
+title = &quot;Hugo: A fast and flexible static site generator&quot;
+tags = [ &quot;Development&quot;, &quot;Go&quot;, &quot;fast&quot;, &quot;Blogging&quot; ]
+categories = [ &quot;Development&quot; ]
+series = [ &quot;Go Web Dev&quot; ]
+slug = &quot;hugo&quot;
+project_url = &quot;https://github.com/gohugoio/hugo&quot;
++++
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://gohugo.io/content-management/taxonomies/" class="uri">https://gohugo.io/content-management/taxonomies/</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h1 id="links">Links</h1>
+</article>
+
+</body>
+</html>

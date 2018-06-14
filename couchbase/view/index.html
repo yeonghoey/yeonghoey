@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>View</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/couchbase/" >couchbase</a></li>
+    <li>view</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">View</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#how-to">How-to</a></li>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#maxparallelindexers">maxParallelIndexers</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#index-updates">Index updates</a><ul>
+<li><a href="#staleok">stale=ok</a></li>
+<li><a href="#stalefalse">stale=false</a></li>
+<li><a href="#staleupdateafter">stale=update<sub>after</sub></a></li>
+<li><a href="#automated-index-updates">Automated index updates</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<p><img src="https://media.yeonghoey.com/couchbase/view/_img/screenshot_2017-08-16_18-54-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/couchbase/view/_img/screenshot_2017-08-16_19-25-50.png" /></p>
+<ul>
+<li><code>Views</code> belong to a <code>design document</code>. <code>Design documents</code> belong to a <code>bucket</code>.</li>
+<li><code>View</code> names must be specified using <strong>one or more</strong> <code>UTF-8</code> characters.</li>
+<li>All the <code>views</code> within a single <code>design document</code> are updated when the update to a single <code>view</code> is triggered.</li>
+<li>Expired <code>documents</code> may still exist within the index.</li>
+<li><code>Views</code> are updated incrementally.</li>
+<li><code>Index</code> queries are <strong>always accessed from disk</strong>; <strong>Keep some RAM reserved</strong> for your operating system to allocate filesystem cache</li>
+<li>Mostly, <code>Views</code> are <strong>CPU intensive</strong> (for indexing)</li>
+<li>All <code>views</code> are output in a <strong>sorted</strong> order according to the content and structure of the key. Keys using a numeric value are sorted numerically, for <code>strings</code>, <code>UTF-8</code> is used.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.couchbase.com/documentation/server/4.6/views/views-intro.html" class="uri">https://developer.couchbase.com/documentation/server/4.6/views/views-intro.html</a></li>
+<li><a href="https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html" class="uri">https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h1 id="reference">Reference</h1>
+<h2 id="maxparallelindexers">maxParallelIndexers</h2>
+<ul>
+<li>Each <code>design document</code> maps to one <code>indexer</code></li>
+<li>Couchbase Server limits the maximum number of <code>indexers</code> that can run in parallel.</li>
+<li>There are two types of indexers: <code>main indexers</code> and <code>replica indexers</code>.</li>
+<li>Default is <code>4</code> (main), <code>2</code> (replica)</li>
+<li>Can be modified by setting <code>maxParallelIndexers</code> and <code>maxParallelReplicaIndexers</code></li>
+</ul>
+<blockquote>
+<p>Couchbase makes no recommendations for tuning beyond the default settings.</p>
+</blockquote>
+<pre class="shell"><code># Check current indexer tasks
+curl -X GET  -u Administrator:password http://localhost:8092/_active_tasks
+
+# Get / Set maxParallelIndexers
+curl -X GET  -u Administrator:password http://localhost:8091/settings/maxParallelIndexers
+curl -X POST -u Administrator:password http://localhost:8091/settings/maxParallelIndexers -d &#39;globalValue=8&#39;
+
+# Check current internalSettings
+curl -x GET  -u Administrator:password http://localhost:8091/internalSettings
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.couchbase.com/documentation/server/3.x/admin/Misc/Trbl-blockedIndexer.html" class="uri">https://developer.couchbase.com/documentation/server/3.x/admin/Misc/Trbl-blockedIndexer.html</a></li>
+<li><a href="https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html" class="uri">https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="index-updates">Index updates</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html" class="uri">https://developer.couchbase.com/documentation/server/4.6/views/views-operation.html</a></li>
+</ul>
+</div>
+<h3 id="staleok">stale=ok</h3>
+<ul>
+<li>The current index is used as the basis for the query and the results are returned accordingly.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/couchbase/view/_img/screenshot_2017-08-16_19-12-57.png" /></p>
+<h3 id="stalefalse">stale=false</h3>
+<ul>
+<li>The index is updated before you execute the query</li>
+<li>The response will be delayed until the updated index is available.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/couchbase/view/_img/screenshot_2017-08-16_19-13-44.png" /></p>
+<h3 id="staleupdateafter">stale=update<sub>after</sub></h3>
+<ul>
+<li><code>Index</code> is marked for updating once the results have been returned to the client</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/couchbase/view/_img/screenshot_2017-08-16_19-14-05.png" /></p>
+<h3 id="automated-index-updates">Automated index updates</h3>
+<ul>
+<li>At every <code>updateInterval</code> (default: <code>5000ms</code>), the <code>views</code> engine checks if the number of document mutations on disk is greater than <code>updateMinChanges</code> (default: <code>5000</code>). If true, it triggers the view update.</li>
+<li>If <code>updateMinChanges</code> is set to <code>0</code>, automatic updates are disabled.</li>
+<li>There are also options for replica(like <code>replicaUpdateMinChanges</code>).</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<p><img src="https://media.yeonghoey.com/couchbase/view/_img/screenshot_2017-08-16_19-16-43.png" /></p>
+<h1 id="terminology">Terminology</h1>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.couchbase.com/documentation/server/4.6/architecture/incremental-map-reduce-views.html" class="uri">https://developer.couchbase.com/documentation/server/4.6/architecture/incremental-map-reduce-views.html</a></li>
+<li><a href="https://developer.couchbase.com/documentation/server/4.6/views/views-writing-views.html" class="uri">https://developer.couchbase.com/documentation/server/4.6/views/views-writing-views.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

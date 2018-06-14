@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Healthchecks</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>healthcheks-io</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Healthchecks</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#login">Login</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#slack-integration">Slack Integration</a></li>
+</ul>
+</nav>
+
+<h1 id="login">Login</h1>
+<p><img src="https://media.yeonghoey.com/healthcheks-io/_img/screenshot_2017-10-25_11-10-47.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://healthchecks.io" class="uri">https://healthchecks.io</a></li>
+</ul>
+</div>
+<h1 id="setup">Setup</h1>
+<p><img src="https://media.yeonghoey.com/healthcheks-io/_img/screenshot_2017-10-25_11-12-14.png" /></p>
+<p><img src="https://media.yeonghoey.com/healthcheks-io/_img/screenshot_2017-10-25_11-15-27.png" /></p>
+<pre class="shell"><code># m h dom mon dow command
+  8 6 *   *   *   /home/user/backup.sh &amp;&amp; curl -fsS --retry 3 https://hchk.io/784b38b4-cd50-4240-815e-a645636366c1 &gt; /dev/null
+</code></pre>
+<h1 id="slack-integration">Slack Integration</h1>
+<p><img src="https://media.yeonghoey.com/healthcheks-io/_img/screenshot_2017-10-25_11-13-56.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://healthchecks.io/integrations/add_slack/" class="uri">https://healthchecks.io/integrations/add_slack/</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

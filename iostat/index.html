@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>iostat</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>iostat</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">iostat</h1>
+</header>
+
+
+<pre class="shell"><code>iostat -xmdz 1
+#       ││││ └─ repeat every 1 second
+#       │││└─ omit output for any devices for which there was no activity during the sample period
+#       ││└─ display the device utilization report
+#       │└─ display statistics in megabytes per second
+#       └─ display extended statistics
+</code></pre>
+<pre class="example"><code>Device:  rrqm/s   wrqm/s     r/s     w/s    rMB/s    wMB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+xvdf       0.00  2934.00    0.00 2000.00     0.00    48.69    49.86     2.59    1.30    0.00    1.30   0.50  99.60
+</code></pre>
+<dl>
+<dt><code>rrqm/s</code>, <code>wrqm/s</code></dt>
+<dd><p>read/write requests merged per second</p>
+</dd>
+<dt><code>r/s</code>, <code>w/s</code>, <code>rMB/s</code>, <code>wMB/s</code></dt>
+<dd><p>reads/writes (throughput) per second</p>
+</dd>
+<dt><code>avgrq-sz</code></dt>
+<dd><p>Average request size in <strong>sectors</strong> (512 bytes) In general if this number is below 16 (16 * 512 bytes = 8KB). If this number is low (&lt;50), you are going to be IOPS limited. If it's high (&gt;100), you are likely to be bandwidth limited.</p>
+</dd>
+<dt><code>avgqu-sz</code></dt>
+<dd><p>Average queue size. Indicates how many requests are queued waiting to be serviced. If <code>avgqu-sz</code> gets big (<strong>&gt;30</strong>), your application is submitting more requests per secondthan the volume can handle.</p>
+</dd>
+<dt><code>await</code></dt>
+<dd><p>Average wait in <strong>milliseconds</strong>. The average amount of time the requests that were completed during this period waited from when they entered the queue to when they were serviced. This number is a combination of the queue length and the average service time. <strong>This is one of the most important metrics.</strong></p>
+</dd>
+<dt><code>svctm</code></dt>
+<dd><p>Service time in <strong>milliseconds</strong>. While <code>await</code> counts the whole wait time of requests, <code>svctm</code> counts only the time consumed by device. As Linux doesn't measure the actual service time, so <code>svctm</code> is just approximation. <strong>Consider await more importantly.</strong></p>
+</dd>
+<dt><code>%util</code></dt>
+<dd><p>Percentage of CPU time during whchi I/O requests were issed to the device. High <code>%util</code> doesn't always say that there is an overload. If the device serves requests in parallel, this value can constantly be high.</p>
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://forums.aws.amazon.com/thread.jspa?messageID=124044#124227" class="uri">https://forums.aws.amazon.com/thread.jspa?messageID=124044#124227</a></li>
+<li><a href="https://unix.stackexchange.com/questions/104192/iostat-await-vs-svctm" class="uri">https://unix.stackexchange.com/questions/104192/iostat-await-vs-svctm</a></li>
+<li><a href="https://www.percona.com/blog/2014/06/25/why-util-number-from-iostat-is-meaningless-for-mysql-capacity-planning/" class="uri">https://www.percona.com/blog/2014/06/25/why-util-number-from-iostat-is-meaningless-for-mysql-capacity-planning/</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

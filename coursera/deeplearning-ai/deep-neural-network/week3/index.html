@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Hyperparameter tuning, Batch Normalization and Programming Frameworks</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/deeplearning-ai/" >deeplearning-ai</a></li>
+    <li><a href="/coursera/deeplearning-ai/deep-neural-network/" >deep-neural-network</a></li>
+    <li>week3</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Hyperparameter tuning, Batch Normalization and Programming Frameworks</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#hyperparameter-tuning">Hyperparameter tuning</a><ul>
+<li><a href="#tuning-process">Tuning process</a></li>
+<li><a href="#using-an-appropriate-scale-to-pick-hyperparameters">Using an appropriate scale to pick hyperparameters</a></li>
+<li><a href="#hyperparameters-tuning-in-practice-pandas-vs.-caviar">Hyperparameters tuning in practice: Pandas vs. Caviar</a></li>
+</ul></li>
+<li><a href="#batch-normalization">Batch Normalization</a><ul>
+<li><a href="#normalizing-activations-in-a-network">Normalizing activations in a network</a></li>
+<li><a href="#fitting-batch-norm-into-a-neural-network">Fitting Batch Norm into a neural network</a></li>
+<li><a href="#why-does-batch-norm-work">Why does Batch Norm work?</a></li>
+<li><a href="#batch-norm-at-test-time">Batch Norm at test time</a></li>
+</ul></li>
+<li><a href="#multi-class-classification">Multi-class classification</a><ul>
+<li><a href="#softmax-regression">Softmax Regression</a></li>
+<li><a href="#training-a-softmax-classifier">Training a softmax classifier</a></li>
+</ul></li>
+<li><a href="#introduction-to-programming-frameworks">Introduction to programming frameworks</a><ul>
+<li><a href="#deep-learning-frameworks">Deep learning frameworks</a></li>
+<li><a href="#tensorflow">TensorFlow</a></li>
+</ul></li>
+<li><a href="#programming-assignment">Programming assignment</a><ul>
+<li><a href="#tensorflow-1">Tensorflow</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="hyperparameter-tuning">Hyperparameter tuning</h1>
+<h2 id="tuning-process">Tuning process</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-24_07-04-16.png" /></p>
+<dl>
+<dt>Order of importance</dt>
+<dd><code>red</code> &gt; <code>orange</code> &gt; <code>purple</code>
+</dd>
+<dt>Hyperparameters for Adam</dt>
+<dd>Use default values for most cases
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-24_07-08-48.png" /></p>
+<ul>
+<li><strong>Prefer random values to grid values</strong></li>
+<li>It's hard to know which parameters are more important.</li>
+<li>Using grid, there would be lots of meaningless tests.</li>
+<li>These points go deep when there are more dimensions.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-24_07-13-47.png" /></p>
+<ul>
+<li>At first, pick random values in wide range.</li>
+<li>When you find some points work better, narrow the random ranges.</li>
+</ul>
+<h2 id="using-an-appropriate-scale-to-pick-hyperparameters">Using an appropriate scale to pick hyperparameters</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-24_07-17-49.png" /></p>
+<ul>
+<li>It's not always effective to pick hyperparameters by sampling uniformly at random.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-24_07-22-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-24_07-26-26.png" /></p>
+<h2 id="hyperparameters-tuning-in-practice-pandas-vs.-caviar">Hyperparameters tuning in practice: Pandas vs. Caviar</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-24_07-47-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-24_07-52-27.png" /></p>
+<ul>
+<li>Depends on available computation resources.</li>
+</ul>
+<h1 id="batch-normalization">Batch Normalization</h1>
+<h2 id="normalizing-activations-in-a-network">Normalizing activations in a network</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-26_02-01-03.png" /></p>
+<ul>
+<li>People generally normalize <code>z</code> instead of <code>a</code></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-26_02-06-30.png" /></p>
+<ul>
+<li><code>r</code> (gamma) and <code>b</code> (beta) are to control the distribution of <code>z</code>, because unlike <code>x</code>, some <code>z</code> s will be inputs of the activation functions. If the activation function is sigmoid and <code>z</code> follows <code>(0, 1)</code>, <code>a</code> s will be distributed just like a linear values.</li>
+</ul>
+<h2 id="fitting-batch-norm-into-a-neural-network">Fitting Batch Norm into a neural network</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-26_02-21-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-26_02-26-42.png" /></p>
+<ul>
+<li>Using Batch Norm, there is no point to have <code>b</code> (bias terms), becausue they are cleaned off when calculating <code>z_norm</code>.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-26_02-31-08.png" /></p>
+<h2 id="why-does-batch-norm-work">Why does Batch Norm work?</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-27_23-56-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-27_23-59-05.png" /></p>
+<ul>
+<li>Batch Norm prevents changing the input values of hidde layers</li>
+<li>For the 3rd layer, for example, without Batch Norm, the input of the 3rd layer will be affected by the previous values</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_00-05-06.png" /></p>
+<h2 id="batch-norm-at-test-time">Batch Norm at test time</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_00-46-33.png" /></p>
+<blockquote>
+<p>But at test time, you might need to process a single example at a time. So, the way to do that is to estimate <em>μ</em> and <em>σ</em> squared from your training set and there are many ways to do that. (…) what people usually do is (…) exponentially weighted averages (…)</p>
+</blockquote>
+<h1 id="multi-class-classification">Multi-class classification</h1>
+<h2 id="softmax-regression">Softmax Regression</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-07-24.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-13-10.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-16-06.png" /></p>
+<h2 id="training-a-softmax-classifier">Training a softmax classifier</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-19-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-24-36.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-26-42.png" /></p>
+<h1 id="introduction-to-programming-frameworks">Introduction to programming frameworks</h1>
+<h2 id="deep-learning-frameworks">Deep learning frameworks</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-34-59.png" /></p>
+<h2 id="tensorflow">TensorFlow</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-37-12.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-40-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-45-17.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-28_07-51-27.png" /></p>
+<h1 id="programming-assignment">Programming assignment</h1>
+<h2 id="tensorflow-1">Tensorflow</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_06-31-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_06-33-55.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_06-36-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_06-40-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_06-43-57.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_06-49-44.png" /></p>
+<ul>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/one_hot" class="uri">https://www.tensorflow.org/api_docs/python/tf/one_hot</a></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-03-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-05-06.png" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> create_placeholders(n_x, n_y):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="cf">return</span> X, Y</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">def</span> initialize_parameters():</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="cf">return</span> parameters</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">def</span> forward_propagation(X, parameters):</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="cf">return</span> Z3</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw">def</span> compute_cost(Z3, Y):</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="cf">return</span> cost</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="kw">def</span> model(X_train, Y_train, X_test, Y_test, learning_rate <span class="op">=</span> <span class="fl">0.0001</span>,</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">          num_epochs <span class="op">=</span> <span class="dv">1500</span>, minibatch_size <span class="op">=</span> <span class="dv">32</span>, print_cost <span class="op">=</span> <span class="va">True</span>):</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    <span class="cf">return</span> parameters</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-07-07.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-07-31.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-10-53.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-13-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-15-40.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-18-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-38-07.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/deep-neural-network/week3/_img/screenshot_2017-10-29_07-36-11.png" /></p>
+</article>
+
+</body>
+</html>

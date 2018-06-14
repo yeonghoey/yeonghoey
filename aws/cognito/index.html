@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Amazon Cognito</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/aws/" >aws</a></li>
+    <li>cognito</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Amazon Cognito</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#fine-grained-user-access-via-iam">Fine-grained user access via IAM</a></li>
+<li><a href="#aws-amplify">aws-amplify</a></li>
+<li><a href="#amazon-cognito-identity-js">amazon-cognito-identity-js</a></li>
+<li><a href="#amazon-cognito-auth-js">amazon-cognito-auth-js</a></li>
+</ul>
+</nav>
+
+<h1 id="fine-grained-user-access-via-iam">Fine-grained user access via IAM</h1>
+<p>You can use following variables within IAM policies to specify fine-grained user access:</p>
+<pre class="example"><code>&quot;${cognito-identity.amazonaws.com:aud}&quot; (identity pool id, like &quot;us-east-1:12345678-abcd-abcd-abcd-123456790ab&quot;)
+&quot;${cognito-identity.amazonaws.com:sub}&quot; (user id, like &quot;us-east-1:12345678-1234-1234-1234-123456790ab&quot;)
+&quot;${cognito-identity.amazonaws.com:amr}&quot; (login provider, like &quot;graph.facebook.com&quot;)
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/iam-roles.html" class="uri">https://docs.aws.amazon.com/cognito/latest/developerguide/iam-roles.html</a></li>
+</ul>
+</div>
+<h1 id="aws-amplify">aws-amplify</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/aws/aws-amplify" class="uri">https://github.com/aws/aws-amplify</a></li>
+<li><a href="https://aws.github.io/aws-amplify/" class="uri">https://aws.github.io/aws-amplify/</a></li>
+</ul>
+</div>
+<h1 id="amazon-cognito-identity-js">amazon-cognito-identity-js</h1>
+<ul>
+<li>For managing User Pools, which means that it supports user sign-up, sign-in, changing password, etc.</li>
+<li>This has currently become a part of <a href="https://github.com/aws/aws-amplify">aws-amplify</a>.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/aws/aws-amplify/tree/master/packages/amazon-cognito-identity-js" class="uri">https://github.com/aws/aws-amplify/tree/master/packages/amazon-cognito-identity-js</a></li>
+</ul>
+</div>
+<h1 id="amazon-cognito-auth-js">amazon-cognito-auth-js</h1>
+<ul>
+<li>Supports to use Amazon Cognito as a kind of OAuth2 provider.</li>
+<li>In other words, there is no way for users to sign up.</li>
+<li>The <code>Domain prefix</code> and Callback, Signoutu URL is used for this service.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/aws/cognito/_img/screenshot_2018-03-09_20-55-43.png" /></p>
+<p><img src="https://media.yeonghoey.com/aws/cognito/_img/screenshot_2018-03-09_20-55-54.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/aws/amazon-cognito-auth-js" class="uri">https://github.com/aws/amazon-cognito-auth-js</a></li>
+<li><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html" class="uri">https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

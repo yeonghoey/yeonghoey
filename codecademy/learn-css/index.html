@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Learn CSS</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/codecademy/" >codecademy</a></li>
+    <li>learn-css</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Learn CSS</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#selectors-and-visual-rules">Selectors and Visual Rules</a><ul>
+<li><a href="#css-setup-and-selectors">CSS Setup and Selectors</a><ul>
+<li><a href="#intro-to-css">Intro to CSS</a></li>
+<li><a href="#inline-styles">Inline Styles</a></li>
+<li><a href="#the-style-tag">The &lt;style&gt; Tag</a></li>
+<li><a href="#linking-the-css-file">Linking the CSS File</a></li>
+<li><a href="#class-name">Class Name</a></li>
+<li><a href="#multiple-classes">Multiple Classes</a></li>
+<li><a href="#id-name">ID Name</a></li>
+<li><a href="#classes-and-ids">Classes and IDs</a></li>
+<li><a href="#specificity">Specificity</a></li>
+<li><a href="#chaining-selectors">Chaining Selectors</a></li>
+<li><a href="#nested-elements">Nested Elements</a></li>
+<li><a href="#chaining-and-specificity">Chaining and Specificity</a></li>
+<li><a href="#important">Important</a></li>
+<li><a href="#multiple-selectors">Multiple Selectors</a></li>
+</ul></li>
+<li><a href="#css-visual-rules">CSS Visual Rules</a><ul>
+<li><a href="#font-family">Font Family</a></li>
+<li><a href="#font-weight">Font Weight</a></li>
+<li><a href="#color">Color</a></li>
+<li><a href="#opacity">Opacity</a></li>
+<li><a href="#background-image">Background Image</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#the-box-model">The Box Model</a><ul>
+<li><a href="#the-box-model-1">The Box Model</a><ul>
+<li><a href="#the-box-model-2">The Box Model</a></li>
+<li><a href="#borders">Borders</a></li>
+<li><a href="#border-radius">Border Radius</a></li>
+<li><a href="#padding-ii">Padding II</a></li>
+<li><a href="#auto">Auto</a></li>
+<li><a href="#margin-collapse">Margin Collapse</a></li>
+<li><a href="#minimum-and-maximum-height-and-width">Minimum and Maximum Height and Width</a></li>
+<li><a href="#overflow">Overflow</a></li>
+<li><a href="#resetting-defaults">Resetting Defaults</a></li>
+<li><a href="#visibility">Visibility</a></li>
+</ul></li>
+<li><a href="#changing-the-box-model">Changing the Box Model</a><ul>
+<li><a href="#box-model-content-box">Box Model: Content-Box</a></li>
+<li><a href="#box-model-border-box">Box Model: Border-Box</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#css-display-and-positioning">CSS Display and Positioning</a><ul>
+<li><a href="#css-display-and-positioning-1">CSS Display and Positioning</a><ul>
+<li><a href="#position">Position</a></li>
+<li><a href="#position-relative">Position: Relative</a></li>
+<li><a href="#position-fixed">Position: Fixed</a></li>
+<li><a href="#z-index">Z-Index</a></li>
+<li><a href="#inline-display">Inline Display</a></li>
+<li><a href="#inline-block-display">Inline-Block Display</a></li>
+<li><a href="#float">Float</a></li>
+<li><a href="#clear">Clear</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#color-1">Color</a><ul>
+<li><a href="#css-color">CSS Color</a><ul>
+<li><a href="#hexademical">Hexademical</a></li>
+<li><a href="#rgb-colors">RGB Colors</a></li>
+<li><a href="#hue-saturation-and-lightness">Hue, Saturation, and Lightness</a></li>
+<li><a href="#opacity-and-alpha">Opacity and Alpha</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#typography">Typography</a><ul>
+<li><a href="#css-typography">CSS Typography</a><ul>
+<li><a href="#font-family-1">Font Family</a></li>
+<li><a href="#font-weight-ii">Font Weight II</a></li>
+<li><a href="#word-spacing">Word Spacing</a></li>
+<li><a href="#letter-spacing">Letter Spacing</a></li>
+<li><a href="#text-transformation">Text Transformation</a></li>
+<li><a href="#text-alignment">Text Alignment</a></li>
+<li><a href="#line-height-anatomy">Line Height Anatomy</a></li>
+<li><a href="#line-height">Line Height</a></li>
+<li><a href="#serif-and-sans-serif">Serif and Sans Serif</a></li>
+<li><a href="#fallback-fonts">Fallback Fonts</a></li>
+<li><a href="#linking-fonts-i">Linking Fonts I</a></li>
+<li><a href="#linking-fonts-ii">Linking Fonts II</a></li>
+<li><a href="#font-face-i">Font-Face I</a></li>
+<li><a href="#font-face-iii">Font-Face III</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#css-grid">CSS Grid</a><ul>
+<li><a href="#css-grid-essentials">CSS Grid Essentials</a><ul>
+<li><a href="#introduction-to-grids">Introduction to Grids</a></li>
+<li><a href="#creating-a-grid">Creating a Grid</a></li>
+<li><a href="#creating-columns">Creating Columns</a></li>
+<li><a href="#creating-rows">Creating Rows</a></li>
+<li><a href="#grid-template">Grid Template</a></li>
+<li><a href="#fraction">Fraction</a></li>
+<li><a href="#repeat">Repeat</a></li>
+<li><a href="#minmax">minmax</a></li>
+<li><a href="#grid-gap">Grid Gap</a></li>
+<li><a href="#grid-items">Grid Items</a></li>
+<li><a href="#multiple-row-items">Multiple Row Items</a></li>
+<li><a href="#grid-row">Grid Row</a></li>
+<li><a href="#grid-column">Grid Column</a></li>
+<li><a href="#grid-area">Grid Area</a></li>
+</ul></li>
+<li><a href="#advanced-css-grid">Advanced CSS Grid</a><ul>
+<li><a href="#grid-template-areas">Grid Template Areas</a></li>
+<li><a href="#overlapping-elements">Overlapping Elements</a></li>
+<li><a href="#justify-items">Justify Items</a></li>
+<li><a href="#justify-content">Justify Content</a></li>
+<li><a href="#align-items">Align Items</a></li>
+<li><a href="#align-content">Align Content</a></li>
+<li><a href="#justify-self-and-align-self">Justify Self and Align Self</a></li>
+<li><a href="#implicit-vs.-explicit-grid">Implicit vs. Explicit Grid</a></li>
+<li><a href="#grid-auto-rows-and-grid-auto-columns">Grid Auto Rows and Grid Auto Columns</a></li>
+<li><a href="#grid-auto-flow">Grid Auto Flow</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="selectors-and-visual-rules">Selectors and Visual Rules</h1>
+<h2 id="css-setup-and-selectors">CSS Setup and Selectors</h2>
+<h3 id="intro-to-css">Intro to CSS</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-00-10.png" /></p>
+<h3 id="inline-styles">Inline Styles</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-01-29.png" /></p>
+<h3 id="the-style-tag">The &lt;style&gt; Tag</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-02-59.png" /></p>
+<h3 id="linking-the-css-file">Linking the CSS File</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-05-57.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-07-13.png" /></p>
+<h3 id="class-name">Class Name</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-10-47.png" /></p>
+<h3 id="multiple-classes">Multiple Classes</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-12-36.png" /></p>
+<h3 id="id-name">ID Name</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-14-04.png" /></p>
+<h3 id="classes-and-ids">Classes and IDs</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-16-43.png" /></p>
+<h3 id="specificity">Specificity</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-18-39.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-18-50.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-19-17.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-19-47.png" /></p>
+<h3 id="chaining-selectors">Chaining Selectors</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-22-01.png" /></p>
+<h3 id="nested-elements">Nested Elements</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-24-59.png" /></p>
+<h3 id="chaining-and-specificity">Chaining and Specificity</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-50-31.png" /></p>
+<h3 id="important">Important</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-51-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-52-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-53-29.png" /></p>
+<h3 id="multiple-selectors">Multiple Selectors</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-22_08-54-31.png" /></p>
+<h2 id="css-visual-rules">CSS Visual Rules</h2>
+<h3 id="font-family">Font Family</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-07-30.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.cssfontstack.com/" class="uri">https://www.cssfontstack.com/</a></li>
+</ul>
+</div>
+<h3 id="font-weight">Font Weight</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-09-40.png" /></p>
+<h3 id="color">Color</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-14-03.png" /></p>
+<h3 id="opacity">Opacity</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-15-26.png" /></p>
+<h3 id="background-image">Background Image</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-16-35.png" /></p>
+<h1 id="the-box-model">The Box Model</h1>
+<h2 id="the-box-model-1">The Box Model</h2>
+<h3 id="the-box-model-2">The Box Model</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-20-18.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-20-59.png" /></p>
+<h3 id="borders">Borders</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-23-09.png" /></p>
+<p>The default border is <code>medium none color</code></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" class="uri">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value</a></li>
+</ul>
+</div>
+<h3 id="border-radius">Border Radius</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-26-02.png" /></p>
+<h3 id="padding-ii">Padding II</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-30-51.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-31-36.png" /></p>
+<h3 id="auto">Auto</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-35-06.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-35-35.png" /></p>
+<h3 id="margin-collapse">Margin Collapse</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-37-33.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_15-39-16.png" /></p>
+<h3 id="minimum-and-maximum-height-and-width">Minimum and Maximum Height and Width</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_16-18-11.png" /></p>
+<h3 id="overflow">Overflow</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_16-21-31.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_16-22-17.png" /></p>
+<h3 id="resetting-defaults">Resetting Defaults</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_16-23-55.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_16-24-59.png" /></p>
+<h3 id="visibility">Visibility</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_16-27-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-24_16-26-54.png" /></p>
+<h2 id="changing-the-box-model">Changing the Box Model</h2>
+<h3 id="box-model-content-box">Box Model: Content-Box</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_11-53-17.png" /></p>
+<p>(Default)</p>
+<h3 id="box-model-border-box">Box Model: Border-Box</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_11-54-32.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_11-54-54.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_11-55-20.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_11-55-46.png" /></p>
+<h1 id="css-display-and-positioning">CSS Display and Positioning</h1>
+<h2 id="css-display-and-positioning-1">CSS Display and Positioning</h2>
+<h3 id="position">Position</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_11-58-53.png" /></p>
+<h3 id="position-relative">Position: Relative</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_12-00-08.png" /></p>
+<h3 id="position-fixed">Position: Fixed</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_12-03-45.png" /></p>
+<h3 id="z-index">Z-Index</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_12-05-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_12-06-20.png" /></p>
+<h3 id="inline-display">Inline Display</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_12-07-47.png" /></p>
+<h3 id="inline-block-display">Inline-Block Display</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_16-27-55.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_16-28-38.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_16-32-40.png" /></p>
+<h3 id="float">Float</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_23-32-18.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_23-32-50.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_23-33-23.png" /></p>
+<h3 id="clear">Clear</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_23-34-23.png" /></p>
+<h1 id="color-1">Color</h1>
+<h2 id="css-color">CSS Color</h2>
+<h3 id="hexademical">Hexademical</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value" class="uri">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value</a></li>
+</ul>
+</div>
+<h3 id="rgb-colors">RGB Colors</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-25_23-43-17.png" /></p>
+<h3 id="hue-saturation-and-lightness">Hue, Saturation, and Lightness</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-01-06.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://dba.med.sc.edu/price/irf/Adobe_tg/models/images/hsl_top.JPG" class="uri">http://dba.med.sc.edu/price/irf/Adobe_tg/models/images/hsl_top.JPG</a></li>
+</ul>
+</div>
+<h3 id="opacity-and-alpha">Opacity and Alpha</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-04-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-05-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-04-59.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-05-39.png" /></p>
+<h1 id="typography">Typography</h1>
+<h2 id="css-typography">CSS Typography</h2>
+<h3 id="font-family-1">Font Family</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-08-41.png" /></p>
+<h3 id="font-weight-ii">Font Weight II</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-11-08.png" /></p>
+<h3 id="word-spacing">Word Spacing</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-13-30.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-15-19.png" /></p>
+<h3 id="letter-spacing">Letter Spacing</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-16-48.png" /></p>
+<h3 id="text-transformation">Text Transformation</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-18-43.png" /></p>
+<h3 id="text-alignment">Text Alignment</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-21-06.png" /></p>
+<h3 id="line-height-anatomy">Line Height Anatomy</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-35-10.png" /></p>
+<h3 id="line-height">Line Height</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-36-42.png" /></p>
+<h3 id="serif-and-sans-serif">Serif and Sans Serif</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-37-41.png" /></p>
+<h3 id="fallback-fonts">Fallback Fonts</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-40-15.png" /></p>
+<h3 id="linking-fonts-i">Linking Fonts I</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-44-52.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://fonts.google.com/" class="uri">https://fonts.google.com/</a></li>
+</ul>
+</div>
+<h3 id="linking-fonts-ii">Linking Fonts II</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-45-36.png" /></p>
+<h3 id="font-face-i">Font-Face I</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-50-24.png" /></p>
+<h3 id="font-face-iii">Font-Face III</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_11-53-25.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.fontsquirrel.com/" class="uri">https://www.fontsquirrel.com/</a></li>
+</ul>
+</div>
+<h1 id="css-grid">CSS Grid</h1>
+<h2 id="css-grid-essentials">CSS Grid Essentials</h2>
+<h3 id="introduction-to-grids">Introduction to Grids</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.whatsmybrowser.org/" class="uri">https://www.whatsmybrowser.org/</a></li>
+<li><a href="https://caniuse.com/#feat=css-grid" class="uri">https://caniuse.com/#feat=css-grid</a></li>
+</ul>
+</div>
+<h3 id="creating-a-grid">Creating a Grid</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-03-40.png" /></p>
+<h3 id="creating-columns">Creating Columns</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-09-12.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-10-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-11-06.png" /></p>
+<h3 id="creating-rows">Creating Rows</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-12-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-13-23.png" /></p>
+<h3 id="grid-template">Grid Template</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-14-36.png" /></p>
+<h3 id="fraction">Fraction</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-16-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-16-53.png" /></p>
+<h3 id="repeat">Repeat</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-19-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-20-32.png" /></p>
+<h3 id="minmax">minmax</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-38-25.png" /></p>
+<h3 id="grid-gap">Grid Gap</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-40-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-42-47.png" /></p>
+<h3 id="grid-items">Grid Items</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-44-12.png" /></p>
+<h3 id="multiple-row-items">Multiple Row Items</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-45-57.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start" class="uri">https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start</a></li>
+</ul>
+</div>
+<h3 id="grid-row">Grid Row</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-47-59.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-48-25.png" /></p>
+<h3 id="grid-column">Grid Column</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-49-20.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-49-39.png" /></p>
+<h3 id="grid-area">Grid Area</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_14-52-13.png" /></p>
+<h2 id="advanced-css-grid">Advanced CSS Grid</h2>
+<h3 id="grid-template-areas">Grid Template Areas</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-04-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-04-03.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-04-39.png" /></p>
+<h3 id="overlapping-elements">Overlapping Elements</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-10-43.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-10-55.png" /></p>
+<h3 id="justify-items">Justify Items</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-14-57.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-15-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-17-34.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout#Justifying_Items_on_the_Inline_or_Row_Axis" class="uri">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout#Justifying_Items_on_the_Inline_or_Row_Axis</a></li>
+</ul>
+</div>
+<h3 id="justify-content">Justify Content</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-19-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-21-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-22-01.png" /></p>
+<p>With <code>justify-content: center;</code>: <img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-23-10.png" /></p>
+<h3 id="align-items">Align Items</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-51-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-52-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-53-19.png" /></p>
+<p>With <code>align-items: center;</code>: <img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-53-58.png" /></p>
+<h3 id="align-content">Align Content</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-54-53.png" /></p>
+<h3 id="justify-self-and-align-self">Justify Self and Align Self</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-56-51.png" /></p>
+<h3 id="implicit-vs.-explicit-grid">Implicit vs. Explicit Grid</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-59-20.png" /></p>
+<h3 id="grid-auto-rows-and-grid-auto-columns">Grid Auto Rows and Grid Auto Columns</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_15-59-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_16-00-01.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_16-00-51.png" /></p>
+<h3 id="grid-auto-flow">Grid Auto Flow</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-css/_img/screenshot_2018-02-26_16-02-27.png" /></p>
+</article>
+
+</body>
+</html>

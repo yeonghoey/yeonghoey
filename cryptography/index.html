@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Cryptography</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>cryptography</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Cryptography</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#rsa">RSA</a><ul>
+<li><a href="#overview">Overview</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="rsa">RSA</h1>
+<h2 id="overview">Overview</h2>
+<p>Define <code>R</code> (RSA Function) as following:</p>
+<pre class="example"><code>R(x,k,n) = x^k (mod n) 
+</code></pre>
+<p>(For simplicity, <code>n</code> is omitted from now on)</p>
+<p>Along with the function there is a way to choose two keys such that:</p>
+<pre class="example"><code>R(R(x, pk), sk) = x, and
+R(R(x, sk), pk) = x.
+</code></pre>
+<p>(<code>pk</code>, <code>sk</code> stands for public key and secretly, respectively.)</p>
+<p>How encryption works:</p>
+<pre class="example"><code>c = Encrypt(m, pk) =&gt; R(m, pk)
+m = Decrypt(c, sk) =&gt; R(c, sk)
+</code></pre>
+<p>In practice, simplely using <code>RSA</code> is vulnerable. For preventing from many attacks, There are pre-post processes like <a href="https://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding">OAEP</a> as following:</p>
+<pre class="example"><code>c = Encrypt(m, pk) =&gt; R(pre(m), pk)
+m = Decrypt(c, sk) =&gt; post(R(c, sk))
+</code></pre>
+<p>How digital signature works:</p>
+<pre class="example"><code>s = Sign(m, sk) =&gt; R(m, sk)
+v = Verify(m, s, pk) =&gt; R(s, pk) == m
+</code></pre>
+<p>However, RSA function can't accomote messages longer than the key. (Encryption also can suffer this problem, but it's not so problematic because most encryption for actual data is done by symmetric key) So, apply a hash function as following:</p>
+<pre class="example"><code>s = Sign(m, sk) =&gt; R(H(m), sk) 
+v = Verify(m, s, pk) =&gt; R(s, pk) == H(m)
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.cs.cornell.edu/courses/cs5430/2015sp/notes/rsa_sign_vs_dec.php" class="uri">https://www.cs.cornell.edu/courses/cs5430/2015sp/notes/rsa_sign_vs_dec.php</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

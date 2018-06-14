@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Cygwin</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/windows/" >windows</a></li>
+    <li>cygwin</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Cygwin</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#setup">Setup</a></li>
+</ul>
+</nav>
+
+<h1 id="setup">Setup</h1>
+<ul>
+<li>Package List: <a href="https://cygwin.com/packages/package_list.html" class="uri">https://cygwin.com/packages/package_list.html</a></li>
+<li>CLI on setup.exe: <a href="https://www.cygwin.com/faq/faq.html#faq.setup.cli" class="uri">https://www.cygwin.com/faq/faq.html#faq.setup.cli</a></li>
+</ul>
+<ul>
+<li><a href="http://stackoverflow.com/questions/745275/can-i-script-a-cygwin-install-to-include-certain-packages" class="uri">http://stackoverflow.com/questions/745275/can-i-script-a-cygwin-install-to-include-certain-packages</a></li>
+<li><a href="https://superuser.com/questions/304541/how-to-install-new-packages-on-cygwin" class="uri">https://superuser.com/questions/304541/how-to-install-new-packages-on-cygwin</a></li>
+<li>Rerun the setup program to install new packages.</li>
+</ul>
+<pre class="example"><code>setup-x86_64.exe ^
+--quiet-mode ^
+--packages ^
+aria2,^
+atool,^
+autoconf,^
+...
+xmlstarlet,^
+zip
+</code></pre>
+</article>
+
+</body>
+</html>

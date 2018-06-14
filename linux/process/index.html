@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Linux Process Concepts</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/linux/" >linux</a></li>
+    <li>process</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Linux Process Concepts</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#parent-child-orphan-and-zombie-process">Parent, Child, Orphan and Zombie Process</a></li>
+<li><a href="#process-groups-sessions-and-controlling-terminal">Process Groups, Sessions and Controlling Terminal</a></li>
+<li><a href="#double-fork">Double Fork</a></li>
+<li><a href="#pseudo-terminal-details">Pseudo Terminal Details</a></li>
+</ul>
+</nav>
+
+<h1 id="parent-child-orphan-and-zombie-process">Parent, Child, Orphan and Zombie Process</h1>
+<dl>
+<dt>Parent</dt>
+<dd><ul>
+<li>A process which forks</li>
+</ul>
+</dd>
+<dt>Child</dt>
+<dd><ul>
+<li>A process which is forked from another one</li>
+</ul>
+</dd>
+<dt>Orphan</dt>
+<dd><ul>
+<li>When a parent process terminates, the running child becomes an orphan process.</li>
+<li><code>init</code> process (pid:1) adopt the process, this process is called <strong>re-parenting</strong>.</li>
+</ul>
+</dd>
+<dt>Zombie</dt>
+<dd><ul>
+<li>A process completed its execution, but still exists in the process table.</li>
+<li>Normally, a parent process should read its child's exit status by calling <code>wait()</code> system call</li>
+<li>If the parent forgets to call <code>wait()</code>, the child process remains in the process table even after it has finished its execution.</li>
+<li>Since <code>init</code> periodically calls <code>wait()</code> for terminated child processes, orphan processes won't remain as zombies.</li>
+</ul>
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Parent_process" class="uri">https://en.wikipedia.org/wiki/Parent_process</a></li>
+<li><a href="https://stackoverflow.com/questions/20688982/zombie-process-vs-orphan-process" class="uri">https://stackoverflow.com/questions/20688982/zombie-process-vs-orphan-process</a></li>
+</ul>
+</div>
+<h1 id="process-groups-sessions-and-controlling-terminal">Process Groups, Sessions and Controlling Terminal</h1>
+<p><img src="https://media.yeonghoey.com/linux/process/_img/screenshot_2018-04-01_17-33-25.png" /></p>
+<dl>
+<dt>Process Group</dt>
+<dd><ul>
+<li>A collection of processes that <strong>permits the signaling of related processes</strong>.</li>
+<li>A newly created process joins the process group of its creator.</li>
+<li>When shells like <code>bash</code> run a command, it forks and call <code>setpgid()</code> to allocate a new process group, and make it the foreground process group if the shell was in foreground. <a href="https://unix.stackexchange.com/questions/363126/why-is-process-not-part-of-expected-process-group">stackexchange</a> <a href="http://kirste.userpage.fu-berlin.de/chemnet/use/info/libc/libc_24.html">ref</a></li>
+</ul>
+</dd>
+<dt>Session</dt>
+<dd><ul>
+<li><strong>A collection of process groups</strong></li>
+<li>When attached to a terminal,
+<ul>
+<li>The terminal is now called as a controlling terminal</li>
+<li>The session now has the foreground process group, which associated and interacts with the terminal</li>
+</ul></li>
+<li>When a process calls <a href="https://linux.die.net/man/2/setsid">setsid()</a>, it becomes
+<ul>
+<li>the leader of the new session</li>
+<li>the process group leader of the new process group</li>
+<li>has no controlling terminal.</li>
+</ul></li>
+</ul>
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html" class="uri">https://www.andrew.cmu.edu/course/15-412/ln/412springlecture3.html</a></li>
+<li><a href="https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix" class="uri">https://stackoverflow.com/questions/6548823/use-and-meaning-of-session-and-process-group-in-unix</a></li>
+<li><a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html" class="uri">http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap11.html</a></li>
+</ul>
+</div>
+<h1 id="double-fork">Double Fork</h1>
+<pre class="example"><code>1. `Parent`    = PID: 28084, PGID: 28084, SID: 28046
+2. `Fork#1`    = PID: 28085, PGID: 28084, SID: 28046
+3. `Decouple#1`= PID: 28085, PGID: 28085, SID: 28085
+4. `Fork#2`    = PID: 28086, PGID: 28085, SID: 28085
+</code></pre>
+<p>When executing a process:</p>
+<ol>
+<li>the grand parent process forks</li>
+<li>the parent process becomes a new session leader.</li>
+<li>the parent process executes a child process which is going to do the actual task.</li>
+<li>the parent process terminates</li>
+</ol>
+<p>As a result:</p>
+<ul>
+<li>The actual process can't acquire TTY, because it's not a session leader.</li>
+<li>The actual process becomes an orphan process, which means it won't remain as a zombie.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/881388/what-is-the-reason-for-performing-a-double-fork-when-creating-a-daemon" class="uri">https://stackoverflow.com/questions/881388/what-is-the-reason-for-performing-a-double-fork-when-creating-a-daemon</a></li>
+</ul>
+</div>
+<h1 id="pseudo-terminal-details">Pseudo Terminal Details</h1>
+<p>As an example, <code>ssh</code> works as follows:</p>
+<dl>
+<dt><code>ssh &lt;host&gt;</code></dt>
+<dd>connect to <code>host</code> and allocate a <code>pty</code> (pseudo terminal).
+</dd>
+<dt><code>ssh &lt;host&gt; &lt;cmd&gt;</code></dt>
+<dd>Just let <code>host</code> run <code>&lt;cmd&gt;</code>, since it generally doesn't need to allocate <code>pty</code>.
+</dd>
+<dt><code>ssh &lt;host&gt; tmux</code></dt>
+<dd>commands like <code>tmux</code> or <code>screen</code> need <code>pty</code> to work properly, but the default won't do this. In this case, specify <code>-t</code> to explicitly allocate <code>pty</code> for the command.
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty" class="uri">https://www.quora.com/What-is-the-purpose-of-a-pseudo-tty</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Vue.js Style Guide</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/vuejs/" >vuejs</a></li>
+    <li>style-guide</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title"><a href="https://vuejs.org/v2/style-guide/#Priority-A-Rules-Essential-Error-Prevention">Vue.js Style Guide</a></h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#priority-a-essential"><span>Priority A: Essential</span></a></li>
+<li><a href="#priority-b-strongly-recommended">Priority B: Strongly Recommended</a></li>
+<li><a href="#priority-c-recommended">Priority C: Recommended</a></li>
+<li><a href="#priority-d-use-with-caution">Priority D: Use with Caution</a></li>
+</ul>
+</nav>
+
+<h1 id="priority-a-essential"><a href="https://vuejs.org/v2/style-guide/#Priority-A-Rules-Essential-Error-Prevention">Priority A: Essential</a></h1>
+<ul>
+<li>Component names should always be multi-word, except for root <code>App</code> components.
+<ul>
+<li>This prevents conflicts with existing and future HTML elements, since all HTML elements are a single word.</li>
+<li>ex) Use <code>TodoItem</code> instead of just <code>Todo</code></li>
+</ul></li>
+<li>Component <code>data</code> must be a function.</li>
+<li><code>prop</code> definitions should be as detailed as possible.</li>
+<li>Always use <code>key</code> with <code>v-for</code>.</li>
+<li>Never use <code>v-if</code> on the same element as <code>v-for</code>.</li>
+<li>Component style scoping
+<ul>
+<li>For applications, styles in a top-level <code>App</code> component and in layout components may be global, but all other components should always be scoped.</li>
+<li>Component libraries, however, should prefer a class-based strategy instead of using the <code>scoped</code> attribute.</li>
+</ul></li>
+<li>Always use the <code>$_</code> prefix for custom private properties in a plugin, mixin, etc. Then to avoid conflicts with code by other authors, also include a named scope (e.g. <code>$_yourPluginName_</code>).</li>
+</ul>
+<h1 id="priority-b-strongly-recommended">Priority B: Strongly Recommended</h1>
+<ul>
+<li>Whenever a build system is available to concatenate files, each component should be in its own file.</li>
+</ul>
+<pre class="example"><code>components/
+|- TodoList.js
+|- TodoItem.js
+components/
+|- TodoList.vue
+|- TodoItem.vue
+</code></pre>
+<ul>
+<li>Filenames of single-file components should either be always PascalCase or always kebab-case.</li>
+<li>Base components (a.k.a. presentational, dumb, or pure components) that apply app-specific styling and conventions should all begin with a specific prefix, such as <code>Base</code>, <code>App</code>, or <code>V</code>.</li>
+<li>Components that should only ever have a single active instance should begin with the <code>The</code> prefix, to denote that there can be only one.</li>
+<li>Child components that are tightly coupled with their parent should include the parent component name as a prefix.</li>
+<li>Component names should start with the highest-level (often most general) words and end with descriptive modifying words.</li>
+<li>Components with no content should be self-closing in single-file components, string templates, and JSX - but never in DOM templates.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">&lt;!-- In single-file components, string templates, and JSX --&gt;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">&lt;MyComponent/&gt;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">&lt;!-- In DOM templates --&gt;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">&lt;my-component&gt;&lt;/my-component&gt;</span></a></code></pre></div>
+<ul>
+<li>In most projects, component names should always be PascalCase in single-file components and string templates - but kebab-case in DOM templates.</li>
+<li>Component names should prefer full words over abbreviations.</li>
+<li>Elements with multiple attributes should span multiple lines, with one attribute per line.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;img</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="ot">  src=</span><span class="st">&quot;https://vuejs.org/images/logo.png&quot;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="ot">  alt=</span><span class="st">&quot;Vue Logo&quot;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw">&lt;MyComponent</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="ot">  foo=</span><span class="st">&quot;a&quot;</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="ot">  bar=</span><span class="st">&quot;b&quot;</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="ot">  baz=</span><span class="st">&quot;c&quot;</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="kw">/&gt;</span></a></code></pre></div>
+<ul>
+<li>Component templates should only include simple expressions, with more complex expressions refactored into computed properties or methods.</li>
+<li>Complex computed properties should be split into as many simpler properties as possible.</li>
+<li>Non-empty HTML attribute values should always be inside quotes (single or double, whichever is not used in JS).</li>
+<li>Directive shorthands (<code>:</code> for <code>v-bind:</code> and <code>@</code> for <code>v-on:</code>) should be used always or never.0</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;input</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="ot">  :value=</span><span class="st">&quot;newTodoText&quot;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="ot">  :placeholder=</span><span class="st">&quot;newTodoInstructions&quot;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="kw">&lt;input</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="ot">  v-bind:value=</span><span class="st">&quot;newTodoText&quot;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="ot">  v-bind:placeholder=</span><span class="st">&quot;newTodoInstructions&quot;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="kw">&lt;input</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">  <span class="er">@input</span><span class="ot">=</span><span class="st">&quot;onInput&quot;</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">  <span class="er">@focus</span><span class="ot">=</span><span class="st">&quot;onFocus&quot;</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="kw">&lt;input</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="ot">  v-on:input=</span><span class="st">&quot;onInput&quot;</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="ot">  v-on:focus=</span><span class="st">&quot;onFocus&quot;</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="kw">&gt;</span></a></code></pre></div>
+<h1 id="priority-c-recommended">Priority C: Recommended</h1>
+<h1 id="priority-d-use-with-caution">Priority D: Use with Caution</h1>
+</article>
+
+</body>
+</html>

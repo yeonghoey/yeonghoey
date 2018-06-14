@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Lesson 6</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/udacity/" >udacity</a></li>
+    <li><a href="/udacity/design-of-computer-programs/" >design-of-computer-programs</a></li>
+    <li>lesson6</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Lesson 6</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#lesson-6-1">Lesson 6</a><ul>
+<li><a href="#concept-inventory">Concept Inventory</a></li>
+<li><a href="#finding-words">Finding Words</a></li>
+<li><a href="#regression-tests">Regression Tests</a></li>
+<li><a href="#quiz-readwordlist">Quiz: Readwordlist</a><ul>
+<li><a href="#my-solution">My Solution</a></li>
+<li><a href="#his-solution">His Solution</a></li>
+<li><a href="#using-prefixes">Using <code>PREFIXES</code></a></li>
+</ul></li>
+<li><a href="#quiz-extend-prefix">Quiz: Extend Prefix</a></li>
+<li><a href="#quiz-adding-suffixes">Quiz: Adding Suffixes</a></li>
+<li><a href="#quiz-longest-words">Quiz: Longest words</a><ul>
+<li><a href="#my-solution-1">My Solution</a></li>
+<li><a href="#his-solution-1">His Solution</a></li>
+<li><a href="#feedback">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-top-n-hands">Quiz: Top N Hands</a></li>
+<li><a href="#crosswords">Crosswords</a></li>
+<li><a href="#quiz-anchors">Quiz: Anchors</a></li>
+<li><a href="#anchor-class">Anchor Class</a></li>
+<li><a href="#row-plays">Row Plays</a></li>
+<li><a href="#quiz-legal-prefixes">Quiz: Legal Prefixes</a></li>
+<li><a href="#life-is-good">Life is Good</a></li>
+<li><a href="#quiz-increasing-efficiency">Quiz: Increasing Efficiency</a><ul>
+<li><a href="#my-solution-2">My Solution</a></li>
+<li><a href="#his-solution-2">His Solution</a></li>
+</ul></li>
+<li><a href="#quiz-show-and-spell">Quiz: Show And Spell</a></li>
+<li><a href="#quiz-horizontal-plays">Quiz: Horizontal Plays</a></li>
+<li><a href="#quiz-all-plays">Quiz: All Plays</a><ul>
+<li><a href="#my-solution-3">My Solution</a></li>
+<li><a href="#his-solution-3">His Solution</a></li>
+<li><a href="#feedback-1">Feedback</a></li>
+</ul></li>
+<li><a href="#the-final-birds">The Final Birds</a></li>
+<li><a href="#scoring-2">Scoring 2</a></li>
+<li><a href="#quiz-making-plays">Quiz: Making Plays</a><ul>
+<li><a href="#my-solution-4">My Solution</a></li>
+<li><a href="#his-solution-4">His Solution</a></li>
+<li><a href="#feedback-2">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-best-play">Quiz: Best Play</a><ul>
+<li><a href="#my-solution-5">My Solution</a></li>
+<li><a href="#his-solution-5">His Solution</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#problem-set-6">Problem Set 6</a><ul>
+<li><a href="#quiz-anagrams">Quiz: Anagrams</a><ul>
+<li><a href="#my-solution-6">My Solution</a></li>
+<li><a href="#his-solution-6">His Solution</a></li>
+<li><a href="#feedback-3">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-blank-tiles">Quiz: Blank Tiles</a><ul>
+<li><a href="#my-solution-7">My Solution</a></li>
+<li><a href="#his-solution-7">His Solution</a></li>
+<li><a href="#feedback-4">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-boggle">Quiz: Boggle</a><ul>
+<li><a href="#my-solution-8">My Solution</a></li>
+<li><a href="#his-solution-8">His Solution</a></li>
+<li><a href="#feedback-5">Feedback</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#office-hours-6">Office Hours 6</a></li>
+</ul>
+</nav>
+
+<h1 id="lesson-6-1">Lesson 6</h1>
+<h2 id="concept-inventory">Concept Inventory</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_15-37-15.png" /> He emphasized the importance of <strong>pacing</strong>. It's about focusing on small pieces of the large problem, not all at once.</p>
+<h2 id="finding-words">Finding Words</h2>
+<p>The simplest implementation</p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_15-42-20.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_15-42-35.png" /></p>
+<h2 id="regression-tests">Regression Tests</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_15-45-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_15-46-03.png" /></p>
+<h2 id="quiz-readwordlist">Quiz: Readwordlist</h2>
+<h3 id="my-solution">My Solution</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> readwordlist(filename):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Read the words from a file and return a set of the words</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">    and a set of the prefixes.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="bu">file</span> <span class="op">=</span> <span class="bu">open</span>(filename) <span class="co"># opens file</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    text <span class="op">=</span> <span class="bu">file</span>.read()    <span class="co"># gets file into string</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    wordset <span class="op">=</span> <span class="bu">set</span>(text.upper().split())</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    prefixset <span class="op">=</span> <span class="bu">set</span>(p <span class="cf">for</span> w <span class="kw">in</span> wordset <span class="cf">for</span> p <span class="kw">in</span> prefixes(w))</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="bu">file</span>.close()</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="cf">return</span> wordset, prefixset</a></code></pre></div>
+<h3 id="his-solution">His Solution</h3>
+<p>Exactly same as mine</p>
+<h3 id="using-prefixes">Using <code>PREFIXES</code></h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_15-52-10.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_15-52-25.png" /></p>
+<h2 id="quiz-extend-prefix">Quiz: Extend Prefix</h2>
+<p>Three versions of implementing <code>extend_prefix</code></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_16-12-09.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_16-12-29.png" /></p>
+<p>Make the shared state(<code>results</code> in this case) as an argument to make it flat.</p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_16-13-17.png" /></p>
+<p>By giving default values for initial states(<code>pre</code>, <code>results</code>), it was able to make two functions into one.</p>
+<h2 id="quiz-adding-suffixes">Quiz: Adding Suffixes</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_16-22-02.png" /></p>
+<h2 id="quiz-longest-words">Quiz: Longest words</h2>
+<h3 id="my-solution-1">My Solution</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">def</span> longest_words(hand, board_letters):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="co">&quot;Return all word plays, longest first.&quot;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="cf">return</span> <span class="bu">sorted</span>(<span class="bu">list</span>(word_plays(hand, board_letters)), key<span class="op">=</span><span class="kw">lambda</span> w: <span class="bu">len</span>(w), reverse<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<h3 id="his-solution-1">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-01_16-35-33.png" /></p>
+<h3 id="feedback">Feedback</h3>
+<p>I didn't need to make the set into a list. I didn't need to make a lambda. Just putting <code>len</code> is enough. Moreover, give an explicit name(<code>words</code>) is more clear.</p>
+<h2 id="quiz-top-n-hands">Quiz: Top N Hands</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-02_12-55-25.png" /></p>
+<h2 id="crosswords">Crosswords</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-02_12-56-58.png" /></p>
+<h2 id="quiz-anchors">Quiz: Anchors</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-02_13-01-53.png" /> <img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-02_13-02-07.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-02_13-06-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-02_13-08-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-02_13-10-47.png" /></p>
+<h2 id="anchor-class">Anchor Class</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_07-56-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_07-57-24.png" /></p>
+<h2 id="row-plays">Row Plays</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_08-01-10.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_08-03-38.png" /></p>
+<h2 id="quiz-legal-prefixes">Quiz: Legal Prefixes</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_12-03-18.png" /></p>
+<h2 id="life-is-good">Life is Good</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_12-11-53.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_12-12-19.png" /></p>
+<h2 id="quiz-increasing-efficiency">Quiz: Increasing Efficiency</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_12-17-55.png" /></p>
+<p>His cares on complicating the interface is great.</p>
+<h3 id="my-solution-2">My Solution</h3>
+<p>I always get incorrect results. And I found out that even the exact copy of his solution causes an incorrect result.</p>
+<h3 id="his-solution-2">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-03_12-58-42.png" /></p>
+<h2 id="quiz-show-and-spell">Quiz: Show And Spell</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_16-54-49.png" /></p>
+<p>Great way to define 2d array</p>
+<h2 id="quiz-horizontal-plays">Quiz: Horizontal Plays</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">def</span> find_cross_word(board, i, j):</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Find the vertical word that crosses board[j][i]. Return (j2, w),</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">    where j2 is the starting row, and w is the word&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    sq <span class="op">=</span> board[j][i]</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">    w <span class="op">=</span> sq <span class="cf">if</span> is_letter(sq) <span class="cf">else</span> <span class="st">&#39;.&#39;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="cf">for</span> j2 <span class="kw">in</span> <span class="bu">range</span>(j, <span class="dv">0</span>, <span class="dv">-1</span>):</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">        sq2 <span class="op">=</span> board[j2<span class="dv">-1</span>][i]</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">        <span class="cf">if</span> is_letter(sq2): w <span class="op">=</span> sq2 <span class="op">+</span> w</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">        <span class="cf">else</span>: <span class="cf">break</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">    <span class="cf">for</span> j3 <span class="kw">in</span> <span class="bu">range</span>(j<span class="op">+</span><span class="dv">1</span>, <span class="bu">len</span>(board)):</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">        sq3 <span class="op">=</span> board[j3][i]</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">        <span class="cf">if</span> is_letter(sq3): w <span class="op">=</span> w <span class="op">+</span> sq3</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="cf">else</span>: <span class="cf">break</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    <span class="cf">return</span> (j2, w)</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="kw">def</span> neighbors(board, i, j):</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">    <span class="co">&quot;&quot;&quot;Return a list of the contents of the four neighboring squares,</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">    in the order N,S,E,W.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">    <span class="cf">return</span> [board[j<span class="dv">-1</span>][i], board[j<span class="op">+</span><span class="dv">1</span>][i],</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">            board[j][i<span class="op">+</span><span class="dv">1</span>], board[j][i<span class="dv">-1</span>]]</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="kw">def</span> set_anchors(row, j, board):</a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">    <span class="co">&quot;&quot;&quot;Anchors are empty squares with a neighboring letter. Some are resticted</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"><span class="co">    by cross-words to be only a subset of letters.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25">    <span class="cf">for</span> (i, sq) <span class="kw">in</span> <span class="bu">enumerate</span>(row[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>], <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb3-26" data-line-number="26">        neighborlist <span class="op">=</span> (N,S,E,W) <span class="op">=</span> neighbors(board, i, j)</a>
+<a class="sourceLine" id="cb3-27" data-line-number="27">        <span class="co"># Anchors are squares adjacent to a letter.  Plus the &#39;*&#39; square.</span></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28">        <span class="cf">if</span> sq <span class="op">==</span> <span class="st">&#39;*&#39;</span> <span class="kw">or</span> (is_empty(sq) <span class="kw">and</span> <span class="bu">any</span>(<span class="bu">map</span>(is_letter, neighborlist))):    </a>
+<a class="sourceLine" id="cb3-29" data-line-number="29">            <span class="cf">if</span> is_letter(N) <span class="kw">or</span> is_letter(S):   </a>
+<a class="sourceLine" id="cb3-30" data-line-number="30">                <span class="co"># Find letters that fit with the cross (vertical) word</span></a>
+<a class="sourceLine" id="cb3-31" data-line-number="31">                (j2, w) <span class="op">=</span> find_cross_word(board, i, j)</a>
+<a class="sourceLine" id="cb3-32" data-line-number="32">                row[i] <span class="op">=</span> anchor(L <span class="cf">for</span> L <span class="kw">in</span> LETTERS <span class="cf">if</span> w.replace(<span class="st">&#39;.&#39;</span>, L) <span class="kw">in</span> WORDS)</a>
+<a class="sourceLine" id="cb3-33" data-line-number="33">            <span class="cf">else</span>: <span class="co"># Unrestricted empty square -- any letter will fit.</span></a>
+<a class="sourceLine" id="cb3-34" data-line-number="34">                row[i] <span class="op">=</span> ANY</a></code></pre></div>
+<p>It seems that he skipped to explain this code because it's rather too complicated.</p>
+<h2 id="quiz-all-plays">Quiz: All Plays</h2>
+<h3 id="my-solution-3">My Solution</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">def</span> all_plays(hand, board):</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;All plays in both directions. A play is a (pos, dir, word) tuple,</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">    where pos is an (i, j) pair, and dir is ACROSS or DOWN.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    hplays <span class="op">=</span> horizontal_plays(hand, board)            <span class="co"># set of ((i, j), word)</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">    vplays <span class="op">=</span> horizontal_plays(hand, transpose(board)) <span class="co"># set of ((j, i), word)</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    results <span class="op">=</span> <span class="bu">set</span>()</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="cf">for</span> (i, j), word <span class="kw">in</span> hplays:</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">        results.add(((i, j), ACROSS, word))</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="cf">for</span> (j, i), word <span class="kw">in</span> vplays:</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">        results.add(((i, j), DOWN, word))</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    <span class="cf">return</span> results</a></code></pre></div>
+<h3 id="his-solution-3">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_17-15-50.png" /></p>
+<h3 id="feedback-1">Feedback</h3>
+<p>His solution is an immutable one which is generally better for readability and correctness.</p>
+<h2 id="the-final-birds">The Final Birds</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_17-26-29.png" /></p>
+<h2 id="scoring-2">Scoring 2</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_17-33-15.png" /></p>
+<h2 id="quiz-making-plays">Quiz: Making Plays</h2>
+<h3 id="my-solution-4">My Solution</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">def</span> make_play(play, board):</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="co">&quot;Put the word down on the board.&quot;</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    (score, (i, j), (di, dj), word) <span class="op">=</span> play</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="cf">for</span> wi, L <span class="kw">in</span> <span class="bu">enumerate</span>(word):</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">        x, y <span class="op">=</span> i <span class="op">+</span> di<span class="op">*</span>wi, j <span class="op">+</span> dj<span class="op">*</span>wi</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">        board[y][x] <span class="op">=</span> L</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="cf">return</span> board</a></code></pre></div>
+<h3 id="his-solution-4">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_17-46-04.png" /></p>
+<h3 id="feedback-2">Feedback</h3>
+<p><code>n</code> is better than <code>wi</code></p>
+<h2 id="quiz-best-play">Quiz: Best Play</h2>
+<h3 id="my-solution-5">My Solution</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">def</span> best_play(hand, board):</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    <span class="co">&quot;Return the highest-scoring play.  Or None.&quot;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    plays <span class="op">=</span> all_plays(hand, board)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="cf">if</span> <span class="kw">not</span> plays:</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">        <span class="cf">return</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">        <span class="cf">return</span> <span class="bu">max</span>(plays, key<span class="op">=</span><span class="kw">lambda</span> p: p[<span class="dv">0</span>])</a></code></pre></div>
+<h3 id="his-solution-5">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_17-49-58.png" /></p>
+<h1 id="problem-set-6">Problem Set 6</h1>
+<h2 id="quiz-anagrams">Quiz: Anagrams</h2>
+<h3 id="my-solution-6">My Solution</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">def</span> anagrams(phrase, shortest<span class="op">=</span><span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Return a set of phrases with words from WORDS that form anagram</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">    of phrase. Spaces can be anywhere in phrase or anagram. All words </span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">    have length &gt;= shortest. Phrases in answer must have words in </span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">    lexicographic order (not all permutations).&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    phrase <span class="op">=</span> <span class="st">&#39;&#39;</span>.join(phrase.split())</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    letters <span class="op">=</span> Counter(phrase)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">    words <span class="op">=</span> <span class="bu">sorted</span>([w <span class="cf">for</span> w <span class="kw">in</span> find_words(phrase) <span class="cf">if</span> <span class="bu">len</span>(w) <span class="op">&gt;=</span> shortest])</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="kw">def</span> valid(used, letters):</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">        <span class="cf">return</span> <span class="bu">all</span>([used[L] <span class="op">&lt;=</span> c <span class="cf">for</span> L, c <span class="kw">in</span> letters.viewitems()])</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">    <span class="kw">def</span> done(used, letters):</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">        <span class="cf">return</span> <span class="bu">all</span>([used[L] <span class="op">==</span> c <span class="cf">for</span> L, c <span class="kw">in</span> letters.viewitems()])</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">    results <span class="op">=</span> <span class="bu">set</span>()</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">    <span class="kw">def</span> find_picks(n, pick<span class="op">=</span>[]):</a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">        used <span class="op">=</span> Counter(<span class="st">&#39;&#39;</span>.join(pick))</a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">        <span class="cf">if</span> <span class="kw">not</span> valid(used, letters):</a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">            <span class="cf">return</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">        <span class="cf">if</span> done(used, letters):</a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">            results.add(<span class="st">&#39; &#39;</span>.join(pick))</a>
+<a class="sourceLine" id="cb7-22" data-line-number="22">            <span class="cf">return</span> results</a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n, <span class="bu">len</span>(words)):</a>
+<a class="sourceLine" id="cb7-24" data-line-number="24">            find_picks(i<span class="op">+</span><span class="dv">1</span>, pick <span class="op">+</span> [words[i]])</a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">        <span class="cf">return</span> results</a>
+<a class="sourceLine" id="cb7-26" data-line-number="26">    <span class="cf">return</span> find_picks(<span class="dv">0</span>) </a></code></pre></div>
+<p>It's ugly.</p>
+<h3 id="his-solution-6">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_18-33-00.png" /></p>
+<h3 id="feedback-3">Feedback</h3>
+<p>To avoid duplications, I sorted <code>words</code> and kept current index to pick only bigger words. But he put the predicate <code>w &gt; previous_word</code> and called <code>find_words</code> multiple times. This may be redundant calculations but makes the logic clear.</p>
+<p>Using <code>str.replace(' ', '')</code> to remove blanks is better than <code>\''.join(str.split())</code></p>
+<h2 id="quiz-blank-tiles">Quiz: Blank Tiles</h2>
+<h3 id="my-solution-7">My Solution</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">def</span> blank_placed(board, pos, direction, hand, word, pre<span class="op">=</span><span class="st">&#39;&#39;</span>, results<span class="op">=</span><span class="va">None</span>):</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="cf">if</span> results <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">        results <span class="op">=</span> <span class="bu">set</span>()</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="cf">if</span> pre.upper() <span class="op">==</span> word.upper():</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">        results.add(pre)</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">        <span class="cf">return</span> results</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">    i, j <span class="op">=</span> pos</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">    di, dj <span class="op">=</span> direction</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">    npos <span class="op">=</span> (i<span class="op">+</span>di, j<span class="op">+</span>dj)</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">    sq <span class="op">=</span> board[j][i]</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="cf">if</span> is_letter(sq):</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">        <span class="cf">return</span> blank_placed(board, npos, direction, hand, word, pre<span class="op">+</span>sq, results)</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">    i <span class="op">=</span> <span class="bu">len</span>(pre)</a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    L <span class="op">=</span> word[i]</a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">    <span class="cf">if</span> L <span class="kw">in</span> hand:</a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">        blank_placed(board, npos, direction, hand.replace(L, <span class="st">&#39;&#39;</span>, <span class="dv">1</span>), word, pre <span class="op">+</span> L, results)</a>
+<a class="sourceLine" id="cb8-21" data-line-number="21">    <span class="cf">if</span> <span class="st">&#39;_&#39;</span> <span class="kw">in</span> hand:</a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">        blank_placed(board, npos, direction, hand.replace(<span class="st">&#39;_&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="dv">1</span>), word, pre <span class="op">+</span> L.lower(), results)</a>
+<a class="sourceLine" id="cb8-23" data-line-number="23">    <span class="cf">return</span> results</a></code></pre></div>
+<h3 id="his-solution-7">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_20-58-59.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_20-59-14.png" /></p>
+<h3 id="feedback-4">Feedback</h3>
+<p>I solved it almost same as his solution. But I pick a wrong choice. I decided to use the uppercase representation to pick the word, and to backtrack the answer for scoring. This was figured out to lead duplicated logic.</p>
+<p>I thought that using mixed case representation would lead to more complicated logic on solving. But it lead to more complicated logic on scoring.</p>
+<h2 id="quiz-boggle">Quiz: Boggle</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_21-14-03.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_21-15-31.png" /></p>
+<p>I didn't think about 1d representation. But it sounds not so weird.</p>
+<h3 id="my-solution-8">My Solution</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">def</span> boggle_words(board, minlength<span class="op">=</span><span class="dv">3</span>):</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">    <span class="co">&quot;Find all the words on this Boggle board; return as a set of words.&quot;</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    results <span class="op">=</span> <span class="bu">set</span>()</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    <span class="cf">for</span> i, sq <span class="kw">in</span> <span class="bu">enumerate</span>(board):</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">        used <span class="op">=</span> [<span class="va">False</span>] <span class="op">*</span> <span class="bu">len</span>(board)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">        used[i] <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">        words <span class="op">=</span> find_boggle_words(board, minlength, used, i, sq)</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">        results <span class="op">=</span> results <span class="op">|</span> words</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">    <span class="cf">return</span> results</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="kw">def</span> find_boggle_words(board, minlength, used, pos, pre, results<span class="op">=</span><span class="va">None</span>):</a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">    <span class="cf">if</span> results <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">        results <span class="op">=</span> <span class="bu">set</span>()</a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">    <span class="cf">if</span> pre <span class="kw">in</span> WORDS <span class="kw">and</span> <span class="bu">len</span>(pre) <span class="op">&gt;=</span> minlength:</a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">        results.add(pre)</a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">    <span class="cf">if</span> pre <span class="kw">not</span> <span class="kw">in</span> PREFIXES:</a>
+<a class="sourceLine" id="cb9-18" data-line-number="18">        <span class="cf">return</span> results</a>
+<a class="sourceLine" id="cb9-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20">    N <span class="op">=</span> size(board)</a>
+<a class="sourceLine" id="cb9-21" data-line-number="21">    <span class="cf">for</span> n <span class="kw">in</span> neighbors(pos, N):</a>
+<a class="sourceLine" id="cb9-22" data-line-number="22">        <span class="cf">if</span> <span class="kw">not</span> used[n]:</a>
+<a class="sourceLine" id="cb9-23" data-line-number="23">            used[n] <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb9-24" data-line-number="24">            find_boggle_words(board, minlength, used, n, pre<span class="op">+</span>board[n], results)</a>
+<a class="sourceLine" id="cb9-25" data-line-number="25">            used[n] <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb9-26" data-line-number="26">    <span class="cf">return</span> results</a></code></pre></div>
+<h3 id="his-solution-8">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_21-37-35.png" /></p>
+<h3 id="feedback-5">Feedback</h3>
+<p>There are some design decisions. One of them is nesting the recursion function. As he mentioned about it, it simplifies the recursion because it reduces the number of arguments significantly.</p>
+<p>The other one is using <code>path</code> for checking revisiting, while I used <code>used</code> flags. It just simplifies the logic and improves the readability.</p>
+<p><code>j</code> is better than <code>n</code>, I don't know why, but it was just hard to think of that name.</p>
+<h1 id="office-hours-6">Office Hours 6</h1>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_22-02-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_22-04-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_22-04-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_22-05-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_22-06-03.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson6/_img/screenshot_2017-01-04_22-06-18.png" /></p>
+</article>
+
+</body>
+</html>

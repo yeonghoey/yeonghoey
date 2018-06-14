@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>The Design of Everyday Things</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/books/" >books</a></li>
+    <li>design-of-everyday-things</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">The Design of Everyday Things</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#book-review">Book review</a></li>
+<li><a href="#why-read">Why read?</a></li>
+<li><a href="#affordances-signifiers-and-constraints">Affordances, Signifiers and Constraints</a></li>
+<li><a href="#mapping-and-feedback">Mapping and Feedback</a></li>
+<li><a href="#conceptual-models">Conceptual Models</a></li>
+<li><a href="#requests-and-urllib2">requests and urllib2</a></li>
+<li><a href="#the-paradox-of-automation">The Paradox of Automation</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</nav>
+
+<h1 id="book-review">Book review</h1>
+<p><img src="https://media.yeonghoey.com/books/design-of-everyday-things/_img/screenshot_2016-12-26_18-10-21.png" /></p>
+<h1 id="why-read">Why read?</h1>
+<p>I had lots of recommendations of this book from programming books and blog posts, even though it's a design book. Finishing the book, I totally agree that it's a must-read for every programmer.</p>
+<p>For those who wonder how it matters for programmers, I quote a passage about <strong>the paradox of technology</strong>:</p>
+<blockquote>
+<p>The same technology that simplifies life by providing more functions in each device also complicates life by making the device harder to learn, harder to use. This is the paradox of technology and the challenge for the designer.</p>
+</blockquote>
+<p>I think this view makes sense to both the application and the code itself.</p>
+<p>I'll show important concepts from the book, with some programming-related examples I conceived.</p>
+<h1 id="affordances-signifiers-and-constraints">Affordances, Signifiers and Constraints</h1>
+<p>These concepts are about making things hard to fail. Here are definitions about <strong>affordances</strong> and <strong>signifiers</strong> from the book:</p>
+<ul>
+<li><strong>Affordances</strong> are the possible interactions between people and the environment.</li>
+<li>Perceived <strong>affordances</strong> often act as <strong>signifiers</strong>, but they can be ambiguous.</li>
+<li><strong>Signifiers</strong> signal things, what actions are possible and how they should be done.</li>
+<li><strong>Signifiers</strong> must be perceivable.</li>
+</ul>
+<blockquote>
+<p>A door <strong>affords</strong> opening.</p>
+<p>It also <strong>affords</strong> being smashed.</p>
+<p>The door's knob <strong>signifies</strong> opening.</p>
+<p>The knob <strong>signifies</strong> whether it's pushed, pulled, or slid.</p>
+</blockquote>
+<p><strong>Constraints</strong> work for making things hard to fail. <strong>Affordances</strong> and <strong>signifiers</strong> are essential for designing <strong>constraints</strong>.</p>
+<blockquote>
+<p>The iron plate on a door <strong>signifies</strong> opening by pushing.</p>
+<p>The iron plate also places a <strong>constraint</strong> of pulling. (Because there is no handle to grip)</p>
+</blockquote>
+<p>These concepts are reminiscent of the notion of <em>interfaces</em> and <em>encapsulations</em> in object-oriented programming. A well-designed interface <strong>signifies</strong> how to use the library properly. It also hides unintended <strong>affordances</strong> by <em>encapsulations</em>. They place <strong>constraints</strong> for making things hard to fail.</p>
+<h1 id="mapping-and-feedback">Mapping and Feedback</h1>
+<p><strong>Mapping</strong> relates to the layout of controls and displays. Consider a situation in which you are tasked with stage lighting. There are lots of lights and you must continually turn some of them on and off at exact moments. The problem is that most traditional stage lighting controls simply place many buttons in a row on a panel. You have to memorize which button controls which light. This poses a challenge and is error-prone.</p>
+<p><img src="https://media.yeonghoey.com/books/design-of-everyday-things/_img/screenshot_2016-12-26_18-16-42.png" /></p>
+<p>What if the buttons were arranged in the same way the lights were arranged? Perhaps the shape of the controller wouldn't be a flat panel. But you could map the buttons accordingly with th lights. This would be easier to learn and less error-prone. It would be a better system.</p>
+<p>Let's take a look at another example. I'm writing this post in <strong>Vim</strong>-like editor(it's <a href="http://spacemacs.org/">spacemacs</a>!). It maps <code>hjkl</code> keys to the movement of the cursor. Each key stands for <strong>Left</strong>, <strong>Down</strong>, <strong>Up</strong>, <strong>Right</strong> respectively.</p>
+<p><strong>Vim</strong>'s way is used to increase efficiency. With the mapping, you can keep your fingers on the middle row white navigating the contents of files. You will love it once you get used to it.</p>
+<p>However, it is bad <strong>mapping</strong> from a design perspective. It's not natural. It's one of the reasons why people feel frustrated when they try to use the editor.</p>
+<p>Conversely, most games have <code>wasd</code> mapping for the player character's movement. It's very natural because the way the keys are arranged signifies the exact the direction of the movement.</p>
+<blockquote>
+<p><code>hjkl</code> <strong>NOT</strong> naturally mapped to the movement of <strong>cursor</strong>.</p>
+<p><code>wasd</code> naturally <strong>mapped</strong> to the movement of a <strong>character</strong>.</p>
+</blockquote>
+<p><strong>Mapping</strong> alleviates the complexity of controls. But a great mapping alone can't do much. The more complex the device is, the harder we control it. We need <strong>feedback</strong> to understand how it works.</p>
+<p>If you have used an <strong>iPod Shuffle</strong>, you may have a feeling for what I mean. It intentionally removed the display, which causes a lack of <strong>feedback</strong>. Although it has a relatively great <strong>mapping</strong>, it's hard to understand because the blinking lamp is the only feedback.</p>
+<p><strong>Feedback</strong> plays an important role in understanding something. When people made mistakes and are notified at an appropriate moment, they learn. <strong>Feedback</strong> enhances the understanding of a product.</p>
+<p>The amount of <strong>feedback</strong> should be adequate. Poor <strong>feedback</strong> frustrates people. It makes it difficult for people to understand what's happening. It's simply the root of error. Too much <strong>feedback</strong> is also a problem. It annoys people. Additionally, it causes people to ignore some feedback that is important.</p>
+<p>Let's look at the programming example. The nature of the <strong>feedback</strong> exactly makes sense when writing error messages. Many programming books suggest that we should not simply ignore warning messages. This is because lots of warnings messages could conceal important errors.</p>
+<p>A lack of detailed information is also a problem. What if a simple message <code>error occurred</code>? You get lost.</p>
+<h1 id="conceptual-models">Conceptual Models</h1>
+<blockquote>
+<p><strong>Conceptual models</strong> are valuable in providing understanding, in predicting how things will behave, and in figuring out what to do when things do not go as planned.</p>
+</blockquote>
+<p>Consider traditional watches. Most of them have relatively many features for their buttons. As a result, they tend to have many modes without proper conceptual models. For example, the same button is mapped for starting the timer on the stopwatch mode and for increasing the number on the time adjusting mode. Because there is <em>no</em> <strong>conceptual model</strong>, I always forget the mappings and feel frustrated when I try to use my stopwatch or to adjust time. The net result is to avoid using those features.</p>
+<p>I recently tried to use a pebble watch. I noticed that it has a nice <strong>conceptual model</strong> with proper <strong>mappings</strong>.</p>
+<p><img src="https://media.yeonghoey.com/books/design-of-everyday-things/_img/screenshot_2016-12-26_18-19-59.png" /></p>
+<p>Based on the preceding simple <strong>mappings</strong>, every application follows the <strong>conceptual model</strong> of scrolling up and down with <code>Up</code> and <code>Down</code>, pushing and popping contexts with <code>Select</code> and <code>Back</code>.</p>
+<p>I immediately understood how it works. I enjoyed the experience.</p>
+<h1 id="requests-and-urllib2">requests and urllib2</h1>
+<p>If you used <code>python</code> for web client, you probably wrote the program with <code>requests</code> library, which is a <strong>de facto</strong> standard in python community.</p>
+<p>By the way, did you know <code>urllib2</code> which is a <strong>standard</strong> library for doing the almost same thing? Let me explain why <code>requests</code> is more popular on the ground of the preceding design concepts.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">requests.get(<span class="st">&#39;http://google.com&#39;</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="im">import</span> urllib2</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">urllib2.urlopen(<span class="st">&#39;http://google.com&#39;</span>)</a></code></pre></div>
+<p>So far, there seems almost no difference. But with considering <strong>mapping</strong>, <code>requests</code> is better, Because it directly maps <code>HTTP GET</code> requests to <code>requests.get()</code> method.</p>
+<p>I could construct the <strong>conceptual model</strong> of <code>requests</code> with this single line. I can expect <code>requests.post()</code> method, which will make a <code>HTTP POST</code> request. And, actually it has the method.</p>
+<p>On the other hand, <code>urllib2</code> enforces a different model (<em>what is *urlopen*ing?</em>). For me, it was hard to find out how to make a <code>HTTP POST</code> request with <code>urllib2</code>. After wading through the document, I found the following example code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="im">import</span> urllib</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="im">import</span> urllib2</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">url <span class="op">=</span> <span class="st">&#39;http://www.someserver.com/cgi-bin/register.cgi&#39;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">values <span class="op">=</span> {<span class="st">&#39;name&#39;</span> : <span class="st">&#39;Michael Foord&#39;</span>,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">          <span class="st">&#39;location&#39;</span> : <span class="st">&#39;Northampton&#39;</span>,</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">          <span class="st">&#39;language&#39;</span> : <span class="st">&#39;Python&#39;</span> }</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">data <span class="op">=</span> urllib.urlencode(values)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">req <span class="op">=</span> urllib2.Request(url, data)</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">response <span class="op">=</span> urllib2.urlopen(req)</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">the_page <span class="op">=</span> response.read()</a></code></pre></div>
+<p>Notice that the term <code>post</code> is not in the code. It's still ambiguous. Here is the explanation:</p>
+<blockquote>
+<p>you can use a POST to transmit arbitrary data to your own application. In the common case of HTML forms, the data needs to be encoded in a standard way, and then passed to the Request object as the data argument. The encoding is done using a function from the urllib library not from urllib2.<br />
+… If you do not pass the data argument, urllib2 uses a GET request.</p>
+</blockquote>
+<p>It's wordy. Here is the same code using <code>requests</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">url <span class="op">=</span> <span class="st">&#39;http://www.someserver.com/cgi-bin/register.cgi&#39;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">data <span class="op">=</span> {<span class="st">&#39;name&#39;</span> : <span class="st">&#39;Michael Foord&#39;</span>,</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">        <span class="st">&#39;location&#39;</span> : <span class="st">&#39;Northampton&#39;</span>,</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">        <span class="st">&#39;language&#39;</span> : <span class="st">&#39;Python&#39;</span> }</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">response <span class="op">=</span> requests.post(url, data<span class="op">=</span>data)</a></code></pre></div>
+<p>It maps naturally as expected. It hides an error prone affordance(sending <code>data</code> without encoding it). It seems obvious which one is better.</p>
+<p>I compared them neither for blaming <code>urllib2</code> nor flattering <code>requests</code>. But for how the design concepts make sense to the programming world.</p>
+<h1 id="the-paradox-of-automation">The Paradox of Automation</h1>
+<blockquote>
+<p>Automation can take over the dull, dreadry tasks, but fail with the complex ones.</p>
+</blockquote>
+<blockquote>
+<p>When automation fails, it often does so without warning.</p>
+</blockquote>
+<blockquote>
+<p>The person has not been paying much attention to the operation, and it takes time for the failure to be noticed and evaluated, and then to decide how to respond.</p>
+</blockquote>
+<h1 id="summary">Summary</h1>
+<p>Technology is getting complicated. The speed at which technology changes is far faster than the speed of human change. The design problem is filling up the gap, and the design concepts in this book are all about keeping things simple and less prone to error.</p>
+<p>Programming is no exception. In some sense, programming is nothing but design for logic. With these concepts in mind, we can become better programmers.</p>
+</article>
+
+</body>
+</html>

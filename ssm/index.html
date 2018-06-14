@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>AWS Systems Manager</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>ssm</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./cli">cli</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">AWS Systems Manager</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#parameter-store">Parameter Store</a><ul>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#name">Name</a></li>
+<li><a href="#type">Type</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="parameter-store">Parameter Store</h1>
+<h2 id="reference">Reference</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about" class="uri">https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html#sysman-paramstore-su-create-about</a></li>
+</ul>
+</div>
+<h3 id="name">Name</h3>
+<ul>
+<li><code>a-zA-Z0-9_.-/</code></li>
+<li>Can't include spaces.</li>
+<li>You can create a hierarchy with a maximum of 15 levels.</li>
+</ul>
+<h3 id="type">Type</h3>
+<dl>
+<dt>String</dt>
+<dd>
+</dd>
+<dt>StringList</dt>
+<dd><p>Items in a StringList must be separated by a comma (,).</p>
+</dd>
+<dt>SecureString</dt>
+<dd><p>Consider using this type when:</p>
+<ul>
+<li>You want to use data/parameters across AWS services without exposing the values as clear text in commands, functions, agent logs, or AWS CloudTrail logs.</li>
+<li>You want to control who has access to sensitive data.</li>
+<li>You want to be able to audit when sensitive data is accessed (AWS CloudTrail).</li>
+<li>You want AWS-level encryption for your sensitive data and you want to bring your own encryption keys to manage access.</li>
+</ul>
+</dd>
+</dl>
+</article>
+
+</body>
+</html>

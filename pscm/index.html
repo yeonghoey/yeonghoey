@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Plastic SCM</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>pscm</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Plastic SCM</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#repository-and-workspace">Repository and Workspace</a></li>
+<li><a href="#checkout-modify-checkin">Checkout-Modify-Checkin</a><ul>
+<li><a href="#exclusive-checkout">Exclusive Checkout</a></li>
+</ul></li>
+<li><a href="#change-checkin">Change-Checkin</a></li>
+<li><a href="#writable.conf-readonly.conf">writable.conf readonly.conf</a></li>
+<li><a href="#ignore.conf">ignore.conf</a></li>
+</ul>
+</nav>
+
+<h1 id="repository-and-workspace">Repository and Workspace</h1>
+<p><img src="https://media.yeonghoey.com/pscm/_img/screenshot_2017-04-05_15-08-24.png" /></p>
+<p><img src="https://media.yeonghoey.com/pscm/_img/screenshot_2017-04-05_15-11-13.png" /></p>
+<h1 id="checkout-modify-checkin">Checkout-Modify-Checkin</h1>
+<p>The <strong>checkout</strong> in Plastic SCM means:</p>
+<ul>
+<li>The file is made <strong>writable</strong> (even if it was not by default).</li>
+<li>Plastic SCM knows that the file has been modified (which is good for quickly locating changes).</li>
+</ul>
+<h2 id="exclusive-checkout">Exclusive Checkout</h2>
+<p><img src="https://media.yeonghoey.com/pscm/_img/screenshot_2017-04-05_15-50-28.png" /></p>
+<p>Set <code>lock.conf</code> on the server for specifying files to make exclusive</p>
+<pre class="example"><code>rep:default lockserver:mainsvr:8084
+*.doc
+*.xls
+*.jpg
+document.vcs
+</code></pre>
+<h1 id="change-checkin">Change-Checkin</h1>
+<blockquote>
+<p>Take into account that <strong>by default Plastic will write all the files as read-only.</strong> We do this to enforce the check-out / check-in cycle</p>
+</blockquote>
+<p>Enusre following checkbox unchecked: <img src="https://media.yeonghoey.com/pscm/_img/screenshot_2017-04-05_16-18-46.png" /></p>
+<h1 id="writable.conf-readonly.conf">writable.conf readonly.conf</h1>
+<p>To override the user preference of <code>Update and Checkin operations set files as read-only</code>, Use <code>writable,conf</code> and <code>readonly.conf</code></p>
+<pre class="example"><code>*.pdb 
+*.dll 
+*/obj/* 
+*/.metadata
+</code></pre>
+<h1 id="ignore.conf">ignore.conf</h1>
+<p>The counterpart of git's <code>.gitignore</code></p>
+<pre class="example"><code># ignore all bin and build directories
+*/bin*
+*/build*
+</code></pre>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>pytesseract</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>pytesseract</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">pytesseract</h1>
+</header>
+
+
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/madmaze/pytesseract" class="uri">https://github.com/madmaze/pytesseract</a></li>
+<li><a href="https://github.com/tesseract-ocr/tesseract" class="uri">https://github.com/tesseract-ocr/tesseract</a></li>
+<li><a href="https://github.com/tesseract-ocr/tesseract/blob/master/doc/tesseract.1.asc#languages">Language codes</a></li>
+</ul>
+</div>
+<pre class="shell"><code># &#39;tesseract&#39; CLI command required
+brew install tesseract --all-languages
+pip install pytesseract
+</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="im">from</span> PIL <span class="im">import</span> Image</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="im">import</span> pytesseract</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># Simple image to string</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="bu">print</span>(pytesseract.image_to_string(Image.<span class="bu">open</span>(<span class="st">&#39;test.png&#39;</span>)))</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co"># French text image to string</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="bu">print</span>(pytesseract.image_to_string(Image.<span class="bu">open</span>(<span class="st">&#39;test-european.jpg&#39;</span>), lang<span class="op">=</span><span class="st">&#39;fra&#39;</span>))</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co"># Get bounding box estimates</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="bu">print</span>(pytesseract.image_to_boxes(Image.<span class="bu">open</span>(<span class="st">&#39;test.png&#39;</span>)))</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co"># Get verbose data including boxes, confidences, line and page numbers</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="bu">print</span>(pytesseract.image_to_data(Image.<span class="bu">open</span>(<span class="st">&#39;test.png&#39;</span>)))</a></code></pre></div>
+<pre class="example"><code>image_to_data(image, lang=None, config=&#39;&#39;, nice=0, output_type=Output.STRING)
+</code></pre>
+<dl>
+<dt><strong>image</strong> Object</dt>
+<dd>PIL Image/NumPy array of the image to be processed by Tesseract
+</dd>
+<dt><strong>lang</strong> String</dt>
+<dd>Tesseract language code string
+</dd>
+<dt><strong>config</strong> String</dt>
+<dd>Any additional configurations as a string, ex: config='–psm 6'
+</dd>
+<dt><strong>nice</strong> Integer</dt>
+<dd>modifies the processor priority for the Tesseract run. Not supported on Windows. Nice adjusts the niceness of unix-like processes.
+</dd>
+<dt><strong>output<sub>type</sub></strong> Class attribute</dt>
+<dd>specifies the type of the output, defaults to string. For the full list of all supported types, please check the definition of pytesseract.Output class.
+</dd>
+</dl>
+</article>
+
+</body>
+</html>

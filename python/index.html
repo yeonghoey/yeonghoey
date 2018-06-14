@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Python</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>python</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./collections">collections</a></li>
+    <li><a href="./copy">copy</a></li>
+    <li><a href="./docstring-sphinx">docstring-sphinx</a></li>
+    <li><a href="./errno">errno</a></li>
+    <li><a href="./http">http</a></li>
+    <li><a href="./importlib">importlib</a></li>
+    <li><a href="./io">io</a></li>
+    <li><a href="./pathlib">pathlib</a></li>
+    <li><a href="./pkgutil">pkgutil</a></li>
+    <li><a href="./socket">socket</a></li>
+    <li><a href="./subprocess">subprocess</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Python</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#decorator">decorator</a><ul>
+<li><a href="#class-decorator">class decorator</a></li>
+</ul></li>
+<li><a href="#dict">dict</a><ul>
+<li><a href="#items-iteritems-viewitems">items, iteritems, viewitems</a></li>
+</ul></li>
+<li><a href="#docstring">docstring</a></li>
+<li><a href="#exceptions">exceptions</a><ul>
+<li><a href="#how-fast-are-exceptions">How fast are exceptions?</a></li>
+<li><a href="#casts-to-string">Casts to string</a></li>
+<li><a href="#built-in-exceptions">Built-in Exceptions</a></li>
+<li><a href="#raise-myexception-vs-raise-myexception">raise MyException vs raise MyException()</a></li>
+<li><a href="#catching-multiple-exceptions">Catching multiple exceptions</a></li>
+<li><a href="#keyboardinterrupt">KeyboardInterrupt</a></li>
+</ul></li>
+<li><a href="#import">import</a><ul>
+<li><a href="#absolute-import-vs-implicit-explicit-relative-import">Absolute import vs implicit, explicit relative import</a></li>
+<li><a href="#import-in-function">Import in function</a></li>
+<li><a href="#submodules-related-from">Submodules related from</a></li>
+<li><a href="#sorting-imports">Sorting imports</a></li>
+</ul></li>
+<li><a href="#itertools">itertools</a></li>
+<li><a href="#list">list</a></li>
+<li><a href="#logging">logging</a></li>
+<li><a href="#multiprocessing">multiprocessing</a></li>
+<li><a href="#re">re</a></li>
+<li><a href="#set">set</a></li>
+<li><a href="#str">str</a></li>
+<li><a href="#string">string</a><ul>
+<li><a href="#format">format</a></li>
+</ul></li>
+<li><a href="#webbrowser">webbrowser</a></li>
+</ul></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#new__-vs-__init__"><code>__new__</code> vs <code>__init__</code></a></li>
+<li><a href="#comparison">Comparison</a></li>
+<li><a href="#comparison-of-three-values">Comparison of three values</a></li>
+<li><a href="#double-underscores">Double underscores</a></li>
+<li><a href="#eafp-lbyl">EAFP, LBYL</a></li>
+<li><a href="#final-class">Final class</a></li>
+<li><a href="#meta-class">Meta Class</a></li>
+<li><a href="#descriptor">Descriptor</a><ul>
+<li><a href="#functions-and-methods">Functions and Methods</a></li>
+<li><a href="#data-descriptors-vs.-non-data-descriptors">Data descriptors vs. non-data descriptors</a></li>
+</ul></li>
+<li><a href="#getattr-vs.-getattribute"><span class="underline"><span class="underline">getattr</span></span> vs. <span class="underline"><span class="underline">getattribute</span></span></a></li>
+<li><a href="#getattr-setattr-why-need-them">getattr, setattr, Why need them?</a></li>
+<li><a href="#source-code-encodings">Source Code Encodings</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#wait-until-a-host-starts-listening">Wait until a host starts listening</a></li>
+<li><a href="#pick-a-free-port-number">Pick a free port number</a></li>
+<li><a href="#read-a-file-except-the-first-line">Read a file except the first line</a></li>
+<li><a href="#convert-a-list-to-a-dictionary">Convert a list to a dictionary</a></li>
+<li><a href="#get-a-reference-to-the-current-module">Get a reference to the current module?</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="reference">Reference</h1>
+<h2 id="decorator">decorator</h2>
+<h3 id="class-decorator">class decorator</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">class</span> A:</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="cf">pass</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">A <span class="op">=</span> foo(bar(A))</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="at">@foo</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="at">@bar</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">class</span> A:</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">  <span class="cf">pass</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-3129/" class="uri">https://www.python.org/dev/peps/pep-3129/</a></li>
+</ul>
+</div>
+<h2 id="dict">dict</h2>
+<pre class="example"><code>dict()
+dict(mapping)
+dict(iterable)
+dict(**kwargs)
+
+len(d)
+d[key]
+d[key] = value
+del d[key]
+key in d
+key not in d
+iter(d)
+
+D.items()  D.iteritems()  D.viewitems()
+D.keys()   D.iterkeys()   D.viewkeys()
+D.values() D.itervalues() D.viewvalues()
+
+D.clear()
+D.copy()               a shallow copy of D
+D.fromkeys(S[,v])      new dict with keys from S and values equal to v(None).
+D.get(k[,d])           D[k] if k in D, else d(None)
+D.has_key(k)           True if D has a key k, else False
+D.pop(k[,d]) -&gt; v      remove specified key and return the corresponding value.
+                       d(KeyError) if key is not found
+D.popitem() -&gt; (k, v)  remove and return a (key, value) KeyError if empty
+D.setdefault(k[,d])    D.get(k,d), also set D[k]=d if k not in D
+D.update([E, ]**F)
+    If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
+    If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
+    In either case, this is followed by: for k in F: D[k] = F[k]
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#mapping-types-dict" class="uri">https://docs.python.org/2/library/stdtypes.html#mapping-types-dict</a></li>
+</ul>
+</div>
+<h3 id="items-iteritems-viewitems">items, iteritems, viewitems</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/10458437/what-is-the-difference-between-dict-items-and-dict-iteritems" class="uri">https://stackoverflow.com/questions/10458437/what-is-the-difference-between-dict-items-and-dict-iteritems</a></li>
+</ul>
+</div>
+<ol>
+<li><p>Py2</p>
+<ul>
+<li><code>items()</code>: returns a list of tuples(copied elements)</li>
+<li><code>iteritems()</code>: returns an iterator, can't iterate if <code>dict</code> changed <strong>after iterator created</strong></li>
+<li><code>viewitems()</code>: returns a <a href="https://docs.python.org/2/library/stdtypes.html#dictionary-view-objects">view object</a>, can't iterate if <code>dict</code> changed <strong>during iteration</strong></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span> d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">0</span>}</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="op">&gt;&gt;&gt;</span> it <span class="op">=</span> d.iteritems()</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="op">&gt;&gt;&gt;</span> d[<span class="st">&#39;b&#39;</span>] <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="op">&gt;&gt;&gt;</span> <span class="bu">next</span>(it)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">Traceback (most recent call last):</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">1</span>, <span class="kw">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="pp">RuntimeError</span>: dictionary changed size during iteration</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="op">&gt;&gt;&gt;</span> view <span class="op">=</span> d.viewitems()</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="op">&gt;&gt;&gt;</span> d[<span class="st">&#39;c&#39;</span>] <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="op">&gt;&gt;&gt;</span> it <span class="op">=</span> <span class="bu">iter</span>(view)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="op">&gt;&gt;&gt;</span> <span class="bu">next</span>(it)</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">(<span class="st">&#39;a&#39;</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="op">&gt;&gt;&gt;</span> d[<span class="st">&#39;d&#39;</span>] <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="op">&gt;&gt;&gt;</span> <span class="bu">next</span>(it)</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">Traceback (most recent call last):</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">  File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">1</span>, <span class="kw">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="pp">RuntimeError</span>: dictionary changed size during iteration</a></code></pre></div></li>
+<li><p>Py3</p>
+<ul>
+<li><code>dict.items()</code> == <code>dict.viewitems()</code> of Py2</li>
+</ul></li>
+</ol>
+<h2 id="docstring">docstring</h2>
+<ul>
+<li><em>Sphinx</em> reStructuredText based .</li>
+<li><em>Google</em> and <em>Numpy</em> Styles</li>
+</ul>
+<p>Specific syntax for variable docstring:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">#: docstring for x</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">x <span class="op">=</span> <span class="dv">22</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">x <span class="op">=</span> <span class="dv">22</span>  <span class="co">#: docstring for x</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0257/" class="uri">https://www.python.org/dev/peps/pep-0257/</a></li>
+<li><a href="http://epydoc.sourceforge.net/manual-docstring.html" class="uri">http://epydoc.sourceforge.net/manual-docstring.html</a></li>
+</ul>
+</div>
+<h2 id="exceptions">exceptions</h2>
+<ul>
+<li><code>else:</code> must be placed after <code>except:</code>, which block will be executed if no exception raised</li>
+<li><code>finally:</code> will always be executed whether any exception raised or not</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/exceptions.html" class="uri">https://docs.python.org/2/library/exceptions.html</a></li>
+<li><a href="https://docs.python.org/2/faq/design.html#how-fast-are-exceptions" class="uri">https://docs.python.org/2/faq/design.html#how-fast-are-exceptions</a></li>
+</ul>
+</div>
+<h3 id="how-fast-are-exceptions">How fast are exceptions?</h3>
+<ul>
+<li>A <code>try</code> / <code>except</code> block is extremely efficient if no exceptions are raised</li>
+<li>Actually catching an exception is expensive.</li>
+<li>Following code only makes sense when you expected the <code>dict</code> to have the <code>key</code> almost all the time.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    value <span class="op">=</span> mydict[key]</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="cf">except</span> <span class="pp">KeyError</span>:</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    mydict[key] <span class="op">=</span> getvalue(key)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    value <span class="op">=</span> mydict[key]</a></code></pre></div>
+<h3 id="casts-to-string">Casts to string</h3>
+<p>If <code>str()</code> or <code>unicode()</code> is called on an instance of this class(<code>BaseException</code>), <strong>the representation of the argument(s) to the instance are returned</strong>, or the empty string when there were no arguments.</p>
+<p><code>BaseException.args</code>: The tuple of arguments given to the exception constructor.</p>
+<h3 id="built-in-exceptions">Built-in Exceptions</h3>
+<pre class="example"><code>BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StandardError
+      |    +-- BufferError
+      |    +-- ArithmeticError
+      |    |    +-- FloatingPointError
+      |    |    +-- OverflowError
+      |    |    +-- ZeroDivisionError
+      |    +-- AssertionError
+      |    +-- AttributeError
+      |    +-- EnvironmentError
+      |    |    +-- IOError
+      |    |    +-- OSError
+      |    |         +-- WindowsError (Windows)
+      |    |         +-- VMSError (VMS)
+      |    +-- EOFError
+      |    +-- ImportError
+      |    +-- LookupError
+      |    |    +-- IndexError
+      |    |    +-- KeyError
+      |    +-- MemoryError
+      |    +-- NameError
+      |    |    +-- UnboundLocalError
+      |    +-- ReferenceError
+      |    +-- RuntimeError
+      |    |    +-- NotImplementedError
+      |    +-- SyntaxError
+      |    |    +-- IndentationError
+      |    |         +-- TabError
+      |    +-- SystemError
+      |    +-- TypeError
+      |    +-- ValueError
+      |         +-- UnicodeError
+      |              +-- UnicodeDecodeError
+      |              +-- UnicodeEncodeError
+      |              +-- UnicodeTranslateError
+      +-- Warning
+           +-- DeprecationWarning
+           +-- PendingDeprecationWarning
+           +-- RuntimeWarning
+           +-- SyntaxWarning
+           +-- UserWarning
+           +-- FutureWarning
+     +-- ImportWarning
+     +-- UnicodeWarning
+     +-- BytesWarning
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/exceptions.html" class="uri">https://docs.python.org/2/library/exceptions.html</a></li>
+</ul>
+</div>
+<ol>
+<li><p>SystemExit</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="cf">raise</span> <span class="pp">SystemExit</span>()       <span class="co"># exit status: 0</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="cf">raise</span> <span class="pp">SystemExit</span>(<span class="dv">99</span>)     <span class="co"># exit status: 99</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="cf">raise</span> <span class="pp">SystemExit</span>(<span class="st">&#39;foo&#39;</span>)  <span class="co"># print &#39;foo&#39;, exit status: 1</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/exceptions.html#exceptions.SystemExit" class="uri">https://docs.python.org/2/library/exceptions.html#exceptions.SystemExit</a></li>
+</ul>
+</div></li>
+</ol>
+<h3 id="raise-myexception-vs-raise-myexception">raise MyException vs raise MyException()</h3>
+<ul>
+<li>The short answer is that both <code>raise MyException</code> and <code>raise MyException()</code> do the same thing.</li>
+<li>This first form auto instantiates your exception.</li>
+<li>So, use <code>raise MyException</code> when there are no arguments.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/16706956/is-there-a-difference-between-raise-exception-and-raise-exception-without" class="uri">http://stackoverflow.com/questions/16706956/is-there-a-difference-between-raise-exception-and-raise-exception-without</a></li>
+</ul>
+</div>
+<h3 id="catching-multiple-exceptions">Catching multiple exceptions</h3>
+<p>Because <code>except TypeError,e</code> is equivalent to <code>exception TypeError as e</code>, you must use <code>tuple</code> to catch multiple exceptions like <code>except (TypeError, ValueError) as e</code></p>
+<h3 id="keyboardinterrupt">KeyboardInterrupt</h3>
+<ul>
+<li>Normally, <code>KeyboardInterrupt</code> is raised by the python defined <code>default_int_handler</code> for <code>SIGINT</code> (<a href="https://hg.python.org/cpython/file/6eefdf0fade6/Modules/signalmodule.c#l603">code</a>)</li>
+<li>However, if signal mask contains <code>SIG_IGN</code>, it won't, which means, There would be no <code>KeyboardInterrupt</code>.</li>
+<li>Most shell like <code>bash</code> set the signal mask of <code>SIG_IGN</code> to <code>SIGINT</code> and <code>SIGQUIT</code> when it runs the process background (like <code>$ cmd &amp;</code>)</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/40775054/capturing-sigint-using-keyboardinterrupt-exception-works-in-terminal-not-in-scr" class="uri">https://stackoverflow.com/questions/40775054/capturing-sigint-using-keyboardinterrupt-exception-works-in-terminal-not-in-scr</a></li>
+</ul>
+</div>
+<h2 id="import">import</h2>
+<h3 id="absolute-import-vs-implicit-explicit-relative-import">Absolute import vs implicit, explicit relative import</h3>
+<ul>
+<li><code>from __future__ import absolute_import</code> for <code>py2</code></li>
+<li>Default in <code>py3</code></li>
+</ul>
+<pre class="example"><code>foo
+  |--__init__.py
+  |--bar.py
+  |--baz.py
+bar.py
+baz.py
+</code></pre>
+<ul>
+<li>In <code>implicit relative import</code>, which is legacy and not recommended, the semantic of <code>import bar</code> is different among where it used.
+<ul>
+<li>In <code>baz.py</code> it will imports <code>bar.py</code>,</li>
+<li>In <code>foo/baz.py</code> it will imports <code>foo/bar.py</code></li>
+</ul></li>
+</ul>
+<p>This would cause subtle bugs. At this point, we need <code>absolute_import</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="im">from</span> __future__ <span class="im">import</span> absolute_import</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="im">import</span> bar</a></code></pre></div>
+<p>With this code, <code>import bar</code> always imports <code>bar.py</code>, not things like <code>foo/bar.py</code>. To import <code>foo/bar.py</code>, there are two ways. One is absoulte import and the other is explicit relative import.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="im">from</span> __future__ <span class="im">import</span> absolute_import</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="co"># Absolute import</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="im">import</span> foo.bar</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="co"># Explicit relative import</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="co"># This is valid only when this file is in &#39;foo&#39; package</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="co"># This way is discouraged; PEP8 prefers absolute imports</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="im">import</span> .bar</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0328/" class="uri">https://www.python.org/dev/peps/pep-0328/</a></li>
+<li><a href="https://stackoverflow.com/questions/4209641/absolute-vs-explicit-relative-import-of-python-module" class="uri">https://stackoverflow.com/questions/4209641/absolute-vs-explicit-relative-import-of-python-module</a></li>
+</ul>
+</div>
+<h3 id="import-in-function">Import in function</h3>
+<ul>
+<li><code>import</code> will cache the module. So <code>import in function</code> won't cause reload and severe overhead.</li>
+<li>But <code>import in function</code> would still have addtional overhead for checking and resolving the cache, etc.</li>
+<li>So, use <code>import in function</code> only for optional library support or resolving circular dependency problem.</li>
+<li><code>import</code> statement is just loading a module and giving a name for it. So we can perform a module level import within a function:</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">def</span> foo():</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">    <span class="kw">global</span> math</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="im">import</span> math</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/128478/should-python-import-statements-always-be-at-the-top-of-a-module" class="uri">https://stackoverflow.com/questions/128478/should-python-import-statements-always-be-at-the-top-of-a-module</a></li>
+<li><a href="https://stackoverflow.com/questions/11990556/python-how-to-make-global-imports-from-a-function" class="uri">https://stackoverflow.com/questions/11990556/python-how-to-make-global-imports-from-a-function</a></li>
+</ul>
+</div>
+<h3 id="submodules-related-from">Submodules related from</h3>
+<dl>
+<dt><code>from package import item</code></dt>
+<dd><ol>
+<li>Tests whether the <code>item</code> is defined in the package;</li>
+<li>If not, it assumes it is a module and attempts to load it.</li>
+<li>If it fails to find it, an <code>ImportError</code> exception is raised.</li>
+</ol>
+</dd>
+<dt><code>import item.subitem.subsubitem</code></dt>
+<dd><ol>
+<li>Each item except for the last must be a package</li>
+<li>The last item can be a module or a package but <strong>can’t be a class or function or variable defined in the previous item.</strong></li>
+</ol>
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/modules.html#packages" class="uri">https://docs.python.org/3/tutorial/modules.html#packages</a></li>
+</ul>
+</div>
+<h3 id="sorting-imports">Sorting imports</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://pypi.python.org/pypi/isort" class="uri">https://pypi.python.org/pypi/isort</a></li>
+<li><a href="https://stackoverflow.com/questions/20762662/whats-the-correct-way-to-sort-python-import-x-and-from-x-import-y-statement" class="uri">https://stackoverflow.com/questions/20762662/whats-the-correct-way-to-sort-python-import-x-and-from-x-import-y-statement</a></li>
+</ul>
+</div>
+<h2 id="itertools">itertools</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Generates a break or new group every time the value of the key function changes</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">[k <span class="cf">for</span> k, g <span class="kw">in</span> groupby(<span class="st">&#39;AAAABBBCCDAABBB&#39;</span>)]   <span class="co"># --&gt; A B C D A B</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">[<span class="bu">list</span>(g) <span class="cf">for</span> k, g <span class="kw">in</span> groupby(<span class="st">&#39;AAAABBBCCD&#39;</span>)]  <span class="co"># --&gt; AAAA BBB CC D</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/itertools.html" class="uri">https://docs.python.org/2/library/itertools.html</a></li>
+</ul>
+</div>
+<h2 id="list">list</h2>
+<pre class="example"><code>x in s
+x not in s
+s + t         the concatenation of s and t
+s * n, n * s  equivalent to adding s to itself n times
+s[i]
+s[i:j]
+s[i:j:k]
+s[i] = x
+s[i:j] = t    slice of s from i to j is replaced by the contents of the iterable t
+del s[i:j]    same as s[i:j] = []
+s[i:j:k] = t  the elements of s[i:j:k] are replaced by those of t
+del s[i:j:k]  removes the elements of s[i:j:k] from the list
+s *= n        updates s with its contents repeated n times
+len(s)
+min(s)
+max(s)
+
+L.append(object)
+L.count(value) -&gt; integer
+L.extend(iterable)
+L.index(value, [start, [stop]]) -&gt; integer  return first index of value; ValueError on failure
+L.insert(index, object)                     insert object before index
+L.pop([index]) -&gt; item                      remove and return item at index (default last); IndexError on failure
+L.remove(value)                             remove first occurrence of value; ValueError on failure
+L.reverse()                                 reverse *IN PLACE*
+L.sort(cmp=None, key=None, reverse=False)   stable sort *IN PLACE*; cmp(x, y) -&gt; -1, 0, 1
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#mutable-sequence-types" class="uri">https://docs.python.org/2/library/stdtypes.html#mutable-sequence-types</a></li>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange" class="uri">https://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange</a></li>
+</ul>
+</div>
+<h2 id="logging">logging</h2>
+<p><img src="https://media.yeonghoey.com/python/_img/screenshot_2017-06-30_22-28-31.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/logging.html" class="uri">https://docs.python.org/2/library/logging.html</a></li>
+<li><a href="https://docs.python.org/2/howto/logging.html#logging-basic-tutorial" class="uri">https://docs.python.org/2/howto/logging.html#logging-basic-tutorial</a></li>
+<li><a href="https://docs.python.org/2/howto/logging-cookbook.html#logging-cookbook" class="uri">https://docs.python.org/2/howto/logging-cookbook.html#logging-cookbook</a></li>
+</ul>
+</div>
+<h2 id="multiprocessing">multiprocessing</h2>
+<div class="sourceCode" id="cb14" data-results="output"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="im">from</span> multiprocessing <span class="im">import</span> Pool</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="im">import</span> time</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">def</span> f(id_):</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">        <span class="bu">print</span> id_</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">        time.sleep(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="co"># pool must be created AFTER defining functions to apply</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11">pool <span class="op">=</span> Pool(processes<span class="op">=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</a>
+<a class="sourceLine" id="cb14-14" data-line-number="14">    pool.apply_async(f, (i,))</a>
+<a class="sourceLine" id="cb14-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb14-16" data-line-number="16">pool.close()  <span class="co"># Prevents any more tasks from being submitted to the pool</span></a>
+<a class="sourceLine" id="cb14-17" data-line-number="17">pool.join()</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/multiprocessing.html" class="uri">https://docs.python.org/2/library/multiprocessing.html</a></li>
+</ul>
+</div>
+<h2 id="re">re</h2>
+<pre class="example"><code>The special characters are:
+    &quot;.&quot;      Matches any character except a newline.
+    &quot;^&quot;      Matches the start of the string.
+    &quot;$&quot;      Matches the end of the string or just before the newline at
+              the end of the string.
+    &quot;*&quot;      Matches 0 or more (greedy) repetitions of the preceding RE.
+              Greedy means that it will match as many repetitions as possible.
+    &quot;+&quot;      Matches 1 or more (greedy) repetitions of the preceding RE.
+    &quot;?&quot;      Matches 0 or 1 (greedy) of the preceding RE.
+    *?,+?,?? Non-greedy versions of the previous three special characters.
+    {m,n}    Matches from m to n repetitions of the preceding RE.
+    {m,n}?   Non-greedy version of the above.
+    &quot;\\&quot;     Either escapes special characters or signals a special sequence.
+    []       Indicates a set of characters.
+              A &quot;^&quot; as the first character indicates a complementing set.
+    &quot;|&quot;      A|B, creates an RE that will match either A or B.
+    (...)    Matches the RE inside the parentheses.
+              The contents can be retrieved or matched later in the string.
+    (?iLmsux) Set the I, L, M, S, U, or X flag for the RE (see below).
+    (?:...)  Non-grouping version of regular parentheses.
+    (?P&lt;name&gt;...) The substring matched by the group is accessible by name.
+    (?P=name)     Matches the text matched earlier by the group named name.
+    (?#...)  A comment; ignored.
+    (?=...)  Matches if ... matches next, but doesn&#39;t consume the string.
+    (?!...)  Matches if ... doesn&#39;t match next.
+    (?&lt;=...) Matches if preceded by ... (must be fixed length).
+    (?&lt;!...) Matches if not preceded by ... (must be fixed length).
+    (?(id/name)yes|no) Matches yes pattern if the group with id/name matched,
+                        the (optional) no pattern otherwise.
+
+The special sequences consist of &quot;\\&quot; and a character from the list
+below.  If the ordinary character is not on the list, then the
+resulting RE will match the second character.
+    \number  Matches the contents of the group of the same number.
+    \A       Matches only at the start of the string.
+    \Z       Matches only at the end of the string.
+    \b       Matches the empty string, but only at the start or end of a word.
+    \B       Matches the empty string, but not at the start or end of a word.
+    \d       Matches any decimal digit; equivalent to the set [0-9].
+    \D       Matches any non-digit character; equivalent to the set [^0-9].
+    \s       Matches any whitespace character; equivalent to [ \t\n\r\f\v].
+    \S       Matches any non-whitespace character; equiv. to [^ \t\n\r\f\v].
+    \w       Matches any alphanumeric character; equivalent to [a-zA-Z0-9_].
+              With LOCALE, it will match the set [0-9_] plus characters defined
+              as letters for the current locale.
+    \W       Matches the complement of \w.
+    \\       Matches a literal backslash.
+
+This module exports the following functions:
+    match    Match a regular expression pattern to the beginning of a string.
+    search   Search a string for the presence of a pattern.
+    sub      Substitute occurrences of a pattern found in a string.
+    subn     Same as sub, but also return the number of substitutions made.
+    split    Split a string by the occurrences of a pattern.
+    findall  Find all occurrences of a pattern in a string.
+    finditer Return an iterator yielding a match object for each match.
+    compile  Compile a pattern into a RegexObject.
+    purge    Clear the regular expression cache.
+    escape   Backslash all non-alphanumerics in a string.
+
+Some of the functions in this module takes flags as optional parameters:
+    I  IGNORECASE  Perform case-insensitive matching.
+    L  LOCALE      Make \w, \W, \b, \B, dependent on the current locale.
+    M  MULTILINE   &quot;^&quot; matches the beginning of lines (after a newline)
+                    as well as the string.
+                    &quot;$&quot; matches the end of lines (before a newline) as well
+                    as the end of the string.
+    S  DOTALL      &quot;.&quot; matches any character at all, including the newline.
+    X  VERBOSE     Ignore whitespace and comments for nicer looking RE&#39;s.
+    U  UNICODE     Make \w, \W, \b, \B, dependent on the Unicode locale.
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/re.html" class="uri">https://docs.python.org/2/library/re.html</a></li>
+</ul>
+</div>
+<h2 id="set">set</h2>
+<pre class="example"><code>x in set
+x not in set
+set.isdisjoint(other)
+set &lt;= other           set.issubset(other)
+set &lt; other            set &lt;= other and set != other
+set &gt;= other           set.issuperset(other)
+set &gt; other            set &gt;= other and set != other
+set | other | ...      set.union(*others)
+set &amp; other &amp; ...      set.intersection(*others)
+set - other - ...      set.difference(*others)
+set ^ other            set.symmetric_difference(other)
+                       (either the set or other but not both)
+set.copy()             (a shallow copy of s)
+
+# only for set, not frozenset
+set |= other | ...     set.update(*others)
+set &amp;= other &amp; ...     set.intersection_update(*others)
+set -= other | ...     set.difference_update(*others)
+set ^= other           set.symmetric_difference_update(other)
+set.add(elem)
+set.remove(elem)       (remove elem. KeyError if elem doesn&#39;t exist)
+set.discard(elem)      (remove elem if it is present)
+set.pop()              (remove and return an arbitrary elem. KeyError if empty)
+clear()
+</code></pre>
+<blockquote>
+<p>non-operator versions of union(), intersection(), difference(), and symmetric<sub>difference</sub>(), issubset(), and issuperset() methods <strong>will accept any iterable</strong> as an argument. In contrast, their <strong>operator based counterparts require their arguments to be sets</strong>.</p>
+</blockquote>
+<blockquote>
+<p><code>set('abc') == frozenset('abc')</code> returns <code>True</code> and so does <code>set('abc') in set([frozenset('abc')])</code>.</p>
+</blockquote>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#set-types-set-frozenset" class="uri">https://docs.python.org/2/library/stdtypes.html#set-types-set-frozenset</a></li>
+</ul>
+</div>
+<h2 id="str">str</h2>
+<h2 id="string">string</h2>
+<pre class="example"><code>S.capitalize() -&gt; string
+S.center(width[, fillchar]) -&gt; string             fillchar=&#39; &#39;
+S.count(sub[, start[, end]]) -&gt; int
+S.decode([encoding[,errors]]) -&gt; object
+S.encode([encoding[,errors]]) -&gt; object
+S.endswith(suffix[, start[, end]]) -&gt; bool        suffix can also be a tuple of strings
+S.expandtabs([tabsize]) -&gt; string                 tabsize=8
+S.find(sub [,start [,end]]) -&gt; int                return -1 on failure
+S.format(*args, **kwargs) -&gt; string
+S.index(sub [,start [,end]]) -&gt; int               raise ValueError on failure
+S.isalnum() -&gt; bool
+S.isalpha() -&gt; bool
+S.isdigit() -&gt; bool
+S.islower() -&gt; bool
+S.isspace() -&gt; bool
+S.istitle() -&gt; bool
+S.isupper() -&gt; bool
+S.join(iterable) -&gt; string
+S.ljust(width[, fillchar]) -&gt; string              fillchar=&#39; &#39;
+S.lower() -&gt; string
+S.lstrip([chars]) -&gt; string or unicode            like S.strip()
+S.partition(sep) -&gt; (head, sep, tail)             If sep is not found, return (S, &#39;&#39;, &#39;&#39;)
+S.replace(old, new[, count]) -&gt; string
+S.rfind(sub [,start [,end]]) -&gt; int               like S.find()
+S.rindex(sub [,start [,end]]) -&gt; int              like S.index()
+S.rjust(width[, fillchar]) -&gt; string              fillchar=&#39; &#39;
+S.rpartition(sep) -&gt; (head, sep, tail)            like S.partition()
+S.rsplit([sep [,maxsplit]]) -&gt; list of strings    sep=&#39; &#39;
+S.rstrip([chars]) -&gt; string or unicode            like S.strip()
+S.split([sep [,maxsplit]]) -&gt; list of strings     like S.rsplit()
+S.splitlines(keepends=False) -&gt; list of strings
+S.startswith(prefix[, start[, end]]) -&gt; bool      like S.endswith()
+S.strip([chars]) -&gt; string or unicode             remove leading whitespace(or chars)
+S.swapcase() -&gt; string
+S.title() -&gt; string
+S.translate(table [,deletechars]) -&gt; string
+S.upper() -&gt; string                               see also string.maketrans()
+S.zfill(width) -&gt; string                          zero padding for numeric string
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#string-methods" class="uri">https://docs.python.org/2/library/stdtypes.html#string-methods</a></li>
+</ul>
+</div>
+<h3 id="format">format</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%s</span><span class="st"> </span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>)</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{}</span><span class="st"> </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>)    <span class="co"># one two</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%d</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="dv">1</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{}</span><span class="st"> </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">1</span>, <span class="dv">2</span>)            <span class="co"># 1 2</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{1}</span><span class="st"> </span><span class="sc">{0}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;one&#39;</span>, <span class="st">&#39;two&#39;</span>)  <span class="co"># two one</span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb18-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="kw">class</span> Data(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb18-10" data-line-number="10">        <span class="cf">return</span> <span class="st">&#39;str&#39;</span></a>
+<a class="sourceLine" id="cb18-11" data-line-number="11">    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb18-12" data-line-number="12">        <span class="cf">return</span> <span class="st">&#39;repr&#39;</span></a>
+<a class="sourceLine" id="cb18-13" data-line-number="13"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%s</span><span class="st"> </span><span class="sc">%r</span><span class="st">&#39;</span> <span class="op">%</span> (Data(), Data())</a>
+<a class="sourceLine" id="cb18-14" data-line-number="14"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{0!s}</span><span class="st"> </span><span class="sc">{0!r}</span><span class="st">&#39;</span>.<span class="bu">format</span>(Data())  <span class="co"># str repr</span></a>
+<a class="sourceLine" id="cb18-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb18-16" data-line-number="16"><span class="kw">class</span> Data(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb18-17" data-line-number="17">    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb18-18" data-line-number="18">        <span class="cf">return</span> <span class="st">&#39;räpr&#39;</span></a>
+<a class="sourceLine" id="cb18-19" data-line-number="19"><span class="co"># &#39;%a&#39;, &#39;{0!a}&#39; for ascii()</span></a>
+<a class="sourceLine" id="cb18-20" data-line-number="20"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%r</span><span class="st"> %a&#39;</span> <span class="op">%</span> (Data(), Data())</a>
+<a class="sourceLine" id="cb18-21" data-line-number="21"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{0!r}</span><span class="st"> {0!a}&#39;</span>.<span class="bu">format</span>(Data())  <span class="co"># räpr r\xe4pr</span></a>
+<a class="sourceLine" id="cb18-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb18-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb18-24" data-line-number="24"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%10s</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="st">&#39;test&#39;</span>,)</a>
+<a class="sourceLine" id="cb18-25" data-line-number="25"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:&gt;10}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;test&#39;</span>)   <span class="co"># test</span></a>
+<a class="sourceLine" id="cb18-26" data-line-number="26"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%-10s</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="st">&#39;test&#39;</span>,)</a>
+<a class="sourceLine" id="cb18-27" data-line-number="27"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:10}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;test&#39;</span>)    <span class="co"># test      $</span></a>
+<a class="sourceLine" id="cb18-28" data-line-number="28"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:_&lt;10}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;test&#39;</span>)  <span class="co"># test______</span></a>
+<a class="sourceLine" id="cb18-29" data-line-number="29"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:^10}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;test&#39;</span>)   <span class="co"># test   $</span></a>
+<a class="sourceLine" id="cb18-30" data-line-number="30"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:^6}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;zip&#39;</span>)     <span class="co"># zip  $  (extra character on the right)</span></a>
+<a class="sourceLine" id="cb18-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb18-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb18-33" data-line-number="33"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%.5s</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="st">&#39;xylophone&#39;</span>,)</a>
+<a class="sourceLine" id="cb18-34" data-line-number="34"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:.5}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;xylophone&#39;</span>)    <span class="co"># xylop</span></a>
+<a class="sourceLine" id="cb18-35" data-line-number="35"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%-10.5s</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="st">&#39;xylophone&#39;</span>,)</a>
+<a class="sourceLine" id="cb18-36" data-line-number="36"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:10.5}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;xylophone&#39;</span>)  <span class="co"># xylop     $</span></a>
+<a class="sourceLine" id="cb18-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb18-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb18-39" data-line-number="39"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%d</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="dv">42</span>,)</a>
+<a class="sourceLine" id="cb18-40" data-line-number="40"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:d}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">42</span>)        <span class="co"># 42</span></a>
+<a class="sourceLine" id="cb18-41" data-line-number="41"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%4d</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="dv">42</span>,)</a>
+<a class="sourceLine" id="cb18-42" data-line-number="42"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:4d}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">42</span>)       <span class="co">#   42</span></a>
+<a class="sourceLine" id="cb18-43" data-line-number="43"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%04d</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="dv">42</span>,)</a>
+<a class="sourceLine" id="cb18-44" data-line-number="44"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:04d}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">42</span>)      <span class="co"># 0042</span></a>
+<a class="sourceLine" id="cb18-45" data-line-number="45"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%+d</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="dv">42</span>,)</a>
+<a class="sourceLine" id="cb18-46" data-line-number="46"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:+d}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">42</span>)       <span class="co"># +42</span></a>
+<a class="sourceLine" id="cb18-47" data-line-number="47"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">% d</span><span class="st">&#39;</span> <span class="op">%</span> ((<span class="op">-</span> <span class="dv">23</span>),)</a>
+<a class="sourceLine" id="cb18-48" data-line-number="48"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{: d}</span><span class="st">&#39;</span>.<span class="bu">format</span>((<span class="op">-</span> <span class="dv">23</span>))   <span class="co"># -23</span></a>
+<a class="sourceLine" id="cb18-49" data-line-number="49"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">% d</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="dv">42</span>,)</a>
+<a class="sourceLine" id="cb18-50" data-line-number="50"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{: d}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">42</span>)       <span class="co">#  42</span></a>
+<a class="sourceLine" id="cb18-51" data-line-number="51"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:=5d}</span><span class="st">&#39;</span>.<span class="bu">format</span>((<span class="op">-</span> <span class="dv">23</span>))  <span class="co"># -  23</span></a>
+<a class="sourceLine" id="cb18-52" data-line-number="52"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:=+5d}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="dv">23</span>)     <span class="co"># +  23</span></a>
+<a class="sourceLine" id="cb18-53" data-line-number="53"></a>
+<a class="sourceLine" id="cb18-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb18-55" data-line-number="55"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%f</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="fl">3.141592653589793</span>,)</a>
+<a class="sourceLine" id="cb18-56" data-line-number="56"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:f}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="fl">3.141592653589793</span>)      <span class="co"># 3.141593</span></a>
+<a class="sourceLine" id="cb18-57" data-line-number="57"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%06.2f</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="fl">3.141592653589793</span>,)</a>
+<a class="sourceLine" id="cb18-58" data-line-number="58"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{:06.2f}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="fl">3.141592653589793</span>)  <span class="co"># 003.14</span></a>
+<a class="sourceLine" id="cb18-59" data-line-number="59"></a>
+<a class="sourceLine" id="cb18-60" data-line-number="60"></a>
+<a class="sourceLine" id="cb18-61" data-line-number="61">data <span class="op">=</span> {<span class="st">&#39;first&#39;</span>: <span class="st">&#39;Hodor&#39;</span>, <span class="st">&#39;last&#39;</span>: <span class="st">&#39;Hodor!&#39;</span>}</a>
+<a class="sourceLine" id="cb18-62" data-line-number="62"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%(first)s</span><span class="st"> </span><span class="sc">%(last)s</span><span class="st">&#39;</span> <span class="op">%</span> data</a>
+<a class="sourceLine" id="cb18-63" data-line-number="63"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{first}</span><span class="st"> </span><span class="sc">{last}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="op">**</span>data)  <span class="co"># Hodor Hodor!</span></a>
+<a class="sourceLine" id="cb18-64" data-line-number="64"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{first}</span><span class="st"> </span><span class="sc">{last}</span><span class="st">&#39;</span>.<span class="bu">format</span>(first<span class="op">=</span><span class="st">&#39;Hodor&#39;</span>, last<span class="op">=</span><span class="st">&#39;Hodor!&#39;</span>)  <span class="co"># Hodor Hodor!</span></a>
+<a class="sourceLine" id="cb18-65" data-line-number="65"></a>
+<a class="sourceLine" id="cb18-66" data-line-number="66">person <span class="op">=</span> {<span class="st">&#39;first&#39;</span>: <span class="st">&#39;Jean-Luc&#39;</span>, <span class="st">&#39;last&#39;</span>: <span class="st">&#39;Picard&#39;</span>}</a>
+<a class="sourceLine" id="cb18-67" data-line-number="67"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{p[first]}</span><span class="st"> </span><span class="sc">{p[last]}</span><span class="st">&#39;</span>.<span class="bu">format</span>(p<span class="op">=</span>person)  <span class="co"># Jean-Luc Picard</span></a>
+<a class="sourceLine" id="cb18-68" data-line-number="68"></a>
+<a class="sourceLine" id="cb18-69" data-line-number="69">data <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">23</span>, <span class="dv">42</span>]</a>
+<a class="sourceLine" id="cb18-70" data-line-number="70"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{d[4]}</span><span class="st"> </span><span class="sc">{d[5]}</span><span class="st">&#39;</span>.<span class="bu">format</span>(d<span class="op">=</span>data)  <span class="co"># 23 42</span></a>
+<a class="sourceLine" id="cb18-71" data-line-number="71"></a>
+<a class="sourceLine" id="cb18-72" data-line-number="72"><span class="kw">class</span> Plant(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb18-73" data-line-number="73">    <span class="bu">type</span> <span class="op">=</span> <span class="st">&#39;tree&#39;</span></a>
+<a class="sourceLine" id="cb18-74" data-line-number="74"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{p.type}</span><span class="st">&#39;</span>.<span class="bu">format</span>(p<span class="op">=</span>Plant())  <span class="co"># tree</span></a>
+<a class="sourceLine" id="cb18-75" data-line-number="75"></a>
+<a class="sourceLine" id="cb18-76" data-line-number="76"><span class="kw">class</span> Plant(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb18-77" data-line-number="77">    <span class="bu">type</span> <span class="op">=</span> <span class="st">&#39;tree&#39;</span></a>
+<a class="sourceLine" id="cb18-78" data-line-number="78">    kinds <span class="op">=</span> [{<span class="st">&#39;name&#39;</span>: <span class="st">&#39;oak&#39;</span>}, {<span class="st">&#39;name&#39;</span>: <span class="st">&#39;maple&#39;</span>}]</a>
+<a class="sourceLine" id="cb18-79" data-line-number="79"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">{p.type}</span><span class="st">: </span><span class="sc">{p.kinds[0][name]}</span><span class="st">&#39;</span>.<span class="bu">format</span>(p<span class="op">=</span>Plant())  <span class="co"># tree: oak</span></a>
+<a class="sourceLine" id="cb18-80" data-line-number="80"></a>
+<a class="sourceLine" id="cb18-81" data-line-number="81"><span class="im">from</span> datetime <span class="im">import</span> datetime</a>
+<a class="sourceLine" id="cb18-82" data-line-number="82"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M}&#39;</span>.<span class="bu">format</span>(datetime(<span class="dv">2001</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>))  <span class="co"># 2001-02-03 04:05</span></a>
+<a class="sourceLine" id="cb18-83" data-line-number="83"></a>
+<a class="sourceLine" id="cb18-84" data-line-number="84"></a>
+<a class="sourceLine" id="cb18-85" data-line-number="85"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:</span><span class="sc">{align}{width}</span><span class="st">}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;test&#39;</span>, align<span class="op">=</span><span class="st">&#39;^&#39;</span>, width<span class="op">=</span><span class="st">&#39;10&#39;</span>)      <span class="co"># test   $</span></a>
+<a class="sourceLine" id="cb18-86" data-line-number="86"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%.*s</span><span class="st"> = </span><span class="sc">%.*f</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="dv">3</span>, <span class="st">&#39;Gibberish&#39;</span>, <span class="dv">3</span>, <span class="fl">2.7182</span>)</a>
+<a class="sourceLine" id="cb18-87" data-line-number="87"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:.</span><span class="sc">{prec}</span><span class="st">} = {:.</span><span class="sc">{prec}</span><span class="st">f}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;Gibberish&#39;</span>, <span class="fl">2.7182</span>, prec<span class="op">=</span><span class="dv">3</span>) <span class="co"># Gib = 2.718</span></a>
+<a class="sourceLine" id="cb18-88" data-line-number="88"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;</span><span class="sc">%*.*f</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="dv">5</span>, <span class="dv">2</span>, <span class="fl">2.7182</span>)</a>
+<a class="sourceLine" id="cb18-89" data-line-number="89"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:</span><span class="sc">{width}</span><span class="st">.</span><span class="sc">{prec}</span><span class="st">f}&#39;</span>.<span class="bu">format</span>(<span class="fl">2.7182</span>, width<span class="op">=</span><span class="dv">5</span>, prec<span class="op">=</span><span class="dv">2</span>)           <span class="co"># 2.72</span></a>
+<a class="sourceLine" id="cb18-90" data-line-number="90"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:</span><span class="sc">{prec}</span><span class="st">} = {:</span><span class="sc">{prec}</span><span class="st">}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;Gibberish&#39;</span>, <span class="fl">2.7182</span>, prec<span class="op">=</span><span class="st">&#39;.3&#39;</span>) <span class="co"># Gib = 2.72</span></a>
+<a class="sourceLine" id="cb18-91" data-line-number="91"></a>
+<a class="sourceLine" id="cb18-92" data-line-number="92"><span class="im">from</span> datetime <span class="im">import</span> datetime</a>
+<a class="sourceLine" id="cb18-93" data-line-number="93">dt <span class="op">=</span> datetime(<span class="dv">2001</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb18-94" data-line-number="94"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:</span><span class="sc">{dfmt}</span><span class="st"> </span><span class="sc">{tfmt}</span><span class="st">}&#39;</span>.<span class="bu">format</span>(dt, dfmt<span class="op">=</span><span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">&#39;</span>, tfmt<span class="op">=</span><span class="st">&#39;%H:%M&#39;</span>)   <span class="co"># 2001-02-03 04:05</span></a>
+<a class="sourceLine" id="cb18-95" data-line-number="95"></a>
+<a class="sourceLine" id="cb18-96" data-line-number="96"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:</span><span class="sc">{}{}{}</span><span class="st">.</span><span class="sc">{}</span><span class="st">}&#39;</span>.<span class="bu">format</span>(<span class="fl">2.7182818284</span>, <span class="st">&#39;&gt;&#39;</span>, <span class="st">&#39;+&#39;</span>, <span class="dv">10</span>, <span class="dv">3</span>)           <span class="co"># +2.72</span></a>
+<a class="sourceLine" id="cb18-97" data-line-number="97"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:</span><span class="sc">{}{sign}{}</span><span class="st">.</span><span class="sc">{}</span><span class="st">}&#39;</span>.<span class="bu">format</span>(<span class="fl">2.7182818284</span>, <span class="st">&#39;&gt;&#39;</span>, <span class="dv">10</span>, <span class="dv">3</span>, sign<span class="op">=</span><span class="st">&#39;+&#39;</span>)  <span class="co"># +2.72</span></a>
+<a class="sourceLine" id="cb18-98" data-line-number="98"></a>
+<a class="sourceLine" id="cb18-99" data-line-number="99"></a>
+<a class="sourceLine" id="cb18-100" data-line-number="100"><span class="kw">class</span> HAL9000(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb18-101" data-line-number="101">    <span class="kw">def</span> <span class="fu">__format__</span>(<span class="va">self</span>, <span class="bu">format</span>):</a>
+<a class="sourceLine" id="cb18-102" data-line-number="102">        <span class="cf">if</span> (<span class="bu">format</span> <span class="op">==</span> <span class="st">&#39;open-the-pod-bay-doors&#39;</span>):</a>
+<a class="sourceLine" id="cb18-103" data-line-number="103">            <span class="cf">return</span> <span class="st">&quot;I&#39;m afraid I can&#39;t do that.&quot;</span></a>
+<a class="sourceLine" id="cb18-104" data-line-number="104">        <span class="cf">return</span> <span class="st">&#39;HAL 9000&#39;</span></a>
+<a class="sourceLine" id="cb18-105" data-line-number="105"><span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;{:open-the-pod-bay-doors}&#39;</span>.<span class="bu">format</span>(HAL9000())  <span class="co"># I&#39;m afraid I can&#39;t do that.</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://pyformat.info/" class="uri">https://pyformat.info/</a></li>
+</ul>
+</div>
+<h2 id="webbrowser">webbrowser</h2>
+<pre class="shell"><code># Open an url in a new tab(-t)
+$ python -m webbrowser -t &quot;http://www.python.org&quot;
+</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># With python code:</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="im">import</span> webbrowser</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">webbrowser.open_new_tab(<span class="st">&#39;http://yeonghoey.com&#39;</span>)</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/webbrowser.html" class="uri">https://docs.python.org/2/library/webbrowser.html</a></li>
+</ul>
+</div>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="new__-vs-__init__"><code>__new__</code> vs <code>__init__</code></h2>
+<ul>
+<li><code>__init__</code> is called after the instance has been created (by <code>__new__</code>), but before it is returned to the caller.</li>
+<li>In general, you shouldn't need to override <code>__new__</code> unless you're subclassing an immutable type like <code>str</code>, <code>int</code>, <code>unicode</code> or <code>tuple</code>.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/reference/datamodel.html#basic-customization" class="uri">https://docs.python.org/2/reference/datamodel.html#basic-customization</a></li>
+<li><a href="https://stackoverflow.com/questions/674304/pythons-use-of-new-and-init" class="uri">https://stackoverflow.com/questions/674304/pythons-use-of-new-and-init</a></li>
+</ul>
+</div>
+<h2 id="comparison">Comparison</h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> [<span class="st">&#39;0&#39;</span>, <span class="dv">9999</span>, {}, [], <span class="va">False</span>, ()]</a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="op">&gt;&gt;&gt;</span> a.sort()</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="op">&gt;&gt;&gt;</span> a</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">[<span class="va">False</span>, <span class="dv">9999</span>, {}, [], <span class="st">&#39;0&#39;</span>, ()]</a></code></pre></div>
+<blockquote>
+<p>CPython implementation detail: Objects of different types except numbers are ordered by their type names; objects of the same types that don't support proper comparison are ordered by their address.</p>
+</blockquote>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#comparisons" class="uri">https://docs.python.org/2/library/stdtypes.html#comparisons</a></li>
+<li><a href="http://michael-yxf.appspot.com/?p=251002" class="uri">http://michael-yxf.appspot.com/?p=251002</a></li>
+</ul>
+</div>
+<h2 id="comparison-of-three-values">Comparison of three values</h2>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" data-line-number="1">x <span class="op">==</span> y <span class="op">==</span> z</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">x <span class="op">==</span> y <span class="kw">and</span> y <span class="op">==</span> z  <span class="co"># &#39;y&#39; is evaluated twice</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="co"># ok</span></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="dv">0</span> <span class="op">&lt;</span> x <span class="op">&lt;</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="dv">10</span> <span class="op">&gt;=</span> z <span class="op">&gt;=</span> <span class="dv">2</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/13792604/usage-of-the-operator-for-three-objects/13792615#13792615" class="uri">https://stackoverflow.com/questions/13792604/usage-of-the-operator-for-three-objects/13792615#13792615</a></li>
+</ul>
+</div>
+<h2 id="double-underscores">Double underscores</h2>
+<ul>
+<li>Also called <code>dunder</code>, <code>special methods</code>, <code>magic methods</code></li>
+<li><a href="https://www.python.org/dev/peps/pep-0008/#id36">PEP8</a> guides to never use these style names for custom uses.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Callables</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="bu">callable</span>.__doc__</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="bu">callable</span>.<span class="va">__name__</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="bu">callable</span>.__module__</a>
+<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="bu">callable</span>.__defaults__</a>
+<a class="sourceLine" id="cb23-6" data-line-number="6"><span class="bu">callable</span>.__code__</a>
+<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="bu">callable</span>.__globals__</a>
+<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="bu">callable</span>.__dict__</a>
+<a class="sourceLine" id="cb23-9" data-line-number="9"><span class="bu">callable</span>.__closure__</a>
+<a class="sourceLine" id="cb23-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb23-11" data-line-number="11"><span class="co"># Basic</span></a>
+<a class="sourceLine" id="cb23-12" data-line-number="12"><span class="bu">object</span>.<span class="fu">__new__</span>(cls[, ...])</a>
+<a class="sourceLine" id="cb23-13" data-line-number="13"><span class="bu">object</span>.<span class="fu">__init__</span>(<span class="va">self</span>[, ...])</a>
+<a class="sourceLine" id="cb23-14" data-line-number="14"><span class="bu">object</span>.<span class="fu">__del__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-15" data-line-number="15"><span class="bu">object</span>.<span class="fu">__repr__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-16" data-line-number="16"><span class="bu">object</span>.<span class="fu">__str__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-17" data-line-number="17"><span class="bu">object</span>.<span class="fu">__lt__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-18" data-line-number="18"><span class="bu">object</span>.<span class="fu">__le__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-19" data-line-number="19"><span class="bu">object</span>.<span class="fu">__eq__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-20" data-line-number="20"><span class="bu">object</span>.<span class="fu">__ne__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-21" data-line-number="21"><span class="bu">object</span>.<span class="fu">__gt__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-22" data-line-number="22"><span class="bu">object</span>.<span class="fu">__ge__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-23" data-line-number="23"><span class="bu">object</span>.<span class="fu">__cmp__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-24" data-line-number="24"><span class="bu">object</span>.<span class="fu">__rcmp__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-25" data-line-number="25"><span class="bu">object</span>.<span class="fu">__hash__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-26" data-line-number="26"><span class="bu">object</span>.<span class="fu">__nonzero__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-27" data-line-number="27"><span class="bu">object</span>.<span class="fu">__unicode__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb23-29" data-line-number="29"><span class="co"># Attribute access</span></a>
+<a class="sourceLine" id="cb23-30" data-line-number="30"><span class="bu">object</span>.<span class="fu">__getattr__</span>(<span class="va">self</span>, name)</a>
+<a class="sourceLine" id="cb23-31" data-line-number="31"><span class="bu">object</span>.<span class="fu">__setattr__</span>(<span class="va">self</span>, name, value)</a>
+<a class="sourceLine" id="cb23-32" data-line-number="32"><span class="bu">object</span>.<span class="fu">__delattr__</span>(<span class="va">self</span>, name)¶</a>
+<a class="sourceLine" id="cb23-33" data-line-number="33"><span class="bu">object</span>.<span class="fu">__getattribute__</span>(<span class="va">self</span>, name)</a>
+<a class="sourceLine" id="cb23-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb23-35" data-line-number="35"><span class="co"># Descriptors</span></a>
+<a class="sourceLine" id="cb23-36" data-line-number="36"><span class="bu">object</span>.<span class="fu">__get__</span>(<span class="va">self</span>, instance, owner)</a>
+<a class="sourceLine" id="cb23-37" data-line-number="37"><span class="bu">object</span>.<span class="fu">__set__</span>(<span class="va">self</span>, instance, value)</a>
+<a class="sourceLine" id="cb23-38" data-line-number="38"><span class="bu">object</span>.<span class="fu">__delete__</span>(<span class="va">self</span>, instance)</a>
+<a class="sourceLine" id="cb23-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb23-40" data-line-number="40"><span class="co"># Class</span></a>
+<a class="sourceLine" id="cb23-41" data-line-number="41">__slots__</a>
+<a class="sourceLine" id="cb23-42" data-line-number="42">__metaclass__</a>
+<a class="sourceLine" id="cb23-43" data-line-number="43"><span class="kw">class</span>.__instancecheck__(<span class="va">self</span>, instance)</a>
+<a class="sourceLine" id="cb23-44" data-line-number="44"><span class="kw">class</span>.__subclasscheck__(<span class="va">self</span>, subclass)</a>
+<a class="sourceLine" id="cb23-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb23-46" data-line-number="46"><span class="co"># Callable</span></a>
+<a class="sourceLine" id="cb23-47" data-line-number="47"><span class="bu">object</span>.<span class="fu">__call__</span>(<span class="va">self</span>[, args...])</a>
+<a class="sourceLine" id="cb23-48" data-line-number="48"></a>
+<a class="sourceLine" id="cb23-49" data-line-number="49"><span class="co"># Container</span></a>
+<a class="sourceLine" id="cb23-50" data-line-number="50"><span class="bu">object</span>.<span class="fu">__len__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-51" data-line-number="51"><span class="bu">object</span>.<span class="fu">__getitem__</span>(<span class="va">self</span>, key)</a>
+<a class="sourceLine" id="cb23-52" data-line-number="52"><span class="bu">object</span>.__missing__(<span class="va">self</span>, key)</a>
+<a class="sourceLine" id="cb23-53" data-line-number="53"><span class="bu">object</span>.<span class="fu">__setitem__</span>(<span class="va">self</span>, key, value)</a>
+<a class="sourceLine" id="cb23-54" data-line-number="54"><span class="bu">object</span>.<span class="fu">__delitem__</span>(<span class="va">self</span>, key)</a>
+<a class="sourceLine" id="cb23-55" data-line-number="55"><span class="bu">object</span>.<span class="fu">__iter__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-56" data-line-number="56"><span class="bu">object</span>.<span class="fu">__reversed__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-57" data-line-number="57"><span class="bu">object</span>.<span class="fu">__contains__</span>(<span class="va">self</span>, item)</a>
+<a class="sourceLine" id="cb23-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb23-59" data-line-number="59"><span class="co"># Sequence</span></a>
+<a class="sourceLine" id="cb23-60" data-line-number="60"><span class="bu">object</span>.<span class="fu">__getslice__</span>(<span class="va">self</span>, i, j)</a>
+<a class="sourceLine" id="cb23-61" data-line-number="61"><span class="bu">object</span>.<span class="fu">__setslice__</span>(<span class="va">self</span>, i, j, sequence)</a>
+<a class="sourceLine" id="cb23-62" data-line-number="62"><span class="bu">object</span>.<span class="fu">__delslice__</span>(<span class="va">self</span>, i, j)</a>
+<a class="sourceLine" id="cb23-63" data-line-number="63"></a>
+<a class="sourceLine" id="cb23-64" data-line-number="64"><span class="co"># Numeric</span></a>
+<a class="sourceLine" id="cb23-65" data-line-number="65"><span class="bu">object</span>.<span class="fu">__add__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-66" data-line-number="66"><span class="bu">object</span>.<span class="fu">__sub__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-67" data-line-number="67"><span class="bu">object</span>.<span class="fu">__mul__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-68" data-line-number="68"><span class="bu">object</span>.<span class="fu">__floordiv__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-69" data-line-number="69"><span class="bu">object</span>.<span class="fu">__mod__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-70" data-line-number="70"><span class="bu">object</span>.<span class="fu">__divmod__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-71" data-line-number="71"><span class="bu">object</span>.<span class="fu">__pow__</span>(<span class="va">self</span>, other[, modulo])</a>
+<a class="sourceLine" id="cb23-72" data-line-number="72"><span class="bu">object</span>.<span class="fu">__lshift__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-73" data-line-number="73"><span class="bu">object</span>.<span class="fu">__rshift__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-74" data-line-number="74"><span class="bu">object</span>.<span class="fu">__and__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-75" data-line-number="75"><span class="bu">object</span>.<span class="fu">__xor__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-76" data-line-number="76"><span class="bu">object</span>.<span class="fu">__or__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-77" data-line-number="77"><span class="bu">object</span>.<span class="fu">__div__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-78" data-line-number="78"><span class="bu">object</span>.<span class="fu">__truediv__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-79" data-line-number="79"></a>
+<a class="sourceLine" id="cb23-80" data-line-number="80"><span class="co"># Numeric, swapped operands</span></a>
+<a class="sourceLine" id="cb23-81" data-line-number="81"><span class="co"># For instance, to evaluate the expression x - y,</span></a>
+<a class="sourceLine" id="cb23-82" data-line-number="82"><span class="co"># where y is an instance of a class that has an __rsub__() method,</span></a>
+<a class="sourceLine" id="cb23-83" data-line-number="83"><span class="co"># y.__rsub__(x) is called if x.__sub__(y) returns NotImplemented.</span></a>
+<a class="sourceLine" id="cb23-84" data-line-number="84"><span class="bu">object</span>.<span class="fu">__radd__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-85" data-line-number="85"><span class="bu">object</span>.<span class="fu">__rsub__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-86" data-line-number="86"><span class="bu">object</span>.<span class="fu">__rmul__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-87" data-line-number="87"><span class="bu">object</span>.<span class="fu">__rdiv__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-88" data-line-number="88"><span class="bu">object</span>.<span class="fu">__rtruediv__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-89" data-line-number="89"><span class="bu">object</span>.<span class="fu">__rfloordiv__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-90" data-line-number="90"><span class="bu">object</span>.<span class="fu">__rmod__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-91" data-line-number="91"><span class="bu">object</span>.<span class="fu">__rdivmod__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-92" data-line-number="92"><span class="bu">object</span>.<span class="fu">__rpow__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-93" data-line-number="93"><span class="bu">object</span>.<span class="fu">__rlshift__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-94" data-line-number="94"><span class="bu">object</span>.<span class="fu">__rrshift__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-95" data-line-number="95"><span class="bu">object</span>.<span class="fu">__rand__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-96" data-line-number="96"><span class="bu">object</span>.<span class="fu">__rxor__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-97" data-line-number="97"><span class="bu">object</span>.<span class="fu">__ror__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-98" data-line-number="98"></a>
+<a class="sourceLine" id="cb23-99" data-line-number="99"><span class="co"># Numeric, inplace (like +=)</span></a>
+<a class="sourceLine" id="cb23-100" data-line-number="100"><span class="bu">object</span>.<span class="fu">__iadd__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-101" data-line-number="101"><span class="bu">object</span>.<span class="fu">__isub__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-102" data-line-number="102"><span class="bu">object</span>.<span class="fu">__imul__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-103" data-line-number="103"><span class="bu">object</span>.<span class="fu">__idiv__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-104" data-line-number="104"><span class="bu">object</span>.<span class="fu">__itruediv__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-105" data-line-number="105"><span class="bu">object</span>.<span class="fu">__ifloordiv__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-106" data-line-number="106"><span class="bu">object</span>.<span class="fu">__imod__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-107" data-line-number="107"><span class="bu">object</span>.<span class="fu">__ipow__</span>(<span class="va">self</span>, other[, modulo])</a>
+<a class="sourceLine" id="cb23-108" data-line-number="108"><span class="bu">object</span>.<span class="fu">__ilshift__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-109" data-line-number="109"><span class="bu">object</span>.<span class="fu">__irshift__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-110" data-line-number="110"><span class="bu">object</span>.<span class="fu">__iand__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-111" data-line-number="111"><span class="bu">object</span>.<span class="fu">__ixor__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-112" data-line-number="112"><span class="bu">object</span>.<span class="fu">__ior__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-113" data-line-number="113"><span class="bu">object</span>.<span class="fu">__neg__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-114" data-line-number="114"><span class="bu">object</span>.<span class="fu">__pos__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-115" data-line-number="115"><span class="bu">object</span>.<span class="fu">__abs__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-116" data-line-number="116"><span class="bu">object</span>.<span class="fu">__invert__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-117" data-line-number="117"><span class="bu">object</span>.<span class="fu">__complex__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-118" data-line-number="118"><span class="bu">object</span>.<span class="fu">__int__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-119" data-line-number="119"><span class="bu">object</span>.<span class="fu">__long__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-120" data-line-number="120"><span class="bu">object</span>.<span class="fu">__float__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-121" data-line-number="121"><span class="bu">object</span>.<span class="fu">__oct__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-122" data-line-number="122"><span class="bu">object</span>.<span class="fu">__hex__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-123" data-line-number="123"><span class="bu">object</span>.<span class="fu">__index__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-124" data-line-number="124"><span class="bu">object</span>.<span class="fu">__coerce__</span>(<span class="va">self</span>, other)</a>
+<a class="sourceLine" id="cb23-125" data-line-number="125"></a>
+<a class="sourceLine" id="cb23-126" data-line-number="126"><span class="co"># with statement</span></a>
+<a class="sourceLine" id="cb23-127" data-line-number="127"><span class="bu">object</span>.<span class="fu">__enter__</span>(<span class="va">self</span>)</a>
+<a class="sourceLine" id="cb23-128" data-line-number="128"><span class="bu">object</span>.<span class="fu">__exit__</span>(<span class="va">self</span>, exc_type, exc_value, traceback)</a></code></pre></div>
+<ul>
+<li>Others search within python library directorin</li>
+<li><code>egrep -oh '__[A-Za-z_][A-Za-z_0-9]*__' *.py | sort | uniq</code></li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" data-line-number="1">__all__</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">__args__</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">__author__</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">__bases__</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">__builtin__</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">__builtins__</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">__cached__</a>
+<a class="sourceLine" id="cb24-8" data-line-number="8">__class__</a>
+<a class="sourceLine" id="cb24-9" data-line-number="9">__copy__</a>
+<a class="sourceLine" id="cb24-10" data-line-number="10">__credits__</a>
+<a class="sourceLine" id="cb24-11" data-line-number="11">__date__</a>
+<a class="sourceLine" id="cb24-12" data-line-number="12">__decimal_context__</a>
+<a class="sourceLine" id="cb24-13" data-line-number="13">__deepcopy__</a>
+<a class="sourceLine" id="cb24-14" data-line-number="14">__exception__</a>
+<a class="sourceLine" id="cb24-15" data-line-number="15"><span class="va">__file__</span></a>
+<a class="sourceLine" id="cb24-16" data-line-number="16">__flags__</a>
+<a class="sourceLine" id="cb24-17" data-line-number="17">__getinitargs__</a>
+<a class="sourceLine" id="cb24-18" data-line-number="18">__getstate__</a>
+<a class="sourceLine" id="cb24-19" data-line-number="19"><span class="bu">__import__</span></a>
+<a class="sourceLine" id="cb24-20" data-line-number="20">__importer__</a>
+<a class="sourceLine" id="cb24-21" data-line-number="21">__ispkg__</a>
+<a class="sourceLine" id="cb24-22" data-line-number="22">__loader__</a>
+<a class="sourceLine" id="cb24-23" data-line-number="23">__main__</a>
+<a class="sourceLine" id="cb24-24" data-line-number="24">__mro__</a>
+<a class="sourceLine" id="cb24-25" data-line-number="25">__package__</a>
+<a class="sourceLine" id="cb24-26" data-line-number="26">__pkgdir__</a>
+<a class="sourceLine" id="cb24-27" data-line-number="27">__return__</a>
+<a class="sourceLine" id="cb24-28" data-line-number="28">__safe_for_unpickling__</a>
+<a class="sourceLine" id="cb24-29" data-line-number="29">__setstate__</a>
+<a class="sourceLine" id="cb24-30" data-line-number="30">__temp__</a>
+<a class="sourceLine" id="cb24-31" data-line-number="31">__test__</a>
+<a class="sourceLine" id="cb24-32" data-line-number="32">__version__</a></code></pre></div>
+<dl>
+<dt><a href="https://docs.python.org/3/reference/import.html#module-path"><span class="underline"><span class="underline">path</span></span></a></dt>
+<dd><ul>
+<li>only for a package.</li>
+<li>a list of the package directory path string</li>
+<li>used during imports of its subpackages</li>
+</ul>
+</dd>
+<dt><a href="https://docs.python.org/3/reference/import.html#__package__"><span class="underline"><span class="underline">package</span></span></a></dt>
+<dd>if the module is a package, <code>__package__</code> is equal to <code>__name__</code> if not, it should be set to its parent package or empty when it's a top-level module This value is used to calculate explicit relative imports
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/reference/datamodel.html" class="uri">https://docs.python.org/2/reference/datamodel.html</a></li>
+<li><a href="https://docs.python.org/2/library/stdtypes.html#special-attributes" class="uri">https://docs.python.org/2/library/stdtypes.html#special-attributes</a></li>
+</ul>
+</div>
+<h2 id="eafp-lbyl">EAFP, LBYL</h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># EAFP (Easier to ask for forgiveness than permission)</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">    <span class="cf">return</span> mapping[key]</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="cf">except</span> <span class="pp">KeyError</span>:</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">    <span class="cf">pass</span></a>
+<a class="sourceLine" id="cb25-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb25-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb25-8" data-line-number="8"><span class="co"># LBYL (Look Before you leap)</span></a>
+<a class="sourceLine" id="cb25-9" data-line-number="9"><span class="cf">if</span> key <span class="kw">in</span> mapping:</a>
+<a class="sourceLine" id="cb25-10" data-line-number="10">    <span class="cf">return</span> mapping[key]</a></code></pre></div>
+<blockquote>
+<p><strong>LBYL</strong> can fail if another thread removes the key after the test, but before the lookup. This issue can be solved with locks or by using the <strong>EAFP</strong> approach.</p>
+</blockquote>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/3/glossary.html#term-eafp" class="uri">https://docs.python.org/3/glossary.html#term-eafp</a></li>
+<li><a href="https://docs.python.org/3/glossary.html#term-lbyl" class="uri">https://docs.python.org/3/glossary.html#term-lbyl</a></li>
+</ul>
+</div>
+<h2 id="final-class">Final class</h2>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">class</span> Final(<span class="bu">type</span>):</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">    <span class="kw">def</span> <span class="fu">__new__</span>(cls, name, bases, classdict):</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">        <span class="cf">for</span> b <span class="kw">in</span> bases:</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">            <span class="cf">if</span> <span class="bu">isinstance</span>(b, Final):</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">                <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">&quot;type &#39;</span><span class="sc">{0}</span><span class="st">&#39; is not an acceptable base type&quot;</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6">                                .<span class="bu">format</span>(b.<span class="va">__name__</span>))</a>
+<a class="sourceLine" id="cb26-7" data-line-number="7">        <span class="cf">return</span> <span class="bu">type</span>.<span class="fu">__new__</span>(cls, name, bases, classdict)</a>
+<a class="sourceLine" id="cb26-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb26-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb26-10" data-line-number="10"><span class="kw">class</span> C(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb26-11" data-line-number="11">    __metaclass__ <span class="op">=</span> Final</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/2825364/final-classes-in-python-3-x-something-guido-isnt-telling-me" class="uri">http://stackoverflow.com/questions/2825364/final-classes-in-python-3-x-something-guido-isnt-telling-me</a></li>
+</ul>
+</div>
+<h2 id="meta-class">Meta Class</h2>
+<ul>
+<li>Subclasses inherit the metaclass</li>
+</ul>
+<div class="sourceCode" id="cb27" data-results="output"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">class</span> Meta(<span class="bu">type</span>):</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">    <span class="kw">def</span> <span class="fu">__new__</span>(meta, name, bases, class_dict):</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">        <span class="bu">print</span> <span class="st">&#39;Meta.__new__&#39;</span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4">        <span class="bu">print</span> <span class="dv">1</span>, meta</a>
+<a class="sourceLine" id="cb27-5" data-line-number="5">        <span class="bu">print</span> <span class="dv">2</span>, name</a>
+<a class="sourceLine" id="cb27-6" data-line-number="6">        <span class="bu">print</span> <span class="dv">3</span>, bases</a>
+<a class="sourceLine" id="cb27-7" data-line-number="7">        <span class="bu">print</span> <span class="dv">4</span>, class_dict</a>
+<a class="sourceLine" id="cb27-8" data-line-number="8">        <span class="cf">return</span> <span class="bu">type</span>.<span class="fu">__new__</span>(meta, name, bases, class_dict)</a>
+<a class="sourceLine" id="cb27-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb27-10" data-line-number="10">    <span class="kw">def</span> <span class="fu">__init__</span>(cls, name, bases, class_dict):</a>
+<a class="sourceLine" id="cb27-11" data-line-number="11">        <span class="bu">print</span> <span class="st">&#39;Meta.__init__&#39;</span></a>
+<a class="sourceLine" id="cb27-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb27-13" data-line-number="13">    <span class="kw">def</span> <span class="fu">__call__</span>(cls, <span class="op">*</span>args, <span class="op">**</span>kwargs):</a>
+<a class="sourceLine" id="cb27-14" data-line-number="14">        <span class="bu">print</span> <span class="st">&#39;Meta.__call__&#39;</span></a>
+<a class="sourceLine" id="cb27-15" data-line-number="15">        <span class="cf">return</span> <span class="bu">type</span>.<span class="fu">__call__</span>(cls, <span class="op">*</span>args, <span class="op">**</span>kwargs)</a>
+<a class="sourceLine" id="cb27-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb27-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb27-18" data-line-number="18"><span class="bu">print</span> <span class="st">&#39;Before class Foo&#39;</span></a>
+<a class="sourceLine" id="cb27-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb27-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb27-21" data-line-number="21"><span class="kw">class</span> Foo(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb27-22" data-line-number="22">    __metaclass__ <span class="op">=</span> Meta</a>
+<a class="sourceLine" id="cb27-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb27-24" data-line-number="24">    <span class="bu">print</span> <span class="st">&#39;Defining class Foo (1)&#39;</span></a>
+<a class="sourceLine" id="cb27-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb27-26" data-line-number="26">    <span class="kw">def</span> <span class="fu">__new__</span>(cls):</a>
+<a class="sourceLine" id="cb27-27" data-line-number="27">        <span class="bu">print</span> <span class="st">&#39;Foo.__new__&#39;</span></a>
+<a class="sourceLine" id="cb27-28" data-line-number="28">        <span class="cf">return</span> <span class="bu">super</span>(Foo, cls).<span class="fu">__new__</span>(cls)</a>
+<a class="sourceLine" id="cb27-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb27-30" data-line-number="30">    <span class="bu">print</span> <span class="st">&#39;Defining class Foo (2)&#39;</span></a>
+<a class="sourceLine" id="cb27-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb27-32" data-line-number="32">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb27-33" data-line-number="33">        <span class="bu">print</span> <span class="st">&#39;Foo.__init__&#39;</span></a>
+<a class="sourceLine" id="cb27-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb27-35" data-line-number="35">    <span class="bu">print</span> <span class="st">&#39;Defining class Foo (3)&#39;</span></a>
+<a class="sourceLine" id="cb27-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb27-37" data-line-number="37"><span class="bu">print</span> <span class="st">&#39;After class Foo&#39;</span></a>
+<a class="sourceLine" id="cb27-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb27-39" data-line-number="39"><span class="bu">print</span> <span class="st">&#39;--------------------------------------------------------------------------------&#39;</span></a>
+<a class="sourceLine" id="cb27-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb27-41" data-line-number="41"><span class="bu">print</span> <span class="st">&#39;Before instance foo&#39;</span></a>
+<a class="sourceLine" id="cb27-42" data-line-number="42">foo <span class="op">=</span> Foo()</a>
+<a class="sourceLine" id="cb27-43" data-line-number="43"><span class="bu">print</span> <span class="st">&#39;After instance foo&#39;</span></a></code></pre></div>
+<pre class="example"><code>Before class Foo
+Defining class Foo (1)
+Defining class Foo (2)
+Defining class Foo (3)
+Meta.__new__
+1 &lt;class &#39;__main__.Meta&#39;&gt;
+2 Foo
+3 (&lt;type &#39;object&#39;&gt;,)
+4 {&#39;__module__&#39;: &#39;__main__&#39;, &#39;__metaclass__&#39;: &lt;class &#39;__main__.Meta&#39;&gt;, &#39;__new__&#39;: &lt;function __new__ at 0x7f697432a050&gt;, &#39;__init__&#39;: &lt;function __init__ at 0x7f697432a0c8&gt;}
+Meta.__init__
+After class Foo
+--------------------------------------------------------------------------------
+Before instance foo
+Meta.__call__
+Foo.__new__
+Foo.__init__
+After instance foo
+</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># &#39;type&#39; is implemented like following:</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="kw">class</span> <span class="bu">type</span>:</a>
+<a class="sourceLine" id="cb29-3" data-line-number="3">    <span class="kw">def</span> <span class="fu">__call__</span>(cls, <span class="op">*</span>args, <span class="op">**</span>kwarg):</a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb29-5" data-line-number="5">        <span class="co"># A few things could possibly be done to cls here... maybe... or maybe not...</span></a>
+<a class="sourceLine" id="cb29-6" data-line-number="6">        <span class="co"># then we call cls.__new__() to get a new object</span></a>
+<a class="sourceLine" id="cb29-7" data-line-number="7">        obj <span class="op">=</span> cls.<span class="fu">__new__</span>(cls, <span class="op">*</span>args, <span class="op">**</span>kwargs)</a>
+<a class="sourceLine" id="cb29-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb29-9" data-line-number="9">        <span class="co"># A few things done to obj here... maybe... or not...</span></a>
+<a class="sourceLine" id="cb29-10" data-line-number="10">        <span class="co"># then we call obj.__init__()</span></a>
+<a class="sourceLine" id="cb29-11" data-line-number="11">        obj.<span class="fu">__init__</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs)</a>
+<a class="sourceLine" id="cb29-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb29-13" data-line-number="13">        <span class="co"># maybe a few more things done to obj here</span></a>
+<a class="sourceLine" id="cb29-14" data-line-number="14">        <span class="co"># then we return obj</span></a>
+<a class="sourceLine" id="cb29-15" data-line-number="15">        <span class="cf">return</span> obj</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/python/_img/screenshot_2017-06-30_22-02-51.png" /></p>
+<p><img src="https://media.yeonghoey.com/python/_img/screenshot_2017-06-30_22-02-40.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/" class="uri">https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/</a></li>
+<li><a href="http://eli.thegreenplace.net/2011/08/14/python-metaclasses-by-example" class="uri">http://eli.thegreenplace.net/2011/08/14/python-metaclasses-by-example</a></li>
+<li><a href="https://stackoverflow.com/questions/6966772/using-the-call-method-of-a-metaclass-instead-of-new" class="uri">https://stackoverflow.com/questions/6966772/using-the-call-method-of-a-metaclass-instead-of-new</a></li>
+<li><a href="https://docs.python.org/2/library/functions.html#type" class="uri">https://docs.python.org/2/library/functions.html#type</a></li>
+</ul>
+</div>
+<h2 id="descriptor">Descriptor</h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb30-1" data-line-number="1">descr.<span class="fu">__get__</span>(<span class="va">self</span>, obj, <span class="bu">type</span><span class="op">=</span><span class="va">None</span>) <span class="co"># -&gt; value</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2">descr.<span class="fu">__set__</span>(<span class="va">self</span>, obj, value)     <span class="co"># -&gt; None</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3">descr.<span class="fu">__delete__</span>(<span class="va">self</span>, obj)         <span class="co"># -&gt; None</span></a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="im">from</span> weakref <span class="im">import</span> WeakKeyDictionary</a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="kw">class</span> Grade(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb31-5" data-line-number="5">        <span class="va">self</span>._values <span class="op">=</span> WeakKeyDictionary()</a>
+<a class="sourceLine" id="cb31-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7">    <span class="kw">def</span> <span class="fu">__get__</span>(<span class="va">self</span>, instance, instance_type):</a>
+<a class="sourceLine" id="cb31-8" data-line-number="8">        <span class="cf">if</span> instance <span class="kw">is</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb31-9" data-line-number="9">            <span class="cf">return</span> <span class="va">self</span></a>
+<a class="sourceLine" id="cb31-10" data-line-number="10">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb31-11" data-line-number="11">            <span class="cf">return</span> <span class="va">self</span>._values.get(instance, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb31-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb31-13" data-line-number="13">    <span class="kw">def</span> <span class="fu">__set__</span>(<span class="va">self</span>, instance, value):</a>
+<a class="sourceLine" id="cb31-14" data-line-number="14">        <span class="co"># Do something special</span></a>
+<a class="sourceLine" id="cb31-15" data-line-number="15">        <span class="va">self</span>._values[instance] <span class="op">=</span> value</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">class</span> Exam(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">    a <span class="op">=</span> Grade()</a>
+<a class="sourceLine" id="cb32-3" data-line-number="3">    b <span class="op">=</span> Grade()</a></code></pre></div>
+<ul>
+<li>Descriptors are invoked by the <code>__getattribute__()</code> method</li>
+<li>Overriding <code>__getattribute__()</code> prevents automatic descriptor calls</li>
+<li><code>__getattribute__()</code> is only available with new style classes and objects</li>
+<li><code>object.__getattribute__()</code> and <code>type.__getattribute__()</code> make different calls to <code>__get__()</code>.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/2/howto/descriptor.html" class="uri">https://docs.python.org/2/howto/descriptor.html</a></li>
+</ul>
+</div>
+<h3 id="functions-and-methods">Functions and Methods</h3>
+<p>For classes, method definitions are just functions. For instances, these functions need to be bound to the instance. To support method calls, functions include the <code>__get__()</code> method for binding methods during attribute access.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">class</span> Function(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">    . . .</a>
+<a class="sourceLine" id="cb33-3" data-line-number="3">    <span class="kw">def</span> <span class="fu">__get__</span>(<span class="va">self</span>, obj, objtype<span class="op">=</span><span class="va">None</span>):</a>
+<a class="sourceLine" id="cb33-4" data-line-number="4">        <span class="co">&quot;Simulate func_descr_get() in Objects/funcobject.c&quot;</span></a>
+<a class="sourceLine" id="cb33-5" data-line-number="5">        <span class="cf">return</span> types.MethodType(<span class="va">self</span>, obj, objtype)</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.python.org/3/howto/descriptor.html#functions-and-methods" class="uri">https://docs.python.org/3/howto/descriptor.html#functions-and-methods</a></li>
+<li><a href="https://stackoverflow.com/questions/1015307/python-bind-an-unbound-method" class="uri">https://stackoverflow.com/questions/1015307/python-bind-an-unbound-method</a></li>
+</ul>
+</div>
+<h3 id="data-descriptors-vs.-non-data-descriptors">Data descriptors vs. non-data descriptors</h3>
+<ul>
+<li>Data descriptor: defines both <code>__get__()</code> and <code>__set__()</code></li>
+<li>Non-data descriptor: defines only <code>__get__()</code></li>
+</ul>
+<ul>
+<li>Data descriptors always override instance dictionaries.</li>
+<li>Non-data descriptors may be overridden by instance dictionaries.</li>
+<li>Following example shows that data descriptor(<code>@property</code>) takes precedence over non-data descriptor(<code>Descriptor</code>)</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="op">&gt;&gt;&gt;</span> <span class="kw">class</span> Descriptor(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">...     <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name):</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">...         <span class="va">self</span>.name <span class="op">=</span> name</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">...     <span class="kw">def</span> <span class="fu">__get__</span>(<span class="va">self</span>, instance, cls):</a>
+<a class="sourceLine" id="cb34-5" data-line-number="5">...         <span class="bu">print</span> <span class="st">&#39;Getting </span><span class="sc">%s</span><span class="st">, with instance </span><span class="sc">%r</span><span class="st">, class </span><span class="sc">%r</span><span class="st">&#39;</span> <span class="op">%</span> (<span class="va">self</span>.name, instance, cls)</a>
+<a class="sourceLine" id="cb34-6" data-line-number="6">...</a>
+<a class="sourceLine" id="cb34-7" data-line-number="7"><span class="op">&gt;&gt;&gt;</span> <span class="kw">class</span> Foo(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb34-8" data-line-number="8">...     _spam <span class="op">=</span> <span class="st">&#39;eggs&#39;</span></a>
+<a class="sourceLine" id="cb34-9" data-line-number="9">...     <span class="op">@</span>property</a>
+<a class="sourceLine" id="cb34-10" data-line-number="10">...     <span class="kw">def</span> spam(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb34-11" data-line-number="11">...         <span class="cf">return</span> <span class="va">self</span>._spam</a>
+<a class="sourceLine" id="cb34-12" data-line-number="12">...     <span class="op">@</span>spam.setter</a>
+<a class="sourceLine" id="cb34-13" data-line-number="13">...     <span class="kw">def</span> spam(<span class="va">self</span>, val):</a>
+<a class="sourceLine" id="cb34-14" data-line-number="14">...         <span class="va">self</span>._spam <span class="op">=</span> val</a>
+<a class="sourceLine" id="cb34-15" data-line-number="15">...</a>
+<a class="sourceLine" id="cb34-16" data-line-number="16"><span class="op">&gt;&gt;&gt;</span> Foo().spam</a>
+<a class="sourceLine" id="cb34-17" data-line-number="17"><span class="co">&#39;eggs&#39;</span></a>
+<a class="sourceLine" id="cb34-18" data-line-number="18"><span class="op">&gt;&gt;&gt;</span> foo <span class="op">=</span> Foo()</a>
+<a class="sourceLine" id="cb34-19" data-line-number="19"><span class="op">&gt;&gt;&gt;</span> foo.__dict__[<span class="st">&#39;spam&#39;</span>] <span class="op">=</span> Descriptor(<span class="st">&#39;Override&#39;</span>)</a>
+<a class="sourceLine" id="cb34-20" data-line-number="20"><span class="op">&gt;&gt;&gt;</span> foo.spam</a>
+<a class="sourceLine" id="cb34-21" data-line-number="21"><span class="co">&#39;eggs&#39;</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/13007179/python-data-and-non-data-descriptors" class="uri">https://stackoverflow.com/questions/13007179/python-data-and-non-data-descriptors</a></li>
+</ul>
+</div>
+<h2 id="getattr-vs.-getattribute"><span class="underline"><span class="underline">getattr</span></span> vs. <span class="underline"><span class="underline">getattribute</span></span></h2>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">class</span> Foo(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb35-2" data-line-number="2">    <span class="kw">def</span> <span class="fu">__getattr__</span>(<span class="va">self</span>, name):</a>
+<a class="sourceLine" id="cb35-3" data-line-number="3">        <span class="bu">print</span> <span class="st">&#39;__getattr_: </span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> name</a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">foo <span class="op">=</span> Foo()</a>
+<a class="sourceLine" id="cb35-5" data-line-number="5">foo.bar</a>
+<a class="sourceLine" id="cb35-6" data-line-number="6">foo.bar <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb35-7" data-line-number="7">foo.bar  <span class="co"># __getattr__ won&#39;t be invoked, because &#39;foo.bar&#39; is now existing</span></a>
+<a class="sourceLine" id="cb35-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb35-9" data-line-number="9"><span class="co"># Output:</span></a>
+<a class="sourceLine" id="cb35-10" data-line-number="10"><span class="co"># __getattr_: bar</span></a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">class</span> Foo(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">    <span class="kw">def</span> <span class="fu">__getattribute__</span>(<span class="va">self</span>, name):</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3">        <span class="bu">print</span> <span class="st">&#39;__getattribute_: </span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> name</a>
+<a class="sourceLine" id="cb36-4" data-line-number="4">foo <span class="op">=</span> Foo()</a>
+<a class="sourceLine" id="cb36-5" data-line-number="5">foo.bar</a>
+<a class="sourceLine" id="cb36-6" data-line-number="6">foo.bar <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb36-7" data-line-number="7">foo.bar  <span class="co"># __getattribute__ will always be invoked, whether &#39;foo.bar&#39; is existing or not.</span></a>
+<a class="sourceLine" id="cb36-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb36-9" data-line-number="9"><span class="co"># Output:</span></a>
+<a class="sourceLine" id="cb36-10" data-line-number="10"><span class="co"># __getattribute_: bar</span></a>
+<a class="sourceLine" id="cb36-11" data-line-number="11"><span class="co"># __getattribute_: bar</span></a></code></pre></div>
+<ul>
+<li>Always <code>__getattribute__</code> is called first</li>
+<li><code>Descriptor</code> handling is done in the default <code>__getattribute__</code> implementation</li>
+<li><code>__getattr__</code> is good for fallback implementation for missing attributes.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/3278077/difference-between-getattr-vs-getattribute" class="uri">https://stackoverflow.com/questions/3278077/difference-between-getattr-vs-getattribute</a></li>
+</ul>
+</div>
+<h2 id="getattr-setattr-why-need-them">getattr, setattr, Why need them?</h2>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb37-1" data-line-number="1">somevar <span class="op">=</span> <span class="st">&#39;foo&#39;</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="bu">getattr</span>(x, somevar)</a>
+<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="bu">getattr</span>(x, somevar, <span class="dv">0</span>)  <span class="co"># also can specify default value</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/19123707/why-use-setattr-and-getattr-built-ins" class="uri">https://stackoverflow.com/questions/19123707/why-use-setattr-and-getattr-built-ins</a></li>
+</ul>
+</div>
+<h2 id="source-code-encodings">Source Code Encodings</h2>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0263/">PEP 263</a></li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co">#!/usr/bin/python</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="co"># -*- coding: utf-8 -*-</span></a></code></pre></div>
+<h1 id="how-to">How-to</h1>
+<h2 id="wait-until-a-host-starts-listening">Wait until a host starts listening</h2>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="im">from</span> contextlib <span class="im">import</span> closing</a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="im">from</span> socket <span class="im">import</span> socket, AF_INET, SOCK_STREAM</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="im">from</span> time <span class="im">import</span> sleep</a>
+<a class="sourceLine" id="cb39-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb39-5" data-line-number="5"><span class="kw">def</span> wait_healthy(host, port, interval<span class="op">=</span><span class="fl">1.</span>):</a>
+<a class="sourceLine" id="cb39-6" data-line-number="6">    <span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb39-7" data-line-number="7">        <span class="cf">with</span> closing(socket(AF_INET, SOCK_STREAM)) <span class="im">as</span> s:</a>
+<a class="sourceLine" id="cb39-8" data-line-number="8">            <span class="cf">if</span> s.connect_ex((host, port)) <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb39-9" data-line-number="9">                <span class="cf">break</span></a>
+<a class="sourceLine" id="cb39-10" data-line-number="10">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb39-11" data-line-number="11">                sleep(interval)</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="file:///socket#connect">/socket#connect</a></li>
+<li><a href="https://stackoverflow.com/questions/19196105/python-how-to-check-if-a-network-port-is-open-on-linux" class="uri">https://stackoverflow.com/questions/19196105/python-how-to-check-if-a-network-port-is-open-on-linux</a></li>
+</ul>
+</div>
+<h2 id="pick-a-free-port-number">Pick a free port number</h2>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="im">from</span> socket <span class="im">import</span> socket, AF_INET, SOCK_STREAM</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="im">from</span> contextlib <span class="im">import</span> closing</a>
+<a class="sourceLine" id="cb40-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="kw">def</span> free_port():</a>
+<a class="sourceLine" id="cb40-5" data-line-number="5">    <span class="cf">with</span> closing(socket(AF_INET, SOCK_STREAM)) <span class="im">as</span> s:</a>
+<a class="sourceLine" id="cb40-6" data-line-number="6">        s.bind((<span class="st">&#39;localhost&#39;</span>, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb40-7" data-line-number="7">        <span class="cf">return</span> s.getsockname()[<span class="dv">1</span>]</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/1365265/on-localhost-how-do-i-pick-a-free-port-number/1365284" class="uri">https://stackoverflow.com/questions/1365265/on-localhost-how-do-i-pick-a-free-port-number/1365284</a></li>
+</ul>
+</div>
+<h2 id="read-a-file-except-the-first-line">Read a file except the first line</h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="cf">with</span> <span class="bu">open</span>(fname) <span class="im">as</span> f:</a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">    <span class="bu">next</span>(f)</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">    <span class="cf">for</span> line <span class="kw">in</span> f:</a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">        <span class="co">#do something</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/4796764/read-file-from-line-2-or-skip-header-row" class="uri">https://stackoverflow.com/questions/4796764/read-file-from-line-2-or-skip-header-row</a></li>
+</ul>
+</div>
+<h2 id="convert-a-list-to-a-dictionary">Convert a list to a dictionary</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="bu">dict</span>(izip(<span class="op">*</span>([<span class="bu">iter</span>(a)]<span class="op">*</span><span class="dv">2</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="bu">iter</span>(h)    <span class="co">#create an iterator from the array, no copies here</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">[]<span class="op">*</span><span class="dv">2</span>       <span class="co">#creates an array with two copies of the same iterator, the trick</span></a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">izip(<span class="op">*</span>())  <span class="co">#consumes the two iterators creating a tuple</span></a>
+<a class="sourceLine" id="cb43-4" data-line-number="4"><span class="bu">dict</span>()     <span class="co">#puts the tuples into key,value of the dictionary</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/4576115/convert-a-list-to-a-dictionary-in-python" class="uri">https://stackoverflow.com/questions/4576115/convert-a-list-to-a-dictionary-in-python</a></li>
+</ul>
+</div>
+<h2 id="get-a-reference-to-the-current-module">Get a reference to the current module?</h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="im">import</span> sys</a>
+<a class="sourceLine" id="cb44-2" data-line-number="2">current_module <span class="op">=</span> sys.modules[<span class="va">__name__</span>]</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/1676835/python-how-do-i-get-a-reference-to-a-module-inside-the-module-itself" class="uri">https://stackoverflow.com/questions/1676835/python-how-do-i-get-a-reference-to-a-module-inside-the-module-itself</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

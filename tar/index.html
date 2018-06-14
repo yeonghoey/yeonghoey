@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>tar</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>tar</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">tar</h1>
+</header>
+
+
+<table>
+<thead>
+<tr class="header">
+<th>flag</th>
+<th>mnemonic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-c</code></td>
+<td>create</td>
+</tr>
+<tr class="even">
+<td><code>-x</code></td>
+<td>extract</td>
+</tr>
+<tr class="odd">
+<td><code>-t</code></td>
+<td>list</td>
+</tr>
+<tr class="even">
+<td><code>-v</code></td>
+<td>verbose</td>
+</tr>
+<tr class="odd">
+<td><code>-z</code></td>
+<td>gzip</td>
+</tr>
+<tr class="even">
+<td><code>-C DIR</code></td>
+<td>change directory</td>
+</tr>
+<tr class="odd">
+<td><code>-f FILE</code></td>
+<td>target file</td>
+</tr>
+</tbody>
+</table>
+<div class="REFERENCES drawer">
+<pre class="shell"><code>$ cd /tmp
+$ tree target
+</code></pre>
+<pre class="example"><code>target
+├── a.txt
+└── path
+    └── b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code>$ tar -cvf target1.tar /tmp/target
+</code></pre>
+<pre class="example"><code>tar: Removing leading &#39;/&#39; from member names
+a tmp/target
+a tmp/target/a.txt
+a tmp/target/path
+a tmp/target/path/b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code>$ tar -xvf target1.tar
+$ tree tmp
+</code></pre>
+<pre class="example"><code>tmp
+└── target
+    ├── a.txt
+    └── path
+        └── b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code># Change directory
+$ tar -C /tmp/target -cvf target2.tar .
+</code></pre>
+<pre class="example"><code>a .
+a ./a.txt
+a ./path
+a ./path/b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code>$ mkdir out
+$ tar -C out -xvf target2.tar
+$ tree out
+</code></pre>
+<pre class="example"><code>out
+├── a.txt
+└── path
+    └── b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code># Exclude
+$ tar -cvf target3.tar --exclude a.txt target
+</code></pre>
+<pre class="example"><code>a target
+a target/path
+a target/path/b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code>#+BEGIN_SRC shell
+  # Compression
+  $ tar -cvzf target.tar.gz target
+</code></pre>
+<pre class="example"><code>a target
+a target/a.txt
+a target/path
+a target/path/b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code># Don&#39;t need any option for extracting compressed tar
+$ tar -xvf target.tar.gz
+</code></pre>
+<pre class="example"><code>x target/
+x target/a.txt
+x target/path/
+x target/path/b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code># List
+$ tar -tvf target.tar.gz
+</code></pre>
+<pre class="example"><code>drwxr-xr-x  0 hoey   staff       0 Jan 30 10:26 target/
+-rw-r--r--  0 hoey   staff       0 Jan 30 10:23 target/a.txt
+drwxr-xr-x  0 hoey   staff       0 Jan 30 10:26 target/path/
+-rw-r--r--  0 hoey   staff       0 Jan 30 10:23 target/path/b.txt
+</code></pre>
+<hr />
+<pre class="shell"><code># Untar a single file
+$ tar -xvf target.tar.gz target/a.txt
+</code></pre>
+<pre class="example"><code>x target/a.txt
+</code></pre>
+<ul>
+<li><a href="http://www.tecmint.com/18-tar-command-examples-in-linux/" class="uri">http://www.tecmint.com/18-tar-command-examples-in-linux/</a></li>
+<li><a href="http://askubuntu.com/questions/122141/whats-the-difference-between-tar-gz-and-gz-or-tar-7z-and-7z" class="uri">http://askubuntu.com/questions/122141/whats-the-difference-between-tar-gz-and-gz-or-tar-7z-and-7z</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Natural Language Processing &amp; Word Embeddings</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/deeplearning-ai/" >deeplearning-ai</a></li>
+    <li><a href="/coursera/deeplearning-ai/nlp-sequence-models/" >nlp-sequence-models</a></li>
+    <li>week2</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Natural Language Processing &amp; Word Embeddings</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#introduction-to-word-embeddings">Introduction to Word Embeddings</a><ul>
+<li><a href="#word-representation">Word Representation</a></li>
+<li><a href="#using-word-embeddings">Using word embeddings</a></li>
+<li><a href="#properties-of-word-embeddings">Properties of word embeddings</a></li>
+<li><a href="#embedding-matrix">Embedding matrix</a></li>
+</ul></li>
+<li><a href="#learning-word-embeddings-word2vec-glove">Learning Word Embeddings: Word2vec &amp; GloVe</a><ul>
+<li><a href="#learning-word-embeddings">Learning word embeddings</a></li>
+<li><a href="#word2vec">Word2Vec</a></li>
+<li><a href="#negative-sampling">Negative Sampling</a></li>
+<li><a href="#glove-word-vectors">GloVe word vectors</a></li>
+</ul></li>
+<li><a href="#applications-using-word-embeddings">Applications using Word Embeddings</a><ul>
+<li><a href="#sentiment-classification">Sentiment Classification</a></li>
+<li><a href="#debiasing-word-embeddings">Debiasing word embeddings</a></li>
+</ul></li>
+<li><a href="#practice-questions">Practice questions</a><ul>
+<li><a href="#quiz-natural-language-porcessing-word-embeddings">Quiz: Natural Language Porcessing &amp; Word Embeddings</a></li>
+</ul></li>
+<li><a href="#programming-assignments">Programming assignments</a><ul>
+<li><a href="#operations-on-word-vectors---debiasing">Operations on word vectors - Debiasing</a></li>
+<li><a href="#emojify">Emojify</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="introduction-to-word-embeddings">Introduction to Word Embeddings</h1>
+<h2 id="word-representation">Word Representation</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_22-32-17.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_22-37-17.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_22-40-11.png" /></p>
+<h2 id="using-word-embeddings">Using word embeddings</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_22-44-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_22-49-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_22-51-45.png" /></p>
+<ul>
+<li>The word embeddings of nlp funciton in a similar way as face encoding of face recognition.</li>
+<li>While word embeddings have a fixed number of inputs(vocabulary), face encoding differs in that it can have an infinite number of inputs(face images).</li>
+</ul>
+<h2 id="properties-of-word-embeddings">Properties of word embeddings</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_23-11-50.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_23-16-24.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_23-19-10.png" /></p>
+<h2 id="embedding-matrix">Embedding matrix</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-11_23-25-37.png" /></p>
+<h1 id="learning-word-embeddings-word2vec-glove">Learning Word Embeddings: Word2vec &amp; GloVe</h1>
+<h2 id="learning-word-embeddings">Learning word embeddings</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_10-33-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_10-37-12.png" /></p>
+<h2 id="word2vec">Word2Vec</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_10-40-40.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_10-45-31.png" /></p>
+<ul>
+<li><code>theta t</code> is the parameter associated with the output <code>t</code>.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_10-50-30.png" /></p>
+<ul>
+<li>If you sample the context uniformly at radom, words like <code>the</code>, <code>of</code>, <code>a</code> , <code>and</code> will dominate the context.</li>
+<li>So there is some other heuristic method to sample the context.</li>
+</ul>
+<h2 id="negative-sampling">Negative Sampling</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_11-06-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_11-13-43.png" /></p>
+<ul>
+<li>Each target word(10k) has their binary classification model.</li>
+<li>Each model takes word embeddings as inputs, in previous examples, 300 features.</li>
+<li>Each model predicts probability of the word in charge.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_15-38-08.png" /></p>
+<ul>
+<li><code>f(wi)^3/4</code> is heuristic value, which is in between <code>frequency distribution</code> and <code>uniform distribution</code>.</li>
+</ul>
+<h2 id="glove-word-vectors">GloVe word vectors</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_15-44-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_15-53-17.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_15-56-58.png" /></p>
+<ul>
+<li>Each feature can't be completely orgthogonal.</li>
+<li>But it still makes sense when it comes to word similarity.</li>
+</ul>
+<h1 id="applications-using-word-embeddings">Applications using Word Embeddings</h1>
+<h2 id="sentiment-classification">Sentiment Classification</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_16-04-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_16-08-03.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_16-10-09.png" /></p>
+<h2 id="debiasing-word-embeddings">Debiasing word embeddings</h2>
+<ul>
+<li>the term <code>bias</code> in this lecture is NOT the <code>bias</code> as a parameter, but the bias in learned feature.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_16-16-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_16-23-06.png" /></p>
+<h1 id="practice-questions">Practice questions</h1>
+<h2 id="quiz-natural-language-porcessing-word-embeddings">Quiz: Natural Language Porcessing &amp; Word Embeddings</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_16-26-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_16-42-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_16-43-09.png" /></p>
+<h1 id="programming-assignments">Programming assignments</h1>
+<h2 id="operations-on-word-vectors---debiasing">Operations on word vectors - Debiasing</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-23-31.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-24-13.png" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># GRADED FUNCTION: cosine_similarity</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">def</span> cosine_similarity(u, v):</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">    Cosine similarity reflects the degree of similariy between u and v</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">        u -- a word vector of shape (n,)</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">        v -- a word vector of shape (n,)</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">        cosine_similarity -- the cosine similarity between u and v defined by the formula above.</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    distance <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">    <span class="co"># Compute the dot product between u and v (≈1 line)</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">    dot <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">    <span class="co"># Compute the L2 norm of u (≈1 line)</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">    norm_u <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    <span class="co"># Compute the L2 norm of v (≈1 line)</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">    norm_v <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">    <span class="co"># Compute the cosine similarity defined by formula (1) (≈1 line)</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">    cosine_similarity <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">    <span class="cf">return</span> cosine_similarity</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-28-58.png" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># GRADED FUNCTION: complete_analogy</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">def</span> complete_analogy(word_a, word_b, word_c, word_to_vec_map):</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">    Performs the word analogy task as explained above: a is to b as c is to ____.</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">    word_a -- a word, string</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">    word_b -- a word, string</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">    word_c -- a word, string</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">    word_to_vec_map -- dictionary that maps words to their corresponding vectors.</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">    best_word --  the word such that v_b - v_a is close to v_best_word - v_c, as measured by cosine similarity</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">    <span class="co"># convert words to lower case</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">    word_a, word_b, word_c <span class="op">=</span> word_a.lower(), word_b.lower(), word_c.lower()</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">    <span class="co"># Get the word embeddings v_a, v_b and v_c (≈1-3 lines)</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">    e_a, e_b, e_c <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">    words <span class="op">=</span> word_to_vec_map.keys()</a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">    max_cosine_sim <span class="op">=</span> <span class="dv">-100</span>              <span class="co"># Initialize max_cosine_sim to a large negative number</span></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27">    best_word <span class="op">=</span> <span class="va">None</span>                   <span class="co"># Initialize best_word with None, it will help keep track of the word to output</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29">    <span class="co"># loop over the whole word vector set</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30">    <span class="cf">for</span> w <span class="kw">in</span> words:</a>
+<a class="sourceLine" id="cb2-31" data-line-number="31">        <span class="co"># to avoid best_word being one of the input words, pass on them.</span></a>
+<a class="sourceLine" id="cb2-32" data-line-number="32">        <span class="cf">if</span> w <span class="kw">in</span> [word_a, word_b, word_c] :</a>
+<a class="sourceLine" id="cb2-33" data-line-number="33">            <span class="cf">continue</span></a>
+<a class="sourceLine" id="cb2-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb2-35" data-line-number="35">        <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36">        <span class="co"># Compute cosine similarity between the vector (e_b - e_a) and the vector ((w&#39;s vector representation) - e_c)  (≈1 line)</span></a>
+<a class="sourceLine" id="cb2-37" data-line-number="37">        cosine_sim <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39">        <span class="co"># If the cosine_sim is more than the max_cosine_sim seen so far,</span></a>
+<a class="sourceLine" id="cb2-40" data-line-number="40">            <span class="co"># then: set the new max_cosine_sim to the current cosine_sim and the best_word to the current word (≈3 lines)</span></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41">        <span class="cf">if</span> <span class="va">None</span> <span class="op">&gt;</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb2-42" data-line-number="42">            max_cosine_sim <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43">            best_word <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb2-44" data-line-number="44">        <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb2-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb2-46" data-line-number="46">    <span class="cf">return</span> best_word</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-33-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-37-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-39-35.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-39-53.png" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">def</span> neutralize(word, g, word_to_vec_map):</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">    Removes the bias of &quot;word&quot; by projecting it on the space orthogonal to the bias axis.</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">    This function ensures that gender neutral words are zero in the gender subspace.</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">        word -- string indicating the word to debias</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">        g -- numpy-array of shape (50,), corresponding to the bias axis (such as gender)</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">        word_to_vec_map -- dictionary mapping words to their corresponding vectors.</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">        e_debiased -- neutralized word vector representation of the input &quot;word&quot;</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">    <span class="co"># Select word vector representation of &quot;word&quot;. Use word_to_vec_map. (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">    e <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">    <span class="co"># Compute e_biascomponent using the formula give above. (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">    e_biascomponent <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">    <span class="co"># Neutralize e by substracting e_biascomponent from it</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">    <span class="co"># e_debiased should be equal to its orthogonal projection. (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">    e_debiased <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb3-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb3-27" data-line-number="27">    <span class="cf">return</span> e_debiased</a></code></pre></div>
+<ul>
+<li><code>g</code> part of <code>e^bias_component</code> is L2 norm squared.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-50-41.png" /></p>
+<ul>
+<li>There is a typo in the denominators of equation (9), (10). Fix it as follows:</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_01-15-48.png" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">def</span> equalize(pair, bias_axis, word_to_vec_map):</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="co">    Debias gender specific words by following the equalize method described in the figure above.</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="co">    pair -- pair of strings of gender specific words to debias, e.g. (&quot;actress&quot;, &quot;actor&quot;)</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co">    bias_axis -- numpy-array of shape (50,), vector corresponding to the bias axis, e.g. gender</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co">    word_to_vec_map -- dictionary mapping words to their corresponding vectors</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="co">    Returns</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co">    e_1 -- word vector corresponding to the first word</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co">    e_2 -- word vector corresponding to the second word</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">    <span class="co"># Step 1: Select word vector representation of &quot;word&quot;. Use word_to_vec_map. (≈ 2 lines)</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">    w1, w2 <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">    e_w1, e_w2 <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">    <span class="co"># Step 2: Compute the mean of e_w1 and e_w2 (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">    mu <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">    <span class="co"># Step 3: Compute the projections of mu over the bias axis and the orthogonal axis (≈ 2 lines)</span></a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">    mu_B <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">    mu_orth <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb4-27" data-line-number="27">    <span class="co"># Step 4: Use equations (7) and (8) to compute e_w1B and e_w2B (≈2 lines)</span></a>
+<a class="sourceLine" id="cb4-28" data-line-number="28">    e_w1B <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-29" data-line-number="29">    e_w2B <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb4-31" data-line-number="31">    <span class="co"># Step 5: Adjust the Bias part of e_w1B and e_w2B using the formulas (9) and (10) given above (≈2 lines)</span></a>
+<a class="sourceLine" id="cb4-32" data-line-number="32">    corrected_e_w1B <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-33" data-line-number="33">    corrected_e_w2B <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb4-35" data-line-number="35">    <span class="co"># Step 6: Debias by equalizing e1 and e2 to the sum of their corrected projections (≈2 lines)</span></a>
+<a class="sourceLine" id="cb4-36" data-line-number="36">    e1 <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-37" data-line-number="37">    e2 <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb4-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb4-39" data-line-number="39">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb4-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb4-41" data-line-number="41">    <span class="cf">return</span> e1, e2</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_01-09-43.png" /></p>
+<h2 id="emojify">Emojify</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-36-06.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-39-59.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-40-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-43-12.png" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># GRADED FUNCTION: sentence_to_avg</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">def</span> sentence_to_avg(sentence, word_to_vec_map):</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">    Converts a sentence (string) into a list of words (strings). Extracts the GloVe representation of each word</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">    and averages its value into a single vector encoding the meaning of the sentence.</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">    sentence -- string, one training example from X</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">    word_to_vec_map -- dictionary mapping every word in a vocabulary into its 50-dimensional vector representation</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">    avg -- average vector encoding information about the sentence, numpy-array of shape (50,)</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17">    <span class="co"># Step 1: Split sentence into list of lower case words (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18">    words <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20">    <span class="co"># Initialize the average word vector, should have the same shape as your word vectors.</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21">    avg <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23">    <span class="co"># Step 2: average the word vectors. You can loop over the words in the list &quot;words&quot;.</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24">    <span class="cf">for</span> w <span class="kw">in</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb5-25" data-line-number="25">        avg <span class="op">+=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb5-26" data-line-number="26">    avg <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb5-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb5-28" data-line-number="28">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb5-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb5-30" data-line-number="30">    <span class="cf">return</span> avg</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-49-55.png" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># GRADED FUNCTION: model</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">def</span> model(X, Y, word_to_vec_map, learning_rate <span class="op">=</span> <span class="fl">0.01</span>, num_iterations <span class="op">=</span> <span class="dv">400</span>):</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">    Model to train word vector representations in numpy.</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">    X -- input data, numpy array of sentences as strings, of shape (m, 1)</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">    Y -- labels, numpy array of integers between 0 and 7, numpy-array of shape (m, 1)</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">    word_to_vec_map -- dictionary mapping every word in a vocabulary into its 50-dimensional vector representation</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">    learning_rate -- learning_rate for the stochastic gradient descent algorithm</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">    num_iterations -- number of iterations</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">    pred -- vector of predictions, numpy-array of shape (m, 1)</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">    W -- weight matrix of the softmax layer, of shape (n_y, n_h)</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">    b -- bias of the softmax layer, of shape (n_y,)</span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20">    np.random.seed(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">    <span class="co"># Define number of training examples</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23">    m <span class="op">=</span> Y.shape[<span class="dv">0</span>]                          <span class="co"># number of training examples</span></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24">    n_y <span class="op">=</span> <span class="dv">5</span>                                 <span class="co"># number of classes</span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25">    n_h <span class="op">=</span> <span class="dv">50</span>                                <span class="co"># dimensions of the GloVe vectors</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27">    <span class="co"># Initialize parameters using Xavier initialization</span></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28">    W <span class="op">=</span> np.random.randn(n_y, n_h) <span class="op">/</span> np.sqrt(n_h)</a>
+<a class="sourceLine" id="cb6-29" data-line-number="29">    b <span class="op">=</span> np.zeros((n_y,))</a>
+<a class="sourceLine" id="cb6-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb6-31" data-line-number="31">    <span class="co"># Convert Y to Y_onehot with n_y classes</span></a>
+<a class="sourceLine" id="cb6-32" data-line-number="32">    Y_oh <span class="op">=</span> convert_to_one_hot(Y, C <span class="op">=</span> n_y)</a>
+<a class="sourceLine" id="cb6-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb6-34" data-line-number="34">    <span class="co"># Optimization loop</span></a>
+<a class="sourceLine" id="cb6-35" data-line-number="35">    <span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(num_iterations):                       <span class="co"># Loop over the number of iterations</span></a>
+<a class="sourceLine" id="cb6-36" data-line-number="36">        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m):                                <span class="co"># Loop over the training examples</span></a>
+<a class="sourceLine" id="cb6-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb6-38" data-line-number="38">            <span class="co">### START CODE HERE </span><span class="al">###</span><span class="co"> (≈ 4 lines of code)</span></a>
+<a class="sourceLine" id="cb6-39" data-line-number="39">            <span class="co"># Average the word vectors of the words from the i&#39;th training example</span></a>
+<a class="sourceLine" id="cb6-40" data-line-number="40">            avg <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb6-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb6-42" data-line-number="42">            <span class="co"># Forward propagate the avg through the softmax layer</span></a>
+<a class="sourceLine" id="cb6-43" data-line-number="43">            z <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb6-44" data-line-number="44">            a <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb6-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb6-46" data-line-number="46">            <span class="co"># Compute cost using the i&#39;th training label&#39;s one hot representation and &quot;A&quot; (the output of the softmax)</span></a>
+<a class="sourceLine" id="cb6-47" data-line-number="47">            cost <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb6-48" data-line-number="48">            <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb6-49" data-line-number="49"></a>
+<a class="sourceLine" id="cb6-50" data-line-number="50">            <span class="co"># Compute gradients</span></a>
+<a class="sourceLine" id="cb6-51" data-line-number="51">            dz <span class="op">=</span> a <span class="op">-</span> Y_oh[i]</a>
+<a class="sourceLine" id="cb6-52" data-line-number="52">            dW <span class="op">=</span> np.dot(dz.reshape(n_y,<span class="dv">1</span>), avg.reshape(<span class="dv">1</span>, n_h))</a>
+<a class="sourceLine" id="cb6-53" data-line-number="53">            db <span class="op">=</span> dz</a>
+<a class="sourceLine" id="cb6-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb6-55" data-line-number="55">            <span class="co"># Update parameters with Stochastic Gradient Descent</span></a>
+<a class="sourceLine" id="cb6-56" data-line-number="56">            W <span class="op">=</span> W <span class="op">-</span> learning_rate <span class="op">*</span> dW</a>
+<a class="sourceLine" id="cb6-57" data-line-number="57">            b <span class="op">=</span> b <span class="op">-</span> learning_rate <span class="op">*</span> db</a>
+<a class="sourceLine" id="cb6-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb6-59" data-line-number="59">        <span class="cf">if</span> t <span class="op">%</span> <span class="dv">100</span> <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb6-60" data-line-number="60">            <span class="bu">print</span>(<span class="st">&quot;Epoch: &quot;</span> <span class="op">+</span> <span class="bu">str</span>(t) <span class="op">+</span> <span class="st">&quot; --- cost = &quot;</span> <span class="op">+</span> <span class="bu">str</span>(cost))</a>
+<a class="sourceLine" id="cb6-61" data-line-number="61">            pred <span class="op">=</span> predict(X, Y, W, b, word_to_vec_map)</a>
+<a class="sourceLine" id="cb6-62" data-line-number="62"></a>
+<a class="sourceLine" id="cb6-63" data-line-number="63">    <span class="cf">return</span> pred, W, b</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-12_23-59-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-00-13.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-00-42.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-01-02.png" /></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># GRADED FUNCTION: sentences_to_indices</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">def</span> sentences_to_indices(X, word_to_index, max_len):</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">    Converts an array of sentences (strings) into an array of indices corresponding to words in the sentences.</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">    The output shape should be such that it can be given to `Embedding()` (described in Figure 4).</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">    X -- array of sentences (strings), of shape (m, 1)</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">    word_to_index -- a dictionary containing the each word mapped to its index</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">    max_len -- maximum number of words in a sentence. You can assume every sentence in X is no longer than this.</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">    X_indices -- array of indices corresponding to words in the sentences from X, of shape (m, max_len)</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">    m <span class="op">=</span> X.shape[<span class="dv">0</span>]                                   <span class="co"># number of training examples</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">    <span class="co"># Initialize X_indices as a numpy matrix of zeros and the correct shape (≈ 1 line)</span></a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">    X_indices <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(m):                               <span class="co"># loop over training examples</span></a>
+<a class="sourceLine" id="cb7-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">        <span class="co"># Convert the ith training sentence in lower case and split is into words. You should get a list of words.</span></a>
+<a class="sourceLine" id="cb7-26" data-line-number="26">        sentence_words <span class="op">=</span><span class="va">None</span></a>
+<a class="sourceLine" id="cb7-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb7-28" data-line-number="28">        <span class="co"># Initialize j to 0</span></a>
+<a class="sourceLine" id="cb7-29" data-line-number="29">        j <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb7-31" data-line-number="31">        <span class="co"># Loop over the words of sentence_words</span></a>
+<a class="sourceLine" id="cb7-32" data-line-number="32">        <span class="cf">for</span> w <span class="kw">in</span> <span class="va">None</span>:</a>
+<a class="sourceLine" id="cb7-33" data-line-number="33">            <span class="co"># Set the (i,j)th entry of X_indices to the index of the correct word.</span></a>
+<a class="sourceLine" id="cb7-34" data-line-number="34">            X_indices[i, j] <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-35" data-line-number="35">            <span class="co"># Increment j to j + 1</span></a>
+<a class="sourceLine" id="cb7-36" data-line-number="36">            j <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb7-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb7-38" data-line-number="38">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb7-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb7-40" data-line-number="40">    <span class="cf">return</span> X_indices</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-07-02.png" /></p>
+<ul>
+<li><a href="https://keras.io/layers/embeddings/" class="uri">https://keras.io/layers/embeddings/</a></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># GRADED FUNCTION: pretrained_embedding_layer</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">def</span> pretrained_embedding_layer(word_to_vec_map, word_to_index):</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">    Creates a Keras Embedding() layer and loads in pre-trained GloVe 50-dimensional vectors.</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">    word_to_vec_map -- dictionary mapping words to their GloVe vector representation.</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">    word_to_index -- dictionary mapping from words to their indices in the vocabulary (400,001 words)</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">    embedding_layer -- pretrained layer Keras instance</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">    vocab_len <span class="op">=</span> <span class="bu">len</span>(word_to_index) <span class="op">+</span> <span class="dv">1</span>                  <span class="co"># adding 1 to fit Keras embedding (requirement)</span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">    emb_dim <span class="op">=</span> word_to_vec_map[<span class="st">&quot;cucumber&quot;</span>].shape[<span class="dv">0</span>]      <span class="co"># define dimensionality of your GloVe word vectors (= 50)</span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">    <span class="co"># Initialize the embedding matrix as a numpy array of zeros of shape (vocab_len, dimensions of word vectors = emb_dim)</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">    emb_matrix <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">    <span class="co"># Set each row &quot;index&quot; of the embedding matrix to be the word vector representation of the &quot;index&quot;th word of the vocabulary</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23">    <span class="cf">for</span> word, index <span class="kw">in</span> word_to_index.items():</a>
+<a class="sourceLine" id="cb8-24" data-line-number="24">        emb_matrix[index, :] <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb8-26" data-line-number="26">    <span class="co"># Define Keras embedding layer with the correct output/input sizes, make it trainable. Use Embedding(...). Make sure to set trainable=False.</span></a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">    embedding_layer <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb8-28" data-line-number="28">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb8-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb8-30" data-line-number="30">    <span class="co"># Build the embedding layer, it is required before setting the weights of the embedding layer. Do not modify the &quot;None&quot;.</span></a>
+<a class="sourceLine" id="cb8-31" data-line-number="31">    embedding_layer.build((<span class="va">None</span>,))</a>
+<a class="sourceLine" id="cb8-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb8-33" data-line-number="33">    <span class="co"># Set the weights of the embedding layer to the embedding matrix. Your layer is now pretrained.</span></a>
+<a class="sourceLine" id="cb8-34" data-line-number="34">    embedding_layer.set_weights([emb_matrix])</a>
+<a class="sourceLine" id="cb8-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb8-36" data-line-number="36">    <span class="cf">return</span> embedding_layer</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-10-26.png" /></p>
+<ul>
+<li><a href="https://keras.io/layers/core/#input" class="uri">https://keras.io/layers/core/#input</a></li>
+<li><a href="https://keras.io/layers/core/#dropout" class="uri">https://keras.io/layers/core/#dropout</a></li>
+<li><a href="https://keras.io/layers/core/#dense" class="uri">https://keras.io/layers/core/#dense</a></li>
+<li><a href="https://keras.io/activations/" class="uri">https://keras.io/activations/</a></li>
+<li><a href="https://keras.io/layers/recurrent/#lstm" class="uri">https://keras.io/layers/recurrent/#lstm</a></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># GRADED FUNCTION: Emojify_V2</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">def</span> Emojify_V2(input_shape, word_to_vec_map, word_to_index):</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">    Function creating the Emojify-v2 model&#39;s graph.</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">    input_shape -- shape of the input, usually (max_len,)</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">    word_to_vec_map -- dictionary mapping every word in a vocabulary into its 50-dimensional vector representation</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">    word_to_index -- dictionary mapping from words to their indices in the vocabulary (400,001 words)</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="co">    model -- a model instance in Keras</span></a>
+<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">    <span class="co">### START CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">    <span class="co"># Define sentence_indices as the input of the graph, it should be of shape input_shape and dtype &#39;int32&#39; (as it contains indices).</span></a>
+<a class="sourceLine" id="cb9-18" data-line-number="18">    sentence_indices <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20">    <span class="co"># Create the embedding layer pretrained with GloVe Vectors (≈1 line)</span></a>
+<a class="sourceLine" id="cb9-21" data-line-number="21">    embedding_layer <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb9-23" data-line-number="23">    <span class="co"># Propagate sentence_indices through your embedding layer, you get back the embeddings</span></a>
+<a class="sourceLine" id="cb9-24" data-line-number="24">    embeddings <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb9-26" data-line-number="26">    <span class="co"># Propagate the embeddings through an LSTM layer with 128-dimensional hidden state</span></a>
+<a class="sourceLine" id="cb9-27" data-line-number="27">    <span class="co"># Be careful, the returned output should be a batch of sequences.</span></a>
+<a class="sourceLine" id="cb9-28" data-line-number="28">    X <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-29" data-line-number="29">    <span class="co"># Add dropout with a probability of 0.5</span></a>
+<a class="sourceLine" id="cb9-30" data-line-number="30">    X <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-31" data-line-number="31">    <span class="co"># Propagate X trough another LSTM layer with 128-dimensional hidden state</span></a>
+<a class="sourceLine" id="cb9-32" data-line-number="32">    <span class="co"># Be careful, the returned output should be a single hidden state, not a batch of sequences.</span></a>
+<a class="sourceLine" id="cb9-33" data-line-number="33">    X <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-34" data-line-number="34">    <span class="co"># Add dropout with a probability of 0.5</span></a>
+<a class="sourceLine" id="cb9-35" data-line-number="35">    X <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-36" data-line-number="36">    <span class="co"># Propagate X through a Dense layer with softmax activation to get back a batch of 5-dimensional vectors.</span></a>
+<a class="sourceLine" id="cb9-37" data-line-number="37">    X <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-38" data-line-number="38">    <span class="co"># Add a softmax activation</span></a>
+<a class="sourceLine" id="cb9-39" data-line-number="39">    X <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb9-41" data-line-number="41">    <span class="co"># Create Model instance which converts sentence_indices into X.</span></a>
+<a class="sourceLine" id="cb9-42" data-line-number="42">    model <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb9-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb9-44" data-line-number="44">    <span class="co">### </span><span class="re">END</span><span class="co"> CODE HERE </span><span class="al">###</span></a>
+<a class="sourceLine" id="cb9-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb9-46" data-line-number="46">    <span class="cf">return</span> model</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-27-23.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-29-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-30-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/nlp-sequence-models/week2/_img/screenshot_2018-02-13_00-30-56.png" /></p>
+</article>
+
+</body>
+</html>

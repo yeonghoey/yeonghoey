@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>AWS Data Pipeline</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/aws/" >aws</a></li>
+    <li>data-pipeline</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">AWS Data Pipeline</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#objects">Objects</a></li>
+<li><a href="#schedule">Schedule</a></li>
+<li><a href="#resource">Resource</a></li>
+<li><a href="#activity">Activity</a></li>
+<li><a href="#the-default-object">The Default Object</a></li>
+<li><a href="#custom-fields">Custom Fields</a></li>
+<li><a href="#referencing-values">Referencing Values</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="references">References</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="objects">Objects</h2>
+<p>Everything in AWS Data Pipeline(DP) is an object with some fields.</p>
+<p>Each object has <code>id</code> and <code>type</code>. <code>id</code> is the unique identifier within a DP. <code>type</code> is for specifying the feature of the object.</p>
+<h2 id="schedule">Schedule</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;Schedule&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;Daily&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="dt">&quot;startDateTime&quot;</span><span class="fu">:</span><span class="st">&quot;2016-10-07T01:00:00&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="dt">&quot;period&quot;</span><span class="fu">:</span> <span class="st">&quot;1 day&quot;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
+<p>Basic fields of a <code>Schedule</code> object are as above.</p>
+<p>There is the <strong>backfill</strong> feature, which fills the task of the past.</p>
+<p>If you deploy a pipeline which has the daily schedule's <code>startDateTime</code> specifies 10 days ago, 10 jobs will be triggered at the time you firstly deploy.</p>
+<p>Every other object should specify its <code>schedule</code> field like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;EmrCluster&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;ParquetryCluster&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="dt">&quot;masterInstanceType&quot;</span><span class="fu">:</span> <span class="st">&quot;m1.large&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  <span class="dt">&quot;coreInstanceType&quot;</span><span class="fu">:</span> <span class="st">&quot;m1.large&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">  <span class="dt">&quot;coreInstanceCount&quot;</span><span class="fu">:</span> <span class="st">&quot;2&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">  <span class="dt">&quot;releaseLabel&quot;</span><span class="fu">:</span> <span class="st">&quot;emr-5.0.0&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">  <span class="dt">&quot;applications&quot;</span><span class="fu">:</span> <span class="ot">[</span><span class="st">&quot;spark&quot;</span><span class="ot">]</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">  <span class="dt">&quot;terminateAfter&quot;</span><span class="fu">:</span> <span class="st">&quot;3 hours&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">  <span class="dt">&quot;scheduleType&quot;</span><span class="fu">:</span> <span class="st">&quot;cron&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">  <span class="dt">&quot;schedule&quot;</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;ref&quot;</span><span class="fu">:</span> <span class="st">&quot;Daily&quot;</span><span class="fu">},</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="fu">}</span></a></code></pre></div>
+<p>Note</p>
+<pre class="example"><code>&quot;schedule&quot;: {&quot;ref&quot;: &quot;&lt;schedule-object-id&gt;&quot;}
+</code></pre>
+<p>We can reference other objects by putting an object with <code>ref</code> field whose value is the target object's <code>id</code>.</p>
+<p>There is <code>scehduleType</code> field. It must be one of <code>cron</code> or <code>ondemand</code>, <code>timeseries</code>. Mostly just put <code>cron</code>, and it will work as expected.</p>
+<h2 id="resource">Resource</h2>
+<p>Objects which have its <code>type</code> value as <code>EmrCluster</code> or <code>Ec2Resource</code> are Resources. They are nodes which activities run on. They are created at every scheduled moment. They are terminated when every scheduled activity ends.</p>
+<h2 id="activity">Activity</h2>
+<p>Activities are the tasks which we want to be done. Activities must specify both <code>schedule</code> and <code>resource</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;EmrActivity&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;MyJob&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="dt">&quot;schedule&quot;</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;ref&quot;</span><span class="fu">:</span> <span class="st">&quot;Daily&quot;</span><span class="fu">},</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="dt">&quot;runsOn&quot;</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;ref&quot;</span><span class="fu">:</span> <span class="st">&quot;ParquetryCluster&quot;</span><span class="fu">},</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="fu">}</span></a></code></pre></div>
+<h2 id="the-default-object">The Default Object</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;Default&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="dt">&quot;failureAndRerunMode&quot;</span><span class="fu">:</span> <span class="st">&quot;cascade&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="dt">&quot;keyPair&quot;</span><span class="fu">:</span> <span class="st">&quot;my-key-name&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">  <span class="dt">&quot;pipelineLogUri&quot;</span><span class="fu">:</span> <span class="st">&quot;s3://datapipeline.k.nexon.com/Parquetry/&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">  <span class="dt">&quot;resourceRole&quot;</span><span class="fu">:</span> <span class="st">&quot;DataPipelineDefaultResourceRole&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="dt">&quot;role&quot;</span><span class="fu">:</span> <span class="st">&quot;DataPipelineDefaultRole&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="dt">&quot;scheduleType&quot;</span><span class="fu">:</span> <span class="st">&quot;cron&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="dt">&quot;schedule&quot;</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">&quot;ref&quot;</span><span class="fu">:</span> <span class="st">&quot;Daily&quot;</span><span class="fu">}</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="fu">}</span></a></code></pre></div>
+<p><code>Default</code> object is the object whose <code>id</code> is <code>Default</code>.</p>
+<p>It's a special object. It's the only object which doesn't have <code>type</code> field. Other objects inherit <code>Default</code> object's fields.</p>
+<p>We can use <code>Default</code> object to specify common fields like <code>schedule</code>, <code>role</code>, etc.</p>
+<h2 id="custom-fields">Custom Fields</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;MyObject&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;Schedule&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="er">...</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="dt">&quot;my_something&quot;</span><span class="fu">:</span> <span class="st">&quot;hello, world&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="dt">&quot;mySomething&quot;</span><span class="fu">:</span> <span class="st">&quot;Good bye&quot;</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="fu">}</span></a></code></pre></div>
+<p>Within an object, fields prefixed with <code>my</code> are custom fields.</p>
+<h2 id="referencing-values">Referencing Values</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="fu">{</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;A&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;Ec2Resource&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="dt">&quot;my_value&quot;</span><span class="fu">:</span> <span class="st">&quot;#{id}&quot;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="fu">}</span></a></code></pre></div>
+<p>With enclosing field names with <code>#{}</code>, we can reference its values. There are also some functions and operators to tweak the values.</p>
+</article>
+
+</body>
+</html>

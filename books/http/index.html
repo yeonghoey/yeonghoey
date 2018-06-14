@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>HTTP: What Every Web Developer Should Know About the Hypertext Transfer Protocol</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/books/" >books</a></li>
+    <li>http</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">HTTP: What Every Web Developer Should Know About the Hypertext Transfer Protocol</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#about-the-book">About the Book</a></li>
+<li><a href="#url">URL</a></li>
+<li><a href="#resource">Resource</a></li>
+<li><a href="#request">Request</a></li>
+<li><a href="#response">Response</a></li>
+<li><a href="#caching">Caching</a></li>
+<li><a href="#cookies">Cookies</a></li>
+<li><a href="#authentication">Authentication</a><ul>
+<li><a href="#basic-authentication">Basic Authentication</a></li>
+<li><a href="#digest-authentication">Digest Authentication</a></li>
+<li><a href="#form-based-authentication">Form-based Authentication</a></li>
+</ul></li>
+<li><a href="#secure-http">Secure HTTP</a></li>
+<li><a href="#persistent-connections">Persistent Connections</a></li>
+<li><a href="#when-to-use-http-status-codes">When to Use HTTP Status Codes</a></li>
+<li><a href="#postredirectget">POST/Redirect/GET</a></li>
+</ul>
+</nav>
+
+<h1 id="about-the-book">About the Book</h1>
+<p><img src="https://media.yeonghoey.com/books/http/_img/screenshot_2017-01-31_00-00-27.png" /></p>
+<p>About 3 months ago, I felt that I needed a some kind of understanding of HTTP. I found this little book, which got a lot of positive reviews, on the Kindle bookstore. Because this book is quite cheap ($ 3.29), I bought this book without hesitation.</p>
+<p>Mostly I read this book during my commutes. I really enjoyed it.</p>
+<h1 id="url">URL</h1>
+<pre class="example"><code>&lt;scheme&gt;://&lt;host&gt;:&lt;port&gt;/&lt;path&gt;?&lt;query&gt;#&lt;fragment&gt;
+</code></pre>
+<blockquote>
+<p>In fact, these days many web sites <strong>try to avoid having any sort of real file name in their URL</strong>.</p>
+</blockquote>
+<p>The <strong>fragment is not processed by the server</strong>. The fragment is only used on the client and it identifies a particular section of a resource</p>
+<p>The path of a <strong>URL is case sensitive</strong>. However, many web sites will try to make URLs <strong>behave as if they are case insensitive</strong>.</p>
+<ul>
+<li>A URL cannot restrict a client or a server to a specific type of technology.</li>
+<li>A URL cannot specify the representation of a specific resource</li>
+<li>A URL cannot say what a user wants to do with a resource</li>
+</ul>
+<p><a href="https://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a> defines the safe characters for URLs, alphanumeric in US-ASCII and some special characters like <code>:</code>, <code>/</code> Unsafe characters must be percent encoded. (<code>%20</code> for a space character)</p>
+<h1 id="resource">Resource</h1>
+<p>To specify content types, HTTP relies on the Multipurpose Internet Mail Extensions(<a href="https://en.wikipedia.org/wiki/MIME">MIME</a>) standards. With <code>text/html</code>, The <code>text</code> part is <strong>the primary media type</strong>, the <code>html</code> is <strong>the media subtype</strong>.</p>
+<blockquote>
+<p>For most browsers the file extension is the last place it will go to determine the actual content type. (…) If the host does not provide a MIME type, IE will then scan the first 200 bytes of the response trying to guess the content type. if IE doesn't find a type and can't guess the type, it will fall back on the file extension used in the request for the resource.</p>
+</blockquote>
+<p>When a client makes an HTTP request to a URL, <strong>the client can specify the media types it will accept</strong>.</p>
+<blockquote>
+<p>the more you can think of a virtual resource as a real resource, the better your application architecture and design will adhere to the strengths of HTTP.</p>
+</blockquote>
+<h1 id="request">Request</h1>
+<pre class="example"><code>[method] [URL] [version]
+[headers]
+
+[body]
+</code></pre>
+<pre class="example"><code>GET http://yeonghoey.com HTTP/1.1
+Host: yeonghoey.com
+Accetp-Language: ko-KR
+</code></pre>
+<p>Everything but the host header is optional, but when a header does appear it must obey the standards. <code>Date</code> has to follow <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> format. (like <code>Mon, 30 Jan 2017 09:34:31 -0000</code>)</p>
+<pre class="example"><code>GET / HTTP/1.1
+Host: google.com
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36
+X-Client-Data: (...)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: ko-KR,ko;q=0.8,en-US;q=0.6,en;q=0.4
+Cookie: (...)
+</code></pre>
+<p>The <code>q</code> value is always <strong>a number between 0 and 1</strong>. The <code>q</code> value represents the quality value or &quot;<strong>relative degree of preference</strong>&quot; for a particular value. The default is <code>1.0</code></p>
+<h1 id="response">Response</h1>
+<pre class="example"><code>[version][status][reason]
+[headers]
+
+[body]
+</code></pre>
+<pre class="example"><code>HTTP/1.1 200 OK
+Server: GitHub.com
+Date: Sun, 26 Feb 2017 23:01:05 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 12
+Last-Modified: Sun, 26 Feb 2017 15:24:34 GMT
+Access-Control-Allow-Origin: *
+Expires: Sun, 26 Feb 2017 23:11:05 GMT
+Cache-Control: max-age=600
+Accept-Ranges: bytes
+X-GitHub-Request-Id: C0EF:231BE:19DC523:22EC802:58B35E31
+
+Hello world
+</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>Range</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100-199</td>
+<td>Informational</td>
+</tr>
+<tr class="even">
+<td>200-299</td>
+<td>Successful</td>
+</tr>
+<tr class="odd">
+<td>300-399</td>
+<td>Redirection</td>
+</tr>
+<tr class="even">
+<td>400-499</td>
+<td>Client Error</td>
+</tr>
+<tr class="odd">
+<td>500-599</td>
+<td>Server Error</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Reason</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>200</td>
+<td>OK</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>301</td>
+<td>Moved Permanently</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>302</td>
+<td>Moved Temporarily</td>
+<td>Used in PRG pattern</td>
+</tr>
+<tr class="even">
+<td>304</td>
+<td>Not Modified</td>
+<td>Resource requested hasn't changed</td>
+</tr>
+<tr class="odd">
+<td>400</td>
+<td>Bad Request</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>403</td>
+<td>Forbidden</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>404</td>
+<td>Not Found</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>500</td>
+<td>Internal Server Error</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>503</td>
+<td>Service Unavailable</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="caching">Caching</h1>
+<p>There are two types of caching, <code>public</code> and <code>private</code>.</p>
+<p><strong>Public cache</strong> is generally on a proxy server and is shared among multiple users, while <strong>private cahce</strong> is performed by the web browser and saved on the user's local disk. If you use <strong>Goole Chrome</strong>, type <code>about:cache</code> to see the current list of private cache.</p>
+<p>Responses of <code>200</code> from <code>GET</code> request is cacheable by default. And there is <code>Cache-control</code> header for controlling caching policies:</p>
+<pre class="example"><code>Cache-control: no-cache
+Cache-control: public
+Cache-control: private
+Cache-Control: max-age=&lt;seconds&gt;
+</code></pre>
+<pre class="example"><code>HTTP/1.1 200 OK
+...
+Cache-Control: max-age=600,public
+</code></pre>
+<p>There are also <code>Last-Modified</code>, <code>ETag</code> headers, which can be used as a validator:</p>
+<pre class="example"><code>HTTP/1.1 200 OK
+...
+Last-Modified: Fri, 01 Mar 2017 ...
+ETag: &quot;abcdef-012-ghijklmnop3456&quot;
+</code></pre>
+<h1 id="cookies">Cookies</h1>
+<ul>
+<li>Cookies are defined by <code>RFC6265</code>.</li>
+<li><code>4KB</code> size limitation</li>
+<li><code>HttpOnly</code> flag for preventing XSS(Cross Site Scripting)</li>
+</ul>
+<pre class="example"><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Set-Cookie:name=Yeongho&amp;email=yeonghoey@gmail.com; HttpOnly
+...
+</code></pre>
+<ul>
+<li><strong>Persistent cookies</strong> outlive a single browsing session.</li>
+<li>They need an <code>expires</code> value.</li>
+</ul>
+<pre class="example"><code>Set-Cookie: name=value; expires=Money, ...
+</code></pre>
+<p>You can change the scope of a cookie by <code>domain</code> value. These cookies are called <strong>third party cookies</strong>, and they were mostly used by advertisers for tracking users.</p>
+<pre class="example"><code>Set-Cookie: name=value; domain=.yeonghoey.com; path=/http
+</code></pre>
+<p>Cookies <strong>interfere with caching</strong> because they can't be cached.</p>
+<h1 id="authentication">Authentication</h1>
+<blockquote>
+<p>The client will request a secure resource, and the server will challenge the client to authenticate. The client then needs to send another request and include authentication credentials for the server to validate.</p>
+</blockquote>
+<h2 id="basic-authentication">Basic Authentication</h2>
+<pre class="example"><code>GET http://localhost/foo/ HTTP/1.1
+Host: localhost
+</code></pre>
+<pre class="example"><code>HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Basic realm=&quot;localhost&quot;
+</code></pre>
+<pre class="example"><code>GET http://localhost/foo/ HTTP/1.1
+Host: localhost
+Authorization: Basic
+ab12aDedXjkl25JerdvcRotjkld8sdfjk&amp;
+</code></pre>
+<p>The value of <code>Authorization</code> header is the <strong>username</strong> and <strong>password</strong>, encoded in <code>base64</code>. Basic authentication is insecure by default, and not recommended without <code>https</code>.</p>
+<h2 id="digest-authentication">Digest Authentication</h2>
+<pre class="example"><code>HTTP/1.0 401 Unauthorized
+WWW-Authenticate: Digest realm=&quot;localhost&quot;, qop=&quot;auth,auth-int&quot;
+nonce=&quot;ddkds1284fdvckllk12984qwiz&quot;
+opaque=&quot;5cc019124sdfjaweidjf12849&quot;
+</code></pre>
+<p><code>nonce</code> is a value to be hashed with the <strong>username</strong> and <strong>password</strong>. <code>opaque</code> is a kind of state specified by the server, which should be returned by the client unchanged.</p>
+<p><img src="https://media.yeonghoey.com/books/http/_img/screenshot_2017-03-02_07-51-05.png" /></p>
+<h2 id="form-based-authentication">Form-based Authentication</h2>
+<blockquote>
+<p>By redirecting the user to a login page (…) form-based authentication will transmit a user's credentials in plain text, (…) <strong>not secure unless you use secure HTTP</strong>.</p>
+</blockquote>
+<pre class="example"><code>HTTP/1.1 302 Found
+Location: /login.aspx?ReturnUrl=/admin.aspx
+</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">&lt;form</span><span class="ot"> method=</span><span class="st">&quot;post&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> name=</span><span class="st">&quot;username&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;password&quot;</span><span class="ot"> name=</span><span class="st">&quot;password&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;submit&quot;</span><span class="ot"> value=</span><span class="st">&quot;Login&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="kw">&lt;/form&gt;</span></a></code></pre></div>
+<pre class="example"><code>HTTP/1.1 302 Found
+Location: /admin.apsx
+Set-Cookie: ...
+</code></pre>
+<h1 id="secure-http">Secure HTTP</h1>
+<ul>
+<li>HTTPS will <strong>encrypt all request and response</strong> traffic</li>
+<li>The server certificate <strong>authenticates the server to the client</strong></li>
+<li>HTTPS <strong>does not authenticate</strong> the client</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/books/http/_img/screenshot_2017-03-02_08-02-16.png" /></p>
+<h1 id="persistent-connections">Persistent Connections</h1>
+<p>A persistent connection <strong>stays open after the completion of one request-response transaction</strong>.</p>
+<pre class="example"><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Connection: close
+Content-Length: 17149
+</code></pre>
+<p>The <code>Connection: close</code> header is a signal to the browser that the connection will not be persistent and the browser should close the connection immediately.</p>
+<h1 id="when-to-use-http-status-codes">When to Use HTTP Status Codes</h1>
+<p>In web applications which serve HTML pages, most invalid requests <strong>must be handled by providing some pages along with status codes like 200 OK</strong> for the user experiences.</p>
+<p>In web services which serve data like <code>json</code> or <code>xml</code>, on the other hand, invalid requests <strong>must be handled by various HTTP status codes</strong>, because the web services work as APIs through the HTTP protocol.</p>
+<h1 id="postredirectget">POST/Redirect/GET</h1>
+<blockquote>
+<p>Many web applications always try to leave the client view the result of a <code>GET</code> request. After a user clicks a button to <code>POST</code> information to a server, the server will process the information and respond with an HTTP redirect,</p>
+</blockquote>
+<p>The practice of redirecting after a POST is common web design pattern known as the POST/Redirect/GET (<a href="https://en.wikipedia.org/wiki/Post/Redirect/Get">PRG</a>) pattern.</p>
+<p><img src="https://media.yeonghoey.com/books/http/_img/screenshot_2017-01-30_18-12-14.png" /></p>
+<p>:REFERENCES: <img src="https://media.yeonghoey.com/books/http/_img/screenshot_2017-01-30_18-16-17.png" /></p>
+</article>
+
+</body>
+</html>

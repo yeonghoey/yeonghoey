@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>STAT 420: Week 4</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/mcs-ds/" >mcs-ds</a></li>
+    <li><a href="/mcs-ds/stat-420/" >stat-420</a></li>
+    <li>week-04</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">STAT 420: Week 4</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#multiple-linear-regression">Multiple Linear Regression</a><ul>
+<li><a href="#multiple-linear-regression-model">Multiple Linear Regression Model</a></li>
+<li><a href="#interpreting-the-mlr-model">Interpreting the MLR Model</a></li>
+<li><a href="#mlr-in-r">MLR in R</a></li>
+</ul></li>
+<li><a href="#inference-for-multiple-linear-regression">Inference for Multiple Linear Regression</a><ul>
+<li><a href="#sampling-distribution">Sampling Distribution</a></li>
+<li><a href="#simulation">Simulation</a></li>
+<li><a href="#single-parameter-tests">Single Parameter Tests</a></li>
+<li><a href="#interval-estimation">Interval Estimation</a></li>
+<li><a href="#intervals-and-test-for-mlr-in-r">Intervals and Test for MLR in R</a></li>
+</ul></li>
+<li><a href="#nested-models">Nested Models</a><ul>
+<li><a href="#significance-of-regression">Significance of Regression</a></li>
+<li><a href="#general-nested-models">General Nested Models</a></li>
+<li><a href="#nested-models-in-r">Nested Models in R</a></li>
+</ul></li>
+<li><a href="#additional-optional-videos">Additional Optional Videos</a><ul>
+<li><a href="#model-building">Model Building</a></li>
+<li><a href="#explanation-vs-prediction">Explanation vs Prediction</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html" class="uri">http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html</a></li>
+</ul>
+</div>
+<h1 id="multiple-linear-regression">Multiple Linear Regression</h1>
+<h2 id="multiple-linear-regression-model">Multiple Linear Regression Model</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_20-00-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-04-06.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-07-47.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-10-07.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-13-10.png" /></p>
+<ul>
+<li><span class="math inline">\(Y\)</span> can be called the <em>Design Matrix</em> or the <em>Model Matrix</em></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-15-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-17-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-17-54.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-19-45.png" /></p>
+<h2 id="interpreting-the-mlr-model">Interpreting the MLR Model</h2>
+<dl>
+<dt><span class="math inline">\(\beta_0\)</span></dt>
+<dd>the estimated average <code>foo</code> is <code>&lt;value&gt;</code>, for zero values of <span class="math inline">\(x_i\)</span>, <span class="math inline">\(x_j\)</span>, <span class="math inline">\(x_k\)</span>.
+</dd>
+<dt><span class="math inline">\(\beta_i\)</span></dt>
+<dd>the estimated average change in <code>foo</code> for an increase in <code>bar</code> (<span class="math inline">\(x_i\)</span>) is <code>&lt;value&gt;</code>, for fixed values of <span class="math inline">\(x_j\)</span>, <span class="math inline">\(x_k\)</span>.
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/screenshot_2018-06-04_22-23-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/3ef2e5112abc5be410468427006f23b798292a85.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/d01fdcc993813016ccfd2c99066ef7a734d2079a.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/8423a15322e0aee93f81e2f5903ec650856151d1.png" /></p>
+<h2 id="mlr-in-r">MLR in R</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/30dabd5cfc551b7b60438801d5e1a59a4240ae70.png" /></p>
+<div class="sourceCode" id="cb1" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">autompg =<span class="st"> </span><span class="kw">read.table</span>(</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="st">&quot;http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data&quot;</span>,</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="dt">quote =</span> <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">&quot;</span>,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="dt">comment.char =</span> <span class="st">&quot;&quot;</span>,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">                                        <span class="co"># give the dataframe headers</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">colnames</span>(autompg) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;acc&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;origin&quot;</span>, <span class="st">&quot;name&quot;</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">                                        <span class="co"># remove missing data, which is stored as &quot;?&quot;</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">autompg =<span class="st"> </span><span class="kw">subset</span>(autompg, autompg<span class="op">$</span>hp <span class="op">!=</span><span class="st"> &quot;?&quot;</span>)</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">                                        <span class="co"># remove the plymouth reliant, as it causes some issues</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">autompg =<span class="st"> </span><span class="kw">subset</span>(autompg, autompg<span class="op">$</span>name <span class="op">!=</span><span class="st"> &quot;plymouth reliant&quot;</span>)</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">                                        <span class="co"># give the dataset row names, based on the engine, year and name</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="kw">rownames</span>(autompg) =<span class="st"> </span><span class="kw">paste</span>(autompg<span class="op">$</span>cyl, <span class="st">&quot;cylinder&quot;</span>, autompg<span class="op">$</span>year, autompg<span class="op">$</span>name)</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">                                        <span class="co"># remove the variable for name, as well as origin</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">autompg =<span class="st"> </span><span class="kw">subset</span>(autompg, <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;disp&quot;</span>, <span class="st">&quot;hp&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;acc&quot;</span>, <span class="st">&quot;year&quot;</span>))</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">                                        <span class="co"># change horsepower from character to numeric</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">autompg<span class="op">$</span>hp =<span class="st"> </span><span class="kw">as.numeric</span>(autompg<span class="op">$</span>hp)</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">                                        <span class="co"># check final structure of data</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="kw">str</span>(autompg)</a></code></pre></div>
+<pre class="example"><code>&#39;data.frame&#39;: 390 obs. of  7 variables:
+ $ mpg : num  18 15 18 16 17 15 14 14 14 15 ...
+ $ cyl : int  8 8 8 8 8 8 8 8 8 8 ...
+ $ disp: num  307 350 318 304 302 429 454 440 455 390 ...
+ $ hp  : num  130 165 150 150 140 198 220 215 225 190 ...
+ $ wt  : num  3504 3693 3436 3433 3449 ...
+ $ acc : num  12 11.5 11 12 10.5 10 9 8.5 10 8.5 ...
+ $ year: int  70 70 70 70 70 70 70 70 70 70 ...
+</code></pre>
+<div class="sourceCode" id="cb3" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">mpg_model =<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> autompg)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">coef</span>(mpg_model)</a></code></pre></div>
+<pre class="example"><code>  (Intercept)            wt          year 
+-14.637641945  -0.006634876   0.761401955
+</code></pre>
+<div class="sourceCode" id="cb5" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">n =<span class="st"> </span><span class="kw">nrow</span>(autompg)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">p =<span class="st"> </span><span class="kw">length</span>(<span class="kw">coef</span>(mpg_model))</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">X =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">rep</span>(<span class="dv">1</span>, n), autompg<span class="op">$</span>wt, autompg<span class="op">$</span>year)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">y =<span class="st"> </span>autompg<span class="op">$</span>mpg</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">(<span class="dt">beta_hat =</span> <span class="kw">solve</span>(<span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span>X) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span>y)</a></code></pre></div>
+<pre class="example"><code>              [,1]
+[1,] -14.637641945
+[2,]  -0.006634876
+[3,]   0.761401955
+</code></pre>
+<div class="sourceCode" id="cb7" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">y_hat =<span class="st"> </span>X <span class="op">%*%</span><span class="st"> </span>beta_hat</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">e =<span class="st"> </span>y <span class="op">-</span><span class="st"> </span>y_hat</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">sqrt</span>(<span class="kw">sum</span>(e <span class="op">^</span><span class="st"> </span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span>(n <span class="op">-</span><span class="st"> </span>p))</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">summary</span>(mpg_model)<span class="op">$</span>sigma</a></code></pre></div>
+<pre class="example"><code>[1] 3.431367
+[1] 3.431367
+</code></pre>
+<h1 id="inference-for-multiple-linear-regression">Inference for Multiple Linear Regression</h1>
+<h2 id="sampling-distribution">Sampling Distribution</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/4c70330e0c8380a0e330c053b6dc62823a61fbf7.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/be02e9b5168d6c97dd242fce06aa7af6769438cd.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/3e81fa4e5125437cf727aca709b89685180aeb6d.png" /></p>
+<dl>
+<dt>MVN</dt>
+<dd><span class="math inline">\(Y\)</span> is a multivariate normal distribution.
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/00c12f934d0644ff5c96c45f77a585e02c136e32.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/b6bd95a2a56c494b66c7a89e7c50af39333d799b.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/435eb651491d5356b4d1bc1efd6f6486ed9e3a6e.png" /></p>
+<h2 id="simulation">Simulation</h2>
+<div class="sourceCode" id="cb9" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1337</span>)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">n =<span class="st"> </span><span class="dv">100</span> <span class="co"># sample size</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">p =<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">beta_<span class="dv">0</span> =<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">beta_<span class="dv">1</span> =<span class="st"> </span><span class="dv">-2</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">beta_<span class="dv">2</span> =<span class="st"> </span><span class="dv">6</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">sigma  =<span class="st"> </span><span class="dv">4</span></a></code></pre></div>
+<div class="sourceCode" id="cb10" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">x0 =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, n)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">x1 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">length =</span> n))</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">x2 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dt">length =</span> n))</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">X =<span class="st"> </span><span class="kw">cbind</span>(x0, x1, x2)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">C =<span class="st"> </span><span class="kw">solve</span>(<span class="kw">t</span>(X) <span class="op">%*%</span><span class="st"> </span>X)</a></code></pre></div>
+<div class="sourceCode" id="cb11" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">num_sims =<span class="st"> </span><span class="dv">10000</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">y        =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, n)</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">sim_data =<span class="st"> </span><span class="kw">data.frame</span>(x1, x2, y)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">beta_hat_<span class="dv">2</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, num_sims)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>num_sims) {</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  eps           =<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean =</span> <span class="dv">0</span> , <span class="dt">sd =</span> sigma)</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  sim_data<span class="op">$</span>y    =<span class="st"> </span>beta_<span class="dv">0</span> <span class="op">*</span><span class="st"> </span>x0 <span class="op">+</span><span class="st"> </span>beta_<span class="dv">1</span> <span class="op">*</span><span class="st"> </span>x1 <span class="op">+</span><span class="st"> </span>beta_<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x2 <span class="op">+</span><span class="st"> </span>eps</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">  fit           =<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x1 <span class="op">+</span><span class="st"> </span>x2, <span class="dt">data =</span> sim_data)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">  beta_hat_<span class="dv">2</span>[i] =<span class="st"> </span><span class="kw">coef</span>(fit)[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode" id="cb12" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">mean</span>(beta_hat_<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">var</span>(beta_hat_<span class="dv">2</span>)</a></code></pre></div>
+<pre class="example"><code>[1] 5.99871
+[1] 0.02360853
+</code></pre>
+<div class="sourceCode" id="cb14" data-org-language="R" data-session="yes" data-file="_img/beta_hat_2.png" data-results="graphics" width="640" height="480" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">hist</span>(beta_hat_<span class="dv">2</span>, <span class="dt">prob =</span> <span class="ot">TRUE</span>, <span class="dt">breaks =</span> <span class="dv">20</span>, </a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">     <span class="dt">xlab =</span> <span class="kw">expression</span>(<span class="kw">hat</span>(beta)[<span class="dv">2</span>]), <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;dodgerblue&quot;</span>)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean =</span> beta_<span class="dv">2</span>, <span class="dt">sd =</span> <span class="kw">sqrt</span>(sigma <span class="op">^</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>C[<span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>])), </a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">      <span class="dt">col =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/beta_hat_2.png" /></p>
+<div class="sourceCode" id="cb15" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">sim_beta_hat_<span class="dv">2</span> =<span class="st"> </span><span class="cf">function</span>() {</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  eps =<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean =</span> <span class="dv">0</span> , <span class="dt">sd =</span> sigma)</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  y   =<span class="st"> </span>beta_<span class="dv">0</span> <span class="op">*</span><span class="st"> </span>x0 <span class="op">+</span><span class="st"> </span>beta_<span class="dv">1</span> <span class="op">*</span><span class="st"> </span>x1 <span class="op">+</span><span class="st"> </span>beta_<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>x2 <span class="op">+</span><span class="st"> </span>eps</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">  fit =<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x1 <span class="op">+</span><span class="st"> </span>x2)</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">  <span class="kw">coef</span>(fit)[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="co"># Do things repeatedly</span></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">beta_hat_<span class="dv">2</span>_alt =<span class="st"> </span><span class="kw">replicate</span>(<span class="dt">n =</span> num_sims, <span class="kw">sim_beta_hat_2</span>())</a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="kw">mean</span>(beta_hat_<span class="dv">2</span>_alt)</a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="kw">var</span>(beta_hat_<span class="dv">2</span>_alt)</a></code></pre></div>
+<pre class="example"><code>[1] 5.997824
+[1] 0.0242292
+</code></pre>
+<div class="sourceCode" id="cb17" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">system.time</span>(</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="kw">replicate</span>(<span class="dt">n =</span> num_sims, <span class="kw">sim_beta_hat_2</span>())</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">)</a></code></pre></div>
+<pre class="example"><code>   user  system elapsed 
+  6.400   0.027   6.607
+</code></pre>
+<h2 id="single-parameter-tests">Single Parameter Tests</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/cea3bd30c8a2d28b608044a52e5a1229f835872f.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/68c85e1fc26e3bf0c875c42439a22797a9157230.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/16f78d51e31d8a9f6310af46c26f747d34779a0d.png" /></p>
+<h2 id="interval-estimation">Interval Estimation</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/ab52dfca73676566ad07a5023211ed11a8a057a2.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/e2e5f9affe71d10d138a79b36cbfb22a42a41467.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/d7481895f2bdc330f04f9663c7d1a4b18fb43fcd.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/9e8d3b6168202fe80f99c7e2eb1569ee95903c88.png" /></p>
+<blockquote>
+<ul>
+<li>The confidence interval for the mean</li>
+<li>The prediction interval for a new observation</li>
+</ul>
+</blockquote>
+<h2 id="intervals-and-test-for-mlr-in-r">Intervals and Test for MLR in R</h2>
+<div class="sourceCode" id="cb19" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">summary</span>(mpg_model)</a></code></pre></div>
+<pre class="example"><code>
+Call:
+lm(formula = mpg ~ wt + year, data = autompg)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-8.852 -2.292 -0.100  2.039 14.325 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.464e+01  4.023e+00  -3.638 0.000312 ***
+wt          -6.635e-03  2.149e-04 -30.881  &lt; 2e-16 ***
+year         7.614e-01  4.973e-02  15.312  &lt; 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.431 on 387 degrees of freedom
+Multiple R-squared:  0.8082,    Adjusted R-squared:  0.8072 
+F-statistic: 815.6 on 2 and 387 DF,  p-value: &lt; 2.2e-16
+</code></pre>
+<div class="sourceCode" id="cb21" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">confint</span>(mpg_model, <span class="dt">level =</span> <span class="fl">0.99</span>)</a></code></pre></div>
+<pre class="example"><code>                    0.5 %       99.5 %
+(Intercept) -25.052563681 -4.222720208
+wt           -0.007191036 -0.006078716
+year          0.632680051  0.890123859
+</code></pre>
+<div class="sourceCode" id="cb23" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">new_cars =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">wt =</span> <span class="kw">c</span>(<span class="dv">3500</span>, <span class="dv">5000</span>), <span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">76</span>, <span class="dv">81</span>))</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">predict</span>(mpg_model, <span class="dt">newdata =</span> new_cars, <span class="dt">interval =</span> <span class="st">&quot;confidence&quot;</span>, <span class="dt">level =</span> <span class="fl">0.99</span>)</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="kw">predict</span>(mpg_model, <span class="dt">newdata =</span> new_cars, <span class="dt">interval =</span> <span class="st">&quot;prediction&quot;</span>, <span class="dt">level =</span> <span class="fl">0.99</span>)</a></code></pre></div>
+<pre class="example"><code>       fit     lwr      upr
+1 20.00684 19.4712 20.54248
+2 13.86154 12.3341 15.38898
+       fit       lwr      upr
+1 20.00684 11.108294 28.90539
+2 13.86154  4.848751 22.87432
+</code></pre>
+<div class="sourceCode" id="cb25" data-org-language="R" data-session="yes" data-file="_img/extrapolation.png" width="640" data-results="graphics" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">plot</span>(year <span class="op">~</span><span class="st"> </span>wt, <span class="dt">data =</span> autompg, <span class="dt">pch =</span> <span class="dv">20</span>, <span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">cex =</span> <span class="fl">1.5</span>)</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw">points</span>(new_cars, <span class="dt">col =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">cex =</span> <span class="dv">3</span>, <span class="dt">pch =</span> <span class="st">&quot;X&quot;</span>)</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/extrapolation.png" /></p>
+<div class="sourceCode" id="cb26" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">confint</span>(mpg_model, <span class="dt">level =</span> <span class="fl">0.99</span>, <span class="dt">parm =</span> <span class="st">&quot;wt&quot;</span>)</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">est =<span class="st"> </span><span class="kw">summary</span>(mpg_model)<span class="op">$</span>coef[<span class="st">&quot;wt&quot;</span>, <span class="st">&quot;Estimate&quot;</span>]</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">se =<span class="st"> </span><span class="kw">summary</span>(mpg_model)<span class="op">$</span>coef[<span class="st">&quot;wt&quot;</span>, <span class="st">&quot;Std. Error&quot;</span>]</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">df =<span class="st"> </span><span class="kw">nrow</span>(autompg) <span class="op">-</span><span class="st"> </span><span class="kw">length</span>(<span class="kw">coef</span>(mpg_model))</a>
+<a class="sourceLine" id="cb26-6" data-line-number="6">cv =<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.005</span>, df, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb26-7" data-line-number="7"><span class="kw">c</span>(est <span class="op">-</span><span class="st"> </span>cv<span class="op">*</span>se, est <span class="op">+</span><span class="st"> </span>cv<span class="op">*</span>se)</a></code></pre></div>
+<pre class="example"><code>          0.5 %       99.5 %
+wt -0.007191036 -0.006078716
+[1] -0.007191036 -0.006078716
+</code></pre>
+<h1 id="nested-models">Nested Models</h1>
+<h2 id="significance-of-regression">Significance of Regression</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/c4415666dd603400685c66f77d7c5b8dedec64ca.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/41e25740e2a0be9e6b70d7ce78bdff6dcb172d52.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/b3cdf497397e8125fbd1646f8027f0b31638e336.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/201cac377970de815c8b2e1db8e17ee3c44ea17e.png" /></p>
+<ul>
+<li><span class="math inline">\(SSE / (n - p)\)</span> is called MSE, Mean Squared Error.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/5132d179e8a5004ee4de619c7f1792ab244b9e34.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/f255dc8329e7723b49c55b30f67354f6ee1f8f64.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/2e3bb56619f4c182d42dae0ca7e44bf620dbbe35.png" /></p>
+<blockquote>
+<p>At least one of the predictors has a significant linear relationship with the response.</p>
+</blockquote>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html#significance-of-regression" class="uri">http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html#significance-of-regression</a></li>
+</ul>
+</div>
+<h2 id="general-nested-models">General Nested Models</h2>
+<ul>
+<li>If <span class="math inline">\(p\)</span> &gt; <span class="math inline">\(q\)</span>, <span class="math inline">\(p\)</span> model is more complex</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/f79b99f326dd49c791456d7ce303f1b6a76a0dde.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/5bd6b70a20b451f3c6f14beacc5c207216e3563e.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/3299b83658b4142edd62cbae1126c631b694e054.png" /></p>
+<p>The alternative <span class="math inline">\(H_1\)</span> is, like as above, at least one of these parameters above is non-zero.</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/bfda31fbe22f22638bd429d380ee4b9980fb8d20.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/72405b665a8e8fc167b355b0ed91a765fb260116.png" /></p>
+<dl>
+<dt>Reject <span class="math inline">\(H_0\)</span></dt>
+<dd>We prefer the larger model
+</dd>
+<dt>Fail to reject <span class="math inline">\(H_0\)</span></dt>
+<dd>We prefer the smaller model
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/039e4e6aaa20bf567da4499ad4b9e1b7d4930f0a.png" /></p>
+<h2 id="nested-models-in-r">Nested Models in R</h2>
+<span class="math display">\[\begin{aligned}
+H_0: Y_i &amp;= \beta_0 + \epsilon_i\\
+H_1: Y_i &amp;= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \epsilon_i
+\end{aligned}
+\]</span>
+<div class="sourceCode" id="cb28" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">null_mpg_model =<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> autompg)</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">full_mpg_model =<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> autompg)</a>
+<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="kw">anova</span>(null_mpg_model, full_mpg_model)</a></code></pre></div>
+<pre class="example"><code>Analysis of Variance Table
+
+Model 1: mpg ~ 1
+Model 2: mpg ~ wt + year
+  Res.Df     RSS Df Sum of Sq      F    Pr(&gt;F)    
+1    389 23761.7                                  
+2    387  4556.6  2     19205 815.55 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+</code></pre>
+<div class="sourceCode" id="cb30" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">summary</span>(full_mpg_model)</a></code></pre></div>
+<pre class="example"><code>
+Call:
+lm(formula = mpg ~ wt + year, data = autompg)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-8.852 -2.292 -0.100  2.039 14.325 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.464e+01  4.023e+00  -3.638 0.000312 ***
+wt          -6.635e-03  2.149e-04 -30.881  &lt; 2e-16 ***
+year         7.614e-01  4.973e-02  15.312  &lt; 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.431 on 387 degrees of freedom
+Multiple R-squared:  0.8082,    Adjusted R-squared:  0.8072 
+F-statistic: 815.6 on 2 and 387 DF,  p-value: &lt; 2.2e-16
+</code></pre>
+<div class="sourceCode" id="cb32" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">null_mpg_model =<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> autompg)</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="co"># full_mpg_model = lm(mpg ~ wt + year + cyl + disp + hp + acc, data = autompg)</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3">full_mpg_model =<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> autompg)</a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="kw">anova</span>(null_mpg_model, full_mpg_model)</a></code></pre></div>
+<pre class="example"><code>Analysis of Variance Table
+
+Model 1: mpg ~ wt + year
+Model 2: mpg ~ cyl + disp + hp + wt + acc + year
+  Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+1    387 4556.6                           
+2    383 4530.5  4     26.18 0.5533 0.6967
+</code></pre>
+<div class="sourceCode" id="cb34" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">f_value =<span class="st"> </span><span class="kw">anova</span>(null_mpg_model, full_mpg_model)[<span class="dv">2</span>, <span class="st">&quot;F&quot;</span>]</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">n =<span class="st"> </span><span class="kw">length</span>(<span class="kw">residuals</span>(full_mpg_model))</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">p =<span class="st"> </span><span class="kw">length</span>(<span class="kw">coef</span>(full_mpg_model))</a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">q =<span class="st"> </span><span class="kw">length</span>(<span class="kw">coef</span>(null_mpg_model))</a>
+<a class="sourceLine" id="cb34-5" data-line-number="5">df1 =<span class="st"> </span>p <span class="op">-</span><span class="st"> </span>q</a>
+<a class="sourceLine" id="cb34-6" data-line-number="6">df2 =<span class="st"> </span>n <span class="op">-</span><span class="st"> </span>p</a>
+<a class="sourceLine" id="cb34-7" data-line-number="7"><span class="kw">pf</span>(f_value, df1, df2, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre class="example"><code>[1] 0.6967249
+</code></pre>
+<p><span class="math inline">\(t\)</span> test and <span class="math inline">\(F\)</span> test are equivalent when null model is nested and <span class="math inline">\(p - q = 1\)</span>:</p>
+<div class="sourceCode" id="cb36" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">null_mpg_model =<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> autompg)</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2">full_mpg_model =<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt <span class="op">+</span><span class="st"> </span>year <span class="op">+</span><span class="st"> </span>acc, <span class="dt">data =</span> autompg)</a></code></pre></div>
+<p>First, the <span class="math inline">\(p\)</span> values are the same:</p>
+<div class="sourceCode" id="cb37" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">anova</span>(null_mpg_model, full_mpg_model)[<span class="dv">2</span>, <span class="st">&quot;Pr(&gt;F)&quot;</span>]</a>
+<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw">coef</span>(<span class="kw">summary</span>(full_mpg_model))[<span class="st">&quot;acc&quot;</span>, <span class="st">&quot;Pr(&gt;|t|)&quot;</span>]</a></code></pre></div>
+<pre class="example"><code>[1] 0.3715681
+[1] 0.3715681
+</code></pre>
+<p>Also, <span class="math inline">\(t^2 = F\)</span>:</p>
+<div class="sourceCode" id="cb39" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">F =<span class="st"> </span><span class="kw">anova</span>(null_mpg_model, full_mpg_model)[<span class="dv">2</span>, <span class="st">&quot;F&quot;</span>]</a>
+<a class="sourceLine" id="cb39-2" data-line-number="2">F</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3">t =<span class="st"> </span><span class="kw">coef</span>(<span class="kw">summary</span>(full_mpg_model))[<span class="st">&quot;acc&quot;</span>, <span class="st">&quot;t value&quot;</span>]</a>
+<a class="sourceLine" id="cb39-4" data-line-number="4">t <span class="op">^</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<pre class="example"><code>[1] 0.8002768
+[1] 0.8002768
+</code></pre>
+<h1 id="additional-optional-videos">Additional Optional Videos</h1>
+<h2 id="model-building">Model Building</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/c83e6bc60c8744af7047b534f13a5567f6a74860.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/658d2750c7212b625bd75fe0876667714462389b.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/4d129792843b40367d8d48d82fe9fe17b04c08d8.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/515e86acdbbfcaafd817564eee74fbe042ddba34.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/4f22052a65feb1b9204ac4fa79f11a746e30ab6c.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/ba41eb02ecd71de6510466e9753bc24aede63170.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/37bccbdea2454563bf1f787442a0e1aee0d8e070.png" /></p>
+<h2 id="explanation-vs-prediction">Explanation vs Prediction</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/777750fdc97a949143c2cd2b8fb2dff2e8c89113.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/117e7f2c6f69daaa5b25d44d1d65b43e6bff3ac3.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/0fbf09f4ae28a4620de94b32b08cc0a48bb1c58a.png" /></p>
+<ul>
+<li>Is there a statistically significant difference between these two things?</li>
+<li>If there's not, we're going to prefer the orange smaller model because it's a lot easier to explain the relationship between <span class="math inline">\(x_2\)</span> and <span class="math inline">\(y\)</span> than the relationship between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> and <span class="math inline">\(y\)</span>.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/217478d93054530cb15edbe596bb791af28dc827.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-04/_img/63a5f4ffc1107313297a62823b69edf7fbe9e1cb.png" /></p>
+</article>
+
+</body>
+</html>

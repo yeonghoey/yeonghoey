@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Google Cloud Platform</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>google-cloud</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./speech">speech</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Google Cloud Platform</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#oauth-2.0">OAuth 2.0</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#authenticate-access">Authenticate access</a><ul>
+<li><a href="#api-access-in-services">API access in services</a></li>
+<li><a href="#api-access-in-local">API access in local</a></li>
+<li><a href="#cli">CLI</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<pre class="shell"><code>gcloud auth application-default login
+</code></pre>
+<h1 id="reference">Reference</h1>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="oauth-2.0">OAuth 2.0</h2>
+<p><img src="https://media.yeonghoey.com/google-cloud/_img/screenshot_2018-01-11_16-09-28.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developers.google.com/identity/protocols/OAuth2" class="uri">https://developers.google.com/identity/protocols/OAuth2</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h2 id="authenticate-access">Authenticate access</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://google-cloud-python.readthedocs.io/en/latest/core/auth.html" class="uri">http://google-cloud-python.readthedocs.io/en/latest/core/auth.html</a></li>
+<li><a href="https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login" class="uri">https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login</a></li>
+</ul>
+</div>
+<h3 id="api-access-in-services">API access in services</h3>
+<ul>
+<li>Create service account credentials</li>
+</ul>
+<pre class="shell"><code>export GOOGLE_APPLICATION_CREDENTIALS=&quot;/path/to/keyfile.json&quot;
+</code></pre>
+<h3 id="api-access-in-local">API access in local</h3>
+<pre class="shell"><code># By default, API enablement and quotas are managed
+# by the master Application Default Credentials project,
+# which means that a small number of API calls may exceed quota.
+gcloud auth application-default login
+
+# When this happens, you need to create a client id and specify it as follows,
+# which means now the API calls consume your project&#39;s quota.
+gcloud auth application-default login --client-id-file=CLIENT_ID_FILE
+</code></pre>
+<ul>
+<li>The default credentials will be placed as:</li>
+</ul>
+<pre class="example"><code>~/.config/gcloud/application_default_credentials.json
+</code></pre>
+<h3 id="cli">CLI</h3>
+<pre class="shell"><code>gcloud auth login
+</code></pre>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://googlecloudplatform.github.io/google-cloud-python/latest/core/auth.html" class="uri">https://googlecloudplatform.github.io/google-cloud-python/latest/core/auth.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

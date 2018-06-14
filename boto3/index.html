@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>boto3</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>boto3</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">boto3</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#concepts">Concepts</a><ul>
+<li><a href="#client-vs-resource">Client vs Resource</a></li>
+<li><a href="#paginators">Paginators</a></li>
+</ul></li>
+<li><a href="#core">Core</a><ul>
+<li><a href="#client-or-resource">client or resource</a></li>
+<li><a href="#waiters">Waiters</a></li>
+<li><a href="#exceptions">Exceptions</a></li>
+</ul></li>
+<li><a href="#ec2">EC2</a></li>
+<li><a href="#cloudformation">CloudFormation</a></li>
+<li><a href="#dynamodb">DynamoDB</a><ul>
+<li><a href="#getitem">get<sub>item</sub></a></li>
+<li><a href="#query">query</a><ul>
+<li><a href="#expressionattributenames">ExpressionAttributeNames</a></li>
+<li><a href="#expressionattributevalues">ExpressionAttributeValues</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="concepts">Concepts</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Resources</td>
+<td>a high level, object oriented interface</td>
+</tr>
+<tr class="even">
+<td>Collections</td>
+<td>a tool to iterate and manipulate groups of resources</td>
+</tr>
+<tr class="odd">
+<td>Clients</td>
+<td>low level service connections</td>
+</tr>
+<tr class="even">
+<td>Paginators</td>
+<td>automatic paging of responses</td>
+</tr>
+<tr class="odd">
+<td>Waiters</td>
+<td>a way to block until a certain state has been reached</td>
+</tr>
+</tbody>
+</table>
+<p>Boto 3 is built atop of a library called <a href="https://pypi.python.org/pypi/botocore">Botocore</a>, which is shared by the AWS CLI.</p>
+<p>It is recommended to <strong>create a resource instance for each thread</strong> in a multithreaded application rather than sharing a single instance among the threads</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://boto3.readthedocs.io/en/latest/guide/index.html#general-feature-guides" class="uri">https://boto3.readthedocs.io/en/latest/guide/index.html#general-feature-guides</a></li>
+<li><a href="https://boto3.readthedocs.io/en/latest/guide/collections.html" class="uri">https://boto3.readthedocs.io/en/latest/guide/collections.html</a></li>
+</ul>
+</div>
+<h2 id="client-vs-resource">Client vs Resource</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">import</span> boto3</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># Create a low-level client with the service name</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">sqs <span class="op">=</span> boto3.client(<span class="st">&#39;sqs&#39;</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># Access client through resource</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">sqs_resource <span class="op">=</span> boto3.resource(<span class="st">&#39;sqs&#39;</span>)</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">sqs <span class="op">=</span> sqs_resource.meta.client</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Entry functions like `boto3.resource`, boto3.client`</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co"># just pass arguments to the default session</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">def</span> resource(<span class="op">*</span>args, <span class="op">**</span>kwargs):</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="cf">return</span> _get_default_session().resource(<span class="op">*</span>args, <span class="op">**</span>kwargs)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">boto3.resource(<span class="st">&#39;sqs&#39;</span>, region_name<span class="op">=</span><span class="st">&#39;ap-northeast1&#39;</span>)</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/core/boto3.html" class="uri">http://boto3.readthedocs.io/en/latest/reference/core/boto3.html</a></li>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client" class="uri">http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client</a></li>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource" class="uri">http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource</a></li>
+<li><a href="http://boto3.readthedocs.io/en/latest/_modules/boto3.html#resource" class="uri">http://boto3.readthedocs.io/en/latest/_modules/boto3.html#resource</a></li>
+</ul>
+</div>
+<h2 id="paginators">Paginators</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="im">import</span> boto3</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">client <span class="op">=</span> boto3.client(<span class="st">&#39;s3&#39;</span>, region_name<span class="op">=</span><span class="st">&#39;us-west-2&#39;</span>)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">paginator <span class="op">=</span> client.get_paginator(<span class="st">&#39;list_objects&#39;</span>)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">operation_parameters <span class="op">=</span> {<span class="st">&#39;Bucket&#39;</span>: <span class="st">&#39;my-bucket&#39;</span>,</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">                        <span class="st">&#39;Prefix&#39;</span>: <span class="st">&#39;foo/baz&#39;</span>}</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">page_iterator <span class="op">=</span> paginator.paginate(<span class="op">**</span>operation_parameters)</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="cf">for</span> page <span class="kw">in</span> page_iterator:</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="bu">print</span>(page[<span class="st">&#39;Contents&#39;</span>])</a></code></pre></div>
+<h1 id="core">Core</h1>
+<h2 id="client-or-resource">client or resource</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">def</span> client_or_resource(service_name,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">                       region_name<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">                       api_version<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">                       use_ssl<span class="op">=</span><span class="va">True</span>,</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">                       verify<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">                       endpoint_url<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">                       aws_access_key_id<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">                       aws_secret_access_key<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">                       aws_session_token<span class="op">=</span><span class="va">None</span>,</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">                       config<span class="op">=</span><span class="va">None</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Access the raw client within a resource</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">client <span class="op">=</span> resource.meta.client</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client" class="uri">http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.client</a></li>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource" class="uri">http://boto3.readthedocs.io/en/latest/reference/core/session.html#boto3.session.Session.resource</a></li>
+</ul>
+</div>
+<h2 id="waiters">Waiters</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://boto3.readthedocs.io/en/latest/guide/clients.html#waiters" class="uri">http://boto3.readthedocs.io/en/latest/guide/clients.html#waiters</a></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="im">import</span> boto3</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">s3 <span class="op">=</span> boto3.client(<span class="st">&#39;s3&#39;</span>)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&#39;s3 waiters: &#39;</span>, s3.waiter_names)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co"># [u&#39;bucket_exists&#39;, u&#39;bucket_not_exists&#39;, u&#39;object_exists&#39;, u&#39;object_not_exists&#39;]</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">w <span class="op">=</span> s3.get_waiter(<span class="st">&#39;bucket_exists&#39;</span>)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">w.wait(Bucket<span class="op">=</span><span class="st">&#39;mybucket&#39;</span>)</a></code></pre></div>
+<h2 id="exceptions">Exceptions</h2>
+<ul>
+<li><p>Tranditionally, all exceptions from boto3 should be catched as <code>ClientError</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="im">import</span> boto3</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="im">from</span> botocore.exceptions <span class="im">import</span> ClientError</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">    iam <span class="op">=</span> boto3.client(<span class="st">&#39;iam&#39;</span>)</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">    user <span class="op">=</span> iam.create_user(UserName<span class="op">=</span><span class="st">&#39;fred&#39;</span>)</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="cf">except</span> ClientError <span class="im">as</span> e:</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="cf">if</span> e.response[<span class="st">&#39;Error&#39;</span>][<span class="st">&#39;Code&#39;</span>] <span class="op">==</span> <span class="st">&#39;EntityAlreadyExists&#39;</span>:</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">        <span class="cf">pass</span> <span class="co"># Handle error here</span></a></code></pre></div></li>
+<li>From <strong>2018-03-07</strong>, you can catch specific exceptions dynamically generated within <code>client</code> as follows:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="im">import</span> boto3</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    iam <span class="op">=</span> boto3.client(<span class="st">&#39;iam&#39;</span>)</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">    user <span class="op">=</span> iam.create_user(UserName<span class="op">=</span><span class="st">&#39;fred&#39;</span>)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="cf">except</span> iam.exceptions.EntityAlreadyExistsException:</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="cf">pass</span> <span class="co"># Handle error here</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/33068055/boto3-python-and-how-to-handle-errors" class="uri">https://stackoverflow.com/questions/33068055/boto3-python-and-how-to-handle-errors</a></li>
+<li><a href="http://botocore.readthedocs.io/en/latest/client_upgrades.html#error-handling" class="uri">http://botocore.readthedocs.io/en/latest/client_upgrades.html#error-handling</a></li>
+</ul>
+</div>
+<h1 id="ec2">EC2</h1>
+<ul>
+<li><a href="https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.Instance">EC2.Instance</a> (for instance attributes)</li>
+<li><a href="https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource">EC2.ServiceResource</a> (for entry access)</li>
+<li><a href="https://boto3.readthedocs.io/en/latest/reference/services/ec2.html#EC2.ServiceResource.instances">EC2.ServiceResource.instances</a> (for filtering instances)</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># EC2 find instances</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">ec2 <span class="op">=</span> boto3.resource(<span class="st">&#39;ec2&#39;</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">base <span class="op">=</span> ec2.instances.<span class="bu">filter</span>(InstanceIds<span class="op">=</span>[<span class="st">&#39;id1&#39;</span>, <span class="st">&#39;id2&#39;</span>, <span class="st">&#39;id3&#39;</span>])</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">filters <span class="op">=</span> [{</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">    <span class="st">&#39;name&#39;</span>: <span class="st">&#39;tenancy&#39;</span>,</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">    <span class="st">&#39;value&#39;</span>: <span class="st">&#39;dedicated&#39;</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">}]</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">filtered1 <span class="op">=</span> base.<span class="bu">filter</span>(Filters<span class="op">=</span>filters)</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="co"># Note, this does NOT modify the filters in ``filtered1``!</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">filters.append({<span class="st">&#39;name&#39;</span>: <span class="st">&#39;instance-type&#39;</span>, <span class="st">&#39;value&#39;</span>: <span class="st">&#39;t1.micro&#39;</span>})</a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">filtered2 <span class="op">=</span> base.<span class="bu">filter</span>(Filters<span class="op">=</span>filters)</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15"><span class="bu">print</span>(<span class="st">&#39;All instances:&#39;</span>)</a>
+<a class="sourceLine" id="cb10-16" data-line-number="16"><span class="cf">for</span> instance <span class="kw">in</span> base:</a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">    <span class="bu">print</span>(instance.<span class="bu">id</span>)</a>
+<a class="sourceLine" id="cb10-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb10-19" data-line-number="19"><span class="bu">print</span>(<span class="st">&#39;Dedicated instances:&#39;</span>)</a>
+<a class="sourceLine" id="cb10-20" data-line-number="20"><span class="cf">for</span> instance <span class="kw">in</span> filtered1:</a>
+<a class="sourceLine" id="cb10-21" data-line-number="21">    <span class="bu">print</span>(instance.<span class="bu">id</span>)</a>
+<a class="sourceLine" id="cb10-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb10-23" data-line-number="23"><span class="bu">print</span>(<span class="st">&#39;Dedicated micro instances:&#39;</span>)</a>
+<a class="sourceLine" id="cb10-24" data-line-number="24"><span class="cf">for</span> instance <span class="kw">in</span> filtered2:</a>
+<a class="sourceLine" id="cb10-25" data-line-number="25">    <span class="bu">print</span>(instance.<span class="bu">id</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="im">import</span> boto3</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">ec2 <span class="op">=</span> boto3.resource(<span class="st">&#39;ec2&#39;</span>)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">instance <span class="op">=</span> ec2.Instance(<span class="st">&#39;id&#39;</span>)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="bu">print</span> instance.private_ip_address  <span class="co"># For more attributes, SEE: EC2.Instance</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://boto3.readthedocs.io/en/latest/reference/services/ec2.html" class="uri">https://boto3.readthedocs.io/en/latest/reference/services/ec2.html</a></li>
+</ul>
+</div>
+<h1 id="cloudformation">CloudFormation</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/services/cloudformation.html" class="uri">http://boto3.readthedocs.io/en/latest/reference/services/cloudformation.html</a></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="im">import</span> boto3</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">client <span class="op">=</span> boto3.client(<span class="st">&#39;cloudformation&#39;</span>)</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">stack <span class="op">=</span> client.create_stack(StackName<span class="op">=</span><span class="st">&#39;test&#39;</span>, TmeplateBody<span class="op">=</span><span class="st">&#39;{&quot;json&quot;: &quot;template&quot;}&#39;</span>)</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co"># http://boto3.readthedocs.io/en/latest/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete.wait</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">waiter <span class="op">=</span> client.get_waiter(<span class="st">&#39;stack_create_complete&#39;</span>)</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">waiter.wait(StackName<span class="op">=</span><span class="st">&#39;test&#39;</span>, WaiterConfig<span class="op">=</span>{<span class="st">&#39;Delay&#39;</span>: <span class="dv">5</span>})</a></code></pre></div>
+<h1 id="dynamodb">DynamoDB</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html" class="uri">http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html</a></li>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#table" class="uri">http://boto3.readthedocs.io/en/latest/reference/services/dynamodb.html#table</a></li>
+<li><a href="http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#dynamodb-conditions" class="uri">http://boto3.readthedocs.io/en/latest/reference/customizations/dynamodb.html#dynamodb-conditions</a></li>
+</ul>
+</div>
+<h2 id="getitem">get<sub>item</sub></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="im">import</span> boto3</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">dynamodb <span class="op">=</span> boto3.resource(<span class="st">&#39;dynamodb&#39;</span>)</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">table <span class="op">=</span> dynamodb.Table(<span class="st">&#39;name&#39;</span>)</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">response <span class="op">=</span> table.get_item(Key<span class="op">=</span>{<span class="st">&#39;user&#39;</span>: user})</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">{</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">    <span class="st">&#39;Item&#39;</span>: {</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">        <span class="st">&#39;user&#39;</span>: <span class="st">&#39;yeonghoey&#39;</span>,</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">        <span class="st">&#39;age&#39;</span>: <span class="dv">32</span>,</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">    },</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">}</a></code></pre></div>
+<h2 id="query">query</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.04.html" class="uri">https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.04.html</a></li>
+</ul>
+</div>
+<blockquote>
+<p>Query results are always sorted by the sort key value. If the data type of the sort key is Number, the results are returned in numeric order; otherwise, the results are returned in order of UTF-8 bytes. By default, the sort order is ascending. To reverse the order, set the ScanIndexForward parameter to false.</p>
+</blockquote>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># year - The partition key. The attribute type is number.</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co"># title - The sort key. The attribute type is string.</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="im">from</span> boto3.dynamodb.conditions <span class="im">import</span> Key, Attr</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="co"># All Movies Released in a Year</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">response <span class="op">=</span> table.query(</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">    KeyConditionExpression<span class="op">=</span>Key(<span class="st">&#39;year&#39;</span>).eq(<span class="dv">1985</span>)</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="co"># All Movies Released in a Year with Certain Titles</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co"># Because &#39;year&#39; is a reserved keyword, give an alias of &#39;#yr&#39;</span></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">response <span class="op">=</span> table.query(</a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">    ProjectionExpression<span class="op">=</span><span class="st">&quot;#yr, title, info.genres, info.actors[0]&quot;</span>,</a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">    ExpressionAttributeNames<span class="op">=</span>{ <span class="st">&quot;#yr&quot;</span>: <span class="st">&quot;year&quot;</span> }, <span class="co"># Expression Attribute Names for Projection Expression only.</span></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15">    KeyConditionExpression<span class="op">=</span>Key(<span class="st">&#39;year&#39;</span>).eq(<span class="dv">1992</span>) <span class="op">&amp;</span> Key(<span class="st">&#39;title&#39;</span>).between(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;L&#39;</span>)</a>
+<a class="sourceLine" id="cb15-16" data-line-number="16">)</a>
+<a class="sourceLine" id="cb15-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb15-18" data-line-number="18"><span class="bu">print</span>(response[<span class="st">&#39;Items&#39;</span>])</a></code></pre></div>
+<h3 id="expressionattributenames">ExpressionAttributeNames</h3>
+<ul>
+<li>starts with <code>#</code>, reference the name of the attribute in expressions</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1">{<span class="st">&quot;#P&quot;</span>: <span class="st">&quot;Percentile&quot;</span>}</a></code></pre></div>
+<h3 id="expressionattributevalues">ExpressionAttributeValues</h3>
+<ul>
+<li>starts with <code>:</code>, reference the value of the attribute in expressions</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1">{ <span class="st">&quot;:avail&quot;</span>:{<span class="st">&quot;S&quot;</span>:<span class="st">&quot;Available&quot;</span>}, <span class="st">&quot;:back&quot;</span>:{<span class="st">&quot;S&quot;</span>:<span class="st">&quot;Backordered&quot;</span>}, <span class="st">&quot;:disc&quot;</span>:{<span class="st">&quot;S&quot;</span>:<span class="st">&quot;Discontinued&quot;</span>} }</a></code></pre></div>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://boto3.readthedocs.io/en/latest/index.html" class="uri">https://boto3.readthedocs.io/en/latest/index.html</a></li>
+<li><a href="https://boto3.readthedocs.io/en/latest/reference/services/index.html" class="uri">https://boto3.readthedocs.io/en/latest/reference/services/index.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Introduction to Crypto and Cryptocurrencies</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/cryptocurrency/" >cryptocurrency</a></li>
+    <li>week1</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Introduction to Crypto and Cryptocurrencies</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#cryptographic-hash-functions">Cryptographic Hash Functions</a><ul>
+<li><a href="#collision-free">Collision-free</a></li>
+<li><a href="#hiding">Hiding</a></li>
+<li><a href="#puzzle-friendly">Puzzle-friendly</a></li>
+<li><a href="#sha-256">SHA-256</a></li>
+</ul></li>
+<li><a href="#hash-pointers-and-data-structures">Hash Pointers and Data Structures</a><ul>
+<li><a href="#self-study-to-understand-more">Self study to understand more</a></li>
+</ul></li>
+<li><a href="#digital-signatures">Digital Signatures</a></li>
+<li><a href="#public-keys-as-identities">Public Keys as Identities</a></li>
+<li><a href="#a-simple-cryptocurrency">A Simple Cryptocurrency</a><ul>
+<li><a href="#goofy-coin">Goofy Coin</a></li>
+<li><a href="#scrooge-coin">Scrooge Coin</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="cryptographic-hash-functions">Cryptographic Hash Functions</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-45-44.png" /></p>
+<h2 id="collision-free">Collision-free</h2>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-46-06.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-46-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-46-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-47-03.png" /></p>
+<h2 id="hiding">Hiding</h2>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-47-39.png" /></p>
+<ul>
+<li><code>r | x</code> means concatenating string <code>r</code> and <code>x</code></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-48-18.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-48-29.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-48-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-49-26.png" /></p>
+<h2 id="puzzle-friendly">Puzzle-friendly</h2>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-50-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-50-35.png" /></p>
+<h2 id="sha-256">SHA-256</h2>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-09-29_07-50-47.png" /></p>
+<h1 id="hash-pointers-and-data-structures">Hash Pointers and Data Structures</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_13-44-57.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_13-45-23.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_13-45-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_13-50-57.png" /></p>
+<ul>
+<li>Because the header for the list is the list itself, the adversary can't falsify the whole data.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_13-53-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_13-53-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_14-41-42.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_14-42-50.png" /></p>
+<h2 id="self-study-to-understand-more">Self study to understand more</h2>
+<ul>
+<li>Most explanations are vaguely couch, but it seems that <strong><strong>the data blocks should be ordered</strong></strong>, otherwise the hashes will be different, Because the values are concatenated in the order of data blocks.</li>
+<li>Most expalnations says the merkle tree can save the retrival of data as <code>O(log n)</code>, but I wondered how. For the example below, I understand the only blue blocks are needed to prove <code>Hk</code> is valid, but I don't know how to find out that the blue blocks are needed.</li>
+<li>I've waded through lots of implementations on GitHub, and <strong>most implementations keep the original data blocks as an array</strong> and indexing it to calculate hashes.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-06_16-12-52.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#merkle_trees" class="uri">http://chimera.labs.oreilly.com/books/1234000001802/ch07.html#merkle_trees</a></li>
+</ul>
+</div>
+<h1 id="digital-signatures">Digital Signatures</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-42-38.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-42-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-43-18.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-43-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-43-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-44-16.png" /></p>
+<h1 id="public-keys-as-identities">Public Keys as Identities</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-47-20.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-50-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-51-51.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_09-52-36.png" /></p>
+<h1 id="a-simple-cryptocurrency">A Simple Cryptocurrency</h1>
+<h2 id="goofy-coin">Goofy Coin</h2>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-11-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-11-47.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-12-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-13-00.png" /></p>
+<h2 id="scrooge-coin">Scrooge Coin</h2>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-13-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-13-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-14-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-14-30.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week1/_img/screenshot_2017-10-08_10-15-03.png" /></p>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Git</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>git</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Git</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#add">add</a><ul>
+<li><a href="#intent-to-add">intent-to-add</a></li>
+</ul></li>
+<li><a href="#branch">branch</a><ul>
+<li><a href="#cleanup-branches">Cleanup branches</a></li>
+<li><a href="#cleanup-remote-branch-references">Cleanup remote branch references</a></li>
+</ul></li>
+<li><a href="#clone">clone</a></li>
+<li><a href="#config">config</a></li>
+<li><a href="#diff">diff</a></li>
+<li><a href="#flow">flow</a><ul>
+<li><a href="#git-flow-release-finish">git flow release finish</a></li>
+<li><a href="#when-it-comes-to-code-review">When it comes to code review</a></li>
+</ul></li>
+<li><a href="#gitignore">gitignore</a></li>
+<li><a href="#list-tree">list-tree</a></li>
+<li><a href="#log">log</a><ul>
+<li><a href="#find-deleted-files">Find deleted files</a></li>
+</ul></li>
+<li><a href="#ls-files">ls-files</a><ul>
+<li><a href="#list-untracked-files">List untracked files</a></li>
+<li><a href="#list-ignored-files">List ignored files</a></li>
+</ul></li>
+<li><a href="#merge">merge</a></li>
+<li><a href="#pull">pull</a></li>
+<li><a href="#rebase">rebase</a></li>
+<li><a href="#rev-parse">rev-parse</a><ul>
+<li><a href="#get-git-root-directory">Get git root directory</a></li>
+</ul></li>
+<li><a href="#rm">rm</a></li>
+<li><a href="#submodule">submodule</a></li>
+<li><a href="#tag">tag</a><ul>
+<li><a href="#basics">Basics</a></li>
+<li><a href="#prune-local-git-tags-that-dont-exist-on-remote">Prune local git tags that don't exist on remote</a></li>
+</ul></li>
+<li><a href="#worktree">worktree</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#git-attributes">Git Attributes</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#clone-the-latest-revision">Clone the latest revision</a></li>
+<li><a href="#commit-only-when-theres-something-staged">Commit only when there's something staged</a></li>
+<li><a href="#get-the-short-hash">Get the short hash</a></li>
+<li><a href="#list-all-todos-written-by-a-specific-user">List all TODOs written by a specific user</a></li>
+<li><a href="#purge-files-including-their-histories">Purge files including their histories</a></li>
+<li><a href="#resolve-conflicts">Resolve conflicts</a><ul>
+<li><a href="#check-the-conflict-causing-commits">Check the conflict causing commits</a></li>
+<li><a href="#resolve-conflicts-manually">Resolve conflicts manually</a></li>
+<li><a href="#resolve-conflicts-with-ours-or-theirs">Resolve conflicts with ours or theirs</a></li>
+<li><a href="#continue-with-the-resolved-resulte">Continue with the resolved resulte</a></li>
+</ul></li>
+<li><a href="#run-commands-while-not-in-a-git-directory">Run commands while not in a git directory</a></li>
+<li><a href="#delete-empty-directories-within-a-repository">Delete empty directories within a repository</a></li>
+<li><a href="#use-dropbox-as-a-private-repository">Use Dropbox as a private repository</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="reference">Reference</h1>
+<h2 id="add">add</h2>
+<h3 id="intent-to-add">intent-to-add</h3>
+<ul>
+<li><code>git add --intent-to-add</code>, the specified untracked files will be added to the index, <strong>but without content.</strong></li>
+</ul>
+<pre class="shell"><code>$ echo hello &gt; target-file
+$ git add --patch
+No chagnes.
+$ git add --intent-to-add target-file
+$ git add --patch
+index e69de29..ce01362 100644
+--- a/sub1/target-file
++++ b/sub1/target-file
+@@ -0,0 +1 @@
++hello
+</code></pre>
+<pre class="shell"><code># Mark all files including untracked to add
+git add --intent-to-add --all
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://robots.thoughtbot.com/intent-to-add" class="uri">https://robots.thoughtbot.com/intent-to-add</a></li>
+</ul>
+</div>
+<h2 id="branch">branch</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://railsware.com/blog/2014/08/11/git-housekeeping-tutorial-clean-up-outdated-branches-in-local-and-remote-repositories/" class="uri">http://railsware.com/blog/2014/08/11/git-housekeeping-tutorial-clean-up-outdated-branches-in-local-and-remote-repositories/</a></li>
+</ul>
+</div>
+<h3 id="cleanup-branches">Cleanup branches</h3>
+<pre class="shell"><code>$ git checkout master
+
+# Show targets before deleting
+$ git branch --merged
+$ git branch -d old-merged-feature
+
+$ git branch --no-merged
+$ git branch -D old-abandoned-feature
+</code></pre>
+<pre class="shell"><code># Delete all merged, except master
+$ git branch --merged | grep -vE &#39;(master|develop)&#39; | xargs git branch -d
+</code></pre>
+<h3 id="cleanup-remote-branch-references">Cleanup remote branch references</h3>
+<pre class="shell"><code># Show targets
+$ git branch --remotes
+$ git remote prune origin
+</code></pre>
+<pre class="shell"><code># prune when fetching
+$ git fetch --prune
+</code></pre>
+<h2 id="clone">clone</h2>
+<pre class="shell"><code># Clone only &#39;gh-pages&#39; branch of &#39;note.git&#39; repo into &#39;./notes-gh-pages&#39;
+git clone --branch gh-pages --single-branch https://github.com/yeonghoey/yeonghoey.git yeonghoey-gh-pages
+#              └─ -b, can also be a tag
+</code></pre>
+<pre class="shell"><code># Clone just the latest revision
+git clone --depth=1 &#39;https://github.com/yeonghoey/yeonghoey.git&#39;
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/1911109/how-to-clone-a-specific-git-branch" class="uri">https://stackoverflow.com/questions/1911109/how-to-clone-a-specific-git-branch</a></li>
+<li><a href="https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision" class="uri">https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision</a></li>
+</ul>
+</div>
+<h2 id="config">config</h2>
+<ul>
+<li>About the contents of <code>.git/config</code></li>
+</ul>
+<table>
+<tbody>
+<tr class="odd">
+<td><code>branch.&lt;name&gt;.remote</code></td>
+<td>Tells which remote to <code>git fetch</code> from and <code>git push</code> to</td>
+</tr>
+<tr class="even">
+<td><code>branch.&lt;name&gt;.pushRemote</code></td>
+<td>Overrides <code>branch.&lt;name&gt;.remote</code> for pushing</td>
+</tr>
+<tr class="odd">
+<td><code>remote.pushDefault</code></td>
+<td>Overrides <code>branch.&lt;name&gt;.remote</code>, overridden by <code>branch.&lt;name&gt;.pushRemote</code></td>
+</tr>
+</tbody>
+</table>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://git-scm.com/docs/git-config/2.13.1" class="uri">https://git-scm.com/docs/git-config/2.13.1</a></li>
+</ul>
+</div>
+<h2 id="diff">diff</h2>
+<pre class="shell"><code>git diff --exit-code # Exits 0: no differences, 1: differences
+git diff --quiet     # No outputs. Implies --exit-code
+git diff --name-only # Show only names of changed files
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/9903541/finding-diff-between-current-and-last-versions/9903611" class="uri">https://stackoverflow.com/questions/9903541/finding-diff-between-current-and-last-versions/9903611</a></li>
+</ul>
+</div>
+<h2 id="flow">flow</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://danielkummer.github.io/git-flow-cheatsheet/index.html" class="uri">http://danielkummer.github.io/git-flow-cheatsheet/index.html</a></li>
+</ul>
+</div>
+<h3 id="git-flow-release-finish">git flow release finish</h3>
+<p>Make sure the local <code>develop</code> and <code>master</code> branches are fresh. When trigger <code>finish</code>, the merge flow is following:</p>
+<ol>
+<li>merges <code>release/something</code> into <code>master</code></li>
+<li>creates a tag on the <code>master</code> commit.</li>
+<li>merges <code>master</code> into <code>develop</code></li>
+</ol>
+<h3 id="when-it-comes-to-code-review">When it comes to code review</h3>
+<p><code>git flow feature finish</code> just merges into develop without code review. To work around this, just don't use <code>finish</code> but make a pull request and delete the branch manually after it merged.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://softwareengineering.stackexchange.com/questions/187723/code-review-with-git-flow-and-github" class="uri">http://softwareengineering.stackexchange.com/questions/187723/code-review-with-git-flow-and-github</a></li>
+</ul>
+</div>
+<h2 id="gitignore">gitignore</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.atlassian.com/git/tutorials/gitignore#git-ignore-patterns" class="uri">https://www.atlassian.com/git/tutorials/gitignore#git-ignore-patterns</a></li>
+</ul>
+</div>
+<h2 id="list-tree">list-tree</h2>
+<pre class="shell"><code># lists all of the already committed files being tracked by your git repo.
+$ git ls-tree --full-tree -r HEAD
+</code></pre>
+<h2 id="log">log</h2>
+<h3 id="find-deleted-files">Find deleted files</h3>
+<pre class="shell"><code>git log --all --full-history -- **/thefile.*
+git log --all --full-history -- &lt;path-to-file&gt;  # if you know the exact path
+
+# Reveal the content
+git show &lt;SHA&gt; -- &lt;path-to-file&gt;
+
+# Note &#39;^&#39;, checking out from the previous commit.
+# There won&#39;t exist the file in &lt;SHA&gt; because it has been deleted.
+git checkout &lt;SHA&gt;^ -- &lt;path-to-file&gt;
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history" class="uri">http://stackoverflow.com/questions/7203515/git-how-to-search-for-a-deleted-file-in-the-project-commit-history</a></li>
+</ul>
+</div>
+<h2 id="ls-files">ls-files</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/3538144/how-do-you-git-show-untracked-files-that-do-not-exist-in-gitignore" class="uri">https://stackoverflow.com/questions/3538144/how-do-you-git-show-untracked-files-that-do-not-exist-in-gitignore</a></li>
+</ul>
+</div>
+<h3 id="list-untracked-files">List untracked files</h3>
+<pre class="shell"><code>git ls-files . --exclude-standard --others
+#                 │                 └─ untracked
+#                 └─ exclude files decalred in .gitignore, etc.
+</code></pre>
+<h3 id="list-ignored-files">List ignored files</h3>
+<dl>
+<dt>ignored, cached files (<code>--cached</code> is default)</dt>
+<dd>
+</dd>
+</dl>
+<pre class="shell"><code>git ls-files . --exclude-standard --ignored
+#                 │                  └─ show only those matched by an exclude pattern
+#                 └─ exclude files decalred in .gitignore, etc.
+</code></pre>
+<dl>
+<dt>ignored, untracked files</dt>
+<dd>
+</dd>
+</dl>
+<pre class="shell"><code>git ls-files . --exclude-standard --ignored --others
+#                 │                  │         └─ untracked
+#                 │                  └─ show only those matched by an exclude pattern
+#                 └─ exclude files decalred in .gitignore, etc.
+</code></pre>
+<h2 id="merge">merge</h2>
+<pre class="shell"><code># To merge &#39;other_branch&#39; into &#39;branch&#39;
+# Current branch is always the target branch
+git checkout &#39;branch&#39;
+git merge &#39;other_branch&#39;
+</code></pre>
+<blockquote>
+<p>The three-way merge marker lines (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>========</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) are automatically generated, but they’re just meant to be read by you, not (necessarily) a program. You should delete them with your text editor once you resolve the conflict.</p>
+</blockquote>
+<h2 id="pull">pull</h2>
+<pre class="shell"><code>git pull --rebase --autostash # git pull accepts &#39;--autostash&#39; from 2.9
+</code></pre>
+<pre class="shell"><code>git fetch
+git rebase --autostash
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/30208928/can-git-pull-automatically-stash-and-pop-pending-changes" class="uri">http://stackoverflow.com/questions/30208928/can-git-pull-automatically-stash-and-pop-pending-changes</a></li>
+</ul>
+</div>
+<h2 id="rebase">rebase</h2>
+<ul>
+<li><code>--autosquash</code> is only valid when the <code>--interactive</code> option is used.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://git-scm.com/docs/git-rebase#git-rebase" class="uri">https://git-scm.com/docs/git-rebase#git-rebase</a></li>
+</ul>
+</div>
+<h2 id="rev-parse">rev-parse</h2>
+<h3 id="get-git-root-directory">Get git root directory</h3>
+<pre class="shell"><code>git rev-parse --show-toplevel
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command" class="uri">http://stackoverflow.com/questions/957928/is-there-a-way-to-get-the-git-root-directory-in-one-command</a></li>
+</ul>
+</div>
+<h2 id="rm">rm</h2>
+<pre class="shell"><code># Untrack &lt;file&gt; recursively
+$ git rm -r --cached &lt;file&gt;
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/6964297/untrack-files-from-git" class="uri">http://stackoverflow.com/questions/6964297/untrack-files-from-git</a></li>
+</ul>
+</div>
+<h2 id="submodule">submodule</h2>
+<pre class="shell"><code># This will add .gitmodules to the repo
+git submodule add git@github.com:yeonghoey/notes.git
+</code></pre>
+<p><code>.gitmodules</code>:</p>
+<pre class="example"><code>[submodule &quot;notes&quot;]
+  path = notes
+  url = git@github.com:yeonghoey/notes.git
+</code></pre>
+<p>When cloning this repository, there will only be empty directory for the submodule.</p>
+<pre class="shell"><code>git submodule init           # From &#39;.gitmodule&#39; to &#39;.git/config&#39;
+git submodule update         # Actual fetching
+git submodule update --init  # updates without explicit --init
+</code></pre>
+<p>Just simply:</p>
+<pre class="shell"><code>git submodule update --init --recursive
+</code></pre>
+<p>To remove a submodule from the project, following steps required:</p>
+<pre class="shell"><code># Delete target module&#39;s entry in &#39;.gitmodule&#39;
+# Delete target module&#39;s entry in &#39;.git/config&#39;
+git rm --cached &lt;submodule-path&gt;
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" class="uri">https://git-scm.com/book/en/v2/Git-Tools-Submodules</a></li>
+<li><a href="https://chrisjean.com/git-submodules-adding-using-removing-and-updating/" class="uri">https://chrisjean.com/git-submodules-adding-using-removing-and-updating/</a></li>
+</ul>
+</div>
+<h2 id="tag">tag</h2>
+<h3 id="basics">Basics</h3>
+<pre class="shell"><code>$ git tag
+v0.1
+v1.3
+$ git tag -l &quot;v1.8.5*&quot;
+v1.8.5
+v1.8.5-rc0
+v1.8.5-rc1
+v1.8.5-rc2
+v1.8.5-rc3
+
+# Lightweight tags, a pointer to a specific commit.
+$ git tag v1.4-lw
+
+# Annotated tags, stored as full objects in the Git database
+$ git tag -a v1.4 -m &quot;my version 1.4&quot;
+
+$ git push origin v1.5
+$ git push origin --tags # all local tags to remote
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging" class="uri">https://git-scm.com/book/en/v2/Git-Basics-Tagging</a></li>
+</ul>
+</div>
+<h3 id="prune-local-git-tags-that-dont-exist-on-remote">Prune local git tags that don't exist on remote</h3>
+<pre class="shell"><code>$ git tag -l | xargs git tag -d # remove all local tags
+$ git fetch -t                  # fetch remote tags
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://demisx.github.io/git/2014/11/02/git-prune-local-tags-dont-exist-remote.html" class="uri">https://demisx.github.io/git/2014/11/02/git-prune-local-tags-dont-exist-remote.html</a></li>
+</ul>
+</div>
+<h2 id="worktree">worktree</h2>
+<pre class="shell"><code># Basics
+$ git fetch
+$ git worktree add -b bugfix-1234 ../bugfix origin/master
+
+# Temporary
+$ git worktree add --detach ../project-build HEAD
+
+# Cleanup
+$ rm -rf ../bugfix &amp;&amp; git worktree prune
+</code></pre>
+<ul>
+<li><code>-b bugfix-1234</code> option creates a new branch named <code>bugfix-1234</code></li>
+<li><code>../bugfix</code> is the new local copy</li>
+<li>Based on <code>origin/master</code></li>
+<li><code>--detach</code> makes the working copy detached. (Just commmit, not the branch)</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stacktoheap.com/blog/2016/01/19/using-multiple-worktrees-with-git/" class="uri">https://stacktoheap.com/blog/2016/01/19/using-multiple-worktrees-with-git/</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="git-attributes">Git Attributes</h2>
+<p><strong>Git Attributes</strong> is a customization interface which tools like <strong>Git LFS</strong> implemented on.</p>
+<p><img src="https://media.yeonghoey.com/git/_img/screenshot_2017-05-04_11-48-09.png" /></p>
+<p><img src="https://media.yeonghoey.com/git/_img/screenshot_2017-05-04_11-49-47.png" /></p>
+<p>In <code>.gitattributes</code>:</p>
+<pre class="example"><code>*.png filter=lfs diff=lfs merge=lfs -text
+</code></pre>
+<p>In <code>.gitconfig</code>:</p>
+<pre class="example"><code>[filter &quot;lfs&quot;]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes" class="uri">https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h2 id="clone-the-latest-revision">Clone the latest revision</h2>
+<pre class="shell"><code># Clone just the latest revision
+git clone --depth=1 &#39;https://github.com/yeonghoey/yeonghoey.git&#39;
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision" class="uri">https://stackoverflow.com/questions/1209999/using-git-to-get-just-the-latest-revision</a></li>
+</ul>
+</div>
+<h2 id="commit-only-when-theres-something-staged">Commit only when there's something staged</h2>
+<pre class="shell"><code>if ! git diff --quiet --cached; then
+  git commit
+fi
+
+# or just
+git diff --quiet --cached || git commit
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error" class="uri">http://stackoverflow.com/questions/8123674/how-to-git-commit-nothing-without-an-error</a></li>
+</ul>
+</div>
+<h2 id="get-the-short-hash">Get the short hash</h2>
+<pre class="shell"><code>git rev-parse --short HEAD
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/5694389/get-the-short-git-version-hash" class="uri">https://stackoverflow.com/questions/5694389/get-the-short-git-version-hash</a></li>
+</ul>
+</div>
+<h2 id="list-all-todos-written-by-a-specific-user">List all TODOs written by a specific user</h2>
+<pre class="shell"><code>git grep -l TODO | xargs -n1 git blame -f -n -w | grep &quot;$(git config user.name)&quot; | grep TODO | sed &quot;s/.\{9\}//&quot; | sed &quot;s/(.*)[[:space:]]*//&quot;
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/25039242/how-to-list-all-my-todo-messages-in-the-current-git-managed-code-base" class="uri">https://stackoverflow.com/questions/25039242/how-to-list-all-my-todo-messages-in-the-current-git-managed-code-base</a></li>
+</ul>
+</div>
+<h2 id="purge-files-including-their-histories">Purge files including their histories</h2>
+<ul>
+<li>BFG Repo-Cleaner</li>
+<li><a href="https://rtyley.github.io/bfg-repo-cleaner/" class="uri">https://rtyley.github.io/bfg-repo-cleaner/</a></li>
+</ul>
+<pre class="shell"><code>git clone --mirror git@github.com:yeonghoey/yeonghoey.git
+java -jar ~/.local/bin/bfg.jar --strip-blobs-bigger-than 1M yeonghoey.git
+cd yeonghoey.git
+git reflog expire --expire=now --all &amp;&amp; git gc --prune=now --aggressive
+git push
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/" class="uri">https://help.github.com/articles/removing-sensitive-data-from-a-repository/</a></li>
+</ul>
+</div>
+<h2 id="resolve-conflicts">Resolve conflicts</h2>
+<pre class="example"><code>If you have questions, please
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+open an issue
+=======
+ask your question in IRC.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch-a
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/" class="uri">https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/</a></li>
+<li><a href="https://backlogtool.com/git-guide/en/stepup/stepup2_8.html" class="uri">https://backlogtool.com/git-guide/en/stepup/stepup2_8.html</a></li>
+</ul>
+</div>
+<h3 id="check-the-conflict-causing-commits">Check the conflict causing commits</h3>
+<pre class="shell"><code>git log --merge --left-right -p
+#           │       │         └─ --patch, generate patch(show commit messages and diffs)
+#           │       └─ display &#39;&lt;&#39; if the commit is left(ours), right(theirs) otherwise.
+#           └─ show only commits related to the conflict
+</code></pre>
+<h3 id="resolve-conflicts-manually">Resolve conflicts manually</h3>
+<dl>
+<dt>Fix the conflict like this</dt>
+<dd>
+</dd>
+</dl>
+<pre class="example"><code>If you have questions, please open an issue or ask in our IRC channel if it&#39;s more urgent
+</code></pre>
+<dl>
+<dt>Stage it</dt>
+<dd>
+</dd>
+</dl>
+<pre class="shell"><code>$ git add guide.md
+</code></pre>
+<h3 id="resolve-conflicts-with-ours-or-theirs">Resolve conflicts with ours or theirs</h3>
+<dl>
+<dt>Before triggering merge</dt>
+<dd>
+</dd>
+</dl>
+<pre class="shell"><code>git merge -X theirs
+#          └─ --strategy-option
+
+# NOTE: Don&#39;t be confused with &#39;-s, --strategy&#39; option.
+# If &#39;-s theirs`, The merge simply uses all the changes from &#39;theirs
+# and ignores all the changes from &#39;ours&#39;,
+# while &#39;-X theirs&#39; mergers with the default strategy(&#39;recursive&#39;) and
+# uses the changes from `theirs` only when there are conflicts.
+</code></pre>
+<dl>
+<dt>If you are already in conflicted state</dt>
+<dd>
+</dd>
+</dl>
+<pre class="shell"><code>git checkout --theirs .
+git add .
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/10697463/resolve-git-merge-conflicts-in-favor-of-their-changes-during-a-pull/" class="uri">https://stackoverflow.com/questions/10697463/resolve-git-merge-conflicts-in-favor-of-their-changes-during-a-pull/</a></li>
+</ul>
+</div>
+<h3 id="continue-with-the-resolved-resulte">Continue with the resolved resulte</h3>
+<dl>
+<dt>Case1</dt>
+<dd>commit when merging
+</dd>
+</dl>
+<pre class="shell"><code>$ git commit -m &quot;Resolved merge conflict&quot;
+</code></pre>
+<dl>
+<dt>Case2</dt>
+<dd>rebase –continue when rebasing
+</dd>
+</dl>
+<pre class="shell"><code>$ git rebase --continue
+</code></pre>
+<h2 id="run-commands-while-not-in-a-git-directory">Run commands while not in a git directory</h2>
+<pre class="shell"><code>git -C ~/foo status  # equivalent to (cd ~/foo &amp;&amp; git status)
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory" class="uri">http://stackoverflow.com/questions/5083224/git-pull-while-not-in-a-git-directory</a></li>
+</ul>
+</div>
+<h2 id="delete-empty-directories-within-a-repository">Delete empty directories within a repository</h2>
+<pre class="shell"><code>find . -type d -empty -not -path &#39;./.git/**&#39; -delete
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="file:///find">/find</a></li>
+</ul>
+</div>
+<h2 id="use-dropbox-as-a-private-repository">Use Dropbox as a private repository</h2>
+<pre class="shell"><code>mkdir -p ~/Dropbox/Repos
+cd ~/Dropbox/Repos
+git init --bare project.git
+</code></pre>
+<pre class="shell"><code>git clone ~/Dropbox/Repos/project.git
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://stackoverflow.com/questions/1960799/using-git-and-dropbox-together-effectively" class="uri">https://stackoverflow.com/questions/1960799/using-git-and-dropbox-together-effectively</a></li>
+</ul>
+</div>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/git-tips/tips" class="uri">https://github.com/git-tips/tips</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>zsh</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>zsh</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">zsh</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#zshbuiltins">zshbuiltins</a><ul>
+<li><a href="#autoload-and-fpath"><code>autoload</code> and <code>fpath</code></a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="zshbuiltins">zshbuiltins</h1>
+<h2 id="autoload-and-fpath"><code>autoload</code> and <code>fpath</code></h2>
+<ul>
+<li><code>fpath</code> is a array of directories which contain function files to be autoloaded</li>
+</ul>
+<pre class="shell" data-results="output" data-exports="both"><code>print -l $fpath
+</code></pre>
+<pre class="example"><code>/usr/local/share/zsh/site-functions
+/usr/local/Cellar/zsh/5.4.2_3/share/zsh/functions
+</code></pre>
+<ul>
+<li>What <code>autoload</code> does is to mark that name as being a function rather than an external program.</li>
+<li>The function has to be in a file on its own, with the filename the same as the function name.</li>
+<li>In general, you should be using <code>autoload -Uz &lt;filename&gt;</code></li>
+</ul>
+<pre class="shell"><code>autoload -Uz compinit
+#         │└─ usual alias expansion during reading will be suppressed
+#         └── force use zsh-style autoload not KSH
+</code></pre>
+<p>If you want to use <code>compinit</code>, you should call <code>autoload</code> for it before using it, otherwise the name <code>compinit</code> will be simply an unknown command. This goes a common idiom as following:</p>
+<pre class="shell"><code>autoload -Uz compinit &amp;&amp; compinit
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh" class="uri">https://unix.stackexchange.com/questions/33255/how-to-define-and-load-your-own-shell-function-in-zsh</a></li>
+<li><a href="https://stackoverflow.com/questions/30840651/what-does-autoload-do-in-zsh" class="uri">https://stackoverflow.com/questions/30840651/what-does-autoload-do-in-zsh</a></li>
+<li><a href="https://stackoverflow.com/questions/12570749/zsh-completion-difference" class="uri">https://stackoverflow.com/questions/12570749/zsh-completion-difference</a></li>
+<li><a href="http://bewatermyfriend.org/p/2012/003/" class="uri">http://bewatermyfriend.org/p/2012/003/</a></li>
+</ul>
+</div>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://zsh.sourceforge.net/Guide/zshguide06.html" class="uri">http://zsh.sourceforge.net/Guide/zshguide06.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

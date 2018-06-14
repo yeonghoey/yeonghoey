@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Lesson 3</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/udacity/" >udacity</a></li>
+    <li><a href="/udacity/design-of-computer-programs/" >design-of-computer-programs</a></li>
+    <li>lesson3</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Lesson 3</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#lesson-3-1">Lesson 3</a><ul>
+<li><a href="#quiz-regular-expressions-review---quiz-1">Quiz: Regular Expressions Review - Quiz 1</a></li>
+<li><a href="#regular-expressions-review---part-3">Regular Expressions Review - Part 3</a></li>
+<li><a href="#language">Language</a></li>
+<li><a href="#regular-expressions">Regular Expressions</a></li>
+<li><a href="#specifications">Specifications</a></li>
+<li><a href="#concept-inventory">Concept Inventory</a></li>
+<li><a href="#quiz-matchset">Quiz: Matchset</a><ul>
+<li><a href="#my-solution">My Solution</a></li>
+<li><a href="#his-solution">His Solution</a></li>
+<li><a href="#feedback">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-filling-out-the-api">Quiz: Filling Out The Api</a></li>
+<li><a href="#quiz-search-and-match">Quiz: Search and Match</a><ul>
+<li><a href="#my-solution-1">My Solution</a></li>
+<li><a href="#his-solution-1">His Solution</a></li>
+<li><a href="#feedback-1">Feedback</a></li>
+</ul></li>
+<li><a href="#compiling">Compiling</a></li>
+<li><a href="#lower-level-compilers">Lower Level Compilers</a></li>
+<li><a href="#quiz-alt">Quiz: Alt</a></li>
+<li><a href="#quiz-simple-compilers">Quiz: Simple Compilers</a></li>
+<li><a href="#recognizers-and-generators">Recognizers And Generators</a></li>
+<li><a href="#quiz-oneof-and-alt">Quiz: Oneof And Alt</a><ul>
+<li><a href="#my-old-solution">My Old Solution</a></li>
+<li><a href="#my-new-solution">My New Solution</a></li>
+<li><a href="#his-solution-2">His Solution</a></li>
+<li><a href="#feedback-2">Feedback</a></li>
+</ul></li>
+<li><a href="#avoiding-repetition">Avoiding Repetition</a></li>
+<li><a href="#quiz-genseq">Quiz: Genseq</a></li>
+<li><a href="#testing-genseq">Testing Genseq</a></li>
+<li><a href="#theory-and-practice">Theory And Practice</a></li>
+<li><a href="#quiz-changing-seq">Quiz: Changing Seq</a></li>
+<li><a href="#changing-functions">Changing Functions</a></li>
+<li><a href="#quiz-n-ary-function">Quiz: N Ary Function</a><ul>
+<li><a href="#my-old-solution-1">My Old Solution</a></li>
+<li><a href="#my-new-solution-1">My New Solution</a></li>
+<li><a href="#his-solution-3">His Solution</a></li>
+<li><a href="#feedback-3">Feedback</a></li>
+</ul></li>
+<li><a href="#decorated-wrappers">Decorated Wrappers</a></li>
+<li><a href="#quiz-decorated-decorators">Quiz: Decorated Decorators</a><ul>
+<li><a href="#my-expansion">My Expansion</a></li>
+<li><a href="#feedback-4">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-cache-management">Quiz: Cache Management</a></li>
+<li><a href="#quiz-save-time-now">Quiz: Save Time Now</a></li>
+<li><a href="#quiz-trace-tool">Quiz: Trace Tool</a><ul>
+<li><a href="#my-solution-2">My Solution</a></li>
+</ul></li>
+<li><a href="#descriptionary">Descriptionary</a></li>
+<li><a href="#white-space">White Space</a></li>
+<li><a href="#parsing">Parsing</a></li>
+<li><a href="#parse-function">Parse Function</a><ul>
+<li><a href="#i-wrote-the-function-by-myself">I wrote the function by myself</a></li>
+</ul></li>
+<li><a href="#quiz-speedy-parsing">Quiz: Speedy Parsing</a></li>
+<li><a href="#catching-typos">Catching Typos</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+<li><a href="#problem-set-3">Problem Set 3</a><ul>
+<li><a href="#quiz-json-parser">Quiz: Json Parser</a><ul>
+<li><a href="#my-old-solution-2">My Old Solution</a></li>
+<li><a href="#my-new-solution-2">My New Solution</a></li>
+<li><a href="#his-solution-4">His Solution</a></li>
+</ul></li>
+<li><a href="#quiz-inverse-function">Quiz: Inverse Function</a><ul>
+<li><a href="#my-old-solution-3">My Old Solution</a></li>
+<li><a href="#my-new-solution-3">My New Solution</a></li>
+<li><a href="#his-solution-5">His Solution</a></li>
+<li><a href="#feedback-5">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-find-html-tags">Quiz: Find Html Tags</a><ul>
+<li><a href="#my-old-solution-4">My Old Solution</a></li>
+<li><a href="#my-new-solution-4">My New Solution</a></li>
+<li><a href="#his-solution-6">His Solution</a></li>
+</ul></li>
+<li><a href="#challenge-problem">Challenge Problem</a><ul>
+<li><a href="#feedback-6">Feedback</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#office-hours-3">Office Hours 3</a><ul>
+<li><a href="#question-four">Question Four</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="lesson-3-1">Lesson 3</h1>
+<h2 id="quiz-regular-expressions-review---quiz-1">Quiz: Regular Expressions Review - Quiz 1</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-18-18.png" /></p>
+<h2 id="regular-expressions-review---part-3">Regular Expressions Review - Part 3</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-23-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-26-12.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html" class="uri">http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html</a></li>
+</ul>
+</div>
+<h2 id="language">Language</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-28-46.png" /></p>
+<h2 id="regular-expressions">Regular Expressions</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-32-34.png" /></p>
+<h2 id="specifications">Specifications</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-34-03.png" /></p>
+<h2 id="concept-inventory">Concept Inventory</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-37-16.png" /></p>
+<h2 id="quiz-matchset">Quiz: Matchset</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-39-40.png" /></p>
+<h3 id="my-solution">My Solution</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">elif</span> <span class="st">&#39;dot&#39;</span> <span class="op">==</span> op:</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="cf">return</span> <span class="bu">set</span>([text[<span class="dv">1</span>:]])</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="cf">elif</span> <span class="st">&#39;oneof&#39;</span> <span class="op">==</span> op:</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="cf">return</span> <span class="bu">set</span>([text[<span class="dv">1</span>:]]) <span class="cf">if</span> text[<span class="dv">0</span>] <span class="kw">in</span> x <span class="cf">else</span> null</a></code></pre></div>
+<h3 id="his-solution">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-45-20.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-47-13.png" /></p>
+<p>(if x is a tuple of characters. Otherwise:) <img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-47-55.png" /></p>
+<h3 id="feedback">Feedback</h3>
+<ul>
+<li>I failed to consider boundary cases.</li>
+<li>Good to know the fact that <code>str.startswith</code> accepts tuples.</li>
+</ul>
+<h2 id="quiz-filling-out-the-api">Quiz: Filling Out The Api</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-51-24.png" /></p>
+<p>Even though this breaks the standard convention style, it really is more readable.</p>
+<h2 id="quiz-search-and-match">Quiz: Search and Match</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_16-53-38.png" /></p>
+<h3 id="my-solution-1">My Solution</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">return</span> text <span class="cf">if</span> <span class="bu">len</span>(shortest) <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> text[:<span class="op">-</span><span class="bu">len</span>(shortest)]</a></code></pre></div>
+<h3 id="his-solution-1">His Solution</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">return</span> text[:<span class="bu">len</span>(text)<span class="op">-</span><span class="bu">len</span>(shortest)]</a></code></pre></div>
+<h3 id="feedback-1">Feedback</h3>
+<p>My solution is obviously worse. I tried to solve this somewhat clever which made me fail to write it in an easy way.</p>
+<h2 id="compiling">Compiling</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_17-04-47.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_17-04-29.png" /></p>
+<p>This is the most interesting part of the entire lecture. By just making all thing into functions, an interpreter changes into an compiler.</p>
+<h2 id="lower-level-compilers">Lower Level Compilers</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_17-09-09.png" /></p>
+<p>Good to know about <code>dis</code> module</p>
+<h2 id="quiz-alt">Quiz: Alt</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_17-10-42.png" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">lambda</span> text: x(text) <span class="op">|</span> y(text)</a></code></pre></div>
+<h2 id="quiz-simple-compilers">Quiz: Simple Compilers</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_17-12-16.png" /></p>
+<p>Note that the use of names <code>t</code>, <code>t1</code>, <code>t2</code> which is generally discouraged, but is proper in this case.</p>
+<h2 id="recognizers-and-generators">Recognizers And Generators</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_17-16-29.png" /></p>
+<h2 id="quiz-oneof-and-alt">Quiz: Oneof And Alt</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-22_17-17-26.png" /></p>
+<h3 id="my-old-solution">My Old Solution</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">def</span> alt(x, y):      <span class="cf">return</span> <span class="kw">lambda</span> Ns: x(Ns) <span class="op">|</span> y(Ns)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">def</span> oneof(chars):   <span class="cf">return</span> <span class="kw">lambda</span> Ns: <span class="bu">set</span>().union(<span class="op">*</span>(l(Ns) <span class="cf">for</span> l <span class="kw">in</span> <span class="bu">map</span>(lit, chars)))</a></code></pre></div>
+<h3 id="my-new-solution">My New Solution</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">def</span> oneof(chars):   <span class="cf">return</span> <span class="kw">lambda</span> Ns: <span class="bu">set</span>(chars) <span class="cf">if</span> <span class="dv">1</span> <span class="kw">in</span> Ns <span class="cf">else</span> null</a></code></pre></div>
+<h3 id="his-solution-2">His Solution</h3>
+<p>Same as my new solution.</p>
+<h3 id="feedback-2">Feedback</h3>
+<p><code>Ns</code> breaks the standard naming convention. But it's actually more readable because <code>Ns</code> feels more like a multiple elements of <code>N</code>. Should I use <code>ns</code> instead of it? The jury is still out.</p>
+<h2 id="avoiding-repetition">Avoiding Repetition</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-08-50.png" /> Keeps <code>set_s</code> to avoid repetition. It's a kind of compiler optimization.</p>
+<h2 id="quiz-genseq">Quiz: Genseq</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-16-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-18-09.png" /></p>
+<h2 id="testing-genseq">Testing Genseq</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-22-31.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-23-20.png" /></p>
+<h2 id="theory-and-practice">Theory And Practice</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-47-14.png" /></p>
+<h2 id="quiz-changing-seq">Quiz: Changing Seq</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-50-13.png" />* Problem Set 4</p>
+<h2 id="changing-functions">Changing Functions</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-51-42.png" /></p>
+<h2 id="quiz-n-ary-function">Quiz: N Ary Function</h2>
+<h3 id="my-old-solution-1">My Old Solution</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">def</span> n_ary(f):</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Given binary function f(x, y), return an n_ary function such</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">    that f(x, y, z) = f(x, f(y,z)), etc. Also allow f(x) = x.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="kw">def</span> n_ary_f(x, <span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">        <span class="cf">if</span> <span class="bu">len</span>(args) <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">            <span class="cf">return</span> f(x, args[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">            new_args <span class="op">=</span> <span class="bu">list</span>(args[:<span class="op">-</span><span class="dv">2</span>]) <span class="op">+</span> [f(args[<span class="op">-</span><span class="dv">2</span>], args[<span class="op">-</span><span class="dv">1</span>])]</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">            <span class="cf">return</span> n_ary_f(x, <span class="op">*</span>new_args)</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="cf">return</span> n_ary_f</a></code></pre></div>
+<h3 id="my-new-solution-1">My New Solution</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">def</span> n_ary(f):</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="kw">def</span> n_ary_f(x, <span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">        <span class="cf">if</span> <span class="bu">len</span>(args) <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">            <span class="cf">return</span> f(x, args[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">            <span class="cf">return</span> f(x, n_ary_f(args[<span class="dv">0</span>], <span class="op">*</span>args[<span class="dv">1</span>:]))</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="cf">return</span> n_ary_f</a></code></pre></div>
+<h3 id="his-solution-3">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-24_22-58-56.png" /></p>
+<h3 id="feedback-3">Feedback</h3>
+<p>My Old Solution is overly complicated. My New Solution is way better than that. But, the best one is his. I didn't need to separate <code>args</code> explicitly on <code>else</code> case.</p>
+<h2 id="decorated-wrappers">Decorated Wrappers</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_21-32-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_21-33-16.png" /></p>
+<h2 id="quiz-decorated-decorators">Quiz: Decorated Decorators</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_21-34-06.png" /></p>
+<h3 id="my-expansion">My Expansion</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" data-line-number="1">decorator <span class="op">=</span> decorator(decorator)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">decorator <span class="op">=</span> <span class="kw">lambda</span> fn: update_wrapper(decorator(fn), fn)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co"># Use &#39;decorator&#39; to define a decorator</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">dfunc <span class="op">=</span> decorator(dfunc)</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">dfunc <span class="op">=</span> update_wrapper(decorator(dfunc), dfunc)</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">dfunc <span class="op">=</span> update_wrapper(<span class="kw">lambda</span> fn: update_wrapper(dfunc(fn), fn), dfunc)</a></code></pre></div>
+<h3 id="feedback-4">Feedback</h3>
+<p>The one-liner solution is clever. But many programmers would feel frustrated. In general, the fact may cause a managing issue. But I prefer this solution in this case because what the function does is clear and wouldn't change frequently. And it may be kept away from its user. In this case, The clever one-liner code can be accepted.</p>
+<h2 id="quiz-cache-management">Quiz: Cache Management</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_21-52-25.png" /></p>
+<h2 id="quiz-save-time-now">Quiz: Save Time Now</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_21-56-30.png" /></p>
+<h2 id="quiz-trace-tool">Quiz: Trace Tool</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_21-59-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_21-59-43.png" /></p>
+<h3 id="my-solution-2">My Solution</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="at">@decorator</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">def</span> trace(f):</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    indent <span class="op">=</span> <span class="st">&#39;   &#39;</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="kw">def</span> _f(<span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">        signature <span class="op">=</span> <span class="st">&#39;</span><span class="sc">%s</span><span class="st">(</span><span class="sc">%s</span><span class="st">)&#39;</span> <span class="op">%</span> (f.<span class="va">__name__</span>, <span class="st">&#39;, &#39;</span>.join(<span class="bu">map</span>(<span class="bu">repr</span>, args)))</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">        <span class="bu">print</span> <span class="st">&#39;</span><span class="sc">%s</span><span class="st">--&gt; </span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> (trace.level<span class="op">*</span>indent, signature)</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">        trace.level <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">        <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">            result <span class="op">=</span> f(<span class="op">*</span>args)</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">            <span class="bu">print</span> <span class="st">&#39;</span><span class="sc">%s</span><span class="st">&lt;-- </span><span class="sc">%s</span><span class="st"> == </span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> ((trace.level<span class="dv">-1</span>)<span class="op">*</span>indent, </a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">                                      signature, result)</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">        <span class="cf">finally</span>:</a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">            trace.level <span class="op">-=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">        <span class="cf">return</span> result</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">    trace.level <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">    <span class="cf">return</span> _f</a></code></pre></div>
+<h2 id="descriptionary">Descriptionary</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_22-09-50.png" /></p>
+<p>He emphasizes the <strong>wishful thinking</strong> which means, 'I wish I had a function that accepts the input I just wrote.'</p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_22-15-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_22-16-03.png" /></p>
+<p>Even though there is no quiz, I think it would be a good practice for me to solve this problem on my own. so I just did it and got feedback from his code.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">def</span> grammer(description):</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">    g <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="cf">for</span> line <span class="kw">in</span> split(description, <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>):</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">        atom, expansion <span class="op">=</span> split(line, <span class="st">&#39; =&gt; &#39;</span>)</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">        alternatives <span class="op">=</span> split(expansion, <span class="st">&#39; \| &#39;</span>)</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">        g[atom] <span class="op">=</span> <span class="bu">tuple</span>(split(seq, <span class="st">&#39; &#39;</span>) <span class="cf">for</span> seq <span class="kw">in</span> alternatives)</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">    <span class="cf">return</span> g</a></code></pre></div>
+<p>The naming of <code>lhs</code>, <code>rhs</code> is better than mine.</p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_22-16-41.png" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">def</span> split(s, pattern):</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">    <span class="cf">return</span> [p.strip() <span class="cf">for</span> p <span class="kw">in</span> re.split(pattern, s.strip())]</a></code></pre></div>
+<p><code>if t</code> is a good way for ensuring boundary cases.</p>
+<h2 id="white-space">White Space</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_22-18-05.png" /></p>
+<h2 id="parsing">Parsing</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_12-06-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_22-20-20.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-01-28_22-21-40.png" /></p>
+<h2 id="parse-function">Parse Function</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_13-05-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_13-05-32.png" /></p>
+<h3 id="i-wrote-the-function-by-myself">I wrote the function by myself</h3>
+<p>I wrote the function by myself(<code>parser.py</code>).</p>
+<p>I wrote it almost same as his function, but it's not clear. In his solution, he defined the notions of <code>atom</code> and <code>sequence</code>. With them, his solution is readable and clear.</p>
+<p>On the other hand, mine is not quite clear because of the lack of clear notions.</p>
+<p>Even though my solution is a little murky, I could solve the problem thanks to his clear definitions of input and output. I'm surprised at how the clear input and output make the problem easy to solve.</p>
+<h2 id="quiz-speedy-parsing">Quiz: Speedy Parsing</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_14-58-11.png" /></p>
+<p>A Simple design leads to the simple solution.</p>
+<h2 id="catching-typos">Catching Typos</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_15-00-48.png" /></p>
+<h2 id="summary">Summary</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_15-02-54.png" /></p>
+<h1 id="problem-set-3">Problem Set 3</h1>
+<h2 id="quiz-json-parser">Quiz: Json Parser</h2>
+<h3 id="my-old-solution-2">My Old Solution</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" data-line-number="1">JSON <span class="op">=</span> grammar(<span class="vs">r&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="vs">value =&gt; string | number | object | array | true | false | null</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="vs">object =&gt; { members } | { }</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="vs">members =&gt; pair , members | pair</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="vs">pair =&gt; string : value</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="vs">array =&gt; \[ elements \] | \[ \]</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="vs">elements =&gt; value , elements | value</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="vs">string =&gt; &quot;([^&quot;\\]|\\&quot;|\\|\/|[\b\f\n\r\t]|\u[0-9A-Fa-f]</span><span class="sc">{4}</span><span class="vs">)*&quot;</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="vs">number =&gt; int frac exp | int frac | int exp | int</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="vs">int =&gt; -?[1-9][0-9]+ | -?[0-9]</span></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="vs">frac =&gt; \.[0-9]+</span></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12"><span class="vs">exp =&gt; [eE][+-]?[0-9]+</span></a>
+<a class="sourceLine" id="cb13-13" data-line-number="13"><span class="vs">&quot;&quot;&quot;</span>.strip(), </a>
+<a class="sourceLine" id="cb13-14" data-line-number="14">    whitespace<span class="op">=</span><span class="st">&#39;\s*&#39;</span></a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">)</a></code></pre></div>
+<h3 id="my-new-solution-2">My New Solution</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" data-line-number="1">JSON <span class="op">=</span> grammar(<span class="vs">r&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="vs">value =&gt; array | object | string | number</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="vs">array =&gt; \[ elements \] |  \[ \]</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="vs">elements =&gt; value [,] elements | value</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="vs">object =&gt; [{] members [}] | [{] [}]</span></a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="vs">members =&gt; pair [,] members | pair</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="vs">pair =&gt; string [:] value</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="vs">string =&gt; [&quot;][^&quot;]*[&quot;]</span></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="vs">number =&gt; int frac exp | int</span></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="vs">int =&gt; -?\d+</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11"><span class="vs">frac =&gt; [.]\d+</span></a>
+<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="vs">exp =&gt; [e][+]\d+</span></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13"><span class="vs">&quot;&quot;&quot;</span>, whitespace<span class="op">=</span><span class="st">&#39;\s*&#39;</span>)</a></code></pre></div>
+<p>I wrote it only to pass the tests. It's way simpler than the old one.</p>
+<h3 id="his-solution-4">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_15-27-35.png" /></p>
+<h2 id="quiz-inverse-function">Quiz: Inverse Function</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_15-30-35.png" /></p>
+<h3 id="my-old-solution-3">My Old Solution</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">def</span> inverse(f, delta <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">128.</span>):</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Given a function y = f(x) that is a monotonically increasing function on</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">    non-negatve numbers, return the function x = f_1(y) that is an approximate</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">    inverse, picking the closest value to the inverse, within delta.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">    <span class="kw">def</span> f_1(y):</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">        prev, x <span class="op">=</span> <span class="fl">0.</span>, <span class="fl">1.</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">        yp, yx <span class="op">=</span> f(prev), f(x)</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">        <span class="cf">while</span> <span class="bu">abs</span>(y <span class="op">-</span> yx) <span class="op">&gt;=</span> delta:</a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">            <span class="cf">if</span> y <span class="op">&gt;</span> yx:</a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">                prev, x <span class="op">=</span> x, x<span class="op">*</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">                x <span class="op">=</span> (x<span class="op">+</span>prev) <span class="op">/</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">            yp, yx <span class="op">=</span> f(prev), f(x)</a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">        <span class="cf">return</span> x</a>
+<a class="sourceLine" id="cb15-15" data-line-number="15">    <span class="cf">return</span> f_1</a></code></pre></div>
+<h3 id="my-new-solution-3">My New Solution</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">def</span> inverse(f, delta <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="fl">128.</span>):</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;Given a function y = f(x) that is a monotonically increasing function on</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="co">    non-negatve numbers, return the function x = f_1(y) that is an approximate</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="co">    inverse, picking the closest value to the inverse, within delta.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">    <span class="kw">def</span> f_1(y):</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">        lo, hi <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">        <span class="cf">while</span> f(hi) <span class="op">&lt;=</span> y: lo, hi <span class="op">=</span> (hi, hi<span class="op">*</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb16-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb16-9" data-line-number="9">        <span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">            mid <span class="op">=</span> (hi <span class="op">+</span> lo) <span class="op">/</span> <span class="fl">2.</span></a>
+<a class="sourceLine" id="cb16-11" data-line-number="11">            guess <span class="op">=</span> f(mid)</a>
+<a class="sourceLine" id="cb16-12" data-line-number="12">            <span class="cf">if</span> <span class="bu">abs</span>(y <span class="op">-</span> guess) <span class="op">&lt;=</span> delta:</a>
+<a class="sourceLine" id="cb16-13" data-line-number="13">                <span class="cf">return</span> mid</a>
+<a class="sourceLine" id="cb16-14" data-line-number="14">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb16-15" data-line-number="15">                <span class="cf">if</span> y <span class="op">&lt;</span> guess: hi <span class="op">=</span> mid</a>
+<a class="sourceLine" id="cb16-16" data-line-number="16">                <span class="cf">else</span>: lo <span class="op">=</span> mid</a>
+<a class="sourceLine" id="cb16-17" data-line-number="17">    <span class="cf">return</span> f_1</a></code></pre></div>
+<h3 id="his-solution-5">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_17-47-57.png" /></p>
+<p>Almost same approach. Here is code: <img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_17-48-31.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-05_17-48-43.png" /></p>
+<h3 id="feedback-5">Feedback</h3>
+<p>His way of splitting tasks into small functions looks great. It clarifies the algorithm.</p>
+<h2 id="quiz-find-html-tags">Quiz: Find Html Tags</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-12_09-07-49.png" /></p>
+<h3 id="my-old-solution-4">My Old Solution</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">def</span> findtags(text):</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">    tagname <span class="op">=</span> <span class="vs">r&#39;\w+&#39;</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">    <span class="bu">property</span> <span class="op">=</span> <span class="vs">r&#39;\w+\s*=\s*&quot;[^&quot;]+&quot;\s*&#39;</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">    properties <span class="op">=</span> <span class="vs">r&#39;(?:</span><span class="sc">{property}</span><span class="vs">)*&#39;</span>.<span class="bu">format</span>(<span class="bu">property</span><span class="op">=</span><span class="bu">property</span>)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">    pattern <span class="op">=</span> <span class="vs">r&#39;[&lt;]\s*</span><span class="sc">{tagname}</span><span class="vs">\s*</span><span class="sc">{properties}</span><span class="vs">[&gt;]&#39;</span>.<span class="bu">format</span>(tagname<span class="op">=</span>tagname, </a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">                                                          properties<span class="op">=</span>properties)</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">    <span class="cf">return</span> re.findall(pattern, text)</a></code></pre></div>
+<h3 id="my-new-solution-4">My New Solution</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">def</span> findtags(text):</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">    pattern <span class="op">=</span> <span class="st">&#39;\s*&#39;</span>.join([</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">        <span class="vs">r&#39;&lt;&#39;</span>,</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">        <span class="vs">r&#39;\w+&#39;</span>,</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">        <span class="vs">r&#39;(?:&#39;</span>, <span class="vs">r&#39;\w+&#39;</span>, <span class="st">&#39;=&#39;</span>, <span class="st">&#39;&quot;[^&quot;]*&quot;&#39;</span>, <span class="vs">r&#39;)*&#39;</span>,</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">        <span class="vs">r&#39;&gt;&#39;</span>,</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">        ])</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">    <span class="cf">return</span> re.findall(pattern, text, re.VERBOSE)</a></code></pre></div>
+<p>Firstly, I wrote the function like above. I used <code>list</code> and <code>join</code> to put <code>\s*</code> between elements. but I wasn't satisfied with this because it was hard to read.</p>
+<p>Here is my second try:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">def</span> findtags(text):</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">    pattern <span class="op">=</span> <span class="vs">r&#39;&lt;__\w+__(?:\w+__=__&quot;[^&quot;]*&quot;__)*__&gt;&#39;</span>.replace(<span class="st">&#39;__&#39;</span>, <span class="vs">r&#39;\s*&#39;</span>)</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">    <span class="cf">return</span> re.findall(pattern, text, re.VERBOSE)</a></code></pre></div>
+<p>I used <code>__</code>. Now it's more readable.</p>
+<p>I noticed that I could use this technique for other elements:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">def</span> findtags(text):</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">    pattern <span class="op">=</span> (<span class="vs">r&#39;&lt;__ID__(?:ID__=__VALUE__)*__&gt;&#39;</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">               .replace(<span class="st">&#39;__&#39;</span>, <span class="vs">r&#39;\s*&#39;</span>)</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">               .replace(<span class="st">&#39;ID&#39;</span>, <span class="vs">r&#39;\w+&#39;</span>)</a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">               .replace(<span class="st">&#39;VALUE&#39;</span>, <span class="vs">r&#39;&quot;[^&quot;]*&quot;&#39;</span>))</a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">    <span class="cf">return</span> re.findall(pattern, text, re.VERBOSE)</a></code></pre></div>
+<p>It can be read naturally now.</p>
+<h3 id="his-solution-6">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-12_10-06-22.png" /></p>
+<p>He solution is just more concise.</p>
+<h2 id="challenge-problem">Challenge Problem</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-12_10-10-17.png" /></p>
+<p>It' a little bit frustrating work. I picked the parser functions from Json Parser problem. I will use the specification previously presented from this lesson: <img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-12_10-20-43.png" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" data-line-number="1">REGRAMMER <span class="op">=</span> grammar(<span class="vs">r&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="vs">RE      =&gt; REPEAT RE | REPEAT</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="vs">REPEAT  =&gt; STAR | PLUS | SINGLE</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="vs">STAR    =&gt; SINGLE [*]</span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="vs">PLUS    =&gt; SINGLE [+]</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="vs">SINGLE  =&gt; DOT | LIT | ONEOF | ALT</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="vs">DOT     =&gt; [.]</span></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="vs">LIT     =&gt; \w+</span></a>
+<a class="sourceLine" id="cb21-9" data-line-number="9"><span class="vs">ONEOF   =&gt; [[] \w+ []]</span></a>
+<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="vs">ALT     =&gt; [(] ALTLIST [)]</span></a>
+<a class="sourceLine" id="cb21-11" data-line-number="11"><span class="vs">ALTLIST =&gt; RE [|] ALTLIST | RE</span></a>
+<a class="sourceLine" id="cb21-12" data-line-number="12"><span class="vs">&quot;&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb21-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb21-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb21-15" data-line-number="15"><span class="kw">def</span> parse_re(pattern):</a>
+<a class="sourceLine" id="cb21-16" data-line-number="16">    tree, remains <span class="op">=</span> parse(<span class="st">&#39;RE&#39;</span>, pattern, REGRAMMER)</a>
+<a class="sourceLine" id="cb21-17" data-line-number="17">    <span class="cf">if</span> remains <span class="op">==</span> <span class="st">&#39;&#39;</span>:</a>
+<a class="sourceLine" id="cb21-18" data-line-number="18">        <span class="cf">return</span> convert(tree)</a>
+<a class="sourceLine" id="cb21-19" data-line-number="19">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb21-20" data-line-number="20">        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">&#39;Invalid Pattern: &quot;</span><span class="sc">%s</span><span class="st">&quot;, remains: </span><span class="sc">%s</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb21-21" data-line-number="21">                         <span class="op">%</span> (pattern, remains))</a>
+<a class="sourceLine" id="cb21-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb21-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb21-24" data-line-number="24"><span class="kw">def</span> convert(tree):</a>
+<a class="sourceLine" id="cb21-25" data-line-number="25">    <span class="kw">def</span> walk(name, <span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb21-26" data-line-number="26">        <span class="cf">if</span> name <span class="kw">in</span> (<span class="st">&#39;RE&#39;</span>, <span class="st">&#39;REPEAT&#39;</span>, <span class="st">&#39;SINGLE&#39;</span>):</a>
+<a class="sourceLine" id="cb21-27" data-line-number="27">            subtrees <span class="op">=</span> [walk(<span class="op">*</span>part) <span class="cf">for</span> part <span class="kw">in</span> args]</a>
+<a class="sourceLine" id="cb21-28" data-line-number="28">            <span class="cf">return</span> (subtrees[<span class="dv">0</span>] <span class="cf">if</span> <span class="bu">len</span>(subtrees) <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span></a>
+<a class="sourceLine" id="cb21-29" data-line-number="29">                    <span class="bu">reduce</span>(seq, subtrees))</a>
+<a class="sourceLine" id="cb21-30" data-line-number="30">        <span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;DOT&#39;</span>:</a>
+<a class="sourceLine" id="cb21-31" data-line-number="31">            <span class="cf">return</span> dot</a>
+<a class="sourceLine" id="cb21-32" data-line-number="32">        <span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;LIT&#39;</span>:</a>
+<a class="sourceLine" id="cb21-33" data-line-number="33">            <span class="cf">return</span> lit(args[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb21-34" data-line-number="34">        <span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;ONEOF&#39;</span>:</a>
+<a class="sourceLine" id="cb21-35" data-line-number="35">            _, v, _ <span class="op">=</span> args</a>
+<a class="sourceLine" id="cb21-36" data-line-number="36">            <span class="cf">return</span> oneof(v)</a>
+<a class="sourceLine" id="cb21-37" data-line-number="37">        <span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;STAR&#39;</span>:</a>
+<a class="sourceLine" id="cb21-38" data-line-number="38">            <span class="cf">return</span> star(walk(<span class="op">*</span>args[<span class="dv">0</span>]))</a>
+<a class="sourceLine" id="cb21-39" data-line-number="39">        <span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;PLUS&#39;</span>:</a>
+<a class="sourceLine" id="cb21-40" data-line-number="40">            <span class="cf">return</span> plus(walk(<span class="op">*</span>args[<span class="dv">0</span>]))</a>
+<a class="sourceLine" id="cb21-41" data-line-number="41">        <span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;ALT&#39;</span>:</a>
+<a class="sourceLine" id="cb21-42" data-line-number="42">            _, alist, _ <span class="op">=</span> args</a>
+<a class="sourceLine" id="cb21-43" data-line-number="43">            <span class="cf">return</span> walk(<span class="op">*</span>alist)</a>
+<a class="sourceLine" id="cb21-44" data-line-number="44">        <span class="cf">if</span> name <span class="op">==</span> <span class="st">&#39;ALTLIST&#39;</span>:</a>
+<a class="sourceLine" id="cb21-45" data-line-number="45">            <span class="cf">if</span> <span class="bu">len</span>(args) <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb21-46" data-line-number="46">                <span class="cf">return</span> walk(<span class="op">*</span>args[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb21-47" data-line-number="47">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb21-48" data-line-number="48">                a, _, remains <span class="op">=</span> args</a>
+<a class="sourceLine" id="cb21-49" data-line-number="49">                <span class="cf">return</span> alt(walk(<span class="op">*</span>a), walk(<span class="op">*</span>remains))</a>
+<a class="sourceLine" id="cb21-50" data-line-number="50">    <span class="cf">return</span> walk(<span class="op">*</span>tree)</a>
+<a class="sourceLine" id="cb21-51" data-line-number="51"></a>
+<a class="sourceLine" id="cb21-52" data-line-number="52"></a>
+<a class="sourceLine" id="cb21-53" data-line-number="53"><span class="kw">def</span> seq(a, b): <span class="cf">return</span> (<span class="st">&#39;seq&#39;</span>, a, b)</a>
+<a class="sourceLine" id="cb21-54" data-line-number="54"><span class="kw">def</span> lit(a):    <span class="cf">return</span> (<span class="st">&#39;lit&#39;</span>, a)</a>
+<a class="sourceLine" id="cb21-55" data-line-number="55"><span class="kw">def</span> oneof(s):  <span class="cf">return</span> (<span class="st">&#39;oneof&#39;</span>, s)</a>
+<a class="sourceLine" id="cb21-56" data-line-number="56"><span class="kw">def</span> star(a):   <span class="cf">return</span> (<span class="st">&#39;star&#39;</span>, a)</a>
+<a class="sourceLine" id="cb21-57" data-line-number="57"><span class="kw">def</span> plus(a):   <span class="cf">return</span> (<span class="st">&#39;plus&#39;</span>, a)</a>
+<a class="sourceLine" id="cb21-58" data-line-number="58"><span class="kw">def</span> alt(a, b): <span class="cf">return</span> (<span class="st">&#39;alt&#39;</span>, a, b)</a>
+<a class="sourceLine" id="cb21-59" data-line-number="59">dot <span class="op">=</span> (<span class="st">&#39;dot&#39;</span>,)</a>
+<a class="sourceLine" id="cb21-60" data-line-number="60"></a>
+<a class="sourceLine" id="cb21-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb21-62" data-line-number="62"><span class="kw">def</span> equals(actual, expected):</a>
+<a class="sourceLine" id="cb21-63" data-line-number="63">    <span class="cf">if</span> actual <span class="op">!=</span> expected:</a>
+<a class="sourceLine" id="cb21-64" data-line-number="64">        <span class="bu">print</span> <span class="st">&#39;  actual: </span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> (actual,)</a>
+<a class="sourceLine" id="cb21-65" data-line-number="65">        <span class="bu">print</span> <span class="st">&#39;expected: </span><span class="sc">%s</span><span class="st">&#39;</span> <span class="op">%</span> (expected,)</a>
+<a class="sourceLine" id="cb21-66" data-line-number="66">        <span class="bu">print</span> <span class="st">&#39;==&gt; &#39;</span> <span class="op">+</span> (<span class="st">&#39;pass&#39;</span> <span class="cf">if</span> actual <span class="op">==</span> expected <span class="cf">else</span> <span class="st">&#39;fail&#39;</span>) <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb21-67" data-line-number="67"></a>
+<a class="sourceLine" id="cb21-68" data-line-number="68"></a>
+<a class="sourceLine" id="cb21-69" data-line-number="69"><span class="kw">def</span> test():</a>
+<a class="sourceLine" id="cb21-70" data-line-number="70">    equals(parse_re(<span class="st">&#39;.&#39;</span>), (<span class="st">&#39;dot&#39;</span>,))</a>
+<a class="sourceLine" id="cb21-71" data-line-number="71">    equals(parse_re(<span class="st">&#39;abc&#39;</span>), (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;abc&#39;</span>))</a>
+<a class="sourceLine" id="cb21-72" data-line-number="72">    equals(parse_re(<span class="st">&#39;[abc]&#39;</span>), (<span class="st">&#39;oneof&#39;</span>, <span class="st">&#39;abc&#39;</span>))</a>
+<a class="sourceLine" id="cb21-73" data-line-number="73">    equals(parse_re(<span class="st">&#39;a*&#39;</span>), (<span class="st">&#39;star&#39;</span>, (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;a&#39;</span>)))</a>
+<a class="sourceLine" id="cb21-74" data-line-number="74">    equals(parse_re(<span class="st">&#39;a+&#39;</span>), (<span class="st">&#39;plus&#39;</span>, (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;a&#39;</span>)))</a>
+<a class="sourceLine" id="cb21-75" data-line-number="75">    equals(parse_re(<span class="st">&#39;(a|b)&#39;</span>), (<span class="st">&#39;alt&#39;</span>, (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;a&#39;</span>), (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;b&#39;</span>)))</a>
+<a class="sourceLine" id="cb21-76" data-line-number="76">    equals(parse_re(<span class="st">&#39;(a|b|c)&#39;</span>), (<span class="st">&#39;alt&#39;</span>,</a>
+<a class="sourceLine" id="cb21-77" data-line-number="77">                                 (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;a&#39;</span>),</a>
+<a class="sourceLine" id="cb21-78" data-line-number="78">                                 (<span class="st">&#39;alt&#39;</span>, (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;b&#39;</span>), (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;c&#39;</span>))))</a>
+<a class="sourceLine" id="cb21-79" data-line-number="79"></a>
+<a class="sourceLine" id="cb21-80" data-line-number="80">    equals(parse_re(<span class="st">&#39;[ab]+&#39;</span>), (<span class="st">&#39;plus&#39;</span>, (<span class="st">&#39;oneof&#39;</span>, <span class="st">&#39;ab&#39;</span>)))</a>
+<a class="sourceLine" id="cb21-81" data-line-number="81">    equals(parse_re(<span class="st">&#39;[ab]+c&#39;</span>), (<span class="st">&#39;seq&#39;</span>, (<span class="st">&#39;plus&#39;</span>, (<span class="st">&#39;oneof&#39;</span>, <span class="st">&#39;ab&#39;</span>)), (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;c&#39;</span>)))</a>
+<a class="sourceLine" id="cb21-82" data-line-number="82">    equals(parse_re(<span class="st">&#39;[ab]+c(d|e)&#39;</span>), (<span class="st">&#39;seq&#39;</span>,</a>
+<a class="sourceLine" id="cb21-83" data-line-number="83">                                     (<span class="st">&#39;plus&#39;</span>, (<span class="st">&#39;oneof&#39;</span>, <span class="st">&#39;ab&#39;</span>)),</a>
+<a class="sourceLine" id="cb21-84" data-line-number="84">                                     (<span class="st">&#39;seq&#39;</span>, (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;c&#39;</span>),</a>
+<a class="sourceLine" id="cb21-85" data-line-number="85">                                      (<span class="st">&#39;alt&#39;</span>, (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;d&#39;</span>), (<span class="st">&#39;lit&#39;</span>, <span class="st">&#39;e&#39;</span>)))))</a></code></pre></div>
+<p>I really enjoyed this problem because I wrote the whole working regex parser by solving this. The runnable code is <em>exercises/reparser.py</em>.</p>
+<h3 id="feedback-6">Feedback</h3>
+<p>Writing a whole working parser is intimidating. But he split up the problem into small problem, with simple intuitive representations.</p>
+<p>The input for regex interpreter is only <code>tuples</code> like <code>('lit' 'abc')</code>. The output of <code>parser</code> is just a tree like <code>['RE', ...]</code>. With these well-defined building blocks, the remaining part is only converting between these two representations.</p>
+<p>I could understand how important splitting up the problem and designing representations between them.</p>
+<h1 id="office-hours-3">Office Hours 3</h1>
+<h2 id="question-four">Question Four</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-12_19-52-23.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson3/_img/screenshot_2017-02-12_19-52-40.png" /></p>
+<blockquote>
+<p>I guess I try to think of things as how can I get as close to the problem as possible? (…) And so I start analyzing the problem and saying, what are the pieces of this problem, what are the objects I'm going to be manipulating, what are the ways I'm going to manipulate them, and try to do most of the analysis at that level. And then once that analysis is done, then I can say, well, what do I have in my programming language? (…) I like that approach because there is <strong>a more direct connection between the problem and solution</strong>, rather than <strong>a multistep of going from the problem to the language implementation and then back to the solution</strong>.</p>
+</blockquote>
+</article>
+
+</body>
+</html>

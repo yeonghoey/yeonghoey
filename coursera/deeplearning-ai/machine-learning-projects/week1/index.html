@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>ML Strategy (1)</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/deeplearning-ai/" >deeplearning-ai</a></li>
+    <li><a href="/coursera/deeplearning-ai/machine-learning-projects/" >machine-learning-projects</a></li>
+    <li>week1</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">ML Strategy (1)</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#introduction-to-ml-strategy">Introduction to ML Strategy</a><ul>
+<li><a href="#why-ml-strategy">Why ML Strategy</a></li>
+<li><a href="#orthogonalization">Orthogonalization</a></li>
+</ul></li>
+<li><a href="#setting-up-your-goal">Setting up your goal</a><ul>
+<li><a href="#single-number-evaluation-metric">Single number evaluation metric</a></li>
+<li><a href="#satisficing-and-optimizing-metric">Satisficing and Optimizing metric</a></li>
+<li><a href="#traindevtest-distributions">Train/dev/test distributions</a></li>
+<li><a href="#size-of-the-dev-and-test-sets">Size of the dev and test sets</a></li>
+<li><a href="#when-to-change-devtest-sets-and-metrics">When to change dev/test sets and metrics</a></li>
+</ul></li>
+<li><a href="#comparing-to-human-level-performance">Comparing to human-level performance</a><ul>
+<li><a href="#why-human-level-performance">Why human-level performance</a></li>
+<li><a href="#avoidable-bias">Avoidable bias</a></li>
+<li><a href="#understanding-human-level-performance">Understanding human-level performance</a></li>
+<li><a href="#surpassing-human-level-performance">Surpassing human-level performance</a></li>
+<li><a href="#improving-your-model-performance">Improving your model performance</a></li>
+</ul></li>
+<li><a href="#machine-learning-flight-simulator">Machine Learning flight simulator</a><ul>
+<li><a href="#quiz-bird-recognition-in-the-city-of-peacetopia">Quiz: Bird recognition in the city of Peacetopia</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="introduction-to-ml-strategy">Introduction to ML Strategy</h1>
+<h2 id="why-ml-strategy">Why ML Strategy</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-10-30_08-45-11.png" /></p>
+<h2 id="orthogonalization">Orthogonalization</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-10-30_08-50-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-10-30_08-56-11.png" /></p>
+<h1 id="setting-up-your-goal">Setting up your goal</h1>
+<h2 id="single-number-evaluation-metric">Single number evaluation metric</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-10-31_23-27-35.png" /></p>
+<dl>
+<dt>Precision</dt>
+<dd>When the classifier says that something is a cat, the percentage that it's correct.
+</dd>
+<dt>Recall</dt>
+<dd>When there is a cat, the percentage that the classifier says it's a cat.
+</dd>
+<dt>F1 Score</dt>
+<dd>can be thought as the average of <strong>precision</strong> and <strong>recall</strong>.
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-10-31_23-29-11.png" /></p>
+<dl>
+<dt>Average</dt>
+<dd>Make multiple metrics into single one.
+</dd>
+</dl>
+<h2 id="satisficing-and-optimizing-metric">Satisficing and Optimizing metric</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-02_08-32-21.png" /></p>
+<h2 id="traindevtest-distributions">Train/dev/test distributions</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-02_08-37-21.png" /></p>
+<ul>
+<li><code>dev</code> / <code>test</code> data set should come from the same distribution</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-02_08-38-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-02_08-40-03.png" /></p>
+<h2 id="size-of-the-dev-and-test-sets">Size of the dev and test sets</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-35-33.png" /></p>
+<ul>
+<li>The actual amount is more important thatn the ratio of data set</li>
+<li>If you have large enough data set, having <code>data</code> / <code>test</code> set even 1% is okay because its actual amount is enough.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-35-57.png" /></p>
+<dl>
+<dt><code>dev</code> set vs <code>test</code> set</dt>
+<dd>Whether evaluating during iteration or not
+</dd>
+</dl>
+<ul>
+<li>Not having <code>test</code> set may okay</li>
+</ul>
+<h2 id="when-to-change-devtest-sets-and-metrics">When to change dev/test sets and metrics</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-42-50.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-43-16.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-43-34.png" /></p>
+<h1 id="comparing-to-human-level-performance">Comparing to human-level performance</h1>
+<h2 id="why-human-level-performance">Why human-level performance</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-44-24.png" /></p>
+<dl>
+<dt>Bayes error</dt>
+<dd>Theoretical minimum error
+</dd>
+<dt>Human error</dt>
+<dd>An approximation of <strong>Bayes error</strong>
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-45-44.png" /></p>
+<h2 id="avoidable-bias">Avoidable bias</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-46-19.png" /></p>
+<h2 id="understanding-human-level-performance">Understanding human-level performance</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-47-01.png" /></p>
+<ul>
+<li>When considering human level error as an approximation of bayes error, the best performance which human can acquire would be relavent.</li>
+<li>In other views, you can consider human level performance differently.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-48-46.png" /></p>
+<h2 id="surpassing-human-level-performance">Surpassing human-level performance</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-50-06.png" /></p>
+<h2 id="improving-your-model-performance">Improving your model performance</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-50-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_08-51-09.png" /></p>
+<h1 id="machine-learning-flight-simulator">Machine Learning flight simulator</h1>
+<h2 id="quiz-bird-recognition-in-the-city-of-peacetopia">Quiz: Bird recognition in the city of Peacetopia</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_11-55-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_11-57-44.png" /></p>
+<p>It would be hard to measure the running time and memory usage during iteration. So it will slow down the learning process.</p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_12-28-17.png" /></p>
+<p>It seems that the variety of training data set would be okay.</p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/machine-learning-projects/week1/_img/screenshot_2017-11-08_12-36-02.png" /></p>
+<p>It seems that with only 1,000 images of 100,000,000 images, changing data set won't make notable changes.</p>
+</article>
+
+</body>
+</html>

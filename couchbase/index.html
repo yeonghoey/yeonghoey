@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Couchbase</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>couchbase</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./view">view</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Couchbase</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#internalsettings">internalSettings</a></li>
+</ul></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#document-expiration">Document Expiration</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#failover">Failover</a></li>
+<li><a href="#reset-couchbase-password">Reset couchbase password</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<p><img src="https://media.yeonghoey.com/couchbase/_img/screenshot_2017-08-22_23-47-26.png" /></p>
+<h1 id="reference">Reference</h1>
+<h2 id="internalsettings">internalSettings</h2>
+<pre class="shell"><code>$ curl -u Administrator:password -v http://localhost:8091/internalSettings
+{
+  &quot;indexAwareRebalanceDisabled&quot;: false,
+  &quot;rebalanceIndexWaitingDisabled&quot;: false,
+  &quot;rebalanceIndexPausingDisabled&quot;: false,
+  &quot;rebalanceIgnoreViewCompactions&quot;: false,
+  &quot;rebalanceMovesPerNode&quot;: 1,
+  &quot;rebalanceMovesBeforeCompaction&quot;: 64,
+  &quot;maxParallelIndexers&quot;: 4,
+  &quot;maxParallelReplicaIndexers&quot;: 2,
+  &quot;maxBucketCount&quot;: 10,
+  &quot;gotraceback&quot;: &quot;crash&quot;,
+  &quot;indexAutoFailoverDisabled&quot;: true,
+  &quot;certUseSha1&quot;: false
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html" class="uri">https://developer.couchbase.com/documentation/server/current/rest-api/rest-get-internal-setting.html</a></li>
+</ul>
+</div>
+<h1 id="terminology">Terminology</h1>
+<dl>
+<dt>Node</dt>
+<dd>A single Couchbase Server instance
+</dd>
+<dt>Cluster</dt>
+<dd>A collection of nodes that are accessed and managed as a single group.
+</dd>
+<dt>Bucket</dt>
+<dd>A logical container for a related set of items
+</dd>
+<dt>Item</dt>
+<dd>The basic unit of data such as JSON documents
+</dd>
+<dt>vBucket</dt>
+<dd>Physical partitions of the bucket data.
+</dd>
+<dt>Cluster map</dt>
+<dd>A mapping of which services belong to which nodes at a given point in time.
+</dd>
+<dt>vBucket map</dt>
+<dd>A mapping of vBuckets to nodes at a given point in time.
+</dd>
+<dt>Replication</dt>
+<dd>The process of creating additional copies of active data on alternate nodes.
+</dd>
+<dt>Rebalance</dt>
+<dd>Used to redistribute the load and adapt to the new topology of nodes.
+</dd>
+<dt>Failover</dt>
+<dd><p>To divert traffic away from failing nodes to the remaining healthy nodes.</p>
+</dd>
+<dt>Node lifecycle</dt>
+<dd>
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/couchbase/_img/screenshot_2017-08-22_23-54-23.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.couchbase.com/documentation/server/4.6/architecture/terminology.html" class="uri">https://developer.couchbase.com/documentation/server/4.6/architecture/terminology.html</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="document-expiration">Document Expiration</h2>
+<ul>
+<li><code>TTL</code> in <strong>seconds</strong> if it's <strong>30 days or less</strong></li>
+<li><code>TTL</code> in <strong>Unix time</strong> if it's <strong>over 30 days</strong></li>
+<li>Couchbase runs a process named <code>expiry pager</code> periodically to clean up expired items</li>
+<li><code>Expire pager</code> runs every <code>60</code> minutes by default(can be configured through <a href="https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html">exp<sub>pagerstime</sub></a>)</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.couchbase.com/documentation/server/3.x/developer/dev-guide-3.0/doc-expiration.html" class="uri">https://developer.couchbase.com/documentation/server/3.x/developer/dev-guide-3.0/doc-expiration.html</a></li>
+<li><a href="https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html" class="uri">https://developer.couchbase.com/documentation/server/3.x/admin/CLI/CBepctl/cbepctl-diskcleanup.html</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h2 id="failover">Failover</h2>
+<ul>
+<li>Click <code>Fail Over</code> button next to the failing over node</li>
+<li>Select <code>Fail Over</code> strategy</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/couchbase/_img/screenshot_2017-08-22_23-26-22.png" /></p>
+<ul>
+<li>After failing over process, the node becomes pending.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/couchbase/_img/screenshot_2017-08-22_23-27-58.png" /></p>
+<ul>
+<li>After shutting down the node</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/couchbase/_img/screenshot_2017-08-22_23-32-37.png" /></p>
+<ul>
+<li>After putting back the node, select one of recovery strategy and click <code>Rebalance</code>.</li>
+</ul>
+<h2 id="reset-couchbase-password">Reset couchbase password</h2>
+<pre class="shell"><code>/opt/couchbase/bin/cbreset_password
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.couchbase.com/documentation/server/3.x/admin/CLI/cbreset_password_tool.html" class="uri">https://developer.couchbase.com/documentation/server/3.x/admin/CLI/cbreset_password_tool.html</a></li>
+</ul>
+</div>
+<h1 id="links">Links</h1>
+</article>
+
+</body>
+</html>

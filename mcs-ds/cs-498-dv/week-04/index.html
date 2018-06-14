@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>CS 498: Week 4</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/mcs-ds/" >mcs-ds</a></li>
+    <li><a href="/mcs-ds/cs-498-dv/" >cs-498-dv</a></li>
+    <li>week-04</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">CS 498: Week 4</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#lesson-4-1-visualization-systems-and-database-visualization">Lesson 4-1: Visualization Systems and Database Visualization</a><ul>
+<li><a href="#visualization-systems">4.1.1. Visualization Systems</a></li>
+<li><a href="#the-information-visualization-mantra">4.1.2. The Information Visualization Mantra</a></li>
+<li><a href="#database-visualization">4.1.3. Database Visualization</a></li>
+</ul></li>
+<li><a href="#lesson-4-2-visualization-system-design">Lesson 4-2: Visualization System Design</a><ul>
+<li><a href="#visualization-system-design">4.2.1. Visualization System Design</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="lesson-4-1-visualization-systems-and-database-visualization">Lesson 4-1: Visualization Systems and Database Visualization</h1>
+<h2 id="visualization-systems">4.1.1. Visualization Systems</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.1.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.1.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.1.pdf</a>
+    </iframe>
+</div>
+</p>
+<h2 id="the-information-visualization-mantra">4.1.2. The Information Visualization Mantra</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.2.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.2.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.2.pdf</a>
+    </iframe>
+</div>
+</p>
+<ol>
+<li>Overview the whole dataset.</li>
+<li>Zoom and filter the dataset to pick out a curious problem.</li>
+<li>Provide details only on demand.</li>
+</ol>
+<p>Examples as follows:</p>
+<ul>
+<li><p>Use logarithmic scale.</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_15-02-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_15-02-32.png" /></p></li>
+<li><p>Edit axis bound</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_15-03-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_15-03-34.png" /></p></li>
+<li><p>Zoom in some clumps</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_15-29-38.png" /></p></li>
+<li><p>Fishey Distortion</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_15-39-01.png" /></p></li>
+<li><p>Filter</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_15-43-59.png" /></p></li>
+<li><p>Details on Demand</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_15-46-42.png" /></p></li>
+</ul>
+<h2 id="database-visualization">4.1.3. Database Visualization</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.3.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.3.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.1.3.pdf</a>
+    </iframe>
+</div>
+</p>
+<ul>
+<li><p>Pivoting</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_img/screenshot_2018-06-04_17-36-03.png" /></p></li>
+</ul>
+<h1 id="lesson-4-2-visualization-system-design">Lesson 4-2: Visualization System Design</h1>
+<h2 id="visualization-system-design">4.2.1. Visualization System Design</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.2.1.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.2.1.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-04/_slides/4.2.1.pdf</a>
+    </iframe>
+</div>
+</p>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Linux top</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>top</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Linux top</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#commandline">Commandline</a></li>
+<li><a href="#interface">Interface</a></li>
+</ul>
+</nav>
+
+<h1 id="commandline">Commandline</h1>
+<pre class="shell"><code>top
+top -b          # Batch-mode (not refreshing, just append the output)
+top -n &lt;number&gt; # Number of iterations. After refreshing number times, top exits.
+top -p &lt;pid&gt;    # Monitor PIDs
+</code></pre>
+<h1 id="interface">Interface</h1>
+<dl>
+<dt><code>E</code></dt>
+<dd>Change memory scale of summary
+</dd>
+</dl>
+<pre class="example"><code>MiB Mem : 3951.434 total, 2841.020 free,  592.242 used,  518.172 buff/cache
+MiB Swap: 4092.996 total, 4092.996 free,    0.000 used. 3115.512 avail Mem
+</code></pre>
+<pre class="example"><code>GiB Mem :    3.859 total,    2.774 free,    0.579 used,    0.506 buff/cache
+GiB Swap:    3.997 total,    3.997 free,    0.000 used.    3.042 avail Mem
+</code></pre>
+<dl>
+<dt><code>e</code></dt>
+<dd>Change memory scale of tasks
+</dd>
+</dl>
+<pre class="example"><code>1490 yeongho+  20   0 1203.0m 162.8m  71.6m S  5.0  4.1   0:25.77 compiz
+ 890 root      20   0  299.7m  69.7m  28.6m S  0.3  1.8   0:02.42 Xorg
+   1 root      20   0  117.1m   5.9m   3.9m S  0.0  0.1   0:00.94 systemd
+   2 root      20   0    0.0m   0.0m   0.0m S  0.0  0.0   0:00.00 kthreadd
+</code></pre>
+<pre class="example"><code>1490 yeongho+  20   0  1.175g 0.159g 0.070g S  6.7  4.1   0:26.55 compiz
+ 890 root      20   0  0.293g 0.068g 0.028g S  0.7  1.8   0:02.47 Xorg
+   1 root      20   0  0.114g 0.006g 0.004g S  0.0  0.1   0:00.94 systemd
+   2 root      20   0  0.000g 0.000g 0.000g S  0.0  0.0   0:00.00 kthreadd
+</code></pre>
+<dl>
+<dt><code>l</code></dt>
+<dd>load avg
+</dd>
+</dl>
+<pre class="example"><code>top - 21:52:09 up 9 min,  2 users,  load average: 0.02, 0.08, 0.07
+</code></pre>
+<dl>
+<dt><code>t</code></dt>
+<dd>task/cpu stats
+</dd>
+</dl>
+<pre class="example"><code>Tasks: 175 total,   1 running, 174 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  3.7 us,  0.3 sy,  0.0 ni, 96.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+</code></pre>
+<pre class="example"><code>%Cpu(s):   3.4/0.3     4[|||
+</code></pre>
+<dl>
+<dt><code>m</code></dt>
+<dd>Memory info
+</dd>
+</dl>
+<pre class="example"><code>KiB Mem :  4046268 total,  2908216 free,   606148 used,   531904 buff/cache
+KiB Swap:  4191228 total,  4191228 free,        0 used.  3190404 avail Mem
+</code></pre>
+<pre class="example"><code>KiB Mem : 21.2/4046268  [||||||||||||||||||                                                                      ]
+KiB Swap:  0.0/4191228  [                                                                                        ]
+</code></pre>
+<dl>
+<dt><code>0</code></dt>
+<dd>Toggle zeros
+</dd>
+</dl>
+<pre class="example"><code>1857 yeongho+  20   0   97496   3940   2944 S  0.3  0.1   0:00.91 sshd
+2023 root      20   0       0      0      0 S  0.3  0.0   0:00.12 kworker/0:1
+2034 yeongho+  20   0   50264   4032   3308 R  0.3  0.1   0:00.26 top
+</code></pre>
+<pre class="example"><code>890 root      20   0  306860  71340  29248 S  0.3  1.8   0:04.25 Xorg
+  1 root      20   0  119868   6080   4044 S       0.2   0:00.94 systemd
+  2 root      20   0                       S                     kthreadd
+</code></pre>
+<dl>
+<dt><code>1</code></dt>
+<dd>Toggle single/separate CPU states
+</dd>
+</dl>
+<pre class="example"><code>%Cpu(s):  1.0 us,  0.2 sy,  0.0 ni, 98.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+</code></pre>
+<pre class="example"><code>%Cpu0  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu1  :  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu2  :  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu3  :  1.3 us,  0.0 sy,  0.0 ni, 98.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+</code></pre>
+<dl>
+<dt><code>2</code></dt>
+<dd>NUMA-Nodes/CPU summary
+</dd>
+</dl>
+<pre class="example"><code>%Cpu(s):  0.8 us,  0.1 sy,  0.0 ni, 99.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Node0 :  0.8 us,  0.1 sy,  0.0 ni, 99.2 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+</code></pre>
+<dl>
+<dt><code>3</code></dt>
+<dd>Expand-NUMA-Node
+</dd>
+</dl>
+<pre class="example"><code>expand which node (0-0)
+%Node0 :  0.8 us,  0.2 sy,  0.0 ni, 99.0 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+%Cpu0  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu1  :  1.0 us,  0.0 sy,  0.0 ni, 98.7 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st
+%Cpu2  :  0.7 us,  0.3 sy,  0.0 ni, 99.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu3  :  1.3 us,  0.3 sy,  0.0 ni, 98.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+</code></pre>
+<dl>
+<dt><code>I</code></dt>
+<dd>Toggle Irix mode
+</dd>
+</dl>
+<blockquote>
+<p>if 'Irix mode' is Off, top will operate in 'Solaris mode' where a task's cpu usage will be divided by the total number of CPUs.</p>
+</blockquote>
+<dl>
+<dt><code>f</code> or <code>F</code></dt>
+<dd>Fields menu
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-20_00-36-51.png" /></p>
+<dl>
+<dt><code>X</code></dt>
+<dd>Increase fix-width
+</dd>
+</dl>
+<pre class="example"><code>width incr is 0, change to (0 default, -1 auto) 10
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 1632 yeongho+  20   0 1328920 163696  73764 S   4.3  4.0   6:44.19 compiz
+</code></pre>
+<pre class="example"><code> PID USER                PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+1632 yeonghoey           20   0 1328920 163696  73764 S   4.3  4.0   6:45.42 compiz
+</code></pre>
+<dl>
+<dt><code>L</code>, <code>&amp;</code></dt>
+<dd>Locate and find again
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-20_00-42-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-20_00-42-34.png" /></p>
+<dl>
+<dt><code>&lt;</code>, <code>&gt;</code></dt>
+<dd>Move sort column
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-20_00-43-26.png" /></p>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-20_00-43-37.png" /></p>
+<dl>
+<dt><code>R</code></dt>
+<dd>Reverse sort
+</dd>
+<dt><code>H</code></dt>
+<dd>Threads
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-20_00-45-24.png" /></p>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-20_00-45-37.png" /></p>
+<dl>
+<dt><code>V</code></dt>
+<dd>Forest view
+</dd>
+</dl>
+<pre class="example"><code> 928 root      20   0  365900   7952   7092 S   0.0  0.2   0:00.02  `- lightdm
+ 984 root      20   0  342396  71584  29188 S   0.3  1.8   0:30.51      `- Xorg
+1239 root      20   0  228240   6252   5528 S   0.0  0.2   0:00.00      `- lightdm
+1280 yeongho+  20   0   54828   4936   3808 S   0.0  0.1   0:00.11          `- upstart
+1393 yeongho+  20   0   41208    284     12 S   0.0  0.0   0:00.00              `- upstart-udev-br
+1401 yeongho+  20   0   43620   4008   2748 S   0.0  0.1   0:00.29              `- dbus-daemon
+1413 yeongho+  20   0   94700   9288   8700 S   0.0  0.2   0:00.01              `- window-stack-br
+1441 yeongho+  20   0   49636    392     12 S   0.0  0.0   0:00.00              `- upstart-file-br
+1442 yeongho+  20   0  213536   6924   6192 S   0.0  0.2   0:00.01              `- gnome-keyring-d
+1453 yeongho+  20   0   41144    320     12 S   0.0  0.0   0:00.01              `- upstart-dbus-br
+1458 yeongho+  20   0   41144    324     12 S   0.0  0.0   0:00.04              `- upstart-dbus-br
+1459 yeongho+  20   0  174888    728    456 S   0.0  0.0   0:00.16              `- gpg-agent
+</code></pre>
+<dl>
+<dt><code>c</code></dt>
+<dd>Toggle command name/line
+</dd>
+</dl>
+<pre class="example"><code>1632 yeongho+  20   0 1328920 163696  73764 S   6.0  4.0   7:21.33 compiz
+1743 yeongho+  20   0 1313444  90980  25600 S   0.0  2.2   0:02.20 gnome-software
+ 984 root      20   0  342396  71584  29188 S   0.0  1.8   0:31.45 Xorg
+</code></pre>
+<pre class="example"><code>1632 yeongho+  20   0 1328920 163696  73764 S   4.2  4.0   7:22.06 compiz
+1743 yeongho+  20   0 1313444  90980  25600 S   0.0  2.2   0:02.20 /usr/bin/gnome-software --gapplication-service
+ 984 root      20   0  342396  71584  29188 S   0.3  1.8   0:31.50 /usr/lib/xorg/Xorg -core :0 -seat seat0 -auth+
+</code></pre>
+<dl>
+<dt><code>i</code></dt>
+<dd>Exclude Idle tasks
+</dd>
+<dt><code>S</code></dt>
+<dd><p>Cumulative-time (CPU time is cumulated along children processes)</p>
+</dd>
+<dt><code>J</code>, <code>j</code></dt>
+<dd>Num/Str justify
+</dd>
+</dl>
+<pre class="example"><code>1 root      20   0  119916   6116   4028 S       0.2   0:01.01 systemd
+2 root      20   0                       S                     kthreadd
+3 root      20   0                       S                     ksoftirqd/0
+</code></pre>
+<pre class="example"><code>1     root     20  0   119916  6116   4028   S      0.2  0:01.01   systemd
+2     root     20  0                         S                     kthreadd
+3     root     20  0                         S                     ksoftirqd/0
+</code></pre>
+<pre class="example"><code>1         root 20  0   119916  6116   4028   S      0.2  0:01.01                                           systemd
+2         root 20  0                         S                                                            kthreadd
+3         root 20  0                         S                                                         ksoftirqd/0
+5         root 0   -20                       S                                                        kworker/0:0H
+</code></pre>
+<dl>
+<dt><code>x</code></dt>
+<dd>Toggle highlight of sort field
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-19_22-21-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-19_22-21-22.png" /></p>
+<dl>
+<dt><code>y</code></dt>
+<dd>Toggle highlight of running tasks
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-19_22-33-18.png" /></p>
+<dl>
+<dt><code>z</code></dt>
+<dd>Toggle color/mono
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-19_22-33-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-19_22-34-12.png" /></p>
+<dl>
+<dt><code>b</code></dt>
+<dd>Toggle bold/reverse
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-19_22-35-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-19_22-35-21.png" /></p>
+<dl>
+<dt><code>u</code></dt>
+<dd>Filter by effective user
+</dd>
+<dt><code>U</code></dt>
+<dd>Filter by any user
+</dd>
+<dt><code>o</code>, <code>O</code></dt>
+<dd>Other filter (<code>o</code> for ignoring cases on values)
+</dd>
+</dl>
+<pre class="example"><code>add filter #1 (ignoring case) as: [!]FLD?VAL USER=yeonghoey
+  PID USER                PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 1632 yeonghoey           20   0 1328920 163696  73764 S   4.7  4.0   7:58.95 compiz
+  984 root                20   0  342396  71584  29188 S   0.3  1.8   0:34.10 Xorg
+    1 root                20   0  119916   6116   4028 S   0.0  0.2   0:01.05 systemd
+</code></pre>
+<pre class="example"><code> PID USER                PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+1632 yeonghoey           20   0 1328920 163696  73764 S   3.0  4.0   8:00.66 compiz
+2863 yeonghoey           20   0   50280   4172   3472 R   0.3  0.1   0:00.33 top
+1267 yeonghoey           20   0   45360   4708   3816 S   0.0  0.1   0:00.00 systemd
+</code></pre>
+<dl>
+<dt><code>^O</code></dt>
+<dd>Show other filters (Ctrl + o)
+</dd>
+<dt><code>=</code>, <code>+</code></dt>
+<dd><p>Reset filltering current / all windows</p>
+</dd>
+<dt><code>n</code> or <code>#</code></dt>
+<dd>Set max tasks displayed
+</dd>
+</dl>
+<pre class="example"><code>Maximum tasks = 0, change to (0 is unlimited) 1
+  PID USER                PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 1632 yeonghoey           20   0 1328920 163696  73764 S   4.3  4.0   8:05.90 compiz
+ 2040 yeonghoey           20   0  527464  25956  22088 S   0.0  0.6   0:00.16 update-notifier
+ 2081 yeonghoey           20   0  553132  29424  24780 S   0.0  0.7   0:00.17 unity-panel-ser
+ 2863 yeonghoey           20   0   50280   4172   3472 R   0.0  0.1   0:00.36 top
+</code></pre>
+<pre class="example"><code> PID USER                PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+1632 yeonghoey           20   0 1328920 163696  73764 S   4.3  4.0   8:06.62 compiz
+</code></pre>
+<dl>
+<dt><code>C</code></dt>
+<dd>Scroll coordinates by following arrow keys
+</dd>
+</dl>
+<pre class="example"><code>scroll coordinates: y = 17/206 (tasks), x = 1/12 (fields)
+PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 18 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 [kworker/1:0H]
+ 19 root      20   0       0      0      0 S   0.0  0.0   0:00.00 [cpuhp/2]
+</code></pre>
+<pre class="example"><code> scroll coordinates: y = 17/206 (tasks), x = 9/12 (fields)
+%CPU %MEM     TIME+ COMMAND
+ 0.0  0.0   0:00.00 [kworker/1:0H]
+ 0.0  0.0   0:00.00 [cpuhp/2]
+</code></pre>
+<dl>
+<dt><code>k</code></dt>
+<dd>Kill a task
+</dd>
+</dl>
+<pre class="example"><code>PID to signal/kill [default pid = 1632]
+</code></pre>
+<dl>
+<dt><code>r</code></dt>
+<dd>Renice a task
+</dd>
+</dl>
+<pre class="example"><code>PID to renice [default pid = 1632]
+Renice PID 1632 to value
+</code></pre>
+<dl>
+<dt><code>d</code> or <code>s</code></dt>
+<dd>Set update interval
+</dd>
+</dl>
+<pre class="example"><code>Change delay from 3.0 to
+</code></pre>
+<dl>
+<dt><code>SPC</code></dt>
+<dd><p>Refresh immediately</p>
+</dd>
+<dt><code>W</code></dt>
+<dd>Write configuration file
+</dd>
+</dl>
+<pre class="example"><code>Wrote configuration to &#39;/home/yeonghoey/.toprc&#39;
+</code></pre>
+<dl>
+<dt><code>Y</code></dt>
+<dd>Inspect other output for a process
+</dd>
+</dl>
+<pre class="example"><code>inspect at PID [default pid = 1632]
+  PID USER                PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 1632 yeonghoey           20   0 1328920 163696  73764 S   5.0  4.0   8:19.00 compiz
+</code></pre>
+<pre class="example"><code>Inspection Pause at: pid 1632 running compiz as user yeonghoey
+Use:  left/right then &lt;Enter&gt; to select an option; &#39;q&#39; or &lt;Esc&gt; to end !
+Options:  Open Files  NUMA Info  Log
+</code></pre>
+<dl>
+<dt><code>g</code></dt>
+<dd>Choose another field group
+</dd>
+</dl>
+<pre class="example"><code>Choose field group (1 - 4) 4
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+</code></pre>
+<pre class="example"><code>PID  PPID   UID USER     RUSER    TTY          TIME+  %CPU %MEM S COMMAND
+</code></pre>
+<dl>
+<dt><code>A</code></dt>
+<dd>Toggle Single / Multiple windows
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/top/_img/screenshot_2017-08-19_22-49-30.png" /></p>
+<dl>
+<dt><code>a</code>, <code>w</code></dt>
+<dd>Cycle through all four windows
+</dd>
+<dt><code>-</code></dt>
+<dd>Show/Hide current window
+</dd>
+<dt><code>_</code></dt>
+<dd>All visiable/invisiable
+</dd>
+</dl>
+</article>
+
+</body>
+</html>

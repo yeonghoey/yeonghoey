@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>macOS</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>macos</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">macOS</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#change-an-user-name-and-its-home-folder">Change an user name and its home folder</a></li>
+<li><a href="#disable-space-auto-switching">Disable space auto switching</a></li>
+<li><a href="#disable-recent-items">Disable Recent Items</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="how-to">How-to</h1>
+<h2 id="change-an-user-name-and-its-home-folder">Change an user name and its home folder</h2>
+<ul>
+<li><p><strong>This is not recommened. Many applications will break because of hard coded HOME path.</strong></p></li>
+<li>Create a temporary admin account and login as it.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/macos/_img/screenshot_2017-07-08_09-28-19.png" /></p>
+<ul>
+<li>Rename <code>/Users/&lt;oldname&gt;</code> to <code>/Users/&lt;newname&gt;</code></li>
+<li><code>Ctrl</code> + <code>click</code> and open <code>Advanced Options</code></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/macos/_img/screenshot_2017-07-08_09-29-21.png" /></p>
+<ul>
+<li>Change them as you desire</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/macos/_img/screenshot_2017-07-08_09-30-21.png" /></p>
+<ul>
+<li>Done. login as the modified user.</li>
+<li>Many things would be broken.</li>
+<li>All symbolic links within your home directory should be re-linked.</li>
+<li>If you use <code>Dropbox</code>, remove <code>~/.dropbox</code> to reset your dropbox settings.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://support.apple.com/en-us/HT201548" class="uri">https://support.apple.com/en-us/HT201548</a></li>
+</ul>
+</div>
+<h2 id="disable-space-auto-switching">Disable space auto switching</h2>
+<p><img src="https://media.yeonghoey.com/macos/_img/screenshot_2018-01-03_09-23-32.png" /></p>
+<h2 id="disable-recent-items">Disable Recent Items</h2>
+<p><img src="https://media.yeonghoey.com/macos/_img/screenshot_2018-03-29_11-13-23.png" /></p>
+</article>
+
+</body>
+</html>

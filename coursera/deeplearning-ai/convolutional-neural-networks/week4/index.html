@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Special applications: Face recognition &amp; Neural style transfer</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/deeplearning-ai/" >deeplearning-ai</a></li>
+    <li><a href="/coursera/deeplearning-ai/convolutional-neural-networks/" >convolutional-neural-networks</a></li>
+    <li>week4</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Special applications: Face recognition &amp; Neural style transfer</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#face-recognition">Face Recognition</a><ul>
+<li><a href="#what-is-face-recognition">What is face recognition?</a></li>
+<li><a href="#one-shot-learning">One Shot Learning</a></li>
+<li><a href="#siamese-network">Siamese Network</a></li>
+<li><a href="#triplet-loss">Triplet Loss</a></li>
+<li><a href="#face-verification-and-binary-classification">Face Verification and Binary Classification</a></li>
+</ul></li>
+<li><a href="#neural-style-transfer">Neural Style Transfer</a><ul>
+<li><a href="#what-is-neural-style-transfer">What is neural style transfer?</a></li>
+<li><a href="#what-are-deep-convnets-learning">What are deep ConvNets learning?</a></li>
+<li><a href="#cost-function">Cost Function</a></li>
+<li><a href="#content-cost-function">Content Cost Function</a></li>
+<li><a href="#style-cost-function">Style Cost Function</a></li>
+<li><a href="#d-and-3d-generalizations">1D and 3D Generalizations</a></li>
+</ul></li>
+<li><a href="#programming-assignments">Programming assignments</a><ul>
+<li><a href="#art-generation-with-neural-style-transfer">Art generation with Neural Style Transfer</a></li>
+<li><a href="#face-recognition-for-the-happy-house">Face Recognition for the Happy House</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="face-recognition">Face Recognition</h1>
+<h2 id="what-is-face-recognition">What is face recognition?</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_08-31-57.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_08-32-25.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_08-35-08.png" /></p>
+<h2 id="one-shot-learning">One Shot Learning</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_08-39-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_08-42-10.png" /></p>
+<h2 id="siamese-network">Siamese Network</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_08-49-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_08-51-45.png" /></p>
+<h2 id="triplet-loss">Triplet Loss</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_08-59-06.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_09-03-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_09-06-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_09-08-18.png" /></p>
+<h2 id="face-verification-and-binary-classification">Face Verification and Binary Classification</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_09-17-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_09-18-34.png" /></p>
+<h1 id="neural-style-transfer">Neural Style Transfer</h1>
+<h2 id="what-is-neural-style-transfer">What is neural style transfer?</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-26_09-35-52.png" /></p>
+<h2 id="what-are-deep-convnets-learning">What are deep ConvNets learning?</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_11-36-35.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_11-36-53.png" /></p>
+<h2 id="cost-function">Cost Function</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_11-39-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_11-41-10.png" /></p>
+<h2 id="content-cost-function">Content Cost Function</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_11-48-54.png" /></p>
+<h2 id="style-cost-function">Style Cost Function</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_11-52-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_11-54-36.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_12-03-42.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_12-04-05.png" /></p>
+<h2 id="d-and-3d-generalizations">1D and 3D Generalizations</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_12-09-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_12-11-36.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-27_12-14-13.png" /></p>
+<h1 id="programming-assignments">Programming assignments</h1>
+<h2 id="art-generation-with-neural-style-transfer">Art generation with Neural Style Transfer</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-02-25.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-05-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-07-12.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-07-59.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-10-14.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-22-01.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-22-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-36-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-44-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-45-51.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-46-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-48-33.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_10-48-50.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_11-04-19.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_11-13-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_11-14-38.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-28_11-42-32.png" /></p>
+<ul>
+<li><a href="https://www.tensorflow.org/versions/r1.3/api_docs/python/tf/transpose" class="uri">https://www.tensorflow.org/versions/r1.3/api_docs/python/tf/transpose</a></li>
+<li><a href="https://www.tensorflow.org/versions/r1.2/api_docs/python/tf/reshape" class="uri">https://www.tensorflow.org/versions/r1.2/api_docs/python/tf/reshape</a></li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/reduce_sum" class="uri">https://www.tensorflow.org/api_docs/python/tf/reduce_sum</a></li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/matmul" class="uri">https://www.tensorflow.org/api_docs/python/tf/matmul</a></li>
+<li><a href="https://www.tensorflow.org/api_docs/python/tf/tensordot" class="uri">https://www.tensorflow.org/api_docs/python/tf/tensordot</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> compute_content_cost(a_C, a_G):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">    Computes the content cost</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">    a_C -- tensor of dimension (1, n_H, n_W, n_C), hidden layer activations representing content of the image C</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">    a_G -- tensor of dimension (1, n_H, n_W, n_C), hidden layer activations representing content of the image G</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">    J_content -- scalar that you compute using equation 1 above.</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="cf">return</span> J_content</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="kw">def</span> gram_matrix(A):</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">    Argument:</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">    A -- matrix of shape (n_C, n_H*n_W)</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">    GA -- Gram matrix of A, of shape (n_C, n_C)</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    <span class="cf">return</span> GA</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="kw">def</span> compute_layer_style_cost(a_S, a_G):</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="co">    a_S -- tensor of dimension (1, n_H, n_W, n_C), hidden layer activations representing style of the image S</span></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="co">    a_G -- tensor of dimension (1, n_H, n_W, n_C), hidden layer activations representing style of the image G</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="co">    J_style_layer -- tensor representing a scalar value, style cost defined above by equation (2)</span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-33" data-line-number="33">    <span class="cf">return</span> J_style_layer</a>
+<a class="sourceLine" id="cb1-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="kw">def</span> compute_style_cost(model, STYLE_LAYERS):</a>
+<a class="sourceLine" id="cb1-36" data-line-number="36">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-37" data-line-number="37"><span class="co">    Computes the overall style cost from several chosen layers</span></a>
+<a class="sourceLine" id="cb1-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb1-40" data-line-number="40"><span class="co">    model -- our tensorflow model</span></a>
+<a class="sourceLine" id="cb1-41" data-line-number="41"><span class="co">    STYLE_LAYERS -- A python list containing:</span></a>
+<a class="sourceLine" id="cb1-42" data-line-number="42"><span class="co">                        - the names of the layers we would like to extract style from</span></a>
+<a class="sourceLine" id="cb1-43" data-line-number="43"><span class="co">                        - a coefficient for each of them</span></a>
+<a class="sourceLine" id="cb1-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb1-45" data-line-number="45"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="co">    J_style -- tensor representing a scalar value, style cost defined above by equation (2)</span></a>
+<a class="sourceLine" id="cb1-47" data-line-number="47"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-48" data-line-number="48">    <span class="cf">return</span> J_style</a>
+<a class="sourceLine" id="cb1-49" data-line-number="49"></a>
+<a class="sourceLine" id="cb1-50" data-line-number="50"><span class="kw">def</span> total_cost(J_content, J_style, alpha <span class="op">=</span> <span class="dv">10</span>, beta <span class="op">=</span> <span class="dv">40</span>):</a>
+<a class="sourceLine" id="cb1-51" data-line-number="51">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-52" data-line-number="52"><span class="co">    Computes the total cost function</span></a>
+<a class="sourceLine" id="cb1-53" data-line-number="53"></a>
+<a class="sourceLine" id="cb1-54" data-line-number="54"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="co">    J_content -- content cost coded above</span></a>
+<a class="sourceLine" id="cb1-56" data-line-number="56"><span class="co">    J_style -- style cost coded above</span></a>
+<a class="sourceLine" id="cb1-57" data-line-number="57"><span class="co">    alpha -- hyperparameter weighting the importance of the content cost</span></a>
+<a class="sourceLine" id="cb1-58" data-line-number="58"><span class="co">    beta -- hyperparameter weighting the importance of the style cost</span></a>
+<a class="sourceLine" id="cb1-59" data-line-number="59"></a>
+<a class="sourceLine" id="cb1-60" data-line-number="60"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb1-61" data-line-number="61"><span class="co">    J -- total cost as defined by the formula above.</span></a>
+<a class="sourceLine" id="cb1-62" data-line-number="62"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-63" data-line-number="63">    <span class="cf">return</span> J</a>
+<a class="sourceLine" id="cb1-64" data-line-number="64"></a>
+<a class="sourceLine" id="cb1-65" data-line-number="65"><span class="kw">def</span> model_nn(sess, input_image, num_iterations <span class="op">=</span> <span class="dv">200</span>):</a>
+<a class="sourceLine" id="cb1-66" data-line-number="66">    <span class="cf">return</span> generated_image</a></code></pre></div>
+<h2 id="face-recognition-for-the-happy-house">Face Recognition for the Happy House</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-00-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-03-14.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-03-36.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-05-42.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-06-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-23-00.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-23-14.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-23-32.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-30-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week4/_img/screenshot_2017-11-29_09-38-37.png" /></p>
+<ul>
+<li><a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.norm.html" class="uri">https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.norm.html</a></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">def</span> triplet_loss(y_true, y_pred, alpha <span class="op">=</span> <span class="fl">0.2</span>):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">    Implementation of the triplet loss as defined by formula (3)</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">    y_true -- true labels, required when you define a loss in Keras, you don&#39;t need it in this function.</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">    y_pred -- python list containing three objects:</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">            anchor -- the encodings for the anchor images, of shape (None, 128)</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">            positive -- the encodings for the positive images, of shape (None, 128)</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">            negative -- the encodings for the negative images, of shape (None, 128)</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">    loss -- real number, value of the loss</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">    <span class="cf">return</span> loss</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="kw">def</span> verify(image_path, identity, database, model):</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">    Function that verifies if the person on the &quot;image_path&quot; image is &quot;identity&quot;.</span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">    image_path -- path to an image</span></a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">    identity -- string, name of the person you&#39;d like to verify the identity. Has to be a resident of the Happy house.</span></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">    database -- python dictionary mapping names of allowed people&#39;s names (strings) to their encodings (vectors).</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">    model -- your Inception model instance in Keras</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co">    dist -- distance between the image_path and the image of &quot;identity&quot; in the database.</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co">    door_open -- True, if the door should open. False otherwise.</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-31" data-line-number="31">    <span class="cf">return</span> dist, door_open</a>
+<a class="sourceLine" id="cb2-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="kw">def</span> who_is_it(image_path, database, model):</a>
+<a class="sourceLine" id="cb2-34" data-line-number="34">    <span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-35" data-line-number="35"><span class="co">    Implements face recognition for the happy house by finding who is the person on the image_path image.</span></a>
+<a class="sourceLine" id="cb2-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb2-37" data-line-number="37"><span class="co">    Arguments:</span></a>
+<a class="sourceLine" id="cb2-38" data-line-number="38"><span class="co">    image_path -- path to an image</span></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="co">    database -- database containing image encodings along with the name of the person on the image</span></a>
+<a class="sourceLine" id="cb2-40" data-line-number="40"><span class="co">    model -- your Inception model instance in Keras</span></a>
+<a class="sourceLine" id="cb2-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb2-42" data-line-number="42"><span class="co">    Returns:</span></a>
+<a class="sourceLine" id="cb2-43" data-line-number="43"><span class="co">    min_dist -- the minimum distance between image_path encoding and the encodings from the database</span></a>
+<a class="sourceLine" id="cb2-44" data-line-number="44"><span class="co">    identity -- string, the name prediction for the person on image_path</span></a>
+<a class="sourceLine" id="cb2-45" data-line-number="45"><span class="co">    &quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-46" data-line-number="46">    <span class="cf">return</span> min_dist, identity</a></code></pre></div>
+</article>
+
+</body>
+</html>

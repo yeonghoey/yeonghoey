@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Amazon API Gateway</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/aws/" >aws</a></li>
+    <li>apigateway</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Amazon API Gateway</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#cors">CORS</a></li>
+<li><a href="#deployments">Deployments</a><ul>
+<li><a href="#throttling">Throttling</a></li>
+<li><a href="#caching">Caching</a></li>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#variables">Variables</a></li>
+</ul></li>
+<li><a href="#proxy">Proxy</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<p><img src="https://media.yeonghoey.com/aws/apigateway/_img/screenshot_2018-03-19_17-20-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/aws/apigateway/_img/screenshot_2016-12-22_21-19-33.png" /></p>
+<h1 id="topics">Topics</h1>
+<h2 id="cors">CORS</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html" class="uri">https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html</a></li>
+</ul>
+</div>
+<blockquote>
+<p>For Lambda or HTTP proxy integrations, you can still set up the required <code>OPTIONS</code> response headers in API Gateway. However, you must rely on the back end to return the <code>Access-Control-Allow-Origin</code> headers because the integration response is disabled for the proxy integration.</p>
+</blockquote>
+<h2 id="deployments">Deployments</h2>
+<dl>
+<dt>Deployment</dt>
+<dd>assoicated with a stage
+</dd>
+<dt>Stage</dt>
+<dd><p>a snapshot of API</p>
+<ul>
+<li>adjusting the default account-level</li>
+<li>request throttling limits</li>
+<li>enabling API caching.</li>
+<li>Stages enable robust version control of your API</li>
+</ul>
+</dd>
+<dt><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/canary-release.html">Canary release</a></dt>
+<dd><p>updated version on the same stage</p>
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html" class="uri">https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html</a></li>
+</ul>
+</div>
+<h3 id="throttling">Throttling</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html" class="uri">https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html</a></li>
+</ul>
+</div>
+<h3 id="caching">Caching</h3>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html" class="uri">https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html</a></li>
+</ul>
+</div>
+<h3 id="logging">Logging</h3>
+<h3 id="variables">Variables</h3>
+<ul>
+<li>Using stage variables you can configure an API deployment stage to interact with different backend endpoints.</li>
+<li>When you call your <code>beta</code> endpoint, API Gateway uses the stage variable for the <code>beta</code> stage, and calls a different web host (for example, <code>beta.example.com</code>)</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/stage-variables.html" class="uri">https://docs.aws.amazon.com/apigateway/latest/developerguide/stage-variables.html</a></li>
+</ul>
+</div>
+<h2 id="proxy">Proxy</h2>
+<blockquote>
+<p>With the Lambda proxy integration, when a client submits an API request, API Gateway passes to the integrated Lambda function the raw request as-is. This request data includes the request headers, query string parameters, URL path variables, payload, and API configuration data. <strong>The configuration data can include current deployment stage name, stage variables, user identity, or authorization context (if any)</strong></p>
+</blockquote>
+<blockquote>
+<p>You can set up a Lambda proxy integration for any API method. But a Lambda proxy integration is more potent when it is configured for an API method involving a generic proxy resource. The generic proxy resource can be denoted by a special templated path variable of <code>{proxy+}</code>, the catch-all <code>ANY</code> method placeholder, or both.</p>
+</blockquote>
+<ul>
+<li><code>ANY /{proxy+}</code></li>
+<li><code>ANY /res</code></li>
+<li><code>GET|POST|PUT|... /{proxy+}</code></li>
+<li><code>GET|POST|PUT|... /res/{path}/...</code></li>
+<li><code>GET|POST|PUT|... /res</code></li>
+</ul>
+<p>The <code>/parent/{proxy+}</code> placeholder stands for any resource matching the path pattern of <code>/parent/*</code>.</p>
+<p>Configuring <code>/{proxy+}</code> as a proxy resource catches all requests to its sub-resources. For example, it works for a GET request to <code>/foo</code>. To handle requests to <code>/</code>, add a new <code>ANY</code> method on the <code>/</code> resource.</p>
+<p>When a proxy resource has non-proxy siblings, <strong>the sibling resources are excluded from the representation of the proxy resource.</strong></p>
+<pre class="example"><code>/{proxy+}
+/parent/{proxy+}
+/parent/{child}/{proxy+}
+</code></pre>
+<p>The request data format is:</p>
+<pre class="example"><code>{
+    &quot;resource&quot;: &quot;Resource path&quot;,
+    &quot;path&quot;: &quot;Path parameter&quot;,
+    &quot;httpMethod&quot;: &quot;Incoming request&#39;s method name&quot;
+    &quot;headers&quot;: {Incoming request headers}
+    &quot;queryStringParameters&quot;: {query string parameters }
+    &quot;pathParameters&quot;:  {path parameters}
+    &quot;stageVariables&quot;: {Applicable stage variables}
+    &quot;requestContext&quot;: {Request context, including authorizer-returned key-value pairs}
+    &quot;body&quot;: &quot;A JSON string of the request payload.&quot;
+    &quot;isBase64Encoded&quot;: &quot;A boolean flag to indicate if the applicable request payload is Base64-encode&quot;
+}
+</code></pre>
+<p>The desired output format is:</p>
+<pre class="example"><code>{
+    &quot;isBase64Encoded&quot;: true|false,
+    &quot;statusCode&quot;: httpStatusCode,
+    &quot;headers&quot;: { &quot;headerName&quot;: &quot;headerValue&quot;, ... },
+    &quot;body&quot;: &quot;...&quot;
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-request.html" class="uri">https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-request.html</a></li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html" class="uri">https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

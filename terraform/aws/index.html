@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>AWS</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/terraform/" >terraform</a></li>
+    <li>aws</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">AWS</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#resources">Resources</a><ul>
+<li><a href="#awseip">aws<sub>eip</sub></a></li>
+<li><a href="#awselasticsearchdomain">aws<sub>elasticsearchdomain</sub></a></li>
+<li><a href="#awselb">aws<sub>elb</sub></a></li>
+<li><a href="#awsiamrole">aws<sub>iamrole</sub></a></li>
+<li><a href="#awslambdafunction">aws<sub>lambdafunction</sub></a></li>
+<li><a href="#awsrdscluster">aws<sub>rdscluster</sub></a></li>
+<li><a href="#awsrdsclusterinstance">aws<sub>rdsclusterinstance</sub></a></li>
+<li><a href="#awsdefaultsecuritygroups">aws<sub>defaultsecuritygroups</sub></a></li>
+<li><a href="#awssecuritygroup">aws<sub>securitygroup</sub></a></li>
+</ul></li>
+<li><a href="#data-sources">Data Sources</a><ul>
+<li><a href="#awsami">aws<sub>ami</sub></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#set-up-a-vpc">Set up a VPC</a></li>
+<li><a href="#create-an-instance">Create an instance</a></li>
+<li><a href="#create-an-instance-profile">Create an instance profile</a></li>
+<li><a href="#set-up-static-website-with-s3">Set up static website with S3</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="reference">Reference</h1>
+<h2 id="resources">Resources</h2>
+<h3 id="awseip">aws<sub>eip</sub></h3>
+<pre class="terraform"><code>resource &quot;aws_eip&quot; &quot;main&quot; {
+  count    = &quot;${var.num_hosts_eip}&quot;
+  instance = &quot;${aws_instance.main.*.id}&quot;
+
+  # terraform tries to modify all eips when `count` changes.
+  # This is a workaround for this.
+  # SEE: https://github.com/hashicorp/terraform/issues/4944#issuecomment-248884637
+  lifecycle {
+    ignore_changes = [&quot;instance&quot;]
+  }
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/aws/r/eip.html" class="uri">https://www.terraform.io/docs/providers/aws/r/eip.html</a></li>
+<li><a href="https://github.com/hashicorp/terraform/issues/4944#issuecomment-248884637" class="uri">https://github.com/hashicorp/terraform/issues/4944#issuecomment-248884637</a></li>
+</ul>
+</div>
+<h3 id="awselasticsearchdomain">aws<sub>elasticsearchdomain</sub></h3>
+<pre class="terraform"><code>resource &quot;aws_elasticsearch_domain&quot; &quot;main&quot; {
+  domain_name           = &quot;my-domain&quot;
+  elasticsearch_version = &quot;5.1&quot;
+
+  cluster_config {
+    instance_type  = &quot;m3.medium.elasticsearch&quot;
+    instance_count = 3
+  }
+
+  ebs_options {
+    ebs_enabled = true
+    volume_type = &quot;gp2&quot;
+    volume_size = &quot;30&quot; # in GBs per data instance
+  }
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain.html" class="uri">https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain.html</a></li>
+<li><a href="https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html" class="uri">https://www.terraform.io/docs/providers/aws/r/elasticsearch_domain_policy.html</a></li>
+</ul>
+</div>
+<h3 id="awselb">aws<sub>elb</sub></h3>
+<pre class="terraform"><code>resource &quot;aws_elb&quot; &quot;endpoint&quot; {
+  name            = &quot;my-elb&quot;
+  subnets         = [&quot;${var.subnet_ids}&quot;]
+  security_groups = [&quot;${var.security_groups}&quot;]
+  instances       = [&quot;${aws_instance.cluster.*.id}&quot;]
+
+  internal = true
+
+  listener {
+    instance_port     = 8080
+    instance_protocol = &quot;http&quot;
+    lb_port           = 80
+    lb_protocol       = &quot;http&quot;
+  }
+
+  health_check {
+    target              = &quot;HTTP:8080/&quot;
+    timeout             = 5
+    interval            = 30
+    unhealthy_threshold = 2
+    healthy_threshold   = 10
+  }
+
+  tags {
+    Cluster = &quot;${var.cluster}&quot;
+  }
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/aws/r/elb.html" class="uri">https://www.terraform.io/docs/providers/aws/r/elb.html</a></li>
+</ul>
+</div>
+<h3 id="awsiamrole">aws<sub>iamrole</sub></h3>
+<pre class="terraform"><code>  resource &quot;aws_iam_role&quot; &quot;main&quot; {
+    name = &quot;${var.name}&quot;
+
+    assume_role_policy = &lt;&lt;EOF
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Principal&quot;: {
+        &quot;Service&quot;: &quot;lambda.amazonaws.com&quot;
+      },
+      &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+    }
+  ]
+}
+EOF
+  }
+
+  resource &quot;aws_iam_role_policy&quot; &quot;kinesis&quot; {
+    name = &quot;${aws_iam_role.main.name}-kinesis&quot;
+    role = &quot;${aws_iam_role.main.id}&quot;
+
+    policy = &lt;&lt;EOF
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Action&quot;: [
+        &quot;kinesis:DescribeStream&quot;,
+        &quot;kinesis:GetRecords&quot;,
+        &quot;kinesis:GetShardIterator&quot;,
+        &quot;kinesis:ListStreams&quot;,
+        &quot;logs:CreateLogGroup&quot;,
+        &quot;logs:CreateLogStream&quot;,
+        &quot;logs:PutLogEvents&quot;
+      ],
+      &quot;Resource&quot;: &quot;${var.kinesis_arn}&quot;
+    }
+  ]
+}
+EOF
+  }
+
+  resource &quot;aws_iam_role_policy&quot; &quot;cloudwatch&quot; {
+    name = &quot;${aws_iam_role.main.name}-cloudwatch&quot;
+    role = &quot;${aws_iam_role.main.id}&quot;
+
+    policy = &lt;&lt;EOF
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Action&quot;: [
+        &quot;logs:CreateLogGroup&quot;,
+        &quot;logs:CreateLogStream&quot;,
+        &quot;logs:PutLogEvents&quot;
+      ],
+      &quot;Resource&quot;: &quot;*&quot;
+    }
+  ]
+}
+EOF
+  }
+
+  # Needs a few seconds to replicate your new role through all regions.
+  # SEE: http://stackoverflow.com/questions/37503075/invalidparametervalueexception-the-role-defined-for-the-function-cannot-be-assu
+  resource &quot;null_resource&quot; &quot;sleep&quot; {
+    triggers {
+      role = &quot;${aws_iam_role.main.arn}&quot;
+    }
+
+    provisioner &quot;local-exec&quot; {
+      command = &quot;sleep 15&quot;
+    }
+  }
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/aws/d/iam_role.html" class="uri">https://www.terraform.io/docs/providers/aws/d/iam_role.html</a></li>
+</ul>
+</div>
+<h3 id="awslambdafunction">aws<sub>lambdafunction</sub></h3>
+<pre class="terraform"><code>data &quot;archive_file&quot; &quot;code&quot; {
+  type        = &quot;zip&quot;
+  source_file = &quot;${path.module}/main.py&quot;
+  output_path = &quot;${path.module}/lambda.zip&quot;
+}
+
+resource &quot;aws_lambda_function&quot; &quot;main&quot; {
+  function_name    = &quot;lambda-kinesis&quot;
+  filename         = &quot;${data.archive_file.code.output_path}&quot;
+  source_code_hash = &quot;${data.archive_file.code.output_base64sha256}&quot;
+  handler          = &quot;main.handle&quot;
+  runtime          = &quot;python2.7&quot;
+  role             = &quot;${var.role_arn}&quot;
+  memory_size      = 128
+  timeout          = 10
+
+  environment {
+    variables {
+      MY_ENV = &quot;test&quot;
+    }
+  }
+}
+
+resource &quot;aws_lambda_event_source_mapping&quot; &quot;kinesis&quot; {
+  function_name     = &quot;${aws_lambda_function.main.arn}&quot;
+  event_source_arn  = &quot;${var.kinesis_arn}&quot;
+  batch_size        = 1000
+  starting_position = &quot;LATEST&quot;
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/aws/r/lambda_function.html" class="uri">https://www.terraform.io/docs/providers/aws/r/lambda_function.html</a></li>
+<li><a href="https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping.html" class="uri">https://www.terraform.io/docs/providers/aws/r/lambda_event_source_mapping.html</a></li>
+</ul>
+</div>
+<h3 id="awsrdscluster">aws<sub>rdscluster</sub></h3>
+<h3 id="awsrdsclusterinstance">aws<sub>rdsclusterinstance</sub></h3>
+<pre class="terraform"><code>resource &quot;aws_rds_cluster&quot; &quot;cluster&quot; {
+  db_cluster_parameter_group_name = &quot;default.aurora5.6&quot;
+  cluster_identifier              = &quot;mydb&quot;
+
+  db_subnet_group_name   = &quot;default-vpc-abcd1234&quot;
+  vpc_security_group_ids = [&quot;${data.terraform_remote_state.vpc.sg_default}&quot;]
+  availability_zones     = [&quot;ap-northeast-1a&quot;, &quot;ap-northeast-1c&quot;]
+
+  skip_final_snapshot = true
+
+  database_name   = &quot;mydb&quot;
+  master_username = &quot;root&quot;
+  master_password = &quot;1234&quot;
+}
+
+resource &quot;aws_rds_cluster_instance&quot; &quot;node&quot; {
+  count          = 2
+  instance_class = &quot;db.t2.medium&quot;
+  identifier     = &quot;mydb-${count.index}&quot;
+
+  cluster_identifier   = &quot;${aws_rds_cluster.cluster.id}&quot;
+  db_subnet_group_name = &quot;default-vpc-abcd1234&quot;
+}
+</code></pre>
+<h3 id="awsdefaultsecuritygroups">aws<sub>defaultsecuritygroups</sub></h3>
+<p>When creating a <code>VPC</code>, AWS automatically creates a <code>default</code> security group that can not be deleted To manage it with Terraform, Terraform provides a dedicated resource type. Before you make any changes, be sure to read the link below.</p>
+<pre class="terraform"><code>resource &quot;aws_default_security_group&quot; &quot;default&quot; {
+  vpc_id = &quot;${aws_vpc.main.id}&quot;
+
+  ingress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = &quot;-1&quot;
+    security_groups = []
+    self            = true
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = &quot;-1&quot;
+    cidr_blocks      = [&quot;0.0.0.0/0&quot;]
+    ipv6_cidr_blocks = [&quot;::/0&quot;]
+  }
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/aws/r/default_security_group.html" class="uri">https://www.terraform.io/docs/providers/aws/r/default_security_group.html</a></li>
+</ul>
+</div>
+<h3 id="awssecuritygroup">aws<sub>securitygroup</sub></h3>
+<pre class="terraform"><code>resource &quot;aws_security_group&quot; &quot;default&quot; {
+  name   = &quot;${var.project}-default&quot;
+  vpc_id = &quot;${aws_vpc.main.id}&quot;
+
+  ingress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = &quot;-1&quot; # all
+    security_groups = []
+    self            = true
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = &quot;-1&quot; # all
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+}
+
+resource &quot;aws_security_group&quot; &quot;icmp&quot; {
+  name   = &quot;${var.project}-icmp&quot;
+  vpc_id = &quot;${aws_vpc.main.id}&quot;
+
+  ingress {
+    from_port   = -1 # all
+    to_port     = -1
+    protocol    = &quot;icmp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+}
+
+resource &quot;aws_security_group&quot; &quot;ping&quot; {
+  name   = &quot;${var.project}-ping&quot;
+  vpc_id = &quot;${aws_vpc.main.id}&quot;
+
+  ingress {
+    from_port   = 8 # echo
+    to_port     = -1
+    protocol    = &quot;icmp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+}
+
+resource &quot;aws_security_group&quot; &quot;ssh&quot; {
+  name   = &quot;${var.project}-ssh&quot;
+  vpc_id = &quot;${aws_vpc.main.id}&quot;
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = &quot;tcp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/aws/r/security_group.html" class="uri">https://www.terraform.io/docs/providers/aws/r/security_group.html</a></li>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html</a></li>
+</ul>
+</div>
+<h2 id="data-sources">Data Sources</h2>
+<h3 id="awsami">aws<sub>ami</sub></h3>
+<pre class="terraform"><code>data &quot;aws_ami&quot; &quot;ubuntu1604&quot; {
+  most_recent = true
+
+  filter {
+    name   = &quot;name&quot;
+    values = [&quot;ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*&quot;]
+  }
+
+  filter {
+    name   = &quot;virtualization-type&quot;
+    values = [&quot;hvm&quot;]
+  }
+
+  owners = [&quot;099720109477&quot;] # Canonical
+}
+</code></pre>
+<pre class="terraform"><code>data &quot;aws_ami&quot; &quot;my_image1&quot; {
+  most_recent = true
+
+  filter {
+    name   = &quot;state&quot;
+    values = [&quot;available&quot;]
+  }
+
+  filter {
+    name   = &quot;tag:Name&quot;
+    values = [&quot;My Image&quot;]
+  }
+}
+</code></pre>
+<pre class="terraform"><code>data &quot;aws_ami&quot; &quot;my_image2&quot; {
+  most_recent = true
+
+  filter {
+    name   = &quot;state&quot;
+    values = [&quot;available&quot;]
+  }
+
+  filter {
+    name   = &quot;name&quot;
+    values = [&quot;my-image-*&quot;]
+  }
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/aws/d/ami.html" class="uri">https://www.terraform.io/docs/providers/aws/d/ami.html</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html" class="uri">http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h2 id="set-up-a-vpc">Set up a VPC</h2>
+<ul>
+<li><code>terrafrom</code> will hang when destroying subnets if there are running instances on them.</li>
+</ul>
+<pre class="terraform"><code>resource &quot;aws_vpc&quot; &quot;main&quot; {
+  cidr_block = &quot;10.0.0.0/16&quot;
+
+  tags {
+    Name = &quot;main&quot;
+  }
+}
+
+resource &quot;aws_subnet&quot; &quot;main_public_a&quot; {
+  vpc_id            = &quot;${aws_vpc.main.id}&quot;
+  cidr_block        = &quot;10.0.0.0/20&quot;
+  availability_zone = &quot;eu-west-1a&quot;
+
+  tags {
+    Name = &quot;main-public-a&quot;
+  }
+}
+
+resource &quot;aws_internet_gateway&quot; &quot;main&quot; {
+  vpc_id = &quot;${aws_vpc.main.id}&quot;
+
+  tags {
+    Name = &quot;main&quot;
+  }
+} 
+resource &quot;aws_route_table&quot; &quot;main&quot; {
+  vpc_id = &quot;${aws_vpc.main.id}&quot;
+
+  route {
+    cidr_block = &quot;0.0.0.0/0&quot;
+    gateway_id = &quot;${aws_internet_gateway.main.id}&quot;
+  }
+
+  tags {
+    Name = &quot;main&quot;
+  }
+}
+
+resource &quot;aws_main_route_table_association&quot; &quot;main&quot; {
+  vpc_id         = &quot;${aws_vpc.main.id}&quot;
+  route_table_id = &quot;${aws_route_table.main.id}&quot;
+}
+</code></pre>
+<h2 id="create-an-instance">Create an instance</h2>
+<pre class="terraform"><code>data &quot;aws_ami&quot; &quot;ubuntu1404&quot; {
+  most_recent = true
+
+  filter {
+    name   = &quot;name&quot;
+    values = [&quot;ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*&quot;]
+  }
+
+  filter {
+    name   = &quot;virtualization-type&quot;
+    values = [&quot;hvm&quot;]
+  }
+
+  owners = [&quot;099720109477&quot;] # Canonical
+}
+
+resource &quot;aws_instance&quot; &quot;main&quot; {
+  ami           = &quot;${data.aws_ami.ubuntu1404.id}&quot;
+  instance_type = &quot;t2.micro&quot;
+
+  # Even though there&#39;s aws_key_pair,
+  # it&#39;s better to create a new one on web console manually.
+  key_name      = &quot;${var.key_name}&quot;
+  subnet_id     = &quot;${data.terraform_remote_state.vpc.main_public_a}&quot;
+}
+
+resource &quot;aws_eip&quot; &quot;main&quot; {
+  instance = &quot;${aws_instance.main.id}&quot;
+}
+</code></pre>
+<h2 id="create-an-instance-profile">Create an instance profile</h2>
+<pre class="terraform"><code>resource &quot;aws_iam_instance_profile&quot; &quot;main&quot; {
+  name = &quot;my-profile&quot;
+  role = &quot;${aws_iam_role.main.name}&quot;
+}
+
+resource &quot;aws_iam_role&quot; &quot;main&quot; {
+  name = &quot;my-role&quot;
+
+  assume_role_policy = &lt;&lt;EOF
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Action&quot;: &quot;sts:AssumeRole&quot;,
+      &quot;Principal&quot;: {
+        &quot;Service&quot;: &quot;ec2.amazonaws.com&quot;
+      },
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Sid&quot;: &quot;&quot;
+    }
+  ]
+}
+EOF
+}
+
+resource &quot;aws_iam_role_policy&quot; &quot;main&quot; {
+  name = &quot;my-role-allow-s3&quot;
+  role = &quot;${aws_iam_role.main.id}&quot;
+
+  policy = &lt;&lt;EOF
+{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Action&quot;: [
+        &quot;s3:ListBucket&quot;
+      ],
+      &quot;Resource&quot;: [
+        &quot;${aws_s3_bucket.main.arn}&quot;
+      ]
+    },
+    {
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Action&quot;: [
+        &quot;s3:PutObject&quot;,
+        &quot;s3:GetObject&quot;,
+        &quot;s3:DeleteObject&quot;
+      ],
+      &quot;Resource&quot;: [
+        &quot;${aws_s3_bucket.main.arn}/*&quot;
+      ]
+    }
+  ]
+}
+EOF
+}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/yeonghoey/yeonghoey/blob/master/aws/iam.org#s3" class="uri">https://github.com/yeonghoey/yeonghoey/blob/master/aws/iam.org#s3</a></li>
+</ul>
+</div>
+<h2 id="set-up-static-website-with-s3">Set up static website with S3</h2>
+<pre class="terraform"><code>resource &quot;aws_s3_bucket&quot; &quot;main&quot; {
+  bucket = &quot;${var.bucket}&quot;
+  policy = &lt;&lt;EOF
+{
+  &quot;Version&quot;:&quot;2012-10-17&quot;,
+  &quot;Statement&quot;:[
+    {
+      &quot;Effect&quot;:&quot;Allow&quot;,
+      &quot;Principal&quot;: &quot;*&quot;,
+      &quot;Action&quot;: [&quot;s3:GetObject&quot;],
+      &quot;Resource&quot;: [&quot;arn:aws:s3:::${var.bucket}/*&quot;]
+    }
+  ]
+}
+EOF
+
+  website {
+    index_document = &quot;index.html&quot;
+    error_document = &quot;index.html&quot; # SPA
+  }
+}
+</code></pre>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Udacity: Intro to HTML and CSS</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/udacity/" >udacity</a></li>
+    <li>intro-to-html-and-css</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Udacity: Intro to HTML and CSS</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#html-css-and-boxes">HTML, CSS, and Boxes</a><ul>
+<li><a href="#interview-with-jacques">Interview with Jacques</a></li>
+<li><a href="#quiz-styling-up">Quiz: Styling Up</a></li>
+<li><a href="#quiz-using-semantic-tags">Quiz: Using Semantic Tags</a></li>
+<li><a href="#quiz-the-box-revisited">Quiz: The Box Revisited</a></li>
+<li><a href="#positioning-boxes">Positioning Boxes</a></li>
+<li><a href="#code-test-refine">Code, Test, Refine</a></li>
+<li><a href="#quiz-verifying-html-and-css">Quiz: Verifying HTML and CSS</a></li>
+</ul></li>
+<li><a href="#css-frameworks-responsive-layouts">CSS Frameworks, Responsive Layouts</a></li>
+</ul>
+</nav>
+
+<h1 id="html-css-and-boxes">HTML, CSS, and Boxes</h1>
+<h2 id="interview-with-jacques">Interview with Jacques</h2>
+<p><img src="https://media.yeonghoey.com/udacity/intro-to-html-and-css/_img/screenshot_2017-01-27_07-50-12.png" /></p>
+<p>(Udacity the lead front-end developer)</p>
+<blockquote>
+<p>So I start out sort of understanding and cutting up the boxes that I'm going to use. And that starts with the big box that is your whole page. And from there I sort of split it up piece by piece and we work from big to small.</p>
+</blockquote>
+<h2 id="quiz-styling-up">Quiz: Styling Up</h2>
+<p><img src="https://media.yeonghoey.com/udacity/intro-to-html-and-css/_img/screenshot_2017-01-27_08-05-31.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://css-tricks.com/how-css-selectors-work/" class="uri">https://css-tricks.com/how-css-selectors-work/</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" class="uri">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference</a></li>
+</ul>
+</div>
+<h2 id="quiz-using-semantic-tags">Quiz: Using Semantic Tags</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#The_HTML5_Outline_Algorithm" class="uri">https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#The_HTML5_Outline_Algorithm</a></li>
+</ul>
+</div>
+<h2 id="quiz-the-box-revisited">Quiz: The Box Revisited</h2>
+<p><img src="https://media.yeonghoey.com/udacity/intro-to-html-and-css/_img/screenshot_2017-01-27_08-13-19.png" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" data-line-number="1">* {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="kw">-webkit-box-sizing</span>: <span class="dv">border-box</span>;</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="kw">-moz-box-sizing</span>: <span class="dv">border-box</span>;</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="kw">-ms-box-sizing</span>: <span class="dv">border-box</span>;</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="kw">box-sizing</span>: <span class="dv">border-box</span>;</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">} </a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/udacity/intro-to-html-and-css/_img/screenshot_2017-01-27_08-23-13.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://assignments.udacity-extras.appspot.com/courses/html-css/samples/box-model.html" class="uri">http://assignments.udacity-extras.appspot.com/courses/html-css/samples/box-model.html</a></li>
+</ul>
+</div>
+<h2 id="positioning-boxes">Positioning Boxes</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">.app</span> {</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="kw">display</span>: -webkit-flex;</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="kw">display</span>: flex;</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="uri">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></li>
+</ul>
+</div>
+<h2 id="code-test-refine">Code, Test, Refine</h2>
+<p><img src="https://media.yeonghoey.com/udacity/intro-to-html-and-css/_img/screenshot_2017-01-27_09-00-00.png" /></p>
+<h2 id="quiz-verifying-html-and-css">Quiz: Verifying HTML and CSS</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://validator.w3.org/#validate_by_input" class="uri">http://validator.w3.org/#validate_by_input</a></li>
+<li><a href="http://jigsaw.w3.org/css-validator/#validate_by_input" class="uri">http://jigsaw.w3.org/css-validator/#validate_by_input</a></li>
+</ul>
+</div>
+<h1 id="css-frameworks-responsive-layouts">CSS Frameworks, Responsive Layouts</h1>
+</article>
+
+</body>
+</html>

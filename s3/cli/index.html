@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>aws s3</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/s3/" >s3</a></li>
+    <li>cli</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">aws s3</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#sync">sync</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<pre class="shell"><code>aws s3 mv test.txt s3://mybucket/test2.txt
+aws s3 mv s3://mybucket/test.txt s3://mybucket/test2.txt
+aws s3 mv s3://mybucket/test.txt test2.txt
+aws s3 mv s3://mybucket . --recursive
+aws s3 mv myDir s3://mybucket/ --recursive --exclude &quot;*.jpg&quot;
+aws s3 mv s3://mybucket/ s3://mybucket2/ --recursive --exclude &quot;mybucket/another/*&quot;
+
+# delete a bucket and all its contents
+aws s3 rb s3://bucket-name --force
+
+aws s3 cp MyFolder s3://bucket-name --recursive
+
+# upload a stream from stdin to s3
+aws s3 cp - s3://my-bucket/stream
+
+# download an s3 object as a stdout stream
+aws s3 cp s3://my-bucket/stream
+
+# list the sizes of an S3 bucket and its contents
+aws s3api list-objects --bucket BUCKETNAME --output json --query &quot;[sum(Contents[].Size), length(Contents[])]&quot;
+
+# inter-region sync
+aws s3 sync s3://oldbucket s3://newbucket --source-region us-west-1 --region us-west-2
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://cloudacademy.com/blog/aws-cli-10-useful-commands/" class="uri">https://cloudacademy.com/blog/aws-cli-10-useful-commands/</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#available-commands" class="uri">http://docs.aws.amazon.com/cli/latest/reference/s3/index.html#available-commands</a></li>
+</ul>
+</div>
+<h1 id="reference">Reference</h1>
+<h2 id="sync">sync</h2>
+<p>For syncing strictly, specify following flags:</p>
+<dl>
+<dt><code>--exact-timestamps</code> (boolean)</dt>
+<dd>When syncing from S3 to local, <strong>same-sized items will be ignored</strong> only when the timestamps match exactly. The default behavior is to ignore same-sized items unless the local version is newer than the S3 version.
+</dd>
+<dt><code>--delete</code> (boolean)</dt>
+<dd>Files that exist in the destination but not in the source are deleted during sync.
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html" class="uri">https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

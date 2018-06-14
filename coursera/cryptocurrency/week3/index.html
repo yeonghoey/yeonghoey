@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Mechanics of Bitcoin</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/cryptocurrency/" >cryptocurrency</a></li>
+    <li>week3</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Mechanics of Bitcoin</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#bitcoin-transactions">Bitcoin Transactions</a></li>
+<li><a href="#bitcoin-scripts">Bitcoin Scripts</a></li>
+<li><a href="#applications-of-bitcoin-scripts">Applications of Bitcoin Scripts</a></li>
+<li><a href="#bitcoin-blocks">Bitcoin Blocks</a></li>
+<li><a href="#the-bitcoin-network">The Bitcoin Network</a></li>
+<li><a href="#limitations-improvements">Limitations &amp; Improvements</a></li>
+</ul>
+</nav>
+
+<h1 id="bitcoin-transactions">Bitcoin Transactions</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-18_08-31-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-20_08-24-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-20_08-25-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-20_08-26-22.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-20_08-26-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-20_08-27-19.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-20_08-28-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-20_08-28-27.png" /></p>
+<h1 id="bitcoin-scripts">Bitcoin Scripts</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-34-25.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-34-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-35-18.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-35-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-35-55.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-36-30.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-36-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-37-12.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-37-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-39-46.png" /></p>
+<blockquote>
+<p>The first is to write arbitrary data into the block chain if for some reason you want to write your name, or if you want to time stamp and prove that you knew some data at a specific time, you can create a very low value Bitcoin transaction that's proof-of-burn. So you can destroy a very small amount of currency, and in exchange you can write whatever you want into the block chain, which should be kept around forever.</p>
+</blockquote>
+<blockquote>
+<p>The other example of proof-of-burn we'll talk about in a later lecture on alternate currencies, that it can be way to bootstrap an alternative to Bitcoin by forcing people to destroy Bitcoin in order to gain coins in the new system.</p>
+</blockquote>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-41-50.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-46-06.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-44-03.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-44-26.png" /></p>
+<h1 id="applications-of-bitcoin-scripts">Applications of Bitcoin Scripts</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-48-20.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-48-51.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-49-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-49-24.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-49-55.png" /></p>
+<blockquote>
+<p>Now people are actually quite nervous about this idea and they're worried that this puts too much trust in the bank. As a result, this isn't used that much in practice even though it's a cool protocol.</p>
+</blockquote>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-50-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-51-13.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-51-37.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-51-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_00-52-11.png" /></p>
+<h1 id="bitcoin-blocks">Bitcoin Blocks</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_21-01-33.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_21-01-59.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_21-02-32.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_21-02-53.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_21-04-18.png" /></p>
+<blockquote>
+<p>and this is the coinbase transaction. So this is where the creation of new coins and Bitcoin happens.</p>
+</blockquote>
+<blockquote>
+<p>And the coinbase parameter is completely arbitrary, the miners can put whatever they want in there. So famously, in the very first block ever mined in Bitcoin, the coinbase parameter had a quote from the newspaper. It had a quote from the Times of London describing a story involving the chancellor bailing out banks, which was both a political commentary on the motivation for starting Bitcoin, and serve as a commitment that Bitcoin, the first block was obviously mined after this newspaper came out.</p>
+</blockquote>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_21-08-16.png" /></p>
+<h1 id="the-bitcoin-network">The Bitcoin Network</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_21-10-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-46-32.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-46-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-46-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-47-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-47-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-47-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-48-33.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-48-55.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-49-19.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-49-45.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-49-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-50-22.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-50-38.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-50-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-51-07.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-51-31.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-51-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-52-09.png" /></p>
+<h1 id="limitations-improvements">Limitations &amp; Improvements</h1>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-41-08.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-41-34.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-41-56.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-42-32.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-43-13.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-43-29.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-44-00.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/cryptocurrency/week3/_img/screenshot_2017-10-22_22-44-23.png" /></p>
+</article>
+
+</body>
+</html>

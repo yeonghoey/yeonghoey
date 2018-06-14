@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Unity</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>unity</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./dev-settings">dev-settings</a></li>
+    <li><a href="./dotge">dotge</a></li>
+    <li><a href="./tutorial-2d-rougelike">tutorial-2d-rougelike</a></li>
+    <li><a href="./tutorial-2d-ufo">tutorial-2d-ufo</a></li>
+    <li><a href="./tutorial-animation">tutorial-animation</a></li>
+    <li><a href="./tutorial-roll-a-ball">tutorial-roll-a-ball</a></li>
+    <li><a href="./tutorial-tanks">tutorial-tanks</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Unity</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#animation-window">Animation Window</a><ul>
+<li><a href="#animation-event">Animation Event</a></li>
+</ul></li>
+<li><a href="#animator-window">Animator Window</a><ul>
+<li><a href="#animation-states">Animation States</a></li>
+<li><a href="#animation-transitions">Animation Transitions</a></li>
+<li><a href="#state-machine">State Machine</a></li>
+<li><a href="#statemachinebehaviour">StateMachineBehaviour</a></li>
+</ul></li>
+<li><a href="#application">Application</a></li>
+<li><a href="#attributes">Attributes</a><ul>
+<li><a href="#hideininspector">HideInInspector</a></li>
+<li><a href="#serializefield">SerializeField</a></li>
+</ul></li>
+<li><a href="#collider-2d">Collider 2D</a></li>
+<li><a href="#coroutine">Coroutine</a></li>
+<li><a href="#editorwindow">EditorWindow</a></li>
+<li><a href="#gameobject">GameObject</a><ul>
+<li><a href="#create-empty-with-code">Create Empty with Code</a></li>
+<li><a href="#findwithtag">FindWithTag</a></li>
+</ul></li>
+<li><a href="#input">Input</a></li>
+<li><a href="#main-window">Main Window</a></li>
+<li><a href="#mathf">Mathf</a></li>
+<li><a href="#object">Object</a><ul>
+<li><a href="#instantiate">Instantiate</a></li>
+<li><a href="#destroy">Destroy</a></li>
+</ul></li>
+<li><a href="#particle-system">Particle System</a></li>
+<li><a href="#physics-2d">Physics 2D</a></li>
+<li><a href="#platform-dependent-compilation">Platform dependent compilation</a></li>
+<li><a href="#prefabs">Prefabs</a></li>
+<li><a href="#random">Random</a></li>
+<li><a href="#onbecamevisibleinvisible">OnBecameVisible/Invisible</a></li>
+<li><a href="#scriptableobject">ScriptableObject</a></li>
+<li><a href="#sendmessage">SendMessage</a></li>
+<li><a href="#special-folders">Special Folders</a></li>
+<li><a href="#sprites">Sprites</a><ul>
+<li><a href="#packer">Packer</a></li>
+</ul></li>
+<li><a href="#time">Time</a></li>
+</ul></li>
+<li><a href="#details">Details</a><ul>
+<li><a href="#use-emacs-as-the-script-editor">Use Emacs as the script editor</a></li>
+<li><a href="#mono.net-compatibility">Mono(.Net) Compatibility</a></li>
+<li><a href="#execution-order">Execution Order</a></li>
+<li><a href="#awake-vs-start">Awake vs Start</a></li>
+<li><a href="#layer-vs-sorting-layer">Layer vs Sorting Layer</a></li>
+<li><a href="#hideininspector-vs-nonserialized-vs-serializefield">HideInInspector vs NonSerialized vs SerializeField</a></li>
+<li><a href="#serialization">Serialization</a></li>
+<li><a href="#c-classes-need-to-have-its-own-script-with-the-class-name">C# classes need to have its own script with the class' name?</a></li>
+<li><a href="#playerprefs-vs-editorprefs">PlayerPrefs vs EditorPrefs</a></li>
+</ul></li>
+<li><a href="#use-cases">Use Cases</a><ul>
+<li><a href="#pixel-perfect">Pixel Perfect</a></li>
+<li><a href="#make-input-axis-discrete">Make Input Axis discrete</a></li>
+<li><a href="#webgl-doent-work-in-chrome-locally">WebGL doen't work in chrome locally</a></li>
+<li><a href="#use-transform.up-in-2d-as-forward">Use Transform.up in 2D as forward</a></li>
+</ul></li>
+<li><a href="#troubleshootings">Troubleshootings</a><ul>
+<li><a href="#coroutine-named-main">Coroutine named Main</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="reference">Reference</h1>
+<h2 id="animation-window">Animation Window</h2>
+<ul>
+<li><strong>Add Property</strong>: <strong>must select GameObject in Hierarchy window</strong></li>
+<li><strong>Samples</strong>: Frames per second</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_10-32-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-05_10-51-26.png" /></p>
+<ul>
+<li>For Sprite Animations, a key frame without sprite is <strong>NOT</strong> played</li>
+<li>There are curves on transitions like:</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-05_10-48-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-05_10-57-37.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/EditingCurves.html" class="uri">https://docs.unity3d.com/Manual/EditingCurves.html</a></li>
+</ul>
+</div>
+<h3 id="animation-event">Animation Event</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">// This C# function can be called by an Animation Event</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">PrintFloat</span> (<span class="dt">float</span> theValue) {</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    Debug.<span class="fu">Log</span> (<span class="st">&quot;PrintFloat is called with a value of &quot;</span> + theValue);</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">}</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_11-03-03.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/animeditor-AnimationEvents.html" class="uri">https://docs.unity3d.com/Manual/animeditor-AnimationEvents.html</a></li>
+</ul>
+</div>
+<h2 id="animator-window">Animator Window</h2>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_15-32-27.png" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">public</span> <span class="kw">class</span> SimplePlayer : MonoBehaviour {</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    Animator animator;</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    <span class="co">// Use this for initialization</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="dt">void</span> <span class="fu">Start</span> () {</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">        animator = GetComponent&lt;Animator&gt;();</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">    }</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">    <span class="co">// Update is called once per frame</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">    <span class="dt">void</span> <span class="fu">Update</span> () {</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">        <span class="dt">float</span> h = Input.<span class="fu">GetAxis</span>(<span class="st">&quot;Horizontal&quot;</span>);</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">        <span class="dt">float</span> v = Input.<span class="fu">GetAxis</span>(<span class="st">&quot;Vertical&quot;</span>);</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">        <span class="dt">bool</span> fire = Input.<span class="fu">GetButtonDown</span>(<span class="st">&quot;Fire1&quot;</span>);</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">        animator.<span class="fu">SetFloat</span>(<span class="st">&quot;Forward&quot;</span>,v);</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">        animator.<span class="fu">SetFloat</span>(<span class="st">&quot;Strafe&quot;</span>,h);</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">        animator.<span class="fu">SetBool</span>(<span class="st">&quot;Fire&quot;</span>, fire);</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">    }</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">    <span class="dt">void</span> <span class="fu">OnCollisionEnter</span>(Collision col) {</a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">        <span class="kw">if</span> (col.<span class="fu">gameObject</span>.<span class="fu">CompareTag</span>(<span class="st">&quot;Enemy&quot;</span>))</a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">        {</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27">            animator.<span class="fu">SetTrigger</span>(<span class="st">&quot;Die&quot;</span>);</a>
+<a class="sourceLine" id="cb2-28" data-line-number="28">        }</a>
+<a class="sourceLine" id="cb2-29" data-line-number="29">    }</a>
+<a class="sourceLine" id="cb2-30" data-line-number="30">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/AnimationParameters.html" class="uri">https://docs.unity3d.com/Manual/AnimationParameters.html</a></li>
+</ul>
+</div>
+<h3 id="animation-states">Animation States</h3>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_13-37-43.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/class-State.html" class="uri">https://docs.unity3d.com/Manual/class-State.html</a></li>
+</ul>
+</div>
+<h3 id="animation-transitions">Animation Transitions</h3>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_18-22-28.png" /></p>
+<ul>
+<li><strong>Exit Time</strong>: Normalized Time; for example, an exit time of <code>0.75</code> means that on the first frame where <code>75%</code> of the animation has played, the Exit Time condition is <code>true</code></li>
+<li>An <strong>Exit Time</strong> of <code>3.5</code> are evaluated once, after <strong>three and a half loops</strong>.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_11-18-01.png" /></p>
+<ul>
+<li><strong>Duration out</strong> marker to change the Duration of the transition.</li>
+<li><strong>Duration in</strong> marker to change the duration of the transition and the Exit Time.</li>
+<li><strong>Target transition</strong> to adjust the Transition Offset.</li>
+<li><strong>Preview playback marker</strong> to scrub through the animation blend in the preview window at the bottom of the Inspector.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/class-Transition.html" class="uri">https://docs.unity3d.com/Manual/class-Transition.html</a></li>
+</ul>
+</div>
+<h3 id="state-machine">State Machine</h3>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_16-59-20.png" /></p>
+<blockquote>
+<p>The Exit node is used to indicate that a state machine should exit.</p>
+</blockquote>
+<p>But, there is no explicit explanation what happens On Exit node. What I experimented:</p>
+<ul>
+<li>If in top-level state machine, goes back to entry</li>
+<li>If in a sub-state machine, goes out on the edge of the representative node in the parent state machine</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/StateMachineTransitions.html" class="uri">https://docs.unity3d.com/Manual/StateMachineTransitions.html</a></li>
+</ul>
+</div>
+<h3 id="statemachinebehaviour">StateMachineBehaviour</h3>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_16-56-15.png" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>.<span class="fu">Generic</span>;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">public</span> <span class="kw">class</span> MyBehaviour : StateMachineBehaviour {</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="co">// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="kw">override</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">OnStateEnter</span>(Animator animator, AnimatorStateInfo stateInfo, <span class="dt">int</span> layerIndex) {</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    }</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">    <span class="co">// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">    <span class="kw">override</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">OnStateUpdate</span>(Animator animator, AnimatorStateInfo stateInfo, <span class="dt">int</span> layerIndex) {</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    }</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">    <span class="co">// OnStateExit is called when a transition ends and the state machine finishes evaluating this state</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">    <span class="kw">override</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">OnStateExit</span>(Animator animator, AnimatorStateInfo stateInfo, <span class="dt">int</span> layerIndex) {</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">    }</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">    <span class="co">// OnStateMove is called right after Animator.OnAnimatorMove().</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">    <span class="co">// Code that processes and affects root motion should be implemented here</span></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">    <span class="kw">override</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">OnStateMove</span>(Animator animator, AnimatorStateInfo stateInfo, <span class="dt">int</span> layerIndex) {</a>
+<a class="sourceLine" id="cb3-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25">    }</a>
+<a class="sourceLine" id="cb3-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb3-27" data-line-number="27">    <span class="co">// OnStateIK is called right after Animator.OnAnimatorIK().</span></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28">    <span class="co">// Code that sets up animation IK (inverse kinematics) should be implemented here.</span></a>
+<a class="sourceLine" id="cb3-29" data-line-number="29">    <span class="kw">override</span> <span class="kw">public</span> <span class="dt">void</span> <span class="fu">OnStateIK</span>(Animator animator, AnimatorStateInfo stateInfo, <span class="dt">int</span> layerIndex) {</a>
+<a class="sourceLine" id="cb3-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb3-31" data-line-number="31">    }</a>
+<a class="sourceLine" id="cb3-32" data-line-number="32">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/kr/current/ScriptReference/StateMachineBehaviour.html" class="uri">https://docs.unity3d.com/kr/current/ScriptReference/StateMachineBehaviour.html</a></li>
+</ul>
+</div>
+<h2 id="application">Application</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co">// Many other runtime informations</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">Application.<span class="fu">systemLanguage</span>;</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">Application.<span class="fu">platform</span>;</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Application.html" class="uri">https://docs.unity3d.com/ScriptReference/Application.html</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/SystemLanguage.html" class="uri">https://docs.unity3d.com/ScriptReference/SystemLanguage.html</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/RuntimePlatform.html" class="uri">https://docs.unity3d.com/ScriptReference/RuntimePlatform.html</a></li>
+</ul>
+</div>
+<h2 id="attributes">Attributes</h2>
+<h3 id="hideininspector">HideInInspector</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">public</span> <span class="kw">class</span> ExampleClass : MonoBehaviour {</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    [HideInInspector]</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="kw">public</span> <span class="dt">int</span> p = <span class="dv">5</span>;</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/HideInInspector.html" class="uri">https://docs.unity3d.com/ScriptReference/HideInInspector.html</a></li>
+</ul>
+</div>
+<h3 id="serializefield">SerializeField</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">public</span> <span class="kw">class</span> SomePerson : MonoBehaviour</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">{</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="co">//This field gets serialized because it is public.</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="kw">public</span> <span class="dt">string</span> name = <span class="st">&quot;John&quot;</span>;</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="co">//This field does not get serialized because it is private.</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="kw">private</span> <span class="dt">int</span> age = <span class="dv">40</span>;</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="co">//This field gets serialized even though it is private</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="co">//because it has the SerializeField attribute applied.</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">    [SerializeField]</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    <span class="kw">private</span> <span class="dt">bool</span> hasHealthPotion = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/SerializeField.html" class="uri">https://docs.unity3d.com/ScriptReference/SerializeField.html</a></li>
+</ul>
+</div>
+<h2 id="collider-2d">Collider 2D</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="dt">void</span> <span class="fu">OnTriggerEnter2D</span>(Collider2D other) {</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">        <span class="kw">if</span> (other.<span class="fu">CompareTag</span> (<span class="st">&quot;Bullet&quot;</span>)) {</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">        <span class="fu">Destroy</span> (other.<span class="fu">gameObject</span>);</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">        }</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Collider2D.html" class="uri">https://docs.unity3d.com/ScriptReference/Collider2D.html</a></li>
+</ul>
+</div>
+<h2 id="coroutine">Coroutine</h2>
+<ul>
+<li>Coroutines have virtually no performance overhead.</li>
+<li><code>StartCoroutine</code> function always returns immediately,</li>
+<li><code>yield return &lt;something&gt;</code> to make coroutine resume after <code>&lt;something&gt;</code></li>
+<li><code>yield break</code> to stop the coroutine</li>
+<li>SEE: <a href="#execution-order">Execution Order</a></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/Coroutines.html" class="uri">https://docs.unity3d.com/Manual/Coroutines.html</a></li>
+<li><a href="http://answers.unity3d.com/questions/755196/yield-return-null-vs-yield-return-waitforendoffram.html" class="uri">http://answers.unity3d.com/questions/755196/yield-return-null-vs-yield-return-waitforendoffram.html</a></li>
+</ul>
+</div>
+<h2 id="editorwindow">EditorWindow</h2>
+<ul>
+<li>General Use case:
+<ul>
+<li><code>void OnGUI()</code> for updating UI</li>
+<li><code>void OnEnable()</code> for restoring values (called when the editor loads)</li>
+<li><code>void OnDisable()</code> for saving values (called when the editor loses its focus)</li>
+<li>To update during the runtime, saving and restoring on <code>OnGUI()</code></li>
+</ul></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/editor-EditorWindows.html" class="uri">https://docs.unity3d.com/Manual/editor-EditorWindows.html</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/EditorWindow.html" class="uri">https://docs.unity3d.com/ScriptReference/EditorWindow.html</a></li>
+</ul>
+</div>
+<h2 id="gameobject">GameObject</h2>
+<h3 id="create-empty-with-code">Create Empty with Code</h3>
+<ul>
+<li><code>Transform</code> is always added to the GameObject that is being created.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb8-1" data-line-number="1">GameObject player;</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">player = <span class="kw">new</span> <span class="fu">GameObject</span>(<span class="st">&quot;Player&quot;</span>);</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">player.<span class="fu">AddComponent</span>&lt;Rigidbody&gt;();</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">player.<span class="fu">AddComponent</span>&lt;BoxCollider&gt;();</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/GameObject-ctor.html" class="uri">https://docs.unity3d.com/ScriptReference/GameObject-ctor.html</a></li>
+</ul>
+</div>
+<h3 id="findwithtag">FindWithTag</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb9-1" data-line-number="1">respawn = GameObject.<span class="fu">FindWithTag</span>(<span class="st">&quot;Respawn&quot;</span>);</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/GameObject.FindWithTag.html" class="uri">https://docs.unity3d.com/ScriptReference/GameObject.FindWithTag.html</a></li>
+</ul>
+</div>
+<h2 id="input">Input</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">if</span> (Input.<span class="fu">anyKey</span>)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">    Debug.<span class="fu">Log</span>(<span class="st">&quot;A key or mouse click has been detected&quot;</span>);</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Input-anyKey.html" class="uri">https://docs.unity3d.com/ScriptReference/Input-anyKey.html</a></li>
+</ul>
+</div>
+<h2 id="main-window">Main Window</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/UnityHotkeys.html" class="uri">https://docs.unity3d.com/Manual/UnityHotkeys.html</a></li>
+</ul>
+</div>
+<h2 id="mathf">Mathf</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">// PingPongs the value t, so that it is never larger than length and never smaller than 0.</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="co">// The returned value will move back and forth between 0 and length.</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">public</span> <span class="kw">static</span> <span class="dt">float</span> <span class="fu">PingPong</span>(<span class="dt">float</span> t, <span class="dt">float</span> length);</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Mathf.PingPong.html" class="uri">https://docs.unity3d.com/ScriptReference/Mathf.PingPong.html</a></li>
+</ul>
+</div>
+<h2 id="object">Object</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Object.html" class="uri">https://docs.unity3d.com/ScriptReference/Object.html</a></li>
+</ul>
+</div>
+<h3 id="instantiate">Instantiate</h3>
+<ul>
+<li>If cloning a <code>Component</code> then the <code>GameObject</code> it is attached to will also be cloned</li>
+<li>All child objects and components will also be cloned</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">// Preferred</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">public</span> <span class="kw">static</span> T <span class="fu">Instantiate</span>(T original);</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw">public</span> <span class="kw">static</span> T <span class="fu">Instantiate</span>(T original, Transform parent);</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="kw">public</span> <span class="kw">static</span> T <span class="fu">Instantiate</span>(T original, Transform parent, <span class="dt">bool</span> worldPositionStays);</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="kw">public</span> <span class="kw">static</span> T <span class="fu">Instantiate</span>(T original, Vector3 position, Quaternion rotation);</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw">public</span> <span class="kw">static</span> T <span class="fu">Instantiate</span>(T original, Vector3 position, Quaternion rotation, Transform parent);</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">// &#39;as T&#39; required for type</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="kw">public</span> <span class="kw">static</span> Object <span class="fu">Instantiate</span>(Object original);</a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="kw">public</span> <span class="kw">static</span> Object <span class="fu">Instantiate</span>(Object original, Transform parent);</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="kw">public</span> <span class="kw">static</span> Object <span class="fu">Instantiate</span>(Object original, Transform parent, <span class="dt">bool</span> instantiateInWorldSpace);</a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="kw">public</span> <span class="kw">static</span> Object <span class="fu">Instantiate</span>(Object original, Vector3 position, Quaternion rotation);</a>
+<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="kw">public</span> <span class="kw">static</span> Object <span class="fu">Instantiate</span>(Object original, Vector3 position, Quaternion rotation, Transform parent);</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Object.Instantiate.html" class="uri">https://docs.unity3d.com/ScriptReference/Object.Instantiate.html</a></li>
+</ul>
+</div>
+<ol>
+<li><p>Instantiated GameObject</p>
+<ol>
+<li>Before Instantiate</li>
+<li>Awake of Instantiated GameObject</li>
+<li>After Instantiate</li>
+<li>Start of Instantiated GameObject</li>
+</ol>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://answers.unity3d.com/questions/839444/instantation-and-use-of-gameobject-in-same-frame.html" class="uri">http://answers.unity3d.com/questions/839444/instantation-and-use-of-gameobject-in-same-frame.html</a></li>
+</ul>
+</div></li>
+</ol>
+<h3 id="destroy">Destroy</h3>
+<ul>
+<li>If obj is a <code>Component</code> it will remove the component from the <code>GameObject</code> and destroy it.</li>
+<li>Actual object destruction is always delayed until after the current Update loop, but will always be done before rendering.</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Destroy</span>(Object obj, <span class="dt">float</span> t = <span class="fl">0.0F</span>);</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Object.Destroy.html" class="uri">https://docs.unity3d.com/ScriptReference/Object.Destroy.html</a></li>
+</ul>
+</div>
+<h2 id="particle-system">Particle System</h2>
+<p><code>Time.timeScale</code> independent <code>ParticleSystem</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="kw">public</span> <span class="kw">class</span> ParticaleAnimator : MonoBehaviour</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">{</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">    <span class="kw">public</span> ParticleSystem particle;</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">    <span class="kw">private</span> <span class="dt">float</span> lastTime;</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">    <span class="dt">void</span> <span class="fu">Start</span> ()</a>
+<a class="sourceLine" id="cb14-10" data-line-number="10">    {</a>
+<a class="sourceLine" id="cb14-11" data-line-number="11">        lastTime = Time.<span class="fu">realtimeSinceStartup</span>;</a>
+<a class="sourceLine" id="cb14-12" data-line-number="12">    }</a>
+<a class="sourceLine" id="cb14-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb14-14" data-line-number="14">    <span class="dt">void</span> <span class="fu">Update</span> ()</a>
+<a class="sourceLine" id="cb14-15" data-line-number="15">    {</a>
+<a class="sourceLine" id="cb14-16" data-line-number="16">        <span class="dt">float</span> delta = Time.<span class="fu">realtimeSinceStartup</span> - lastTime;</a>
+<a class="sourceLine" id="cb14-17" data-line-number="17">        particle.<span class="fu">Simulate</span>(delta, withChildren: <span class="kw">true</span>, restart: <span class="kw">false</span>, fixedTimeStep: <span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb14-18" data-line-number="18">        lastTime = Time.<span class="fu">realtimeSinceStartup</span>;</a>
+<a class="sourceLine" id="cb14-19" data-line-number="19">    }</a>
+<a class="sourceLine" id="cb14-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb14-21" data-line-number="21">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/PartSysMainModule.html" class="uri">https://docs.unity3d.com/Manual/PartSysMainModule.html</a></li>
+<li><a href="https://gist.github.com/AlexTiTanium/5676482" class="uri">https://gist.github.com/AlexTiTanium/5676482</a></li>
+</ul>
+</div>
+<h2 id="physics-2d">Physics 2D</h2>
+<ul>
+<li>A Kinematic Rigidbody 2D <strong>does not</strong> collide with other Kinematic Rigidbody 2Ds or with Static Rigidbody 2Ds; it only collides with Dynamic Rigidbody 2Ds.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-01_10-20-38.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/Physics2DReference.html" class="uri">https://docs.unity3d.com/Manual/Physics2DReference.html</a></li>
+</ul>
+</div>
+<h2 id="platform-dependent-compilation">Platform dependent compilation</h2>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-08_22-23-18.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/PlatformDependentCompilation.html" class="uri">https://docs.unity3d.com/Manual/PlatformDependentCompilation.html</a></li>
+</ul>
+</div>
+<h2 id="prefabs">Prefabs</h2>
+<ul>
+<li>To make it clear when a property has been <strong>overridden</strong>, it is shown in the inspector <strong>with its name label in boldface</strong></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/Prefabs.html" class="uri">https://docs.unity3d.com/Manual/Prefabs.html</a></li>
+</ul>
+</div>
+<h2 id="random">Random</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">// min [inclusive] and max [inclusive]</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">public</span> <span class="kw">static</span> <span class="dt">float</span> <span class="fu">Range</span>(<span class="dt">float</span> min, <span class="dt">float</span> max);</a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">// 0.0 [inclusive] and 1.0 [inclusive]</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="kw">public</span> <span class="kw">static</span> <span class="dt">float</span> value;</a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="kw">public</span> <span class="kw">static</span> Quaternion rotation;</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="kw">public</span> <span class="kw">static</span> Vector2 insideUnitCircle;</a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="co">// Many other overloadings</span></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12"><span class="kw">public</span> <span class="kw">static</span> Color <span class="fu">ColorHSV</span>();</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Random.html" class="uri">https://docs.unity3d.com/ScriptReference/Random.html</a></li>
+</ul>
+</div>
+<h2 id="onbecamevisibleinvisible">OnBecameVisible/Invisible</h2>
+<ul>
+<li>When running in the editor, <strong>scene view cameras will also cause this function to be called</strong></li>
+<li><code>OnBecameInvisible</code> is only called the <strong>object had been visible</strong></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameVisible.html" class="uri">https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameVisible.html</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameInvisible.html" class="uri">https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnBecameInvisible.html</a></li>
+</ul>
+</div>
+<h2 id="scriptableobject">ScriptableObject</h2>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-14_11-04-32.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-14_11-05-22.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-14_11-06-17.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-14_11-07-18.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-14_11-08-15.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/kr/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects" class="uri">https://unity3d.com/kr/learn/tutorials/modules/beginner/live-training-archive/scriptable-objects</a></li>
+</ul>
+</div>
+<h2 id="sendmessage">SendMessage</h2>
+<ul>
+<li>Calls the method named <code>methodName</code> on every <code>MonoBehaviour</code> in the <code>GameObject</code>.</li>
+<li>It's not possible to get a return value from <code>SendMessage</code> or <code>BroadcastMessage</code></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html" class="uri">https://docs.unity3d.com/ScriptReference/GameObject.SendMessage.html</a></li>
+<li><a href="http://answers.unity3d.com/questions/23384/c-getting-a-return-from-sendmessage.html" class="uri">http://answers.unity3d.com/questions/23384/c-getting-a-return-from-sendmessage.html</a></li>
+</ul>
+</div>
+<h2 id="special-folders">Special Folders</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Folder</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Assets</code></td>
+<td>The main folder of assets</td>
+</tr>
+<tr class="even">
+<td><code>Assets/**/Editor</code></td>
+<td>Treated as Editor scripts</td>
+</tr>
+<tr class="odd">
+<td><code>Assets/Editor Default Resources</code></td>
+<td>Editor script's on-demand resources</td>
+</tr>
+<tr class="even">
+<td><code>Assets/Gizmos</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>Assets/Plugins</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>Assets/**/Resources</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>Assets/Standard Assets</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>Assets/StreamingAssets</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/SpecialFolders.html" class="uri">https://docs.unity3d.com/Manual/SpecialFolders.html</a></li>
+<li><a href="https://docs.unity3d.com/Manual/ScriptCompileOrderFolders.html" class="uri">https://docs.unity3d.com/Manual/ScriptCompileOrderFolders.html</a></li>
+</ul>
+</div>
+<h2 id="sprites">Sprites</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/Sprites.html" class="uri">https://docs.unity3d.com/Manual/Sprites.html</a></li>
+</ul>
+</div>
+<h3 id="packer">Packer</h3>
+<ul>
+<li><a href="file:///Applications/Unity/Unity.app/Contents/Documentation/en/Manual/SpritePacker.html" class="uri">file:///Applications/Unity/Unity.app/Contents/Documentation/en/Manual/SpritePacker.html</a></li>
+<li><code>Edit</code> -&gt; <code>Project Settings</code> -&gt; <code>Editor</code></li>
+<li><code>Window</code> -&gt; <code>Sprite Packer</code></li>
+<li><strong>Required to specify a Packing Tag</strong> in the Texture Importer to enable packing for Sprites of that Texture.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_09-55-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_09-56-05.png" /></p>
+<h2 id="time">Time</h2>
+<ul>
+<li>Use <a href="https://docs.unity3d.com/ScriptReference/Time-timeScale.html">Time.timeScale</a> for slow motion effects.</li>
+<li>Use <a href="https://docs.unity3d.com/ScriptReference/Time-realtimeSinceStartup.html">Time.realtimeSinceStartup</a> to avoid the effect of <code>Time.timeScale</code>. Otherwise, should use <a href="https://docs.unity3d.com/ScriptReference/Time-realtimeSinceStartup.html">Time.time</a> instead</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Time.html" class="uri">https://docs.unity3d.com/ScriptReference/Time.html</a></li>
+</ul>
+</div>
+<h1 id="details">Details</h1>
+<h2 id="use-emacs-as-the-script-editor">Use Emacs as the script editor</h2>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-07_13-28-22.png" /></p>
+<h2 id="mono.net-compatibility">Mono(.Net) Compatibility</h2>
+<ul>
+<li>Currently, It looks like that <code>C# 6.0</code> (<code>.Net 4.6</code>) only supported for Windows target</li>
+<li>For other platforms, only supports <code>.Net 2.0</code></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_21-57-00.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_22-00-41.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://answers.unity3d.com/questions/1334261/unity-560f3-where-is-net-46-support.html" class="uri">http://answers.unity3d.com/questions/1334261/unity-560f3-where-is-net-46-support.html</a></li>
+</ul>
+</div>
+<h2 id="execution-order">Execution Order</h2>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_16-38-10.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/ExecutionOrder.html" class="uri">https://docs.unity3d.com/Manual/ExecutionOrder.html</a></li>
+</ul>
+</div>
+<h2 id="awake-vs-start">Awake vs Start</h2>
+<ul>
+<li><code>Awake</code> and <code>Start</code> are called only once in thier lifetime</li>
+<li><code>Awake</code> is called when the script instance is being loaded(whther or not the script <code>enabled</code>)</li>
+<li><code>Start</code> is called on the frame when a script is enabled(before <code>Update</code>)</li>
+<li><code>Awake</code> is called on all objects in the scene before any object's <code>Start</code> is called.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://answers.unity3d.com/questions/8794/Difference-of-assigning-a-variable-outside-any-function-in-Awake-or-in-Start.html?_ga=1.171475872.1885432898.1491733403" class="uri">http://answers.unity3d.com/questions/8794/Difference-of-assigning-a-variable-outside-any-function-in-Awake-or-in-Start.html?_ga=1.171475872.1885432898.1491733403</a></li>
+</ul>
+</div>
+<h2 id="layer-vs-sorting-layer">Layer vs Sorting Layer</h2>
+<ul>
+<li><strong>Layers</strong> can be used for selective rendering from cameras or ignoring raycasts</li>
+<li><strong>Sorting Layers</strong> and <strong>Order in Layer</strong> are to determine the render order of sprites in a scene.</li>
+<li><strong>Lower numbers are rendered first</strong></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_10-00-27.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://answers.unity3d.com/questions/726726/which-is-the-difference-between-layer-and-sorting.html" class="uri">http://answers.unity3d.com/questions/726726/which-is-the-difference-between-layer-and-sorting.html</a></li>
+</ul>
+</div>
+<h2 id="hideininspector-vs-nonserialized-vs-serializefield">HideInInspector vs NonSerialized vs SerializeField</h2>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-06_12-26-40.png" /></p>
+<ul>
+<li>Things can only be visible in the inspector if they are serialized.</li>
+<li>If something is not serialized it will never show up in the inspector.</li>
+<li><code>HideInInspector</code> attribute make it invisible in the inspector but still allow each instance of a SerializeField to hold its own default value.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://answers.unity3d.com/questions/549814/using-serializefield-vs-public.html" class="uri">http://answers.unity3d.com/questions/549814/using-serializefield-vs-public.html</a></li>
+<li><a href="http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html" class="uri">http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html</a></li>
+<li><a href="http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html" class="uri">http://answers.unity3d.com/questions/199691/nonserialized-vs-hideininspector-question.html</a></li>
+</ul>
+</div>
+<h2 id="serialization">Serialization</h2>
+<p>Many of <strong>unity</strong> features build ontop of the serialization system:</p>
+<ul>
+<li>Storing data stored in your scripts</li>
+<li>Inspector window</li>
+<li>Prefabs</li>
+<li>Instantiation</li>
+<li>Saving and loading scenes</li>
+<li>Hot reloading of editor code</li>
+<li>Resource.GarbageCollectSharedAssets()</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb16-1" data-line-number="1">[Serializable]</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">class</span> Animal</a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">{</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">    <span class="kw">public</span> <span class="dt">string</span> name;</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7"><span class="kw">class</span> MyScript : MonoBehaviour</a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">{</a>
+<a class="sourceLine" id="cb16-9" data-line-number="9">    <span class="kw">public</span> Animal[] animals;</a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/script-Serialization.html" class="uri">https://docs.unity3d.com/Manual/script-Serialization.html</a></li>
+<li><a href="https://blogs.unity3d.com/kr/2014/06/24/serialization-in-unity/" class="uri">https://blogs.unity3d.com/kr/2014/06/24/serialization-in-unity/</a></li>
+</ul>
+</div>
+<h2 id="c-classes-need-to-have-its-own-script-with-the-class-name">C# classes need to have its own script with the class' name?</h2>
+<ul>
+<li>Only <code>MonoBehavior</code>, <code>ScriptableObject</code>, and the children of either MUST have their own files</li>
+<li>Unity magic (adding classes as Components, etc..) requires the class be alone in a file, with the same name.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://answers.unity3d.com/questions/497914/does-every-c-class-need-to-have-its-own-script-wit.html" class="uri">http://answers.unity3d.com/questions/497914/does-every-c-class-need-to-have-its-own-script-wit.html</a></li>
+</ul>
+</div>
+<h2 id="playerprefs-vs-editorprefs">PlayerPrefs vs EditorPrefs</h2>
+<ul>
+<li><code>PlayerPrefs</code>: Stores and accesses player preferences between game sessions.</li>
+<li><code>EditorPrefs</code>: Stores and accesses Unity editor preferences.</li>
+<li><code>PlayerPrefs</code> is in <code>UnityEngine</code>, while <code>EditorPrefs</code> is in <code>UnityEditor</code></li>
+<li><code>PlayerPrefs</code> is used for the game player's preferences and stored in the local device.</li>
+<li><code>EditorPrefs</code> is the only one namesace across projects, within the development environment.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/PlayerPrefs.html" class="uri">https://docs.unity3d.com/ScriptReference/PlayerPrefs.html</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/EditorPrefs.html" class="uri">https://docs.unity3d.com/ScriptReference/EditorPrefs.html</a></li>
+</ul>
+</div>
+<h1 id="use-cases">Use Cases</h1>
+<h2 id="pixel-perfect">Pixel Perfect</h2>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_17-07-54.png" /></p>
+<p>So on a screen height of <code>1080</code> with orthographic size of <code>5</code>, each world space unit will take up <code>108</code> pixels <code>(1080 / (5*2))</code>. It's <code>5 * 2</code> because orthographic size specifies the size going from the center of the screen to the top.</p>
+<p>Therefore if your Sprite’s <strong>Pixels Per Unit (PPU)</strong> settings is <code>108</code>, it will be rendered nicely.</p>
+<pre class="example"><code>Orthographic size = ((Vert Resolution)/(PPUScale * PPU)) * 0.5
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://blogs.unity3d.com/2015/06/19/pixel-perfect-2d/" class="uri">https://blogs.unity3d.com/2015/06/19/pixel-perfect-2d/</a></li>
+</ul>
+</div>
+<h2 id="make-input-axis-discrete">Make Input Axis discrete</h2>
+<ul>
+<li><code>GetAxis()</code> things have a joy-stick like input handling</li>
+<li>By tweaking <code>Gravity</code>, <code>Dead</code>, <code>Sensitivity</code>, can make axes work just like buttons or keys.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/unity/_img/screenshot_2017-05-02_16-46-41.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/ConventionalGameInput.html" class="uri">https://docs.unity3d.com/Manual/ConventionalGameInput.html</a></li>
+</ul>
+</div>
+<h2 id="webgl-doent-work-in-chrome-locally">WebGL doen't work in chrome locally</h2>
+<ul>
+<li>Use Unity’s <code>Build &amp; Run</code> command; the file is then temporarily hosted in a local web server and opened from a local host URL.</li>
+<li>Run Chrome with the <code>--allow-file-access-from-files</code> command line option which allows it to load content from local file URLs.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/webgl-building.html" class="uri">https://docs.unity3d.com/Manual/webgl-building.html</a></li>
+</ul>
+</div>
+<h2 id="use-transform.up-in-2d-as-forward">Use Transform.up in 2D as forward</h2>
+<p>In 2D, you want to do your <strong>rotation in the Z-axis</strong>, and instead of <code>.forward</code> use <code>.up</code> or <code>.right</code></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.unity3d.com/ScriptReference/Transform-up.html" class="uri">https://docs.unity3d.com/ScriptReference/Transform-up.html</a></li>
+<li><a href="http://answers.unity3d.com/questions/797202/finding-forward-in-2d-rigid-body.html" class="uri">http://answers.unity3d.com/questions/797202/finding-forward-in-2d-rigid-body.html</a></li>
+</ul>
+</div>
+<h1 id="troubleshootings">Troubleshootings</h1>
+<h2 id="coroutine-named-main">Coroutine named Main</h2>
+<p><strong>Don't define a coroutine named <code>Main</code>.</strong></p>
+<p>I wrote a coroutine named <code>Main</code>. It executed twice, in an unexpected way.</p>
+<p>I've tweaked many times to understand why. <code>Main</code> executed even I didn't explicitly call <code>StartCoroutine</code>.</p>
+<p>At last, I renamed <code>Main</code> to <code>Main2</code>, and it worked all the way I expected.</p>
+</article>
+
+</body>
+</html>

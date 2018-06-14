@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>AWS EC2</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/aws/" >aws</a></li>
+    <li>ec2</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">AWS EC2</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#modify-ebs-volume">Modify EBS Volume</a></li>
+<li><a href="#enable-ena-on-ubuntu">Enable ENA on Ubuntu</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#key-pairs">Key Pairs</a><ul>
+<li><a href="#fingerprint">Fingerprint</a></li>
+</ul></li>
+<li><a href="#status-checks">Status Checks</a><ul>
+<li><a href="#system-status-checks">System Status Checks</a></li>
+<li><a href="#instance-status-checks">Instance Status Checks</a></li>
+</ul></li>
+<li><a href="#enhanced-networking-on-linux">Enhanced Networking on Linux</a><ul>
+<li><a href="#single-root-io-virtualizationsr-iov">Single-root IO virtualization(SR-IOV)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="how-to">How-to</h1>
+<h2 id="modify-ebs-volume">Modify EBS Volume</h2>
+<ol>
+<li>Do Actions -&gt; Modify Volume.</li>
+<li>Change settings, like size.</li>
+<li>Run <code>sudo resize2fs /dev/xvda1</code> to resize the running file system</li>
+</ol>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html?icmpid=docs_ec2_console" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html?icmpid=docs_ec2_console</a></li>
+</ul>
+</div>
+<h2 id="enable-ena-on-ubuntu">Enable ENA on Ubuntu</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html" class="uri">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="key-pairs">Key Pairs</h2>
+<h3 id="fingerprint">Fingerprint</h3>
+<ul>
+<li>Created the key pair using AWS: the fingerprint is calculated using <code>SHA-1</code></li>
+<li>Imported a public key: the fingerprint is calculated using <code>MD5</code></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html</a></li>
+</ul>
+</div>
+<h2 id="status-checks">Status Checks</h2>
+<p><img src="https://media.yeonghoey.com/aws/ec2/_img/screenshot_2017-02-19_14-15-08.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html</a></li>
+</ul>
+</div>
+<h3 id="system-status-checks">System Status Checks</h3>
+<blockquote>
+<p>require AWS involvement to repair. (…) <strong>wait for AWS to fix the issue</strong>, or you can resolve it yourself. (by <strong>stopping and starting an instance</strong>, or by <strong>terminating and replacing an instance</strong>).</p>
+</blockquote>
+<ul>
+<li>Loss of network connectivity</li>
+<li>Loss of system power</li>
+<li>Software issues on the physical host</li>
+<li>Hardware issues on the physical host that impact network reachability</li>
+</ul>
+<h3 id="instance-status-checks">Instance Status Checks</h3>
+<blockquote>
+<p>require your involvement to repair. (…) (by <strong>rebooting the instance</strong> or by <strong>making instance configuration changes</strong>).</p>
+</blockquote>
+<ul>
+<li>Failed system status checks</li>
+<li>Incorrect networking or startup configuration</li>
+<li>Exhausted memory</li>
+<li>Corrupted file system</li>
+<li>Incompatible kernel</li>
+</ul>
+<h2 id="enhanced-networking-on-linux">Enhanced Networking on Linux</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html#enabling_enhanced_networking" class="uri">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html#enabling_enhanced_networking</a></li>
+</ul>
+</div>
+<h3 id="single-root-io-virtualizationsr-iov">Single-root IO virtualization(SR-IOV)</h3>
+<ul>
+<li>SR-IOV is a network interface that allows the isolation of the PCI Express resources for manageability and performance reasons.</li>
+<li>Reduces CPU utilization for processing network traffic</li>
+<li>Reduces latency path</li>
+<li>Increases throughput</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/aws/ec2/_img/screenshot_2017-07-13_19-27-04.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Single-root_input/output_virtualization" class="uri">https://en.wikipedia.org/wiki/Single-root_input/output_virtualization</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

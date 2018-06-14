@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>AWS Mobile</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/aws/" >aws</a></li>
+    <li>mobile</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">AWS Mobile</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#aws-amplify">aws-amplify</a></li>
+<li><a href="#awsmobile-cli">awsmobile-cli</a><ul>
+<li><a href="#configure-api-for-accessing-dynamodb">Configure API for accessing DynamoDB</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="aws-amplify">aws-amplify</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/aws/aws-amplify/blob/master/docs/media/developer_guide.md" class="uri">https://github.com/aws/aws-amplify/blob/master/docs/media/developer_guide.md</a></li>
+<li><a href="https://aws.github.io/aws-amplify/api/" class="uri">https://aws.github.io/aws-amplify/api/</a></li>
+</ul>
+</div>
+<h1 id="awsmobile-cli">awsmobile-cli</h1>
+<pre class="example"><code>
+Success! your project is now initialized with awsmobilejs
+
+   awsmobilejs/.awsmobile
+     is the workspace of awsmobile-cli, please do not modify its contents
+
+   awsmobilejs/#current-backend-info
+     contains information of the backend awsmobile project from the last
+     synchronization with the cloud
+
+   awsmobilejs/backend
+     is where you develop the codebase of the backend awsmobile project
+
+   awsmobile console
+     opens the web console of the backend awsmobile project
+
+   awsmobile run
+     pushes the latest development of the backend awsmobile project to the cloud,
+     and runs the frontend application locally
+
+   awsmobile publish
+     pushes the latest development of the backend awsmobile project to the cloud,
+     and publishes the frontend application to aws S3 for hosting
+
+Happy coding with awsmobile!
+</code></pre>
+<ul>
+<li><a href="https://docs.aws.amazon.com/aws-mobile/latest/developerguide/project-import-export-yaml.html#project-import-export-yaml-details" class="uri">https://docs.aws.amazon.com/aws-mobile/latest/developerguide/project-import-export-yaml.html#project-import-export-yaml-details</a></li>
+</ul>
+<p>It seems that <code>&lt;project&gt;/awsmobilejs/backend/mobile-hub-project.yml</code> defines the backend settings. However, I couldn't find any reference guide to write it by myself. So, I think the best way to configure the backed is to use the web console UI, and <code>awsmobile pull</code> to sync.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/aws/awsmobile-cli" class="uri">https://github.com/aws/awsmobile-cli</a></li>
+</ul>
+</div>
+<h2 id="configure-api-for-accessing-dynamodb">Configure API for accessing DynamoDB</h2>
+<ul>
+<li>You should access your dynamodb with Cloud API.</li>
+</ul>
+<pre class="shell"><code>awsmobile cloud-api enable --prompt
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/aws-mobile/latest/developerguide/web-access-databases.html" class="uri">https://docs.aws.amazon.com/aws-mobile/latest/developerguide/web-access-databases.html</a></li>
+</ul>
+</div>
+<h1 id="links">Links</h1>
+</article>
+
+</body>
+</html>

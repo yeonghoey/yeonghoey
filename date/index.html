@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>date</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>date</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">date</h1>
+</header>
+
+
+<pre class="shell"><code>date -u
+#     └─ --utc
+# Fri Aug 18 06:57:31 UTC 2017
+
+date -R
+#     └─ --rfc─2822
+# Fri, 18 Aug 2017 15:55:42 +0900
+
+date &#39;+%Y%m%dT%H%M%S&#39;
+# 20170818T144038
+
+TZ=&#39;America/Los_Angeles&#39; date
+# Fri Aug 18 00:01:11 PDT 2017
+
+date -d &#39;2days ago&#39;
+#     └─ --date, display time described by STRING, not &#39;now&#39;
+# Wed Aug 16 16:05:03 KST 2017
+
+date -d &#39;2days ago&#39; &#39;+%Y%m%dT%H%M%S&#39;
+# 20170816T160622
+
+date --iso-8601
+# 2017-08-18
+
+date --iso-8601=seconds
+#                    └─ also can be &#39;auto&#39;, &#39;hours&#39;, &#39;minutes&#39;, &#39;ns&#39;
+# 2017-08-18T17:12:30+09:00
+
+date --utc --iso-8601=seconds
+# 2017-08-18T08:12:49+00:00
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.gnu.org/software/coreutils/manual/html_node/Options-for-date.html" class="uri">https://www.gnu.org/software/coreutils/manual/html_node/Options-for-date.html</a></li>
+<li><a href="https://www.gnu.org/software/coreutils/manual/html_node/Examples-of-date.html" class="uri">https://www.gnu.org/software/coreutils/manual/html_node/Examples-of-date.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

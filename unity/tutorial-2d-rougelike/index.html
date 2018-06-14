@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>2D Rougelike tutorial</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/unity/" >unity</a></li>
+    <li>tutorial-2d-rougelike</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">2D Rougelike tutorial</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#project-introduction">Project Introduction</a></li>
+<li><a href="#player-and-enemy-animations">Player and Enemy Animations</a></li>
+<li><a href="#creating-the-tile-prefabs">Creating the Tile Prefabs</a></li>
+<li><a href="#writing-the-board-manager">Writing the Board Manager</a></li>
+<li><a href="#writing-the-game-manager">Writing the Game Manager</a></li>
+<li><a href="#moving-object-script">Moving Object Script</a></li>
+<li><a href="#creating-destructible-walls">Creating Destructible Walls</a></li>
+<li><a href="#player-animator-controller">Player Animator Controller</a></li>
+<li><a href="#writing-the-player-script">Writing the Player Script</a></li>
+<li><a href="#writing-the-enemy-script">Writing the Enemy Script</a></li>
+<li><a href="#enemy-animator-controller">Enemy Animator Controller</a></li>
+<li><a href="#adding-ui-level-transitions">Adding UI &amp; Level Transitions</a></li>
+<li><a href="#audio-and-sound-manager">Audio and Sound Manager</a></li>
+<li><a href="#adding-mobile-controls">Adding Mobile Controls</a></li>
+</ul>
+</nav>
+
+<h1 id="project-introduction">Project Introduction</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_19-16-38.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/project-introduction?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="player-and-enemy-animations">Player and Enemy Animations</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_19-19-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_19-24-35.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_19-24-43.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_19-24-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_19-25-29.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_19-25-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_19-27-05.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_20-31-20.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_20-32-41.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-and-enemy-animations?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-and-enemy-animations?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="creating-the-tile-prefabs">Creating the Tile Prefabs</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_20-41-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_20-42-09.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_20-43-41.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_20-50-38.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-tile-prefabs?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-tile-prefabs?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="writing-the-board-manager">Writing the Board Manager</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>.<span class="fu">Generic</span>;</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">using</span> System;</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">using</span> Random = UnityEngine.<span class="fu">Random</span>;</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">public</span> <span class="kw">class</span> BoardManager : MonoBehaviour {</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    [Serializable]</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="kw">public</span> <span class="kw">class</span> Count</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    {</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">        <span class="kw">public</span> <span class="dt">int</span> minimum;</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">        <span class="kw">public</span> <span class="dt">int</span> maximum;</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">        <span class="kw">public</span> <span class="fu">Count</span> (<span class="dt">int</span> min, <span class="dt">int</span> max)</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">        {</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">            minimum = min;</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">            maximum = max;</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">        }</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">    }</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">    <span class="kw">public</span> <span class="dt">int</span> columns = <span class="dv">8</span>;</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    <span class="kw">public</span> <span class="dt">int</span> rows = <span class="dv">8</span>;</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">    <span class="kw">public</span> Count wallCount = <span class="kw">new</span> <span class="fu">Count</span> (<span class="dv">5</span>, <span class="dv">9</span>);</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">    <span class="kw">public</span> Count foodCount = <span class="kw">new</span> <span class="fu">Count</span>(<span class="dv">1</span>, <span class="dv">5</span>);</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">    <span class="kw">public</span> GameObject exit;</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">    <span class="kw">public</span> GameObject[] floorTiles;</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">    <span class="kw">public</span> GameObject[] wallTiles;</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">    <span class="kw">public</span> GameObject[] foodTiles;</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">    <span class="kw">public</span> GameObject[] enemyTiles;</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">    <span class="kw">public</span> GameObject[] outerWallTiles;</a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb1-33" data-line-number="33">    <span class="kw">private</span> Transform boardHolder;</a>
+<a class="sourceLine" id="cb1-34" data-line-number="34">    <span class="kw">private</span> List&lt;Vector3&gt; gridPositions = <span class="kw">new</span> List&lt;Vector3&gt;();</a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36">    <span class="dt">void</span> <span class="fu">InitialiseList</span>() {</a>
+<a class="sourceLine" id="cb1-37" data-line-number="37">        gridPositions.<span class="fu">Clear</span> ();</a>
+<a class="sourceLine" id="cb1-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39">        <span class="kw">for</span> (<span class="dt">int</span> x = <span class="dv">1</span>; x &lt; columns - <span class="dv">1</span>; x++) {</a>
+<a class="sourceLine" id="cb1-40" data-line-number="40">            <span class="kw">for</span> (<span class="dt">int</span> y = <span class="dv">1</span>; y &lt; rows - <span class="dv">1</span>; y++) {</a>
+<a class="sourceLine" id="cb1-41" data-line-number="41">                gridPositions.<span class="fu">Add</span> (<span class="kw">new</span> <span class="fu">Vector3</span> (x, y, 0f));</a>
+<a class="sourceLine" id="cb1-42" data-line-number="42">            }</a>
+<a class="sourceLine" id="cb1-43" data-line-number="43">        }</a>
+<a class="sourceLine" id="cb1-44" data-line-number="44">    }</a>
+<a class="sourceLine" id="cb1-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb1-46" data-line-number="46">    <span class="dt">void</span> <span class="fu">BoardSetup</span>()</a>
+<a class="sourceLine" id="cb1-47" data-line-number="47">    {</a>
+<a class="sourceLine" id="cb1-48" data-line-number="48">        boardHolder = <span class="kw">new</span> <span class="fu">GameObject</span> (<span class="st">&quot;Board&quot;</span>).<span class="fu">transform</span>;</a>
+<a class="sourceLine" id="cb1-49" data-line-number="49"></a>
+<a class="sourceLine" id="cb1-50" data-line-number="50">        <span class="kw">for</span> (<span class="dt">int</span> x = <span class="dv">-1</span>; x &lt; columns + <span class="dv">1</span>; x++) {</a>
+<a class="sourceLine" id="cb1-51" data-line-number="51">            <span class="kw">for</span> (<span class="dt">int</span> y = <span class="dv">-1</span>; y &lt; rows + <span class="dv">1</span>; y++) {</a>
+<a class="sourceLine" id="cb1-52" data-line-number="52">                GameObject toInstantiate = floorTiles [Random.<span class="fu">Range</span> (<span class="dv">0</span>, floorTiles.<span class="fu">Length</span>)];</a>
+<a class="sourceLine" id="cb1-53" data-line-number="53">                <span class="kw">if</span> (x == <span class="dv">-1</span> || x == columns || y == <span class="dv">-1</span> || y == rows) {</a>
+<a class="sourceLine" id="cb1-54" data-line-number="54">                    toInstantiate = outerWallTiles [Random.<span class="fu">Range</span> (<span class="dv">0</span>, outerWallTiles.<span class="fu">Length</span>)];</a>
+<a class="sourceLine" id="cb1-55" data-line-number="55">                }</a>
+<a class="sourceLine" id="cb1-56" data-line-number="56">                GameObject instance = <span class="fu">Instantiate</span> (toInstantiate, <span class="kw">new</span> <span class="fu">Vector3</span> (x, y, <span class="dv">0</span>), Quaternion.<span class="fu">identity</span>) <span class="kw">as</span> GameObject;</a>
+<a class="sourceLine" id="cb1-57" data-line-number="57">                instance.<span class="fu">transform</span>.<span class="fu">SetParent</span> (boardHolder);</a>
+<a class="sourceLine" id="cb1-58" data-line-number="58">            }</a>
+<a class="sourceLine" id="cb1-59" data-line-number="59">        }</a>
+<a class="sourceLine" id="cb1-60" data-line-number="60">    }</a>
+<a class="sourceLine" id="cb1-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb1-62" data-line-number="62">    Vector3 <span class="fu">RandomPosition</span>() {</a>
+<a class="sourceLine" id="cb1-63" data-line-number="63">        <span class="dt">int</span> randomIndex = Random.<span class="fu">Range</span> (<span class="dv">0</span>, gridPositions.<span class="fu">Count</span>);</a>
+<a class="sourceLine" id="cb1-64" data-line-number="64">        Vector3 randomPosition = <span class="fu">gridPositions</span> (randomIndex);</a>
+<a class="sourceLine" id="cb1-65" data-line-number="65">        gridPositions.<span class="fu">RemoveAt</span> (randomIndex);</a>
+<a class="sourceLine" id="cb1-66" data-line-number="66">        <span class="kw">return</span> randomPosition;</a>
+<a class="sourceLine" id="cb1-67" data-line-number="67">    }</a>
+<a class="sourceLine" id="cb1-68" data-line-number="68"></a>
+<a class="sourceLine" id="cb1-69" data-line-number="69">    <span class="dt">void</span> <span class="fu">LayoutObjectAtRandom</span> (GameObject[] tileArray, <span class="dt">int</span> minimum, <span class="dt">int</span> maximum)</a>
+<a class="sourceLine" id="cb1-70" data-line-number="70">    {</a>
+<a class="sourceLine" id="cb1-71" data-line-number="71">        <span class="dt">int</span> objectCount = Random.<span class="fu">Range</span> (minimum, maximum+<span class="dv">1</span>);</a>
+<a class="sourceLine" id="cb1-72" data-line-number="72">        <span class="kw">for</span>(<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; objectCount; i++)</a>
+<a class="sourceLine" id="cb1-73" data-line-number="73">        {</a>
+<a class="sourceLine" id="cb1-74" data-line-number="74">            Vector3 randomPosition = <span class="fu">RandomPosition</span>();</a>
+<a class="sourceLine" id="cb1-75" data-line-number="75">            GameObject tileChoice = tileArray[Random.<span class="fu">Range</span> (<span class="dv">0</span>, tileArray.<span class="fu">Length</span>)];</a>
+<a class="sourceLine" id="cb1-76" data-line-number="76">            <span class="fu">Instantiate</span>(tileChoice, randomPosition, Quaternion.<span class="fu">identity</span>);</a>
+<a class="sourceLine" id="cb1-77" data-line-number="77">        }</a>
+<a class="sourceLine" id="cb1-78" data-line-number="78">    }</a>
+<a class="sourceLine" id="cb1-79" data-line-number="79"></a>
+<a class="sourceLine" id="cb1-80" data-line-number="80">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">SetupScene</span> (<span class="dt">int</span> level)</a>
+<a class="sourceLine" id="cb1-81" data-line-number="81">    {</a>
+<a class="sourceLine" id="cb1-82" data-line-number="82">        <span class="fu">BoardSetup</span> ();</a>
+<a class="sourceLine" id="cb1-83" data-line-number="83">        <span class="fu">InitialiseList</span> ();</a>
+<a class="sourceLine" id="cb1-84" data-line-number="84">        <span class="fu">LayoutObjectAtRandom</span> (wallTiles, wallCount.<span class="fu">minimum</span>, wallCount.<span class="fu">maximum</span>);</a>
+<a class="sourceLine" id="cb1-85" data-line-number="85">        <span class="fu">LayoutObjectAtRandom</span> (foodTiles, foodCount.<span class="fu">minimum</span>, foodCount.<span class="fu">maximum</span>);</a>
+<a class="sourceLine" id="cb1-86" data-line-number="86"></a>
+<a class="sourceLine" id="cb1-87" data-line-number="87">        <span class="dt">int</span> enemyCount = (<span class="dt">int</span>)Mathf.<span class="fu">Log</span>(level, 2f);</a>
+<a class="sourceLine" id="cb1-88" data-line-number="88">        <span class="fu">LayoutObjectAtRandom</span> (enemyTiles, enemyCount, enemyCount);</a>
+<a class="sourceLine" id="cb1-89" data-line-number="89">        <span class="fu">Instantiate</span> (exit, <span class="kw">new</span> <span class="fu">Vector3</span> (columns - <span class="dv">1</span>, rows - <span class="dv">1</span>, 0f), Quaternion.<span class="fu">identity</span>);</a>
+<a class="sourceLine" id="cb1-90" data-line-number="90">    }</a>
+<a class="sourceLine" id="cb1-91" data-line-number="91">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-board-manager?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-board-manager?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="writing-the-game-manager">Writing the Game Manager</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">using</span> System.<span class="fu">Collections</span>.<span class="fu">Generic</span>;</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">public</span> <span class="kw">class</span> GameManager : MonoBehaviour</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">{</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="kw">public</span> <span class="kw">static</span> GameManager instance = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    <span class="kw">private</span> BoardManager boardScript;</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="kw">private</span> <span class="dt">int</span> level = <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">    <span class="dt">void</span> <span class="fu">Awake</span>()</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">    {</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">        <span class="kw">if</span> (instance == <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">            instance = <span class="kw">this</span>;</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">        <span class="kw">else</span> <span class="kw">if</span> (instance != <span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">            <span class="fu">Destroy</span>(gameObject);</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">        <span class="fu">DontDestroyOnLoad</span>(gameObject);</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">        boardScript = GetComponent&lt;BoardManager&gt;();</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21">        <span class="fu">InitGame</span>();</a>
+<a class="sourceLine" id="cb2-22" data-line-number="22">    }</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">    <span class="dt">void</span> <span class="fu">InitGame</span>()</a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">    {</a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">        boardScript.<span class="fu">SetupScene</span>(level);</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27">    }</a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29">    <span class="dt">void</span> <span class="fu">Update</span>()</a>
+<a class="sourceLine" id="cb2-30" data-line-number="30">    {</a>
+<a class="sourceLine" id="cb2-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb2-32" data-line-number="32">    }</a>
+<a class="sourceLine" id="cb2-33" data-line-number="33">}</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_21-11-05.png" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">using</span> System.<span class="fu">Collections</span>.<span class="fu">Generic</span>;</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">public</span> <span class="kw">class</span> GameManager : MonoBehaviour</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">{</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="kw">public</span> <span class="kw">static</span> GameManager instance = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="kw">private</span> BoardManager boardScript;</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="kw">private</span> <span class="dt">int</span> level = <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">    <span class="dt">void</span> <span class="fu">Awake</span>()</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">    {</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="kw">if</span> (instance == <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">            instance = <span class="kw">this</span>;</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">        <span class="kw">else</span> <span class="kw">if</span> (instance != <span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">            <span class="fu">Destroy</span>(gameObject);</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">        <span class="fu">DontDestroyOnLoad</span>(gameObject);</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">        boardScript = GetComponent&lt;BoardManager&gt;();</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">        <span class="fu">InitGame</span>();</a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">    }</a>
+<a class="sourceLine" id="cb3-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">    <span class="dt">void</span> <span class="fu">InitGame</span>()</a>
+<a class="sourceLine" id="cb3-25" data-line-number="25">    {</a>
+<a class="sourceLine" id="cb3-26" data-line-number="26">        boardScript.<span class="fu">SetupScene</span>(level);</a>
+<a class="sourceLine" id="cb3-27" data-line-number="27">    }</a>
+<a class="sourceLine" id="cb3-28" data-line-number="28">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-game-manager?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="moving-object-script">Moving Object Script</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">public</span> <span class="kw">abstract</span> <span class="kw">class</span> MovingObject : MonoBehaviour</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">{</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="kw">public</span> <span class="dt">float</span> moveTime = <span class="fl">0.1f</span>;</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="kw">public</span> LayerMask blockingLayer;</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="kw">private</span> BoxCollider2D boxCollider;</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">    <span class="kw">private</span> Rigidbody2D rb2D;</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    <span class="kw">private</span> <span class="dt">float</span> inverseMoveTime;</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">    <span class="kw">protected</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Start</span> ()</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">    {</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">        boxCollider = GetComponent &lt;BoxCollider2D&gt; ();</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">        rb2D = GetComponent &lt;Rigidbody2D&gt; ();</a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">        inverseMoveTime = 1f / moveTime;</a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">    }</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">    <span class="kw">protected</span> <span class="dt">bool</span> <span class="fu">Move</span> (<span class="dt">int</span> xDir, <span class="dt">int</span> yDir, <span class="kw">out</span> RaycastHit2D hit)</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">    {</a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">        Vector2 start = transform.<span class="fu">position</span>;</a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">        Vector2 end = start + <span class="kw">new</span> <span class="fu">Vector2</span> (xDir, yDir);</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">        boxCollider.<span class="fu">enabled</span> = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">        hit = Physics2D.<span class="fu">Linecast</span> (start, end, blockingLayer);</a>
+<a class="sourceLine" id="cb4-26" data-line-number="26">        boxCollider.<span class="fu">enabled</span> = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb4-27" data-line-number="27">        <span class="kw">if</span>(hit.<span class="fu">transform</span> == <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb4-28" data-line-number="28">        {</a>
+<a class="sourceLine" id="cb4-29" data-line-number="29">            <span class="fu">StartCoroutine</span> (<span class="fu">SmoothMovement</span> (end));</a>
+<a class="sourceLine" id="cb4-30" data-line-number="30">            <span class="kw">return</span> <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb4-31" data-line-number="31">        }</a>
+<a class="sourceLine" id="cb4-32" data-line-number="32">        <span class="kw">return</span> <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb4-33" data-line-number="33">    }</a>
+<a class="sourceLine" id="cb4-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb4-35" data-line-number="35">    <span class="kw">protected</span> IEnumerator <span class="fu">SmoothMovement</span> (Vector3 end)</a>
+<a class="sourceLine" id="cb4-36" data-line-number="36">    {</a>
+<a class="sourceLine" id="cb4-37" data-line-number="37">        <span class="dt">float</span> sqrRemainingDistance = (transform.<span class="fu">position</span> - end).<span class="fu">sqrMagnitude</span>;</a>
+<a class="sourceLine" id="cb4-38" data-line-number="38">        <span class="kw">while</span>(sqrRemainingDistance &gt; <span class="dt">float</span>.<span class="fu">Epsilon</span>)</a>
+<a class="sourceLine" id="cb4-39" data-line-number="39">        {</a>
+<a class="sourceLine" id="cb4-40" data-line-number="40">            Vector3 newPostion = Vector3.<span class="fu">MoveTowards</span>(rb2D.<span class="fu">position</span>, end, inverseMoveTime * Time.<span class="fu">deltaTime</span>);</a>
+<a class="sourceLine" id="cb4-41" data-line-number="41">            rb2D.<span class="fu">MovePosition</span> (newPostion);</a>
+<a class="sourceLine" id="cb4-42" data-line-number="42">            sqrRemainingDistance = (transform.<span class="fu">position</span> - end).<span class="fu">sqrMagnitude</span>;</a>
+<a class="sourceLine" id="cb4-43" data-line-number="43">            <span class="kw">yield</span> <span class="kw">return</span> <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb4-44" data-line-number="44">        }</a>
+<a class="sourceLine" id="cb4-45" data-line-number="45">    }</a>
+<a class="sourceLine" id="cb4-46" data-line-number="46"></a>
+<a class="sourceLine" id="cb4-47" data-line-number="47">    <span class="kw">protected</span> <span class="kw">virtual</span> <span class="dt">void</span> AttemptMove &lt;T&gt; (<span class="dt">int</span> xDir, <span class="dt">int</span> yDir)</a>
+<a class="sourceLine" id="cb4-48" data-line-number="48">        where T : Component</a>
+<a class="sourceLine" id="cb4-49" data-line-number="49">    {</a>
+<a class="sourceLine" id="cb4-50" data-line-number="50">        RaycastHit2D hit;</a>
+<a class="sourceLine" id="cb4-51" data-line-number="51">        <span class="dt">bool</span> canMove = <span class="fu">Move</span> (xDir, yDir, <span class="kw">out</span> hit);</a>
+<a class="sourceLine" id="cb4-52" data-line-number="52"></a>
+<a class="sourceLine" id="cb4-53" data-line-number="53">        <span class="kw">if</span>(hit.<span class="fu">transform</span> == <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb4-54" data-line-number="54">            <span class="kw">return</span>;</a>
+<a class="sourceLine" id="cb4-55" data-line-number="55"></a>
+<a class="sourceLine" id="cb4-56" data-line-number="56">        T hitComponent = hit.<span class="fu">transform</span>.<span class="fu">GetComponent</span> &lt;T&gt; ();</a>
+<a class="sourceLine" id="cb4-57" data-line-number="57">        <span class="kw">if</span>(!canMove &amp;&amp; hitComponent != <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb4-58" data-line-number="58">            <span class="fu">OnCantMove</span> (hitComponent);</a>
+<a class="sourceLine" id="cb4-59" data-line-number="59">    }</a>
+<a class="sourceLine" id="cb4-60" data-line-number="60"></a>
+<a class="sourceLine" id="cb4-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb4-62" data-line-number="62">    <span class="co">//The abstract modifier indicates that the thing being modified has a missing or incomplete implementation.</span></a>
+<a class="sourceLine" id="cb4-63" data-line-number="63">    <span class="co">//OnCantMove will be overriden by functions in the inheriting classes.</span></a>
+<a class="sourceLine" id="cb4-64" data-line-number="64">    <span class="kw">protected</span> <span class="kw">abstract</span> <span class="dt">void</span> OnCantMove &lt;T&gt; (T component)</a>
+<a class="sourceLine" id="cb4-65" data-line-number="65">        where T : Component;</a>
+<a class="sourceLine" id="cb4-66" data-line-number="66">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/moving-object-script?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/moving-object-script?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="creating-destructible-walls">Creating Destructible Walls</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">public</span> <span class="kw">class</span> Wall : MonoBehaviour</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">{</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    <span class="kw">public</span> AudioClip chopSound1;</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="kw">public</span> AudioClip chopSound2;</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    <span class="kw">public</span> Sprite dmgSprite;</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">    <span class="kw">public</span> <span class="dt">int</span> hp = <span class="dv">3</span>;</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">    <span class="kw">private</span> SpriteRenderer spriteRenderer;</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">    <span class="dt">void</span> <span class="fu">Awake</span> ()</a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">    {</a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">        spriteRenderer = GetComponent&lt;SpriteRenderer&gt; ();</a>
+<a class="sourceLine" id="cb5-16" data-line-number="16">    }</a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">DamageWall</span> (<span class="dt">int</span> loss)</a>
+<a class="sourceLine" id="cb5-19" data-line-number="19">    {</a>
+<a class="sourceLine" id="cb5-20" data-line-number="20">        spriteRenderer.<span class="fu">sprite</span> = dmgSprite;</a>
+<a class="sourceLine" id="cb5-21" data-line-number="21">        hp -= loss;</a>
+<a class="sourceLine" id="cb5-22" data-line-number="22">        <span class="kw">if</span>(hp &lt;= <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb5-23" data-line-number="23">            gameObject.<span class="fu">SetActive</span> (<span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb5-24" data-line-number="24">    }</a>
+<a class="sourceLine" id="cb5-25" data-line-number="25">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-destructible-walls?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/creating-destructible-walls?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="player-animator-controller">Player Animator Controller</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_21-26-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_21-28-00.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_21-29-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_21-30-19.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_21-31-09.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-animator-controller?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/player-animator-controller?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="writing-the-player-script">Writing the Player Script</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">using</span> UnityEngine.<span class="fu">SceneManagement</span>;</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw">public</span> <span class="kw">class</span> Player : MovingObject</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">{</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="kw">public</span> <span class="dt">float</span> restartLevelDelay = 1f;</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">    <span class="kw">public</span> <span class="dt">int</span> pointsPerFood = <span class="dv">10</span>;</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="kw">public</span> <span class="dt">int</span> pointsPerSoda = <span class="dv">20</span>;</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="kw">public</span> <span class="dt">int</span> wallDamage = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    <span class="kw">private</span> Animator animator;</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">    <span class="kw">private</span> <span class="dt">int</span> food;</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">    <span class="kw">protected</span> <span class="kw">override</span> <span class="dt">void</span> <span class="fu">Start</span> ()</a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">    {</a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">        animator = GetComponent&lt;Animator&gt;();</a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">        food = GameManager.<span class="fu">instance</span>.<span class="fu">playerFoodPoints</span>;</a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20">        <span class="co">//Call the Start function of the MovingObject base class.</span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">        <span class="kw">base</span>.<span class="fu">Start</span> ();</a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">    }</a>
+<a class="sourceLine" id="cb6-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">OnDisable</span> ()</a>
+<a class="sourceLine" id="cb6-25" data-line-number="25">    {</a>
+<a class="sourceLine" id="cb6-26" data-line-number="26">        GameManager.<span class="fu">instance</span>.<span class="fu">playerFoodPoints</span> = food;</a>
+<a class="sourceLine" id="cb6-27" data-line-number="27">    }</a>
+<a class="sourceLine" id="cb6-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb6-29" data-line-number="29">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">Update</span> ()</a>
+<a class="sourceLine" id="cb6-30" data-line-number="30">    {</a>
+<a class="sourceLine" id="cb6-31" data-line-number="31">        <span class="kw">if</span>(!GameManager.<span class="fu">instance</span>.<span class="fu">playersTurn</span>) <span class="kw">return</span>;</a>
+<a class="sourceLine" id="cb6-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb6-33" data-line-number="33">        <span class="dt">int</span> horizontal = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb6-34" data-line-number="34">        <span class="dt">int</span> vertical = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb6-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb6-36" data-line-number="36">        horizontal = (<span class="dt">int</span>) (Input.<span class="fu">GetAxisRaw</span> (<span class="st">&quot;Horizontal&quot;</span>));</a>
+<a class="sourceLine" id="cb6-37" data-line-number="37">        vertical = (<span class="dt">int</span>) (Input.<span class="fu">GetAxisRaw</span> (<span class="st">&quot;Vertical&quot;</span>));</a>
+<a class="sourceLine" id="cb6-38" data-line-number="38">        <span class="kw">if</span>(horizontal != <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb6-39" data-line-number="39">        {</a>
+<a class="sourceLine" id="cb6-40" data-line-number="40">            vertical = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb6-41" data-line-number="41">        }</a>
+<a class="sourceLine" id="cb6-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb6-43" data-line-number="43">        <span class="kw">if</span>(horizontal != <span class="dv">0</span> || vertical != <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb6-44" data-line-number="44">        {</a>
+<a class="sourceLine" id="cb6-45" data-line-number="45">            AttemptMove&lt;Wall&gt; (horizontal, vertical);</a>
+<a class="sourceLine" id="cb6-46" data-line-number="46">        }</a>
+<a class="sourceLine" id="cb6-47" data-line-number="47">    }</a>
+<a class="sourceLine" id="cb6-48" data-line-number="48"></a>
+<a class="sourceLine" id="cb6-49" data-line-number="49">    <span class="kw">protected</span> <span class="kw">override</span> <span class="dt">void</span> AttemptMove &lt;T&gt; (<span class="dt">int</span> xDir, <span class="dt">int</span> yDir)</a>
+<a class="sourceLine" id="cb6-50" data-line-number="50">    {</a>
+<a class="sourceLine" id="cb6-51" data-line-number="51">        food--;</a>
+<a class="sourceLine" id="cb6-52" data-line-number="52">        <span class="kw">base</span>.<span class="fu">AttemptMove</span> &lt;T&gt; (xDir, yDir);</a>
+<a class="sourceLine" id="cb6-53" data-line-number="53">        RaycastHit2D hit;</a>
+<a class="sourceLine" id="cb6-54" data-line-number="54">        <span class="kw">if</span> (<span class="fu">Move</span> (xDir, yDir, <span class="kw">out</span> hit))</a>
+<a class="sourceLine" id="cb6-55" data-line-number="55">        {</a>
+<a class="sourceLine" id="cb6-56" data-line-number="56">            <span class="co">//Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.</span></a>
+<a class="sourceLine" id="cb6-57" data-line-number="57">        }</a>
+<a class="sourceLine" id="cb6-58" data-line-number="58"></a>
+<a class="sourceLine" id="cb6-59" data-line-number="59">        <span class="fu">CheckIfGameOver</span> ();</a>
+<a class="sourceLine" id="cb6-60" data-line-number="60">        GameManager.<span class="fu">instance</span>.<span class="fu">playersTurn</span> = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb6-61" data-line-number="61">    }</a>
+<a class="sourceLine" id="cb6-62" data-line-number="62"></a>
+<a class="sourceLine" id="cb6-63" data-line-number="63"></a>
+<a class="sourceLine" id="cb6-64" data-line-number="64">    <span class="kw">protected</span> <span class="kw">override</span> <span class="dt">void</span> OnCantMove &lt;T&gt; (T component)</a>
+<a class="sourceLine" id="cb6-65" data-line-number="65">    {</a>
+<a class="sourceLine" id="cb6-66" data-line-number="66">        Wall hitWall = component <span class="kw">as</span> Wall;</a>
+<a class="sourceLine" id="cb6-67" data-line-number="67">        hitWall.<span class="fu">DamageWall</span> (wallDamage);</a>
+<a class="sourceLine" id="cb6-68" data-line-number="68">        animator.<span class="fu">SetTrigger</span> (<span class="st">&quot;playerChop&quot;</span>);</a>
+<a class="sourceLine" id="cb6-69" data-line-number="69">    }</a>
+<a class="sourceLine" id="cb6-70" data-line-number="70"></a>
+<a class="sourceLine" id="cb6-71" data-line-number="71">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">OnTriggerEnter2D</span> (Collider2D other)</a>
+<a class="sourceLine" id="cb6-72" data-line-number="72">    {</a>
+<a class="sourceLine" id="cb6-73" data-line-number="73">        <span class="kw">if</span>(other.<span class="fu">tag</span> == <span class="st">&quot;Exit&quot;</span>)</a>
+<a class="sourceLine" id="cb6-74" data-line-number="74">        {</a>
+<a class="sourceLine" id="cb6-75" data-line-number="75">            <span class="fu">Invoke</span> (<span class="st">&quot;Restart&quot;</span>, restartLevelDelay);</a>
+<a class="sourceLine" id="cb6-76" data-line-number="76">            enabled = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb6-77" data-line-number="77">        }</a>
+<a class="sourceLine" id="cb6-78" data-line-number="78">        <span class="kw">else</span> <span class="kw">if</span>(other.<span class="fu">tag</span> == <span class="st">&quot;Food&quot;</span>)</a>
+<a class="sourceLine" id="cb6-79" data-line-number="79">        {</a>
+<a class="sourceLine" id="cb6-80" data-line-number="80">            food += pointsPerFood;</a>
+<a class="sourceLine" id="cb6-81" data-line-number="81">            other.<span class="fu">gameObject</span>.<span class="fu">SetActive</span> (<span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb6-82" data-line-number="82">        }</a>
+<a class="sourceLine" id="cb6-83" data-line-number="83">        <span class="kw">else</span> <span class="kw">if</span>(other.<span class="fu">tag</span> == <span class="st">&quot;Soda&quot;</span>)</a>
+<a class="sourceLine" id="cb6-84" data-line-number="84">        {</a>
+<a class="sourceLine" id="cb6-85" data-line-number="85">            food += pointsPerSoda;</a>
+<a class="sourceLine" id="cb6-86" data-line-number="86">            other.<span class="fu">gameObject</span>.<span class="fu">SetActive</span> (<span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb6-87" data-line-number="87">        }</a>
+<a class="sourceLine" id="cb6-88" data-line-number="88">    }</a>
+<a class="sourceLine" id="cb6-89" data-line-number="89"></a>
+<a class="sourceLine" id="cb6-90" data-line-number="90">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">Restart</span> ()</a>
+<a class="sourceLine" id="cb6-91" data-line-number="91">    {</a>
+<a class="sourceLine" id="cb6-92" data-line-number="92">        SceneManager.<span class="fu">LoadScene</span> (<span class="dv">0</span>);</a>
+<a class="sourceLine" id="cb6-93" data-line-number="93">    }</a>
+<a class="sourceLine" id="cb6-94" data-line-number="94"></a>
+<a class="sourceLine" id="cb6-95" data-line-number="95">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">LoseFood</span> (<span class="dt">int</span> loss)</a>
+<a class="sourceLine" id="cb6-96" data-line-number="96">    {</a>
+<a class="sourceLine" id="cb6-97" data-line-number="97">        animator.<span class="fu">SetTrigger</span> (<span class="st">&quot;playerHit&quot;</span>);</a>
+<a class="sourceLine" id="cb6-98" data-line-number="98">        food -= loss;</a>
+<a class="sourceLine" id="cb6-99" data-line-number="99">        <span class="fu">CheckIfGameOver</span> ();</a>
+<a class="sourceLine" id="cb6-100" data-line-number="100">    }</a>
+<a class="sourceLine" id="cb6-101" data-line-number="101"></a>
+<a class="sourceLine" id="cb6-102" data-line-number="102">    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">CheckIfGameOver</span> ()</a>
+<a class="sourceLine" id="cb6-103" data-line-number="103">    {</a>
+<a class="sourceLine" id="cb6-104" data-line-number="104">        <span class="kw">if</span> (food &lt;= <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb6-105" data-line-number="105">        {</a>
+<a class="sourceLine" id="cb6-106" data-line-number="106">            <span class="co">// GameManager.instance.GameOver ();</span></a>
+<a class="sourceLine" id="cb6-107" data-line-number="107">        }</a>
+<a class="sourceLine" id="cb6-108" data-line-number="108">    }</a>
+<a class="sourceLine" id="cb6-109" data-line-number="109">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-player-script?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-player-script?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="writing-the-enemy-script">Writing the Enemy Script</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">public</span> <span class="kw">class</span> Enemy : MovingObject</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">{</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="kw">public</span> <span class="dt">int</span> playerDamage;</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">    <span class="kw">private</span> Animator animator;</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">    <span class="kw">private</span> Transform target;</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="kw">private</span> <span class="dt">bool</span> skipMove;</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">    <span class="kw">protected</span> <span class="kw">override</span> <span class="dt">void</span> <span class="fu">Start</span> ()</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">    {</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">        <span class="co">// GameManager.instance.AddEnemyToList (this);</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">        animator = GetComponent&lt;Animator&gt; ();</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">        target = GameObject.<span class="fu">FindGameObjectWithTag</span> (<span class="st">&quot;Player&quot;</span>).<span class="fu">transform</span>;</a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">        <span class="kw">base</span>.<span class="fu">Start</span> ();</a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">    }</a>
+<a class="sourceLine" id="cb7-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">    <span class="kw">protected</span> <span class="kw">override</span> <span class="dt">void</span> AttemptMove &lt;T&gt; (<span class="dt">int</span> xDir, <span class="dt">int</span> yDir)</a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">    {</a>
+<a class="sourceLine" id="cb7-22" data-line-number="22">        <span class="kw">if</span>(skipMove)</a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">        {</a>
+<a class="sourceLine" id="cb7-24" data-line-number="24">            skipMove = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">            <span class="kw">return</span>;</a>
+<a class="sourceLine" id="cb7-26" data-line-number="26">        }</a>
+<a class="sourceLine" id="cb7-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb7-28" data-line-number="28">        <span class="kw">base</span>.<span class="fu">AttemptMove</span> &lt;T&gt; (xDir, yDir);</a>
+<a class="sourceLine" id="cb7-29" data-line-number="29">        skipMove = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb7-30" data-line-number="30">    }</a>
+<a class="sourceLine" id="cb7-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb7-32" data-line-number="32">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">MoveEnemy</span> ()</a>
+<a class="sourceLine" id="cb7-33" data-line-number="33">    {</a>
+<a class="sourceLine" id="cb7-34" data-line-number="34">        <span class="dt">int</span> xDir = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb7-35" data-line-number="35">        <span class="dt">int</span> yDir = <span class="dv">0</span>;</a>
+<a class="sourceLine" id="cb7-36" data-line-number="36">        <span class="kw">if</span>(Mathf.<span class="fu">Abs</span> (target.<span class="fu">position</span>.<span class="fu">x</span> - transform.<span class="fu">position</span>.<span class="fu">x</span>) &lt; <span class="dt">float</span>.<span class="fu">Epsilon</span>)</a>
+<a class="sourceLine" id="cb7-37" data-line-number="37">            yDir = target.<span class="fu">position</span>.<span class="fu">y</span> &gt; transform.<span class="fu">position</span>.<span class="fu">y</span> ? <span class="dv">1</span> : <span class="dv">-1</span>;</a>
+<a class="sourceLine" id="cb7-38" data-line-number="38">        <span class="kw">else</span></a>
+<a class="sourceLine" id="cb7-39" data-line-number="39">            xDir = target.<span class="fu">position</span>.<span class="fu">x</span> &gt; transform.<span class="fu">position</span>.<span class="fu">x</span> ? <span class="dv">1</span> : <span class="dv">-1</span>;</a>
+<a class="sourceLine" id="cb7-40" data-line-number="40">        AttemptMove &lt;Player&gt; (xDir, yDir);</a>
+<a class="sourceLine" id="cb7-41" data-line-number="41">    }</a>
+<a class="sourceLine" id="cb7-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb7-43" data-line-number="43">    <span class="kw">protected</span> <span class="kw">override</span> <span class="dt">void</span> OnCantMove &lt;T&gt; (T component)</a>
+<a class="sourceLine" id="cb7-44" data-line-number="44">    {</a>
+<a class="sourceLine" id="cb7-45" data-line-number="45">        Player hitPlayer = component <span class="kw">as</span> Player;</a>
+<a class="sourceLine" id="cb7-46" data-line-number="46">        hitPlayer.<span class="fu">LoseFood</span> (playerDamage);</a>
+<a class="sourceLine" id="cb7-47" data-line-number="47">        animator.<span class="fu">SetTrigger</span> (<span class="st">&quot;enemyAttack&quot;</span>);</a>
+<a class="sourceLine" id="cb7-48" data-line-number="48">    }</a>
+<a class="sourceLine" id="cb7-49" data-line-number="49">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-enemy-script?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/writing-enemy-script?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="enemy-animator-controller">Enemy Animator Controller</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_21-54-23.png" /></p>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_21-54-36.png" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw">using</span> System.<span class="fu">Collections</span>.<span class="fu">Generic</span>;</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="kw">public</span> <span class="kw">class</span> GameManager : MonoBehaviour</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">{</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="kw">public</span> <span class="dt">float</span> levelStartDelay = 2f;</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="kw">public</span> <span class="dt">float</span> turnDelay = <span class="fl">0.1f</span>;</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">    <span class="kw">public</span> <span class="dt">int</span> playerFoodPoints = <span class="dv">100</span>;</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">    <span class="kw">public</span> <span class="kw">static</span> GameManager instance = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">    [HideInInspector] <span class="kw">public</span> <span class="dt">bool</span> playersTurn = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">    <span class="kw">private</span> BoardManager boardScript;</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="kw">private</span> <span class="dt">int</span> level = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">    <span class="kw">private</span> List&lt;Enemy&gt; enemies;</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">    <span class="kw">private</span> <span class="dt">bool</span> enemiesMoving;</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    <span class="dt">void</span> <span class="fu">Awake</span>()</a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">    {</a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">        <span class="kw">if</span> (instance == <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb8-21" data-line-number="21">            instance = <span class="kw">this</span>;</a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">        <span class="kw">else</span> <span class="kw">if</span> (instance != <span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb8-23" data-line-number="23">            <span class="fu">Destroy</span>(gameObject);</a>
+<a class="sourceLine" id="cb8-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25">        <span class="fu">DontDestroyOnLoad</span>(gameObject);</a>
+<a class="sourceLine" id="cb8-26" data-line-number="26">        enemies = <span class="kw">new</span> List&lt;Enemy&gt;();</a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">        boardScript = GetComponent&lt;BoardManager&gt;();</a>
+<a class="sourceLine" id="cb8-28" data-line-number="28">        <span class="fu">InitGame</span>();</a>
+<a class="sourceLine" id="cb8-29" data-line-number="29">    }</a>
+<a class="sourceLine" id="cb8-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb8-31" data-line-number="31">    <span class="dt">void</span> <span class="fu">OnLevelWasLoaded</span>(<span class="dt">int</span> index)</a>
+<a class="sourceLine" id="cb8-32" data-line-number="32">    {</a>
+<a class="sourceLine" id="cb8-33" data-line-number="33">        level++;</a>
+<a class="sourceLine" id="cb8-34" data-line-number="34">        <span class="fu">InitGame</span>();</a>
+<a class="sourceLine" id="cb8-35" data-line-number="35">    }</a>
+<a class="sourceLine" id="cb8-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb8-37" data-line-number="37">    <span class="dt">void</span> <span class="fu">InitGame</span>()</a>
+<a class="sourceLine" id="cb8-38" data-line-number="38">    {</a>
+<a class="sourceLine" id="cb8-39" data-line-number="39">        enemies.<span class="fu">Clear</span>();</a>
+<a class="sourceLine" id="cb8-40" data-line-number="40">        boardScript.<span class="fu">SetupScene</span>(level);</a>
+<a class="sourceLine" id="cb8-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb8-42" data-line-number="42">    }</a>
+<a class="sourceLine" id="cb8-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb8-44" data-line-number="44">    <span class="dt">void</span> <span class="fu">Update</span>()</a>
+<a class="sourceLine" id="cb8-45" data-line-number="45">    {</a>
+<a class="sourceLine" id="cb8-46" data-line-number="46">        <span class="kw">if</span>(playersTurn || enemiesMoving)</a>
+<a class="sourceLine" id="cb8-47" data-line-number="47">            <span class="kw">return</span>;</a>
+<a class="sourceLine" id="cb8-48" data-line-number="48">        <span class="fu">StartCoroutine</span> (<span class="fu">MoveEnemies</span> ());</a>
+<a class="sourceLine" id="cb8-49" data-line-number="49">    }</a>
+<a class="sourceLine" id="cb8-50" data-line-number="50"></a>
+<a class="sourceLine" id="cb8-51" data-line-number="51">    <span class="co">//Call this to add the passed in Enemy to the List of Enemy objects.</span></a>
+<a class="sourceLine" id="cb8-52" data-line-number="52">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">AddEnemyToList</span>(Enemy script)</a>
+<a class="sourceLine" id="cb8-53" data-line-number="53">    {</a>
+<a class="sourceLine" id="cb8-54" data-line-number="54">        enemies.<span class="fu">Add</span>(script);</a>
+<a class="sourceLine" id="cb8-55" data-line-number="55">    }</a>
+<a class="sourceLine" id="cb8-56" data-line-number="56"></a>
+<a class="sourceLine" id="cb8-57" data-line-number="57">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">GameOver</span>()</a>
+<a class="sourceLine" id="cb8-58" data-line-number="58">    {</a>
+<a class="sourceLine" id="cb8-59" data-line-number="59">        <span class="co">// levelImage.SetActive(true);</span></a>
+<a class="sourceLine" id="cb8-60" data-line-number="60">        enabled = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb8-61" data-line-number="61">    }</a>
+<a class="sourceLine" id="cb8-62" data-line-number="62"></a>
+<a class="sourceLine" id="cb8-63" data-line-number="63">    IEnumerator <span class="fu">MoveEnemies</span>()</a>
+<a class="sourceLine" id="cb8-64" data-line-number="64">    {</a>
+<a class="sourceLine" id="cb8-65" data-line-number="65">        enemiesMoving = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb8-66" data-line-number="66">        <span class="kw">yield</span> <span class="kw">return</span> <span class="kw">new</span> <span class="fu">WaitForSeconds</span>(turnDelay);</a>
+<a class="sourceLine" id="cb8-67" data-line-number="67"></a>
+<a class="sourceLine" id="cb8-68" data-line-number="68">        <span class="kw">if</span> (enemies.<span class="fu">Count</span> == <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb8-69" data-line-number="69">        {</a>
+<a class="sourceLine" id="cb8-70" data-line-number="70">            <span class="kw">yield</span> <span class="kw">return</span> <span class="kw">new</span> <span class="fu">WaitForSeconds</span>(turnDelay);</a>
+<a class="sourceLine" id="cb8-71" data-line-number="71">        }</a>
+<a class="sourceLine" id="cb8-72" data-line-number="72"></a>
+<a class="sourceLine" id="cb8-73" data-line-number="73">        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; enemies.<span class="fu">Count</span>; i++)</a>
+<a class="sourceLine" id="cb8-74" data-line-number="74">        {</a>
+<a class="sourceLine" id="cb8-75" data-line-number="75">            enemies[i].<span class="fu">MoveEnemy</span> ();</a>
+<a class="sourceLine" id="cb8-76" data-line-number="76">            <span class="kw">yield</span> <span class="kw">return</span> <span class="kw">new</span> <span class="fu">WaitForSeconds</span>(enemies[i].<span class="fu">moveTime</span>);</a>
+<a class="sourceLine" id="cb8-77" data-line-number="77">        }</a>
+<a class="sourceLine" id="cb8-78" data-line-number="78">        playersTurn = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb8-79" data-line-number="79">        enemiesMoving = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb8-80" data-line-number="80">    }</a>
+<a class="sourceLine" id="cb8-81" data-line-number="81">}</a></code></pre></div>
+<p>I don't know why these had not worked. But It worked after restarting it.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/enemy-animator-controller?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/enemy-animator-controller?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="adding-ui-level-transitions">Adding UI &amp; Level Transitions</h1>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_22-37-29.png" /></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="kw">using</span> System.<span class="fu">Collections</span>.<span class="fu">Generic</span>;       <span class="co">//Allows us to use Lists.</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw">using</span> UnityEngine.<span class="fu">UI</span>;                   <span class="co">//Allows us to use UI.</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="kw">public</span> <span class="kw">class</span> GameManager : MonoBehaviour</a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">{</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">    <span class="kw">public</span> <span class="dt">float</span> levelStartDelay = 2f;</a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="kw">public</span> <span class="dt">float</span> turnDelay = <span class="fl">0.1f</span>;</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="kw">public</span> <span class="dt">int</span> playerFoodPoints = <span class="dv">100</span>;</a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">    <span class="kw">public</span> <span class="kw">static</span> GameManager instance = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">    [HideInInspector] <span class="kw">public</span> <span class="dt">bool</span> playersTurn = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb9-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">    <span class="kw">private</span> Text levelText;</a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">    <span class="kw">private</span> GameObject levelImage;</a>
+<a class="sourceLine" id="cb9-18" data-line-number="18">    <span class="kw">private</span> BoardManager boardScript;</a>
+<a class="sourceLine" id="cb9-19" data-line-number="19">    <span class="kw">private</span> <span class="dt">int</span> level = <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb9-20" data-line-number="20">    <span class="kw">private</span> List&lt;Enemy&gt; enemies;</a>
+<a class="sourceLine" id="cb9-21" data-line-number="21">    <span class="kw">private</span> <span class="dt">bool</span> enemiesMoving;</a>
+<a class="sourceLine" id="cb9-22" data-line-number="22">    <span class="kw">private</span> <span class="dt">bool</span> doingSetup = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb9-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb9-24" data-line-number="24">    <span class="dt">void</span> <span class="fu">Awake</span>()</a>
+<a class="sourceLine" id="cb9-25" data-line-number="25">    {</a>
+<a class="sourceLine" id="cb9-26" data-line-number="26">        <span class="kw">if</span> (instance == <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb9-27" data-line-number="27">            instance = <span class="kw">this</span>;</a>
+<a class="sourceLine" id="cb9-28" data-line-number="28">        <span class="kw">else</span> <span class="kw">if</span> (instance != <span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb9-29" data-line-number="29">            <span class="fu">Destroy</span>(gameObject);</a>
+<a class="sourceLine" id="cb9-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb9-31" data-line-number="31">        <span class="fu">DontDestroyOnLoad</span>(gameObject);</a>
+<a class="sourceLine" id="cb9-32" data-line-number="32">        enemies = <span class="kw">new</span> List&lt;Enemy&gt;();</a>
+<a class="sourceLine" id="cb9-33" data-line-number="33">        boardScript = GetComponent&lt;BoardManager&gt;();</a>
+<a class="sourceLine" id="cb9-34" data-line-number="34">        <span class="fu">InitGame</span>();</a>
+<a class="sourceLine" id="cb9-35" data-line-number="35">    }</a>
+<a class="sourceLine" id="cb9-36" data-line-number="36"></a>
+<a class="sourceLine" id="cb9-37" data-line-number="37">    <span class="dt">void</span> <span class="fu">OnLevelWasLoaded</span>(<span class="dt">int</span> index)</a>
+<a class="sourceLine" id="cb9-38" data-line-number="38">    {</a>
+<a class="sourceLine" id="cb9-39" data-line-number="39">        level++;</a>
+<a class="sourceLine" id="cb9-40" data-line-number="40">        <span class="fu">InitGame</span>();</a>
+<a class="sourceLine" id="cb9-41" data-line-number="41">    }</a>
+<a class="sourceLine" id="cb9-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb9-43" data-line-number="43">    <span class="dt">void</span> <span class="fu">InitGame</span>()</a>
+<a class="sourceLine" id="cb9-44" data-line-number="44">    {</a>
+<a class="sourceLine" id="cb9-45" data-line-number="45">        doingSetup = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb9-46" data-line-number="46">        levelImage = GameObject.<span class="fu">Find</span>(<span class="st">&quot;LevelImage&quot;</span>);</a>
+<a class="sourceLine" id="cb9-47" data-line-number="47">        levelText = GameObject.<span class="fu">Find</span>(<span class="st">&quot;LevelText&quot;</span>).<span class="fu">GetComponent</span>&lt;Text&gt;();</a>
+<a class="sourceLine" id="cb9-48" data-line-number="48">        levelText.<span class="fu">text</span> = <span class="st">&quot;Day &quot;</span> + level;</a>
+<a class="sourceLine" id="cb9-49" data-line-number="49">        levelImage.<span class="fu">SetActive</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb9-50" data-line-number="50">        <span class="fu">Invoke</span>(<span class="st">&quot;HideLevelImage&quot;</span>, levelStartDelay);</a>
+<a class="sourceLine" id="cb9-51" data-line-number="51">        enemies.<span class="fu">Clear</span>();</a>
+<a class="sourceLine" id="cb9-52" data-line-number="52">        boardScript.<span class="fu">SetupScene</span>(level);</a>
+<a class="sourceLine" id="cb9-53" data-line-number="53">    }</a>
+<a class="sourceLine" id="cb9-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb9-55" data-line-number="55">    <span class="dt">void</span> <span class="fu">HideLevelImage</span>()</a>
+<a class="sourceLine" id="cb9-56" data-line-number="56">    {</a>
+<a class="sourceLine" id="cb9-57" data-line-number="57">        levelImage.<span class="fu">SetActive</span>(<span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb9-58" data-line-number="58">        doingSetup = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb9-59" data-line-number="59">    }</a>
+<a class="sourceLine" id="cb9-60" data-line-number="60"></a>
+<a class="sourceLine" id="cb9-61" data-line-number="61">    <span class="dt">void</span> <span class="fu">Update</span>()</a>
+<a class="sourceLine" id="cb9-62" data-line-number="62">    {</a>
+<a class="sourceLine" id="cb9-63" data-line-number="63">        <span class="kw">if</span>(playersTurn || enemiesMoving || doingSetup)</a>
+<a class="sourceLine" id="cb9-64" data-line-number="64">            <span class="kw">return</span>;</a>
+<a class="sourceLine" id="cb9-65" data-line-number="65">        <span class="fu">StartCoroutine</span> (<span class="fu">MoveEnemies</span> ());</a>
+<a class="sourceLine" id="cb9-66" data-line-number="66">    }</a>
+<a class="sourceLine" id="cb9-67" data-line-number="67"></a>
+<a class="sourceLine" id="cb9-68" data-line-number="68">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">AddEnemyToList</span>(Enemy script)</a>
+<a class="sourceLine" id="cb9-69" data-line-number="69">    {</a>
+<a class="sourceLine" id="cb9-70" data-line-number="70">        enemies.<span class="fu">Add</span>(script);</a>
+<a class="sourceLine" id="cb9-71" data-line-number="71">    }</a>
+<a class="sourceLine" id="cb9-72" data-line-number="72"></a>
+<a class="sourceLine" id="cb9-73" data-line-number="73">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">GameOver</span>()</a>
+<a class="sourceLine" id="cb9-74" data-line-number="74">    {</a>
+<a class="sourceLine" id="cb9-75" data-line-number="75">        levelText.<span class="fu">text</span> = <span class="st">&quot;After &quot;</span> + level + <span class="st">&quot; days, you starved.&quot;</span>;</a>
+<a class="sourceLine" id="cb9-76" data-line-number="76">        levelImage.<span class="fu">SetActive</span>(<span class="kw">true</span>);</a>
+<a class="sourceLine" id="cb9-77" data-line-number="77">        enabled = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb9-78" data-line-number="78">    }</a>
+<a class="sourceLine" id="cb9-79" data-line-number="79"></a>
+<a class="sourceLine" id="cb9-80" data-line-number="80">    IEnumerator <span class="fu">MoveEnemies</span>()</a>
+<a class="sourceLine" id="cb9-81" data-line-number="81">    {</a>
+<a class="sourceLine" id="cb9-82" data-line-number="82">        enemiesMoving = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb9-83" data-line-number="83">        <span class="kw">yield</span> <span class="kw">return</span> <span class="kw">new</span> <span class="fu">WaitForSeconds</span>(turnDelay);</a>
+<a class="sourceLine" id="cb9-84" data-line-number="84">        <span class="kw">if</span> (enemies.<span class="fu">Count</span> == <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb9-85" data-line-number="85">        {</a>
+<a class="sourceLine" id="cb9-86" data-line-number="86">            <span class="kw">yield</span> <span class="kw">return</span> <span class="kw">new</span> <span class="fu">WaitForSeconds</span>(turnDelay);</a>
+<a class="sourceLine" id="cb9-87" data-line-number="87">        }</a>
+<a class="sourceLine" id="cb9-88" data-line-number="88"></a>
+<a class="sourceLine" id="cb9-89" data-line-number="89">        <span class="kw">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; enemies.<span class="fu">Count</span>; i++)</a>
+<a class="sourceLine" id="cb9-90" data-line-number="90">        {</a>
+<a class="sourceLine" id="cb9-91" data-line-number="91">            enemies[i].<span class="fu">MoveEnemy</span> ();</a>
+<a class="sourceLine" id="cb9-92" data-line-number="92">            <span class="kw">yield</span> <span class="kw">return</span> <span class="kw">new</span> <span class="fu">WaitForSeconds</span>(enemies[i].<span class="fu">moveTime</span>);</a>
+<a class="sourceLine" id="cb9-93" data-line-number="93">        }</a>
+<a class="sourceLine" id="cb9-94" data-line-number="94"></a>
+<a class="sourceLine" id="cb9-95" data-line-number="95">        playersTurn = <span class="kw">true</span>;</a>
+<a class="sourceLine" id="cb9-96" data-line-number="96">        enemiesMoving = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb9-97" data-line-number="97">    }</a>
+<a class="sourceLine" id="cb9-98" data-line-number="98">}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">public</span> Text foodText;</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">private</span> <span class="dt">void</span> <span class="fu">OnTriggerEnter2D</span> (Collider2D other)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">{</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">        <span class="kw">if</span>(other.<span class="fu">tag</span> == <span class="st">&quot;Exit&quot;</span>)</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">        {</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">        <span class="fu">Invoke</span> (<span class="st">&quot;Restart&quot;</span>, restartLevelDelay);</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">        enabled = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">        }</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">        <span class="kw">else</span> <span class="kw">if</span>(other.<span class="fu">tag</span> == <span class="st">&quot;Food&quot;</span>)</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">        {</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">        food += pointsPerFood;</a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">        foodText.<span class="fu">text</span> = <span class="st">&quot;+&quot;</span> + pointsPerFood + <span class="st">&quot; Food: &quot;</span> + food;</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">        other.<span class="fu">gameObject</span>.<span class="fu">SetActive</span> (<span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">        }</a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">        <span class="kw">else</span> <span class="kw">if</span>(other.<span class="fu">tag</span> == <span class="st">&quot;Soda&quot;</span>)</a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">        {</a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">        food += pointsPerSoda;</a>
+<a class="sourceLine" id="cb10-19" data-line-number="19">        foodText.<span class="fu">text</span> = <span class="st">&quot;+&quot;</span> + pointsPerSoda + <span class="st">&quot; Food: &quot;</span> + food;</a>
+<a class="sourceLine" id="cb10-20" data-line-number="20">        other.<span class="fu">gameObject</span>.<span class="fu">SetActive</span> (<span class="kw">false</span>);</a>
+<a class="sourceLine" id="cb10-21" data-line-number="21">        }</a>
+<a class="sourceLine" id="cb10-22" data-line-number="22">    }</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_23-03-13.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-ui-level-transitions?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-ui-level-transitions?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="audio-and-sound-manager">Audio and Sound Manager</h1>
+<div class="sourceCode" id="cb11"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">using</span> UnityEngine;</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">using</span> System.<span class="fu">Collections</span>;</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">public</span> <span class="kw">class</span> SoundManager : MonoBehaviour</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">{</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">    <span class="kw">public</span> AudioSource efxSource;</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">    <span class="kw">public</span> AudioSource musicSource;</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">    <span class="kw">public</span> <span class="kw">static</span> SoundManager instance = <span class="kw">null</span>;</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">    <span class="kw">public</span> <span class="dt">float</span> lowPitchRange = <span class="fl">.95f</span>;</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">    <span class="kw">public</span> <span class="dt">float</span> highPitchRange = <span class="fl">1.05f</span>;</a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">    <span class="dt">void</span> <span class="fu">Awake</span> ()</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">    {</a>
+<a class="sourceLine" id="cb11-14" data-line-number="14">        <span class="kw">if</span> (instance == <span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb11-15" data-line-number="15">            instance = <span class="kw">this</span>;</a>
+<a class="sourceLine" id="cb11-16" data-line-number="16">        <span class="kw">else</span> <span class="kw">if</span> (instance != <span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb11-17" data-line-number="17">            <span class="fu">Destroy</span> (gameObject);</a>
+<a class="sourceLine" id="cb11-18" data-line-number="18">        <span class="fu">DontDestroyOnLoad</span> (gameObject);</a>
+<a class="sourceLine" id="cb11-19" data-line-number="19">    }</a>
+<a class="sourceLine" id="cb11-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb11-21" data-line-number="21">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">PlaySingle</span>(AudioClip clip)</a>
+<a class="sourceLine" id="cb11-22" data-line-number="22">    {</a>
+<a class="sourceLine" id="cb11-23" data-line-number="23">        efxSource.<span class="fu">clip</span> = clip;</a>
+<a class="sourceLine" id="cb11-24" data-line-number="24">        efxSource.<span class="fu">Play</span> ();</a>
+<a class="sourceLine" id="cb11-25" data-line-number="25">    }</a>
+<a class="sourceLine" id="cb11-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb11-27" data-line-number="27">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">RandomizeSfx</span> (<span class="kw">params</span> AudioClip[] clips)</a>
+<a class="sourceLine" id="cb11-28" data-line-number="28">    {</a>
+<a class="sourceLine" id="cb11-29" data-line-number="29">        <span class="dt">int</span> randomIndex = Random.<span class="fu">Range</span>(<span class="dv">0</span>, clips.<span class="fu">Length</span>);</a>
+<a class="sourceLine" id="cb11-30" data-line-number="30">        <span class="dt">float</span> randomPitch = Random.<span class="fu">Range</span>(lowPitchRange, highPitchRange);</a>
+<a class="sourceLine" id="cb11-31" data-line-number="31">        efxSource.<span class="fu">pitch</span> = randomPitch;</a>
+<a class="sourceLine" id="cb11-32" data-line-number="32">        efxSource.<span class="fu">clip</span> = clips[randomIndex];</a>
+<a class="sourceLine" id="cb11-33" data-line-number="33">        efxSource.<span class="fu">Play</span>();</a>
+<a class="sourceLine" id="cb11-34" data-line-number="34">    }</a>
+<a class="sourceLine" id="cb11-35" data-line-number="35">}</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/unity/tutorial-2d-rougelike/_img/screenshot_2017-04-30_23-08-37.png" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">public</span> AudioClip moveSound1;</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">public</span> AudioClip moveSound2;</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="kw">protected</span> <span class="kw">override</span> <span class="dt">void</span> AttemptMove &lt;T&gt; (<span class="dt">int</span> xDir, <span class="dt">int</span> yDir)</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">{</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">        food--;</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">        <span class="kw">base</span>.<span class="fu">AttemptMove</span> &lt;T&gt; (xDir, yDir);</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">        RaycastHit2D hit;</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">        <span class="kw">if</span> (<span class="fu">Move</span> (xDir, yDir, <span class="kw">out</span> hit))</a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">        {</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">        <span class="co">//Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12">        SoundManager.<span class="fu">instance</span>.<span class="fu">RandomizeSfx</span>(moveSound1, moveSound2);</a>
+<a class="sourceLine" id="cb12-13" data-line-number="13">        }</a>
+<a class="sourceLine" id="cb12-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb12-15" data-line-number="15">        <span class="fu">CheckIfGameOver</span> ();</a>
+<a class="sourceLine" id="cb12-16" data-line-number="16">        GameManager.<span class="fu">instance</span>.<span class="fu">playersTurn</span> = <span class="kw">false</span>;</a>
+<a class="sourceLine" id="cb12-17" data-line-number="17">}</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/audio-and-sound-manager?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/audio-and-sound-manager?playlist=17150</a></li>
+</ul>
+</div>
+<h1 id="adding-mobile-controls">Adding Mobile Controls</h1>
+<div class="sourceCode" id="cb13"><pre class="sourceCode csharp"><code class="sourceCode cs"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">#elif</span> UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">if</span> (Input.<span class="fu">touchCount</span> &gt; <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"> {</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">     Touch myTouch = Input.<span class="fu">touches</span>[<span class="dv">0</span>];</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">     <span class="kw">if</span> (myTouch.<span class="fu">phase</span> == TouchPhase.<span class="fu">Began</span>)</a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">     {</a>
+<a class="sourceLine" id="cb13-8" data-line-number="8">         touchOrigin = myTouch.<span class="fu">position</span>;</a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">     }</a>
+<a class="sourceLine" id="cb13-10" data-line-number="10">     <span class="kw">else</span> <span class="kw">if</span> (myTouch.<span class="fu">phase</span> == TouchPhase.<span class="fu">Ended</span> &amp;&amp; touchOrigin.<span class="fu">x</span> &gt;= <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">     {</a>
+<a class="sourceLine" id="cb13-12" data-line-number="12">         Vector2 touchEnd = myTouch.<span class="fu">position</span>;</a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">         <span class="dt">float</span> x = touchEnd.<span class="fu">x</span> - touchOrigin.<span class="fu">x</span>;</a>
+<a class="sourceLine" id="cb13-14" data-line-number="14">         <span class="dt">float</span> y = touchEnd.<span class="fu">y</span> - touchOrigin.<span class="fu">y</span>;</a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">         touchOrigin.<span class="fu">x</span> = <span class="dv">-1</span>;</a>
+<a class="sourceLine" id="cb13-16" data-line-number="16">         <span class="kw">if</span> (Mathf.<span class="fu">Abs</span>(x) &gt; Mathf.<span class="fu">Abs</span>(y))</a>
+<a class="sourceLine" id="cb13-17" data-line-number="17">             horizontal = x &gt; <span class="dv">0</span> ? <span class="dv">1</span> : <span class="dv">-1</span>;</a>
+<a class="sourceLine" id="cb13-18" data-line-number="18">         <span class="kw">else</span></a>
+<a class="sourceLine" id="cb13-19" data-line-number="19">             vertical = y &gt; <span class="dv">0</span> ? <span class="dv">1</span> : <span class="dv">-1</span>;</a>
+<a class="sourceLine" id="cb13-20" data-line-number="20">     }</a>
+<a class="sourceLine" id="cb13-21" data-line-number="21"> }</a>
+<a class="sourceLine" id="cb13-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb13-23" data-line-number="23"><span class="kw">#endif</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-mobile-controls?playlist=17150" class="uri">https://unity3d.com/learn/tutorials/projects/2d-roguelike-tutorial/adding-mobile-controls?playlist=17150</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

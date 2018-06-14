@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/terraform/" >terraform</a></li>
+    <li>why-we-use-terraform</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#configuration-management-orchestration-mutable-immutable">Configuration Management, Orchestration, Mutable, Immutable</a></li>
+<li><a href="#packer">Packer</a></li>
+</ul>
+</nav>
+
+<ul>
+<li>[2016-12-29 Thu]</li>
+<li><a href="https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.7fsvtvl2v" class="uri">https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c#.7fsvtvl2v</a></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/terraform/why-we-use-terraform/_img/screenshot_2016-12-29_09-31-51.png" /></p>
+<h2 id="configuration-management-orchestration-mutable-immutable">Configuration Management, Orchestration, Mutable, Immutable</h2>
+<p>The main use case of <strong>Orchestration</strong>-typed tools is provisioning servers. Even though some of tools categorized as <strong>Configuration Management</strong> can do provision servers, their main feature is modifying existing servers.</p>
+<p>This relates to mutability of servers. Tools categorized immutable can't mutate servers once they provisioned. If there is an update, they should build a new image and provision new servers with it and then destroy old servers.</p>
+<p>This way feels more simpler and can prevent <a href="http://www.continuitysoftware.com/blog/what-is-configuration-drift/">Configuration Drift</a> problem.</p>
+<h2 id="packer">Packer</h2>
+<p>I got to know <a href="https://www.packer.io/">Packer</a> for building AMIs.</p>
+</article>
+
+</body>
+</html>

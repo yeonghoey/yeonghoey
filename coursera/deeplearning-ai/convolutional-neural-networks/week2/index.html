@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Deep convolutional models: case studies</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/coursera/" >coursera</a></li>
+    <li><a href="/coursera/deeplearning-ai/" >deeplearning-ai</a></li>
+    <li><a href="/coursera/deeplearning-ai/convolutional-neural-networks/" >convolutional-neural-networks</a></li>
+    <li>week2</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Deep convolutional models: case studies</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#case-studies">Case studies</a><ul>
+<li><a href="#why-look-at-case-studies">Why look at case studies?</a></li>
+<li><a href="#classic-networks">Classic Networks</a></li>
+<li><a href="#resnets">ResNets</a></li>
+<li><a href="#why-resnets-work">Why ResNets Work</a></li>
+<li><a href="#networks-in-networks-and-1x1-convolutions">Networks in Networks and 1x1 Convolutions</a></li>
+<li><a href="#inception-network-motivation">Inception Network Motivation</a></li>
+<li><a href="#inception-network">Inception Network</a></li>
+</ul></li>
+<li><a href="#practical-advices-for-using-convnets">Practical advices for using ConvNets</a><ul>
+<li><a href="#using-open-source-implementation">Using Open-Source Implementation</a></li>
+<li><a href="#transfer-learning">Transfer Learning</a></li>
+<li><a href="#data-augmentation">Data Augmentation</a></li>
+<li><a href="#state-of-computer-vision">State of Computer Vision</a></li>
+</ul></li>
+<li><a href="#programming-assignments">Programming assignments</a><ul>
+<li><a href="#keras-tutorial---the-happy-house">Keras Tutorial - The Happy House</a></li>
+<li><a href="#residual-networks">Residual Networks</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="case-studies">Case studies</h1>
+<h2 id="why-look-at-case-studies">Why look at case studies?</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-14_01-06-41.png" /></p>
+<h2 id="classic-networks">Classic Networks</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-15_08-25-32.png" /></p>
+<ul>
+<li><a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf" class="uri">https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf</a></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-15_08-26-58.png" /></p>
+<ul>
+<li><a href="https://arxiv.org/pdf/1409.1556v6.pdf" class="uri">https://arxiv.org/pdf/1409.1556v6.pdf</a></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-15_08-27-28.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://yann.lecun.com/exdb/lenet/" class="uri">http://yann.lecun.com/exdb/lenet/</a></li>
+</ul>
+</div>
+<h2 id="resnets">ResNets</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-15_08-29-27.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-15_08-29-59.png" /></p>
+<h2 id="why-resnets-work">Why ResNets Work</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-15_08-30-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-15_08-31-12.png" /></p>
+<h2 id="networks-in-networks-and-1x1-convolutions">Networks in Networks and 1x1 Convolutions</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_02-42-10.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_02-43-53.png" /></p>
+<h2 id="inception-network-motivation">Inception Network Motivation</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_02-44-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_02-45-19.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_02-46-04.png" /></p>
+<h2 id="inception-network">Inception Network</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-00-24.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-01-00.png" /></p>
+<h1 id="practical-advices-for-using-convnets">Practical advices for using ConvNets</h1>
+<h2 id="using-open-source-implementation">Using Open-Source Implementation</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-02-46.png" /></p>
+<h2 id="transfer-learning">Transfer Learning</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-03-54.png" /></p>
+<ul>
+<li>Take both the network architecture and <strong>the weights learned</strong>.</li>
+<li>You can use the weights as the initial value for your network.</li>
+</ul>
+<h2 id="data-augmentation">Data Augmentation</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-07-28.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-07-49.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-08-03.png" /></p>
+<h2 id="state-of-computer-vision">State of Computer Vision</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-09-03.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-09-23.png" /></p>
+<ul>
+<li>Not recommended for productions, research and learning because it complicates the algorithm for slightly better performance.</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_03-11-00.png" /></p>
+<h1 id="programming-assignments">Programming assignments</h1>
+<h2 id="keras-tutorial---the-happy-house">Keras Tutorial - The Happy House</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-04-59.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-05-58.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-07-01.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-07-59.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-12-29.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-34-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-35-53.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-37-47.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-38-01.png" /></p>
+<h2 id="residual-networks">Residual Networks</h2>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-04-22.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-39-52.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-41-21.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-43-16.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-44-03.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_10-58-25.png" /></p>
+<p>For Batch Normalization and its <code>axis</code> parameter, SEE: <a href="https://github.com/fchollet/keras/blob/0daec53acbf4c3df6c054b36ece5c1ae2db55d86/keras/layers/normalization.py#L31" class="uri">https://github.com/fchollet/keras/blob/0daec53acbf4c3df6c054b36ece5c1ae2db55d86/keras/layers/normalization.py#L31</a></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_11-20-31.png" /></p>
+<p><img src="https://media.yeonghoey.com/coursera/deeplearning-ai/convolutional-neural-networks/week2/_img/screenshot_2017-11-19_11-34-15.png" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> identity_block(X, f, filters, stage, block):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="cf">return</span> X</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">def</span> convolutional_block(X, f, filters, stage, block, s <span class="op">=</span> <span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="cf">return</span> X</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">def</span> ResNet50(input_shape <span class="op">=</span> (<span class="dv">64</span>, <span class="dv">64</span>, <span class="dv">3</span>), classes <span class="op">=</span> <span class="dv">6</span>):</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="cf">return</span> model</a></code></pre></div>
+</article>
+
+</body>
+</html>

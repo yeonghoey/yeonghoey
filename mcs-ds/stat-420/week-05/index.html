@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>STAT 420: Week 5</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/mcs-ds/" >mcs-ds</a></li>
+    <li><a href="/mcs-ds/stat-420/" >stat-420</a></li>
+    <li>week-05</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">STAT 420: Week 5</h1>
+<p class="subtitle">Summary of Week 1-4, as for Exam Week</p>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#week-1">Week 1</a><ul>
+<li><a href="#combining">Combining</a></li>
+<li><a href="#subsetting">Subsetting</a></li>
+<li><a href="#plotting">Plotting</a></li>
+</ul></li>
+<li><a href="#week-2">Week 2</a><ul>
+<li><a href="#slr">SLR</a></li>
+<li><a href="#least-squares-approach">Least Squares Approach</a></li>
+<li><a href="#variance-estimation">Variance Estimation</a></li>
+<li><a href="#maximum-likelihood-estimation-approach">Maximum Likelihood Estimation Approach</a></li>
+<li><a href="#making-predictions">Making Predictions</a></li>
+<li><a href="#decomposition-of-variation">Decomposition of Variation</a></li>
+<li><a href="#lm">lm</a></li>
+</ul></li>
+<li><a href="#week-3">Week 3</a><ul>
+<li><a href="#gauss-markov-theorem">Gauss-Markov Theorem</a></li>
+<li><a href="#sampling-distributions">Sampling Distributions</a></li>
+<li><a href="#standard-errors">Standard Errors</a></li>
+<li><a href="#confidence-intervals">Confidence Intervals</a></li>
+<li><a href="#hypothesis-tests">Hypothesis Tests</a></li>
+</ul></li>
+<li><a href="#week-4">Week 4</a><ul>
+<li><a href="#matrix-approach-to-regression">Matrix Approach to Regression</a></li>
+<li><a href="#sampling-distribution">Sampling Distribution</a></li>
+<li><a href="#confidence-intervals-1">Confidence Intervals</a></li>
+<li><a href="#significance-of-regression">Significance of Regression</a></li>
+<li><a href="#nested-models">Nested Models</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="week-1">Week 1</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://daviddalpiaz.github.io/appliedstats/data-and-programming.html#data-frames" class="uri">http://daviddalpiaz.github.io/appliedstats/data-and-programming.html#data-frames</a></li>
+<li><a href="http://www.statisticshowto.com/probability-and-statistics/skewed-distribution/" class="uri">http://www.statisticshowto.com/probability-and-statistics/skewed-distribution/</a></li>
+</ul>
+</div>
+<h2 id="combining">Combining</h2>
+<div class="sourceCode" id="cb1" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">all</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)) <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</a></code></pre></div>
+<pre class="example"><code>[1] TRUE
+</code></pre>
+<div class="sourceCode" id="cb3" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">x =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x0 =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">x1 =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">all</span>(<span class="kw">data.matrix</span>(x) <span class="op">==</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">nrow =</span> <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">all</span>(<span class="kw">data.matrix</span>(<span class="kw">cbind</span>(x, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>))) <span class="op">==</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">all</span>(<span class="kw">data.matrix</span>(<span class="kw">cbind</span>(x, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>))) <span class="op">==</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>))</a></code></pre></div>
+<pre class="example"><code>[1] TRUE
+[1] TRUE
+[1] TRUE
+</code></pre>
+<h2 id="subsetting">Subsetting</h2>
+<div class="sourceCode" id="cb5" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">x =<span class="st"> </span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) <span class="op">^</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">x[<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">x[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</a></code></pre></div>
+<pre class="example"><code>[1] 1 9
+[1]  4 16 25
+</code></pre>
+<div class="sourceCode" id="cb7" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">subset</span>(airquality, Month <span class="op">==</span><span class="st"> </span><span class="dv">5</span>)<span class="op">$</span>Wind)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">mean</span>(<span class="kw">subset</span>(airquality, Month <span class="op">==</span><span class="st"> </span><span class="dv">5</span>, <span class="kw">c</span>(<span class="st">&quot;Wind&quot;</span>))[[<span class="dv">1</span>]])</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">mean</span>(airquality[airquality<span class="op">$</span>Month <span class="op">==</span><span class="st"> </span><span class="dv">5</span>, ]<span class="op">$</span>Wind)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">mean</span>(airquality[<span class="kw">which</span>(airquality<span class="op">$</span>Month <span class="op">==</span><span class="st"> </span><span class="dv">5</span>), ]<span class="op">$</span>Wind)</a></code></pre></div>
+<pre class="example"><code>[1] 11.62258
+[1] 11.62258
+[1] 11.62258
+[1] 11.62258
+</code></pre>
+<div class="sourceCode" id="cb9" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">diag</span>(<span class="dv">5</span>)</a></code></pre></div>
+<pre class="example"><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    0    0    0    0
+[2,]    0    1    0    0    0
+[3,]    0    0    1    0    0
+[4,]    0    0    0    1    0
+[5,]    0    0    0    0    1
+</code></pre>
+<div class="sourceCode" id="cb11" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">diag</span>(<span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">nrow =</span> <span class="dv">3</span>))</a></code></pre></div>
+<pre class="example"><code>[1] 1 5 9
+</code></pre>
+<h2 id="plotting">Plotting</h2>
+<div class="sourceCode" id="cb13" data-org-language="R" data-session="yes" data-file="_img/boxplot.png" data-results="graphics" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">mpg =<span class="st"> </span>ggplot2<span class="op">::</span>mpg</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">boxplot</span>(hwy <span class="op">~</span><span class="st"> </span>drv, <span class="dt">data =</span> mpg,</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">        <span class="dt">xlab   =</span> <span class="st">&quot;Drivetrain (f = FWD, r = RWD, 4 = 4WD)&quot;</span>,</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">        <span class="dt">ylab   =</span> <span class="st">&quot;Miles Per Gallon (Highway)&quot;</span>,</a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">        <span class="dt">main   =</span> <span class="st">&quot;MPG (Highway) vs Drivetrain&quot;</span>,</a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">        <span class="dt">pch    =</span> <span class="dv">20</span>,</a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">        <span class="dt">cex    =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb13-8" data-line-number="8">        <span class="dt">col    =</span> <span class="st">&quot;darkorange&quot;</span>,</a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">        <span class="dt">border =</span> <span class="st">&quot;dodgerblue&quot;</span>)</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-05/_img/boxplot.png" /></p>
+<dl>
+<dt><code>pch</code></dt>
+<dd>character to be used for plotting points.
+</dd>
+<dt><code>cex</code></dt>
+<dd>character expansion (size)
+</dd>
+<dt><code>col</code></dt>
+<dd>color
+</dd>
+</dl>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-05/_img/b2f5c18533d6f9870fb5dc2fc25111ea0994c6e1.png" /></p>
+<h1 id="week-2">Week 2</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html" class="uri">http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html</a></li>
+</ul>
+</div>
+<h2 id="slr">SLR</h2>
+<span class="math display">\[\begin{equation}
+Y = f(X) + \epsilon
+\end{equation}
+\]</span>
+<ul>
+<li>Response = Prediction + Error</li>
+<li>Response = Signal + Noise</li>
+<li>Response = Model + Unexplained</li>
+<li>Response = Deterministic + Random</li>
+<li>Response = Explainable + Unexplainable</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-05/_img/4d5af9db62c340d109b1bf20047759ac68419459.png" /></p>
+<p>Assumptions of SLR: <strong>LINE</strong></p>
+<dl>
+<dt>Linear</dt>
+<dd>The relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(x\)</span> is linear, of the form <span class="math inline">\(\beta_0 + \beta_1x\)</span>.
+</dd>
+<dt>Indepedent</dt>
+<dd>The errors <span class="math inline">\(\epsilon\)</span> are independent.
+</dd>
+<dt>Normal</dt>
+<dd>The errors, <span class="math inline">\(\epsilon\)</span> are normally distributed.
+</dd>
+<dt>Equal Variance</dt>
+<dd>At each value of <span class="math inline">\(x\)</span> , the variance of <span class="math inline">\(Y\)</span> is the same, <span class="math inline">\(\sigma^2\)</span>.
+</dd>
+</dl>
+<p>Meaning of <strong>SLR</strong>:</p>
+<dl>
+<dt>Simple</dt>
+<dd>a single predictor variable
+</dd>
+<dt>Linear</dt>
+<dd><span class="math inline">\(Y\)</span> is a linear combination of the predictors <span class="math inline">\(X\)</span>.
+</dd>
+<dt>Regression</dt>
+<dd>we are attempting to measure the relationship between a response variable and predictor variables.
+</dd>
+</dl>
+<h2 id="least-squares-approach">Least Squares Approach</h2>
+<span class="math display">\[\begin{aligned}
+S_{xy} &amp;= \sum_{i = 1}^{n}(x_i - \bar{x})(y_i - \bar{y})\\
+S_{xx} &amp;= \sum_{i = 1}^{n}(x_i - \bar{x})^2\\
+S_{yy} &amp;= \sum_{i = 1}^{n}(y_i - \bar{y})^2
+\end{aligned}
+\]</span>
+<p>Based on above, the estimates are:</p>
+<span class="math display">\[\begin{aligned}
+\hat{\beta}_1 &amp;= \frac{S_{xy}}{S_{xx}}\\
+\hat{\beta}_0 &amp;= \bar{y} - \hat{\beta}_1 \bar{x}
+\end{aligned}
+\]</span>
+<h2 id="variance-estimation">Variance Estimation</h2>
+<span class="math display">\[\begin{aligned}
+e_i   &amp;= y_i - \hat{y}_i \\
+s_e^2 &amp;= \frac{1}{n - 2} \sum_{i = 1}^{n} e_i^2
+\end{aligned}
+\]</span>
+<ul>
+<li><span class="math inline">\(s_e\)</span> is also called <strong>RSE</strong>, <em>Residual Standard Error</em></li>
+</ul>
+<h2 id="maximum-likelihood-estimation-approach">Maximum Likelihood Estimation Approach</h2>
+<p>Eventually, estimates other than variance are the same as Least Squares Approach.</p>
+<span class="math display">\[\begin{aligned}
+\hat{\sigma}^2 &amp;= \frac{1}{n} \sum_{i = 1}^{n}(y_i - \hat{y}_i)^2 = \frac{1}{n} \sum_{i = 1}^{n}e_i^2
+\end{aligned}
+\]</span>
+<h2 id="making-predictions">Making Predictions</h2>
+<div class="sourceCode" id="cb14" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">x =<span class="st"> </span>cars<span class="op">$</span>speed</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">y =<span class="st"> </span>cars<span class="op">$</span>dist</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">x0 =<span class="st"> </span><span class="dv">8</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="co"># Test whether x0 is one of sample predictor values</span></a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">x0 <span class="op">%in%</span><span class="st"> </span><span class="kw">unique</span>(x)</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="co"># Test whether x0 is within sample predictor value range</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="kw">min</span>(x) <span class="op">&lt;</span><span class="st"> </span>x0 <span class="op">&amp;</span><span class="st"> </span>x0 <span class="op">&lt;</span><span class="st"> </span><span class="kw">max</span>(x)</a></code></pre></div>
+<pre class="example"><code>[1] TRUE
+[1] TRUE
+</code></pre>
+<h2 id="decomposition-of-variation">Decomposition of Variation</h2>
+<span class="math display">\[\begin{aligned}
+R^2 &amp;= \frac{\text{SSReg}}{\text{SST}} = \frac{\sum_{i=1}^{n}(\hat{y}_i - \bar{y})^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2} \\[2.5ex]
+    &amp;= \frac{\text{SST} - \text{SSE}}{\text{SST}} = 1 - \frac{\text{SSE}}{\text{SST}} \\[2.5ex]
+    &amp;= 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2} = 
+1 - \frac{\sum_{i = 1}^{n}e_i^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}
+\end{aligned}
+\]</span>
+<dl>
+<dt>SSReg</dt>
+<dd>Sum of Squares Regression
+</dd>
+<dt>SST</dt>
+<dd>Sum of Squares Total
+</dd>
+<dt>SSE</dt>
+<dd>Sum of Squares Error
+</dd>
+</dl>
+<h2 id="lm">lm</h2>
+<div class="sourceCode" id="cb16" data-org-language="R" data-session="yes" data-results="output" data-exports="code"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">m =<span class="st"> </span><span class="kw">lm</span>(dist <span class="op">~</span><span class="st"> </span>speed, <span class="dt">data =</span> cars)</a></code></pre></div>
+<div class="sourceCode" id="cb17" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">coef</span>(m)</a></code></pre></div>
+<pre class="example"><code>(Intercept)       speed 
+ -17.579095    3.932409
+</code></pre>
+<div class="sourceCode" id="cb19" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">resid</span>(m)</a></code></pre></div>
+<pre class="example"><code>         1          2          3          4          5          6          7 
+  3.849460  11.849460  -5.947766  12.052234   2.119825  -7.812584  -3.744993 
+         8          9         10         11         12         13         14 
+  4.255007  12.255007  -8.677401   2.322599 -15.609810  -9.609810  -5.609810 
+        15         16         17         18         19         20         21 
+ -1.609810  -7.542219   0.457781   0.457781  12.457781 -11.474628  -1.474628 
+        22         23         24         25         26         27         28 
+ 22.525372  42.525372 -21.407036 -15.407036  12.592964 -13.339445  -5.339445 
+        29         30         31         32         33         34         35 
+-17.271854  -9.271854   0.728146 -11.204263   2.795737  22.795737  30.795737 
+        36         37         38         39         40         41         42 
+-21.136672 -11.136672  10.863328 -29.069080 -13.069080  -9.069080  -5.069080 
+        43         44         45         46         47         48         49 
+  2.930920  -2.933898 -18.866307  -6.798715  15.201285  16.201285  43.201285 
+        50 
+  4.268876
+</code></pre>
+<div class="sourceCode" id="cb21" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">fitted</span>(m)</a></code></pre></div>
+<pre class="example"><code>        1         2         3         4         5         6         7         8 
+-1.849460 -1.849460  9.947766  9.947766 13.880175 17.812584 21.744993 21.744993 
+        9        10        11        12        13        14        15        16 
+21.744993 25.677401 25.677401 29.609810 29.609810 29.609810 29.609810 33.542219 
+       17        18        19        20        21        22        23        24 
+33.542219 33.542219 33.542219 37.474628 37.474628 37.474628 37.474628 41.407036 
+       25        26        27        28        29        30        31        32 
+41.407036 41.407036 45.339445 45.339445 49.271854 49.271854 49.271854 53.204263 
+       33        34        35        36        37        38        39        40 
+53.204263 53.204263 53.204263 57.136672 57.136672 57.136672 61.069080 61.069080 
+       41        42        43        44        45        46        47        48 
+61.069080 61.069080 61.069080 68.933898 72.866307 76.798715 76.798715 76.798715 
+       49        50 
+76.798715 80.731124
+</code></pre>
+<h1 id="week-3">Week 3</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://daviddalpiaz.github.io/appliedstats/inference-for-simple-linear-regression.html" class="uri">http://daviddalpiaz.github.io/appliedstats/inference-for-simple-linear-regression.html</a></li>
+</ul>
+</div>
+<h2 id="gauss-markov-theorem">Gauss-Markov Theorem</h2>
+<p>From this chapter, we consider <span class="math inline">\(\hat{\beta_0}\)</span> and <span class="math inline">\(\hat{\beta_1}\)</span> as random variables:</p>
+<span class="math display">\[\begin{aligned}
+\hat{\beta}_1 &amp;= \frac{\sum_{i = 1}^{n}(x_i - \bar{x}) Y_i}{\sum_{i = 1}^{n}(x_i - \bar{x})^2} \\
+\hat{\beta}_0 &amp;= \bar{Y} - \hat{\beta}_1 \bar{x}
+\end{aligned}
+\]</span>
+<p>Gauss-Markov theorem tells us that the estimates we derived above are <strong>BLUE</strong>, <em>best linear unbiased estimates</em>:</p>
+<dl>
+<dt>Best</dt>
+<dd>the estimates are with the minimum variance.
+</dd>
+<dt>Linear</dt>
+<dd>the estimates are linear combinations of <span class="math inline">\(Y_i\)</span>
+</dd>
+<dt>Unbiased</dt>
+<dd><span class="math inline">\(\text{E}[\hat{\beta}_0] = \beta_0\)</span> and <span class="math inline">\(\text{E}[\hat{\beta}_1] = \beta_1\)</span>.
+</dd>
+</dl>
+<h2 id="sampling-distributions">Sampling Distributions</h2>
+<span class="math display">\[\begin{aligned}
+\hat{\beta}_1 &amp;\sim N\left( \beta_1, \frac{\sigma^2}{S_{xx}} \right) \\
+\hat{\beta}_0 &amp;\sim N\left( \beta_0, \sigma^2 \left(\frac{1}{n} + \frac{\bar{x}^2}{S_{xx}}\right) \right)
+\end{aligned}
+\]</span>
+<h2 id="standard-errors">Standard Errors</h2>
+<span class="math display">\[\begin{aligned}
+\text{SD}[\hat{\beta}_0] &amp;= \sigma\sqrt{\frac{1}{n} + \frac{\bar{x}^2}{S_{xx}}} \\
+\text{SD}[\hat{\beta}_1] &amp;= \frac{\sigma}{\sqrt{S_{xx}}}
+\end{aligned}
+\]</span>
+<p>Since we don’t know <span class="math inline">\(\sigma\)</span> in practice, we will have to estimates it using <span class="math inline">\(s_e\)</span>.</p>
+<span class="math display">\[\begin{aligned}
+\text{SE}[\hat{\beta}_0] &amp;= s_e\sqrt{\frac{1}{n} + \frac{\bar{x}^2}{S_{xx}}} \\
+\text{SE}[\hat{\beta}_1] &amp;= \frac{s_e}{\sqrt{S_{xx}}}
+\end{aligned}
+\]</span>
+<p>Now if we divide by the standard error, instead of the standard deviation, we obtain the following results which will allow us to make confidence intervals and perform hypothesis testing.</p>
+<span class="math display">\[\begin{aligned}
+\frac{\hat{\beta}_0 - \beta_0}{\text{SE}[\hat{\beta}_0]} &amp;\sim t_{n-2} \\
+\frac{\hat{\beta}_1 - \beta_1}{\text{SE}[\hat{\beta}_1]} &amp;\sim t_{n-2}
+\end{aligned}
+\]</span>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-05/_img/e52d73ee9850e48f7a78151298851e7150ebb17b.png" /></p>
+<h2 id="confidence-intervals">Confidence Intervals</h2>
+<span class="math display">\[\begin{aligned}
+\text{EST} &amp;\pm \text{CRIT} \cdot \text{SE} \\
+\text{EST} &amp;\pm \text{MARGIN}
+\end{aligned}
+\]</span>
+<p>And,</p>
+<span class="math display">\[\begin{aligned}
+\hat{\beta}_0 &amp;\pm t_{\alpha/2, n - 2} \cdot s_e\sqrt{\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}} \\
+\hat{\beta}_1 &amp;\pm t_{\alpha/2, n - 2} \cdot \frac{s_e}{\sqrt{S_{xx}}} \\
+\hat{y}(x) &amp;\pm t_{\alpha/2, n - 2} \cdot s_e\sqrt{\frac{1}{n}+\frac{(x-\bar{x})^2}{S_{xx}}} \\
+\hat{y}(x) &amp;\pm t_{\alpha/2, n - 2} \cdot s_e\sqrt{1 + \frac{1}{n}+\frac{(x-\bar{x})^2}{S_{xx}}} \text{(Prediction)}
+\end{aligned}
+\]</span>
+<p>where, <span class="math display">\[
+P(t_{n-2} &gt; t_{\alpha/2, n - 2}) = \alpha/2
+\]</span></p>
+<p>The proof is <a href="https://www.biostat.wisc.edu/~kbroman/teaching/labstat/fourth/notes16.pdf">here</a>, about <a href="https://faculty.math.illinois.edu/~hildebr/461/variance.pdf">covariance</a>.</p>
+<h2 id="hypothesis-tests">Hypothesis Tests</h2>
+<span class="math display">\[\begin{aligned}
+t &amp;= \frac{\hat{\beta}_1-\beta_{10}}{s_e / \sqrt{S_{xx}}} \\
+\text{p-value} &amp;= P(&gt;|t|)
+\end{aligned}
+\]</span>
+<ul>
+<li>When <span class="math inline">\(\text{p-value} &lt; \alpha\)</span>, we reject <span class="math inline">\(H_0\)</span>.</li>
+<li>Without having to calculate <span class="math inline">\(t\)</span> statistics, we can use the confidence interval of <span class="math inline">\(\beta_1\)</span> to test the hypothesis.
+<ul>
+<li>If value <span class="math inline">\(0\)</span> is inside of this interval, fail to reject, otherwise, reject <span class="math inline">\(H_0\)</span>.</li>
+</ul></li>
+</ul>
+<h1 id="week-4">Week 4</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html" class="uri">http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html</a></li>
+</ul>
+</div>
+<h2 id="matrix-approach-to-regression">Matrix Approach to Regression</h2>
+<p><span class="math display">\[
+Y = X \beta + \epsilon \\
+
+Y = \begin{bmatrix} Y_1 \\ Y_2 \\ \vdots\\ Y_n \end{bmatrix}, \quad
+X = \begin{bmatrix}
+1      &amp; x_{11}    &amp; x_{12}    &amp; \cdots &amp; x_{1(p-1)} \\
+1      &amp; x_{21}    &amp; x_{22}    &amp; \cdots &amp; x_{2(p-1)} \\
+\vdots &amp; \vdots    &amp; \vdots    &amp;  &amp; \vdots \\
+1      &amp; x_{n1}    &amp; x_{n2}    &amp; \cdots &amp; x_{n(p-1)} \\
+\end{bmatrix}, \quad
+\epsilon = \begin{bmatrix} \epsilon_1 \\ \epsilon_2 \\ \vdots\\ \epsilon_n \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\beta = \begin{bmatrix}
+\beta_0 &amp; \beta_1 &amp; \beta_2 &amp; \dots &amp; \beta_{p-1} \\
+\end{bmatrix}
+\]</span></p>
+<p>(I tweaked the notation from the book as rows for <span class="math inline">\(n\)</span>, cols for <span class="math inline">\(p\)</span>)</p>
+<p>So, we can derive:</p>
+<span class="math display">\[\begin{aligned}
+\hat{\beta} &amp;= \left(  X^\top X  \right)^{-1}X^\top y \\
+\hat{y} &amp;= X \hat{\beta} \\
+s_e^2 &amp;= \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{n - p} = \frac{e^\top e}{n-p} \\
+\end{aligned}
+\]</span>
+<h2 id="sampling-distribution">Sampling Distribution</h2>
+<p><span class="math display">\[
+\text{Var}[\hat{\beta}_j] = \sigma^2 C_{jj}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+C = \left(X^\top X\right)^{-1}
+\]</span></p>
+<p><span class="math display">\[
+C = \begin{bmatrix}
+C_{00}     &amp; C_{01}     &amp; C_{02}     &amp; \cdots &amp; C_{0(p-1)}     \\
+C_{10}     &amp; C_{11}     &amp; C_{12}     &amp; \cdots &amp; C_{1(p-1)}     \\
+C_{20}     &amp; C_{21}     &amp; C_{22}     &amp; \cdots &amp; C_{2(p-1)}     \\
+\vdots     &amp; \vdots     &amp; \vdots     &amp;        &amp; \vdots         \\
+C_{(p-1)0} &amp; C_{(p-1)1} &amp; C_{(p-1)2} &amp; \cdots &amp; C_{(p-1)(p-1)} \\
+\end{bmatrix}
+\]</span></p>
+<p>So,</p>
+<span class="math display">\[\begin{aligned}
+\text{SD}[\hat{\beta}] &amp;= \sigma \sqrt{\left(  X^\top X  \right)^{-1}} \\
+\text{SE}[\hat{\beta}] &amp;= s_e \sqrt{\left(  X^\top X  \right)^{-1}}
+\end{aligned}
+\]</span>
+<p>And,</p>
+<span class="math display">\[\begin{aligned}
+\hat{\beta}_j &amp;\sim N\left(\beta_j, \sigma^2 C_{jj}  \right). \\
+\frac{\hat{\beta}_j - \beta_j}{s_e \sqrt{C_{jj}}} &amp;\sim t_{n-p}
+\end{aligned}
+\]</span>
+<h2 id="confidence-intervals-1">Confidence Intervals</h2>
+<span class="math display">\[\begin{aligned}
+\hat{\beta}_j &amp;\pm t_{\alpha/2, n - p} \cdot s_e\sqrt{C_{jj}} \\
+\hat{y}(x_0) &amp;\pm t_{\alpha/2, n - p} \cdot s_e \sqrt{x_{0}^\top C x_{0}} \\
+\hat{y}(x_0) &amp;\pm t_{\alpha/2, n - p} \cdot s_e \sqrt{1 + x_{0}^\top C x_{0}} \quad \text{(Prediction)}
+\end{aligned}
+\]</span>
+<div class="sourceCode" id="cb23" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">mpg_model =<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt <span class="op">+</span><span class="st"> </span>year, <span class="dt">data =</span> autompg)</a></code></pre></div>
+<div class="sourceCode" id="cb24" data-org-language="R" data-session="yes" data-results="output" data-exports="both"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">confint</span>(mpg_model, <span class="dt">level =</span> <span class="fl">0.99</span>)</a></code></pre></div>
+<pre class="example"><code>                    0.5 %       99.5 %
+(Intercept) -25.052563681 -4.222720208
+wt           -0.007191036 -0.006078716
+year          0.632680051  0.890123859
+</code></pre>
+<h2 id="significance-of-regression">Significance of Regression</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-05/_img/fa7b501ce96470993b2057d3c66438357f0d571c.png" /></p>
+<p><span class="math inline">\(\bar{y}\)</span> is for <span class="math inline">\(H_0\)</span> (model <span class="math inline">\(\hat{y_{0i}}\)</span>)</p>
+<p>This is because,</p>
+<p><span class="math display">\[
+H_0: \beta_1 = \beta_2 = \cdots = \beta_{p - 1} = 0.
+\]</span></p>
+<p>and <span class="math display">\[
+\hat{y}_{0i} = \bar{y}.
+\]</span></p>
+<h2 id="nested-models">Nested Models</h2>
+<p><img src="https://media.yeonghoey.com/mcs-ds/stat-420/week-05/_img/70d75ebd2751069b69ebd0093f32595bce3a421e.png" /></p>
+<dl>
+<dt>Diff</dt>
+<dd>The variance proportion under the assumption that <span class="math inline">\(H_0\)</span> is true. In other words, the explained portion without predictors in <span class="math inline">\(H_0\)</span>. If this value is large, <span class="math inline">\(F\)</span> goes large, which makes <span class="math inline">\(\text{p-value}\)</span> small and reject <span class="math inline">\(H_0\)</span>. As a result, we can say that predictors from <span class="math inline">\(H_0\)</span> is significant and prefer the <em>Full</em> model.
+</dd>
+</dl>
+<p>Note that <span class="math inline">\(t\)</span> test and <span class="math inline">\(F\)</span> are equivalent when null model is nested and <span class="math inline">\(p - q = 1\)</span>; In this case, <span class="math inline">\(P(&gt;|t|) = P(&gt;F)\)</span> and <span class="math inline">\(t^2 = F\)</span></p>
+<blockquote>
+<p>Now, it turns out that just due to the way these squares work, the residual sum of squares for <strong>the larger model will never be worse</strong> than the residual sum of squares for the smaller model.</p>
+</blockquote>
+</article>
+
+</body>
+</html>

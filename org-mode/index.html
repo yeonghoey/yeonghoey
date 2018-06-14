@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Org Mode</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>org-mode</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Org Mode</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#settings">Settings</a><ul>
+<li><a href="#omitting-title">Omitting #+TITLE</a></li>
+</ul></li>
+<li><a href="#markup">Markup</a><ul>
+<li><a href="#code-vs-verbatim">code(~~) vs verbatim(==)</a></li>
+<li><a href="#cant-stylize-part-of-a-word">Can't stylize part of a word</a></li>
+</ul></li>
+<li><a href="#easy-templates">Easy Templates</a></li>
+<li><a href="#babel">Babel</a></li>
+<li><a href="#latex">LaTeX</a></li>
+<li><a href="#export">Export</a></li>
+<li><a href="#image">Image</a></li>
+<li><a href="#agenda">Agenda</a></li>
+<li><a href="#capture">Capture</a></li>
+<li><a href="#add-ons">Add-ons</a><ul>
+<li><a href="#toc-org">toc-org</a></li>
+<li><a href="#org-reveal">org-reveal</a></li>
+<li><a href="#ox-twbs">ox-twbs</a></li>
+</ul></li>
+<li><a href="#use-cases">Use Cases</a><ul>
+<li><a href="#automatically-save-buffers-after-refiling-and-archiving">Automatically Save buffers after refiling and archiving</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="settings">Settings</h1>
+<pre class="example"><code>#+TITLE:  Org Document Settings Cheatsheet
+#+AUTHOR: Yeongho Kim
+#+EMAIL:  yeonghoey@gmail.com
+#+DESCRIPTION: a description
+#+KEYWORDS:    org
+#+LANGUAGE:    en
+
+#+OPTIONS: H:4      (section numbering)
+#+OPTIONS: num:nil  (no number)
+#+OPTIONS: toc:2    (only inlcude two levels in TOC)
+#+OPTIONS: toc:nil  (no default TOC at all)
+
+#+TOC: headlines 2        (insert TOC here)
+#+TOC: headlines 1 local  (insert local TOC, direct children only)
+#+TOC: listings           (build a list of listings)
+#+TOC: tables             (build a list of tables)
+
+#+INCLUDE: &quot;~/.emacs&quot; src emacs-lisp
+#+INCLUDE: &quot;~/my-book/chapter2.org&quot; :minlevel 1
+#+INCLUDE: &quot;~/.emacs&quot; :lines &quot;5-10&quot;                 [5 to 10)
+#+INCLUDE: &quot;~/.emacs&quot; :lines &quot;-10&quot;                  [1 to 10)
+#+INCLUDE: &quot;~/.emacs&quot; :lines &quot;10-&quot;                  [10 to EOF)
+#+INCLUDE: &quot;./paper.org::#theory&quot; :only-contents t  (custom-id)
+#+INCLUDE: &quot;./paper.org::mytable&quot;                   (named element)
+#+INCLUDE: &quot;./paper.org::*conclusion&quot; :lines 1-20   (headline named &#39;conclusion&#39;)
+
+#+MACRO: name   replacement text $1, $2 are arguments
+{{{name(arg1, arg2)}}}
+{{{title}}}
+{{{author}}}
+{{{email}}}
+{{{date}}}
+{{{date(FORMAT)}}}
+{{{time(FORMAT)}}}
+{{{modification-time(FORMAT, VC)}}}
+{{{input-file}}}
+{{{property(PROPERTY-NAME)}}}
+{{{property(PROPERTY-NAME,SEARCH-OPTION)}}}
+
+* Goldberg Variations
+:PROPERTIES:
+:Title:     Goldberg Variations
+:Composer:  J.S. Bach
+:Artist:    Glen Gould
+:Publisher: Deutsche Grammophon
+:NDisks:    1
+:END:
+</code></pre>
+<pre class="example"><code>#+OPTIONS: &#39;:t
+#+OPTIONS: author:nil
+#+OPTIONS: num:nil
+#+OPTIONS: email:nil
+#+OPTIONS: date:nil
+
+#+OPTIONS: &#39;:t author:nil date:nil email:nil num:nil
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/fniessen/refcard-org-mode" class="uri">https://github.com/fniessen/refcard-org-mode</a></li>
+<li><a href="http://orgmode.org/manual/Structural-markup-elements.html" class="uri">http://orgmode.org/manual/Structural-markup-elements.html</a></li>
+<li><a href="http://orgmode.org/manual/Export-settings.html" class="uri">http://orgmode.org/manual/Export-settings.html</a></li>
+</ul>
+</div>
+<h2 id="omitting-title">Omitting #+TITLE</h2>
+<blockquote>
+<p>If you are exporting only a subtree, *its heading will become the title of the document. If the subtree has a property EXPORT<sub>TITLE</sub>, that will take precedence.</p>
+</blockquote>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/Document-title.html#Document-title" class="uri">http://orgmode.org/manual/Document-title.html#Document-title</a></li>
+</ul>
+</div>
+<h1 id="markup">Markup</h1>
+<pre class="example"><code>* 1st level heading
+** this is 2nd level heading
+*** this is 3rd level heading
+
+*bold*
+/italic/
+_underlined_
+=verbatim=
+~code~
++strike-through+
+X_{subscript}, X^{superscript}
+
+Hello, \\  (enforce line break within a paragraph)
+World.
+
+- 1st item
+* another item
++ and 3rd item :: this is a description
+
+1. 1st item
+2) another item
+
+20. [@20] Test
+21. xargs
+22. bcadf
+
+[[http://example.com/]]
+[[http://example.com/][description]]
+
+-----
+(a horizontal rule, 5 or more only dashes)
+
+#+BEGIN_EXAMPLE
+  verbatime example
+#+END_EXAMPLE
+
+#+BEGIN_SOURCE python
+  print &#39;hello, world!&#39;
+#+END+SOURCE
+
+: a single line example
+  : can be indented
+(start the example lines with a colon followed by a space.)
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/Markup.html#Markup" class="uri">http://orgmode.org/manual/Markup.html#Markup</a></li>
+<li><a href="http://ergoemacs.org/emacs/emacs_org_markup.html" class="uri">http://ergoemacs.org/emacs/emacs_org_markup.html</a></li>
+<li><a href="http://orgmode.org/manual/External-links.html#External-links" class="uri">http://orgmode.org/manual/External-links.html#External-links</a></li>
+</ul>
+</div>
+<h2 id="code-vs-verbatim">code(~~) vs verbatim(==)</h2>
+<ul>
+<li>There are some differences in <code>Latex</code> related things, but <strong>identical others</strong>.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/18991981/difference-between-code-and-verbatim-in-org-mode" class="uri">http://stackoverflow.com/questions/18991981/difference-between-code-and-verbatim-in-org-mode</a></li>
+</ul>
+</div>
+<h2 id="cant-stylize-part-of-a-word">Can't stylize part of a word</h2>
+<blockquote>
+<p>Org-mode relies on heuristics to distinguish emphasis from normal text, and one of the most important parts of this heuristics method is <strong>assuming that emphasis is on whole words</strong>, delimited by whitespace or punctuation.</p>
+</blockquote>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/1218238/how-to-make-part-of-a-word-bold-in-org-mode" class="uri">http://stackoverflow.com/questions/1218238/how-to-make-part-of-a-word-bold-in-org-mode</a></li>
+</ul>
+</div>
+<h1 id="easy-templates">Easy Templates</h1>
+<pre class="example"><code>s #+BEGIN_SRC ... #+END_SRC
+e #+BEGIN_EXAMPLE ... #+END_EXAMPLE
+q #+BEGIN_QUOTE ... #+END_QUOTE
+v #+BEGIN_VERSE ... #+END_VERSE
+c #+BEGIN_CENTER ... #+END_CENTER
+l #+BEGIN_LaTeX ... #+END_LaTeX
+L #+LaTeX:
+h #+BEGIN_HTML ... #+END_HTML
+H #+HTML:
+a #+BEGIN_ASCII ... #+END_ASCII
+A #+ASCII:
+i #+INDEX: line
+I #+INCLUDE: lin
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/Easy-Templates.html" class="uri">http://orgmode.org/manual/Easy-Templates.html</a></li>
+</ul>
+</div>
+<h1 id="babel">Babel</h1>
+<p>For about <code>#+BEGIN_SRC</code>, see <a href="./babel" class="uri">./babel</a></p>
+<h1 id="latex">LaTeX</h1>
+<p>When using LaTex as a part of documentations which will be exported some other forms like <code>html</code> and the like, use <a href="file:///org-babel/latex">/org-babel/latex</a> instead of native org-mode's LaTeX supprot.</p>
+<pre class="example"><code>#+LATEX: any arbitrary LaTeX code
+---
+&lt;l + &lt;TAB&gt;
+#+BEGIN_EXPORT latex
+any arbitrary LaTeX code
+#+END_EXPORT
+</code></pre>
+<dl>
+<dt>LaTex fragments</dt>
+<dd>Just put latex code preview with <code>org-toggle-latex-fragment</code> <code>​, T x</code> or <code>C-c C-x C-l</code>
+</dd>
+</dl>
+<ul>
+<li>This won't be exported.</li>
+</ul>
+<pre class="example"><code>\begin{equation}
+x=\sqrt{b}
+\end{equation}
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/LaTeX-export.html#LaTeX-export" class="uri">http://orgmode.org/manual/LaTeX-export.html#LaTeX-export</a></li>
+</ul>
+</div>
+<h1 id="export">Export</h1>
+<pre class="example"><code>#+OPTIONS: author:nil html-postamble:nil num:nil timestamp:nil toc:nil
+
+</code></pre>
+<pre class="example"><code>,,#+CAPTION: A black cat stalking a spider
+,,#+ATTR_HTML: :alt cat/spider image :title Action! :align right
+[[./img/a.jpg]]
+</code></pre>
+<ul>
+<li><a href="https://github.com/yyr/org-mode/blob/master/lisp/ox-html.el#L807" class="uri">https://github.com/yyr/org-mode/blob/master/lisp/ox-html.el#L807</a></li>
+<li><a href="https://emacs.stackexchange.com/questions/7629/the-syntax-highlight-and-indentation-of-source-code-block-in-exported-html-file" class="uri">https://emacs.stackexchange.com/questions/7629/the-syntax-highlight-and-indentation-of-source-code-block-in-exported-html-file</a></li>
+</ul>
+<div class="sourceCode" id="cb9" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb9-1" data-line-number="1">(<span class="kw">setq</span> org-html-htmlize-output-type &#39;css)</a></code></pre></div>
+<p><code>org-html-htmlize-output-type</code> is <code>inline-css</code> by default, which generates <code>css</code> for code formatting based on th current editor color theme. To customize for editor free exporting, set it to <code>css</code> like above and specify your custom <code>css</code></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/Exporting.html" class="uri">http://orgmode.org/manual/Exporting.html</a></li>
+<li><a href="http://stackoverflow.com/questions/13363267/how-to-remove-footer-details-in-org-mode-html-export" class="uri">http://stackoverflow.com/questions/13363267/how-to-remove-footer-details-in-org-mode-html-export</a></li>
+<li><a href="https://www.gnu.org/software/emacs/manual/html_node/org/Images-in-HTML-export.html" class="uri">https://www.gnu.org/software/emacs/manual/html_node/org/Images-in-HTML-export.html</a></li>
+</ul>
+</div>
+<h1 id="image">Image</h1>
+<pre class="example"><code>#+ATTR_HTML: width=&quot;100px&quot;
+#+ATTR_ORG: :width 100
+[[~/images/example.jpg]]
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://stackoverflow.com/questions/11670654/how-to-resize-images-in-org-mode" class="uri">http://stackoverflow.com/questions/11670654/how-to-resize-images-in-org-mode</a></li>
+<li><a href="http://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html" class="uri">http://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html</a></li>
+</ul>
+</div>
+<h1 id="agenda">Agenda</h1>
+<pre class="example"><code>&lt;2006-11-01 Wed&gt;
+[2006-11-01 Wed]  # inactive timestamps, they do not trigger an entry to show up in the agenda.
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/Capture-templates.html#Capture-templates" class="uri">http://orgmode.org/manual/Capture-templates.html#Capture-templates</a></li>
+</ul>
+</div>
+<h1 id="capture">Capture</h1>
+<div class="sourceCode" id="cb12" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb12-1" data-line-number="1">(setq-default</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"> org-capture-templates `((<span class="st">&quot;c&quot;</span> <span class="st">&quot;Create a task&quot;</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">                          entry (file+headline ,my-org-inbox <span class="st">&quot;Inbox&quot;</span>)</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">                          <span class="st">&quot;* TODO %t %?&quot;</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">                          :empty-lines <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"> )</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/Template-expansion.html#Template-expansion" class="uri">http://orgmode.org/manual/Template-expansion.html#Template-expansion</a></li>
+</ul>
+</div>
+<h1 id="add-ons">Add-ons</h1>
+<h2 id="toc-org">toc-org</h2>
+<pre class="example"><code>:TOC_2:
+:TOC_2_gh:   (github style, [[#heading][heading]])
+:TOC_2_org:  (org style,    [[heading][heading]])
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/snosov1/toc-org" class="uri">https://github.com/snosov1/toc-org</a></li>
+</ul>
+</div>
+<h2 id="org-reveal">org-reveal</h2>
+<ul>
+<li><code>, e R B</code> to generate and preview</li>
+<li><code>#+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/</code></li>
+<li><code>#+REVEAL_THEME: &lt;theme&gt;</code> :: <a href="https://github.com/hakimel/reveal.js/tree/master/css/theme">reveal.js/css/theme</a></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/yjwen/org-reveal/" class="uri">https://github.com/yjwen/org-reveal/</a></li>
+<li><a href="https://github.com/hakimel/reveal.js/" class="uri">https://github.com/hakimel/reveal.js/</a></li>
+</ul>
+</div>
+<h2 id="ox-twbs">ox-twbs</h2>
+<ul>
+<li>Export org as HTML compatible with Twitter Bootstrap.</li>
+<li>I tried to use this, but <strong>there were some inconsistencies</strong>. I don't use it now.
+<ul>
+<li>Some colors are indistinguishable.</li>
+<li>Image links are broken if I segregate htmls from orgs</li>
+</ul></li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/marsmining/ox-twbs" class="uri">https://github.com/marsmining/ox-twbs</a></li>
+</ul>
+</div>
+<h1 id="use-cases">Use Cases</h1>
+<h2 id="automatically-save-buffers-after-refiling-and-archiving">Automatically Save buffers after refiling and archiving</h2>
+<div class="sourceCode" id="cb14" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">;; Save org files automatically after arranging items</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">(<span class="kw">defun</span><span class="fu"> my-org-save-all-org-buffers </span>(old-function &amp;<span class="kw">rest</span> args)</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">  (org-save-all-org-buffers)</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">  )</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">(advice-add &#39;org-refile :after &#39;my-org-save-all-org-buffers)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">(advice-add &#39;org-archive :after &#39;my-org-save-all-org-buffers)</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers" class="uri">https://emacs.stackexchange.com/questions/477/how-do-i-automatically-save-org-mode-buffers</a></li>
+<li><a href="http://stackoverflow.com/questions/5520302/what-do-each-of-these-stand-for-after-the-save-file-prompt-y-n-q-c" class="uri">http://stackoverflow.com/questions/5520302/what-do-each-of-these-stand-for-after-the-save-file-prompt-y-n-q-c</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

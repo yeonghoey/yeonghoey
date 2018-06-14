@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Lesson 5</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/udacity/" >udacity</a></li>
+    <li><a href="/udacity/design-of-computer-programs/" >design-of-computer-programs</a></li>
+    <li>lesson5</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Lesson 5</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#lesson-5-1">Lesson 5</a><ul>
+<li><a href="#porcine-probability">Porcine Probability</a></li>
+<li><a href="#concept-inventory">Concept Inventory</a></li>
+<li><a href="#quiz-hold-and-roll">Quiz: Hold And Roll</a><ul>
+<li><a href="#my-solution">My Solution</a></li>
+<li><a href="#his-solution">His Solution</a></li>
+<li><a href="#feedback">Feedback</a></li>
+</ul></li>
+<li><a href="#named-tuples">Named Tuples</a></li>
+<li><a href="#quiz-hold-at-strategy">Quiz: Hold At Strategy</a><ul>
+<li><a href="#my-solution-1">My Solution</a></li>
+<li><a href="#his-solution-1">His Solution</a></li>
+<li><a href="#feedback-1">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-play-pig">Quiz: Play Pig</a><ul>
+<li><a href="#my-solution-2">My Solution</a></li>
+<li><a href="#his-solution-2">His solution</a></li>
+<li><a href="#feedback-2">Feedback</a></li>
+</ul></li>
+<li><a href="#dependency-injection">Dependency Injection</a><ul>
+<li><a href="#feedback-3">Feedback</a></li>
+</ul></li>
+<li><a href="#utility">Utility</a></li>
+<li><a href="#quiz-game-theory">Quiz: Game Theory</a></li>
+<li><a href="#optimal-pig">Optimal Pig</a></li>
+<li><a href="#pwin">Pwin</a></li>
+<li><a href="#quiz-maxwins">Quiz: Maxwins</a><ul>
+<li><a href="#my-solution-3">My Solution</a></li>
+<li><a href="#his-solution-3">His Solution</a></li>
+<li><a href="#feedback-4">Feedback</a></li>
+</ul></li>
+<li><a href="#impressing-pig-scouts">Impressing Pig Scouts</a></li>
+<li><a href="#quiz-maximizing-differential">Quiz: Maximizing Differential</a></li>
+<li><a href="#being-careful">Being Careful</a></li>
+<li><a href="#quiz-legal-actions">Quiz: Legal Actions</a></li>
+<li><a href="#using-tools">Using Tools</a></li>
+<li><a href="#telling-a-story">Telling A Story</a></li>
+<li><a href="#conditional-probability">Conditional Probability</a></li>
+<li><a href="#quiz-tuesday">Quiz: Tuesday</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+<li><a href="#problem-set-5">Problem Set 5</a><ul>
+<li><a href="#quiz-improving-optimal">Quiz: Improving Optimal</a><ul>
+<li><a href="#my-solution-4">My Solution</a></li>
+<li><a href="#his-solution-4">His Solution</a></li>
+<li><a href="#feedback-5">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-doubling-pigs">Quiz: Doubling Pigs</a><ul>
+<li><a href="#my-solution-5">My Solution</a></li>
+<li><a href="#his-solution-5">His Solution</a></li>
+<li><a href="#feedback-6">Feedback</a></li>
+</ul></li>
+<li><a href="#quiz-foxes-and-hens">Quiz: Foxes and Hens</a><ul>
+<li><a href="#my-solution-6">My Solution</a></li>
+<li><a href="#his-solution-6">His Solution</a></li>
+<li><a href="#feedback-7">Feedback</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="lesson-5-1">Lesson 5</h1>
+<h2 id="porcine-probability">Porcine Probability</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_10-21-02.png" /></p>
+<h2 id="concept-inventory">Concept Inventory</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_10-31-01.png" /></p>
+<h2 id="quiz-hold-and-roll">Quiz: Hold And Roll</h2>
+<h3 id="my-solution">My Solution</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> hold(state):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    p, me, you, pending <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    p2 <span class="op">=</span> (p <span class="op">+</span> <span class="dv">1</span>) <span class="op">%</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    me2 <span class="op">=</span> me <span class="op">+</span> pending</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="cf">return</span> (p2, you, me2, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">def</span> roll(state, d):</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    p, me, you, pending <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="cf">if</span> d <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">        p2 <span class="op">=</span> (p <span class="op">+</span> <span class="dv">1</span>) <span class="op">%</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">        me2 <span class="op">=</span> me <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">        <span class="cf">return</span> (p2, you, me2, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">        <span class="cf">return</span> (p, me, you, pending <span class="op">+</span> d)</a></code></pre></div>
+<h3 id="his-solution">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_10-41-29.png" /></p>
+<h3 id="feedback">Feedback</h3>
+<p>I gave unnecessary names for parts of the next state (<code>p2</code>, <code>me2</code>, …). I thought that giving names is generally better, but in this case, his way is better in the matter of conciseness.</p>
+<p>His way of turning over the next player is great. (<code>other = {1:0, 0:1}</code>). It's just more readable. By this way, he could write the next state as one-liner, without losing readability.</p>
+<h2 id="named-tuples">Named Tuples</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_10-51-13.png" /></p>
+<h2 id="quiz-hold-at-strategy">Quiz: Hold At Strategy</h2>
+<h3 id="my-solution-1">My Solution</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">def</span> strategy(state):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    (p, me, you, pending) <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="cf">if</span> pending <span class="op">&gt;=</span> x:</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">        <span class="cf">return</span> <span class="st">&#39;hold&#39;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="cf">elif</span> (me <span class="op">+</span> pending) <span class="op">&gt;=</span> goal:</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">        <span class="cf">return</span> <span class="st">&#39;hold&#39;</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">        <span class="cf">return</span> <span class="st">&#39;roll&#39;</span></a></code></pre></div>
+<h3 id="his-solution-1">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_11-02-01.png" /></p>
+<h3 id="feedback-1">Feedback</h3>
+<p>Even though his solution is a simple one-liner, I think my solution is more readable.</p>
+<h2 id="quiz-play-pig">Quiz: Play Pig</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_11-05-43.png" /></p>
+<h3 id="my-solution-2">My Solution</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">def</span> play_pig(A, B):</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    state <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    turn <span class="op">=</span> {<span class="dv">0</span>:A, <span class="dv">1</span>:B}</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">        (p, me, you, pending) <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">        <span class="cf">if</span> me <span class="op">&gt;=</span> goal:</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">            <span class="cf">return</span> turn[p]</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">        <span class="cf">if</span> you <span class="op">&gt;=</span> goal:</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">            <span class="cf">return</span> turn[other[p]]</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">        action <span class="op">=</span> turn[p](state)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">        <span class="cf">if</span> action <span class="op">==</span> <span class="st">&#39;hold&#39;</span>:</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">            state <span class="op">=</span> hold(state)</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">        <span class="cf">elif</span> action <span class="op">==</span> <span class="st">&#39;roll&#39;</span>:</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">            d <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">            state <span class="op">=</span> roll(state, d)</a></code></pre></div>
+<h3 id="his-solution-2">His solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_11-17-16.png" /></p>
+<h3 id="feedback-2">Feedback</h3>
+<p>The name <code>strategies</code> is better than <code>turn</code>. Additionally, it needn't have to be a <code>dict</code>. Just <code>list</code> is okay.</p>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_11-22-44.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_11-23-02.png" /></p>
+<h3 id="feedback-3">Feedback</h3>
+<p>The interface of injecting <code>dierolls</code> is great. He made it not just a function, but an iterable. This makes easier for testing. Also, he used a generator for keeping the same logic of using <code>randint</code>.</p>
+<h2 id="utility">Utility</h2>
+<p>Concepts from Game Theory <img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-26_11-38-23.png" /></p>
+<h2 id="quiz-game-theory">Quiz: Game Theory</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_11-59-53.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-02-29.png" /></p>
+<p>For most people, the utility functions of money is not linear but logarithmic. It's amazing how the code expresses this naturally.</p>
+<h2 id="optimal-pig">Optimal Pig</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-12-37.png" /></p>
+<h2 id="pwin">Pwin</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-15-51.png" /></p>
+<h2 id="quiz-maxwins">Quiz: Maxwins</h2>
+<h3 id="my-solution-3">My Solution</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">def</span> max_wins(state):</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">    <span class="co">&quot;The optimal pig strategy chooses an action with the highest win probability.&quot;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="cf">return</span> <span class="bu">max</span>(pig_actions(state), key<span class="op">=</span><span class="kw">lambda</span> a: Q_pig(state, a, Pwin))</a></code></pre></div>
+<h3 id="his-solution-3">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-20-31.png" /></p>
+<h3 id="feedback-4">Feedback</h3>
+<p>I forgot to use <code>best_action</code>.</p>
+<h2 id="impressing-pig-scouts">Impressing Pig Scouts</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-25-14.png" /> I wonder how he implemented <code>play_tournament</code></p>
+<h2 id="quiz-maximizing-differential">Quiz: Maximizing Differential</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-27-57.png" /></p>
+<h2 id="being-careful">Being Careful</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-30-58.png" /></p>
+<p>He mentioned about these function names are prone to error. It's hard to differentiate between <code>utility function</code> and <code>strategy function</code>.</p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-32-45.png" /></p>
+<p>Here is the code uses <code>strategy function</code>. It will silently pass when <code>A</code> or <code>B</code> were a <code>utility function</code>.</p>
+<h2 id="quiz-legal-actions">Quiz: Legal Actions</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-28_12-37-36.png" /></p>
+<h2 id="using-tools">Using Tools</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-25-35.png" /></p>
+<p>He expected that <code>max_diffs</code> would be more aggressive, but it didn't. Why is that?</p>
+<h2 id="telling-a-story">Telling A Story</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-27-55.png" /></p>
+<p>For various <code>pendings</code>, counts only <code>rolls</code> when the action of strategies diverged</p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-30-11.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-32-28.png" /></p>
+<h2 id="conditional-probability">Conditional Probability</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-39-36.png" /> <img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-39-54.png" /></p>
+<p>Good to know about <code>fractions</code> module</p>
+<h2 id="quiz-tuesday">Quiz: Tuesday</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-43-04.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-43-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-59-54.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_13-58-57.png" /></p>
+<p>The fact that the weekday of a boy's birthday matters the probability is counterintuitive. And he explains the reason why is that the problem wants to count the pair of boys, and a single boy, which breaks our intuition.</p>
+<h2 id="summary">Summary</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-30_14-06-16.png" /></p>
+<h1 id="problem-set-5">Problem Set 5</h1>
+<h2 id="quiz-improving-optimal">Quiz: Improving Optimal</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-31_05-26-58.png" /></p>
+<h3 id="my-solution-4">My Solution</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="at">@memo</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">def</span> Pwin3(me, you, pending):</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="cf">if</span> me <span class="op">&gt;=</span> goal:</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">        <span class="cf">return</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    <span class="cf">if</span> you <span class="op">&gt;=</span> goal:</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">        <span class="cf">return</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    holdp <span class="op">=</span> (<span class="dv">1</span><span class="op">-</span>Pwin3(you, me<span class="op">+</span>pending, <span class="dv">0</span>)) <span class="cf">if</span> pending <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">    <span class="cf">if</span> holdp <span class="op">&lt;</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">        ps <span class="op">=</span> [<span class="dv">1</span><span class="op">-</span>Pwin3(you, me<span class="op">+</span><span class="dv">1</span>, <span class="dv">0</span>)]</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">        ps.extend([Pwin3(me, you, pending<span class="op">+</span>d) <span class="cf">for</span> d <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">7</span>)])</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">        rollp <span class="op">=</span> <span class="bu">float</span>(<span class="bu">sum</span>(ps)) <span class="op">/</span> <span class="bu">len</span>(ps)</a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">        <span class="cf">return</span> <span class="bu">max</span>(holdp, rollp)</a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">        <span class="cf">return</span> holdp</a></code></pre></div>
+<h3 id="his-solution-4">His Solution</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="im">from</span> functools <span class="im">import</span> update_wrapper</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">def</span> decorator(d):</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="co">&quot;Make function d a decorator: d wraps a function fn.&quot;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="kw">def</span> _d(fn):</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">        <span class="cf">return</span> update_wrapper(d(fn), fn)</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    update_wrapper(_d, d)</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">    <span class="cf">return</span> _d</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="at">@decorator</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="kw">def</span> memo(f):</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    <span class="co">&quot;&quot;&quot;Decorator that caches the return value for each call to f(args).</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">    Then when called again with same args, we can just look it up.&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">    cache <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">    <span class="kw">def</span> _f(<span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">        <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">            <span class="cf">return</span> cache[args]</a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">        <span class="cf">except</span> <span class="pp">KeyError</span>:</a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">            cache[args] <span class="op">=</span> result <span class="op">=</span> f(<span class="op">*</span>args)</a>
+<a class="sourceLine" id="cb6-20" data-line-number="20">            <span class="cf">return</span> result</a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">        <span class="cf">except</span> <span class="pp">TypeError</span>:</a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">            <span class="co"># some element of args refuses to be a dict key</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23">            <span class="cf">return</span> f(args)</a>
+<a class="sourceLine" id="cb6-24" data-line-number="24">    _f.cache <span class="op">=</span> cache</a>
+<a class="sourceLine" id="cb6-25" data-line-number="25">    <span class="cf">return</span> _f</a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-31_05-24-08.png" /></p>
+<h3 id="feedback-5">Feedback</h3>
+<p>I solved this without looking up the previous <code>Pwin</code> implementation. I found it hard because where was no quiz on implementing <code>Pwin</code>. But based on the understanding, I finally figured out how, and solved it with somewhat equivalent to his solution.</p>
+<h2 id="quiz-doubling-pigs">Quiz: Doubling Pigs</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-31_05-32-11.png" /></p>
+<h3 id="my-solution-5">My Solution</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">def</span> pig_actions_d(state):</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    (p, me, you, pending, double) <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="cf">if</span> double <span class="op">==</span> <span class="st">&#39;double&#39;</span>:</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">        <span class="cf">return</span> [<span class="st">&#39;accept&#39;</span>, <span class="st">&#39;decline&#39;</span>]</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    actions <span class="op">=</span> [<span class="st">&#39;roll&#39;</span>, <span class="st">&#39;hold&#39;</span>]</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="cf">if</span> pending <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">        actions.remove(<span class="st">&#39;hold&#39;</span>)</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">    <span class="cf">if</span> double <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">        actions.append(<span class="st">&#39;double&#39;</span>)</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="cf">return</span> actions</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="kw">def</span> strategy_d(state):</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">    (p, me, you, pending, double) <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">    actions <span class="op">=</span> pig_actions_d(state)</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">    <span class="cf">if</span> <span class="st">&#39;double&#39;</span> <span class="kw">in</span> actions <span class="kw">and</span> me<span class="op">+</span>pending <span class="op">&gt;=</span> goal:</a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">        <span class="cf">return</span> <span class="st">&#39;double&#39;</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">        <span class="cf">return</span> hold_20_d(state)</a></code></pre></div>
+<h3 id="his-solution-5">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-31_05-55-53.png" /></p>
+<h3 id="feedback-6">Feedback</h3>
+<p>His way of using <code>if expression</code> makes code concise and readable.</p>
+<p>I wanted to implement <code>strategy_d</code> as simple as possible. By using the fact that <code>hold_20_d</code> always accepts double request, I implemented the strategy to make double request when I convince to win.</p>
+<h2 id="quiz-foxes-and-hens">Quiz: Foxes and Hens</h2>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-31_07-18-19.png" /></p>
+<h3 id="my-solution-6">My Solution</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">def</span> do(action, state):</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    <span class="co">&quot;Apply action to state, returning a new state.&quot;</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="co"># Make sure you always use up one card.</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    (score, yard, cards) <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">    draw <span class="op">=</span> random.choice(cards)</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="cf">if</span> action <span class="op">==</span> <span class="st">&#39;gather&#39;</span> <span class="kw">and</span> draw <span class="op">==</span> <span class="st">&#39;F&#39;</span>:</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">        <span class="cf">return</span> (score<span class="op">+</span>yard, <span class="dv">0</span>, cards[<span class="dv">1</span>:])</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="cf">if</span> action <span class="op">==</span> <span class="st">&#39;gather&#39;</span> <span class="kw">and</span> draw <span class="op">==</span> <span class="st">&#39;H&#39;</span>:</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">        <span class="cf">return</span> (score<span class="op">+</span>yard, <span class="dv">0</span>, cards[:<span class="op">-</span><span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">    <span class="cf">if</span> action <span class="op">==</span> <span class="st">&#39;wait&#39;</span> <span class="kw">and</span> draw <span class="op">==</span> <span class="st">&#39;F&#39;</span>:</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">        <span class="cf">return</span> (score, <span class="dv">0</span>, cards[<span class="dv">1</span>:])</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">    <span class="cf">if</span> action <span class="op">==</span> <span class="st">&#39;wait&#39;</span> <span class="kw">and</span> draw <span class="op">==</span> <span class="st">&#39;H&#39;</span>:</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">        <span class="cf">return</span> (score, yard<span class="op">+</span><span class="dv">1</span>, cards[:<span class="op">-</span><span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="kw">def</span> strategy(state):</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">    <span class="cf">return</span> <span class="bu">max</span>([<span class="st">&#39;wait&#39;</span>, <span class="st">&#39;gather&#39;</span>], key<span class="op">=</span><span class="kw">lambda</span> a: Q(state, a))</a>
+<a class="sourceLine" id="cb8-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="at">@memo</span></a>
+<a class="sourceLine" id="cb8-21" data-line-number="21"><span class="kw">def</span> expect_value(state):</a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">    <span class="cf">return</span> <span class="bu">max</span>(Q(state, <span class="st">&#39;wait&#39;</span>), Q(state, <span class="st">&#39;gather&#39;</span>))</a>
+<a class="sourceLine" id="cb8-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb8-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25"><span class="kw">def</span> Q(state, action):</a>
+<a class="sourceLine" id="cb8-26" data-line-number="26">    (score, yard, cards) <span class="op">=</span> state</a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">    <span class="cf">if</span> <span class="kw">not</span> cards:</a>
+<a class="sourceLine" id="cb8-28" data-line-number="28">        <span class="cf">return</span> score<span class="op">+</span>yard</a>
+<a class="sourceLine" id="cb8-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb8-30" data-line-number="30">    remains <span class="op">=</span> Counter(cards)</a>
+<a class="sourceLine" id="cb8-31" data-line-number="31">    total <span class="op">=</span> <span class="bu">len</span>(cards)</a>
+<a class="sourceLine" id="cb8-32" data-line-number="32">    fp <span class="op">=</span> <span class="bu">float</span>(remains[<span class="st">&#39;F&#39;</span>]) <span class="op">/</span> total</a>
+<a class="sourceLine" id="cb8-33" data-line-number="33">    hp <span class="op">=</span> <span class="bu">float</span>(remains[<span class="st">&#39;H&#39;</span>]) <span class="op">/</span> total</a>
+<a class="sourceLine" id="cb8-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb8-35" data-line-number="35">    ev <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-36" data-line-number="36">    <span class="cf">if</span> action <span class="op">==</span> <span class="st">&#39;gather&#39;</span>:</a>
+<a class="sourceLine" id="cb8-37" data-line-number="37">        ev <span class="op">+=</span> expect_value((score<span class="op">+</span>yard, <span class="dv">0</span>, cards[<span class="dv">1</span>:])) <span class="op">*</span> fp <span class="cf">if</span> fp <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-38" data-line-number="38">        ev <span class="op">+=</span> expect_value((score<span class="op">+</span>yard, <span class="dv">0</span>, cards[:<span class="op">-</span><span class="dv">1</span>])) <span class="op">*</span> hp <span class="cf">if</span> hp <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-39" data-line-number="39">    <span class="cf">if</span> action <span class="op">==</span> <span class="st">&#39;wait&#39;</span>:</a>
+<a class="sourceLine" id="cb8-40" data-line-number="40">        ev <span class="op">+=</span> expect_value((score, <span class="dv">0</span>, cards[<span class="dv">1</span>:])) <span class="op">*</span> fp <span class="cf">if</span> fp <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-41" data-line-number="41">        ev <span class="op">+=</span> expect_value((score, yard<span class="op">+</span><span class="dv">1</span>, cards[:<span class="op">-</span><span class="dv">1</span>])) <span class="op">*</span> hp <span class="cf">if</span> hp <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-42" data-line-number="42">    <span class="cf">return</span> ev</a></code></pre></div>
+<h3 id="his-solution-6">His Solution</h3>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-31_07-16-57.png" /></p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-31_07-17-34.png" /></p>
+<h3 id="feedback-7">Feedback</h3>
+<p>His way of implementing <code>cards_left</code> is way better than mine(<code>cards[1:]</code>). It generalizes both cases, which makes the logic simple.</p>
+<p>The name <code>cards_left</code> is better than <code>remains</code>.</p>
+<p>My implementation of <code>strategy</code> is a optimal one. I tried to implement it for practicing. The average score is almost same as his simple strategy:</p>
+<p><img src="https://media.yeonghoey.com/udacity/design-of-computer-programs/lesson5/_img/screenshot_2016-12-31_07-22-34.png" /></p>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>CS 498: Week 2</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/mcs-ds/" >mcs-ds</a></li>
+    <li><a href="/mcs-ds/cs-498-dv/" >cs-498-dv</a></li>
+    <li>week-02</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">CS 498: Week 2</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#lesson-2-1-data-mapping-and-charts">Lesson 2-1: Data, Mapping, and Charts</a><ul>
+<li><a href="#data">2.1.1. Data</a></li>
+<li><a href="#mapping">2.1.2. Mapping</a></li>
+<li><a href="#charts">2.1.3. Charts</a></li>
+</ul></li>
+<li><a href="#lesson-2-2-glyphs-parallel-coordinates-and-stacked-graphs">Lesson 2-2: Glyphs, Parallel Coordinates, and Stacked Graphs</a><ul>
+<li><a href="#glyphs-part-1">2.2.1. Glyphs: Part 1</a></li>
+<li><a href="#glyphs-part-2">2.2.2. Glyphs: Part 2</a></li>
+<li><a href="#parallel-coordinates">2.2.2. Parallel Coordinates</a></li>
+<li><a href="#stacked-graphs-part-1">2.2.3. Stacked Graphs: Part 1</a></li>
+<li><a href="#stacked-graphs-part-2">2.2.3. Stacked Graphs: Part 2</a></li>
+</ul></li>
+<li><a href="#lesson-2-3-tuftes-design-rules-and-using-color">Lesson 2-3: Tufte's Design Rules and Using Color</a><ul>
+<li><a href="#tuftes-design-rules">2.3.1. Tufte's Design Rules</a></li>
+<li><a href="#using-color">2.3.2. Using Color</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="lesson-2-1-data-mapping-and-charts">Lesson 2-1: Data, Mapping, and Charts</h1>
+<h2 id="data">2.1.1. Data</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.1.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.1.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.1.pdf</a>
+    </iframe>
+</div>
+</p>
+<ul>
+<li>Ordinal: We only know something is bigger than the other, but we don't know how much bigger it is.</li>
+</ul>
+<p>I'm not familiar with Data Warehouses. So I found a concept image (<a href="https://www.slideshare.net/algum/data-cubes-7923771">ref</a>): <img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-23_11-13-11.png" /></p>
+<h2 id="mapping">2.1.2. Mapping</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.2.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.2.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.2.pdf</a>
+    </iframe>
+</div>
+</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_11-53-08.png" /> (Listed in Preferred Order)</p>
+<ul>
+<li>Color features are hard to be perceived how much one thing is stronger than the other, but they are easily distinguished, so it's effective for Ordinal data.</li>
+</ul>
+<h2 id="charts">2.1.3. Charts</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.3.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.3.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.1.3.pdf</a>
+    </iframe>
+</div>
+</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_11-58-56.png" /></p>
+<h1 id="lesson-2-2-glyphs-parallel-coordinates-and-stacked-graphs">Lesson 2-2: Glyphs, Parallel Coordinates, and Stacked Graphs</h1>
+<h2 id="glyphs-part-1">2.2.1. Glyphs: Part 1</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.1.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.1.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.1.pdf</a>
+    </iframe>
+</div>
+</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_21-02-13.png" /></p>
+<h2 id="glyphs-part-2">2.2.2. Glyphs: Part 2</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.1.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.1.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.1.pdf</a>
+    </iframe>
+</div>
+</p>
+<h2 id="parallel-coordinates">2.2.2. Parallel Coordinates</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.2.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.2.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.2.pdf</a>
+    </iframe>
+</div>
+</p>
+<h2 id="stacked-graphs-part-1">2.2.3. Stacked Graphs: Part 1</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.3.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.3.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.3.pdf</a>
+    </iframe>
+</div>
+</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_21-23-36.png" /></p>
+<ul>
+<li>On the right, it's easy to see that the red variable is not chaning across the x-axis.</li>
+<li>On the left, it's harder.</li>
+<li>The <code>Position</code> is a stronger indicator than the <code>Length</code>.</li>
+</ul>
+<h2 id="stacked-graphs-part-2">2.2.3. Stacked Graphs: Part 2</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.3.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.3.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.2.3.pdf</a>
+    </iframe>
+</div>
+</p>
+<h1 id="lesson-2-3-tuftes-design-rules-and-using-color">Lesson 2-3: Tufte's Design Rules and Using Color</h1>
+<h2 id="tuftes-design-rules">2.3.1. Tufte's Design Rules</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.3.1.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.3.1.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.3.1.pdf</a>
+    </iframe>
+</div>
+</p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_21-43-38.png" /></p>
+<ul>
+<li><p>Instead of interpolating or something, let the viewer reason about the missing data.</p></li>
+<li>A picture is worth a thousand words.</li>
+<li>Label your axes!</li>
+<li>Label should stand out from data</li>
+<li><p>Making a visualization look prettier often makes it less effective at communicating its data</p></li>
+</ul>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_21-49-24.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_21-51-36.png" /></p>
+<h2 id="using-color">2.3.2. Using Color</h2>
+<p><div class="embed embed-16by9">
+    <iframe src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.3.2.pdf"
+            type="application/pdf"
+            allowfullscreen>
+    <a href="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.3.2.pdf">https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_slides/2.3.2.pdf</a>
+    </iframe>
+</div>
+</p>
+<ul>
+<li>Prefer HSV over RGB</li>
+<li>Hues are good for representing Nominal variables</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_22-00-46.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_22-01-57.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_22-04-48.png" /></p>
+<p><img src="https://media.yeonghoey.com/mcs-ds/cs-498-dv/week-02/_img/screenshot_2018-05-21_22-06-34.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://colorbrewer2.org/" class="uri">http://colorbrewer2.org/</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

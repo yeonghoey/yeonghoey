@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Learn HTML</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/codecademy/" >codecademy</a></li>
+    <li>learn-html</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Learn HTML</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#html-elements-and-structure">HTML Elements and Structure</a><ul>
+<li><a href="#introduction-to-html">Introduction to HTML</a><ul>
+<li><a href="#doctype">DOCTYPE</a></li>
+<li><a href="#the-head">The Head</a></li>
+<li><a href="#the-body">The Body</a></li>
+<li><a href="#html-structure">HTML Structure</a></li>
+<li><a href="#indentation">Indentation</a></li>
+<li><a href="#comments">Comments</a></li>
+</ul></li>
+<li><a href="#common-elements">Common Elements</a><ul>
+<li><a href="#text-content-tags">Text Content Tags</a></li>
+<li><a href="#text-style-tags">Text Style Tags</a></li>
+<li><a href="#line-breaks">Line Breaks</a></li>
+<li><a href="#unordered-lists">Unordered Lists</a></li>
+</ul></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#image-alts">Image Alts</a></li>
+<li><a href="#videos">Videos</a></li>
+<li><a href="#new-page">New Page</a></li>
+<li><a href="#relative">Relative</a></li>
+<li><a href="#same-page">Same Page</a></li>
+<li><a href="#navigation">Navigation</a></li>
+</ul></li>
+<li><a href="#html-tables">HTML Tables</a><ul>
+<li><a href="#table-rows">Table Rows</a></li>
+<li><a href="#table-data">Table Data</a></li>
+<li><a href="#table-headings">Table Headings</a></li>
+<li><a href="#table-borders">Table Borders</a></li>
+<li><a href="#spanning-columns">Spanning Columns</a></li>
+<li><a href="#spanning-rows">Spanning Rows</a></li>
+<li><a href="#table-body">Table Body</a></li>
+<li><a href="#table-head">Table Head</a></li>
+<li><a href="#table-footer">Table Footer</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="html-elements-and-structure">HTML Elements and Structure</h1>
+<h2 id="introduction-to-html">Introduction to HTML</h2>
+<h3 id="doctype">DOCTYPE</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_21-42-02.png" /></p>
+<h3 id="the-head">The Head</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_21-43-56.png" /></p>
+<h3 id="the-body">The Body</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_21-45-41.png" /></p>
+<h3 id="html-structure">HTML Structure</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_21-47-26.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_21-47-40.png" /></p>
+<h3 id="indentation">Indentation</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_21-52-29.png" /></p>
+<h3 id="comments">Comments</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_21-53-35.png" /></p>
+<h2 id="common-elements">Common Elements</h2>
+<h3 id="text-content-tags">Text Content Tags</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-24_16-45-59.png" /></p>
+<h3 id="text-style-tags">Text Style Tags</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-24_16-50-14.png" /></p>
+<h3 id="line-breaks">Line Breaks</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-24_16-51-45.png" /></p>
+<h3 id="unordered-lists">Unordered Lists</h3>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-24_16-52-47.png" /></p>
+<h2 id="images">Images</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-24_17-34-06.png" /></p>
+<p>It is a good thing to keep closing slash for compatability with <code>XHTML</code> and <code>XML</code></p>
+<h2 id="image-alts">Image Alts</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-25_10-17-29.png" /></p>
+<h2 id="videos">Videos</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-25_10-18-28.png" /></p>
+<h2 id="new-page">New Page</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-25_11-20-17.png" /></p>
+<h2 id="relative">Relative</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-25_11-21-42.png" /></p>
+<h2 id="same-page">Same Page</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-25_11-24-53.png" /></p>
+<h2 id="navigation">Navigation</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-25_11-27-11.png" /></p>
+<h1 id="html-tables">HTML Tables</h1>
+<h2 id="table-rows">Table Rows</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_22-12-15.png" /></p>
+<h2 id="table-data">Table Data</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_22-12-57.png" /></p>
+<h2 id="table-headings">Table Headings</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_22-17-02.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_22-18-02.png" /></p>
+<h2 id="table-borders">Table Borders</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-00-30.png" /></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-01-00.png" /></p>
+<h2 id="spanning-columns">Spanning Columns</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-02-37.png" /></p>
+<h2 id="spanning-rows">Spanning Rows</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-04-56.png" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">&lt;table&gt;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">&lt;tr&gt;</span> <span class="co">&lt;!-- Row 1 --&gt;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="kw">&lt;th&gt;&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="kw">&lt;th&gt;</span>Saturday<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="kw">&lt;th&gt;</span>Sunday<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="kw">&lt;tr&gt;</span> <span class="co">&lt;!-- Row 2 --&gt;</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="kw">&lt;th&gt;</span>Morning<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="kw">&lt;td</span><span class="ot"> rowspan=</span><span class="st">&quot;2&quot;</span><span class="kw">&gt;</span>Work<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="kw">&lt;td</span><span class="ot"> rowspan=</span><span class="st">&quot;3&quot;</span><span class="kw">&gt;</span>Relax<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">  <span class="kw">&lt;tr&gt;</span> <span class="co">&lt;!-- Row 3 --&gt;</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="kw">&lt;th&gt;</span>Afternoon<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">  <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">  <span class="kw">&lt;tr&gt;</span> <span class="co">&lt;!-- Row 4 --&gt;</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    <span class="kw">&lt;th&gt;</span>Evening<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">    <span class="kw">&lt;td&gt;</span>Dinner<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">  <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-07-21.png" /></p>
+<h2 id="table-body">Table Body</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-09-59.png" /></p>
+<h2 id="table-head">Table Head</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-11-06.png" /></p>
+<ul>
+<li><a href="https://www.codecademy.com/en/forum_questions/55619ce4e39efe96b4000658" class="uri">https://www.codecademy.com/en/forum_questions/55619ce4e39efe96b4000658</a></li>
+</ul>
+<p>~&lt;thead&gt;~ seems always to be placed at the very front of the table. In other words, when <code>&lt;th&gt;</code> is used for row headings, it should be placed along with <code>&lt;td&gt;</code>, within <code>&lt;tbody&gt;</code></p>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-24-15.png" /></p>
+<h2 id="table-footer">Table Footer</h2>
+<p><img src="https://media.yeonghoey.com/codecademy/learn-html/_img/screenshot_2018-02-21_23-13-33.png" /></p>
+</article>
+
+</body>
+</html>

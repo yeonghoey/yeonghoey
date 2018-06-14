@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Samba</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>samba</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Samba</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#basic-setting-up-for-ubuntu-sharing-the-whole-home-directory">Basic setting up for Ubuntu, sharing the whole home directory</a></li>
+</ul>
+</nav>
+
+<h1 id="basic-setting-up-for-ubuntu-sharing-the-whole-home-directory">Basic setting up for Ubuntu, sharing the whole home directory</h1>
+<pre class="shell"><code>sudo apt-get install samba
+</code></pre>
+<p>Configure <code>/etc/samba/smb.conf</code>. Keep most settings default, just edit <code>Share Definitions</code> like following:</p>
+<pre class="shell"><code>sudo vim /etc/samba/smb.conf
+</code></pre>
+<pre class="example"><code>#======================= Share Definitions =======================
+
+# Un-comment the following (and tweak the other settings below to suit)
+# to enable the default home directory shares. This will share each
+# user&#39;s home directory as \\server\username
+[homes]
+   comment = Home Directories
+   browseable = yes
+
+# By default, the home directories are exported read-only. Change the
+# next parameter to &#39;no&#39; if you want to be able to write to them.
+   read only = no
+
+# File creation mask is set to 0700 for security reasons. If you want to
+# create files with group=rw permissions, set next parameter to 0775.
+   create mask = 0700
+
+# Directory creation mask is set to 0700 for security reasons. If you want to
+# create dirs. with group=rw permissions, set next parameter to 0775.
+   directory mask = 0700
+</code></pre>
+<pre class="shell"><code># Creates a user for samba. will prompt for password
+sudo smbpasswd -a &lt;username&gt;
+
+# Restart samba service
+sudo systemctl restart smbd.service, nmbd.service
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://help.ubuntu.com/lts/serverguide/samba-fileserver.html" class="uri">https://help.ubuntu.com/lts/serverguide/samba-fileserver.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

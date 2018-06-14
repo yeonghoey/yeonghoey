@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>webpack</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>webpack</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./loader-utils">loader-utils</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">webpack</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#concepts">Concepts</a></li>
+<li><a href="#entry">Entry</a></li>
+<li><a href="#ouptut">Ouptut</a><ul>
+<li><a href="#substitutions">substitutions</a></li>
+</ul></li>
+<li><a href="#loaders">Loaders</a><ul>
+<li><a href="#css-loader">css-loader</a></li>
+<li><a href="#style-loader">style-loader</a></li>
+<li><a href="#babel-loader">babel-loader</a></li>
+</ul></li>
+<li><a href="#plugins">Plugins</a><ul>
+<li><a href="#htmlwebpackplugin">HtmlWebpackPlugin</a></li>
+<li><a href="#defineplugin">DefinePlugin</a></li>
+<li><a href="#cleanwebpackplugin">CleanWebpackPlugin</a></li>
+</ul></li>
+<li><a href="#cli">CLI</a></li>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#mode">mode</a></li>
+</ul></li>
+<li><a href="#development">Development</a></li>
+<li><a href="#production">Production</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#dependencies-vs-devdependencies">dependencies vs devDependencies</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="concepts">Concepts</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">const</span> HtmlWebpackPlugin <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;html-webpack-plugin&#39;</span>)<span class="op">;</span> <span class="co">//installed via npm</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">const</span> webpack <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;webpack&#39;</span>)<span class="op">;</span> <span class="co">//to access built-in plugins</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">const</span> path <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;path&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw">const</span> config <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  <span class="dt">entry</span><span class="op">:</span> <span class="st">&#39;./path/to/my/entry/file.js&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="dt">output</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="dt">path</span><span class="op">:</span> <span class="va">path</span>.<span class="at">resolve</span>(__dirname<span class="op">,</span> <span class="st">&#39;dist&#39;</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="dt">filename</span><span class="op">:</span> <span class="st">&#39;my-first-webpack.bundle.js&#39;</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="dt">module</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="dt">rules</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">      <span class="op">{</span> <span class="dt">test</span><span class="op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">txt</span><span class="sc">$</span><span class="ss">/</span><span class="op">,</span> <span class="dt">use</span><span class="op">:</span> <span class="st">&#39;raw-loader&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">    ]</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">  <span class="dt">plugins</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">    <span class="kw">new</span> <span class="va">webpack</span>.<span class="va">optimize</span>.<span class="at">UglifyJsPlugin</span>()<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">    <span class="kw">new</span> <span class="at">HtmlWebpackPlugin</span>(<span class="op">{</span><span class="dt">template</span><span class="op">:</span> <span class="st">&#39;./src/index.html&#39;</span><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">  ]</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> config<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><code>entry</code> indicates which module webpack should use to begin building out its internal dependency graph.</li>
+<li><code>output</code> tells webpack where to emit the bundles it creates and how to name these files.</li>
+<li><code>module</code> (loaders) is used to more than just JavaScript files</li>
+<li><code>plugins</code> can be leveraged to perform a wider range of tasks.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/concepts/" class="uri">https://webpack.js.org/concepts/</a></li>
+</ul>
+</div>
+<h1 id="entry">Entry</h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">const</span> config <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">entry</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="dt">app</span><span class="op">:</span> <span class="st">&#39;./src/app.js&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="dt">vendors</span><span class="op">:</span> <span class="st">&#39;./src/vendors.js&#39;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">const</span> config <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dt">entry</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="dt">pageOne</span><span class="op">:</span> <span class="st">&#39;./src/pageOne/index.js&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="dt">pageTwo</span><span class="op">:</span> <span class="st">&#39;./src/pageTwo/index.js&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="dt">pageThree</span><span class="op">:</span> <span class="st">&#39;./src/pageThree/index.js&#39;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="op">};</span></a></code></pre></div>
+<h1 id="ouptut">Ouptut</h1>
+<h2 id="substitutions">substitutions</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/configuration/output/#output-filename" class="uri">https://webpack.js.org/configuration/output/#output-filename</a></li>
+</ul>
+</div>
+<div class="sourceCode" id="cb4" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1">filename<span class="op">:</span> <span class="st">&quot;bundle.js&quot;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">filename<span class="op">:</span> <span class="st">&quot;[name].bundle.js&quot;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">filename<span class="op">:</span> <span class="st">&quot;[id].bundle.js&quot;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">filename<span class="op">:</span> <span class="st">&quot;[name].[hash].bundle.js&quot;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">filename<span class="op">:</span> <span class="st">&quot;[chunkhash].bundle.js&quot;</span></a></code></pre></div>
+<h1 id="loaders">Loaders</h1>
+<p>Loaders can be chained by passing multiple loaders, which will be applied from <strong>right to left</strong> (last to first configured).</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/concepts/loaders/" class="uri">https://webpack.js.org/concepts/loaders/</a></li>
+<li><a href="https://webpack.js.org/loaders/" class="uri">https://webpack.js.org/loaders/</a></li>
+<li><a href="https://webpack.js.org/configuration/module/#module-rules" class="uri">https://webpack.js.org/configuration/module/#module-rules</a></li>
+</ul>
+</div>
+<h2 id="css-loader">css-loader</h2>
+<p>The <code>css-loader</code> interprets <code>@import</code> and <code>url()</code> like <code>import/require()</code> and will resolve them. Actually do nothing with it.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/webpack-contrib/css-loader" class="uri">https://github.com/webpack-contrib/css-loader</a></li>
+</ul>
+</div>
+<h2 id="style-loader">style-loader</h2>
+<ul>
+<li>Adds CSS to the DOM by injecting a <code>&lt;style&gt;</code> tag</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/webpack-contrib/style-loader" class="uri">https://github.com/webpack-contrib/style-loader</a></li>
+<li><a href="https://stackoverflow.com/questions/34039826/webpack-style-loader-vs-css-loader" class="uri">https://stackoverflow.com/questions/34039826/webpack-style-loader-vs-css-loader</a></li>
+</ul>
+</div>
+<h2 id="babel-loader">babel-loader</h2>
+<ul>
+<li>Note the version compatibility</li>
+</ul>
+<pre class="shell"><code># webpack 3.x | babel-loader 8.x | babel 7.x
+npm install babel-loader@8.0.0-beta.0 @babel/core @babel/preset-env webpack
+
+# webpack 3.x babel-loader 7.x | babel 6.x
+npm install babel-loader babel-core babel-preset-env webpack
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/babel/babel-loader" class="uri">https://github.com/babel/babel-loader</a></li>
+</ul>
+</div>
+<h1 id="plugins">Plugins</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">function</span> <span class="at">ConsoleLogOnBuildWebpackPlugin</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="va">ConsoleLogOnBuildWebpackPlugin</span>.<span class="va">prototype</span>.<span class="at">apply</span> <span class="op">=</span> <span class="kw">function</span>(compiler) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="va">compiler</span>.<span class="at">plugin</span>(<span class="st">&#39;run&#39;</span><span class="op">,</span> <span class="kw">function</span>(compiler<span class="op">,</span> callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;The webpack build process is starting!!!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="at">callback</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="op">};</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/concepts/plugins/" class="uri">https://webpack.js.org/concepts/plugins/</a></li>
+</ul>
+</div>
+<h2 id="htmlwebpackplugin">HtmlWebpackPlugin</h2>
+<p>Automatically generate a <code>html</code> file for serving your bundle. Within <code>dist/index.html</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">&lt;html&gt;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="kw">&lt;head&gt;</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="kw">&lt;title&gt;</span>webpack App<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">  <span class="kw">&lt;/head&gt;</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">  <span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">    <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;index_bundle.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">  <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/plugins/html-webpack-plugin/" class="uri">https://webpack.js.org/plugins/html-webpack-plugin/</a></li>
+</ul>
+</div>
+<h2 id="defineplugin">DefinePlugin</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/plugins/define-plugin/" class="uri">https://webpack.js.org/plugins/define-plugin/</a></li>
+</ul>
+</div>
+<ul>
+<li>Each <code>key</code> passed into DefinePlugin is an identifier or multiple identifiers joined with <code>.</code></li>
+<li>If the value is a <code>string</code> it <strong>will be used as a code fragment.</strong></li>
+<li>If the value isn't a <code>string</code>, it <code>will be stringified</code> (including functions).</li>
+<li>If the value is an <code>object</code> <strong>all keys are defined the same way.</strong></li>
+<li>If you prefix <code>typeof</code> to the key, it's only defined for typeof calls. (<a href="https://stackoverflow.com/questions/32598971/whats-the-purpose-of-if-typeof-window-undefined">typeof window</a>)</li>
+</ul>
+<div class="sourceCode" id="cb8" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">new</span> <span class="va">webpack</span>.<span class="at">DefinePlugin</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="dt">PRODUCTION</span><span class="op">:</span> <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="kw">true</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="dt">VERSION</span><span class="op">:</span> <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="st">&quot;5fa3b9&quot;</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="dt">BROWSER_SUPPORTS_HTML5</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="dt">TWO</span><span class="op">:</span> <span class="st">&quot;1+1&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="st">&quot;typeof window&quot;</span><span class="op">:</span> <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="st">&quot;object&quot;</span>)</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="op">}</span>)</a></code></pre></div>
+<h2 id="cleanwebpackplugin">CleanWebpackPlugin</h2>
+<div class="sourceCode" id="cb9" data-org-language="js"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" data-line-number="1">plugins<span class="op">:</span> [</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="kw">new</span> <span class="at">CleanWebpackPlugin</span>([<span class="st">&#39;dist&#39;</span>]<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    <span class="dt">root</span><span class="op">:</span> <span class="va">path</span>.<span class="at">join</span>(__dirname<span class="op">,</span> <span class="st">&#39;..&#39;</span>)</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="op">}</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">  ...</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">]</a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/johnagan/clean-webpack-plugin" class="uri">https://github.com/johnagan/clean-webpack-plugin</a></li>
+</ul>
+</div>
+<h1 id="cli">CLI</h1>
+<pre class="shell"><code>webpack [--config webpack.config.js]
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/api/cli/" class="uri">https://webpack.js.org/api/cli/</a></li>
+</ul>
+</div>
+<h1 id="configuration">Configuration</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/configuration/" class="uri">https://webpack.js.org/configuration/</a></li>
+</ul>
+</div>
+<h2 id="mode">mode</h2>
+<p>webpack 4 now ships with two sets of defaults. <code>development</code> and <code>production</code>. These are the two values to which mode can be set to.</p>
+<pre class="shell"><code># Overrides &quot;mode&quot; field in config
+webpack --mode production
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a" class="uri">https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a</a></li>
+<li><a href="https://medium.com/webpack/webpack-4-released-today-6cdb994702d4" class="uri">https://medium.com/webpack/webpack-4-released-today-6cdb994702d4</a></li>
+</ul>
+</div>
+<h1 id="development">Development</h1>
+<div class="sourceCode" id="cb12"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb12-1" data-line-number="1">    <span class="er">&quot;scripts&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">      <span class="dt">&quot;test&quot;</span><span class="fu">:</span> <span class="st">&quot;echo </span><span class="ch">\&quot;</span><span class="st">Error: no test specified</span><span class="ch">\&quot;</span><span class="st"> &amp;&amp; exit 1&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="er">+</span>     <span class="dt">&quot;watch&quot;</span><span class="fu">:</span> <span class="st">&quot;webpack --watch&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">      <span class="dt">&quot;build&quot;</span><span class="fu">:</span> <span class="st">&quot;webpack&quot;</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">    <span class="fu">}</span><span class="er">,</span></a></code></pre></div>
+<p>Or,</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb13-1" data-line-number="1">    <span class="er">&quot;scripts&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">      <span class="dt">&quot;test&quot;</span><span class="fu">:</span> <span class="st">&quot;echo </span><span class="ch">\&quot;</span><span class="st">Error: no test specified</span><span class="ch">\&quot;</span><span class="st"> &amp;&amp; exit 1&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">      <span class="dt">&quot;watch&quot;</span><span class="fu">:</span> <span class="st">&quot;webpack --watch&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="er">+</span>     <span class="dt">&quot;start&quot;</span><span class="fu">:</span> <span class="st">&quot;webpack-dev-server --open&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">      <span class="dt">&quot;build&quot;</span><span class="fu">:</span> <span class="st">&quot;webpack&quot;</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">    <span class="fu">}</span><span class="er">,</span></a></code></pre></div>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://webpack.js.org/guides/development/" class="uri">https://webpack.js.org/guides/development/</a></li>
+</ul>
+</div>
+<h1 id="production">Production</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9" class="uri">https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="dependencies-vs-devdependencies">dependencies vs devDependencies</h2>
+<p>Theoretically speaking, Since a webpack project builds a kind of package as a product, all dependencies required to build the project must be installed as <code>dependencies</code>, not <code>devDependencies</code>.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/webpack/webpack/issues/520" class="uri">https://github.com/webpack/webpack/issues/520</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

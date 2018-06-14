@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>dot</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/graphviz/" >graphviz</a></li>
+    <li>dot</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">dot</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#terminology">Terminology</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#language-syntax">Language Syntax</a></li>
+<li><a href="#subgraphs-and-clusters">Subgraphs and Clusters</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<div class="sourceCode" id="cb1" data-file="img/overview-example.png" data-exports="both"><pre class="sourceCode dot"><code class="sourceCode dot"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">digraph</span> <span class="va">G</span> <span class="ot">{</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co">  </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster0</span><span class="co"> </span><span class="ot">{</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">,</span><span class="at">color</span><span class="ot">=</span><span class="va">white</span><span class="ot">];</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">    </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">    </span><span class="at">color</span><span class="ot">=</span><span class="va">lightgrey</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co">    </span><span class="va">a0</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">a1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">a2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">a3</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co">    </span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">&quot;process #1&quot;</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co">  </span><span class="ot">}</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co">  </span><span class="kw">subgraph</span><span class="co"> </span><span class="va">cluster1</span><span class="co"> </span><span class="ot">{</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co">    </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="ot">];</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co">    </span><span class="va">b0</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">b1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">b2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">b3</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="co">    </span><span class="at">label</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="st">&quot;process #2&quot;</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co">    </span><span class="at">color</span><span class="ot">=</span><span class="va">blue</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="co">  </span><span class="ot">}</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">  </span><span class="va">start</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">a0</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">  </span><span class="va">start</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">b0</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">  </span><span class="va">a1</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">b3</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">  </span><span class="va">b2</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">a3</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">  </span><span class="va">a3</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">a0</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">  </span><span class="va">a3</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">end</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">  </span><span class="va">b3</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">end</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="co">  </span><span class="va">start</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">Mdiamond</span><span class="ot">];</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="co">  </span><span class="va">end</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">Msquare</span><span class="ot">];</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="ot">}</span></a></code></pre></div>
+<p><img src="https://media.yeonghoey.com/graphviz/dot/_img/overview-example.png" /></p>
+<h1 id="reference">Reference</h1>
+<h1 id="terminology">Terminology</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="language-syntax">Language Syntax</h2>
+<pre class="example"><code>graph :   [ strict ] (graph | digraph) [ ID ] &#39;{&#39; stmt_list &#39;}&#39;
+stmt_list :   [ stmt [ &#39;;&#39; ] stmt_list ]
+stmt  :   node_stmt
+| edge_stmt
+| attr_stmt
+| ID &#39;=&#39; ID
+| subgraph
+attr_stmt :   (graph | node | edge) attr_list
+attr_list :   &#39;[&#39; [ a_list ] &#39;]&#39; [ attr_list ]
+a_list    :   ID &#39;=&#39; ID [ (&#39;;&#39; | &#39;,&#39;) ] [ a_list ]
+edge_stmt :   (node_id | subgraph) edgeRHS [ attr_list ]
+edgeRHS   :   edgeop (node_id | subgraph) [ edgeRHS ]
+node_stmt :   node_id [ attr_list ]
+node_id   :   ID [ port ]
+port  :   &#39;:&#39; ID [ &#39;:&#39; compass_pt ]
+| &#39;:&#39; compass_pt
+subgraph  :   [ subgraph [ ID ] ] &#39;{&#39; stmt_list &#39;}&#39;
+compass_pt    :   (n | ne | e | se | s | sw | w | nw | c | _)
+</code></pre>
+<dl>
+<dt><code>ID</code></dt>
+<dd><ul>
+<li>Any string of alphabetic (<code>[a-zA-Z\200-\377]</code>) characters, underscores (<code>_</code>) or digits (<code>[0-9]</code>), not beginning with a digit;</li>
+<li>a numeral <code>[-]?(.[0-9]+ | [0-9]+(.[0-9]*)? )</code>;</li>
+<li>any double-quoted string (<code>&quot;...&quot;</code>) possibly containing escaped quotes (<code>\&quot;</code>);</li>
+<li>an HTML string (<code>&lt;...&gt;</code>).</li>
+</ul>
+</dd>
+<dt>keywords are case-independent</dt>
+<dd><p><code>node</code>, <code>edge</code>, <code>graph</code>, <code>digraph</code>, <code>subgraph</code>, and <code>strict</code></p>
+</dd>
+<dt>edgeop</dt>
+<dd><ul>
+<li><code>--</code> in undirected graphs(<code>graph</code>).</li>
+<li><code>-&gt;</code> in directed graphs(<code>digraph</code>)</li>
+</ul>
+</dd>
+<dt>comments</dt>
+<dd><ul>
+<li>The language supports C++-style comments</li>
+<li><code>/* */</code> and <code>//</code>.</li>
+</ul>
+</dd>
+<dt>C prerprocessor</dt>
+<dd><ul>
+<li>A line beginning with a <code>#</code> character is considered a line output from a C preprocessor</li>
+<li>e.g., <code># 34</code> to indicate <code>line 34</code>, and discarded</li>
+</ul>
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://www.graphviz.org/doc/info/lang.html" class="uri">http://www.graphviz.org/doc/info/lang.html</a></li>
+</ul>
+</div>
+<h2 id="subgraphs-and-clusters">Subgraphs and Clusters</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode dot"><code class="sourceCode dot"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="va">A</span> <span class="ot">-&gt;</span> <span class="ot">{</span><span class="va">B</span><span class="co"> </span><span class="va">C</span><span class="ot">}</span></a></code></pre></div>
+<p>is equivalent to</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode dot"><code class="sourceCode dot"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="va">A</span> <span class="ot">-&gt;</span> <span class="va">B</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="va">A</span> <span class="ot">-&gt;</span> <span class="va">C</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode dot"><code class="sourceCode dot"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">// A, B and C should all be placed on the same rank </span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">subgraph</span> <span class="ot">{</span><span class="co"> </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">  </span><span class="at">rank</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="va">same</span><span class="ot">;</span><span class="co"> </span><span class="va">A</span><span class="ot">;</span><span class="co"> </span><span class="va">B</span><span class="ot">;</span><span class="co"> </span><span class="va">C</span><span class="ot">;</span><span class="co"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="ot">}</span> </a></code></pre></div>
+<ul>
+<li>If <strong>the name of the subgraph begins with</strong> <code>cluster</code>, Graphviz notes the subgraph as a special cluster subgraph.</li>
+</ul>
+<h1 id="how-to">How-to</h1>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://www.graphviz.org/pdf/dotguide.pdf" class="uri">http://www.graphviz.org/pdf/dotguide.pdf</a></li>
+<li><a href="http://www.graphviz.org/doc/info/attrs.html" class="uri">http://www.graphviz.org/doc/info/attrs.html</a></li>
+<li><a href="http://www.graphviz.org/doc/info/shapes.html" class="uri">http://www.graphviz.org/doc/info/shapes.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

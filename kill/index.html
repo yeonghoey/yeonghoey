@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>kill</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>kill</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">kill</h1>
+</header>
+
+
+<pre class="shell"><code># List signal names
+$ kill -l
+HUP INT QUIT ILL TRAP ABRT EMT FPE KILL BUS SEGV SYS PIPE ALRM TERM URG STOP TSTP CONT CHLD TTIN TTOU IO XCPU XFSZ VTALRM PROF WINCH INFO USR1 USR2
+</code></pre>
+<pre class="shell"><code>$ kill -INT ${PID}
+$ kill -INT -${PGID}
+$ kill -INT 0  # current process group
+
+# kill $PID&#39;s process group
+# grep is used because some `ps` prints the header like PGID
+$ kill -INT -$(ps -o pgid= $PID | grep -o &#39;[0-9]*&#39;)
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Signal_(IPC)" class="uri">https://en.wikipedia.org/wiki/Signal_(IPC)</a></li>
+<li><a href="https://linux.die.net/man/1/kill" class="uri">https://linux.die.net/man/1/kill</a></li>
+<li><a href="http://fibrevillage.com/sysadmin/237-ways-to-kill-parent-and-child-processes-in-one-command" class="uri">http://fibrevillage.com/sysadmin/237-ways-to-kill-parent-and-child-processes-in-one-command</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>AWS S3</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>s3</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./cli">cli</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">AWS S3</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#canned-acl">Canned ACL</a></li>
+</ul></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#iam-policy-vs.-acl">IAM Policy vs. ACL</a></li>
+<li><a href="#server-side-encryption">Server Side Encryption</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<h1 id="reference">Reference</h1>
+<h2 id="canned-acl">Canned ACL</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl" class="uri">https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="iam-policy-vs.-acl">IAM Policy vs. ACL</h2>
+<p>Overall: Can use both. But <code>IAM</code> is preferable, since it is more modern one.</p>
+<blockquote>
+<p>S3 ACLs is a legacy access control mechanism that predates IAM.</p>
+</blockquote>
+<blockquote>
+<p>If you want to manage permissions on individual objects within a bucket, S3 ACLs enable you to apply policies on the objects themselves, whereas bucket policies can only be applied at the bucket level.</p>
+</blockquote>
+<ul>
+<li>Union of all the IAM policies, S3 bucket policies, and S3 ACLs that apply.</li>
+</ul>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/" class="uri">https://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#acl-access-policy-permission-mapping" class="uri">https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#acl-access-policy-permission-mapping</a></li>
+</ul>
+</div>
+<h2 id="server-side-encryption">Server Side Encryption</h2>
+<blockquote>
+<p>There is no extra charge for encryption, and there’s <strong>no observable effect</strong> on PUT or GET performance.</p>
+</blockquote>
+<p>It seems pointless as follows:</p>
+<blockquote>
+<p>Wait a minute? What are we protecting against? Someone gaining access to Amazon's data centers and stealing hard disks? Or worse, a disgruntled Amazon employee (do such people exist?) plugging in a USB stick and sucking out your precious data.</p>
+</blockquote>
+<p><img src="https://media.yeonghoey.com/s3/_img/screenshot_2017-02-25_09-48-12.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://aws.amazon.com/ko/blogs/aws/s3-encryption-with-your-keys/" class="uri">https://aws.amazon.com/ko/blogs/aws/s3-encryption-with-your-keys/</a></li>
+<li><a href="http://alan.blog-city.com/amazon_s3_encryption.htm" class="uri">http://alan.blog-city.com/amazon_s3_encryption.htm</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h1 id="links">Links</h1>
+</article>
+
+</body>
+</html>

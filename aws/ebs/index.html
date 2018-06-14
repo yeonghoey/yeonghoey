@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>EBS</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li><a href="/aws/" >aws</a></li>
+    <li>ebs</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">EBS</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#how-to">How-to</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#ebs-optimized-instances">EBS-Optimized Instances</a></li>
+<li><a href="#monitor-io-characteristics-with-cloudwatch">Monitor I/O Characteristics with CloudWatch</a></li>
+<li><a href="#gp2-io-credits-and-burst-performance">gp2: I/O Credits and Burst Performance</a></li>
+<li><a href="#io1-for-the-best-per-io-latency-experience">io1: For the best per-I/O latency experience</a></li>
+<li><a href="#io1-within-10-percent-of-the-provisioned-iops-performance">io1: Within 10 percent of the provisioned IOPS performance?</a></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="reference">Reference</h1>
+<p><img src="https://media.yeonghoey.com/aws/ebs/_img/screenshot_2017-07-13_19-12-16.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h1 id="topics">Topics</h1>
+<h2 id="ebs-optimized-instances">EBS-Optimized Instances</h2>
+<ul>
+<li>To <strong>ensure sustained reliable network bandwidth</strong> between your EC2 instance and your EBS volumes:
+<ul>
+<li>To launch the EC2 instance as <strong>EBS-optimized</strong></li>
+<li>To choose an instance type with *10 Gigabit network connectivity*(like <code>r4.8xtype</code>).</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Be sure to choose an EBS-optimized instance that provides more dedicated EBS throughput than your application needs; otherwise, the Amazon EBS to Amazon EC2 connection will become a performance bottleneck.</p>
+</blockquote>
+<p>When EBS-Optimized, Each instance can acquire IO Performance following:</p>
+<p><img src="https://media.yeonghoey.com/aws/ebs/_img/screenshot_2017-07-13_21-07-15.png" /></p>
+<p><img src="https://media.yeonghoey.com/aws/ebs/_img/screenshot_2017-07-13_21-07-37.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html</a></li>
+</ul>
+</div>
+<h2 id="monitor-io-characteristics-with-cloudwatch">Monitor I/O Characteristics with CloudWatch</h2>
+<ul>
+<li>BurstBalance: burst bucket balance for <code>gp2</code>, <code>st1</code>, and <code>sc1</code></li>
+<li>VolumeQueueLength: To make sure your application is not trying to drive more IOPS than you have provisioned</li>
+<li>VolumeReadBytes</li>
+<li>VolumeWriteBytes</li>
+<li>VolumeReadOps</li>
+<li>VolumeWriteOps</li>
+</ul>
+<p><img src="https://media.yeonghoey.com/aws/ebs/_img/screenshot_2017-07-13_21-22-51.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html</a></li>
+</ul>
+</div>
+<h2 id="gp2-io-credits-and-burst-performance">gp2: I/O Credits and Burst Performance</h2>
+<p><img src="https://media.yeonghoey.com/aws/ebs/_img/screenshot_2017-07-13_18-43-16.png" /></p>
+<p><img src="https://media.yeonghoey.com/aws/ebs/_img/screenshot_2017-07-13_18-45-08.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html</a></li>
+</ul>
+</div>
+<h2 id="io1-for-the-best-per-io-latency-experience">io1: For the best per-I/O latency experience</h2>
+<p>We recommend that you provision an IOPS-to-GiB ratio <strong>greater than 2:1</strong>. For example, a 2,000 IOPS volume <strong>should be smaller than 1,000 GiB</strong>.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops</a></li>
+</ul>
+</div>
+<h2 id="io1-within-10-percent-of-the-provisioned-iops-performance">io1: Within 10 percent of the provisioned IOPS performance?</h2>
+<ul>
+<li>Ambiguous wording</li>
+</ul>
+<blockquote>
+<p>if you provision a volume with 5,000 IOPS, Amazon EBS delivers an average of 4,500 IOPS or higher for 99.9 percent of the time over a year. I think the document's wrong. They should edit it like &quot;within 90%&quot;.</p>
+</blockquote>
+<blockquote>
+<p>It's more like this: 99.9% of the time over the year, AWS will deliver within 4000 IOPS +(?)/- 10%.</p>
+</blockquote>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html</a></li>
+<li><a href="https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-KRgqrSoF3amTY4XOAat/confused_about_provisioned_iop" class="uri">https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-KRgqrSoF3amTY4XOAat/confused_about_provisioned_iop</a></li>
+<li><a href="https://forums.aws.amazon.com/message.jspa?messageID=742320" class="uri">https://forums.aws.amazon.com/message.jspa?messageID=742320</a></li>
+</ul>
+</div>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.slideshare.net/AmazonWebServices/overview-and-best-practices-for-amazon-elastic-block-store-september-2016-webinar-series" class="uri">https://www.slideshare.net/AmazonWebServices/overview-and-best-practices-for-amazon-elastic-block-store-september-2016-webinar-series</a></li>
+<li><a href="https://www.slideshare.net/AmazonWebServices/deep-dive-maximizing-ec2-and-ebs-performance" class="uri">https://www.slideshare.net/AmazonWebServices/deep-dive-maximizing-ec2-and-ebs-performance</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

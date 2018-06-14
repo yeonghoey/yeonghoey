@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Linux</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>linux</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./process">process</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">Linux</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#inode-structure">Inode Structure</a></li>
+<li><a href="#numa">NUMA</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#config-swap-spacesfiles">Config swap spaces/files</a></li>
+<li><a href="#mount-a-volume">Mount a Volume</a><ul>
+<li><a href="#lostfound">lost+found</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<p><img src="https://media.yeonghoey.com/linux/_img/screenshot_2017-08-16_20-34-39.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://www.brendangregg.com/linuxperf.html" class="uri">http://www.brendangregg.com/linuxperf.html</a></li>
+</ul>
+</div>
+<h1 id="topics">Topics</h1>
+<h2 id="inode-structure">Inode Structure</h2>
+<p><img src="https://media.yeonghoey.com/linux/_img/screenshot_2017-03-02_22-48-52.png" /></p>
+<blockquote>
+<p>inodes starts at number 2 (root)</p>
+<p>inode12(dir<sub>1</sub>)’s count is 2, because it’s parent and self-reference(.) pointing it. root(2) is only exception(expected 3 but 4), <strong>because it’s pointed by superblock</strong>;</p>
+<p>The <strong>superblock</strong> is essentially file system metadata and defines the file system type, size, status, and information about other metadata structures (metadata of metadata).</p>
+</blockquote>
+<pre class="shell"><code>$ ls -i
+624402 Applications   638157 Dropbox        606644 Pictures     19695291 nltk_data
+606600 Desktop        606588 Library      19316918 PredictionIO  2688212 repos
+606584 Documents      606640 Movies         606646 Public       24277126 screenshots
+606586 Downloads      606642 Music        24707402 bin          22461472 venvs
+</code></pre>
+<pre class="shell"><code>$ touch test
+$ stat test
+File: &#39;test&#39;
+Size: 0               Blocks: 0          IO Block: 4096   regular empty file
+Device: ca01h/51713d    Inode: 14999       Links: 1
+Access: (0664/-rw-rw-r--)  Uid: (  500/ec2-user)   Gid: (  500/ec2-user)
+Access: 2017-03-02 18:20:00.503961613 +0000
+Modify: 2017-03-02 18:20:00.503961613 +0000
+Change: 2017-03-02 18:20:00.503961613 +0000
+Birth: -
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file" class="uri">http://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file</a></li>
+</ul>
+</div>
+<h2 id="numa">NUMA</h2>
+<p>Non-uniform memory access.</p>
+<blockquote>
+<p>A system can starve several processors at the same time, notably because only one processor can access the computer's memory at a time.(…) NUMA attempts to address this problem by providing separate memory for each processor, avoiding the performance hit when several processors attempt to address the same memory.</p>
+</blockquote>
+<p><img src="https://media.yeonghoey.com/linux/_img/screenshot_2017-08-20_01-26-42.png" /></p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access" class="uri">https://en.wikipedia.org/wiki/Non-uniform_memory_access</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h2 id="config-swap-spacesfiles">Config swap spaces/files</h2>
+<pre class="shell"><code>[root]$ mkswap /dev/hdb1
+[root]$ swapon /dev/hdb1
+</code></pre>
+<pre class="shell"><code>[root]$ dd if=/dev/zero of=/swap_file bs=1024k count=num_mb
+[root]$ mkswap /swap_file
+[root]$ swapon /swap_file
+</code></pre>
+<pre class="shell"><code>[root]$ swapoff -a  # turns off all swap spaces
+[root]$ rm -f /swap_file
+</code></pre>
+<h2 id="mount-a-volume">Mount a Volume</h2>
+<pre class="shell"><code># view your available disk devices and their mount points
+[root]$ lsblk
+NAME  MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+xvdf  202:80   0  100G  0 disk
+xvda1 202:1    0    8G  0 disk /
+
+# check other details
+[root]$ blkid
+/dev/xvda1: LABEL=&quot;/&quot; UUID=&quot;abcdefgh-1234-ijkl-4567-qwertyasdfgh&quot; TYPE=&quot;ext4&quot; PARTLABEL=&quot;Linux&quot; PARTUUID=&quot;12321555-asda-asas-asdg-142khkhkhcsd&quot;
+</code></pre>
+<pre class="shell"><code>[root]$ file -s /dev/xvda1
+/dev/xvda1: Linux rev 1.0 ext4 filesystem data, UUID=1701d228-e1bd-4094-a14c-8c64d6819362, ...
+
+[root]$ file -s /dev/xvdf
+/dev/xvdf: data  # no file system
+</code></pre>
+<pre class="shell"><code>[root]$ mkfs -t ext4 /dev/xvdf
+[root]$ mkdir /my/path
+[root]$ mount /dev/xvdf /my/path
+</code></pre>
+<pre class="shell"><code># Mount the volume permanently
+[root]$ cp /etc/fstab /etc/fstab.orig  # backup
+
+# /etc/fstab : columns are separated with &#39; &#39; or &#39;\t&#39;
+# ------------------------------------------------------------------------------
+# Use UUID because /dev/xvdf may change
+# - check UUID from the output of file -s /dev/xvdf
+# SEE: $ man fstab
+# - 0 stands for (not dumping, default)
+# - 2 stands for (other than root volume)
+/dev/xvda1  (...)
+UUID=de9a1ccd-a2dd-44f1-8be8-2d4275cb85a3  /my/path  ext4  defaults,nofail  0  2
+# ------------------------------------------------------------------------------
+
+# mount with /etc/fstab manually
+[root]$ mount -a
+</code></pre>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html" class="uri">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fstab" class="uri">https://en.wikipedia.org/wiki/Fstab</a></li>
+</ul>
+</div>
+<h3 id="lostfound">lost+found</h3>
+<blockquote>
+<p>The thing is, the file had a name and location once, but that information is no longer available. So <code>fsck</code> deposits the file in a specific directory, called <code>lost+found</code></p>
+</blockquote>
+<blockquote>
+<p>Files that appear in <code>lost+found</code> are typically files that were already unlinked (i.e. their name had been erased) but still opened by some process (so the data wasn't erased yet)when the system halted suddenly (kernel panic or power failure). If that's all that happened, these files were slated for deletion anyway, you don't need to care about them.</p>
+</blockquote>
+<blockquote>
+<p>On many filesystems, the <code>lost+found</code> directory is a bit special because it preallocates a bit of space for <code>fsck</code> to deposit files there. (…) If you accidentally delete <code>lost+found</code>, <strong>don't re-create it with</strong> <code>mkdir</code>, <strong>use</strong> <code>mklost+found</code> <strong>if available</strong>.</p>
+</blockquote>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://unix.stackexchange.com/questions/18154/what-is-the-purpose-of-the-lostfound-folder-in-linux-and-unix" class="uri">http://unix.stackexchange.com/questions/18154/what-is-the-purpose-of-the-lostfound-folder-in-linux-and-unix</a></li>
+</ul>
+</div>
+<h1 id="links">Links</h1>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://www.gnu.org/prep/maintain/html_node/index.html" class="uri">https://www.gnu.org/prep/maintain/html_node/index.html</a></li>
+<li><a href="https://www.gnu.org/prep/standards/html_node/index.html" class="uri">https://www.gnu.org/prep/standards/html_node/index.html</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

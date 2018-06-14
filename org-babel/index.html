@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>org-babel</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>org-babel</li>
+  </ol>
+  <ul class="children">
+    <li><a href="./graphviz">graphviz</a></li>
+    <li><a href="./latex">latex</a></li>
+    <li><a href="./python">python</a></li>
+    <li><a href="./r">r</a></li>
+  </ul>
+</nav>
+
+<article>
+<header>
+<h1 class="title">org-babel</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#switches">Switches</a></li>
+<li><a href="#headers">Headers</a><ul>
+<li><a href="#results">:results</a></li>
+<li><a href="#session">:session</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#fix-invalid-function-org-babel-header-args-safe-fn">Fix <code>Invalid function: org-babel-header-args-safe-fn</code></a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="overview">Overview</h1>
+<pre class="org"><code>#+NAME: &lt;name&gt;
+#+BEGIN_SRC &lt;language&gt; &lt;switches&gt; &lt;header arguments&gt;
+   &lt;body&gt;
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC emacs-lisp -n 20  ;; Show line numbers starting from 20
+#+BEGIN_SRC emacs-lisp +n 20  ;; Show line numbers ending with 20
+</code></pre>
+<pre class="org"><code>#+NAME: named-block
+#+HEADER: :var data=2
+#+BEGIN_SRC emacs-lisp
+  (message &quot;data:%S&quot; data)
+#+END_SRC
+
+#+RESULTS: named-block
+  : data:2
+</code></pre>
+<dl>
+<dt><code>#+NAME:</code></dt>
+<dd>optional, can be refered with the name from some other elements in the document
+</dd>
+<dt><code>#+HEADER:</code></dt>
+<dd>put headers in separated lines
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/Structure-of-code-blocks.html" class="uri">http://orgmode.org/manual/Structure-of-code-blocks.html</a></li>
+<li><a href="http://orgmode.org/worg/org-contrib/babel/languages.html" class="uri">http://orgmode.org/worg/org-contrib/babel/languages.html</a></li>
+<li><a href="https://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments" class="uri">https://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments</a></li>
+</ul>
+</div>
+<h1 id="switches">Switches</h1>
+<hr />
+<ul>
+<li><a href="https://orgmode.org/manual/Literal-examples.html#Literal-examples" class="uri">https://orgmode.org/manual/Literal-examples.html#Literal-examples</a></li>
+</ul>
+<h1 id="headers">Headers</h1>
+<ol>
+<li>Editor wide :: <code>org-babel-default-header-args</code> or <code>org-babel-default-header-args:&lt;lang&gt;</code></li>
+<li><p>Heading wide ::</p>
+<pre class="org"><code>* sample header
+  :PROPERTIES:
+  :header-args:    :cache yes
+  :END:
+
+# Language specific
+* Heading
+  :PROPERTIES:
+  :header-args:clojure:    :session *clojure-1*
+  :header-args:R:          :session *R*
+  :END:
+</code></pre></li>
+<li><p>Block wide ::</p>
+<pre class="org"><code>#+HEADER: :var data=2
+#+BEGIN_SRC emacs-lisp :results both
+#+END_SRC
+</code></pre></li>
+</ol>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://orgmode.org/manual/Specific-header-arguments.html#Specific-header-arguments" class="uri">http://orgmode.org/manual/Specific-header-arguments.html#Specific-header-arguments</a></li>
+</ul>
+</div>
+<h2 id="results">:results</h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://orgmode.org/manual/results.html" class="uri">https://orgmode.org/manual/results.html</a></li>
+</ul>
+</div>
+<h2 id="session">:session</h2>
+<p>Specify to make source code blocks share sessions.</p>
+<dl>
+<dt><code>:session none</code> (default)</dt>
+<dd>the block gets a new session
+</dd>
+<dt><code>:session</code></dt>
+<dd>the session name is derived from the source language identifier.
+</dd>
+<dt><code>:session &lt;name&gt;</code></dt>
+<dd>blocks with the same name share the session
+</dd>
+</dl>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://orgmode.org/manual/session.html#session" class="uri">https://orgmode.org/manual/session.html#session</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h2 id="fix-invalid-function-org-babel-header-args-safe-fn">Fix <code>Invalid function: org-babel-header-args-safe-fn</code></h2>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/syl20bnr/spacemacs/issues/3314" class="uri">https://github.com/syl20bnr/spacemacs/issues/3314</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>

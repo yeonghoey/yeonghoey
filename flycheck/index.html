@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120656861-1"></script>
+  <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+   gtag('config', 'UA-120656861-1');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>flycheck</title>
+
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+
+
+  <link rel="stylesheet" href="/_css/content.css" />
+
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+<body>
+<nav class="menu">
+  <ol class="breadcrumb">
+    <li><a href="/" >Home</a></li>
+    <li>flycheck</li>
+  </ol>
+</nav>
+
+<article>
+<header>
+<h1 class="title">flycheck</h1>
+</header>
+
+<nav class="toc">
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#topics">Topics</a><ul>
+<li><a href="#flycheck-reports-errors-which-are-not-caused-when-excuting-the-linter-as-a-shell-command">flycheck reports errors which are not caused when excuting the linter as a shell command</a></li>
+</ul></li>
+<li><a href="#how-to">How-to</a><ul>
+<li><a href="#debug-syntax-checkers">Debug syntax checkers</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="topics">Topics</h1>
+<h2 id="flycheck-reports-errors-which-are-not-caused-when-excuting-the-linter-as-a-shell-command">flycheck reports errors which are not caused when excuting the linter as a shell command</h2>
+<p><code>flake8</code> complains an undefined name on the editor. The weird thing was, there's nothing when I manually execute <code>flake8</code> on the shell.</p>
+<p>By using <code>flycheck-compile</code>, I found out that flycheck tries to use <code>stdin</code> for all checker.</p>
+<p>In other words, flycheck always lose its context. That was the problem. But there was no way I could fix it. So I concluded to slightly modify the flycheck-only-error causing line.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="https://github.com/flycheck/flycheck/issues/767" class="uri">https://github.com/flycheck/flycheck/issues/767</a></li>
+<li><a href="https://github.com/flycheck/flycheck/blob/master/flycheck.el#L8838" class="uri">https://github.com/flycheck/flycheck/blob/master/flycheck.el#L8838</a></li>
+</ul>
+</div>
+<h1 id="how-to">How-to</h1>
+<h2 id="debug-syntax-checkers">Debug syntax checkers</h2>
+<p><code>M-x flycheck-compile</code> will print the actual command that Flycheck uses.</p>
+<div class="REFERENCES drawer">
+<ul>
+<li><a href="http://www.flycheck.org/en/latest/user/troubleshooting.html#debug-syntax-checkers" class="uri">http://www.flycheck.org/en/latest/user/troubleshooting.html#debug-syntax-checkers</a></li>
+</ul>
+</div>
+</article>
+
+</body>
+</html>
