@@ -107,7 +107,7 @@ header h1 {
   margin: 0;
 }
 
-/* image */
+// image
 img {
   max-width: 100%;
   height: auto;
@@ -115,7 +115,7 @@ img {
   background-color: $source;
 }
 
-/* code inline */
+// code inline
 code {
   font-family: $font-family-monospace;
   font-size: 0.9em;
@@ -124,7 +124,7 @@ code {
   background-color: $source;
 }
 
-/* code block */
+// code block
 pre,
 .sourceCode {
   margin: 1em 0;
@@ -147,7 +147,7 @@ pre {
 }
 
 
-/* Differentiate result output block */
+// Differentiate result output block
 pre[data-exports=both] + p > img,
 pre[data-exports=both] + pre.example,
 pre[data-exports=results] + p > img,
@@ -159,7 +159,7 @@ pre[data-exports=results] + pre.example,
   background-color: $result;
 }
 
-/* GitHub style blockquote */
+// GitHub style blockquote
 blockquote {
   margin: 0;
   padding: 0 1em;
@@ -167,13 +167,13 @@ blockquote {
   border-left: 4px solid $source;
 }
 
-/* simplified table */
 // GitHub style description list
 dt {
   font-style: italic;
   font-weight: bold;
 }
 
+// simplified table
 table {
   margin: 1em 0;
   padding: 0.75em 1em;
@@ -190,7 +190,7 @@ table td {
   padding: 0.5em 1em;
 }
 
-/* REFERENCE */
+// REFERENCE
 .REFERENCES.drawer {
   font-size: 0.75rem;
   overflow: auto;
@@ -204,8 +204,7 @@ table td {
   list-style-type: none;
 }
 
-/* embed */
-/* iframe aspect ratio support */
+// embed: iframe aspect ratio support
 .embed {
   position: relative;
   display: block;
