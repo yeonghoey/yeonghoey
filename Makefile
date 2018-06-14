@@ -16,13 +16,13 @@ mkdir -p "$(dir $@)"
 @env | grep 'YEONGHOEY_'
 pipenv run $(PANDOC) \
 --standalone \
---table-of-contents \
 --mathjax \
 $(cssflags) \
 --template='resources/content.html' \
 --include-in-header='resources/fonts.html' \
 --include-before-body='$(navfile)' \
 --filter='scripts/filter.py' \
+$(1) \
 --output='$@' \
 '$<'
 endef
@@ -61,7 +61,7 @@ INDEX_SRC = README.org resources/index.org content scripts/index.py
 
 $(DESTDIR)/index.html: YEONGHOEY_FILTER_SRC = $<
 $(DESTDIR)/index.html: $(TEMPDIR)/index.org $(TEMPDIR)/nav.html
-	$(run-pandoc)
+	$(call run-pandoc)
 
 $(TEMPDIR)/index.org: $(INDEX_SRC)
 	mkdir -p "$(dir $@)"
@@ -87,7 +87,7 @@ $(TEMPDIR)/%/nav.html : content/%/README.org
 $(CONTENT_DST): YEONGHOEY_FILTER_SRC = $<
 $(CONTENT_DST): \
 $(DESTDIR)/%/index.html : content/%/README.org $(TEMPDIR)/%/nav.html
-	$(run-pandoc)
+	$(call run-pandoc,--table-of-contents)
 
 
 # ==============================================================================
