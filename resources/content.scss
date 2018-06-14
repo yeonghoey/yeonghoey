@@ -167,10 +167,32 @@ blockquote {
   border-left: 4px solid $source;
 }
 
-// GitHub style description list
+// GitHub style list
+dl,
+ol,
+ul, {
+  margin-top: 0;
+  margin-bottom: 2em;
+  padding-left: 2em;
+
+  dl,
+  ol,
+  ul, {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 dt {
+  margin-top: 0.75em;
   font-style: italic;
   font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+  margin-bottom: 0.75em;
+  padding: 0 1em;
 }
 
 // simplified table
