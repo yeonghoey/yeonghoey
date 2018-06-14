@@ -59,11 +59,6 @@ nav.menu ul.children li {
   }
 }
 
-p.subtitle > a,
-p.subtitle > img {
-  display: block;
-}
-
 article {
   font-family: $font-family-base;
   color: $black;
@@ -71,6 +66,15 @@ article {
   max-width: 960px;
   padding: 0.5em;
   margin: auto;
+}
+
+p.subtitle > a,
+p.subtitle > img {
+  display: block;
+}
+
+nav.toc > ul {
+  font-size: 0.75em;
 }
 
 h1,
