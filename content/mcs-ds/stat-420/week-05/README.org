@@ -317,3 +317,120 @@ t &= \frac{\hat{\beta}_1-\beta_{10}}{s_e / \sqrt{S_{xx}}} \\
 :REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html
 :END:
+
+** Matrix Approach to Regression
+$$
+Y = X \beta + \epsilon \\
+
+Y = \begin{bmatrix} Y_1 \\ Y_2 \\ \vdots\\ Y_n \end{bmatrix}, \quad
+X = \begin{bmatrix}
+1      & x_{11}    & x_{12}    & \cdots & x_{1(p-1)} \\
+1      & x_{21}    & x_{22}    & \cdots & x_{2(p-1)} \\
+\vdots & \vdots    & \vdots    &  & \vdots \\
+1      & x_{n1}    & x_{n2}    & \cdots & x_{n(p-1)} \\
+\end{bmatrix}, \quad
+\epsilon = \begin{bmatrix} \epsilon_1 \\ \epsilon_2 \\ \vdots\\ \epsilon_n \end{bmatrix}
+$$
+
+$$
+\beta = \begin{bmatrix}
+\beta_0 & \beta_1 & \beta_2 & \dots & \beta_{p-1} \\
+\end{bmatrix}
+$$
+
+(I tweaked the notation from the book as rows for $n$, cols for $p$)
+
+So, we can derive:
+\begin{aligned}
+\hat{\beta} &= \left(  X^\top X  \right)^{-1}X^\top y \\
+\hat{y} &= X \hat{\beta} \\
+s_e^2 &= \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{n - p} = \frac{e^\top e}{n-p} \\
+\end{aligned}
+
+** Sampling Distribution
+$$
+\text{Var}[\hat{\beta}_j] = \sigma^2 C_{jj}
+$$
+
+where
+
+$$
+C = \left(X^\top X\right)^{-1}
+$$
+
+$$
+C = \begin{bmatrix}
+C_{00}     & C_{01}     & C_{02}     & \cdots & C_{0(p-1)}     \\
+C_{10}     & C_{11}     & C_{12}     & \cdots & C_{1(p-1)}     \\
+C_{20}     & C_{21}     & C_{22}     & \cdots & C_{2(p-1)}     \\
+\vdots     & \vdots     & \vdots     &        & \vdots         \\
+C_{(p-1)0} & C_{(p-1)1} & C_{(p-1)2} & \cdots & C_{(p-1)(p-1)} \\
+\end{bmatrix}
+$$
+
+So,
+
+\begin{aligned}
+\text{SD}[\hat{\beta}] &= \sigma \sqrt{\left(  X^\top X  \right)^{-1}} \\
+\text{SE}[\hat{\beta}] &= s_e \sqrt{\left(  X^\top X  \right)^{-1}}
+\end{aligned}
+
+And,
+
+\begin{aligned}
+\hat{\beta}_j &\sim N\left(\beta_j, \sigma^2 C_{jj}  \right). \\
+\frac{\hat{\beta}_j - \beta_j}{s_e \sqrt{C_{jj}}} &\sim t_{n-p}
+\end{aligned}
+
+** Confidence Intervals
+\begin{aligned}
+\hat{\beta}_j &\pm t_{\alpha/2, n - p} \cdot s_e\sqrt{C_{jj}} \\
+\hat{y}(x_0) &\pm t_{\alpha/2, n - p} \cdot s_e \sqrt{x_{0}^\top C x_{0}} \\
+\hat{y}(x_0) &\pm t_{\alpha/2, n - p} \cdot s_e \sqrt{1 + x_{0}^\top C x_{0}} \quad \text{(Prediction)}
+\end{aligned}
+
+#+BEGIN_SRC R :session :exports none
+  autompg = read.table(
+    "http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data",
+    quote = "\"",
+    comment.char = "",
+    stringsAsFactors = FALSE)
+                                          # give the dataframe headers
+  colnames(autompg) = c("mpg", "cyl", "disp", "hp", "wt", "acc", "year", "origin", "name")
+                                          # remove missing data, which is stored as "?"
+  autompg = subset(autompg, autompg$hp != "?")
+                                          # remove the plymouth reliant, as it causes some issues
+  autompg = subset(autompg, autompg$name != "plymouth reliant")
+                                          # give the dataset row names, based on the engine, year and name
+  rownames(autompg) = paste(autompg$cyl, "cylinder", autompg$year, autompg$name)
+                                          # remove the variable for name, as well as origin
+  autompg = subset(autompg, select = c("mpg", "cyl", "disp", "hp", "wt", "acc", "year"))
+                                          # change horsepower from character to numeric
+  autompg$hp = as.numeric(autompg$hp)
+                                          # check final structure of data
+  str(autompg)
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC R :session :results output :exports both
+  mpg_model = lm(mpg ~ wt + year, data = autompg)
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC R :session :results output :exports both
+  confint(mpg_model, level = 0.99)
+#+END_SRC
+
+#+RESULTS:
+:                     0.5 %       99.5 %
+: (Intercept) -25.052563681 -4.222720208
+: wt           -0.007191036 -0.006078716
+: year          0.632680051  0.890123859
+
+** Significance of Regression
+[[file:_img/fa7b501ce96470993b2057d3c66438357f0d571c.png]]
+
+** Nested Models
+[[file:_img/70d75ebd2751069b69ebd0093f32595bce3a421e.png]]
