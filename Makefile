@@ -50,7 +50,7 @@ SCSS_DST = $(SCSS_SRC:resources/%.scss=$(DESTDIR)/_css/%.css)
 $(SCSS_DST):
 $(DESTDIR)/_css/%.css : resources/%.scss
 	mkdir -p "$(dir $@)"
-	sassc $< $@
+	pipenv run sassc $< $@
 
 
 # ==============================================================================
