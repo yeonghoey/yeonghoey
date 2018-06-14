@@ -62,17 +62,6 @@ def handle_image(key, value, format, meta):
 
 
 # =============================================================================
-# Remove org-tags like :TOC_2_gh:
-# =============================================================================
-def handle_notag(key, value, format, meta):
-    if key == 'Span':
-        attr, inlines = value
-        _, classes, _ = attr
-        if 'tag' in classes:
-            return []
-
-
-# =============================================================================
 # Embed pdf files, use `[[file:<path>.pdf::<ratio>]]`
 # <ratio> is one of `21by9`, `16by9`, `4by3` `1by1
 # =============================================================================
@@ -103,6 +92,5 @@ if __name__ == '__main__':
     pf.toJSONFilters(filter(None, [
         handle_debug if DEBUG else None,
         handle_image,
-        handle_notag,
         handle_pdf,
     ]))
