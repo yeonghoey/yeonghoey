@@ -458,3 +458,9 @@ $$
 
 Note that $t$ test and $F$ are equivalent when null model is nested and $p - q = 1$;
 In this case, $P(>|t|) = P(>F)$ and $t^2 = F$
+
+#+BEGIN_QUOTE
+Now, it turns out that just due to the way these squares work,
+the residual sum of squares for *the larger model will never be worse* than
+the residual sum of squares for the smaller model.
+#+END_QUOTE
