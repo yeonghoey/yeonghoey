@@ -1,10 +1,5 @@
 #+TITLE: zsh
 
-* Table of Contents :TOC_2_gh:
-- [[#zshbuiltins][zshbuiltins]]
-  - [[#autoload-and-fpath][~autoload~ and ~fpath~]]
-- [[#links][Links]]
-
 * zshbuiltins
 ** ~autoload~ and ~fpath~
 - ~fpath~ is a array of directories which contain function files to be autoloaded

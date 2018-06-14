@@ -1,18 +1,5 @@
 #+TITLE: Urwid
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#progressbar][ProgressBar]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#display-attributes][Display Attributes]]
-  - [[#widgets][Widgets]]
-- [[#how-to][How-to]]
-  - [[#implement-tick-loop][Implement tick loop]]
-  - [[#handle-signals][Handle signals]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** ProgressBar

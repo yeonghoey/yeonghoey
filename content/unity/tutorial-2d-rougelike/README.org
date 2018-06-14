@@ -1,21 +1,5 @@
 #+TITLE: 2D Rougelike tutorial
 
-* Table of Contents :TOC_1_gh:
-- [[#project-introduction][Project Introduction]]
-- [[#player-and-enemy-animations][Player and Enemy Animations]]
-- [[#creating-the-tile-prefabs][Creating the Tile Prefabs]]
-- [[#writing-the-board-manager][Writing the Board Manager]]
-- [[#writing-the-game-manager][Writing the Game Manager]]
-- [[#moving-object-script][Moving Object Script]]
-- [[#creating-destructible-walls][Creating Destructible Walls]]
-- [[#player-animator-controller][Player Animator Controller]]
-- [[#writing-the-player-script][Writing the Player Script]]
-- [[#writing-the-enemy-script][Writing the Enemy Script]]
-- [[#enemy-animator-controller][Enemy Animator Controller]]
-- [[#adding-ui--level-transitions][Adding UI & Level Transitions]]
-- [[#audio-and-sound-manager][Audio and Sound Manager]]
-- [[#adding-mobile-controls][Adding Mobile Controls]]
-
 * Project Introduction
 [[file:_img/screenshot_2017-04-30_19-16-38.png]]
 

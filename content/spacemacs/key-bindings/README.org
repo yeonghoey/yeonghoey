@@ -1,7 +1,4 @@
 #+TITLE: Spacemacs: Key Bindings
 
-* Table of Contents :TOC_2_gh:
-- [[#helm][helm]]
-
 * helm
 | ~C-c C-f~   | helm-follow-mode |

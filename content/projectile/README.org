@@ -1,9 +1,5 @@
 #+TITLE: Projectile
 
-* Table of Contents :TOC_3_gh:
-- [[#how-to][How-to]]
-  - [[#ignore-files][Ignore files]]
-
 * How-to
 ** Ignore files
 :REFERENCES:

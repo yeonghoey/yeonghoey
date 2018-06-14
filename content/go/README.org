@@ -1,10 +1,5 @@
 #+TITLE: go
 
-* Table of Contents :TOC_1_gh:
-- [[#language][Language]]
-- [[#command][Command]]
-- [[#topics][Topics]]
-
 * Language
 ** error
 #+BEGIN_SRC go

@@ -1,26 +1,5 @@
 #+TITLE: MySQL
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-  - [[#cli][CLI]]
-  - [[#select][SELECT]]
-  - [[#insertupdate][INSERT/UPDATE]]
-  - [[#show][SHOW]]
-  - [[#database][DATABASE]]
-  - [[#table][TABLE]]
-  - [[#types][TYPES]]
-  - [[#key][KEY]]
-  - [[#view][VIEW]]
-  - [[#grantrevoke][GRANT/REVOKE]]
-- [[#reference][Reference]]
-  - [[#drop-table][DROP TABLE]]
-- [[#topics][Topics]]
-  - [[#database-schema][Database? Schema?]]
-  - [[#datetime-vs-timestamp][DATETIME vs TIMESTAMP]]
-  - [[#foreign-key-constraint][Foreign key constraint]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 :REFERENCES:
 - https://en.wikibooks.org/wiki/MySQL/CheatSheet

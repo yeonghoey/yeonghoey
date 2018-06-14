@@ -1,15 +1,5 @@
 #+TITLE: Google Docs
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-  - [[#suggest-editing][Suggest editing]]
-  - [[#disable-spell-check][Disable spell check]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 * Terminology

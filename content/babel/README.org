@@ -1,13 +1,5 @@
 #+TITLE: babel
 
-* Table of Contents :TOC_3_gh:
-- [[#cli][CLI]]
-  - [[#integration-with-webpack][Integration with webpack]]
-- [[#options][Options]]
-- [[#plugins][Plugins]]
-- [[#presets][Presets]]
-  - [[#env][env]]
-
 * CLI
 #+BEGIN_SRC shell
   npm install --save-dev babel-cli

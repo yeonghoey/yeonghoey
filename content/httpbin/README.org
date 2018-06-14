@@ -1,11 +1,5 @@
 #+TITLE: httpbin
 
-* Table of Contents :TOC_3_gh:
-- [[#reference][Reference]]
-  - [[#get][/get]]
-  - [[#headers][/headers]]
-- [[#links][Links]]
-
 * Reference
 ** /get
 #+BEGIN_SRC shell

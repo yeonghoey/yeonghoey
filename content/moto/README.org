@@ -1,8 +1,5 @@
 #+TITLE: moto
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-
 * Overview
 - Mock AWS Services
 

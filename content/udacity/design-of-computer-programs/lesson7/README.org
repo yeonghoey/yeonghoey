@@ -1,17 +1,5 @@
 #+TITLE: Lesson 7
 
-* Table of Contents :TOC_2_gh:
-- [[#lesson-7][Lesson 7]]
-  - [[#intro][Intro]]
-  - [[#josh-bloch][Josh Bloch]]
-- [[#practice-exam][Practice Exam]]
-  - [[#quiz-bowling][Quiz: Bowling]]
-  - [[#quiz-logic-puzzle][Quiz: Logic Puzzle]]
-  - [[#quiz-polynomials][Quiz: Polynomials]]
-  - [[#quiz-parking-lot-search][Quiz: Parking Lot Search]]
-  - [[#quiz-darts-probability][Quiz: Darts Probability]]
-  - [[#quiz-portmanteau][Quiz: Portmanteau]]
-
 * Lesson 7
 ** Intro
 [[file:_img/screenshot_2017-01-04_22-09-26.png]]

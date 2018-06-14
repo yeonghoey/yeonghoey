@@ -1,8 +1,5 @@
 #+TITLE: Web API
 
-* Table of Contents :TOC_2_gh:
-- [[#url][URL]]
-
 * URL
 :REFERENCES:
 - https://developer.mozilla.org/en-US/docs/Web/API/URL

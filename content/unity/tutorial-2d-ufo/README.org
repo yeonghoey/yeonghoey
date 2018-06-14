@@ -1,16 +1,5 @@
 #+TITLE: 2D UFO
 
-* Table of Contents :TOC_1_gh:
-- [[#introduction-to-2d-ufo-project][Introduction to 2D UFO Project]]
-- [[#setting-up-the-play-field][Setting Up The Play Field]]
-- [[#controlling-the-player][Controlling the Player]]
-- [[#adding-collision][Adding Collision]]
-- [[#following-the-player-with-the-camera][Following the Player with the Camera]]
-- [[#creating-collectable-objects][Creating Collectable Objects]]
-- [[#picking-up-collectables][Picking Up Collectables]]
-- [[#counting-collectables-and-displaying-score][Counting Collectables and Displaying Score]]
-- [[#building-our-2d-ufo-game][Building our 2D UFO Game]]
-
 * Introduction to 2D UFO Project
 [[file:_img/screenshot_2017-04-25_00-55-14.png]]
 

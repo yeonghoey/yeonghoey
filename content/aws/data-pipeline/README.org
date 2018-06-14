@@ -1,16 +1,5 @@
 #+TITLE: AWS Data Pipeline
 
-* Table of Contents                                                :TOC_2_gh:
-- [[#references][References]]
-- [[#topics][Topics]]
-  - [[#objects][Objects]]
-  - [[#schedule][Schedule]]
-  - [[#resource][Resource]]
-  - [[#activity][Activity]]
-  - [[#the-default-object][The Default Object]]
-  - [[#custom-fields][Custom Fields]]
-  - [[#referencing-values][Referencing Values]]
-
 * References
 * Topics
 ** Objects

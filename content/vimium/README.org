@@ -1,9 +1,5 @@
 #+TITLE: Vimium
 
-* Table of Contents :TOC_3_gh:
-- [[#custom-key-mappings][Custom key mappings]]
-- [[#options][Options]]
-
 * Custom key mappings
 :REFERENCES:
 - https://github.com/philc/vimium#custom-key-mappings

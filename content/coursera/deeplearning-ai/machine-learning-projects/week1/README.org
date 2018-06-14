@@ -1,24 +1,5 @@
 #+TITLE: ML Strategy (1)
 
-* Table of Contents :TOC_3_gh:
-- [[#introduction-to-ml-strategy][Introduction to ML Strategy]]
-  - [[#why-ml-strategy][Why ML Strategy]]
-  - [[#orthogonalization][Orthogonalization]]
-- [[#setting-up-your-goal][Setting up your goal]]
-  - [[#single-number-evaluation-metric][Single number evaluation metric]]
-  - [[#satisficing-and-optimizing-metric][Satisficing and Optimizing metric]]
-  - [[#traindevtest-distributions][Train/dev/test distributions]]
-  - [[#size-of-the-dev-and-test-sets][Size of the dev and test sets]]
-  - [[#when-to-change-devtest-sets-and-metrics][When to change dev/test sets and metrics]]
-- [[#comparing-to-human-level-performance][Comparing to human-level performance]]
-  - [[#why-human-level-performance][Why human-level performance]]
-  - [[#avoidable-bias][Avoidable bias]]
-  - [[#understanding-human-level-performance][Understanding human-level performance]]
-  - [[#surpassing-human-level-performance][Surpassing human-level performance]]
-  - [[#improving-your-model-performance][Improving your model performance]]
-- [[#machine-learning-flight-simulator][Machine Learning flight simulator]]
-  - [[#quiz-bird-recognition-in-the-city-of-peacetopia][Quiz: Bird recognition in the city of Peacetopia]]
-
 * Introduction to ML Strategy
 ** Why ML Strategy
 [[file:_img/screenshot_2017-10-30_08-45-11.png]]

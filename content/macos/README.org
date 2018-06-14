@@ -1,11 +1,5 @@
 #+TITLE: macOS
 
-* Table of Contents :TOC_2_gh:
-- [[#how-to][How-to]]
-  - [[#change-an-user-name-and-its-home-folder][Change an user name and its home folder]]
-  - [[#disable-space-auto-switching][Disable space auto switching]]
-  - [[#disable-recent-items][Disable Recent Items]]
-
 * How-to
 ** Change an user name and its home folder
 - *This is not recommened. Many applications will break because of hard coded HOME path.*

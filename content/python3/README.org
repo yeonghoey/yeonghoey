@@ -1,9 +1,5 @@
 #+TITLE: Python 3
 
-* Table of Contents :TOC_2_gh:
-- [[#36][3.6]]
-  - [[#formatted-stirng-literals][Formatted stirng literals]]
-
 * 3.6
 :REFERENCES:
 - https://docs.python.org/3/whatsnew/3.6.html

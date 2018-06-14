@@ -1,11 +1,5 @@
 #+TITLE: An Overview of Memory Management in Rust
 
-* Table of Contents :TOC_2_gh:
- - [[#intro][Intro]]
- - [[#examples][Examples]]
- - [[#summary][Summary]]
- - [[#link][Link]]
-
 * Intro
 The blog post is an old one. the syntax sugar of ~\~T~ and ~@T~ are deprecated.
 But the point seems still valid. The blog post explains in ~C++~ concepts which I'm familar with.

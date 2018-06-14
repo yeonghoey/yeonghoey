@@ -1,15 +1,5 @@
 #+TITLE: GitLab
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#config-file-paths][Config file paths]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-  - [[#restart-gitlab][Restart GitLab]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** Config file paths

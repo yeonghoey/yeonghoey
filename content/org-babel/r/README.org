@@ -1,8 +1,5 @@
 #+TITLE: org-babel: R
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-
 * Overview
 #+BEGIN_SRC elisp
   (org-babel-do-load-languages

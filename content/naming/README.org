@@ -1,8 +1,5 @@
 #+TITLE: Naming
 
-* Table of Contents :TOC_3_gh:
-- [[#cross-platform-safe-file-names][Cross-platform safe file names]]
-
 * Cross-platform safe file names
 [[file:_img/screenshot_2018-03-16_10-21-18.png]]
 

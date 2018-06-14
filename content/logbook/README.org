@@ -1,10 +1,5 @@
 #+TITLE: logbook
 
-* Table of Contents :TOC_2_gh:
- - [[#handlers][Handlers]]
-   - [[#basics][Basics]]
-   - [[#testhandler][TestHandler]]
-
 * Handlers
 :REFERENCES:
 - http://logbook.readthedocs.io/en/stable/api/handlers.html

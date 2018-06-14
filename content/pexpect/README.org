@@ -1,10 +1,5 @@
 #+TITLE: pexpect
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#run][run]]
-- [[#spawn][spawn]]
-
 * Overview
 - Pexpect makes Python a better tool for controlling other applications.
 - Pexpect can be used for automating interactive applications

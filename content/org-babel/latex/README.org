@@ -1,10 +1,5 @@
 #+TITLE: Babel: LaTex
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#headers][Headers]]
-  - [[#buffer][:buffer]]
-
 * Overview
 #+BEGIN_SRC org
   ,#+LATEX_HEADER: \usepackage{mathtools}

@@ -1,13 +1,5 @@
 #+TITLE: Bitcoin and Anonymity
 
-* Table of Contents :TOC_3_gh:
-- [[#anonymity-basics][Anonymity Basics]]
-- [[#how-to-de-anonymize-bitcoin][How to de-anonymize Bitcoin]]
-- [[#mixing][Mixing]]
-- [[#decentralized-mixing][Decentralized Mixing]]
-- [[#zerocoin-and-zerocash][Zerocoin and Zerocash]]
-- [[#tor-and-the-silk-road][Tor and the Silk Road]]
-
 * Anonymity Basics
 * How to de-anonymize Bitcoin
 * Mixing

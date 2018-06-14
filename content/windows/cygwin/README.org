@@ -1,8 +1,5 @@
 #+TITLE: Cygwin
 
-* Table of Contents :TOC_1_gh:
- - [[#setup][Setup]]
-
 * Setup
 - Package List: https://cygwin.com/packages/package_list.html
 - CLI on setup.exe: https://www.cygwin.com/faq/faq.html#faq.setup.cli

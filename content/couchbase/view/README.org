@@ -1,15 +1,5 @@
 #+TITLE: View
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#how-to][How-to]]
-- [[#reference][Reference]]
-  - [[#maxparallelindexers][maxParallelIndexers]]
-- [[#topics][Topics]]
-  - [[#index-updates][Index updates]]
-- [[#terminology][Terminology]]
-- [[#links][Links]]
-
 * Overview
 [[file:_img/screenshot_2017-08-16_18-54-27.png]]
 

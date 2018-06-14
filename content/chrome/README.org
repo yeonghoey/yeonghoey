@@ -1,16 +1,4 @@
 #+TITLE: Chrome
-* Table of Contents                                                :TOC_2_gh:
-- [[#extensions][Extensions]]
-- [[#developer-tools][Developer Tools]]
-  - [[#debugging][Debugging]]
-  - [[#storages-and-cookies][Storages and Cookies]]
-  - [[#view-http-headers][View HTTP headers]]
-  - [[#computed-style-pane][Computed Style Pane]]
-- [[#use-cases][Use Cases]]
-  - [[#allow-file-access-from-local-files][Allow file access from local files]]
-  - [[#run-with-an-intital-incognito-window][Run with an intital incognito window]]
-  - [[#server-dns-address-could-not-be-found][Server DNS address could not be found]]
-
 * Extensions
 - chrome://extensions/shortcuts
 

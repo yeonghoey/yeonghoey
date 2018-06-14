@@ -1,37 +1,5 @@
 #+TITLE: Learn HTML
 
-* Table of Contents :TOC_3_gh:
-- [[#html-elements-and-structure][HTML Elements and Structure]]
-  - [[#introduction-to-html][Introduction to HTML]]
-    - [[#doctype][DOCTYPE]]
-    - [[#the-head][The Head]]
-    - [[#the-body][The Body]]
-    - [[#html-structure][HTML Structure]]
-    - [[#indentation][Indentation]]
-    - [[#comments][Comments]]
-  - [[#common-elements][Common Elements]]
-    - [[#text-content-tags][Text Content Tags]]
-    - [[#text-style-tags][Text Style Tags]]
-    - [[#line-breaks][Line Breaks]]
-    - [[#unordered-lists][Unordered Lists]]
-  - [[#images][Images]]
-  - [[#image-alts][Image Alts]]
-  - [[#videos][Videos]]
-  - [[#new-page][New Page]]
-  - [[#relative][Relative]]
-  - [[#same-page][Same Page]]
-  - [[#navigation][Navigation]]
-- [[#html-tables][HTML Tables]]
-  - [[#table-rows][Table Rows]]
-  - [[#table-data][Table Data]]
-  - [[#table-headings][Table Headings]]
-  - [[#table-borders][Table Borders]]
-  - [[#spanning-columns][Spanning Columns]]
-  - [[#spanning-rows][Spanning Rows]]
-  - [[#table-body][Table Body]]
-  - [[#table-head][Table Head]]
-  - [[#table-footer][Table Footer]]
-
 * HTML Elements and Structure
 ** Introduction to HTML
 *** DOCTYPE

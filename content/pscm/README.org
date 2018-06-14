@@ -1,12 +1,5 @@
 #+TITLE: Plastic SCM
 
-* Table of Contents :TOC_1_gh:
-- [[#repository-and-workspace][Repository and Workspace]]
-- [[#checkout-modify-checkin][Checkout-Modify-Checkin]]
-- [[#change-checkin][Change-Checkin]]
-- [[#writableconf-readonlyconf][writable.conf readonly.conf]]
-- [[#ignoreconf][ignore.conf]]
-
 * Repository and Workspace
 [[file:_img/screenshot_2017-04-05_15-08-24.png]]
 

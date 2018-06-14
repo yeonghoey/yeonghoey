@@ -1,11 +1,5 @@
 #+TITLE: FFmpeg
 
-* Table of Contents :TOC_2_gh:
-- [[#how-to][How-to]]
-  - [[#encode-html5-compatible-videos][Encode HTML5 compatible videos]]
-- [[#use-cases][Use Cases]]
-  - [[#extracting-audio-from-video][Extracting audio from video]]
-
 * How-to
 ** Encode HTML5 compatible videos
 #+BEGIN_SRC shell

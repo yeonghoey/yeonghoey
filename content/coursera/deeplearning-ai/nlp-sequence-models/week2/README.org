@@ -1,25 +1,5 @@
 #+TITLE: Natural Language Processing & Word Embeddings
 
-* Table of Contents :TOC_3_gh:
-- [[#introduction-to-word-embeddings][Introduction to Word Embeddings]]
-  - [[#word-representation][Word Representation]]
-  - [[#using-word-embeddings][Using word embeddings]]
-  - [[#properties-of-word-embeddings][Properties of word embeddings]]
-  - [[#embedding-matrix][Embedding matrix]]
-- [[#learning-word-embeddings-word2vec--glove][Learning Word Embeddings: Word2vec & GloVe]]
-  - [[#learning-word-embeddings][Learning word embeddings]]
-  - [[#word2vec][Word2Vec]]
-  - [[#negative-sampling][Negative Sampling]]
-  - [[#glove-word-vectors][GloVe word vectors]]
-- [[#applications-using-word-embeddings][Applications using Word Embeddings]]
-  - [[#sentiment-classification][Sentiment Classification]]
-  - [[#debiasing-word-embeddings][Debiasing word embeddings]]
-- [[#practice-questions][Practice questions]]
-  - [[#quiz-natural-language-porcessing--word-embeddings][Quiz: Natural Language Porcessing & Word Embeddings]]
-- [[#programming-assignments][Programming assignments]]
-  - [[#operations-on-word-vectors---debiasing][Operations on word vectors - Debiasing]]
-  - [[#emojify][Emojify]]
-
 * Introduction to Word Embeddings
 ** Word Representation
 [[file:_img/screenshot_2018-02-11_22-32-17.png]]

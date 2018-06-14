@@ -1,19 +1,5 @@
 #+TITLE: click
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#echo-secho][echo, secho]]
-  - [[#option][option]]
-  - [[#param_decls][param_decls]]
-  - [[#path][Path]]
-  - [[#callback][callback]]
-- [[#samples][Samples]]
-  - [[#arguments][Arguments]]
-- [[#how-to][How-to]]
-  - [[#handle-exceptions][Handle exceptions]]
-  - [[#support-auto-complete][Support auto complete]]
-
 * Overview
 #+BEGIN_SRC python
   @click.command()

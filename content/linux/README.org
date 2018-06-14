@@ -1,15 +1,5 @@
 #+TITLE: Linux
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#topics][Topics]]
-  - [[#inode-structure][Inode Structure]]
-  - [[#numa][NUMA]]
-- [[#how-to][How-to]]
-  - [[#config-swap-spacesfiles][Config swap spaces/files]]
-  - [[#mount-a-volume][Mount a Volume]]
-- [[#links][Links]]
-
 * Overview
 [[file:_img/screenshot_2017-08-16_20-34-39.png]]
 

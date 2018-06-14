@@ -1,8 +1,5 @@
 #+TITLE: Python Fire
 
-* Table of Contents :TOC_2_gh:
- - [[#links][Links]]
-
 * Links
 :REFERENCES:
 - https://github.com/google/python-fire

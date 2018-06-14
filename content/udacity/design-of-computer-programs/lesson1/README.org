@@ -1,29 +1,5 @@
 #+TITLE: Lesson 1
 
-* Table of Contents :TOC_2_gh:
-- [[#lesson-1][Lesson 1]]
-  - [[#outlining-the-problem][Outlining The Problem]]
-  - [[#quiz-testing][Quiz: Testing]]
-  - [[#back-to-hand-rank][Back To Hand Rank]]
-  - [[#quiz-writing-hand-rank][Quiz: Writing Hand Rank]]
-  - [[#quiz-fixing-card-rank][Quiz: Fixing Card Rank]]
-  - [[#quiz-straight-and-flush][Quiz: Straight And Flush]]
-  - [[#quiz-kind-function][Quiz: Kind Function]]
-  - [[#quiz-two-pair-function][Quiz: Two Pair Function]]
-  - [[#quiz-ace-low-straight][Quiz: Ace Low Straight]]
-  - [[#quiz-allmax][Quiz: Allmax]]
-  - [[#quiz-deal][Quiz: Deal]]
-  - [[#dimensions-of-programming][Dimensions Of Programming]]
-  - [[#refactoring][Refactoring]]
-  - [[#summary][Summary]]
-- [[#bonus-shuffling][Bonus: Shuffling]]
-  - [[#quiz-shuffle-runtime][Quiz: Shuffle Runtime]]
-  - [[#quiz-is-it-random][Quiz: Is It Random]]
-  - [[#testing-shuffles][Testing Shuffles]]
-- [[#problem-set-1][Problem Set 1]]
-  - [[#quiz-jokers-wild][Quiz: Jokers Wild]]
-- [[#office-hours-1][Office Hours 1]]
-
 * Lesson 1
 ** Outlining The Problem
 [[file:_img/screenshot_2017-01-09_12-52-17.png]]

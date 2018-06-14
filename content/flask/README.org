@@ -1,40 +1,5 @@
 #+TITLE: flask
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#config][Config]]
-  - [[#flask][Flask]]
-  - [[#g][g]]
-  - [[#jsonify][jsonify]]
-  - [[#open_resource][open_resource]]
-  - [[#redirect][redirect]]
-  - [[#render_template][render_template]]
-  - [[#request][request]]
-  - [[#multidict][MultiDict]]
-  - [[#route][route]]
-  - [[#url_for][url_for]]
-  - [[#test_client][test_client]]
-- [[#topics][Topics]]
-  - [[#application-context][Application Context]]
-  - [[#blueprints][Blueprints]]
-  - [[#commands][Commands]]
-  - [[#cookies][Cookies]]
-  - [[#http-methods][HTTP Methods]]
-  - [[#message-flashing][Message Flashing]]
-  - [[#redirects-and-errors][Redirects and Errors]]
-  - [[#request-context][Request Context]]
-  - [[#responses][Responses]]
-  - [[#routing][Routing]]
-  - [[#sessions][Sessions]]
-  - [[#signals][Signals]]
-  - [[#static-files][Static Files]]
-  - [[#templates][Templates]]
-- [[#patterns][Patterns]]
-  - [[#application-factories][Application Factories]]
-- [[#extensions][Extensions]]
-  - [[#flask-cors][flask-cors]]
-
 * Overview
 #+BEGIN_EXAMPLE
   /<project-root>

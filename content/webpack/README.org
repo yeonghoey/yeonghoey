@@ -1,26 +1,5 @@
 #+TITLE: webpack
 
-* Table of Contents :TOC_3_gh:
-- [[#concepts][Concepts]]
-- [[#entry][Entry]]
-- [[#ouptut][Ouptut]]
-  - [[#substitutions][substitutions]]
-- [[#loaders][Loaders]]
-  - [[#css-loader][css-loader]]
-  - [[#style-loader][style-loader]]
-  - [[#babel-loader][babel-loader]]
-- [[#plugins][Plugins]]
-  - [[#htmlwebpackplugin][HtmlWebpackPlugin]]
-  - [[#defineplugin][DefinePlugin]]
-  - [[#cleanwebpackplugin][CleanWebpackPlugin]]
-- [[#cli][CLI]]
-- [[#configuration][Configuration]]
-  - [[#mode][mode]]
-- [[#development][Development]]
-- [[#production][Production]]
-- [[#topics][Topics]]
-  - [[#dependencies-vs-devdependencies][dependencies vs devDependencies]]
-
 * Concepts
 #+BEGIN_SRC javascript
   const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm

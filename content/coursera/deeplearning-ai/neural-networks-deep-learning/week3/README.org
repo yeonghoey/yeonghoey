@@ -1,21 +1,5 @@
 #+TITLE: Neural Networks and Deep Learning: Week 3
 
-* Table of Contents :TOC_3_gh:
-- [[#shallow-neural-network][Shallow Neural Network]]
-  - [[#neural-networks-overview][Neural Networks Overview]]
-  - [[#neural-network-representation][Neural Network Representation]]
-  - [[#computing-a-neural-networks-output][Computing a Neural Network's Output]]
-  - [[#vectorizing-across-multiple-examples][Vectorizing across multiple examples]]
-  - [[#explanation-for-vectorized-implementation][Explanation for Vectorized Implementation]]
-  - [[#activation-functions][Activation functions]]
-  - [[#why-do-you-need-non-linear-activation-functions][Why do you need non-linear activation functions?]]
-  - [[#derivatives-of-activation-functions][Derivatives of activation functions]]
-  - [[#gradient-descent-for-neural-networks][Gradient descent for Neural Networks]]
-  - [[#backpropagation-intuition-optional][Backpropagation intuition (optional)]]
-  - [[#random-initialization][Random Initialization]]
-- [[#programming-assignment][Programming Assignment]]
-  - [[#planar-data-classification][Planar data classification]]
-
 * Shallow Neural Network
 ** Neural Networks Overview
 [[file:_img/screenshot_2017-09-23_09-52-42.png]]

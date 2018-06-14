@@ -1,9 +1,5 @@
 #+TITLE: Statistics
 
-* Table of Contents :TOC_2_gh:
-- [[#topics][Topics]]
-  - [[#why-we-divide-by-n-1-for-the-unbiased-sample][Why we divide by n-1 for the unbiased sample]]
-
 * Topics
 ** Why we divide by n-1 for the unbiased sample
 - Since we usually don't know the real $\mu$, the population mean.

@@ -1,16 +1,5 @@
 #+TITLE: Udacity: Intro to HTML and CSS
 
-* Table of Contents :TOC_2_gh:
-- [[#html-css-and-boxes][HTML, CSS, and Boxes]]
-  - [[#interview-with-jacques][Interview with Jacques]]
-  - [[#quiz-styling-up][Quiz: Styling Up]]
-  - [[#quiz-using-semantic-tags][Quiz: Using Semantic Tags]]
-  - [[#quiz-the-box-revisited][Quiz: The Box Revisited]]
-  - [[#positioning-boxes][Positioning Boxes]]
-  - [[#code-test-refine][Code, Test, Refine]]
-  - [[#quiz-verifying-html-and-css][Quiz: Verifying HTML and CSS]]
-- [[#css-frameworks-responsive-layouts][CSS Frameworks, Responsive Layouts]]
-
 * HTML, CSS, and Boxes
 ** Interview with Jacques
 [[file:_img/screenshot_2017-01-27_07-50-12.png]]

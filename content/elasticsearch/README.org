@@ -1,32 +1,5 @@
 #+TITLE: Elasticsearch
 
-* Table of Contents :TOC_3_gh:
-- [[#reference][Reference]]
-  - [[#apis][APIs]]
-    - [[#index][<index>]]
-    - [[#_bulk][_bulk]]
-    - [[#_cat][_cat]]
-    - [[#_cluster][_cluster]]
-    - [[#_nodes][_nodes]]
-    - [[#_template][_template]]
-  - [[#query-string-syntax][Query string syntax]]
-- [[#topics][Topics]]
-  - [[#understanding-cluster][Understanding Cluster]]
-    - [[#inside-a-shard][Inside a Shard]]
-    - [[#routing-a-document-to-a-shard][Routing a Document to a Shard]]
-    - [[#choosing-number-of-shards][Choosing Number of Shards]]
-    - [[#routing][Routing]]
-  - [[#inverted-index][Inverted Index]]
-    - [[#terms-are-normalized][Terms are normalized]]
-    - [[#analysis-and-analyzers][Analysis and Analyzers]]
-    - [[#how-innernested-objects-are-indexed][How Inner(Nested) Objects are Indexed]]
-  - [[#how-queries-work][How Queries Work]]
-  - [[#types-and-mappings][Types and Mappings]]
-- [[#how-to][How-to]]
-  - [[#configure-settings-and-deployment][Configure Settings and Deployment]]
-  - [[#manage-the-change-of-mappings][Manage the change of mappings]]
-- [[#links][Links]]
-
 * Reference
 ** APIs
 *** <index>

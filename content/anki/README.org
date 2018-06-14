@@ -1,14 +1,5 @@
 #+TITLE: Anki
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#conditional-replacement][Conditional Replacement]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** Conditional Replacement

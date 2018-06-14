@@ -1,9 +1,5 @@
 #+TITLE: Rust
 
-* Table of Contents :TOC_2_gh:
-- [[#concepts][Concepts]]
-  - [[#ownership][Ownership]]
-
 * Concepts
 ** Ownership
 #+BEGIN_SRC rust

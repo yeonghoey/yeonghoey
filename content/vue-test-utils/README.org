@@ -1,10 +1,5 @@
 #+TITLE: [[https://vue-test-utils.vuejs.org/en/][vue-test-utils]]
 
-* Table of Contents :TOC_2_gh:
-- [[#guides][Guides]]
-  - [[#getting-started][Getting Started]]
-  - [[#using-with-vuex][Using with Vuex]]
-
 * Guides
 ** Getting Started
 #+BEGIN_SRC shell

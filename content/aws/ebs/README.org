@@ -1,16 +1,5 @@
 #+TITLE: EBS
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-- [[#how-to][How-to]]
-- [[#topics][Topics]]
-  - [[#ebs-optimized-instances][EBS-Optimized Instances]]
-  - [[#monitor-io-characteristics-with-cloudwatch][Monitor I/O Characteristics with CloudWatch]]
-  - [[#gp2-io-credits-and-burst-performance][gp2: I/O Credits and Burst Performance]]
-  - [[#io1-for-the-best-per-io-latency-experience][io1: For the best per-I/O latency experience]]
-  - [[#io1-within-10-percent-of-the-provisioned-iops-performance][io1: Within 10 percent of the provisioned IOPS performance?]]
-- [[#links][Links]]
-
 * Reference
 [[file:_img/screenshot_2017-07-13_19-12-16.png]]
 

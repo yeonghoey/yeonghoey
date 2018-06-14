@@ -1,24 +1,5 @@
 #+TITLE: Spacemacs
 
-* Table of Contents :TOC_2_gh:
-- [[#emacs][Emacs]]
-  - [[#indirect-buffers][Indirect Buffers]]
-  - [[#regex][Regex]]
-- [[#tips][Tips]]
-  - [[#searching][Searching]]
-  - [[#saveload-layouts-and-workspaces][Save/Load layouts and workspaces]]
-- [[#layers][Layers]]
-  - [[#auto-completion][auto-completion]]
-  - [[#csharp][csharp]]
-  - [[#restclient][restclient]]
-- [[#customization][Customization]]
-  - [[#visual-pastes][Visual Pastes]]
-  - [[#editorconfig][EditorConfig]]
-- [[#use-cases][Use Cases]]
-  - [[#how-to-fix-evaluation-of-code-disabled][How to Fix 'Evaluation of code disabled']]
-- [[#how-to][How-to]]
-  - [[#enable-navigation-by-visual-lines][Enable navigation by visual lines?]]
-
 * Emacs
 ** Indirect Buffers
 #+BEGIN_QUOTE

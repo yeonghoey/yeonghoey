@@ -1,8 +1,5 @@
 #+TITLE: Samba
 
-* Table of Contents :TOC_2_gh:
- - [[#basic-setting-up-for-ubuntu-sharing-the-whole-home-directory][Basic setting up for Ubuntu, sharing the whole home directory]]
-
 * Basic setting up for Ubuntu, sharing the whole home directory
 #+BEGIN_SRC shell
   sudo apt-get install samba

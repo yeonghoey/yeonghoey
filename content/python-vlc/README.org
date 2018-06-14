@@ -1,14 +1,5 @@
 #+TITLE: python-vlc
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#mediaplayer][MediaPlayer]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** MediaPlayer

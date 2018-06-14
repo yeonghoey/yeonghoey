@@ -1,11 +1,5 @@
 #+TITLE: vue-loader
 
-* Table of Contents :TOC_2_gh:
-- [[#features][Features]]
-  - [[#scoped-css][Scoped CSS]]
-- [[#configurations][Configurations]]
-  - [[#pre-processors][Pre-Processors]]
-
 * Features
 ** [[https://vue-loader.vuejs.org/en/features/scoped-css.html][Scoped CSS]]
 *** Deep Selectors

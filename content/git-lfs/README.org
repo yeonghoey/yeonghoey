@@ -1,10 +1,5 @@
 #+TITLE: Git LFS
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#topics][Topics]]
-  - [[#using-git-lfs-pull][Using git lfs pull]]
-
 * Overview
 #+BEGIN_SRC shell
   git lfs install

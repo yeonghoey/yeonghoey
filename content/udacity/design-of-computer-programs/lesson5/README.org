@@ -1,33 +1,5 @@
 #+TITLE: Lesson 5
 
-* Table of Contents :TOC_2_gh:
-- [[#lesson-5][Lesson 5]]
-  - [[#porcine-probability][Porcine Probability]]
-  - [[#concept-inventory][Concept Inventory]]
-  - [[#quiz-hold-and-roll][Quiz: Hold And Roll]]
-  - [[#named-tuples][Named Tuples]]
-  - [[#quiz-hold-at-strategy][Quiz: Hold At Strategy]]
-  - [[#quiz-play-pig][Quiz: Play Pig]]
-  - [[#dependency-injection][Dependency Injection]]
-  - [[#utility][Utility]]
-  - [[#quiz-game-theory][Quiz: Game Theory]]
-  - [[#optimal-pig][Optimal Pig]]
-  - [[#pwin][Pwin]]
-  - [[#quiz-maxwins][Quiz: Maxwins]]
-  - [[#impressing-pig-scouts][Impressing Pig Scouts]]
-  - [[#quiz-maximizing-differential][Quiz: Maximizing Differential]]
-  - [[#being-careful][Being Careful]]
-  - [[#quiz-legal-actions][Quiz: Legal Actions]]
-  - [[#using-tools][Using Tools]]
-  - [[#telling-a-story][Telling A Story]]
-  - [[#conditional-probability][Conditional Probability]]
-  - [[#quiz-tuesday][Quiz: Tuesday]]
-  - [[#summary][Summary]]
-- [[#problem-set-5][Problem Set 5]]
-  - [[#quiz-improving-optimal][Quiz: Improving Optimal]]
-  - [[#quiz-doubling-pigs][Quiz: Doubling Pigs]]
-  - [[#quiz-foxes-and-hens][Quiz: Foxes and Hens]]
-
 * Lesson 5
 ** Porcine Probability
 [[file:_img/screenshot_2016-12-26_10-21-02.png]]

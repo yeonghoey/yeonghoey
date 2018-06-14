@@ -1,10 +1,5 @@
 #+TITLE: STAT 420: Statistical Modeling in R
 
-* Table of Contents :TOC_2_gh:
-- [[#course-information][Course Information]]
-- [[#student-introduction][Student Introduction]]
-- [[#contents][Contents]]
-
 * Course Information
 [[file:_img/screenshot_2018-05-16_13-45-30.png]]
 

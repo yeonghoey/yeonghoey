@@ -1,19 +1,5 @@
 #+TITLE: HTML
 
-* Table of Contents :TOC_2_gh:
-- [[#template][Template]]
-- [[#tags][Tags]]
-  - [[#header][header]]
-  - [[#style][style]]
-  - [[#video][video]]
-- [[#topics][Topics]]
-  - [[#aria][ARIA]]
-  - [[#attributes-vs-properties][attributes vs properties]]
-  - [[#quotes-for-attribute-values][Quotes for attribute values]]
-  - [[#boolean-attribute][Boolean Attribute]]
-  - [[#form-validation][Form Validation]]
-  - [[#semantic-tags][Semantic Tags]]
-
 * Template
 #+BEGIN_SRC html
   <!DOCTYPE html>

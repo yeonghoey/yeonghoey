@@ -1,9 +1,5 @@
 #+TITLE: Graphviz
 
-* Table of Contents :TOC_2_gh:
-- [[#concepts][Concepts]]
-  - [[#layouts][Layouts]]
-
 * Concepts
 ** Layouts
 [[file:_img/screenshot_2017-06-11_10-13-52.png]]

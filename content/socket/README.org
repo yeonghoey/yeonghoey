@@ -1,9 +1,5 @@
 #+TITLE: socket
 
-* Table of Contents :TOC_2_gh:
-- [[#connect][connect]]
-- [[#eintr][EINTR]]
-
 * connect
 - If ~connect()~ fails, the state of the socket is unspecified.
 

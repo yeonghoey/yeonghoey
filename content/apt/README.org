@@ -1,19 +1,5 @@
 #+TITLE: apt-get
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#update][update]]
-    - [[#when-needed][When needed]]
-    - [[#when-fails][When fails]]
-    - [[#varlibaptlists][/var/lib/apt/lists/*]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#apt-vs-apt-get][apt vs apt-get]]
-- [[#how-to][How-to]]
-  - [[#install-java8][Install java8]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** update

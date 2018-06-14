@@ -1,8 +1,5 @@
 #+TITLE: Animation Tutorial
 
-* Table of Contents :TOC_1_gh:
- - [[#animator-scripting][Animator Scripting]]
-
 * Animator Scripting
 #+BEGIN_SRC csharp
   using UnityEngine;

@@ -1,10 +1,5 @@
 #+TITLE: io
 
-* Table of Contents :TOC_2_gh:
-- [[#open][open]]
-- [[#readline][readline]]
-- [[#when-the-buffer-is-flushed][When the buffer is flushed?]]
-
 * open
 - buffering ::
   - 0 :: unbuffered (read and write are one system call and can return short)

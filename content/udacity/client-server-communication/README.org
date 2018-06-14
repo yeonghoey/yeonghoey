@@ -1,8 +1,4 @@
 #+TITLE: Udacity: Client-Server Communication
-* Table of Contents                                                :TOC_2_gh:
- - [[#udacity][Udacity]]
- - [[#https-requestresponse-cycle][HTTP's Request/Response Cycle]]
-
 * Udacity
 #+BEGIN_QUOTE
 You'll learn about HTTP's request and response cycle,

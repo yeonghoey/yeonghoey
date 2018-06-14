@@ -1,9 +1,5 @@
 #+TITLE: AWS Systems Manager
 
-* Table of Contents :TOC_2_gh:
-- [[#parameter-store][Parameter Store]]
-  - [[#reference][Reference]]
-
 * Parameter Store
 ** Reference
 :REFERENCES:

@@ -1,22 +1,5 @@
 #+TITLE: STAT 420: Week 2
 
-* Table of Contents :TOC_2_gh:
-- [[#simple-linear-regression][Simple Linear Regression]]
-  - [[#models][Models]]
-  - [[#fitting-a-line][Fitting a Line]]
-  - [[#simple-linear-regression-model][Simple Linear Regression Model]]
-- [[#the-normal-distribution][The Normal Distribution]]
-  - [[#normal-distribution][Normal Distribution]]
-  - [[#normal-distribution-in-r][Normal Distribution in R]]
-- [[#slr-details][SLR Details]]
-  - [[#estimation][Estimation]]
-  - [[#variance-decomposition][Variance Decomposition]]
-  - [[#maximum-likelihood][Maximum Likelihood]]
-  - [[#the-lm-function][The lm() Function]]
-- [[#slr-in-r][SLR in R]]
-  - [[#simulation][Simulation]]
-  - [[#simulating-slr-in-r][Simulating SLR in R]]
-
 * Simple Linear Regression
 :REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/simple-linear-regression.html

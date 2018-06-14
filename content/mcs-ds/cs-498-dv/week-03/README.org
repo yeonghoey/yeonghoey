@@ -1,18 +1,5 @@
 #+TITLE: CS498-dv: Week 3
 
-* Table of Contents :TOC_2_gh:
-- [[#lesson-3-1-grapsh-graph-visualization-and-tree-maps][Lesson 3-1: Grapsh, Graph Visualization, and Tree Maps]]
-  - [[#311-graphs-and-networks][3.1.1. Graphs and Networks]]
-  - [[#312-embedding-planar-graphs][3.1.2. Embedding Planar Graphs]]
-  - [[#313-graph-visualization][3.1.3 Graph Visualization]]
-  - [[#314-graph-visualization][3.1.4 Graph Visualization]]
-  - [[#compute-a-planar-graph-layout-with-numpy][Compute a Planar Graph Layout with NumPy]]
-- [[#lesson-3-2-principal-component-analysis-and-multidimensional-scaling][Lesson 3-2: Principal Component Analysis and Multidimensional Scaling]]
-  - [[#321-principal-component-analysis][3.2.1. Principal Component Analysis]]
-  - [[#322-multidimensional-scaling][3.2.2. Multidimensional Scaling]]
-- [[#lesson-3-3-packing][Lesson 3-3: Packing]]
-  - [[#331-packing][3.3.1. Packing]]
-
 * Lesson 3-1: Grapsh, Graph Visualization, and Tree Maps
 ** 3.1.1. Graphs and Networks
 [[file:_slides/3.1.1.pdf::16by9]]

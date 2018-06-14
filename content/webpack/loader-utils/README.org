@@ -1,9 +1,5 @@
 #+TITLE: loader-utils
 
-* Table of Contents :TOC_2_gh:
-- [[#methods][Methods]]
-  - [[#urltorequest][urlToRequest]]
-
 * Methods
 ** [[https://github.com/webpack/loader-utils#urltorequest][urlToRequest]]
 - Any URL containing a =~= will be interpreted as a module request.

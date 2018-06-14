@@ -1,9 +1,5 @@
 #+TITLE: Excel
 
-* Table of Contents :TOC_2_gh:
-- [[#use-cases][Use Cases]]
-  - [[#import-data-from-text-based-files-like-csv-tsv][Import Data from Text based files like CSV, TSV]]
-
 * Use Cases
 ** Import Data from Text based files like CSV, TSV
 - Only ~CRLF~ line endings work

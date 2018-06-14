@@ -1,42 +1,6 @@
 #+TITLE: Python
 
 
-* Table of Contents                                                :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#decorator][decorator]]
-  - [[#dict][dict]]
-  - [[#docstring][docstring]]
-  - [[#exceptions][exceptions]]
-  - [[#import][import]]
-  - [[#itertools][itertools]]
-  - [[#list][list]]
-  - [[#logging][logging]]
-  - [[#multiprocessing][multiprocessing]]
-  - [[#re][re]]
-  - [[#set][set]]
-  - [[#str][str]]
-  - [[#string][string]]
-  - [[#webbrowser][webbrowser]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#__new__-vs-__init__][~__new__~ vs ~__init__~]]
-  - [[#comparison][Comparison]]
-  - [[#comparison-of-three-values][Comparison of three values]]
-  - [[#double-underscores][Double underscores]]
-  - [[#eafp-lbyl][EAFP, LBYL]]
-  - [[#final-class][Final class]]
-  - [[#meta-class][Meta Class]]
-  - [[#descriptor][Descriptor]]
-  - [[#__getattr__-vs-__getattribute__][__getattr__ vs. __getattribute__]]
-  - [[#getattr-setattr-why-need-them][getattr, setattr, Why need them?]]
-  - [[#source-code-encodings][Source Code Encodings]]
-- [[#how-to][How-to]]
-  - [[#wait-until-a-host-starts-listening][Wait until a host starts listening]]
-  - [[#pick-a-free-port-number][Pick a free port number]]
-  - [[#read-a-file-except-the-first-line][Read a file except the first line]]
-  - [[#convert-a-list-to-a-dictionary][Convert a list to a dictionary]]
-  - [[#get-a-reference-to-the-current-module][Get a reference to the current module?]]
-
 * Reference
 ** decorator
 *** class decorator

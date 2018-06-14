@@ -1,23 +1,5 @@
 #+TITLE: Hugo
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#front-matter][Front Matter]]
-  - [[#shortcodes][Shortcodes]]
-  - [[#templating][Templating]]
-    - [[#syntax][Syntax]]
-    - [[#functions][Functions]]
-    - [[#variables][Variables]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#directory-structure][Directory Structure]]
-  - [[#themes][Themes]]
-  - [[#path][Path]]
-  - [[#taxonomies][Taxonomies]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** Front Matter

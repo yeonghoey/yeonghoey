@@ -1,25 +1,5 @@
 #+TITLE: STAT 420: Week 1
 
-* Table of Contents :TOC_2_gh:
-- [[#summary][Summary]]
-- [[#r-and-rstudio][R and RStudio]]
-  - [[#basic-r][Basic R]]
-  - [[#vectors][Vectors]]
-  - [[#logical-operators][Logical Operators]]
-  - [[#vertorization][Vertorization]]
-  - [[#programming-basics][Programming Basics]]
-- [[#data][Data]]
-  - [[#data-types][Data Types]]
-  - [[#matrices][Matrices]]
-  - [[#lists][Lists]]
-  - [[#data-frames][Data Frames]]
-  - [[#data-frames-and-tibbles][Data Frames and Tibbles]]
-  - [[#importing-data][Importing Data]]
-- [[#summerizing-data][Summerizing Data]]
-  - [[#basic-statistics-in-r][Basic Statistics in R]]
-  - [[#visualization-in-r][Visualization in R]]
-- [[#rmarkdown][RMarkdown]]
-
 * Summary
 [[file:_img/ee5d3d9e3453eb83fffad7622a4e7dba715b4cd1.png]]
 

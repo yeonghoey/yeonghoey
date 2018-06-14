@@ -1,14 +1,5 @@
 #+TITLE: OAuth 2.0
 
-* Table of Contents :TOC_3_gh:
-- [[#topics][Topics]]
-  - [[#authorization-code-grant][Authorization Code Grant]]
-  - [[#authorization-code-grant-with-spa][Authorization Code Grant with SPA]]
-  - [[#implicit-grant][Implicit Grant]]
-  - [[#how-state-prevents-from-csrf-attack][How state prevents from CSRF attack]]
-  - [[#refresh-tokens][Refresh Tokens]]
-- [[#links][Links]]
-
 * Topics
 ** Authorization Code Grant
 #+BEGIN_EXAMPLE

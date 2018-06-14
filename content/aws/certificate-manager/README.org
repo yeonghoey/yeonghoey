@@ -1,10 +1,5 @@
 #+TITLE: AWS Certificate Manager
 
-* Table of Contents :TOC_3_gh:
-- [[#how-to][How-to]]
-  - [[#use-dns-to-validate-domain-ownership][Use DNS to Validate Domain Ownership]]
-  - [[#support-second-level-subdomains][Support second level subdomains]]
-
 * How-to
 ** Use DNS to Validate Domain Ownership
 - You can revoke permission at any time by removing the record

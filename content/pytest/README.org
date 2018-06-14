@@ -1,23 +1,5 @@
 #+TITLE: pytest
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-  - [[#commandline-usage][Commandline Usage]]
-- [[#reference][Reference]]
-  - [[#approx][approx]]
-  - [[#fixture][fixture]]
-  - [[#mark][mark]]
-  - [[#monkeypatch][monkeypatch]]
-  - [[#raises][raises]]
-  - [[#fail][fail]]
-- [[#topics][Topics]]
-  - [[#rootdir][rootdir]]
-  - [[#import-mechanisms][Import Mechanisms]]
-  - [[#test-layouts][Test Layouts]]
-- [[#plugins][Plugins]]
-  - [[#pytest-watch][pytest-watch]]
-- [[#links][Links]]
-
 * Overview
 ** Commandline Usage
 #+BEGIN_SRC shell

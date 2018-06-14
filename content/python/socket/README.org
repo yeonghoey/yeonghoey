@@ -1,8 +1,5 @@
 #+TITLE: socket
 
-* Table of Contents :TOC_2_gh:
-- [[#exceptions-and-errors][Exceptions and Errors]]
-
 * Exceptions and Errors
 To get the detailed descriptions for errors you should use ~errno~ module
 

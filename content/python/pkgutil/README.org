@@ -1,9 +1,5 @@
 #+TITLE: pkgutil
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#iter_modules][iter_modules]]
-
 * Reference
 ** iter_modules
 : pkgutil.iter_modules(path=None, prefix='')

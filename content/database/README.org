@@ -1,14 +1,5 @@
 #+TITLE: Database
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#cardinality][Cardinality]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 * Terminology

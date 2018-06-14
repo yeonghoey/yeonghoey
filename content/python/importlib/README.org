@@ -1,10 +1,5 @@
 #+TITLE: importlib
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#__import__][__import__]]
-  - [[#import_module][import_module]]
-
 * Reference
 ** __import__
 : __import__(name, globals=None, locals=None, fromlist=(), level=0)

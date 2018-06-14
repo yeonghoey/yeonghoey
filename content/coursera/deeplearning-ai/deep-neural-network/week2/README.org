@@ -1,20 +1,5 @@
 #+TITLE: Practical aspects of Deep Learning
 
-* Table of Contents :TOC_3_gh:
-- [[#optimization-alogrithms][Optimization alogrithms]]
-  - [[#mini-batch-gradient-descent][Mini-batch gradient descent]]
-  - [[#understanding-mini-batch-gradient-descent][Understanding mini-batch gradient descent]]
-  - [[#exponentially-weighted-averages][Exponentially weighted averages]]
-  - [[#understanding-exponentially-weighted-averages][Understanding exponentially weighted averages]]
-  - [[#bias-correction-in-exponentially-weighted-averages][Bias correction in exponentially weighted averages]]
-  - [[#gradient-descent-with-momentum][Gradient descent with momentum]]
-  - [[#rmsprop][RMSprop]]
-  - [[#adam-optimization-algorithm][Adam optimization algorithm]]
-  - [[#learning-rate-decay][Learning rate decay]]
-  - [[#the-problem-of-local-optima][The problem of local optima]]
-- [[#programming-assignment][Programming assignment]]
-  - [[#optimization][Optimization]]
-
 * Optimization alogrithms
 ** Mini-batch gradient descent
 [[file:_img/screenshot_2017-10-18_07-50-21.png]]

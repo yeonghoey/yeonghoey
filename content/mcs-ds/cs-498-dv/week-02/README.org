@@ -1,20 +1,5 @@
 #+TITLE: CS 498: Week 2
 
-* Table of Contents :TOC_2_gh:
-- [[#lesson-2-1-data-mapping-and-charts][Lesson 2-1: Data, Mapping, and Charts]]
-  - [[#211-data][2.1.1. Data]]
-  - [[#212-mapping][2.1.2. Mapping]]
-  - [[#213-charts][2.1.3. Charts]]
-- [[#lesson-2-2-glyphs-parallel-coordinates-and-stacked-graphs][Lesson 2-2: Glyphs, Parallel Coordinates, and Stacked Graphs]]
-  - [[#221-glyphs-part-1][2.2.1. Glyphs: Part 1]]
-  - [[#222-glyphs-part-2][2.2.2. Glyphs: Part 2]]
-  - [[#222-parallel-coordinates][2.2.2. Parallel Coordinates]]
-  - [[#223-stacked-graphs-part-1][2.2.3. Stacked Graphs: Part 1]]
-  - [[#223-stacked-graphs-part-2][2.2.3. Stacked Graphs: Part 2]]
-- [[#lesson-2-3-tuftes-design-rules-and-using-color][Lesson 2-3: Tufte's Design Rules and Using Color]]
-  - [[#231-tuftes-design-rules][2.3.1. Tufte's Design Rules]]
-  - [[#232-using-color][2.3.2. Using Color]]
-
 * Lesson 2-1: Data, Mapping, and Charts
 ** 2.1.1. Data
 [[file:_slides/2.1.1.pdf::16by9]]

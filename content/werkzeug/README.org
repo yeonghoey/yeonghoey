@@ -1,11 +1,5 @@
 #+TITLE: Werkzeug
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#localproxy][LocalProxy]]
-- [[#topics][Topics]]
-  - [[#context-locals][Context Locals]]
-
 * Reference
 ** LocalProxy
 #+BEGIN_SRC python

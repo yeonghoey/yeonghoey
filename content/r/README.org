@@ -1,39 +1,5 @@
 #+TITLE: R
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#basics][Basics]]
-  - [[#array-matrix][array, matrix]]
-  - [[#assign][assign]]
-  - [[#attr-attributes][attr, attributes]]
-  - [[#class-mode][class, mode]]
-  - [[#dataframe][data.frame]]
-  - [[#factor][factor]]
-  - [[#function][function]]
-  - [[#help][help]]
-  - [[#ifelse][ifelse]]
-  - [[#length][length]]
-  - [[#list][list]]
-  - [[#na][NA]]
-  - [[#tapply][tapply]]
-  - [[#vector][vector]]
-- [[#probability-distributions][Probability distributions]]
-- [[#statistical-models-in-r][Statistical models in R]]
-  - [[#formula][formula]]
-  - [[#lm][lm]]
-- [[#graphical-procedures][Graphical procedures]]
-  - [[#graphics-parameters-list][Graphics parameters list]]
-- [[#packages][Packages]]
-- [[#topics][Topics]]
-  - [[#oo-systems][OO Systems]]
-  - [[#the-recycling-rule-of-mixed-vector-and-array-arithmetic][The Recycling Rule of Mixed vector and array arithmetic]]
-  - [[#rscript-vs-r-cmd-batch][~Rscript~ vs ~R CMD BATCH~]]
-- [[#how-to][How-to]]
-  - [[#format-numeric-as-percent][Format numeric as percent]]
-  - [[#assert-conditions][Assert conditions]]
-  - [[#order-factor-elements][Order factor elements]]
-  - [[#remove-na-values-from-a-vector][Remove NA values from a vector]]
-
 * Overview
 
 :REFERENCES:

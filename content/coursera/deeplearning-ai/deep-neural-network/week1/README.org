@@ -1,28 +1,5 @@
 #+TITLE: Practical aspects of Deep Learning
 
-* Table of Contents :TOC_3_gh:
-- [[#setting-up-your-machine-learning-application][Setting up your Machine Learning Application]]
-  - [[#train--dev--test-sets][Train / Dev / Test sets]]
-  - [[#bias--variance][Bias / Variance]]
-  - [[#basic-recipe-for-machine-learning][Basic Recipe for Machine Learning]]
-- [[#regularizing-your-neural-network][Regularizing your neural network]]
-  - [[#regularization][Regularization]]
-  - [[#why-regularization-reduces-overfitting][Why regularization reduces overfitting?]]
-  - [[#dropout-regularization][Dropout Regularization]]
-  - [[#understanding-dropout][Understanding Dropout]]
-  - [[#other-regularization-methods][Other regularization methods]]
-- [[#setting-up-your-optimization-problem][Setting up your optimization problem]]
-  - [[#normalizing-inputs][Normalizing inputs]]
-  - [[#vanishing--exploding-gradients][Vanishing / Exploding gradients]]
-  - [[#weight-initialization-for-deep-networks][Weight Initialization for Deep Networks]]
-  - [[#numerical-approximation-of-gradients][Numerical approximation of gradients]]
-  - [[#gradient-checking][Gradient checking]]
-  - [[#gradient-checking-implementation-notes][Gradient Checking Implementation Notes]]
-- [[#programming-assignments][Programming assignments]]
-  - [[#initialization][Initialization]]
-  - [[#regularization-1][Regularization]]
-  - [[#gradient-checking-1][Gradient Checking]]
-
 * Setting up your Machine Learning Application
 ** Train / Dev / Test sets
 - https://stackoverflow.com/questions/2976452/whats-is-the-difference-between-train-validation-and-test-set-in-neural-netwo

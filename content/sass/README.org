@@ -1,19 +1,5 @@
 #+TITLE: [[https://sass-lang.com/guide][Sass]]
 
-* Table of Contents :TOC_2_gh:
-- [[#guide][Guide]]
-  - [[#variables][Variables]]
-  - [[#nesting][Nesting]]
-  - [[#import][Import]]
-  - [[#mixins][Mixins]]
-  - [[#extendinheritance][Extend/Inheritance]]
-  - [[#operators][Operators]]
-- [[#reference][Reference]]
-  - [[#interpolation][interpolation]]
-- [[#topics][Topics]]
-  - [[#sass-vs-scss][~.sass~ vs ~.scss~]]
-  - [[#how-to-calculate-units-like-percent-viewport-things][How to calculate units like percent, viewport things?]]
-
 * Guide
 ** Variables
 #+BEGIN_SRC scss

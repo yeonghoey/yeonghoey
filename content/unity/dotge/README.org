@@ -1,9 +1,5 @@
 #+TITLE: dotge
 
-* Table of Contents :TOC_1_gh:
-- [[#webgl-player-settings][WebGL Player Settings]]
-- [[#explosion][Explosion]]
-
 * WebGL Player Settings
 [[file:_img/screenshot_2017-05-01_10-48-48.png]]
 

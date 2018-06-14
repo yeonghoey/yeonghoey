@@ -1,25 +1,5 @@
 #+TITLE: STAT 420: Week 4
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#multiple-linear-regression][Multiple Linear Regression]]
-  - [[#multiple-linear-regression-model][Multiple Linear Regression Model]]
-  - [[#interpreting-the-mlr-model][Interpreting the MLR Model]]
-  - [[#mlr-in-r][MLR in R]]
-- [[#inference-for-multiple-linear-regression][Inference for Multiple Linear Regression]]
-  - [[#sampling-distribution][Sampling Distribution]]
-  - [[#simulation][Simulation]]
-  - [[#single-parameter-tests][Single Parameter Tests]]
-  - [[#interval-estimation][Interval Estimation]]
-  - [[#intervals-and-test-for-mlr-in-r][Intervals and Test for MLR in R]]
-- [[#nested-models][Nested Models]]
-  - [[#significance-of-regression][Significance of Regression]]
-  - [[#general-nested-models][General Nested Models]]
-  - [[#nested-models-in-r][Nested Models in R]]
-- [[#additional-optional-videos][Additional Optional Videos]]
-  - [[#model-building][Model Building]]
-  - [[#explanation-vs-prediction][Explanation vs Prediction]]
-
 * Overview
 :REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html

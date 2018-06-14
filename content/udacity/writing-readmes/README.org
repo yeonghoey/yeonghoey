@@ -1,11 +1,5 @@
 #+TITLE: Udacity: Writing READMEs
 
-* Table of Contents :TOC_2_gh:
-- [[#udacity][Udacity]]
-- [[#writing-readmes][Writing READMES]]
-  - [[#anatomy-of-a-readme][Anatomy of a README]]
-  - [[#quiz-documenting-a-growing-codebase][Quiz: Documenting A Growing Codebase]]
-
 * Udacity
 - Nothing but license things new to me, but it covers important subjects
 - Takes about an hour

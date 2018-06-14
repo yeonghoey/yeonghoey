@@ -1,9 +1,5 @@
 #+TITLE: gitignore
 
-* Table of Contents :TOC_2_gh:
-- [[#topics][Topics]]
-  - [[#multiple-gitignore-files][Multiple gitignore files]]
-
 * Topics
 ** Multiple gitignore files
 :REFERENCES:

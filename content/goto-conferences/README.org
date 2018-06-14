@@ -1,13 +1,5 @@
 #+TITLE: GOTO Conferences
 
-* Table of Contents :TOC_2_gh:
-- [[#goto-2016--the-future-of-software-engineering--mary-poppendieck][GOTO 2016 • The Future of Software Engineering • Mary Poppendieck]]
-- [[#goto-2016--the-error-of-our-ways--kevlin-henney][GOTO 2016 • The Error of Our Ways • Kevlin Henney]]
-- [[#goto-2016--seven-secrets-of-maintainable-codebases--adam-tornhill][GOTO 2016 • Seven Secrets of Maintainable Codebases • Adam Tornhill]]
-- [[#goto-2017--the-many-meanings-of-event-driven-architecture--martin-fowler][GOTO 2017 • The Many Meanings of Event-Driven Architecture • Martin Fowler]]
-- [[#goto-2017--patterns-of-effective-teams--dan-north][GOTO 2017 • Patterns of Effective Teams • Dan North]]
-- [[#goto-2017--programming-across-paradigms--anjana-vakil][GOTO 2017 • Programming Across Paradigms • Anjana Vakil]]
-
 * GOTO 2016 • The Future of Software Engineering • Mary Poppendieck
 - <2017-01-22 Sun>
 - https://youtu.be/6K4ljFZWgW8

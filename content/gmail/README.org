@@ -1,14 +1,5 @@
 #+TITLE: Gmail
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-  - [[#delete-all-emails-with-a-label][Delete all emails with a label]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 * Terminology

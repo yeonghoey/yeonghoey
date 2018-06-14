@@ -1,15 +1,5 @@
 #+TITLE: Search Tools
 
-* Table of Contents :TOC_2_gh:
- - [[#details][Details]]
-   - [[#ignore][.ignore]]
-   - [[#expressions][Expressions]]
-   - [[#meta-characters-that-require-escaping-when-using-as-literal-characters][Meta Characters that require escaping when using as literal characters]]
- - [[#tools][Tools]]
-   - [[#agthe-silver-searcher][ag(The Silver Searcher)]]
-   - [[#rgripgrep][rg(ripgrep)]]
- - [[#links][Links]]
-
 * Details
 ** .ignore
 Most search tools like ~ag~ and ~rg~ comply with ~.ignore~, which is formatted same as ~.gitignore~.

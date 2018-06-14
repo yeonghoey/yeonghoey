@@ -1,14 +1,5 @@
 #+TITLE: tmux
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#commandline][Commandline]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** Commandline

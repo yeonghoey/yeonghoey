@@ -1,9 +1,5 @@
 #+TITLE: DOM
 
-* Table of Contents :TOC_2_gh:
-- [[#topics][Topics]]
-  - [[#event][Event]]
-
 * Topics
 ** Event
 - Events are bubbled up the event chain. (sometimes, it's called delegation or propagation)

@@ -1,23 +1,5 @@
 #+TITLE: ML Strategy (1)
 
-* Table of Contents :TOC_3_gh:
-- [[#error-analysis][Error Analysis]]
-  - [[#carrying-out-error-analysis][Carrying out error analysis]]
-  - [[#cleaning-up-incorrectly-labeled-data][Cleaning up incorrectly labeled data]]
-  - [[#build-your-first-system-quickly-then-iterate][Build your first system quickly, then iterate]]
-- [[#mismatched-training-and-devtest-set][Mismatched training and dev/test set]]
-  - [[#training-and-testing-on-different-distributions][Training and testing on different distributions]]
-  - [[#bias-and-variance-with-mismatched-data-distributions][Bias and Variance with mismatched data distributions]]
-  - [[#addressing-data-mismatch][Addressing data mismatch]]
-- [[#learning-from-multi-tasks][Learning from multi tasks]]
-  - [[#transfer-learning][Transfer learning]]
-  - [[#multi-task-learning][Multi-task learning]]
-- [[#end-to-end-deep-learning][End-to-end deep learning]]
-  - [[#what-is-end-to-end-deep-learning][What is end-to-end deep learning?]]
-  - [[#whether-to-use-end-to-end-deep-learning][Whether to use end-to-end deep learning]]
-- [[#machine-learning-flight-simulator][Machine Learning flight simulator]]
-  - [[#autonomous-drivingcase-study][Autonomous driving(case study)]]
-
 * Error Analysis
 ** Carrying out error analysis
 [[file:_img/screenshot_2017-11-14_01-08-03.png]]

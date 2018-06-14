@@ -1,23 +1,5 @@
 #+TITLE: English
 
-* Table of Contents :TOC_3_gh:
-- [[#pull-an-all-nighter][pull an all-nighter]]
-- [[#make-up-for][make up for]]
-- [[#it-was-fortunate][It was fortunate]]
-- [[#make-for][make for]]
-- [[#good-thing][good thing]]
-- [[#responsible][responsible]]
-- [[#if][if]]
-- [[#eligible][eligible]]
-- [[#hard-code][hard-code]]
-- [[#so-that][so that]]
-- [[#make-sure][make sure]]
-- [[#ask][ask]]
-- [[#advice][advice]]
-- [[#endanger][endanger]]
-- [[#relieve][relieve]]
-- [[#government-citizens][government, citizens]]
-
 * pull an all-nighter
 * make up for
 * It was fortunate

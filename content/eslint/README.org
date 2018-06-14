@@ -1,14 +1,5 @@
 #+TITLE: ESLint
 
-* Table of Contents :TOC_3_gh:
-- [[#reference][Reference]]
-  - [[#eslintrcjs][.eslintrc.js]]
-  - [[#eslintignore][.eslintignore]]
-  - [[#rules][Rules]]
-- [[#topics][Topics]]
-  - [[#disable-no-unused-vars-on-arguments][Disable no-unused-vars on arguments]]
-- [[#links][Links]]
-
 * Reference
 ** .eslintrc.js
 You can also use ~eslintConfig~ field in ~package.json~

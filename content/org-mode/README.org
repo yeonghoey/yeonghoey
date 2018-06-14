@@ -1,25 +1,5 @@
 #+TITLE: Org Mode
 
-* Table of Contents :TOC_3_gh:
-- [[#settings][Settings]]
-  - [[#omitting-title][Omitting #+TITLE]]
-- [[#markup][Markup]]
-  - [[#code-vs-verbatim][code(~~) vs verbatim(==)]]
-  - [[#cant-stylize-part-of-a-word][Can't stylize part of a word]]
-- [[#easy-templates][Easy Templates]]
-- [[#babel][Babel]]
-- [[#latex][LaTeX]]
-- [[#export][Export]]
-- [[#image][Image]]
-- [[#agenda][Agenda]]
-- [[#capture][Capture]]
-- [[#add-ons][Add-ons]]
-  - [[#toc-org][toc-org]]
-  - [[#org-reveal][org-reveal]]
-  - [[#ox-twbs][ox-twbs]]
-- [[#use-cases][Use Cases]]
-  - [[#automatically-save-buffers-after-refiling-and-archiving][Automatically Save buffers after refiling and archiving]]
-
 * Settings
 #+BEGIN_EXAMPLE
   ,#+TITLE:  Org Document Settings Cheatsheet

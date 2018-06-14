@@ -1,10 +1,5 @@
 #+TITLE: Healthchecks
 
-* Table of Contents :TOC_3_gh:
-- [[#login][Login]]
-- [[#setup][Setup]]
-- [[#slack-integration][Slack Integration]]
-
 * Login
 [[file:_img/screenshot_2017-10-25_11-10-47.png]]
 

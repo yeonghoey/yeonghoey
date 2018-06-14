@@ -1,11 +1,5 @@
 #+TITLE: Selenium
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#how-to][How-to]]
-  - [[#set-cookies][Set cookies]]
-- [[#links][Links]]
-
 * Overview
 - Install chromedriver with ~brew install chromedriver~
 

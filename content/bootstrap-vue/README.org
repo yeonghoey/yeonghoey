@@ -1,10 +1,5 @@
 #+TITLE: BootstrapVue
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#tables][Tables]]
-  - [[#form-checkbox][Form Checkbox]]
-
 * Reference
 ** [[https://bootstrap-vue.js.org/docs/components/table][Tables]]
 ** Form Checkbox

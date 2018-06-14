@@ -1,8 +1,5 @@
 #+TITLE: NewCircle Training
 
-* Table of Contents :TOC_2_gh:
-- [[#scala-collections-why-not][Scala Collections: Why Not?]]
-
 * Scala Collections: Why Not?
 - [2017-01-02 Mon]
 - https://youtu.be/uiJycy6dFSQ

@@ -1,41 +1,5 @@
 #+TITLE: Vue.js
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-  - [[#getting-started][Getting Started]]
-  - [[#data-and-methods][Data and Methods]]
-  - [[#lifecycle][Lifecycle]]
-    - [[#mounted][mounted]]
-  - [[#computed-and-watch][computed and watch]]
-- [[#project-structure][Project Structure]]
-- [[#template-syntax][Template Syntax]]
-- [[#api][API]]
-  - [[#vueoptions][Vue(options)]]
-  - [[#v-bind][v-bind]]
-  - [[#v-for][v-for]]
-  - [[#mixins][mixins]]
-- [[#special-attributes][Special Attributes]]
-- [[#lifecycle-hooks][Lifecycle Hooks]]
-- [[#list-rendering][List Rendering]]
-- [[#components][Components]]
-  - [[#name-casing][Name Casing]]
-  - [[#global-components][Global Components]]
-  - [[#local-components][Local Components]]
-  - [[#composing-components][Composing Components]]
-  - [[#props][Props]]
-  - [[#slots][Slots]]
-  - [[#ref][~ref~]]
-  - [[#events][Events]]
-    - [[#sync-modifier][~.sync~ Modifier]]
-  - [[#single-file-components-vue][Single File Components (.vue)]]
-- [[#how-to][How-to]]
-  - [[#configure-different-environment-variables-by-stage][Configure different environment variables by stage]]
-  - [[#use-axios-with-vuejs][Use axios with Vue.js]]
-- [[#topics][Topics]]
-  - [[#v-if-vs-v-show][v-if vs v-show]]
-- [[#testing][Testing]]
-- [[#links][Links]]
-
 * Overview
 :REFERENCES:
 - https://vuejs.org/v2/guide/installation.html#CLI

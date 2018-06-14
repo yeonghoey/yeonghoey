@@ -1,14 +1,5 @@
 #+TITLE: OS
 
-* Table of Contents :TOC_3_gh:
-- [[#topics][Topics]]
-  - [[#cpu-os-and-applications][CPU, OS and Applications]]
-    - [[#early-single-tasking-oses][Early single tasking OSes]]
-    - [[#modern-multi-tasking-oses][Modern multi tasking OSes]]
-    - [[#the-program-loader][The Program Loader]]
-    - [[#compatibility-across-os-and-cpu-types][Compatibility across OS and CPU types]]
-  - [[#what-do-i386-and-amd64-stand-for][What do i386 and amd64 stand for?]]
-
 * Topics
 ** CPU, OS and Applications
 [[file:_img/screenshot_2018-03-15_12-01-09.png]]

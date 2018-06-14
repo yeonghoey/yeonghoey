@@ -1,6 +1,3 @@
 #+TITLE: Travis CI
 
-* Table of Contents :TOC_2_gh:
-- [[#travisyml][.travis.yml]]
-
 * .travis.yml

@@ -1,8 +1,5 @@
 #+TITLE: sed
 
-* Table of Contents :TOC_2_gh:
- - [[#links][Links]]
-
 * Links
 :REFERENCES:
 - https://www.tutorialspoint.com/sed/sed_basic_syntax.htm

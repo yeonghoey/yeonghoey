@@ -1,8 +1,5 @@
 #+TITLE: git-secrets
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-
 * Overview
 #+BEGIN_SRC shell
   brew install git-secrets

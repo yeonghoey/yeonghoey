@@ -1,19 +1,5 @@
 #+TITLE: TensorFlow
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#placeholder][placeholder]]
-  - [[#get_variable][get_variable]]
-  - [[#trainadamoptimizer][train.AdamOptimizer]]
-  - [[#xavier_initializer][xavier_initializer]]
-  - [[#sessrun][sess.run]]
-  - [[#cast][cast]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** placeholder

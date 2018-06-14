@@ -1,9 +1,5 @@
 #+TITLE: Cryptography
 
-* Table of Contents :TOC_2_gh:
-- [[#rsa][RSA]]
-  - [[#overview][Overview]]
-
 * RSA
 ** Overview
 Define ~R~ (RSA Function) as following:

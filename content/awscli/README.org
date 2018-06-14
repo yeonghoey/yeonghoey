@@ -1,13 +1,5 @@
 #+TITLE: AWS Command Line Interface
 
-* Table of Contents :TOC_3_gh:
-- [[#reference][Reference]]
-  - [[#configure][Configure]]
-  - [[#cli-skeleton-and-cli-input-json][CLI Skeleton and CLI Input JSON]]
-  - [[#output-flags][Output Flags]]
-- [[#ec2][ec2]]
-- [[#iam][iam]]
-
 * Reference
 ** Configure
 #+BEGIN_SRC shell

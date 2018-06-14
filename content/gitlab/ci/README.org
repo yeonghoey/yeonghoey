@@ -1,29 +1,5 @@
 #+TITLE: GitLab CI
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#before_script][before_script]]
-  - [[#after_script][after_script]]
-  - [[#stages][stages]]
-  - [[#types][types]]
-  - [[#variables][variables]]
-  - [[#cache][cache]]
-  - [[#jobs][Jobs]]
-    - [[#script][script]]
-    - [[#only-and-except][only and except]]
-    - [[#job-variables][Job variables]]
-    - [[#tags][tags]]
-    - [[#artifacts][artifacts]]
-    - [[#dependencies][dependencies]]
-  - [[#special-yaml-features][Special YAML features]]
-    - [[#anchors][Anchors]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#cache-vs-artifactsdependencies][cache vs artifacts,dependencies]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 #+BEGIN_SRC yaml
   image: ruby:2.1

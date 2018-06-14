@@ -1,32 +1,5 @@
 #+TITLE: Lesson 2
 
-* Table of Contents :TOC_2_gh:
-- [[#lesson-2][Lesson 2]]
-  - [[#quiz-zebra-puzzle][Quiz: Zebra Puzzle]]
-  -  [[#quiz-leaving-happy-valley][Quiz: Leaving Happy Valley]]
-  - [[#quiz-estimating-runtime][Quiz: Estimating Runtime]]
-  - [[#slow-solution][Slow Solution]]
-  - [[#winning-the-race][Winning The Race]]
-  - [[#quiz-timed-calls][Quiz: Timed Calls]]
-  - [[#cleaning-up-functions][Cleaning Up Functions]]
-  - [[#zebra-summary][Zebra Summary]]
-  - [[#quiz-cryptarithmetic][Quiz: Cryptarithmetic]]
-  - [[#brute-force-solution][Brute Force Solution]]
-  - [[#translation-tables][Translation Tables]]
-  - [[#quiz-solving-cryptarithmetic][Quiz: Solving Cryptarithmetic]]
-  - [[#quiz-filling-in-fill-in][Quiz: Filling in Fill In]]
-  - [[#testing][Testing]]
-  - [[#tracking-time][Tracking Time]]
-  - [[#lambda][Lambda]]
-  - [[#quiz-compile-word][Quiz: Compile Word]]
-  - [[#speeding-up][Speeding Up]]
-  - [[#recap][Recap]]
-- [[#problem-set-2][Problem Set 2]]
-  - [[#quiz-no-leading-zeros][Quiz: No Leading Zeros]]
-  - [[#quiz-floor-puzzle][Quiz: Floor Puzzle]]
-  - [[#quiz-subpalindrome][Quiz: Subpalindrome]]
-- [[#office-hours-2][Office Hours 2]]
-
 * Lesson 2
 ** Quiz: Zebra Puzzle
 #+BEGIN_EXAMPLE

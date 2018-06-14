@@ -1,16 +1,5 @@
 #+TITLE: Node.js
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#__dirname][__dirname]]
-  - [[#path][path]]
-    - [[#resolve][resolve]]
-- [[#topics][Topics]]
-  - [[#exports-vs-moduleexports][exports vs. module.exports]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** __dirname

@@ -1,8 +1,5 @@
 #+TITLE: GDC 2017
 
-* Table of Contents :TOC_3_gh:
-- [[#overwatch-gameplay-architecture-and-netcode]['Overwatch' Gameplay Architecture and Netcode]]
-
 * 'Overwatch' Gameplay Architecture and Netcode
 [[file:_img/screenshot_2017-09-04_07-28-15.png]]
 

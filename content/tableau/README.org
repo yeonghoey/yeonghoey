@@ -1,11 +1,5 @@
 #+TITLE: Tableau
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#how-to][How-to]]
-  - [[#use-level-of-detail-expressions][Use Level of Detail Expressions]]
-  - [[#create-a-dimension-of-top-n-and-others][Create a dimension of Top N and Others]]
-
 * Overview
 #+BEGIN_SRC shell
   brew cask install tableau-public

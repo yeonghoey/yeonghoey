@@ -1,16 +1,5 @@
 #+TITLE: Datadog
 
-* Table of Contents :TOC_2_gh:
- - [[#how-to][How-to]]
-   - [[#config-minimally][Config minimally]]
- - [[#reference][Reference]]
-   - [[#setup][Setup]]
-   - [[#management][Management]]
-   - [[#host-naming][Host Naming]]
-   - [[#tags][Tags]]
-   - [[#metrics][Metrics]]
- - [[#topics][Topics]]
-
 * How-to
 ** Config minimally
 #+BEGIN_EXAMPLE

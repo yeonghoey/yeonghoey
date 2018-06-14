@@ -1,18 +1,5 @@
 #+TITLE: Google Cloud Platform
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#oauth-20][OAuth 2.0]]
-- [[#how-to][How-to]]
-  - [[#authenticate-access][Authenticate access]]
-    - [[#api-access-in-services][API access in services]]
-    - [[#api-access-in-local][API access in local]]
-    - [[#cli][CLI]]
-- [[#links][Links]]
-
 * Overview
 #+BEGIN_SRC shell
   gcloud auth application-default login

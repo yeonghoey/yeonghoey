@@ -1,15 +1,5 @@
 #+TITLE: AWS S3
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#canned-acl][Canned ACL]]
-- [[#topics][Topics]]
-  - [[#iam-policy-vs-acl][IAM Policy vs. ACL]]
-  - [[#server-side-encryption][Server Side Encryption]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** Canned ACL

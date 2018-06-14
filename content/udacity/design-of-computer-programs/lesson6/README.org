@@ -1,35 +1,5 @@
 #+TITLE: Lesson 6
 
-* Table of Contents :TOC_2_gh:
-- [[#lesson-6][Lesson 6]]
-  - [[#concept-inventory][Concept Inventory]]
-  - [[#finding-words][Finding Words]]
-  - [[#regression-tests][Regression Tests]]
-  - [[#quiz-readwordlist][Quiz: Readwordlist]]
-  - [[#quiz-extend-prefix][Quiz: Extend Prefix]]
-  - [[#quiz-adding-suffixes][Quiz: Adding Suffixes]]
-  - [[#quiz-longest-words][Quiz: Longest words]]
-  - [[#quiz-top-n-hands][Quiz: Top N Hands]]
-  - [[#crosswords][Crosswords]]
-  - [[#quiz-anchors][Quiz: Anchors]]
-  - [[#anchor-class][Anchor Class]]
-  - [[#row-plays][Row Plays]]
-  - [[#quiz-legal-prefixes][Quiz: Legal Prefixes]]
-  - [[#life-is-good][Life is Good]]
-  - [[#quiz-increasing-efficiency][Quiz: Increasing Efficiency]]
-  - [[#quiz-show-and-spell][Quiz: Show And Spell]]
-  - [[#quiz-horizontal-plays][Quiz: Horizontal Plays]]
-  - [[#quiz-all-plays][Quiz: All Plays]]
-  - [[#the-final-birds][The Final Birds]]
-  - [[#scoring-2][Scoring 2]]
-  - [[#quiz-making-plays][Quiz: Making Plays]]
-  - [[#quiz-best-play][Quiz: Best Play]]
-- [[#problem-set-6][Problem Set 6]]
-  - [[#quiz-anagrams][Quiz: Anagrams]]
-  - [[#quiz-blank-tiles][Quiz: Blank Tiles]]
-  - [[#quiz-boggle][Quiz: Boggle]]
-- [[#office-hours-6][Office Hours 6]]
-
 * Lesson 6
 ** Concept Inventory
 [[file:_img/screenshot_2017-01-01_15-37-15.png]]

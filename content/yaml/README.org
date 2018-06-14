@@ -1,8 +1,5 @@
 #+TITLE: YAML
 
-* Table of Contents :TOC_2_gh:
-- [[#anchors-and-references][Anchors and References]]
-
 * Anchors and References
 #+BEGIN_SRC yaml
   base: &base

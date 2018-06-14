@@ -1,14 +1,5 @@
 #+TITLE: Zappa
 
-* Table of Contents :TOC_3_gh:
-- [[#settings][Settings]]
-  - [[#exclude][exclude]]
-- [[#topics][Topics]]
-  - [[#packaging-by-zappa][Packaging by Zappa]]
-  - [[#slim_handler][slim_handler]]
-- [[#how-to][How-to]]
-  - [[#configure-https-using-aws-certificate-manager][Configure HTTPS using AWS Certificate Manager]]
-
 * Settings
 :REFERENCES:
 - https://github.com/Miserlou/Zappa#advanced-settings

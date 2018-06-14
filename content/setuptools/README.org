@@ -1,13 +1,5 @@
 #+TITLE: setuptools
 
-* Table of Contents :TOC_2_gh:
-- [[#which-tool-should-use][Which tool should use?]]
-- [[#python-packaging-user-guide][Python Packaging User Guide]]
-- [[#setuppy][setup.py]]
-  - [[#install_requires-vs-requirementstxt][install_requires vs requirements.txt]]
-  - [[#scripts-vs-console_scripts][scripts vs console_scripts]]
-- [[#setuppy-minimal][setup.py (minimal)]]
-
 * Which tool should use?
 #+BEGIN_QUOTE
 So in conclusion, out of all these options, I would recommend Setuptools, unless your requirements are very basic and you only need Distutils. Setuptools works very well with Virtualenv and Pip, tools that I highly recommend. Virtualenv and Pip could both be considered official, as they're part of PyPA, and Python 3 now ships ensurepip (which helps you install pip on some systems).

@@ -1,16 +1,5 @@
 #+TITLE: Bootstrap
 
-* Table of Contents :TOC_2_gh:
-- [[#getting-started][Getting Started]]
-  - [[#theming][Theming]]
-  - [[#webpack][Webpack]]
-- [[#layout][Layout]]
-  - [[#overview][Overview]]
-  - [[#content][Content]]
-- [[#extensions][Extensions]]
-  - [[#bootstrap-social][bootstrap-social]]
-  - [[#bootstrap-vue][bootstrap-vue]]
-
 * Getting Started
 - requires HTML5
 - uses ~border-box~ by default

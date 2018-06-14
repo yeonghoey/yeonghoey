@@ -1,8 +1,5 @@
 #+TITLE: [[https://github.com/Homebrew/homebrew-bundle][brew-bundle]]
 
-* Table of Contents :TOC_2_gh:
-- [[#brewfile][Brewfile]]
-
 * Brewfile
 :REFERENCES:
 - https://github.com/Homebrew/homebrew-bundle#usage

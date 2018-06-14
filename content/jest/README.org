@@ -1,20 +1,5 @@
 #+TITLE: Jest
 
-* Table of Contents :TOC_2_gh:
-- [[#introduction][Introduction]]
-  - [[#using-matchers][Using Matchers]]
-  - [[#testing-asynchronous-code][Testing Asynchronous Code]]
-  - [[#setup-and-teardown][Setup and Teardown]]
-  - [[#mock-functions][Mock Functions]]
-  - [[#jest-platform][Jest Platform]]
-  - [[#jest-community][Jest Community]]
-  - [[#more-resources][More Resources]]
-- [[#guides][Guides]]
-  - [[#snapshot-testing][Snapshot Testing]]
-- [[#api-reference][API Reference]]
-  - [[#globals][Globals]]
-  - [[#configuring-jest][Configuring Jest]]
-
 * Introduction
 ** [[https://facebook.github.io/jest/docs/en/using-matchers.html][Using Matchers]]
 #+BEGIN_SRC js

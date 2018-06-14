@@ -1,12 +1,5 @@
 #+TITLE: subprocess
 
-* Table of Contents :TOC_2_gh:
-- [[#invoke-a-blocking-process][Invoke a blocking process]]
-- [[#invoke-a-non-blocking-process][Invoke a non-blocking process]]
-- [[#using-pipe][Using PIPE]]
-- [[#when-to-use-shelltrue][When to use shell=True]]
-- [[#references][References]]
-
 * Invoke a blocking process
 #+BEGIN_SRC python
   >> subprocess.run(["ls", "-l"])  # doesn't capture output

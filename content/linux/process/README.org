@@ -1,11 +1,5 @@
 #+TITLE: Linux Process Concepts
 
-* Table of Contents :TOC_2_gh:
-- [[#parent-child-orphan-and-zombie-process][Parent, Child, Orphan and Zombie Process]]
-- [[#process-groups-sessions-and-controlling-terminal][Process Groups, Sessions and Controlling Terminal]]
-- [[#double-fork][Double Fork]]
-- [[#pseudo-terminal-details][Pseudo Terminal Details]]
-
 * Parent, Child, Orphan and Zombie Process
 - Parent ::
   - A process which forks

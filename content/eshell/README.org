@@ -1,9 +1,5 @@
 #+TITLE: Eshell
 
-* Table of Contents :TOC_2_gh:
-- [[#function-aliases][Function aliases]]
-- [[#key-bindings][Key bindings]]
-
 * Function aliases
 - =s= for =magit-status= in the current directory (when the =git= layer is
   installed)

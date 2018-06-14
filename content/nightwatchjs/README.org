@@ -1,8 +1,5 @@
 #+TITLE: [[http://nightwatchjs.org/][Nightwatch.js]]
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-
 * Overview
 - Nightwatch uses the [[https://www.w3.org/TR/webdriver/][WebDriver API]] to perform the browser automation related tasks, like opening windows and clicking links for instance.
 - Nightwatch works by communicating over a restful HTTP api with a WebDriver server (typically the ~Selenium server~).

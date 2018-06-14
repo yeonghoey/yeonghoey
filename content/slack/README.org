@@ -1,8 +1,5 @@
 #+TITLE: Slack
 
-* Table of Contents :TOC_1_gh:
- - [[#slash-commands][Slash Commands]]
-
 * Slash Commands
 + https://get.slack.help/hc/en-us/articles/201259356-Using-slash-commands
 

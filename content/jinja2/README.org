@@ -1,26 +1,5 @@
 #+TITLE: Jinja2
 
-* Table of Contents :TOC_3_gh:
-- [[#syntax][Syntax]]
-  - [[#variables][Variables]]
-  - [[#filters][Filters]]
-  - [[#tests][Tests]]
-  - [[#comments][Comments]]
-  - [[#whitespace-control][Whitespace Control]]
-  - [[#escaping][Escaping]]
-  - [[#line-statements][Line Statements]]
-  - [[#template-inheritance][Template Inheritance]]
-  - [[#block-nesting-and-scope][Block Nesting and Scope]]
-  - [[#for][For]]
-  - [[#macros][Macros]]
-  - [[#filters-section][Filters (section)]]
-  - [[#assignments][Assignments]]
-  - [[#include][Include]]
-  - [[#import][Import]]
-- [[#topics][Topics]]
-  - [[#environment][Environment]]
-  - [[#sandbox][Sandbox]]
-
 * Syntax
 :REFERENCES:
 - http://jinja.pocoo.org/docs/2.10/templates/

@@ -1,17 +1,5 @@
 #+TITLE: Couchbase
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#internalsettings][internalSettings]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#document-expiration][Document Expiration]]
-- [[#how-to][How-to]]
-  - [[#failover][Failover]]
-  - [[#reset-couchbase-password][Reset couchbase password]]
-- [[#links][Links]]
-
 * Overview
 [[file:_img/screenshot_2017-08-22_23-47-26.png]]
 

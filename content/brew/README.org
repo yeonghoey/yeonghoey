@@ -1,8 +1,5 @@
 #+TITLE: brew
 
-* Table of Contents :TOC_3_gh:
-- [[#cask][cask]]
-
 * cask
 #+BEGIN_SRC shell
   brew cask upgrade anki

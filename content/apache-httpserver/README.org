@@ -1,8 +1,5 @@
 #+TITLE: Apache HTTP Server
 
-* Table of Contents :TOC_1_gh:
- - [[#reference][Reference]]
-
 * Reference
 ** htpasswd
 #+BEGIN_SRC shell

@@ -1,8 +1,5 @@
 #+TITLE: VPC
 
-* Table of Contents :TOC_2_gh:
-- [[#links][Links]]
-
 * Links
 :REFERENCES:
 - https://www.cloudping.co/ (AWS Inter-Region Latency)

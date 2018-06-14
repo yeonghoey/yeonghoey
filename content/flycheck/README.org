@@ -1,11 +1,5 @@
 #+TITLE: flycheck
 
-* Table of Contents :TOC_2_gh:
-- [[#topics][Topics]]
-  - [[#flycheck-reports-errors-which-are-not-caused-when-excuting-the-linter-as-a-shell-command][flycheck reports errors which are not caused when excuting the linter as a shell command]]
-- [[#how-to][How-to]]
-  - [[#debug-syntax-checkers][Debug syntax checkers]]
-
 * Topics
 ** flycheck reports errors which are not caused when excuting the linter as a shell command
 ~flake8~ complains an undefined name on the editor.

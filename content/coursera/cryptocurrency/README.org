@@ -1,8 +1,5 @@
 #+TITLE: Bitcoin and Cryptocurrency Technologies
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-
 * Overview
 - Week 1 :: [[./week1][Introduction to Crypto and Cryptocurrencies]]
 - Week 2 :: [[./week2][How Bitcoin Achieves Decentralization]]

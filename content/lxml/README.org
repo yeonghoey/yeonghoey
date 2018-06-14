@@ -1,10 +1,5 @@
 #+TITLE: lxml
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#how-to][How-to]]
-  - [[#remove-all-tags-except-their-texts][Remove all tags except their texts]]
-
 * Overview
 #+BEGIN_SRC python
   from lxml import etree

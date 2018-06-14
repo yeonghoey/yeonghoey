@@ -1,28 +1,5 @@
 #+TITLE: CSS
 
-* Table of Contents :TOC_3_gh:
-- [[#selectors][Selectors]]
-  - [[#before][::before]]
-  - [[#attribute-selectors][Attribute selectors]]
-- [[#properties][Properties]]
-  - [[#align-items][align-items]]
-  - [[#box-sizing][box-sizing]]
-  - [[#margin][margin]]
-- [[#topics][Topics]]
-  - [[#cascade-order][Cascade Order]]
-  - [[#viewport][Viewport]]
-  - [[#units][Units]]
-    - [[#px-][px, %]]
-    - [[#em-ex-ch][em, ex, ch]]
-    - [[#rem][rem]]
-    - [[#vw-vh-vmin-vmax][vw, vh, vmin, vmax]]
-    - [[#cm-mm-in-pt-pc][cm, mm, in, pt, pc]]
-  - [[#media-queries][Media Queries]]
-  - [[#text-align-center-vs-margin-auto][text-align: center; vs margin: auto;]]
-  - [[#float-right-vs-margin-left-auto][float: right; vs margin-left: auto;]]
-- [[#layouts][Layouts]]
-  - [[#flexbox][flexbox]]
-
 * Selectors
 ** [[https://www.w3schools.com/cssref/sel_before.asp][::before]]
 Insert some text before the content of each ~<p>~ element:

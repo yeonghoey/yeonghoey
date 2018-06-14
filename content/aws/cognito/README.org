@@ -1,11 +1,5 @@
 #+TITLE: Amazon Cognito
 
-* Table of Contents :TOC_3_gh:
-- [[#fine-grained-user-access-via-iam][Fine-grained user access via IAM]]
-- [[#aws-amplify][aws-amplify]]
-- [[#amazon-cognito-identity-js][amazon-cognito-identity-js]]
-- [[#amazon-cognito-auth-js][amazon-cognito-auth-js]]
-
 * Fine-grained user access via IAM
 You can use following variables within IAM policies to specify fine-grained user access:
 #+BEGIN_EXAMPLE

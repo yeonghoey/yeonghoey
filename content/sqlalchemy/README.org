@@ -1,16 +1,5 @@
 #+TITLE: SQLAlachemy
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#column][Column]]
-  - [[#declarative-api][Declarative API]]
-  - [[#functions][functions]]
-  - [[#query][Query]]
-  - [[#session][Session]]
-  - [[#hybrid_property][hybrid_property]]
-- [[#how-to][How-to]]
-  - [[#prefix-all-tables-under-a-declarative_base][Prefix all tables under a declarative_base]]
-
 * Reference
 ** Column
 #+BEGIN_SRC python

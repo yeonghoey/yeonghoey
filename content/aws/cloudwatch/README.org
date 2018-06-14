@@ -1,9 +1,5 @@
 #+TITLE: AWS CloudWatch
 
-* Table of Contents :TOC_2_gh:
- - [[#concepts][Concepts]]
-   - [[#metrics][Metrics]]
-
 * Concepts
 ** Metrics
 Metrics consist of  ~Minimum~, ~Maximum~, ~Sum~, ~Average~, ~SampleCount~, ~pNN.NN~.

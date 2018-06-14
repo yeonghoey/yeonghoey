@@ -1,10 +1,5 @@
 #+TITLE: DevSettings Pattern
 
-* Table of Contents :TOC_1_gh:
-- [[#about][About]]
-- [[#devsettingscs][DevSettings.cs]]
-- [[#devsettingswindowcs][DevSettingsWindow.cs]]
-
 * About
 A (maybe) useful template for development settings.
 This template provides a functionality that configures some values by ~EditorWindow~,

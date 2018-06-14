@@ -1,17 +1,5 @@
 #+TITLE: The Non-Designer's Design Book
 
-* Table of Contents :TOC_2_gh:
-- [[#proximity][Proximity]]
-- [[#alignment][Alignment]]
-- [[#repetition][Repetition]]
-- [[#contrast][Contrast]]
-- [[#color][Color]]
-- [[#type-basics][Type Basics]]
-- [[#type-categories][Type Categories]]
-- [[#type-contrasts][Type Contrasts]]
-- [[#typography][Typography]]
-- [[#print-works][Print Works]]
-
 * Proximity
 [[file:_img/screenshot_2017-03-15_08-55-08.png]]
 

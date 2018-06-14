@@ -1,27 +1,5 @@
 #+TITLE: HTTP
 
-* Table of Contents :TOC_2_gh:
-- [[#headers][Headers]]
-  - [[#http-referer][HTTP referer]]
-- [[#response-status-codes][Response status codes]]
-  - [[#204-no-content][204 No Content]]
-  - [[#401-unauthorized][401 Unauthorized]]
-  - [[#403-forbidden][403 Forbidden]]
-  - [[#409-conflict][409 Conflict]]
-- [[#topics][Topics]]
-  - [[#cache-control][Cache Control]]
-  - [[#cookies][Cookies]]
-  - [[#accept-vs-content-type][Accept vs. Content-Type]]
-  - [[#when-is-the-authorization-header-automatically-sent-by-the-browser][When is the Authorization header automatically sent by the browser?]]
-  - [[#basic-access-authentication][Basic access authentication]]
-  - [[#web-storage-vs-cookies][Web Storage vs. Cookies]]
-  - [[#cors-cross-origin-resource-sharing][CORS (Cross Origin Resource Sharing)]]
-  - [[#xss-cross-site-scripting][XSS (Cross-site scripting)]]
-  - [[#csrf-cross-site-request-forgery][CSRF (Cross-site request forgery)]]
-  - [[#url-vs-uri-vs-urn][URL vs URI vs URN]]
-  - [[#valid-url-characters][Valid URL characters]]
-  - [[#endpoint][Endpoint]]
-
 * Headers
 ** HTTP referer
 - Misspelling of *referrer*

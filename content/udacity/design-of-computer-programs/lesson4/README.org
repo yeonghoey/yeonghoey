@@ -1,32 +1,5 @@
 #+TITLE: Lesson 4
 
-* Table of Contents :TOC_2_gh:
-- [[#lesson-4][Lesson 4]]
-  - [[#water-pouring-problem][Water Pouring Problem]]
-  - [[#quiz-combinatorial-complexity][Quiz: Combinatorial Complexity]]
-  - [[#quiz-exploring-the-space][Quiz: Exploring The Space]]
-  - [[#pouring-solution][Pouring Solution]]
-  - [[#doctest][Doctest]]
-  - [[#bridge-problem][Bridge Problem]]
-  - [[#quiz-bridge-successors][Quiz: Bridge Successors]]
-  - [[#quiz-paths-actions-states][Quiz: Paths Actions States]]
-  - [[#quiz-improving-the-solution][Quiz: Improving The Solution]]
-  - [[#quiz-modify-code][Quiz: Modify Code]]
-  - [[#quiz-refactoring-paths][Quiz: Refactoring Paths]]
-  - [[#quiz-calculating-costs][Quiz: Calculating Costs]]
-  - [[#putting-it-together][Putting It Together]]
-  - [[#generalizing][Generalizing]]
-  - [[#quiz-missionaries-and-cannibals][Quiz: Missionaries And Cannibals]]
-  - [[#quiz-csuccessors][Quiz: Csuccessors]]
-  - [[#mc-problem][Mc Problem]]
-  - [[#quiz-shortest-path-search][Quiz: Shortest Path Search]]
-  - [[#quiz-lowest-cost-search][Quiz: Lowest Cost Search]]
-  - [[#summary][Summary]]
-- [[#problem-set-4][Problem Set 4]]
-  - [[#quiz-refactoring-bsuccessors][Quiz: Refactoring Bsuccessors]]
-  - [[#quiz-more-pour-problem][Quiz: More Pour Problem]]
-  - [[#quiz-subway-planning][Quiz: Subway Planning]]
-
 * Lesson 4
 ** Water Pouring Problem
 [[file:_img/screenshot_2017-02-12_20-03-31.png]]

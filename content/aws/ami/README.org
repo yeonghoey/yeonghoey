@@ -1,11 +1,5 @@
 #+TITLE: AMI
 
-* Table of Contents :TOC_2_gh:
-- [[#how-to][How-to]]
-- [[#reference][Reference]]
-  - [[#ubuntu-images][Ubuntu Images]]
-- [[#topics][Topics]]
-
 * How-to
 * Reference
 ** Ubuntu Images

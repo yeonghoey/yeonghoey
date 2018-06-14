@@ -1,12 +1,5 @@
 #+TITLE: SSH
 
-* Table of Contents :TOC_2_gh:
-- [[#topics][Topics]]
-  - [[#how-ssh-works][How SSH works]]
-  - [[#fingerprints][Fingerprints]]
-- [[#how-to][How-to]]
-  - [[#get-the-public-key-from-a-private-key][Get the public key from a private key]]
-
 * Topics
 ** How SSH works
 :REFERENCES:

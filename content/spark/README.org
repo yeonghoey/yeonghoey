@@ -1,21 +1,5 @@
 #+TITLE: Apache Spark
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#spark-api][Spark API]]
-    - [[#file-input-pattern][File Input pattern]]
-  - [[#spark-sql][Spark SQL]]
-    - [[#reference-links][Reference Links]]
-    - [[#examples][Examples]]
-    - [[#recipes][Recipes]]
-    - [[#example-codes][Example codes]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#how-schema-merging-works][How schema merging works]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** Spark API

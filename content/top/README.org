@@ -1,9 +1,5 @@
 #+TITLE: Linux top
 
-* Table of Contents :TOC_2_gh:
-- [[#commandline][Commandline]]
-- [[#interface][Interface]]
-
 * Commandline
 #+BEGIN_SRC shell
   top

@@ -1,9 +1,5 @@
 #+TITLE: Google BigQuery
 
-* Table of Contents :TOC_2_gh:
-- [[#standard-sql][Standard SQL]]
-  - [[#format_timestamp][FORMAT_TIMESTAMP]]
-
 * Standard SQL
 Make sure to uncheck ~Use Legacy SQL~
 

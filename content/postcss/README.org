@@ -1,8 +1,5 @@
 #+TITLE: PostCSS
 
-* Table of Contents :TOC_3_gh:
-- [[#links][Links]]
-
 * Links
 :REFERENCES:
 - http://postcss.org/

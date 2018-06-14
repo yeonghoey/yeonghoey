@@ -1,17 +1,5 @@
 #+TITLE: Qt
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#qplaintextedit][QPlainTextEdit]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#parenting-system][Parenting System]]
-  - [[#signals-and-slots][Signals and slots]]
-- [[#how-to][How-to]]
-  - [[#detect-if-a-window-has-been-activated][Detect if a window has been activated?]]
-- [[#links][Links]]
-
 * Overview
 [[file:_img/screenshot_2018-01-29_08-37-24.png]]
 

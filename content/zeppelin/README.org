@@ -1,14 +1,5 @@
 #+TITLE: Apache Zeppelin
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#zeppelin-envsh][zeppelin-env.sh]]
-  - [[#dynamic-form][Dynamic Form]]
-- [[#topics][Topics]]
-  - [[#interpreter-mode][Interpreter mode]]
-- [[#how-to][How-to]]
-  - [[#install-interpreters][Install Interpreters]]
-
 * Reference
 ** zeppelin-env.sh
 #+BEGIN_SRC shell

@@ -1,11 +1,5 @@
 #+TITLE: R Markdown
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#how-to][How-to]]
-  - [[#put-current-date-in-the-yaml-meta-header][Put current date in the YAML meta header]]
-
 * Overview
 [[file:_img/screenshot_2018-05-25_11-34-04.png]]
 

@@ -1,8 +1,5 @@
 #+TITLE: mypy
 
-* Table of Contents :TOC_2_gh:
- - [[#links][Links]]
-
 * Links
 :REFERENCES:
 - http://mypy.readthedocs.io/en/latest/cheat_sheet.html

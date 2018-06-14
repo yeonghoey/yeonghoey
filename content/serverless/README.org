@@ -1,31 +1,5 @@
 #+TITLE: Serverless
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#serverlessyml][serverless.yml]]
-  - [[#serverless-domain-manager][serverless-domain-manager]]
-  - [[#serverless-dynamodb-local][serverless-dynamodb-local]]
-  - [[#serverless-python-requirements][serverless-python-requirements]]
-  - [[#serverless-wsgi][serverless-wsgi]]
-- [[#topics][Topics]]
-  - [[#services][Services]]
-    - [[#serverlessyml-1][serverless.yml]]
-  - [[#functions][Functions]]
-  - [[#events][Events]]
-  - [[#resources][Resources]]
-  - [[#deploying][Deploying]]
-  - [[#variables][Variables]]
-  - [[#packaging][Packaging]]
-  - [[#iam][IAM]]
-    - [[#additional-policies-on-the-generated-policies][Additional Policies on the generated policies]]
-    - [[#completely-custom-roles][Completely custom roles]]
-  - [[#plugins][Plugins]]
-- [[#how-to][How-to]]
-  - [[#deploy-flask-app][Deploy Flask App]]
-  - [[#set-custom-domains][Set Custom Domains]]
-  - [[#enable-cors][Enable CORS]]
-
 * Overview
 #+BEGIN_SRC shell
   npm install -g serverless

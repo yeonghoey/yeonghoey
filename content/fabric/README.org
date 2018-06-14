@@ -1,9 +1,5 @@
 #+TITLE: fabric
 
-* Table of Contents :TOC_2_gh:
- - [[#usage-][Usage ]]
- - [[#reference-links][Reference Links]]
-
 * Usage 
 #+BEGIN_SRC python
   from fabric.api import run

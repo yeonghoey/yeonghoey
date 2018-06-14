@@ -1,26 +1,5 @@
 #+TITLE: CS 498: Week 1
 
-* Table of Contents :TOC_2_gh:
-- [[#week-1-information][Week 1 Information]]
-  - [[#week-1-introduction][Week 1 Introduction]]
-- [[#lesson-1-1-introduction][Lesson 1-1: Introduction]]
-  - [[#111-some-books-on-data-visualization][1.1.1. Some books on Data Visualization]]
-  - [[#112-overview-of-visualization][1.1.2. Overview of Visualization]]
-- [[#lesson-1-2-graphics-drawing-and-photorealism][Lesson 1-2: Graphics, Drawing, and Photorealism]]
-  - [[#121-2-d-graphics][1.2.1. 2-D Graphics]]
-  - [[#122-2-d-drawing][1.2.2. 2-D Drawing]]
-  - [[#123-3-d-graphics][1.2.3. 3-D Graphics]]
-  - [[#124-photorealism][1.2.4. Photorealism]]
-  - [[#125-non-photorealism][1.2.5. Non-Photorealism]]
-- [[#lesson-1-3-humans-and-visualization][Lesson 1-3: Humans and Visualization]]
-  - [[#131-the-human][1.3.1. The Human]]
-  - [[#132-memory][1.3.2. Memory]]
-  - [[#133-reasoning][1.3.3. Reasoning]]
-  - [[#134-the-human-retina][1.3.4. The Human Retina]]
-  - [[#135-perceiving-two-dimensions][1.3.5. Perceiving Two Dimensions]]
-  - [[#136-perceiving-perspective][1.3.6. Perceiving Perspective]]
-- [[#week-1-milestone-how-many-and-what-programming-languages-does-each-open-source-developer-use][Week 1 Milestone: How many and what programming languages does each open source developer use?]]
-
 * Week 1 Information
 ** Week 1 Introduction
 [[file:_img/screenshot_2018-05-16_14-59-22.png]]

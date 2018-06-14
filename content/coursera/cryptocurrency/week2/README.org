@@ -1,12 +1,5 @@
 #+TITLE: How Bitcoin Achieves Decentralization
 
-* Table of Contents :TOC_3_gh:
-- [[#centralization-vs-decentralization][Centralization vs. Decentralization]]
-- [[#distributed-consensus][Distributed Consensus]]
-- [[#consensus-without-identity-the-block-chain][Consensus without Identity: the Block Chain]]
-- [[#incentives-and-proof-of-work][Incentives and Proof of Work]]
-- [[#putting-it-all-together][Putting It All Together]]
-
 * Centralization vs. Decentralization
 [[file:_img/screenshot_2017-10-15_17-17-51.png]]
 

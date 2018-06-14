@@ -1,16 +1,5 @@
 #+TITLE: Requests
 
-* Table of Contents :TOC_3_gh:
-- [[#quickstart][Quickstart]]
-- [[#reference][Reference]]
-  - [[#request][request]]
-    - [[#parameters][Parameters]]
-  - [[#response][response]]
-    - [[#members][Members]]
-- [[#topics][Topics]]
-  - [[#session-objects][Session Objects]]
-  - [[#prepared-requests][Prepared Requests]]
-
 * Quickstart
 #+BEGIN_SRC python
   import requests

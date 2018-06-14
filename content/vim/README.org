@@ -1,12 +1,5 @@
 #+TITLE: Vim
 
-* Table of Contents                                                :TOC_2_gh:
- - [[#command][Command]]
-   - [[#read][read]]
- - [[#details][Details]]
-   - [[#fold][Fold]]
-   - [[#get-the-name-of-the-current-file][Get the name of the current file]]
-
 * Command
 ** read
 #+BEGIN_EXAMPLE

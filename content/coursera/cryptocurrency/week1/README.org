@@ -1,19 +1,5 @@
 #+TITLE: Introduction to Crypto and Cryptocurrencies
 
-* Table of Contents :TOC_3_gh:
-- [[#cryptographic-hash-functions][Cryptographic Hash Functions]]
-  - [[#collision-free][Collision-free]]
-  - [[#hiding][Hiding]]
-  - [[#puzzle-friendly][Puzzle-friendly]]
-  - [[#sha-256][SHA-256]]
-- [[#hash-pointers-and-data-structures][Hash Pointers and Data Structures]]
-  - [[#self-study-to-understand-more][Self study to understand more]]
-- [[#digital-signatures][Digital Signatures]]
-- [[#public-keys-as-identities][Public Keys as Identities]]
-- [[#a-simple-cryptocurrency][A Simple Cryptocurrency]]
-  - [[#goofy-coin][Goofy Coin]]
-  - [[#scrooge-coin][Scrooge Coin]]
-
 * Cryptographic Hash Functions
 [[file:_img/screenshot_2017-09-29_07-45-44.png]]
 

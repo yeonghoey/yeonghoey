@@ -1,15 +1,5 @@
 #+TITLE: SQLAlchemy - The Architecture of Open Source Applicaitons
 
-* Table of Contents :TOC_2_gh:
-- [[#the-coreorm-dichotomy][The Core/ORM Dichotomy]]
-- [[#taming-the-dbapi][Taming the DBAPI]]
-- [[#schema-definition][Schema Definition]]
-- [[#sql-expressions][SQL Expressions]]
-- [[#class-mapping-with-the-orm][Class Mapping with the ORM]]
-- [[#query-and-loading-behavior][Query and Loading Behavior]]
-- [[#sessionidentity-map][Session/Identity Map]]
-- [[#link][Link]]
-
 * The Core/ORM Dichotomy
 [[file:_img/screenshot_2017-06-03_18-06-37.png]]
 

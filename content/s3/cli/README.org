@@ -1,10 +1,5 @@
 #+TITLE: aws s3
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#sync][sync]]
-
 * Overview
 #+BEGIN_SRC shell
   aws s3 mv test.txt s3://mybucket/test2.txt

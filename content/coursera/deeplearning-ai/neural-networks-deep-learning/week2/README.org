@@ -1,29 +1,5 @@
 #+TITLE: Neural Networks and Deep Learning: Week 2
 
-* Table of Contents :TOC_3_gh:
-- [[#logistic-regression-as-a-neural-network][Logistic Regression as a Neural Network]]
-  - [[#binary-classification][Binary Classification]]
-  - [[#logistic-regression][Logistic Regression]]
-  - [[#logistic-regression-cost-function][Logistic Regression Cost Function]]
-  - [[#gradient-descent][Gradient Descent]]
-  - [[#derivatives][Derivatives]]
-  - [[#more-derivative-examples][More Derivative Examples]]
-  - [[#computation-graph][Computation Graph]]
-  - [[#derivatives-with-a-computation-graph][Derivatives with a Computation Graph]]
-  - [[#logistic-regression-gradient-descent][Logistic Regression Gradient Descent]]
-  - [[#gradient-descent-on-m-examples][Gradient Descent on m Examples]]
-- [[#python-and-vectorization][Python and Vectorization]]
-  - [[#vectorization][Vectorization]]
-  - [[#more-vectorization-examples][More Vectorization Examples]]
-  - [[#vectorizing-logistic-regression][Vectorizing Logistic Regression]]
-  - [[#vectorizing-logistic-regressions-gradient-output][Vectorizing Logistic Regression's Gradient Output]]
-  - [[#broadcasting-in-python][Broadcasting in Python]]
-  - [[#a-note-on-pythonnumpy-vectors][A note on python/numpy vectors]]
-  - [[#explanation-of-logistic-regression-cost-function-optional][Explanation of logistic regression cost function (optional)]]
-- [[#programming-assignments][Programming Assignments]]
-  - [[#python-basics-with-numpy][Python Basics with numpy]]
-  - [[#logistic-regression-with-a-neural-network-mindset][Logistic Regression with a Neural Network mindset]]
-
 * Logistic Regression as a Neural Network
 ** Binary Classification
 [[file:_img/screenshot_2017-09-14_07-24-18.png]]

@@ -1,11 +1,5 @@
 #+TITLE: AWS Mobile
 
-* Table of Contents :TOC_3_gh:
-- [[#aws-amplify][aws-amplify]]
-- [[#awsmobile-cli][awsmobile-cli]]
-  - [[#configure-api-for-accessing-dynamodb][Configure API for accessing DynamoDB]]
-- [[#links][Links]]
-
 * aws-amplify
 :REFERENCES:
 - https://github.com/aws/aws-amplify/blob/master/docs/media/developer_guide.md

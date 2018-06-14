@@ -1,18 +1,5 @@
 #+TITLE: Markdown
 
-* Table of Contents                                                :TOC_2_gh:
- - [[#headers][Headers]]
- - [[#emphasis][Emphasis]]
- - [[#lists][Lists]]
- - [[#links][Links]]
- - [[#images][Images]]
- - [[#code][Code]]
- - [[#tables][Tables]]
- - [[#quotes][Quotes]]
- - [[#html][HTML]]
- - [[#horizontal-rule][Horizontal Rule]]
- - [[#references][References]]
-
 * Headers
 #+BEGIN_EXAMPLE
   # H1

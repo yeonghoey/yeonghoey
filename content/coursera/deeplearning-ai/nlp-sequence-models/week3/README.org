@@ -1,26 +1,5 @@
 #+TITLE: Sequence models & Attention mechanism
 
-* Table of Contents :TOC_3_gh:
-- [[#various-sequence-to-sequence-architectures][Various sequence to sequence architectures]]
-  - [[#basic-models][Basic Models]]
-  - [[#picking-the-most-likely-sentence][Picking the most likely sentence]]
-  - [[#beam-search][Beam Search]]
-  - [[#refinements-to-beam-search][Refinements to Beam Search]]
-  - [[#error-analysis-in-beam-search][Error analysis in beam search]]
-  - [[#bleu-score-optional][Bleu Score (optional)]]
-  - [[#attention-model-intuition][Attention Model Intuition]]
-  - [[#attention-model][Attention Model]]
-- [[#speech-recognition---audio-data][Speech recognition - Audio data]]
-  - [[#speech-recognition][Speech recognition]]
-  - [[#trigger-word-detection][Trigger Word Detection]]
-- [[#conclusion][Conclusion]]
-  - [[#conclusion-and-thank-you][Conclusion and thank you]]
-- [[#practice-questions][Practice questions]]
-  - [[#quiz-sequence-models--attention-mechanism][Quiz: Sequence models & Attention mechanism]]
-- [[#programming-assignments][Programming assignments]]
-  - [[#neural-machine-translation][Neural Machine Translation]]
-  - [[#trigger-word-detection-1][Trigger word detection]]
-
 * Various sequence to sequence architectures
 ** Basic Models
 [[file:_img/screenshot_2018-02-13_10-12-12.png]]

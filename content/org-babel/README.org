@@ -1,14 +1,5 @@
 #+TITLE: org-babel
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#switches][Switches]]
-- [[#headers][Headers]]
-  - [[#results][:results]]
-  - [[#session][:session]]
-- [[#how-to][How-to]]
-  - [[#fix-invalid-function-org-babel-header-args-safe-fn][Fix ~Invalid function: org-babel-header-args-safe-fn~]]
-
 * Overview
 #+BEGIN_SRC org
   ,#+NAME: <name>

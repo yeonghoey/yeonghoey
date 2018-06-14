@@ -1,12 +1,5 @@
 #+TITLE: Bitcoin Mining
 
-* Table of Contents :TOC_3_gh:
-- [[#the-task-of-bitcoin-miners][The Task of Bitcoin Miners]]
-- [[#mining-hardware][Mining Hardware]]
-- [[#energy-consumption--ecology][Energy Consumption & Ecology]]
-- [[#mining-pools][Mining Pools]]
-- [[#mining-incentives-and-strategies][Mining Incentives and Strategies]]
-
 * The Task of Bitcoin Miners
 [[file:_img/screenshot_2017-10-31_22-48-46.png]]
 

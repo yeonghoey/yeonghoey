@@ -1,12 +1,5 @@
 #+TITLE: Amazon API Gateway
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#topics][Topics]]
-  - [[#cors][CORS]]
-  - [[#deployments][Deployments]]
-  - [[#proxy][Proxy]]
-
 * Overview
 [[file:_img/screenshot_2018-03-19_17-20-27.png]]
 

@@ -1,8 +1,5 @@
 #+TITLE: Visual Studio
 
-* Table of Contents :TOC_1_gh:
- - [[#shortcuts][Shortcuts]]
-
 * Shortcuts
 | ~Ctrl + ,​~         | Navigate to          |
 | ~Ctrl + -~         | Navigate Backward    |

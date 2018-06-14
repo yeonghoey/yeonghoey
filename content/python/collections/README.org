@@ -1,8 +1,5 @@
 #+TITLE: collections
 
-* Table of Contents :TOC_2_gh:
-- [[#defaultdict][defaultdict]]
-
 * defaultdict
 #+BEGIN_SRC python
   # A dict of indefinite depth elements

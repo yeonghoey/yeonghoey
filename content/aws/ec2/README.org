@@ -1,14 +1,5 @@
 #+TITLE: AWS EC2
 
-* Table of Contents :TOC_2_gh:
-- [[#how-to][How-to]]
-  - [[#modify-ebs-volume][Modify EBS Volume]]
-  - [[#enable-ena-on-ubuntu][Enable ENA on Ubuntu]]
-- [[#topics][Topics]]
-  - [[#key-pairs][Key Pairs]]
-  - [[#status-checks][Status Checks]]
-  - [[#enhanced-networking-on-linux][Enhanced Networking on Linux]]
-
 * How-to
 ** Modify EBS Volume
 1. Do Actions -> Modify Volume.

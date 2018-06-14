@@ -1,8 +1,5 @@
 #+TITLE: PyQt
 
-* Table of Contents :TOC_3_gh:
-- [[#links][Links]]
-
 * Links
 :REFERENCES:
 - http://pyqt.sourceforge.net/Docs/PyQt5/introduction.html#license

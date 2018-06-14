@@ -1,9 +1,5 @@
 #+TITLE: Standard
 
-* Table of Contents :TOC_1_gh:
-- [[#list-of-locales][List of Locales]]
-- [[#private-ipv4-address-spaces][Private IPv4 address spaces]]
-
 * List of Locales
 | Description                        | Code       |
 |------------------------------------+------------|

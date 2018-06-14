@@ -1,13 +1,5 @@
 #+TITLE: axios
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-  - [[#request][Request]]
-  - [[#response][Response]]
-- [[#reference][Reference]]
-- [[#topics][Topics]]
-  - [[#catch-is-silently-taking-errors-from-then][.catch() is silently taking errors from .then()]]
-
 * Overview
 :REFERENCES:
 - https://github.com/axios/axios

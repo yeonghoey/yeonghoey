@@ -1,40 +1,5 @@
 #+TITLE: GNU Make
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#topics][Topics]]
-  - [[#makefile][Makefile]]
-    - [[#include][Include]]
-    - [[#evaluation][Evaluation]]
-    - [[#wildcard][Wildcard]]
-    - [[#parallel-execution][Parallel Execution]]
-    - [[#recursive-use-of-make][Recursive Use of make]]
-  - [[#rules][Rules]]
-    - [[#multiple-rules-for-one-target][Multiple Rules for One Target]]
-    - [[#static-pattern-rules][Static Pattern Rules]]
-    - [[#implicit-rules][Implicit Rules]]
-    - [[#pattern-rules][Pattern Rules]]
-    - [[#double-colon-rules][Double Colon Rules]]
-  - [[#targets][Targets]]
-    - [[#phony-targets][Phony Targets]]
-  - [[#prerequisites][Prerequisites]]
-    - [[#vpath][VPATH]]
-  - [[#recipes][Recipes]]
-    - [[#echoing][Echoing]]
-    - [[#shell-for-recipe][Shell for Recipe]]
-    - [[#errors-in-recipes][Errors in Recipes]]
-    - [[#canned-recipes][Canned Recipes]]
-  - [[#variables][Variables]]
-  - [[#conditionals][Conditionals]]
-  - [[#functions][Functions]]
-    - [[#define-custom-functions][Define custom functions]]
-  - [[#cli][CLI]]
-  - [[#conventions][Conventions]]
-- [[#reference][Reference]]
-  - [[#filter-out-patterntext][$(filter-out pattern…,text)]]
-- [[#how-to][How-to]]
-  - [[#manage-background-processes][Manage background processes]]
-
 * Overview
 Simple usage of [[https://github.com/requests/requests/blob/master/Makefile][requests]]:
 #+BEGIN_SRC makefile

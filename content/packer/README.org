@@ -1,19 +1,5 @@
 #+TITLE: Packer
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#builders][Builders]]
-    - [[#amazon-ebs][amazon-ebs]]
-  - [[#templates][Templates]]
-    - [[#comments][Comments]]
-    - [[#functions][Functions]]
-    - [[#variables][Variables]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** Builders

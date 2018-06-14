@@ -1,7 +1,4 @@
 #+TITLE: EditorConfig
 
-* Table of Contents :TOC_3_gh:
-- [[#links][Links]]
-
 * Links
 http://editorconfig.org/

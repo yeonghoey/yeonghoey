@@ -1,11 +1,5 @@
 #+TITLE: HTTPS
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#topics][Topics]]
-  - [[#ssl-vs-tls][SSL vs TLS]]
-  - [[#sni][SNI]]
-
 * Overview
 [[file:_img/screenshot_2018-05-13_17-57-49.png]]
 1. Client requests secure connection

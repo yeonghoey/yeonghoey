@@ -1,8 +1,5 @@
 #+TITLE: Program Design
 
-* Table of Contents :TOC_1_gh:
- - [[#coupling-vs-cohesion][Coupling vs Cohesion]]
-
 * Coupling vs Cohesion
 ** Coupling
 - A change in one module usually *forces a ripple effect* of changes in other modules.

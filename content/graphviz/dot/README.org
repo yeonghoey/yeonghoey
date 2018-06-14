@@ -1,15 +1,5 @@
 #+TITLE: dot
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#language-syntax][Language Syntax]]
-  - [[#subgraphs-and-clusters][Subgraphs and Clusters]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 #+BEGIN_SRC dot :file img/overview-example.png :exports both
   digraph G {

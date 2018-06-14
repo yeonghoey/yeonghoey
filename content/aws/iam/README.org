@@ -1,19 +1,5 @@
 #+TITLE: AWS IAM
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#assume-role-policy][assume-role-policy]]
-  - [[#kinesis][kinesis]]
-  - [[#s3][s3]]
-- [[#topics][Topics]]
-  - [[#iam-role][IAM Role]]
-  - [[#instance-profiles][Instance Profiles]]
-  - [[#policy-elements][Policy Elements]]
-  - [[#policies-evaluation-logic][Policies Evaluation Logic]]
-- [[#how-to][How-to]]
-  - [[#share-resources-with-an-external-aws-account-via-iam-role][Share resources with an external AWS account via IAM Role]]
-- [[#links][Links]]
-
 * Reference
 ** assume-role-policy
 - User (Replace ~root~ with an user name if restrict the role for a specific user) ::

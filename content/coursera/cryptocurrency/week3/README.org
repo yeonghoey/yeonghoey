@@ -1,13 +1,5 @@
 #+TITLE: Mechanics of Bitcoin
 
-* Table of Contents :TOC_3_gh:
-- [[#bitcoin-transactions][Bitcoin Transactions]]
-- [[#bitcoin-scripts][Bitcoin Scripts]]
-- [[#applications-of-bitcoin-scripts][Applications of Bitcoin Scripts]]
-- [[#bitcoin-blocks][Bitcoin Blocks]]
-- [[#the-bitcoin-network][The Bitcoin Network]]
-- [[#limitations--improvements][Limitations & Improvements]]
-
 * Bitcoin Transactions
 [[file:_img/screenshot_2017-10-18_08-31-28.png]]
 

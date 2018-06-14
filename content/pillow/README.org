@@ -1,13 +1,5 @@
 #+TITLE: Pillow
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#imagegrab][ImageGrab]]
-- [[#how-to][How-to]]
-  - [[#scale-image][scale image]]
-- [[#links][Links]]
-
 * Overview
 #+BEGIN_SRC python
   pip install Pillow

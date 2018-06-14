@@ -1,19 +1,5 @@
 #+TITLE: HTTP: What Every Web Developer Should Know About the Hypertext Transfer Protocol
 
-* Table of Contents :TOC_1_gh:
-- [[#about-the-book][About the Book]]
-- [[#url][URL]]
-- [[#resource][Resource]]
-- [[#request][Request]]
-- [[#response][Response]]
-- [[#caching][Caching]]
-- [[#cookies][Cookies]]
-- [[#authentication][Authentication]]
-- [[#secure-http][Secure HTTP]]
-- [[#persistent-connections][Persistent Connections]]
-- [[#when-to-use-http-status-codes][When to Use HTTP Status Codes]]
-- [[#postredirectget][POST/Redirect/GET]]
-
 * About the Book
 [[file:_img/screenshot_2017-01-31_00-00-27.png]]
 

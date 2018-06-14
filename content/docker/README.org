@@ -1,13 +1,5 @@
 #+TITLE: Docker
 
-* Table of Contents :TOC_1_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** Dockerfile

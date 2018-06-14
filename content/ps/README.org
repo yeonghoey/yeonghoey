@@ -1,9 +1,5 @@
 #+TITLE: ps
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#-o-keywords][-o keywords]]
-
 * Reference
 ** -o keywords
 #+BEGIN_SRC shell

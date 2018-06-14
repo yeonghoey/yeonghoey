@@ -1,18 +1,5 @@
 #+TITLE: pyenv
 
-* Table of Contents :TOC_2_gh:
-- [[#reference][Reference]]
-  - [[#local][local]]
-  - [[#global][global]]
-  - [[#shell][shell]]
-  - [[#install][install]]
-  - [[#version][version]]
-  - [[#which][which]]
-  - [[#whence][whence]]
-  - [[#virtualenv][virtualenv]]
-- [[#how-to][How-to]]
-  - [[#fix-common-build-problems][Fix common build problems]]
-
 * Reference
 :REFERENCES:
 - https://github.com/pyenv/pyenv/blob/master/COMMANDS.md

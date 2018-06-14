@@ -1,21 +1,5 @@
 #+TITLE: AWS CloudFormation
 
-* Table of Contents :TOC_2_gh:
-- [[#overview][Overview]]
-- [[#template][Template]]
-  - [[#awstemplateformatversion][AWSTemplateFormatVersion]]
-  - [[#parameters][Parameters]]
-  - [[#mappings][Mappings]]
-  - [[#conditions][Conditions]]
-  - [[#transform][Transform]]
-  - [[#resources][Resources]]
-  - [[#outputs][Outputs]]
-- [[#functions][Functions]]
-  - [[#getatt][GetAtt]]
-  - [[#sub][Sub]]
-- [[#resource-types][Resource Types]]
-  - [[#awsdynamodbtable][~AWS::DynamoDB::Table~]]
-
 * Overview
 [[file:_img/screenshot_2018-03-23_18-45-46.png]]
 

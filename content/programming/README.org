@@ -1,8 +1,5 @@
 #+TITLE: Programming
 
-* Table of Contents :TOC_2_gh:
- - [[#links][Links]]
-
 * Links
 :REFERENCES:
 - https://github.com/sdmg15/Best-websites-a-programmer-should-visit

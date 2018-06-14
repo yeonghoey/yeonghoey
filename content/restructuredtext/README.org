@@ -1,9 +1,5 @@
 #+TITLE: reStructuredText
 
-* Table of Contents :TOC_1_gh:
- - [[#inline-markup][Inline Markup]]
- - [[#links][Links]]
-
 * Inline Markup
 #+BEGIN_SRC rst
   ,*emphasis*

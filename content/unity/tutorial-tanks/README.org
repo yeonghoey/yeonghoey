@@ -1,15 +1,5 @@
 #+TITLE: Tanks tutorial
 
-* Table of Contents :TOC_1_gh:
-- [[#scene-setup][Scene Setup]]
-- [[#tank-creation--control][Tank Creation & Control]]
-- [[#camera-control][Camera Control]]
-- [[#tank-health][Tank Health]]
-- [[#shell-creation][Shell Creation]]
-- [[#firing-shells][Firing Shells]]
-- [[#game-managers][Game Managers]]
-- [[#audio-mixing][Audio Mixing]]
-
 * Scene Setup 
 [[file:_img/screenshot_2017-04-29_17-16-54.png]]
 

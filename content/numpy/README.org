@@ -1,17 +1,5 @@
 #+TITLE: NumPy
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#argmax][argmax]]
-  - [[#zeros][zeros]]
-- [[#terminology][Terminology]]
-- [[#topics][Topics]]
-  - [[#dimensions][Dimensions]]
-  - [[#slicing-and-indexing][Slicing and Indexing]]
-- [[#how-to][How-to]]
-- [[#links][Links]]
-
 * Overview
 * Reference
 ** argmax

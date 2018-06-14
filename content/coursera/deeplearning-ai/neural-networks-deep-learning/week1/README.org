@@ -1,12 +1,5 @@
 #+TITLE: Neural Networks and Deep Learning: Week 1
 
-* Table of Contents :TOC_3_gh:
-- [[#introduction-to-deep-learning][Introduction to Deep Learning]]
-  - [[#what-is-a-neural-network][What is a neural network?]]
-  - [[#supervised-learning-with-neural-networks][Supervised Learning with Neural Networks]]
-  - [[#why-is-deep-learning-taking-off][Why is Deep Learning taking off?]]
-  - [[#about-this-course][About this Course]]
-
 * Introduction to Deep Learning
 ** What is a neural network?
 [[file:_img/screenshot_2017-09-12_08-01-22.png]]

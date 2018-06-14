@@ -1,24 +1,5 @@
 #+TITLE: Hyperparameter tuning, Batch Normalization and Programming Frameworks
 
-* Table of Contents :TOC_3_gh:
-- [[#hyperparameter-tuning][Hyperparameter tuning]]
-  - [[#tuning-process][Tuning process]]
-  - [[#using-an-appropriate-scale-to-pick-hyperparameters][Using an appropriate scale to pick hyperparameters]]
-  - [[#hyperparameters-tuning-in-practice-pandas-vs-caviar][Hyperparameters tuning in practice: Pandas vs. Caviar]]
-- [[#batch-normalization][Batch Normalization]]
-  - [[#normalizing-activations-in-a-network][Normalizing activations in a network]]
-  - [[#fitting-batch-norm-into-a-neural-network][Fitting Batch Norm into a neural network]]
-  - [[#why-does-batch-norm-work][Why does Batch Norm work?]]
-  - [[#batch-norm-at-test-time][Batch Norm at test time]]
-- [[#multi-class-classification][Multi-class classification]]
-  - [[#softmax-regression][Softmax Regression]]
-  - [[#training-a-softmax-classifier][Training a softmax classifier]]
-- [[#introduction-to-programming-frameworks][Introduction to programming frameworks]]
-  - [[#deep-learning-frameworks][Deep learning frameworks]]
-  - [[#tensorflow][TensorFlow]]
-- [[#programming-assignment][Programming assignment]]
-  - [[#tensorflow-1][Tensorflow]]
-
 * Hyperparameter tuning
 ** Tuning process
 [[file:_img/screenshot_2017-10-24_07-04-16.png]]

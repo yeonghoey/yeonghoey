@@ -1,16 +1,5 @@
 #+TITLE: Emacs Lisp
 
-* Table of Contents                                                :TOC_2_gh:
-- [[#language][Language]]
-  - [[#setq][~setq~]]
-  - [[#ch][~?<ch>~]]
-  - [[#default-directory][~default-directory~]]
-  - [[#let][~let~]]
-  - [[#interactive][~(interactive)~]]
-  - [[#argument-list][Argument-List]]
-- [[#snippets][Snippets]]
-  - [[#my-trans-en-ko][~my-trans-en-ko~]]
-
 * Language
 ** ~setq~
 #+BEGIN_SRC emacs-lisp

@@ -1,20 +1,5 @@
 #+TITLE: Neural Networks and Deep Learning: Week 4
 
-* Table of Contents :TOC_3_gh:
-- [[#deep-neural-network][Deep Neural Network]]
-  - [[#deep-l-layer-neural-network][Deep L-layer neural network]]
-  - [[#forward-propagation-in-a-deep-network][Forward Propagation in a Deep Network]]
-  - [[#getting-your-matrix-dimensions-right][Getting your matrix dimensions right]]
-  - [[#why-deep-representations][Why deep representations?]]
-  - [[#building-blocks-of-deep-neural-networks][Building blocks of deep neural networks]]
-  - [[#forward-and-backward-propagation][Forward and Backward Propagation]]
-  - [[#parameters-vs-hyperparameters][Parameters vs Hyperparameters]]
-  - [[#what-does-this-have-to-do-with-the-brain][What does this have to do with the brain?]]
-- [[#programming-assignments][Programming Assignments]]
-  - [[#building-your-deep-neural-network-step-by-step][Building your Deep Neural Network: Step by Step]]
-    - [[#signatures-of-subroutines][Signatures of subroutines]]
-  - [[#deep-neural-network---application][Deep Neural Network - Application]]
-
 * Deep Neural Network
 ** Deep L-layer neural network
 [[file:_img/screenshot_2017-09-28_07-50-15.png]]

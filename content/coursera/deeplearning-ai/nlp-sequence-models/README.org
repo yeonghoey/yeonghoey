@@ -1,8 +1,5 @@
 #+TITLE: Sequence Models
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-
 * Overview
 - Week 1 :: [[./week1][Recurrent Neural Networks]]
 - Week 2 :: [[./week2][Natural Language Processing & Word Embeddings]]

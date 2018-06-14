@@ -6,11 +6,6 @@
 - https://www.crcpress.com/Visualization-Analysis-and-Design/Munzner/p/book/9781466508910
 :END:
 
-* Table of Contents :TOC_2_gh:
-- [[#chapter-1-whats-vis-and-why-do-it][Chapter 1. What's Vis, and Why Do It?]]
-- [[#chapter-2-what-data-abstraction][Chapter 2. What: Data Abstraction]]
-- [[#chapter-3-why-task-abstraction][Chapter 3. Why: Task Abstraction]]
-
 * Chapter 1. What's Vis, and Why Do It?
 #+BEGIN_QUOTE
 Vis designers must take into account three very different kinds of resource limitations:

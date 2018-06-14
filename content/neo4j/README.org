@@ -1,24 +1,5 @@
 #+TITLE: Neo4j
 
-* Table of Contents                                         :TOC_2_gh:
- - [[#firing-up][Firing Up]]
- - [[#nodes][Nodes]]
- - [[#relationships][Relationships]]
- - [[#properties][Properties]]
- - [[#uniqueness][Uniqueness]]
- - [[#ordering-null][Ordering NULL]]
- - [[#merge-vs-create-unique][MERGE vs CREATE UNIQUE]]
- - [[#cycli][cycli]]
- - [[#cheat-sheet][Cheat sheet]]
-   - [[#basics][Basics]]
-   - [[#create-merge-delete][CREATE, MERGE, DELETE]]
-   - [[#set-remove-foreach][SET, REMOVE, FOREACH]]
-   - [[#indexes-and-constraints][Indexes and constraints]]
-   - [[#where][WHERE]]
-   - [[#skip-limit][SKIP, LIMIT]]
-   - [[#others][Others]]
- - [[#references][References]]
-
 * Firing Up
 Fire up quickly with [[https://hub.docker.com/r/library/neo4j/]]
 

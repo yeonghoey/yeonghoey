@@ -1,24 +1,5 @@
 #+TITLE: AWS DynamoDB
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#api][API]]
-- [[#partitions][Partitions]]
-- [[#secondary-indexes][Secondary Indexes]]
-  - [[#gsi][GSI]]
-    - [[#attribute-projections][Attribute Projections]]
-  - [[#lsi][LSI]]
-- [[#operations][Operations]]
-- [[#working-with-items][Working with Items]]
-- [[#attributes][Attributes]]
-- [[#consistency][Consistency]]
-- [[#capacity--throughput][Capacity & Throughput]]
-- [[#backup--restore][Backup & Restore]]
-- [[#pricing][Pricing]]
-- [[#access-and-permissions-based-on-iam][Access and Permissions Based on IAM]]
-- [[#limits][Limits]]
-- [[#best-practices][Best Practices]]
-
 * Overview
 [[file:_img/screenshot_2017-04-21_12-12-59.png]]
 

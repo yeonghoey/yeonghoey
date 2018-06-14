@@ -1,9 +1,5 @@
 #+TITLE: Sphinx
 
-* Table of Contents :TOC_1_gh:
- - [[#docstring-examples][Docstring Examples]]
- - [[#links][Links]]
-
 * Docstring Examples
 #+BEGIN_SRC rst
   I really like the :mod:`threading` module which has the

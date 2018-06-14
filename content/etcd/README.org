@@ -1,11 +1,5 @@
 #+TITLE: etcd
 
-* Table of Contents :TOC_2_gh:
-- [[#how-to][How-to]]
-  - [[#test-a-cluster-correctly-configured][Test a cluster correctly configured]]
-- [[#reference][Reference]]
-- [[#topics][Topics]]
-
 * How-to
 ** Test a cluster correctly configured
 - Use statistics API to test the current cluster's status

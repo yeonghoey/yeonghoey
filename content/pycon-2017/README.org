@@ -1,15 +1,5 @@
 #+TITLE: PyCon
 
-* Table of Contents :TOC_1_gh:
-- [[#5-ways-to-deploy-your-python-web-app-in-2017---andrew-t-baker][5 ways to deploy your Python web app in 2017 - Andrew T Baker]]
-- [[#awesome-command-line-tools---amjith-ramanujam][Awesome Command Line Tools - Amjith Ramanujam]]
-- [[#cython-as-a-game-changer-for-efficiency---alex-orlov][Cython as a Game Changer for Efficiency - Alex Orlov]]
-- [[#how-documentation-works-and-how-to-make-it-work-for-your-project---daniele-procida][How documentation works, and how to make it work for your project - Daniele Procida]]
-- [[#modern-python-dictionaries-a-confluence-of-a-dozen-great-ideas---raymond-hettinger][Modern Python Dictionaries A confluence of a dozen great ideas - Raymond Hettinger]]
-- [[#static-types-for-python---jukka-lehtosalo-david-fisher][Static Types for Python - Jukka Lehtosalo, David Fisher]]
-- [[#the-gilectomy-hows-it-going---larry-hastings][The Gilectomy How's It Going - Larry Hastings]]
-- [[#the-python-visualization-landscape---jake-vanderplas][The Python Visualization Landscape - Jake VanderPlas]]
-
 * 5 ways to deploy your Python web app in 2017 - Andrew T Baker
 ** ngrok
 [[file:_img/screenshot_2017-07-06_07-59-54.png]]

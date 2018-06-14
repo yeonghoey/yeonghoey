@@ -1,16 +1,5 @@
 #+TITLE: [[https://router.vuejs.org/en/][vue-router]]
 
-* Table of Contents :TOC_2_gh:
-- [[#router-link][<router-link>]]
-- [[#router-view][<router-view>]]
-- [[#history-mode][history mode]]
-- [[#matching][Matching]]
-- [[#the-route-object][The Route object]]
-- [[#route-meta-fields][Route Meta Fields]]
-- [[#navigation-guards][Navigation Guards]]
-- [[#passing-props][Passing Props]]
-- [[#programmatic-navigation][Programmatic Navigation]]
-
 * <router-link>
 Is preferred over ~<a href="...">~
 

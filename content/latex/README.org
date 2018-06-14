@@ -1,10 +1,5 @@
 #+TITLE: LaTeX
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#reference][Reference]]
-  - [[#mathematical-symbols][Mathematical Symbols]]
-
 * Overview
 * Reference
 ** Mathematical Symbols

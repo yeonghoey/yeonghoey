@@ -1,8 +1,5 @@
 #+TITLE: Talk Python To me
 
-* Table of Contents :TOC_2_gh:
- - [[#episode-77-20-python-libraries-you-arent-using-but-should][Episode #77: 20 Python Libraries You Aren't Using (But Should)]]
-
 * Episode #77: 20 Python Libraries You Aren't Using (But Should)
 - Little-known standard library modules: ~collections~, ~contextlib~, ~concurrent.futures~, ~logging~, and ~sched~
 - ~Flit~ for simplifying the process of submitting a Python package to the Python Package Index (PyPI)

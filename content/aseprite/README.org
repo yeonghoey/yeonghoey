@@ -1,9 +1,5 @@
 #+TITLE: Aseprite
 
-* Table of Contents :TOC_1_gh:
-- [[#reference][Reference]]
-- [[#details][Details]]
-
 * Reference
 [[file:_img/screenshot_2017-05-02_07-17-55.png]]
 

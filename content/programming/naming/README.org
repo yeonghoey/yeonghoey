@@ -1,11 +1,5 @@
 #+TITLE: Naming
 
-* Table of Contents :TOC_1_gh:
- - [[#ask-yourself][Ask yourself]]
- - [[#alternatives][Alternatives]]
- - [[#contrasts][Contrasts]]
- - [[#antonyms][Antonyms]]
-
 * Ask yourself
 - Will a newcomer understand the meaning of the name?
 

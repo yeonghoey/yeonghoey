@@ -1,20 +1,5 @@
 #+TITLE: boto3
 
-* Table of Contents :TOC_2_gh:
-- [[#concepts][Concepts]]
-  - [[#client-vs-resource][Client vs Resource]]
-  - [[#paginators][Paginators]]
-- [[#core][Core]]
-  - [[#client-or-resource][client or resource]]
-  - [[#waiters][Waiters]]
-  - [[#exceptions][Exceptions]]
-- [[#ec2][EC2]]
-- [[#cloudformation][CloudFormation]]
-- [[#dynamodb][DynamoDB]]
-  - [[#get_item][get_item]]
-  - [[#query][query]]
-- [[#links][Links]]
-
 * Concepts
 | Feature     | Description                                           |
 |-------------+-------------------------------------------------------|

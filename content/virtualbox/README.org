@@ -1,10 +1,5 @@
 #+TITLE: VirtualBox
 
-* Table of Contents :TOC_2_gh:
- - [[#windows][Windows]]
- - [[#linux][Linux]]
-   - [[#virtualbox-extension-for-ubuntu-guest][VirtualBox extension for Ubuntu Guest]]
-
 * Windows
 * Linux
 ** VirtualBox extension for Ubuntu Guest

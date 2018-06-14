@@ -1,10 +1,5 @@
 #+TITLE: jwt
 
-* Table of Contents :TOC_3_gh:
-- [[#overview][Overview]]
-- [[#validation-process][Validation Process]]
-- [[#rs256-vs-hs256-jwksjson][RS256 vs. HS256, jwks.json]]
-
 * Overview
 - ~jwt~ comprises ~HEADER~, ~PAYLOAD~, ~SIGNATURE~.
 - Generally, its base64 encoded string is used as tokens.
