@@ -19,40 +19,40 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
-nav {
+nav.menu {
   width: 100%;
   font-family: $font-family-base;
   color: $black;
 }
 
-nav ol#breadcrumb {
+nav.menu ol.breadcrumb {
   margin: 0;
   padding: 0.5em;
   list-style: none inside;
   background-color: $source;
 }
 
-nav ol#breadcrumb li {
+nav.menu ol.breadcrumb li {
   display: inline-block;
 }
 
-nav ol#breadcrumb li + li::before {
+nav.menu ol.breadcrumb li + li::before {
   content: "/";
   padding: 0 0.5em;
 }
 
-nav ul#children {
+nav.menu ul.children {
   margin: 0;
   padding: 0.5em;
   list-style: none inside;
 }
 
-nav ul#children li {
+nav.menu ul.children li {
   padding: 0.25em 0;
 }
 
 @media (min-width: 1200px) {
-  nav ul#children {
+  nav.menu ul.children {
     display: inline-block;
     float: left;
     width: calc((100% - 960px) / 2);;

@@ -16,6 +16,7 @@ mkdir -p "$(dir $@)"
 @env | grep 'YEONGHOEY_'
 pipenv run $(PANDOC) \
 --standalone \
+--table-of-contents \
 --mathjax \
 $(cssflags) \
 --template='resources/content.html' \

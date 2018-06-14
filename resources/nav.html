@@ -1,5 +1,5 @@
-<nav>
-  <ol id="breadcrumb">
+<nav class="menu">
+  <ol class="breadcrumb">
   {%- for href, segment in breadcrumb %}
   {%- if href is none %}
     <li>{{ segment }}</li>
@@ -9,7 +9,7 @@
   {%- endfor %}
   </ol>
   {%- if children %}
-  <ul id="children">
+  <ul class="children">
   {%- for name in children %}
     <li><a href="./{{ name }}">{{ name }}</a></li>
   {%- endfor %}
