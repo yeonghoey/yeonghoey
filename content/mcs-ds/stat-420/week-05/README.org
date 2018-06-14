@@ -243,6 +243,76 @@ R^2 &= \frac{\text{SSReg}}{\text{SST}} = \frac{\sum_{i=1}^{n}(\hat{y}_i - \bar{y
 - http://daviddalpiaz.github.io/appliedstats/inference-for-simple-linear-regression.html
 :END:
 
+** Gauss-Markov Theorem
+From this chapter, we consider $\hat{\beta_0}$ and $\hat{\beta_1}$ as random variables:
+
+\begin{aligned}
+\hat{\beta}_1 &= \frac{\sum_{i = 1}^{n}(x_i - \bar{x}) Y_i}{\sum_{i = 1}^{n}(x_i - \bar{x})^2} \\
+\hat{\beta}_0 &= \bar{Y} - \hat{\beta}_1 \bar{x}
+\end{aligned}
+
+Gauss-Markov theorem tells us that the estimates we derived above are *BLUE*, /best linear unbiased estimates/:
+- Best :: the estimates are with the minimum variance.
+- Linear :: the estimates are linear combinations of $Y_i$
+- Unbiased :: $\text{E}[\hat{\beta}_0] = \beta_0$ and $\text{E}[\hat{\beta}_1] = \beta_1$.
+
+** Sampling Distributions
+\begin{aligned}
+\hat{\beta}_1 &\sim N\left( \beta_1, \frac{\sigma^2}{S_{xx}} \right) \\
+\hat{\beta}_0 &\sim N\left( \beta_0, \sigma^2 \left(\frac{1}{n} + \frac{\bar{x}^2}{S_{xx}}\right) \right)
+\end{aligned}
+
+** Standard Errors
+\begin{aligned}
+\text{SD}[\hat{\beta}_0] &= \sigma\sqrt{\frac{1}{n} + \frac{\bar{x}^2}{S_{xx}}} \\
+\text{SD}[\hat{\beta}_1] &= \frac{\sigma}{\sqrt{S_{xx}}}
+\end{aligned}
+
+Since we don’t know $\sigma$ in practice, we will have to estimates it using $s_e$.
+\begin{aligned}
+\text{SE}[\hat{\beta}_0] &= s_e\sqrt{\frac{1}{n} + \frac{\bar{x}^2}{S_{xx}}} \\
+\text{SE}[\hat{\beta}_1] &= \frac{s_e}{\sqrt{S_{xx}}}
+\end{aligned}
+
+Now if we divide by the standard error, instead of the standard deviation,
+we obtain the following results which will allow us to make confidence intervals and perform hypothesis testing.
+
+\begin{aligned}
+\frac{\hat{\beta}_0 - \beta_0}{\text{SE}[\hat{\beta}_0]} &\sim t_{n-2} \\
+\frac{\hat{\beta}_1 - \beta_1}{\text{SE}[\hat{\beta}_1]} &\sim t_{n-2}
+\end{aligned}
+
+[[file:_img/e52d73ee9850e48f7a78151298851e7150ebb17b.png]]
+
+** Confidence Intervals
+\begin{aligned}
+\text{EST} &\pm \text{CRIT} \cdot \text{SE} \\
+\text{EST} &\pm \text{MARGIN}
+\end{aligned}
+
+And,
+
+\begin{aligned}
+\hat{\beta}_0 &\pm t_{\alpha/2, n - 2} \cdot s_e\sqrt{\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}}} \\
+\hat{\beta}_1 &\pm t_{\alpha/2, n - 2} \cdot \frac{s_e}{\sqrt{S_{xx}}} \\
+\hat{y}(x) &\pm t_{\alpha/2, n - 2} \cdot s_e\sqrt{\frac{1}{n}+\frac{(x-\bar{x})^2}{S_{xx}}} \\
+\hat{y}(x) &\pm t_{\alpha/2, n - 2} \cdot s_e\sqrt{1 + \frac{1}{n}+\frac{(x-\bar{x})^2}{S_{xx}}} \text{(Prediction)}
+\end{aligned}
+where,
+$$
+P(t_{n-2} > t_{\alpha/2, n - 2}) = \alpha/2
+$$
+
+The proof is [[https://www.biostat.wisc.edu/~kbroman/teaching/labstat/fourth/notes16.pdf][here]], about [[https://faculty.math.illinois.edu/~hildebr/461/variance.pdf][covariance]]
+
+** Hypothesis Tests
+\begin{aligned}
+t &= \frac{\hat{\beta}_1-\beta_{10}}{s_e / \sqrt{S_{xx}}} \\
+\text{p-value} &= P(>|t|)
+\end{aligned}
+
+- When $\text{p-value} < \alpha$, we reject $H_0$.
+
 * Week 4
 :REFERENCES:
 - http://daviddalpiaz.github.io/appliedstats/multiple-linear-regression.html
