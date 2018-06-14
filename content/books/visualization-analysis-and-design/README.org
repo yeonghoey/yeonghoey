@@ -1,10 +1,5 @@
 #+TITLE: Visualization Analysis and Design
-
-[[file:_img/30e12683afa5cab85d90ffc0da1cf685ff5bc1f8.png]]
-
-:REFERENCES:
-- https://www.crcpress.com/Visualization-Analysis-and-Design/Munzner/p/book/9781466508910
-:END:
+#+SUBTITLE: [[file:_img/30e12683afa5cab85d90ffc0da1cf685ff5bc1f8.png]] [[https://www.crcpress.com/Visualization-Analysis-and-Design/Munzner/p/book/9781466508910][CRC Press]]
 
 * Chapter 1. What's Vis, and Why Do It?
 #+BEGIN_QUOTE
