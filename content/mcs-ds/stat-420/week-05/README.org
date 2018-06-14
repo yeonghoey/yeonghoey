@@ -303,7 +303,7 @@ $$
 P(t_{n-2} > t_{\alpha/2, n - 2}) = \alpha/2
 $$
 
-The proof is [[https://www.biostat.wisc.edu/~kbroman/teaching/labstat/fourth/notes16.pdf][here]], about [[https://faculty.math.illinois.edu/~hildebr/461/variance.pdf][covariance]]
+The proof is [[https://www.biostat.wisc.edu/~kbroman/teaching/labstat/fourth/notes16.pdf][here]], about [[https://faculty.math.illinois.edu/~hildebr/461/variance.pdf][covariance]].
 
 ** Hypothesis Tests
 \begin{aligned}
@@ -312,6 +312,8 @@ t &= \frac{\hat{\beta}_1-\beta_{10}}{s_e / \sqrt{S_{xx}}} \\
 \end{aligned}
 
 - When $\text{p-value} < \alpha$, we reject $H_0$.
+- Without having to calculate $t$ statistics, we can use the confidence interval of $\beta_1$ to test the hypothesis.
+  - If value $0$ is inside of this interval, fail to reject, otherwise, reject $H_0$.
 
 * Week 4
 :REFERENCES:
@@ -432,5 +434,27 @@ And,
 ** Significance of Regression
 [[file:_img/fa7b501ce96470993b2057d3c66438357f0d571c.png]]
 
+$\bar{y}$ is for $H_0$ (model $\hat{y_{0i}}$)
+
+This is because,
+
+$$
+H_0: \beta_1 = \beta_2 = \cdots = \beta_{p - 1} = 0.
+$$
+
+and
+$$
+\hat{y}_{0i} = \bar{y}.
+$$
+
 ** Nested Models
 [[file:_img/70d75ebd2751069b69ebd0093f32595bce3a421e.png]]
+
+- Diff ::
+  The variance proportion under the assumption that $H_0$ is true.
+  In other words, the explained portion without predictors in $H_0$.
+  If this value is large, $F$ goes large, which makes $\text{p-value}$ small and reject $H_0$.
+  As a result, we can say that predictors from $H_0$ is significant and prefer the /Full/ model.
+
+Note that $t$ test and $F$ are equivalent when null model is nested and $p - q = 1$;
+In this case, $P(>|t|) = P(>F)$ and $t^2 = F$
